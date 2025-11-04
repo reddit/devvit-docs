@@ -26,7 +26,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build documentation
-        run: yarn docs:build
+        run: yarn build
 
       - name: Check for build errors
         if: failure()
