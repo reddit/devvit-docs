@@ -16,7 +16,7 @@ Whether you’re prototyping an early version of your first Reddit game or launc
 
 Note that our top featuring slots are reserved for games that are of professional quality, as well as games that see exceptional engagement as they grow (CTR, dwell times, positive user engagement, retention).
 
-Once your game is part of the program, it will be rotated in and out of featuring slots to support curitorial diversity.
+Once your game is part of the program, it will be rotated in and out of featuring slots to support curatorial diversity.
 
 ---
 
