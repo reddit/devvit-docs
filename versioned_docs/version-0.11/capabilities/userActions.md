@@ -12,8 +12,9 @@ By default, apps make posts or comments with their associated [app account](../a
 
 Users should never be surprised by an app creating content on their behalf. Apps using this feature need to:
 
-- **Be transparent.** Inform users and show them the content that will be posted on their behalf.
-- **Provide user control.** Users must opt in to allow the app to post on their behalf. If opt-in is persistent, you must make it clear on how the user can opt out.
+- **Be transparent:** Inform users and show them the content that will be posted on their behalf.
+- **No auto-creation:** Users must opt in to allow the app to post or comment on their behalf. This can only happen on an explicit action.
+- **Provide user control:**  If you are relying on persistent user opt-in, you must make it clear on how the user can opt-out.
 
 ## How it works
 
