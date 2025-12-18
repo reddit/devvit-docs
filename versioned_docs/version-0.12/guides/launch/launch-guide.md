@@ -6,6 +6,10 @@ Polished apps may also apply for **Reddit featuring**, which includes on-platfor
 
 ---
 
+:::warning
+Our team pauses all app reviews during the December holidays. Please see community announcements in [r/Devvit](https://www.reddit.com/r/Devvit/comments/1pnf6r6/reminder_limited_support_hours_december_23rd/) and Discord for specific limited support dates
+:::
+
 ## When is an app ready to be launched?
 
 Apps should be polished and stable before launch. Ensure your data schema is scalable and your UIs are clean and accessible, as **quality and performance directly impact organic distribution and adoption**.
