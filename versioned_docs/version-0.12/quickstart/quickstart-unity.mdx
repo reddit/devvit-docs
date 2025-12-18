@@ -108,6 +108,10 @@ To replace these files, export your project from Unity twice: once with compress
 6. Run `npm run dev` in your Devvit project to see your Unity app running on Reddit
 
 
+:::warning 
+File uploads have a 100 MB size limit and a 30-second timeout. We’re working to improve these limits. If you encounter issues, try splitting large files or using a faster network connection.
+:::
+
 ## Communicate between Unity and Reddit 
 
 The Unity app includes a [DevvitBridge.cs](https://github.com/reddit/devvit-unity-project/blob/main/Assets/Scripts/DevvitBridge.cs) file that uses UnityWebRequests to communicate with the `src/server/index.ts` file.
