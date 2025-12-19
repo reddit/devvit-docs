@@ -9,6 +9,18 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Devvit 0.12.7: The REAL End-of-Year Updates
+
+**Release Date: Dec 22, 2025**
+
+It turns out that we couldn't end the year without a couple more upgrades:
+
+- Added an `authorFlair` field to `Post` and `Comment` objects in `@devvit/public-api` and `@devvit/reddit` (a community contribution from u/PitchforkAssistant).
+
+- Added `getUserKarmaFromCurrentSubreddit` to the public API, which returns a user's subreddit karma instead of their total Reddit karma.
+
+And now that's a wrap!
+
 ## Devvit 0.12.6: End-of-the-Year Updates
 
 **Release Date: Dec 15, 2025**
