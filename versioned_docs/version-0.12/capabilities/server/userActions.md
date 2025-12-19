@@ -21,6 +21,7 @@ To ensure a positive user experience and compliance with Reddit policies:
 - **No auto-creation:** Users must opt in to allow the app to post or comment on their behalf. This can only happen on an explicit action.
 - **Provide user control:**  If you are relying on persistent user opt-in, you must make it clear on how the user can opt-out.
 
+
 :::note
 Apps using user actions must follow these guidelines to be approved.
 :::

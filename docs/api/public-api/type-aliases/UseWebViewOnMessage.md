@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: UseWebViewOnMessage()\<From, To\>
 
@@ -10,13 +10,13 @@
 
 ### From
 
-`From` _extends_ [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
+`From` *extends* [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
 
 Message from web view to Devvit Blocks app.
 
 ### To
 
-`To` _extends_ [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
+`To` *extends* [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
 
 Message from Devvit Blocks app to web view.
 

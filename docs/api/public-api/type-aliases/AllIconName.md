@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: AllIconName
 
-> **AllIconName** = _typeof_ [`ALL_ICON_NAMES`](../variables/ALL_ICON_NAMES.md)\[`number`\]
+> **AllIconName** = *typeof* [`ALL_ICON_NAMES`](../variables/ALL_ICON_NAMES.md)\[`number`\]

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../../../README.md)
 
----
+***
 
 # Interface: AutomoderatorFilterComment
 
@@ -12,7 +12,7 @@
 
 > **author**: `string`
 
----
+***
 
 <a id="comment"></a>
 
@@ -20,7 +20,7 @@
 
 > `optional` **comment**: `CommentV2`
 
----
+***
 
 <a id="reason"></a>
 
@@ -28,7 +28,7 @@
 
 > **reason**: `string`
 
----
+***
 
 <a id="removedat"></a>
 
@@ -36,7 +36,7 @@
 
 > `optional` **removedAt**: `Date`
 
----
+***
 
 <a id="subreddit"></a>
 

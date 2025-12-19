@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: UseChannelResult\<Message\>
 
@@ -10,7 +10,7 @@
 
 ### Message
 
-`Message` _extends_ [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
+`Message` *extends* [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
 
 ## Properties
 
@@ -42,7 +42,7 @@ Publish a message to the channel
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="subscribe"></a>
 
@@ -56,7 +56,7 @@ Subscribe to the channel
 
 `void`
 
----
+***
 
 <a id="unsubscribe"></a>
 

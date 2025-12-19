@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: DevvitDebug
 
@@ -23,7 +23,7 @@ Should debug block rendering in console.log according to the reified JSX/XML out
 
     <hstack><text>hi world</text></hstack>
 
----
+***
 
 <a id="emitstate"></a>
 

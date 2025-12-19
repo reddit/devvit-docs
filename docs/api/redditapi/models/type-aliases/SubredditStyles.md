@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: SubredditStyles
 
@@ -16,7 +16,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **backgroundColor**: `string`
 
----
+***
 
 <a id="backgroundimage"></a>
 
@@ -24,7 +24,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **backgroundImage**: `string`
 
----
+***
 
 <a id="backgroundimageposition"></a>
 
@@ -32,7 +32,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **backgroundImagePosition**: [`BackgroundImagePosition`](BackgroundImagePosition.md)
 
----
+***
 
 <a id="bannerbackgroundcolor"></a>
 
@@ -40,7 +40,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerBackgroundColor**: `string`
 
----
+***
 
 <a id="bannerbackgroundimage"></a>
 
@@ -48,7 +48,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerBackgroundImage**: `string`
 
----
+***
 
 <a id="bannerbackgroundimageposition"></a>
 
@@ -56,7 +56,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerBackgroundImagePosition**: [`ImagePosition`](ImagePosition.md)
 
----
+***
 
 <a id="bannercommunityname"></a>
 
@@ -64,7 +64,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerCommunityName**: `string`
 
----
+***
 
 <a id="bannercommunitynameformat"></a>
 
@@ -72,7 +72,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerCommunityNameFormat**: [`CommunityNameFormat`](CommunityNameFormat.md)
 
----
+***
 
 <a id="bannerheight"></a>
 
@@ -80,7 +80,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerHeight**: [`BannerHeight`](BannerHeight.md)
 
----
+***
 
 <a id="banneroverlaycolor"></a>
 
@@ -88,7 +88,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerOverlayColor**: `string`
 
----
+***
 
 <a id="bannerpositionedimage"></a>
 
@@ -96,7 +96,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerPositionedImage**: `string`
 
----
+***
 
 <a id="bannerpositionedimageposition"></a>
 
@@ -104,7 +104,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerPositionedImagePosition**: [`PositionedImagePosition`](PositionedImagePosition.md)
 
----
+***
 
 <a id="bannershowcommunityicon"></a>
 
@@ -112,7 +112,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **bannerShowCommunityIcon**: [`Visibility`](Visibility.md)
 
----
+***
 
 <a id="highlightcolor"></a>
 
@@ -120,7 +120,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **highlightColor**: `string`
 
----
+***
 
 <a id="icon"></a>
 
@@ -128,7 +128,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **icon**: `string`
 
----
+***
 
 <a id="legacybannerbackgroundimage"></a>
 
@@ -136,7 +136,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **legacyBannerBackgroundImage**: `string`
 
----
+***
 
 <a id="legacyprimarycolor"></a>
 
@@ -144,7 +144,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **legacyPrimaryColor**: `string`
 
----
+***
 
 <a id="menubackgroundblur"></a>
 
@@ -152,7 +152,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **menuBackgroundBlur**: `number`
 
----
+***
 
 <a id="menubackgroundcolor"></a>
 
@@ -160,7 +160,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **menuBackgroundColor**: `string`
 
----
+***
 
 <a id="menubackgroundimage"></a>
 
@@ -168,7 +168,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **menuBackgroundImage**: `string`
 
----
+***
 
 <a id="menubackgroundopacity"></a>
 
@@ -176,7 +176,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **menuBackgroundOpacity**: `number`
 
----
+***
 
 <a id="menulinkcoloractive"></a>
 
@@ -184,7 +184,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **menuLinkColorActive**: `string`
 
----
+***
 
 <a id="menulinkcolorhover"></a>
 
@@ -192,7 +192,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **menuLinkColorHover**: `string`
 
----
+***
 
 <a id="menulinkcolorinactive"></a>
 
@@ -200,7 +200,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **menuLinkColorInactive**: `string`
 
----
+***
 
 <a id="menuposition"></a>
 
@@ -208,7 +208,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **menuPosition**: [`MenuPosition`](MenuPosition.md)
 
----
+***
 
 <a id="mobilebannerimage"></a>
 
@@ -216,7 +216,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **mobileBannerImage**: `string`
 
----
+***
 
 <a id="mobilekeycolor"></a>
 
@@ -224,7 +224,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **mobileKeyColor**: `string`
 
----
+***
 
 <a id="postbackgroundcolor"></a>
 
@@ -232,7 +232,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postBackgroundColor**: `string`
 
----
+***
 
 <a id="postbackgroundimage"></a>
 
@@ -240,7 +240,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postBackgroundImage**: `string`
 
----
+***
 
 <a id="postbackgroundimageposition"></a>
 
@@ -248,7 +248,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postBackgroundImagePosition**: [`ImagePosition`](ImagePosition.md)
 
----
+***
 
 <a id="postdownvotecountcolor"></a>
 
@@ -256,7 +256,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postDownvoteCountColor**: `string`
 
----
+***
 
 <a id="postdownvoteiconactive"></a>
 
@@ -264,7 +264,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postDownvoteIconActive**: `string`
 
----
+***
 
 <a id="postdownvoteiconinactive"></a>
 
@@ -272,7 +272,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postDownvoteIconInactive**: `string`
 
----
+***
 
 <a id="postplaceholderimage"></a>
 
@@ -280,7 +280,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postPlaceholderImage**: `string`
 
----
+***
 
 <a id="postplaceholderimageposition"></a>
 
@@ -288,7 +288,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postPlaceholderImagePosition**: [`ImagePosition`](ImagePosition.md)
 
----
+***
 
 <a id="posttitlecolor"></a>
 
@@ -296,7 +296,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postTitleColor**: `string`
 
----
+***
 
 <a id="postupvotecountcolor"></a>
 
@@ -304,7 +304,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postUpvoteCountColor**: `string`
 
----
+***
 
 <a id="postupvoteiconactive"></a>
 
@@ -312,7 +312,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postUpvoteIconActive**: `string`
 
----
+***
 
 <a id="postupvoteiconinactive"></a>
 
@@ -320,7 +320,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postUpvoteIconInactive**: `string`
 
----
+***
 
 <a id="postvoteicons"></a>
 
@@ -328,7 +328,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **postVoteIcons**: [`CustomizationFlag`](CustomizationFlag.md)
 
----
+***
 
 <a id="primarycolor"></a>
 
@@ -336,7 +336,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **primaryColor**: `string`
 
----
+***
 
 <a id="secondarybannerpositionedimage"></a>
 
@@ -344,7 +344,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **secondaryBannerPositionedImage**: `string`
 
----
+***
 
 <a id="sidebarwidgetbackgroundcolor"></a>
 
@@ -352,7 +352,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **sidebarWidgetBackgroundColor**: `string`
 
----
+***
 
 <a id="sidebarwidgetheadercolor"></a>
 
@@ -360,7 +360,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **sidebarWidgetHeaderColor**: `string`
 
----
+***
 
 <a id="submenubackgroundcolor"></a>
 
@@ -368,7 +368,7 @@ A class representing the styles of a Subreddit.
 
 > `optional` **submenuBackgroundColor**: `string`
 
----
+***
 
 <a id="submenubackgroundstyle"></a>
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: RemoveRelationshipOptions
 
@@ -14,7 +14,7 @@
 
 > **subredditName**: `string`
 
----
+***
 
 <a id="type"></a>
 
@@ -22,7 +22,7 @@
 
 > **type**: [`RelationshipType`](RelationshipType.md) \| `"moderator"`
 
----
+***
 
 <a id="username"></a>
 

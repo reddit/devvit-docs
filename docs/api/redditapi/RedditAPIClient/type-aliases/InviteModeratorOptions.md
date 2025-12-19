@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: InviteModeratorOptions
 
@@ -16,7 +16,7 @@
 
 The permissions to grant the user
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -26,7 +26,7 @@ The permissions to grant the user
 
 The name of the subreddit to invite the user to moderate
 
----
+***
 
 <a id="username"></a>
 

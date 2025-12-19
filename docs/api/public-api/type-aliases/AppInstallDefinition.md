@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: AppInstallDefinition
 
@@ -14,7 +14,7 @@
 
 > **event**: [`AppInstall`](AppInstall.md)
 
----
+***
 
 <a id="onevent"></a>
 

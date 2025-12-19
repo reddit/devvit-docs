@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: SettingsClient
 
@@ -39,7 +39,7 @@ The name of the setting to retrieve.
 
 A promise that resolves to the setting value, or undefined if the setting doesn't exist.
 
----
+***
 
 <a id="getall"></a>
 
@@ -53,7 +53,7 @@ Get all settings values.
 
 ##### T
 
-`T` _extends_ `object` = [`SettingsValues`](SettingsValues.md)
+`T` *extends* `object` = [`SettingsValues`](SettingsValues.md)
 
 #### Returns
 

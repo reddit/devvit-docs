@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: Form
 
@@ -16,7 +16,7 @@
 
 An optional label for the submit button
 
----
+***
 
 <a id="cancellabel"></a>
 
@@ -26,7 +26,7 @@ An optional label for the submit button
 
 An optional label for the cancel button
 
----
+***
 
 <a id="description"></a>
 
@@ -36,7 +36,7 @@ An optional label for the cancel button
 
 An optional description for the form
 
----
+***
 
 <a id="fields"></a>
 
@@ -46,7 +46,7 @@ An optional description for the form
 
 The fields that will be displayed in the form
 
----
+***
 
 <a id="title"></a>
 

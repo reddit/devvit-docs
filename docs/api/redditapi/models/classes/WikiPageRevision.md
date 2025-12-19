@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: WikiPageRevision
 
@@ -40,7 +40,7 @@
 
 [`User`](User.md)
 
----
+***
 
 <a id="date"></a>
 
@@ -54,7 +54,7 @@
 
 `Date`
 
----
+***
 
 <a id="hidden"></a>
 
@@ -68,7 +68,7 @@
 
 `boolean`
 
----
+***
 
 <a id="id"></a>
 
@@ -82,7 +82,7 @@
 
 `` `${string}-${string}-${string}-${string}-${string}` ``
 
----
+***
 
 <a id="page"></a>
 
@@ -96,7 +96,7 @@
 
 `string`
 
----
+***
 
 <a id="reason"></a>
 

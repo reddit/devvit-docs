@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: CustomWidget
 
@@ -52,7 +52,7 @@
 
 `string`
 
----
+***
 
 <a id="height"></a>
 
@@ -66,7 +66,7 @@
 
 `number`
 
----
+***
 
 <a id="id"></a>
 
@@ -84,7 +84,7 @@
 
 [`Widget`](Widget.md).[`id`](Widget.md#id)
 
----
+***
 
 <a id="images"></a>
 
@@ -98,7 +98,7 @@
 
 `WidgetImage`[]
 
----
+***
 
 <a id="name"></a>
 
@@ -116,7 +116,7 @@
 
 [`Widget`](Widget.md).[`name`](Widget.md#name)
 
----
+***
 
 <a id="stylesheeturl"></a>
 
@@ -130,7 +130,7 @@
 
 `string`
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -148,7 +148,7 @@
 
 [`Widget`](Widget.md).[`subredditName`](Widget.md#subredditname)
 
----
+***
 
 <a id="text"></a>
 
@@ -178,7 +178,7 @@
 
 [`Widget`](Widget.md).[`delete`](Widget.md#delete)
 
----
+***
 
 <a id="tojson"></a>
 

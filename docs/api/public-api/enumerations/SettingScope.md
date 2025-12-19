@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Enumeration: SettingScope
 
@@ -12,7 +12,7 @@
 
 > **App**: `"app"`
 
----
+***
 
 <a id="installation"></a>
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: BaseField\<ValueType\>
 
@@ -22,7 +22,7 @@
 
 The default value of the field
 
----
+***
 
 <a id="disabled"></a>
 
@@ -32,7 +32,7 @@ The default value of the field
 
 If true the field will be disabled
 
----
+***
 
 <a id="helptext"></a>
 
@@ -42,7 +42,7 @@ If true the field will be disabled
 
 An optional help text that will be displayed below the field
 
----
+***
 
 <a id="label"></a>
 
@@ -52,7 +52,7 @@ An optional help text that will be displayed below the field
 
 The label of the field. This will be displayed to the user
 
----
+***
 
 <a id="name"></a>
 
@@ -63,7 +63,7 @@ The label of the field. This will be displayed to the user
 The name of the field. This will be used as the key in the `values` object
 when the form is submitted.
 
----
+***
 
 <a id="required"></a>
 
@@ -74,7 +74,7 @@ when the form is submitted.
 If true the field will be required and the user will not be able to submit
 the form without filling it in.
 
----
+***
 
 <a id="scope"></a>
 

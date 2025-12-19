@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: ScheduledCronJob
 
@@ -16,7 +16,7 @@
 
 The cron string of when this job should run
 
----
+***
 
 <a id="data"></a>
 
@@ -26,7 +26,7 @@ The cron string of when this job should run
 
 Additional data passed in by the scheduler client
 
----
+***
 
 <a id="id"></a>
 
@@ -36,7 +36,7 @@ Additional data passed in by the scheduler client
 
 ID of the scheduled job. Use this with scheduler.cancelJob to cancel the job.
 
----
+***
 
 <a id="name"></a>
 

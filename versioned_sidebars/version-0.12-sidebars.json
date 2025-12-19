@@ -276,7 +276,8 @@
         "guides/tools/devvit_cli",
         "guides/tools/logs",
         "guides/tools/playtest",
-        "guides/tools/ui_simulator"
+        "guides/tools/ui_simulator",
+        "guides/tools/devvit_test"
       ]
     },
     {

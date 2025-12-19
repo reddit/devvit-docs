@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: SubredditSettings
 
@@ -16,7 +16,7 @@
 
 Whether the subreddit accepts followers or not.
 
----
+***
 
 <a id="alloriginalcontent"></a>
 
@@ -26,7 +26,7 @@ Whether the subreddit accepts followers or not.
 
 Whether all content posted on the subreddit is original.
 
----
+***
 
 <a id="allowchatpostcreation"></a>
 
@@ -36,7 +36,7 @@ Whether all content posted on the subreddit is original.
 
 Whether users are allowed to create chat posts on the subreddit.
 
----
+***
 
 <a id="allowdiscovery"></a>
 
@@ -46,7 +46,7 @@ Whether users are allowed to create chat posts on the subreddit.
 
 Whether the subreddit can be discovered through search.
 
----
+***
 
 <a id="allowedmediaincomments"></a>
 
@@ -56,7 +56,7 @@ Whether the subreddit can be discovered through search.
 
 List of allowed media types in the comments made in the subreddit.
 
----
+***
 
 <a id="allowedposttype"></a>
 
@@ -66,7 +66,7 @@ List of allowed media types in the comments made in the subreddit.
 
 The types of post allowed in this subreddit. Either "any", "link", or "self".
 
----
+***
 
 <a id="allowgalleries"></a>
 
@@ -76,7 +76,7 @@ The types of post allowed in this subreddit. Either "any", "link", or "self".
 
 Whether the subreddit allows galleries.
 
----
+***
 
 <a id="allowimages"></a>
 
@@ -86,7 +86,7 @@ Whether the subreddit allows galleries.
 
 Whether the subreddit allows images.
 
----
+***
 
 <a id="allowpolls"></a>
 
@@ -96,7 +96,7 @@ Whether the subreddit allows images.
 
 Whether the subreddit allows polls.
 
----
+***
 
 <a id="allowpredictioncontributors"></a>
 
@@ -106,7 +106,7 @@ Whether the subreddit allows polls.
 
 Whether contributors are allowed to make predictions on the subreddit.
 
----
+***
 
 <a id="allowpredictions"></a>
 
@@ -116,7 +116,7 @@ Whether contributors are allowed to make predictions on the subreddit.
 
 Whether predictions are allowed on the subreddit.
 
----
+***
 
 <a id="allowpredictionstournament"></a>
 
@@ -126,7 +126,7 @@ Whether predictions are allowed on the subreddit.
 
 Whether prediction tournaments are allowed on the subreddit.
 
----
+***
 
 <a id="allowtalks"></a>
 
@@ -136,7 +136,7 @@ Whether prediction tournaments are allowed on the subreddit.
 
 Whether talks are allowed on the subreddit.
 
----
+***
 
 <a id="allowvideogifs"></a>
 
@@ -146,7 +146,7 @@ Whether talks are allowed on the subreddit.
 
 Whether video GIFs are allowed on the subreddit.
 
----
+***
 
 <a id="allowvideos"></a>
 
@@ -156,7 +156,7 @@ Whether video GIFs are allowed on the subreddit.
 
 Whether videos are allowed on the subreddit.
 
----
+***
 
 <a id="bannerbackgroundcolor"></a>
 
@@ -166,7 +166,7 @@ Whether videos are allowed on the subreddit.
 
 a 6-digit rgb hex color of the banner e.g. `#AABBCC`,
 
----
+***
 
 <a id="bannerbackgroundimage"></a>
 
@@ -176,7 +176,7 @@ a 6-digit rgb hex color of the banner e.g. `#AABBCC`,
 
 The background image of the banner.
 
----
+***
 
 <a id="bannerimage"></a>
 
@@ -186,7 +186,7 @@ The background image of the banner.
 
 The URL of the banner image.
 
----
+***
 
 <a id="chatpostenabled"></a>
 
@@ -196,7 +196,7 @@ The URL of the banner image.
 
 Whether chat posts are enabled on the subreddit.
 
----
+***
 
 <a id="collectionsenabled"></a>
 
@@ -206,7 +206,7 @@ Whether chat posts are enabled on the subreddit.
 
 Whether collections are enabled on the subreddit.
 
----
+***
 
 <a id="communityicon"></a>
 
@@ -216,7 +216,7 @@ Whether collections are enabled on the subreddit.
 
 The URL of the community icon.
 
----
+***
 
 <a id="crosspostable"></a>
 
@@ -226,7 +226,7 @@ The URL of the community icon.
 
 Whether crossposts can be made to this subreddit.
 
----
+***
 
 <a id="emojisenabled"></a>
 
@@ -236,7 +236,7 @@ Whether crossposts can be made to this subreddit.
 
 Whether emojis are enabled on the subreddit.
 
----
+***
 
 <a id="eventpostsenabled"></a>
 
@@ -246,7 +246,7 @@ Whether emojis are enabled on the subreddit.
 
 Whether event posts are enabled on the subreddit.
 
----
+***
 
 <a id="headertitle"></a>
 
@@ -256,7 +256,7 @@ Whether event posts are enabled on the subreddit.
 
 The header title.
 
----
+***
 
 <a id="keycolor"></a>
 
@@ -266,7 +266,7 @@ The header title.
 
 The 6-digit rgb hex color of the subreddit's key color, e.g. `#AABBCC`,
 
----
+***
 
 <a id="linkflairenabled"></a>
 
@@ -276,7 +276,7 @@ The 6-digit rgb hex color of the subreddit's key color, e.g. `#AABBCC`,
 
 Whether link flairs are enabled on the subreddit.
 
----
+***
 
 <a id="mobilebannerimage"></a>
 
@@ -286,7 +286,7 @@ Whether link flairs are enabled on the subreddit.
 
 Banner image used on mobile apps.
 
----
+***
 
 <a id="originalcontenttagenabled"></a>
 
@@ -296,7 +296,7 @@ Banner image used on mobile apps.
 
 Whether the Original Content tag is enabled.
 
----
+***
 
 <a id="postflairs"></a>
 
@@ -306,7 +306,7 @@ Whether the Original Content tag is enabled.
 
 The post flair settings for the subreddit.
 
----
+***
 
 <a id="primarycolor"></a>
 
@@ -316,7 +316,7 @@ The post flair settings for the subreddit.
 
 The 6-digit rgb hex color of the subreddit's primary color, e.g. `#AABBCC`,
 
----
+***
 
 <a id="restrictcommenting"></a>
 
@@ -326,7 +326,7 @@ The 6-digit rgb hex color of the subreddit's primary color, e.g. `#AABBCC`,
 
 Whether commenting is restricted in the subreddit.
 
----
+***
 
 <a id="restrictposting"></a>
 
@@ -336,7 +336,7 @@ Whether commenting is restricted in the subreddit.
 
 Whether posting is restricted in the subreddit.
 
----
+***
 
 <a id="shouldarchiveposts"></a>
 
@@ -346,7 +346,7 @@ Whether posting is restricted in the subreddit.
 
 Whether posts in the subreddit should be automatically archived after 6 months.
 
----
+***
 
 <a id="spoilersenabled"></a>
 
@@ -356,7 +356,7 @@ Whether posts in the subreddit should be automatically archived after 6 months.
 
 Whether the Spoiler tag is enabled.
 
----
+***
 
 <a id="url"></a>
 
@@ -366,7 +366,7 @@ Whether the Spoiler tag is enabled.
 
 HTTP URL to the subreddit
 
----
+***
 
 <a id="userflairs"></a>
 
@@ -376,7 +376,7 @@ HTTP URL to the subreddit
 
 The user flair settings for the subreddit.
 
----
+***
 
 <a id="wikienabled"></a>
 

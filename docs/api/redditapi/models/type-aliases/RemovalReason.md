@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: RemovalReason
 
@@ -18,7 +18,7 @@ An individual Removal Reason object.
 
 The ID of the removal reason.
 
----
+***
 
 <a id="message"></a>
 
@@ -28,7 +28,7 @@ The ID of the removal reason.
 
 The message associated with the removal reason.
 
----
+***
 
 <a id="title"></a>
 

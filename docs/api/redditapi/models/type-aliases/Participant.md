@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: Participant
 
@@ -16,7 +16,7 @@ Conversation participant
 
 > `optional` **id**: `number`
 
----
+***
 
 <a id="isadmin"></a>
 
@@ -24,7 +24,7 @@ Conversation participant
 
 > `optional` **isAdmin**: `boolean`
 
----
+***
 
 <a id="isapproved"></a>
 
@@ -32,7 +32,7 @@ Conversation participant
 
 > `optional` **isApproved**: `boolean`
 
----
+***
 
 <a id="isdeleted"></a>
 
@@ -40,7 +40,7 @@ Conversation participant
 
 > `optional` **isDeleted**: `boolean`
 
----
+***
 
 <a id="ishidden"></a>
 
@@ -48,7 +48,7 @@ Conversation participant
 
 > `optional` **isHidden**: `boolean`
 
----
+***
 
 <a id="ismod"></a>
 
@@ -56,7 +56,7 @@ Conversation participant
 
 > `optional` **isMod**: `boolean`
 
----
+***
 
 <a id="isop"></a>
 
@@ -64,7 +64,7 @@ Conversation participant
 
 > `optional` **isOp**: `boolean`
 
----
+***
 
 <a id="isparticipant"></a>
 
@@ -72,7 +72,7 @@ Conversation participant
 
 > `optional` **isParticipant**: `boolean`
 
----
+***
 
 <a id="name"></a>
 

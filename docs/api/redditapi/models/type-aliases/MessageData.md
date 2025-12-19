@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: MessageData
 
@@ -14,7 +14,7 @@
 
 > `optional` **author**: [`Participant`](Participant.md)
 
----
+***
 
 <a id="body"></a>
 
@@ -24,7 +24,7 @@
 
 Message body
 
----
+***
 
 <a id="bodymarkdown"></a>
 
@@ -32,7 +32,7 @@ Message body
 
 > `optional` **bodyMarkdown**: `string`
 
----
+***
 
 <a id="date"></a>
 
@@ -42,7 +42,7 @@ Message body
 
 When was created
 
----
+***
 
 <a id="id"></a>
 
@@ -52,7 +52,7 @@ When was created
 
 Message ID
 
----
+***
 
 <a id="isinternal"></a>
 
@@ -60,7 +60,7 @@ Message ID
 
 > `optional` **isInternal**: `boolean`
 
----
+***
 
 <a id="participatingas"></a>
 

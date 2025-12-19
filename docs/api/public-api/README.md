@@ -1,8 +1,8 @@
-**@devvit/public-api v0.12.7-dev**
+**@devvit/public-api v0.12.8-dev**
 
----
+***
 
-# @devvit/public-api v0.12.7-dev
+# @devvit/public-api v0.12.8-dev
 
 ## Namespaces
 
@@ -167,7 +167,7 @@
 
 ## Variables
 
-- [ALL_ICON_NAMES](variables/ALL_ICON_NAMES.md)
+- [ALL\_ICON\_NAMES](variables/ALL_ICON_NAMES.md)
 
 ## Functions
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Class: Devvit
 
@@ -59,7 +59,7 @@ Devvit.addCustomPostType({
 });
 ```
 
----
+***
 
 <a id="addmenuitem"></a>
 
@@ -89,11 +89,11 @@ Devvit.addMenuItem({
     const location = event.location;
     const targetId = event.targetId;
     context.ui.showToast(`You clicked on ${location} ${targetId}`);
-  },
+  }
 });
 ```
 
----
+***
 
 <a id="addschedulerjob"></a>
 
@@ -107,7 +107,7 @@ Add a scheduled job type for your app. This will allow you to schedule jobs usin
 
 ##### T
 
-`T` _extends_ `undefined` \| [`JSONObject`](../type-aliases/JSONObject.md)
+`T` *extends* `undefined` \| [`JSONObject`](../type-aliases/JSONObject.md)
 
 #### Parameters
 
@@ -148,7 +148,7 @@ Devvit.addMenuItem({
 });
 ```
 
----
+***
 
 <a id="addsettings"></a>
 
@@ -159,7 +159,6 @@ Devvit.addMenuItem({
 Add settings that can be configured to customize the behavior of your app.
 
 There are two levels of settings:
-
 - App settings (scope: 'app')
 - Installation settings (scope: 'installation' or unspecified scope).
 
@@ -199,7 +198,7 @@ Devvit.addSettings([
     name: 'weather-api-key',
     label: 'My weather.com API key',
     scope: SettingScope.App,
-    isSecret: true,
+    isSecret: true
   },
   {
     type: 'string',
@@ -210,7 +209,7 @@ Devvit.addSettings([
       if (!isValidCity(value)) {
         return 'You must ender a valid city: ${validCities.join(", ")}';
       }
-    },
+    }
   },
   {
     type: 'number',
@@ -221,7 +220,7 @@ Devvit.addSettings([
       if (value > 10 || value < 1) {
         return 'Forecast window must be from 1 to 10 days';
       }
-    },
+    }
   },
 ]);
 ```
@@ -232,11 +231,11 @@ Devvit.addSettings({
   name: 'weather-api-key',
   label: 'My weather.com API key',
   scope: SettingScope.App,
-  isSecret: true,
+  isSecret: true
 });
 ```
 
----
+***
 
 <a id="addtrigger"></a>
 
@@ -244,7 +243,7 @@ Devvit.addSettings({
 
 #### Call Signature
 
-> `static` **addTrigger**\<`T`\>(`definition`): _typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
+> `static` **addTrigger**\<`T`\>(`definition`): *typeof* [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 
 Add a trigger handler that will be invoked when the given event
 occurs in a subreddit where the app is installed.
@@ -253,7 +252,7 @@ occurs in a subreddit where the app is installed.
 
 ###### T
 
-`T` _extends_ keyof [`TriggerEventType`](../type-aliases/TriggerEventType.md)
+`T` *extends* keyof [`TriggerEventType`](../type-aliases/TriggerEventType.md)
 
 ##### Parameters
 
@@ -269,7 +268,7 @@ occurs in a subreddit where the app is installed.
 
 ##### Returns
 
-_typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
+*typeof* [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 
 ##### Example
 
@@ -277,25 +276,25 @@ _typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 Devvit.addTrigger({
   event: 'PostSubmit',
   async onEvent(event, context) {
-    console.log('a new post was created!');
-  },
+    console.log("a new post was created!")
+  }
 });
 
 Devvit.addTrigger({
   events: ['PostSubmit', 'PostReport'],
-  async onEvent(event, context) {
+  async onEvent(event, context){
     if (event.type === 'PostSubmit') {
-      console.log('a new post was created!');
+      console.log("a new post was created!")
     } else if (event.type === 'PostReport') {
-      console.log('a post was reported!');
+      console.log("a post was reported!")
     }
-  },
+  }
 });
 ```
 
 #### Call Signature
 
-> `static` **addTrigger**\<`Event`\>(`triggerDefinition`): _typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
+> `static` **addTrigger**\<`Event`\>(`triggerDefinition`): *typeof* [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 
 Add a trigger handler that will be invoked when the given event
 occurs in a subreddit where the app is installed.
@@ -304,7 +303,7 @@ occurs in a subreddit where the app is installed.
 
 ###### Event
 
-`Event` _extends_ [`TriggerEvent`](../type-aliases/TriggerEvent.md)
+`Event` *extends* [`TriggerEvent`](../type-aliases/TriggerEvent.md)
 
 ##### Parameters
 
@@ -316,7 +315,7 @@ The trigger definition.
 
 ##### Returns
 
-_typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
+*typeof* [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 
 ##### Example
 
@@ -324,23 +323,23 @@ _typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 Devvit.addTrigger({
   event: 'PostSubmit',
   async onEvent(event, context) {
-    console.log('a new post was created!');
-  },
+    console.log("a new post was created!")
+  }
 });
 
 Devvit.addTrigger({
   events: ['PostSubmit', 'PostReport'],
-  async onEvent(event, context) {
+  async onEvent(event, context){
     if (event.type === 'PostSubmit') {
-      console.log('a new post was created!');
+      console.log("a new post was created!")
     } else if (event.type === 'PostReport') {
-      console.log('a post was reported!');
+      console.log("a post was reported!")
     }
-  },
+  }
 });
 ```
 
----
+***
 
 <a id="configure"></a>
 
@@ -369,11 +368,11 @@ Devvit.configure({
   http: true,
   redditAPI: true,
   redis: true,
-  media: true,
+  media: true
 });
 ```
 
----
+***
 
 <a id="createform"></a>
 
@@ -387,7 +386,7 @@ Create a form that can be opened from menu items and custom posts.
 
 ##### T
 
-`T` _extends_ [`Form`](../type-aliases/Form.md) \| [`FormFunction`](../type-aliases/FormFunction.md)
+`T` *extends* [`Form`](../type-aliases/Form.md) \| [`FormFunction`](../type-aliases/FormFunction.md)
 
 #### Parameters
 

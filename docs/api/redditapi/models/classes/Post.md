@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: Post
 
@@ -18,7 +18,7 @@
 
 `boolean`
 
----
+***
 
 <a id="approvedatutc"></a>
 
@@ -32,7 +32,7 @@
 
 `number`
 
----
+***
 
 <a id="archived"></a>
 
@@ -46,7 +46,7 @@
 
 `boolean`
 
----
+***
 
 <a id="authorflair"></a>
 
@@ -60,7 +60,7 @@
 
 `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
 
----
+***
 
 <a id="authorid"></a>
 
@@ -74,7 +74,7 @@
 
 `undefined` \| `` `t2_${string}` ``
 
----
+***
 
 <a id="authorname"></a>
 
@@ -88,7 +88,7 @@
 
 `string`
 
----
+***
 
 <a id="bannedatutc"></a>
 
@@ -102,7 +102,7 @@
 
 `number`
 
----
+***
 
 <a id="body"></a>
 
@@ -116,7 +116,7 @@
 
 `undefined` \| `string`
 
----
+***
 
 <a id="bodyhtml"></a>
 
@@ -130,7 +130,7 @@
 
 `undefined` \| `string`
 
----
+***
 
 <a id="comments"></a>
 
@@ -144,7 +144,7 @@
 
 [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
 
----
+***
 
 <a id="createdat"></a>
 
@@ -158,7 +158,7 @@
 
 `Date`
 
----
+***
 
 <a id="distinguishedby"></a>
 
@@ -172,7 +172,7 @@
 
 `undefined` \| `string`
 
----
+***
 
 <a id="edited"></a>
 
@@ -186,7 +186,7 @@
 
 `boolean`
 
----
+***
 
 <a id="flair"></a>
 
@@ -200,7 +200,7 @@
 
 `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
 
----
+***
 
 <a id="gallery"></a>
 
@@ -216,7 +216,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 [`GalleryMedia`](../type-aliases/GalleryMedia.md)[]
 
----
+***
 
 <a id="hidden"></a>
 
@@ -230,7 +230,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `boolean`
 
----
+***
 
 <a id="id"></a>
 
@@ -244,7 +244,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `` `t3_${string}` ``
 
----
+***
 
 <a id="ignoringreports"></a>
 
@@ -258,7 +258,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `boolean`
 
----
+***
 
 <a id="locked"></a>
 
@@ -272,7 +272,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `boolean`
 
----
+***
 
 <a id="modreportreasons"></a>
 
@@ -286,7 +286,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `string`[]
 
----
+***
 
 <a id="nsfw"></a>
 
@@ -300,7 +300,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `boolean`
 
----
+***
 
 <a id="numberofcomments"></a>
 
@@ -314,7 +314,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `number`
 
----
+***
 
 <a id="numberofreports"></a>
 
@@ -328,7 +328,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `number`
 
----
+***
 
 <a id="permalink"></a>
 
@@ -342,7 +342,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `string`
 
----
+***
 
 <a id="quarantined"></a>
 
@@ -356,7 +356,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `boolean`
 
----
+***
 
 <a id="removed"></a>
 
@@ -370,7 +370,7 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 `boolean`
 
----
+***
 
 <a id="removedby"></a>
 
@@ -386,7 +386,7 @@ Who removed this object (username)
 
 `undefined` \| `string`
 
----
+***
 
 <a id="removedbycategory"></a>
 
@@ -397,7 +397,6 @@ Who removed this object (username)
 > **get** **removedByCategory**(): `undefined` \| `string`
 
 who/what removed this object. It will return one of the following:
-
 - "anti_evil_ops": object is removed by a aeops member
 - "author": object is removed by author of the post
 - "automod_filtered": object is filtered by automod
@@ -413,7 +412,7 @@ who/what removed this object. It will return one of the following:
 
 `undefined` \| `string`
 
----
+***
 
 <a id="score"></a>
 
@@ -427,7 +426,7 @@ who/what removed this object. It will return one of the following:
 
 `number`
 
----
+***
 
 <a id="securemedia"></a>
 
@@ -441,7 +440,7 @@ who/what removed this object. It will return one of the following:
 
 `undefined` \| [`SecureMedia`](../type-aliases/SecureMedia.md)
 
----
+***
 
 <a id="spam"></a>
 
@@ -455,7 +454,7 @@ who/what removed this object. It will return one of the following:
 
 `boolean`
 
----
+***
 
 <a id="spoiler"></a>
 
@@ -469,7 +468,7 @@ who/what removed this object. It will return one of the following:
 
 `boolean`
 
----
+***
 
 <a id="stickied"></a>
 
@@ -483,7 +482,7 @@ who/what removed this object. It will return one of the following:
 
 `boolean`
 
----
+***
 
 <a id="subredditid"></a>
 
@@ -497,7 +496,7 @@ who/what removed this object. It will return one of the following:
 
 `` `t5_${string}` ``
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -511,7 +510,7 @@ who/what removed this object. It will return one of the following:
 
 `string`
 
----
+***
 
 <a id="thumbnail"></a>
 
@@ -525,7 +524,7 @@ who/what removed this object. It will return one of the following:
 
 `undefined` \| \{ `height`: `number`; `url`: `string`; `width`: `number`; \}
 
----
+***
 
 <a id="title"></a>
 
@@ -539,7 +538,7 @@ who/what removed this object. It will return one of the following:
 
 `string`
 
----
+***
 
 <a id="url"></a>
 
@@ -553,7 +552,7 @@ who/what removed this object. It will return one of the following:
 
 `string`
 
----
+***
 
 <a id="userreportreasons"></a>
 
@@ -585,7 +584,7 @@ who/what removed this object. It will return one of the following:
 
 `Promise`\<[`Comment`](Comment.md)\>
 
----
+***
 
 <a id="addremovalnote"></a>
 
@@ -615,7 +614,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="approve"></a>
 
@@ -627,7 +626,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="crosspost"></a>
 
@@ -645,7 +644,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`Post`\>
 
----
+***
 
 <a id="delete"></a>
 
@@ -657,7 +656,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="distinguish"></a>
 
@@ -669,7 +668,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="distinguishasadmin"></a>
 
@@ -681,7 +680,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="edit"></a>
 
@@ -699,7 +698,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="getauthor"></a>
 
@@ -711,7 +710,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`undefined` \| [`User`](User.md)\>
 
----
+***
 
 <a id="getenrichedthumbnail"></a>
 
@@ -739,7 +738,7 @@ const post = await context.reddit.getPostById(context.postId);
 const enrichedThumbnail = await post.getEnrichedThumbnail();
 ```
 
----
+***
 
 <a id="getpostdata"></a>
 
@@ -760,7 +759,7 @@ const post = await context.reddit.getPostById(context.postId);
 const postData = await post.getPostData();
 ```
 
----
+***
 
 <a id="hide"></a>
 
@@ -772,7 +771,7 @@ const postData = await post.getPostData();
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="ignorereports"></a>
 
@@ -784,7 +783,7 @@ const postData = await post.getPostData();
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="isapproved"></a>
 
@@ -796,7 +795,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isarchived"></a>
 
@@ -808,7 +807,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isdistinguishedby"></a>
 
@@ -820,7 +819,7 @@ const postData = await post.getPostData();
 
 `undefined` \| `string`
 
----
+***
 
 <a id="isedited"></a>
 
@@ -832,7 +831,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="ishidden"></a>
 
@@ -844,7 +843,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isignoringreports"></a>
 
@@ -856,7 +855,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="islocked"></a>
 
@@ -868,7 +867,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isnsfw"></a>
 
@@ -880,7 +879,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isquarantined"></a>
 
@@ -892,7 +891,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isremoved"></a>
 
@@ -904,7 +903,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isspam"></a>
 
@@ -916,7 +915,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isspoiler"></a>
 
@@ -928,7 +927,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="isstickied"></a>
 
@@ -940,7 +939,7 @@ const postData = await post.getPostData();
 
 `boolean`
 
----
+***
 
 <a id="lock"></a>
 
@@ -952,7 +951,7 @@ const postData = await post.getPostData();
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="markasnsfw"></a>
 
@@ -964,7 +963,7 @@ const postData = await post.getPostData();
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="markasspoiler"></a>
 
@@ -976,7 +975,7 @@ const postData = await post.getPostData();
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="remove"></a>
 
@@ -994,7 +993,7 @@ const postData = await post.getPostData();
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="setcustompostpreview"></a>
 
@@ -1032,7 +1031,7 @@ const post = await reddit.getPostById(context.postId);
 await post.setCustomPostPreview(() => preview);
 ```
 
----
+***
 
 <a id="setpostdata"></a>
 
@@ -1068,7 +1067,7 @@ await post.setPostData({
 });
 ```
 
----
+***
 
 <a id="setsuggestedcommentsort"></a>
 
@@ -1096,10 +1095,10 @@ Throws an error if the suggested sort could not be set.
 
 ```ts
 const post = await reddit.getPostById(context.postId);
-await post.setSuggestedCommentSort('NEW');
+await post.setSuggestedCommentSort("NEW");
 ```
 
----
+***
 
 <a id="settextfallback"></a>
 
@@ -1134,7 +1133,7 @@ const post = await context.reddit.getPostById(context.postId);
 await post.setTextFallback(newTextFallback);
 ```
 
----
+***
 
 <a id="sticky"></a>
 
@@ -1152,7 +1151,7 @@ await post.setTextFallback(newTextFallback);
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="tojson"></a>
 
@@ -1164,7 +1163,7 @@ await post.setTextFallback(newTextFallback);
 
 `Pick`\<`Post`, `"spoiler"` \| `"subredditName"` \| `"flair"` \| `"id"` \| `"score"` \| `"title"` \| `"subredditId"` \| `"url"` \| `"createdAt"` \| `"nsfw"` \| `"permalink"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReportReasons"`\>
 
----
+***
 
 <a id="undistinguish"></a>
 
@@ -1176,7 +1175,7 @@ await post.setTextFallback(newTextFallback);
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unhide"></a>
 
@@ -1188,7 +1187,7 @@ await post.setTextFallback(newTextFallback);
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unignorereports"></a>
 
@@ -1200,7 +1199,7 @@ await post.setTextFallback(newTextFallback);
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unlock"></a>
 
@@ -1212,7 +1211,7 @@ await post.setTextFallback(newTextFallback);
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unmarkasnsfw"></a>
 
@@ -1224,7 +1223,7 @@ await post.setTextFallback(newTextFallback);
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unmarkasspoiler"></a>
 
@@ -1236,7 +1235,7 @@ await post.setTextFallback(newTextFallback);
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unsticky"></a>
 

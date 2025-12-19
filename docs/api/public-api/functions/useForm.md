@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Function: useForm()
 
@@ -10,7 +10,7 @@
 
 ### T
 
-`T` _extends_ [`Form`](../type-aliases/Form.md) \| [`FormFunction`](../type-aliases/FormFunction.md)
+`T` *extends* [`Form`](../type-aliases/Form.md) \| [`FormFunction`](../type-aliases/FormFunction.md)
 
 ## Parameters
 

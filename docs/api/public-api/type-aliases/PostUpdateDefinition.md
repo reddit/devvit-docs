@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: PostUpdateDefinition
 
@@ -14,7 +14,7 @@
 
 > **event**: [`PostUpdate`](PostUpdate.md)
 
----
+***
 
 <a id="onevent"></a>
 

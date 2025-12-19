@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: WikiPageSettings
 
@@ -40,7 +40,7 @@
 
 [`User`](User.md)[]
 
----
+***
 
 <a id="listed"></a>
 
@@ -54,7 +54,7 @@
 
 `boolean`
 
----
+***
 
 <a id="permlevel"></a>
 

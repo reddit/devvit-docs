@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: RedisClient
 
@@ -27,12 +27,11 @@ Global redis enables apps to persist and access state across subreddit installat
 
 Performs operations on a redis string treating it as an array of bits.
 Operations available:
-
-- get <encoding> <offset> -- Returns the specified bit field.
-- set <encoding> <offset> <value> -- Sets the specified bit field and returns its old value.
-- incrBy <encoding> <offset> <increment> -- Increments or decrements (if a negative increment is given) the specified bit field and returns the new value.
-- overflow [wrap|sat|fail] -- Alters the overflow behavior of subsequent set's and incrBy's until the next overflow command
-  https://redis.io/docs/latest/commands/bitfield/
+  - get <encoding> <offset> -- Returns the specified bit field.
+  - set <encoding> <offset> <value> -- Sets the specified bit field and returns its old value.
+  - incrBy <encoding> <offset> <increment> -- Increments or decrements (if a negative increment is given) the specified bit field and returns the new value.
+  - overflow [wrap|sat|fail] -- Alters the overflow behavior of subsequent set's and incrBy's until the next overflow command
+https://redis.io/docs/latest/commands/bitfield/
 
 #### Parameters
 
@@ -62,50 +61,24 @@ cmds the commands to perform on the string
 
 ```ts
 async function bitfieldExample(context: Devvit.Context) {
-  const fooResults: number[] = await context.redis.bitfield(
-    'foo',
-    'incrBy',
-    'i5',
-    100,
-    1,
-    'get',
-    'u4',
-    0
-  );
-  console.log('fooResults: ' + fooResults); // [1, 0]
+ const fooResults : number[] =
+   await context.redis.bitfield('foo', 'incrBy', 'i5', 100, 1, 'get', 'u4', 0);
+ console.log("fooResults: " + fooResults); // [1, 0]
 
-  const barResults: number[] = await context.redis.bitfield(
-    'bar',
-    'set',
-    'u2',
-    0,
-    3,
-    'get',
-    'u2',
-    0,
-    'incrBy',
-    'u2',
-    0,
-    1,
-    'overflow',
-    'sat',
-    'get',
-    'u2',
-    0,
-    'set',
-    'u2',
-    0,
-    3,
-    'incrBy',
-    'u2',
-    0,
-    1
-  );
-  console.log('barResults: ' + barResults); // [0, 3, 0, 0, 3, 3]
+ const barResults : number[] =
+   await context.redis.bitfield('bar',
+     'set', 'u2', 0, 3,
+     'get', 'u2', 0,
+     'incrBy', 'u2', 0, 1,
+     'overflow', 'sat',
+     'get', 'u2', 0,
+     'set', 'u2', 0, 3,
+     'incrBy', 'u2', 0, 1);
+ console.log("barResults: " + barResults); // [0, 3, 0, 0, 3, 3]
 }
 ```
 
----
+***
 
 <a id="del"></a>
 
@@ -134,12 +107,12 @@ keys
 
 ```ts
 async function delExample(context: Devvit.Context) {
-  await context.redis.set('quantity', '5');
-  await context.redis.del('quantity');
+ await context.redis.set("quantity", "5");
+ await context.redis.del("quantity");
 }
 ```
 
----
+***
 
 <a id="exists"></a>
 
@@ -170,20 +143,20 @@ keys Keys to check for existence
 
 ```ts
 async function existsExample(context: Devvit.Context) {
-  const exists: number = await context.redis.exists('someKey');
-  console.log('Exists: ' + exists); // 0
+ const exists : number = await context.redis.exists("someKey");
+ console.log("Exists: " + exists); // 0
 
-  await context.redis.set('someKey', 'someValue');
-  const exists2: number = await context.redis.exists('someKey', 'someOtherKey');
-  console.log('Exists2: ' + exists2); // 1
+ await context.redis.set("someKey", "someValue");
+ const exists2 : number = await context.redis.exists("someKey", "someOtherKey");
+ console.log("Exists2: " + exists2); // 1
 
-  await context.redis.set('someOtherKey', 'someOtherValue');
-  const exists3: number = await context.redis.exists('someKey', 'someKey', 'someOtherKey');
-  console.log('Exists3: ' + exists3); // 3, since "someKey" is counted twice
+ await context.redis.set("someOtherKey", "someOtherValue");
+ const exists3 : number = await context.redis.exists("someKey", "someKey", "someOtherKey");
+ console.log("Exists3: " + exists3); // 3, since "someKey" is counted twice
 }
 ```
 
----
+***
 
 <a id="expire"></a>
 
@@ -220,12 +193,12 @@ seconds
 
 ```ts
 async function expireExample(context: Devvit.Context) {
-  await context.redis.set('product', 'milk');
-  await context.redis.expire('product', 60); // Set the product to expire in 60 seconds
+ await context.redis.set("product", "milk");
+ await context.redis.expire("product", 60);   // Set the product to expire in 60 seconds
 }
 ```
 
----
+***
 
 <a id="expiretime"></a>
 
@@ -256,13 +229,13 @@ key
 
 ```ts
 async function expireTimeExample(context: Devvit.Context) {
-  await context.redis.set('product', 'milk');
-  const expireTime: number = await context.redis.expireTime('product');
-  console.log('Expire time: ' + expireTime);
+ await context.redis.set("product", "milk");
+ const expireTime : number = await context.redis.expireTime("product");
+ console.log("Expire time: " + expireTime);
 }
 ```
 
----
+***
 
 <a id="get"></a>
 
@@ -294,13 +267,13 @@ key
 
 ```ts
 async function getExample(context: Devvit.Context) {
-  await context.redis.set('quantity', '5');
-  const quantity: string | undefined = await context.redis.get('quantity');
-  console.log('Quantity: ' + quantity);
+ await context.redis.set("quantity", "5");
+ const quantity : string | undefined = await context.redis.get("quantity");
+ console.log("Quantity: " + quantity);
 }
 ```
 
----
+***
 
 <a id="getbuffer"></a>
 
@@ -333,13 +306,13 @@ key
 
 ```ts
 async function getExample(context: Devvit.Context) {
-  await context.redis.bitfield('nonutf8', 'set', 'u8', '0', '192');
-  const buf: string | undefined = await context.redis.getBuffer('nonutf8');
-  console.log('Bytes: ' + JSON.stringify(buf));
+ await context.redis.bitfield("nonutf8", "set", "u8", "0", "192");
+ const buf : string | undefined = await context.redis.getBuffer("nonutf8");
+ console.log("Bytes: " + JSON.stringify(buf));
 }
 ```
 
----
+***
 
 <a id="getrange"></a>
 
@@ -387,13 +360,13 @@ end
 
 ```ts
 async function getRangeExample(context: Devvit.Context) {
-  await context.redis.set('word', 'tacocat');
-  const range: string = await context.redis.getRange('word', 0, 3);
-  console.log('Range from index 0 to 3: ' + range);
+ await context.redis.set("word", "tacocat");
+ const range : string = await context.redis.getRange("word", 0, 3)
+ console.log("Range from index 0 to 3: " + range);
 }
 ```
 
----
+***
 
 <a id="hdel"></a>
 
@@ -432,7 +405,7 @@ key
 
 fields
 
----
+***
 
 <a id="hdel-2"></a>
 
@@ -471,13 +444,13 @@ fields
 
 ```ts
 async function hDelExample(context: Devvit.Context) {
-  await context.redis.hSet('fruits', { apple: '5', orange: '7', kiwi: '9' });
-  const numFieldsRemoved = await context.redis.hDel('fruits', ['apple', 'kiwi']);
-  console.log('Number of fields removed: ' + numFieldsRemoved);
+ await context.redis.hSet("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
+ const numFieldsRemoved = await context.redis.hDel("fruits", ["apple", "kiwi"]);
+ console.log("Number of fields removed: " + numFieldsRemoved);
 }
 ```
 
----
+***
 
 <a id="hget"></a>
 
@@ -516,7 +489,7 @@ key
 
 field
 
----
+***
 
 <a id="hget-2"></a>
 
@@ -555,13 +528,13 @@ field
 
 ```ts
 async function hGetExample(context: Devvit.Context) {
-  await context.redis.hSet('fruits', { apple: '5', orange: '7', kiwi: '9' });
-  const result: string | undefined = await context.redis.hGet('fruits', 'orange');
-  console.log('Value of orange: ' + result);
+ await context.redis.hSet("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
+ const result : string | undefined = await context.redis.hGet("fruits", "orange");
+ console.log("Value of orange: " + result);
 }
 ```
 
----
+***
 
 <a id="hgetall"></a>
 
@@ -592,7 +565,7 @@ Use [RedisClient.hGetAll](#hgetall-2) instead.
 
 key
 
----
+***
 
 <a id="hgetall-2"></a>
 
@@ -637,7 +610,7 @@ async function hGetAllExample(context: Devvit.Context) {
 }
 ```
 
----
+***
 
 <a id="hincrby"></a>
 
@@ -684,7 +657,7 @@ field
 
 value
 
----
+***
 
 <a id="hincrby-2"></a>
 
@@ -731,12 +704,12 @@ value
 
 ```ts
 async function hIncrByExample(context: Devvit.Context) {
-  await context.redis.hSet('user123', { karma: '100' });
-  await context.redis.hIncrBy('user123', 'karma', 5);
+ await context.redis.hSet("user123", { "karma": "100" });
+ await context.redis.hIncrBy("user123", "karma", 5);
 }
 ```
 
----
+***
 
 <a id="hkeys"></a>
 
@@ -764,7 +737,7 @@ Use [RedisClient.hKeys](#hkeys-2) instead.
 
 key
 
----
+***
 
 <a id="hkeys-2"></a>
 
@@ -792,17 +765,17 @@ key
 
 ```ts
 async function hKeysExample(context: Devvit.Context) {
-  await context.redis.hSet('prices', {
-    chair: '48',
-    desk: '95',
-    whiteboard: '23',
-  });
-  const keys: string[] = await context.redis.hKeys('prices');
-  console.log('Keys: ' + keys);
+ await context.redis.hSet("prices", {
+   "chair": "48",
+   "desk": "95",
+   "whiteboard": "23"
+ });
+ const keys : string[] = await context.redis.hKeys("prices");
+ console.log("Keys: " + keys);
 }
 ```
 
----
+***
 
 <a id="hlen"></a>
 
@@ -832,7 +805,7 @@ Use [RedisClient.hLen](#hlen-2) instead.
 
 key
 
----
+***
 
 <a id="hlen-2"></a>
 
@@ -862,18 +835,18 @@ key
 
 ```ts
 async function hLenExample(context: Devvit.Context) {
-  await context.redis.hSet('supplies', {
-    paperclips: '25',
-    pencils: '10',
-    erasers: '5',
-    pens: '7',
-  });
-  const numberOfFields: number = await context.redis.hLen('supplies');
-  console.log('Number of fields: ' + numberOfFields);
+ await context.redis.hSet("supplies", {
+   "paperclips": "25",
+   "pencils": "10",
+   "erasers": "5",
+   "pens": "7"
+ });
+ const numberOfFields : number = await context.redis.hLen("supplies");
+ console.log("Number of fields: " + numberOfFields);
 }
 ```
 
----
+***
 
 <a id="hmget"></a>
 
@@ -912,17 +885,13 @@ fields
 
 ```ts
 async function hMGetExample(context: Devvit.Context) {
-  await context.redis.hSet('fruits', { apple: '5', orange: '7', kiwi: '9' });
-  const result: string[] | undefined = await context.redis.hMGet('fruits', [
-    'orange',
-    'grape',
-    'apple',
-  ]);
-  console.log('Value of fields: ' + result); // "Value of fields: ["7", undefined, "5"]
+ await context.redis.hSet("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
+ const result : string[] | undefined = await context.redis.hMGet("fruits", ["orange", "grape", "apple"]);
+ console.log("Value of fields: " + result); // "Value of fields: ["7", undefined, "5"]
 }
 ```
 
----
+***
 
 <a id="hscan"></a>
 
@@ -974,7 +943,7 @@ pattern
 
 count
 
----
+***
 
 <a id="hscan-2"></a>
 
@@ -1026,21 +995,21 @@ count
 
 ```ts
 async function hScanExample(context: Devvit.Context) {
-  await context.redis.hSet('userInfo', {
-    name: 'Bob',
-    startDate: '01-05-20',
-    totalAwards: '12',
-  });
+ await context.redis.hSet("userInfo", {
+   "name": "Bob",
+   "startDate": "01-05-20",
+   "totalAwards": "12"
+ });
 
-  const hScanResponse = await context.redis.hScan('userInfo', 0);
+ const hScanResponse = await context.redis.hScan("userInfo", 0);
 
-  hScanResponse.fieldValues.forEach((x) => {
-    console.log("Field: '" + x.field + "', Value: '" + x.value + "'");
-  });
+ hScanResponse.fieldValues.forEach(x => {
+   console.log("Field: '" + x.field + "', Value: '" + x.value + "'");
+ });
 }
 ```
 
----
+***
 
 <a id="hset"></a>
 
@@ -1077,7 +1046,7 @@ key
 
 fieldValues
 
----
+***
 
 <a id="hset-2"></a>
 
@@ -1114,12 +1083,12 @@ fieldValues
 
 ```ts
 async function hSetExample(context: Devvit.Context) {
-  const numFieldsAdded = await context.redis.hSet('fruits', { apple: '5', orange: '7', kiwi: '9' });
-  console.log('Number of fields added: ' + numFieldsAdded);
+ const numFieldsAdded = await context.redis.hSet("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
+ console.log("Number of fields added: " + numFieldsAdded);
 }
 ```
 
----
+***
 
 <a id="hsetnx"></a>
 
@@ -1154,12 +1123,12 @@ https://redis.io/commands/hsetnx/
 
 ```ts
 async function hSetNXExample(context: Devvit.Context) {
-  const result: number = await context.redis.hSetNX('myhash', 'field1', 'value1');
-  console.log('HSETNX result: ' + result);
+ const result : number = await context.redis.hSetNX("myhash", "field1", "value1");
+ console.log("HSETNX result: " + result);
 }
 ```
 
----
+***
 
 <a id="incrby"></a>
 
@@ -1198,13 +1167,13 @@ value
 
 ```ts
 async function incrByExample(context: Devvit.Context) {
-  await context.redis.set('totalPoints', '53');
-  const updatedPoints: number = await context.redis.incrBy('totalPoints', 100);
-  console.log('Updated points: ' + updatedPoints);
+ await context.redis.set("totalPoints", "53")
+ const updatedPoints : number = await context.redis.incrBy("totalPoints", 100);
+ console.log("Updated points: " + updatedPoints);
 }
 ```
 
----
+***
 
 <a id="mget"></a>
 
@@ -1235,7 +1204,7 @@ Use [RedisClient.mGet](#mget-2) instead.
 
 keys
 
----
+***
 
 <a id="mget-2"></a>
 
@@ -1266,15 +1235,15 @@ keys
 
 ```ts
 async function mGetExample(context: Devvit.Context) {
-  await context.redis.mSet({ name: 'Zeek', occupation: 'Developer' });
-  const result: (string | null)[] = await context.redis.mGet(['name', 'occupation']);
-  result.forEach((x) => {
-    console.log(x);
-  });
+ await context.redis.mSet({"name": "Zeek", "occupation": "Developer"});
+ const result : (string | null)[] = await context.redis.mGet(["name", "occupation"]);
+ result.forEach(x => {
+   console.log(x);
+ });
 }
 ```
 
----
+***
 
 <a id="mset"></a>
 
@@ -1301,7 +1270,7 @@ Use [RedisClient.mSet](#mset-2) instead.
 
 keyValues
 
----
+***
 
 <a id="mset-2"></a>
 
@@ -1328,11 +1297,11 @@ keyValues
 
 ```ts
 async function mSetExample(context: Devvit.Context) {
-  await context.redis.mSet({ name: 'Zeek', occupation: 'Developer' });
+ await context.redis.mSet({"name": "Zeek", "occupation": "Developer"});
 }
 ```
 
----
+***
 
 <a id="rename"></a>
 
@@ -1371,14 +1340,14 @@ newKey new key name
 
 ```ts
 async function renameExample(context: Devvit.Context) {
-  await context.redis.set('quantity', '5');
-  await context.redis.rename('quantity', 'amount');
-  const value: string = await context.redis.get('amount');
-  console.log('Value: ' + value);
+ await context.redis.set("quantity", "5");
+ await context.redis.rename("quantity", "amount");
+ const value : string = await context.redis.get("amount");
+ console.log("Value: " + value);
 }
 ```
 
----
+***
 
 <a id="set"></a>
 
@@ -1423,11 +1392,11 @@ options
 
 ```ts
 async function setExample(context: Devvit.Context) {
-  await context.redis.set('quantity', '5');
+ await context.redis.set("quantity", "5");
 }
 ```
 
----
+***
 
 <a id="setrange"></a>
 
@@ -1471,12 +1440,12 @@ offset
 
 ```ts
 async function setRangeExample(context: Devvit.Context) {
-  await context.redis.set('word', 'tacocat');
-  await context.redis.setRange('word', 0, 'blue');
+ await context.redis.set("word", "tacocat");
+ await context.redis.setRange("word", 0, "blue");
 }
 ```
 
----
+***
 
 <a id="strlen"></a>
 
@@ -1508,7 +1477,7 @@ Use [RedisClient.strLen](#strlen-2) instead.
 
 key
 
----
+***
 
 <a id="strlen-2"></a>
 
@@ -1540,13 +1509,13 @@ key
 
 ```ts
 async function strLenExample(context: Devvit.Context) {
-  await context.redis.set('word', 'tacocat');
-  const length: number = await context.redis.strLen('word');
-  console.log('Length of word: ' + length);
+ await context.redis.set("word", "tacocat");
+ const length : number = await context.redis.strLen("word");
+ console.log("Length of word: " + length);
 }
 ```
 
----
+***
 
 <a id="type"></a>
 
@@ -1577,13 +1546,13 @@ key
 
 ```ts
 async function typeExample(context: Devvit.Context) {
-  await context.redis.set('quantity', '5');
-  const type: string = await context.redis.type('quantity');
-  console.log('Key type: ' + type);
+ await context.redis.set("quantity", "5");
+ const type : string = await context.redis.type("quantity");
+ console.log("Key type: " + type);
 }
 ```
 
----
+***
 
 <a id="watch"></a>
 
@@ -1612,17 +1581,17 @@ keys - given keys to be watched
 
 ```ts
 async function watchExample(context: Devvit.Context) {
-  await context.redis.set('karma', '32');
+ await context.redis.set("karma", "32");
 
-  const txn = await context.redis.watch('quantity');
+ const txn = await context.redis.watch("quantity");
 
-  await txn.multi(); // Begin a transaction
-  await txn.incrBy('karma', 10);
-  await txn.exec(); // Execute the commands in the transaction
+ await txn.multi();  // Begin a transaction
+ await txn.incrBy("karma", 10);
+ await txn.exec();   // Execute the commands in the transaction
 }
 ```
 
----
+***
 
 <a id="zadd"></a>
 
@@ -1657,18 +1626,17 @@ key
 
 ```ts
 async function zAddExample(context: Devvit.Context) {
-  const numMembersAdded: number = await context.redis.zAdd(
-    'leaderboard',
-    { member: 'louis', score: 37 },
-    { member: 'fernando', score: 10 },
-    { member: 'caesar', score: 20 },
-    { member: 'alexander', score: 25 }
-  );
-  console.log('Number of members added: ' + numMembersAdded);
+ const numMembersAdded : number = await context.redis.zAdd("leaderboard",
+   {member: "louis", score: 37},
+   {member: "fernando", score: 10},
+   {member: "caesar", score: 20},
+   {member: "alexander", score: 25},
+ );
+ console.log("Number of members added: " + numMembersAdded);
 }
 ```
 
----
+***
 
 <a id="zcard"></a>
 
@@ -1699,19 +1667,18 @@ key
 
 ```ts
 async function zCardExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'leaderboard',
-    { member: 'louis', score: 37 },
-    { member: 'fernando', score: 10 },
-    { member: 'caesar', score: 20 },
-    { member: 'alexander', score: 25 }
-  );
-  const cardinality: number = await context.redis.zCard('leaderboard');
-  console.log('Cardinality: ' + cardinality);
+ await context.redis.zAdd("leaderboard",
+   {member: "louis", score: 37},
+   {member: "fernando", score: 10},
+   {member: "caesar", score: 20},
+   {member: "alexander", score: 25},
+ );
+ const cardinality : number = await context.redis.zCard("leaderboard");
+ console.log("Cardinality: " + cardinality);
 }
 ```
 
----
+***
 
 <a id="zincrby"></a>
 
@@ -1758,19 +1725,18 @@ value
 
 ```ts
 async function zIncrByExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'animals',
-    { member: 'zebra', score: 92 },
-    { member: 'cat', score: 100 },
-    { member: 'dog', score: 95 },
-    { member: 'elephant', score: 97 }
-  );
-  const updatedScore: number = await context.redis.zIncrBy('animals', 'dog', 10);
-  console.log("Dog's updated score: " + updatedScore);
+ await context.redis.zAdd("animals",
+   {member: "zebra", score: 92},
+   {member: "cat", score: 100},
+   {member: "dog", score: 95},
+   {member: "elephant", score: 97}
+ );
+ const updatedScore : number = await context.redis.zIncrBy("animals", "dog", 10);
+ console.log("Dog's updated score: " + updatedScore);
 }
 ```
 
----
+***
 
 <a id="zrange"></a>
 
@@ -1827,29 +1793,23 @@ options
 
 ```ts
 async function zRangeExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'leaderboard',
-    { member: 'louis', score: 37 },
-    { member: 'fernando', score: 10 },
-    { member: 'caesar', score: 20 },
-    { member: 'alexander', score: 25 }
-  );
+ await context.redis.zAdd("leaderboard",
+   {member: "louis", score: 37},
+   {member: "fernando", score: 10},
+   {member: "caesar", score: 20},
+   {member: "alexander", score: 25},
+ );
 
-  // View elements with scores between 0 and 30 inclusive, sorted by score
-  const scores: { member: string; score: number }[] = await context.redis.zRange(
-    'leaderboard',
-    0,
-    30,
-    { by: 'score' }
-  );
+ // View elements with scores between 0 and 30 inclusive, sorted by score
+ const scores : {member : string, score : number}[] = await context.redis.zRange("leaderboard", 0, 30, { by: "score" });
 
-  scores.forEach((x) => {
-    console.log('Member: ' + x.member, ', Score: ' + x.score);
-  });
+ scores.forEach(x => {
+   console.log("Member: " + x.member, ", Score: " + x.score);
+ });
 }
 ```
 
----
+***
 
 <a id="zrank"></a>
 
@@ -1890,21 +1850,20 @@ member
 
 ```ts
 async function zRankExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'animals',
-    { member: 'zebra', score: 92 },
-    { member: 'cat', score: 100 },
-    { member: 'dog', score: 95 },
-    { member: 'elephant', score: 97 }
-  );
-  const rank: number | undefined = await context.redis.zRank('animals', 'dog');
-  if (rank !== undefined) {
-    console.log("Dog's rank: " + rank);
-  }
+ await context.redis.zAdd("animals",
+   {member: "zebra", score: 92},
+   {member: "cat", score: 100},
+   {member: "dog", score: 95},
+   {member: "elephant", score: 97}
+ );
+ const rank : number | undefined = await context.redis.zRank("animals", "dog");
+ if(rank !== undefined) {
+   console.log("Dog's rank: " + rank);
+ }
 }
 ```
 
----
+***
 
 <a id="zrem"></a>
 
@@ -1943,22 +1902,18 @@ members
 
 ```ts
 async function zRemExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'leaderboard',
-    { member: 'louis', score: 37 },
-    { member: 'fernando', score: 10 },
-    { member: 'caesar', score: 20 },
-    { member: 'alexander', score: 25 }
-  );
-  const numberOfMembersRemoved: number = await context.redis.zRem('leaderboard', [
-    'fernando',
-    'alexander',
-  ]);
-  console.log('Number of members removed: ' + numberOfMembersRemoved);
+ await context.redis.zAdd("leaderboard",
+   {member: "louis", score: 37},
+   {member: "fernando", score: 10},
+   {member: "caesar", score: 20},
+   {member: "alexander", score: 25},
+ );
+ const numberOfMembersRemoved : number = await context.redis.zRem("leaderboard", ["fernando", "alexander"]);
+ console.log("Number of members removed: " + numberOfMembersRemoved);
 }
 ```
 
----
+***
 
 <a id="zremrangebylex"></a>
 
@@ -2006,23 +1961,22 @@ max
 
 ```ts
 async function zRemRangeByLexExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'fruits',
-    { member: 'kiwi', score: 0 },
-    { member: 'mango', score: 0 },
-    { member: 'banana', score: 0 },
-    { member: 'orange', score: 0 },
-    { member: 'apple', score: 0 }
-  );
+ await context.redis.zAdd("fruits",
+   {member: "kiwi", score: 0},
+   {member: "mango", score: 0},
+   {member: "banana", score: 0},
+   {member: "orange", score: 0},
+   {member: "apple", score: 0},
+ );
 
-  // Remove fruits alphabetically ordered between 'kiwi' inclusive and 'orange' exclusive
-  // Note: The symbols '[' and '(' indicate inclusive or exclusive, respectively. These must be included in the call to zRemRangeByLex().
-  const numFieldsRemoved: number = await context.redis.zRemRangeByLex('fruits', '[kiwi', '(orange');
-  console.log('Number of fields removed: ' + numFieldsRemoved);
+ // Remove fruits alphabetically ordered between 'kiwi' inclusive and 'orange' exclusive
+ // Note: The symbols '[' and '(' indicate inclusive or exclusive, respectively. These must be included in the call to zRemRangeByLex().
+ const numFieldsRemoved : number = await context.redis.zRemRangeByLex("fruits", "[kiwi", "(orange");
+ console.log("Number of fields removed: " + numFieldsRemoved);
 }
 ```
 
----
+***
 
 <a id="zremrangebyrank"></a>
 
@@ -2069,10 +2023,10 @@ stop
 
 ```
 async function zRemRangeByRankExample(context: Devvit.Context) {
- await context.redis.zAdd("fruits",
+ await context.redis.zAdd("fruits", 
    {member: "kiwi", score: 10},
    {member: "mango", score: 20},
-   {member: "banana", score: 30},
+   {member: "banana", score: 30}, 
    {member: "orange", score: 40},
    {member: "apple", score: 50},
  );
@@ -2083,7 +2037,7 @@ async function zRemRangeByRankExample(context: Devvit.Context) {
 }
 ```
 
----
+***
 
 <a id="zremrangebyscore"></a>
 
@@ -2130,21 +2084,20 @@ max
 
 ```ts
 async function zRemRangeByScoreExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'fruits',
-    { member: 'kiwi', score: 10 },
-    { member: 'mango', score: 20 },
-    { member: 'banana', score: 30 },
-    { member: 'orange', score: 40 },
-    { member: 'apple', score: 50 }
-  );
-  // Remove fruits scored between 30 and 50 inclusive
-  const numFieldsRemoved: number = await context.redis.zRemRangeByScore('fruits', 30, 50);
-  console.log('Number of fields removed: ' + numFieldsRemoved);
+ await context.redis.zAdd("fruits",
+   {member: "kiwi", score: 10},
+   {member: "mango", score: 20},
+   {member: "banana", score: 30},
+   {member: "orange", score: 40},
+   {member: "apple", score: 50},
+ );
+ // Remove fruits scored between 30 and 50 inclusive
+ const numFieldsRemoved : number = await context.redis.zRemRangeByScore("fruits", 30, 50);
+ console.log("Number of fields removed: " + numFieldsRemoved);
 }
 ```
 
----
+***
 
 <a id="zscan"></a>
 
@@ -2196,20 +2149,19 @@ count
 
 ```ts
 async function zScanExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'fruits',
-    { member: 'kiwi', score: 0 },
-    { member: 'mango', score: 0 },
-    { member: 'banana', score: 0 },
-    { member: 'orange', score: 0 },
-    { member: 'apple', score: 0 }
-  );
-  const zScanResponse = await context.redis.zScan('fruits', 0);
-  console.log('zScanResponse: ' + JSON.stringify(zScanResponse));
+ await context.redis.zAdd("fruits",
+   {member: "kiwi", score: 0},
+   {member: "mango", score: 0},
+   {member: "banana", score: 0},
+   {member: "orange", score: 0},
+   {member: "apple", score: 0},
+ );
+ const zScanResponse = await context.redis.zScan("fruits", 0);
+ console.log("zScanResponse: " + JSON.stringify(zScanResponse));
 }
 ```
 
----
+***
 
 <a id="zscore"></a>
 
@@ -2248,14 +2200,13 @@ member
 
 ```ts
 async function zScoreExample(context: Devvit.Context) {
-  await context.redis.zAdd(
-    'leaderboard',
-    { member: 'louis', score: 37 },
-    { member: 'fernando', score: 10 },
-    { member: 'caesar', score: 20 },
-    { member: 'alexander', score: 25 }
-  );
-  const score: number = await context.redis.zScore('leaderboard', 'caesar');
-  console.log("Caesar's score: " + score);
+ await context.redis.zAdd("leaderboard",
+   {member: "louis", score: 37},
+   {member: "fernando", score: 10},
+   {member: "caesar", score: 20},
+   {member: "alexander", score: 25},
+ );
+ const score : number = await context.redis.zScore("leaderboard", "caesar");
+ console.log("Caesar's score: " + score);
 }
 ```

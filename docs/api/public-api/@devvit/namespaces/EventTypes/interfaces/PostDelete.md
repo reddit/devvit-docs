@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../../../README.md)
 
----
+***
 
 # Interface: PostDelete
 
@@ -12,7 +12,7 @@
 
 > `optional` **author**: `UserV2`
 
----
+***
 
 <a id="createdat"></a>
 
@@ -20,7 +20,7 @@
 
 > `optional` **createdAt**: `Date`
 
----
+***
 
 <a id="deletedat"></a>
 
@@ -28,7 +28,7 @@
 
 > `optional` **deletedAt**: `Date`
 
----
+***
 
 <a id="postid"></a>
 
@@ -36,7 +36,7 @@
 
 > **postId**: `string`
 
----
+***
 
 <a id="reason"></a>
 
@@ -44,7 +44,7 @@
 
 > **reason**: [`DeletionReason`](../../../../enumerations/DeletionReason.md)
 
----
+***
 
 <a id="source"></a>
 
@@ -52,7 +52,7 @@
 
 > **source**: [`EventSource`](../../../../enumerations/EventSource.md)
 
----
+***
 
 <a id="subreddit"></a>
 

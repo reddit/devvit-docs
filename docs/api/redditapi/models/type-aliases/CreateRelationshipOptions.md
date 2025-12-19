@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: CreateRelationshipOptions
 
@@ -16,7 +16,7 @@
 
 The ID of the post or comment that caused the ban.
 
----
+***
 
 <a id="banmessage"></a>
 
@@ -24,7 +24,7 @@ The ID of the post or comment that caused the ban.
 
 > `optional` **banMessage**: `string`
 
----
+***
 
 <a id="banreason"></a>
 
@@ -32,7 +32,7 @@ The ID of the post or comment that caused the ban.
 
 > `optional` **banReason**: `string`
 
----
+***
 
 <a id="duration"></a>
 
@@ -40,7 +40,7 @@ The ID of the post or comment that caused the ban.
 
 > `optional` **duration**: `number`
 
----
+***
 
 <a id="note"></a>
 
@@ -48,7 +48,7 @@ The ID of the post or comment that caused the ban.
 
 > `optional` **note**: `string`
 
----
+***
 
 <a id="permissions"></a>
 
@@ -56,7 +56,7 @@ The ID of the post or comment that caused the ban.
 
 > `optional` **permissions**: [`ModeratorPermission`](ModeratorPermission.md)[]
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -64,7 +64,7 @@ The ID of the post or comment that caused the ban.
 
 > **subredditName**: `string`
 
----
+***
 
 <a id="type"></a>
 
@@ -72,7 +72,7 @@ The ID of the post or comment that caused the ban.
 
 > **type**: [`RelationshipType`](RelationshipType.md)
 
----
+***
 
 <a id="username"></a>
 

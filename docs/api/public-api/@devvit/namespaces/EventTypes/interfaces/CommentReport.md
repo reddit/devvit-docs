@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../../../README.md)
 
----
+***
 
 # Interface: CommentReport
 
@@ -12,7 +12,7 @@
 
 > `optional` **comment**: `CommentV2`
 
----
+***
 
 <a id="reason"></a>
 
@@ -20,7 +20,7 @@
 
 > **reason**: `string`
 
----
+***
 
 <a id="subreddit"></a>
 

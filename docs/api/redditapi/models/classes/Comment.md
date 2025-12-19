@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: Comment
 
@@ -18,7 +18,7 @@
 
 `boolean`
 
----
+***
 
 <a id="approvedatutc"></a>
 
@@ -34,7 +34,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `number`
 
----
+***
 
 <a id="authorflair"></a>
 
@@ -48,7 +48,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
 
----
+***
 
 <a id="authorid"></a>
 
@@ -62,7 +62,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `undefined` \| `` `t2_${string}` ``
 
----
+***
 
 <a id="authorname"></a>
 
@@ -76,7 +76,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `string`
 
----
+***
 
 <a id="bannedatutc"></a>
 
@@ -90,7 +90,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `number`
 
----
+***
 
 <a id="body"></a>
 
@@ -104,7 +104,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `string`
 
----
+***
 
 <a id="collapsedbecausecrowdcontrol"></a>
 
@@ -118,7 +118,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `boolean`
 
----
+***
 
 <a id="createdat"></a>
 
@@ -132,7 +132,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `Date`
 
----
+***
 
 <a id="distinguishedby"></a>
 
@@ -146,7 +146,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `undefined` \| `string`
 
----
+***
 
 <a id="edited"></a>
 
@@ -160,7 +160,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `boolean`
 
----
+***
 
 <a id="id"></a>
 
@@ -174,7 +174,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `` `t1_${string}` ``
 
----
+***
 
 <a id="ignoringreports"></a>
 
@@ -188,7 +188,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `boolean`
 
----
+***
 
 <a id="locked"></a>
 
@@ -202,7 +202,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `boolean`
 
----
+***
 
 <a id="modreportreasons"></a>
 
@@ -216,7 +216,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `string`[]
 
----
+***
 
 <a id="numreports"></a>
 
@@ -230,7 +230,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `number`
 
----
+***
 
 <a id="parentid"></a>
 
@@ -244,7 +244,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `` `t1_${string}` `` \| `` `t3_${string}` ``
 
----
+***
 
 <a id="permalink"></a>
 
@@ -258,7 +258,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `string`
 
----
+***
 
 <a id="postid"></a>
 
@@ -272,7 +272,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `` `t3_${string}` ``
 
----
+***
 
 <a id="removed"></a>
 
@@ -286,7 +286,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `boolean`
 
----
+***
 
 <a id="replies"></a>
 
@@ -300,7 +300,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 [`Listing`](Listing.md)\<`Comment`\>
 
----
+***
 
 <a id="score"></a>
 
@@ -314,7 +314,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `number`
 
----
+***
 
 <a id="spam"></a>
 
@@ -328,7 +328,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `boolean`
 
----
+***
 
 <a id="stickied"></a>
 
@@ -342,7 +342,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `boolean`
 
----
+***
 
 <a id="subredditid"></a>
 
@@ -356,7 +356,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `` `t5_${string}` ``
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -370,7 +370,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `string`
 
----
+***
 
 <a id="url"></a>
 
@@ -384,7 +384,7 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 `string`
 
----
+***
 
 <a id="userreportreasons"></a>
 
@@ -428,7 +428,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="approve"></a>
 
@@ -440,7 +440,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="delete"></a>
 
@@ -452,7 +452,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="distinguish"></a>
 
@@ -470,7 +470,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="distinguishasadmin"></a>
 
@@ -488,7 +488,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="edit"></a>
 
@@ -506,7 +506,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`Comment`\>
 
----
+***
 
 <a id="getauthor"></a>
 
@@ -518,7 +518,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`undefined` \| [`User`](User.md)\>
 
----
+***
 
 <a id="ignorereports"></a>
 
@@ -530,7 +530,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="isapproved"></a>
 
@@ -542,7 +542,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `boolean`
 
----
+***
 
 <a id="isdistinguished"></a>
 
@@ -554,7 +554,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `boolean`
 
----
+***
 
 <a id="isedited"></a>
 
@@ -566,7 +566,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `boolean`
 
----
+***
 
 <a id="isignoringreports"></a>
 
@@ -578,7 +578,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `boolean`
 
----
+***
 
 <a id="islocked"></a>
 
@@ -590,7 +590,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `boolean`
 
----
+***
 
 <a id="isremoved"></a>
 
@@ -602,7 +602,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `boolean`
 
----
+***
 
 <a id="isspam"></a>
 
@@ -614,7 +614,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `boolean`
 
----
+***
 
 <a id="isstickied"></a>
 
@@ -626,7 +626,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `boolean`
 
----
+***
 
 <a id="lock"></a>
 
@@ -638,7 +638,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="remove"></a>
 
@@ -656,7 +656,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="reply"></a>
 
@@ -674,7 +674,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`Comment`\>
 
----
+***
 
 <a id="tojson"></a>
 
@@ -686,7 +686,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"score"` \| `"subredditId"` \| `"postId"` \| `"url"` \| `"createdAt"` \| `"permalink"` \| `"authorName"` \| `"body"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
----
+***
 
 <a id="undistinguish"></a>
 
@@ -698,7 +698,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unignorereports"></a>
 
@@ -710,7 +710,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unlock"></a>
 

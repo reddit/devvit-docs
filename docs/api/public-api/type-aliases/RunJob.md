@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: RunJob()\<Data\>
 
@@ -12,7 +12,7 @@ Schedule a new job to run at a specific time or on a cron schedule
 
 ### Data
 
-`Data` _extends_ [`JSONObject`](JSONObject.md) \| `undefined`
+`Data` *extends* [`JSONObject`](JSONObject.md) \| `undefined`
 
 ## Parameters
 

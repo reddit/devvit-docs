@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: GetUserOverviewOptions
 
@@ -14,7 +14,7 @@
 
 > `optional` **after**: `string`
 
----
+***
 
 <a id="before"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **before**: `string`
 
----
+***
 
 <a id="limit"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **limit**: `number`
 
----
+***
 
 <a id="pagesize"></a>
 
@@ -38,7 +38,7 @@
 
 > `optional` **pageSize**: `number`
 
----
+***
 
 <a id="sort"></a>
 
@@ -46,7 +46,7 @@
 
 > `optional` **sort**: `"hot"` \| `"new"` \| `"top"` \| `"controversial"`
 
----
+***
 
 <a id="timeframe"></a>
 
@@ -54,7 +54,7 @@
 
 > `optional` **timeframe**: `"hour"` \| `"day"` \| `"week"` \| `"month"` \| `"year"` \| `"all"`
 
----
+***
 
 <a id="username"></a>
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: BlockElement
 
@@ -14,7 +14,7 @@
 
 > **children**: `JSX.Element`[]
 
----
+***
 
 <a id="props"></a>
 
@@ -22,7 +22,7 @@
 
 > **props**: \{\} \| `undefined`
 
----
+***
 
 <a id="type"></a>
 

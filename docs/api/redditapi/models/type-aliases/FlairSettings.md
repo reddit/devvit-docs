@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: FlairSettings
 
@@ -14,7 +14,7 @@
 
 > **enabled**: `boolean`
 
----
+***
 
 <a id="userflairbackgroundcolor"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **userFlairBackgroundColor**: `string`
 
----
+***
 
 <a id="userflairtextcolor"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **userFlairTextColor**: `string`
 
----
+***
 
 <a id="userscanassign"></a>
 

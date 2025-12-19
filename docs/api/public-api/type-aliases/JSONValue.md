@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: JSONValue
 
@@ -15,5 +15,5 @@ represented losslessly in plain JSON.
 
 ## See
 
-- https://github.com/microsoft/TypeScript/issues/1897
-- https://www.json.org
+ - https://github.com/microsoft/TypeScript/issues/1897
+ - https://www.json.org

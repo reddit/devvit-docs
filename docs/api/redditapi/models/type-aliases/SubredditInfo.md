@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: SubredditInfo
 
@@ -16,7 +16,7 @@ A class representing information about a Subreddit.
 
 > `optional` **activeCount**: `number`
 
----
+***
 
 <a id="allallowedposttypes"></a>
 
@@ -24,7 +24,7 @@ A class representing information about a Subreddit.
 
 > `optional` **allAllowedPostTypes**: [`PostType`](PostType.md)[]
 
----
+***
 
 <a id="allowedmediaincomments"></a>
 
@@ -32,7 +32,7 @@ A class representing information about a Subreddit.
 
 > `optional` **allowedMediaInComments**: [`CommentMediaTypes`](CommentMediaTypes.md)[]
 
----
+***
 
 <a id="allowedpostcapabilities"></a>
 
@@ -40,7 +40,7 @@ A class representing information about a Subreddit.
 
 > `optional` **allowedPostCapabilities**: [`PostCapabilities`](PostCapabilities.md)[]
 
----
+***
 
 <a id="authorflairsettings"></a>
 
@@ -48,7 +48,7 @@ A class representing information about a Subreddit.
 
 > `optional` **authorFlairSettings**: [`AuthorFlairSettings`](../classes/AuthorFlairSettings.md)
 
----
+***
 
 <a id="createdat"></a>
 
@@ -56,7 +56,7 @@ A class representing information about a Subreddit.
 
 > `optional` **createdAt**: `Date`
 
----
+***
 
 <a id="description"></a>
 
@@ -64,7 +64,7 @@ A class representing information about a Subreddit.
 
 > `optional` **description**: [`SubredditDescription`](../classes/SubredditDescription.md)
 
----
+***
 
 <a id="detectedlanguage"></a>
 
@@ -72,7 +72,7 @@ A class representing information about a Subreddit.
 
 > `optional` **detectedLanguage**: `string`
 
----
+***
 
 <a id="id"></a>
 
@@ -80,7 +80,7 @@ A class representing information about a Subreddit.
 
 > `optional` **id**: `T5ID`
 
----
+***
 
 <a id="isarchivepostsenabled"></a>
 
@@ -88,7 +88,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isArchivePostsEnabled**: `boolean`
 
----
+***
 
 <a id="ischatpostcreationallowed"></a>
 
@@ -96,7 +96,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isChatPostCreationAllowed**: `boolean`
 
----
+***
 
 <a id="ischatpostfeatureenabled"></a>
 
@@ -104,7 +104,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isChatPostFeatureEnabled**: `boolean`
 
----
+***
 
 <a id="iscommentingrestricted"></a>
 
@@ -112,7 +112,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isCommentingRestricted**: `boolean`
 
----
+***
 
 <a id="iscrosspostingallowed"></a>
 
@@ -120,7 +120,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isCrosspostingAllowed**: `boolean`
 
----
+***
 
 <a id="isdiscoveryallowed"></a>
 
@@ -128,7 +128,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isDiscoveryAllowed**: `boolean`
 
----
+***
 
 <a id="isemojisenabled"></a>
 
@@ -136,7 +136,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isEmojisEnabled**: `boolean`
 
----
+***
 
 <a id="isnsfw"></a>
 
@@ -144,7 +144,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isNsfw**: `boolean`
 
----
+***
 
 <a id="ispostingrestricted"></a>
 
@@ -152,7 +152,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isPostingRestricted**: `boolean`
 
----
+***
 
 <a id="ispredictionallowed"></a>
 
@@ -160,7 +160,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isPredictionAllowed**: `boolean`
 
----
+***
 
 <a id="ispredictioncontributorsallowed"></a>
 
@@ -168,7 +168,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isPredictionContributorsAllowed**: `boolean`
 
----
+***
 
 <a id="ispredictionstournamentallowed"></a>
 
@@ -176,7 +176,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isPredictionsTournamentAllowed**: `boolean`
 
----
+***
 
 <a id="isquarantined"></a>
 
@@ -184,7 +184,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isQuarantined**: `boolean`
 
----
+***
 
 <a id="isspoileravailable"></a>
 
@@ -192,7 +192,7 @@ A class representing information about a Subreddit.
 
 > `optional` **isSpoilerAvailable**: `boolean`
 
----
+***
 
 <a id="name"></a>
 
@@ -200,7 +200,7 @@ A class representing information about a Subreddit.
 
 > `optional` **name**: `string`
 
----
+***
 
 <a id="postflairsettings"></a>
 
@@ -208,7 +208,7 @@ A class representing information about a Subreddit.
 
 > `optional` **postFlairSettings**: [`PostFlairSettings`](../classes/PostFlairSettings.md)
 
----
+***
 
 <a id="subscriberscount"></a>
 
@@ -216,7 +216,7 @@ A class representing information about a Subreddit.
 
 > `optional` **subscribersCount**: `number`
 
----
+***
 
 <a id="title"></a>
 
@@ -224,7 +224,7 @@ A class representing information about a Subreddit.
 
 > `optional` **title**: `string`
 
----
+***
 
 <a id="type"></a>
 
@@ -232,7 +232,7 @@ A class representing information about a Subreddit.
 
 > `optional` **type**: [`SubredditType`](SubredditType.md)
 
----
+***
 
 <a id="wikisettings"></a>
 

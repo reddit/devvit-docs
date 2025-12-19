@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: SetFlairOptions
 
@@ -16,7 +16,7 @@
 
 The flair background color. Either 'transparent' or a hex color code. e.g. #FFC0CB
 
----
+***
 
 <a id="cssclass"></a>
 
@@ -26,7 +26,7 @@ The flair background color. Either 'transparent' or a hex color code. e.g. #FFC0
 
 The flair CSS class
 
----
+***
 
 <a id="flairtemplateid"></a>
 
@@ -36,7 +36,7 @@ The flair CSS class
 
 The flair template's ID
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -46,7 +46,7 @@ The flair template's ID
 
 The name of the subreddit of the item to set the flair on
 
----
+***
 
 <a id="text"></a>
 
@@ -56,7 +56,7 @@ The name of the subreddit of the item to set the flair on
 
 The flair text
 
----
+***
 
 <a id="textcolor"></a>
 

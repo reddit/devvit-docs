@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Enumeration: ModMailConversationState
 
@@ -12,7 +12,7 @@
 
 > **Appeals**: `"Appeals"`
 
----
+***
 
 <a id="archived"></a>
 
@@ -20,7 +20,7 @@
 
 > **Archived**: `"Archived"`
 
----
+***
 
 <a id="filtered"></a>
 
@@ -28,7 +28,7 @@
 
 > **Filtered**: `"Filtered"`
 
----
+***
 
 <a id="inprogress"></a>
 
@@ -36,7 +36,7 @@
 
 > **InProgress**: `"InProgress"`
 
----
+***
 
 <a id="joinrequests"></a>
 
@@ -44,7 +44,7 @@
 
 > **JoinRequests**: `"JoinRequests"`
 
----
+***
 
 <a id="new"></a>
 

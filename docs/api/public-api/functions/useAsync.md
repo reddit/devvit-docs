@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Function: useAsync()
 
@@ -12,7 +12,7 @@ This is the preferred way to handle async state in Devvit.
 
 ### S
 
-`S` _extends_ [`JSONValue`](../type-aliases/JSONValue.md)
+`S` *extends* [`JSONValue`](../type-aliases/JSONValue.md)
 
 ## Parameters
 

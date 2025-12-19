@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: UserFlair
 
@@ -16,7 +16,7 @@
 
 The CSS class applied to this flair in the UI.
 
----
+***
 
 <a id="flairtext"></a>
 
@@ -26,7 +26,7 @@ The CSS class applied to this flair in the UI.
 
 The text displayed in the UI for this flair.
 
----
+***
 
 <a id="user"></a>
 

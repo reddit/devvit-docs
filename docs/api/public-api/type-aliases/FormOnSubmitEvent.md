@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: FormOnSubmitEvent\<T\>
 
@@ -10,7 +10,7 @@
 
 ### T
 
-`T` _extends_ `Partial`\<[`JSONObject`](JSONObject.md)\>
+`T` *extends* `Partial`\<[`JSONObject`](JSONObject.md)\>
 
 ## Properties
 

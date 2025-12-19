@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: FormOnSubmitEventHandler()\<Data\>
 
@@ -10,7 +10,7 @@
 
 ### Data
 
-`Data` _extends_ `Partial`\<[`JSONObject`](JSONObject.md)\>
+`Data` *extends* `Partial`\<[`JSONObject`](JSONObject.md)\>
 
 ## Parameters
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../../../README.md)
 
----
+***
 
 # Interface: PostUpdate
 
@@ -12,7 +12,7 @@
 
 > `optional` **author**: `UserV2`
 
----
+***
 
 <a id="post"></a>
 
@@ -20,7 +20,7 @@
 
 > `optional` **post**: `PostV2`
 
----
+***
 
 <a id="previousbody"></a>
 
@@ -28,7 +28,7 @@
 
 > **previousBody**: `string`
 
----
+***
 
 <a id="subreddit"></a>
 

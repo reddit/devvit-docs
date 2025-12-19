@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: KVStore
 
@@ -26,7 +26,7 @@ Deletes a key from the store if present
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="get"></a>
 
@@ -40,7 +40,7 @@ Retrieves a value from the store at the given key
 
 ##### T
 
-`T` _extends_ [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
+`T` *extends* [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
 
 #### Parameters
 
@@ -52,7 +52,7 @@ Retrieves a value from the store at the given key
 
 `Promise`\<`undefined` \| `T`\>
 
----
+***
 
 <a id="list"></a>
 
@@ -66,7 +66,7 @@ Returns a list of keys in the store
 
 `Promise`\<`string`[]\>
 
----
+***
 
 <a id="put"></a>
 

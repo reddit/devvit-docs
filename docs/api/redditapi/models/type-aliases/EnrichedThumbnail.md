@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: EnrichedThumbnail
 
@@ -18,7 +18,7 @@ Contains data about a post's thumbnail. Also contains a blurred version if the t
 
 Attribution text for the thumbnail
 
----
+***
 
 <a id="image"></a>
 
@@ -40,7 +40,7 @@ The image used for the thumbnail. May have different resolution from Post.thumbn
 
 > **width**: `number`
 
----
+***
 
 <a id="isobfuscateddefault"></a>
 
@@ -50,7 +50,7 @@ The image used for the thumbnail. May have different resolution from Post.thumbn
 
 Whether this thumbnail appears blurred by default
 
----
+***
 
 <a id="obfuscatedimage"></a>
 

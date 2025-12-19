@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: Configuration
 
@@ -16,7 +16,7 @@
 
 Allows your app to use the HTTP/Fetch API
 
----
+***
 
 <a id="kvstore"></a>
 
@@ -26,7 +26,7 @@ Allows your app to use the HTTP/Fetch API
 
 Allows your app to use the Key-Value Store
 
----
+***
 
 <a id="media"></a>
 
@@ -36,7 +36,7 @@ Allows your app to use the Key-Value Store
 
 Allows media uploads from apps
 
----
+***
 
 <a id="modlog"></a>
 
@@ -46,7 +46,7 @@ Allows media uploads from apps
 
 Allows using ModLog API
 
----
+***
 
 <a id="realtime"></a>
 
@@ -56,7 +56,7 @@ Allows using ModLog API
 
 Allows your app to use the Realtime Plugin
 
----
+***
 
 <a id="redditapi"></a>
 
@@ -66,7 +66,7 @@ Allows your app to use the Realtime Plugin
 
 Allows your app to use the reddit API
 
----
+***
 
 <a id="redis"></a>
 
@@ -76,7 +76,7 @@ Allows your app to use the reddit API
 
 Allows your app to use the Redis Plugin
 
----
+***
 
 <a id="useractions"></a>
 

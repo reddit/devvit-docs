@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../../../../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../../../../../README.md)
 
----
+***
 
 # Interface: IntrinsicElements
 
@@ -12,7 +12,7 @@
 
 > **avatar**: [`AvatarProps`](../type-aliases/AvatarProps.md)
 
----
+***
 
 <a id="blocks"></a>
 
@@ -20,7 +20,7 @@
 
 > **blocks**: [`RootProps`](../type-aliases/RootProps.md)
 
----
+***
 
 <a id="button"></a>
 
@@ -28,7 +28,7 @@
 
 > **button**: [`ButtonProps`](../type-aliases/ButtonProps.md)
 
----
+***
 
 <a id="hstack"></a>
 
@@ -36,7 +36,7 @@
 
 > **hstack**: [`StackProps`](../type-aliases/StackProps.md)
 
----
+***
 
 <a id="icon"></a>
 
@@ -44,7 +44,7 @@
 
 > **icon**: [`IconProps`](../type-aliases/IconProps.md)
 
----
+***
 
 <a id="image"></a>
 
@@ -52,7 +52,7 @@
 
 > **image**: [`ImageProps`](../type-aliases/ImageProps.md)
 
----
+***
 
 <a id="spacer"></a>
 
@@ -60,7 +60,7 @@
 
 > **spacer**: [`SpacerProps`](../type-aliases/SpacerProps.md)
 
----
+***
 
 <a id="text"></a>
 
@@ -68,7 +68,7 @@
 
 > **text**: [`TextProps`](../type-aliases/TextProps.md)
 
----
+***
 
 <a id="vstack"></a>
 
@@ -76,7 +76,7 @@
 
 > **vstack**: [`StackProps`](../type-aliases/StackProps.md)
 
----
+***
 
 <a id="webview"></a>
 
@@ -84,7 +84,7 @@
 
 > **webview**: [`WebViewProps`](../type-aliases/WebViewProps.md)
 
----
+***
 
 <a id="zstack"></a>
 

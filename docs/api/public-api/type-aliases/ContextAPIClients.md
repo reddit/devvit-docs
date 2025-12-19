@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: ContextAPIClients
 
@@ -16,7 +16,7 @@
 
 A client for resolving static assets to public URLs
 
----
+***
 
 <a id="cache"></a>
 
@@ -52,7 +52,7 @@ let component = (context) => {
 }
 ```
 
----
+***
 
 <a id="dimensions"></a>
 
@@ -65,7 +65,7 @@ let component = (context) => {
 Information about about a custom post's layout. Will be undefined
 for non custom post surface areas such as menu items and task schedulers.
 
----
+***
 
 <a id="kvstore"></a>
 
@@ -75,7 +75,7 @@ for non custom post surface areas such as menu items and task schedulers.
 
 A client for the Key Value Store
 
----
+***
 
 <a id="media"></a>
 
@@ -85,7 +85,7 @@ A client for the Key Value Store
 
 A client for media API
 
----
+***
 
 <a id="modlog"></a>
 
@@ -95,7 +95,7 @@ A client for media API
 
 A client for the ModLog API
 
----
+***
 
 <a id="realtime"></a>
 
@@ -105,7 +105,7 @@ A client for the ModLog API
 
 A client for Realtime API
 
----
+***
 
 <a id="reddit"></a>
 
@@ -115,7 +115,7 @@ A client for Realtime API
 
 A client for the Reddit API
 
----
+***
 
 <a id="redis"></a>
 
@@ -125,7 +125,7 @@ A client for the Reddit API
 
 A client for the Redis API
 
----
+***
 
 <a id="scheduler"></a>
 
@@ -135,7 +135,7 @@ A client for the Redis API
 
 A client for the Scheduler API
 
----
+***
 
 <a id="settings"></a>
 
@@ -145,7 +145,7 @@ A client for the Scheduler API
 
 A client for the Settings API
 
----
+***
 
 <a id="ui"></a>
 
@@ -155,7 +155,7 @@ A client for the Settings API
 
 A client for the User Interface API
 
----
+***
 
 <a id="uienvironment"></a>
 
@@ -168,7 +168,7 @@ A client for the User Interface API
 Additional information about client environment.
 Will be undefined for non-ui contexts such as task schedulers or triggers.
 
----
+***
 
 <a id="usechannel"></a>
 
@@ -183,7 +183,7 @@ This is only available within a Block Component.
 
 ##### Message
 
-`Message` _extends_ [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
+`Message` *extends* [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
 
 #### Parameters
 
@@ -198,7 +198,6 @@ This is only available within a Block Component.
 #### Deprecated
 
 Using hooks from context is deprecated and will be removed in a future release. Import and use hooks directly from the public-api.
-
 ```ts
 // Old:
 const channel = context.useChannel(...);
@@ -209,7 +208,7 @@ import { useChannel } from '@devvit/public-api'
 const channel = useChannel(...);
 ```
 
----
+***
 
 <a id="useform"></a>
 
@@ -224,7 +223,7 @@ This is only available within a Block Component.
 
 ##### T
 
-`T` _extends_ [`Form`](Form.md) \| [`FormFunction`](FormFunction.md) = [`Form`](Form.md) \| [`FormFunction`](FormFunction.md)
+`T` *extends* [`Form`](Form.md) \| [`FormFunction`](FormFunction.md) = [`Form`](Form.md) \| [`FormFunction`](FormFunction.md)
 
 #### Parameters
 
@@ -243,7 +242,6 @@ This is only available within a Block Component.
 #### Deprecated
 
 Using hooks from context is deprecated and will be removed in a future release. Import and use hooks directly from the public-api.
-
 ```ts
 // Old:
 const myForm = context.useForm(...);
@@ -254,7 +252,7 @@ import { useForm } from '@devvit/public-api'
 const myForm = useForm(...);
 ```
 
----
+***
 
 <a id="useinterval"></a>
 
@@ -268,13 +266,12 @@ This is only available within a Block Component.
 #### Deprecated
 
 Using hooks from context is deprecated and will be removed in a future release. Import and use hooks directly from the public-api.
-
 ```ts
 // Old:
 const interval = context.useInterval(() => {}, 1000);
 
 // New:
-import { useInterval } from '@devvit/public-api';
+import { useInterval } from '@devvit/public-api'
 
 const interval = useInterval(() => {}, 1000);
 ```
@@ -296,7 +293,7 @@ a function to update it.
 ```ts
 const [counter, setCounter] = useState(0);
 setCounter(1); // counter = 1
-setCounter((count) => count + 1); // counter = 2
+setCounter((count) => count + 1) // counter = 2
 ```
 
 ##### Parameters
@@ -312,13 +309,12 @@ setCounter((count) => count + 1); // counter = 2
 ##### Deprecated
 
 Using hooks from context is deprecated and will be removed in a future release. Import and use hooks directly from the public-api.
-
 ```ts
 // Old:
 const [counter, setCounter] = context.useState(0);
 
 // New:
-import { useState } from '@devvit/public-api';
+import { useState } from '@devvit/public-api'
 
 const [counter, setCounter] = useState(0);
 ```
@@ -334,7 +330,7 @@ a function to update it.
 ```ts
 const [counter, setCounter] = useState(0);
 setCounter(1); // counter = 1
-setCounter((count) => count + 1); // counter = 2
+setCounter((count) => count + 1) // counter = 2
 ```
 
 ##### Parameters
@@ -350,13 +346,12 @@ setCounter((count) => count + 1); // counter = 2
 ##### Deprecated
 
 Using hooks from context is deprecated and will be removed in a future release. Import and use hooks directly from the public-api.
-
 ```ts
 // Old:
 const [counter, setCounter] = context.useState(0);
 
 // New:
-import { useState } from '@devvit/public-api';
+import { useState } from '@devvit/public-api'
 
 const [counter, setCounter] = useState(0);
 ```
@@ -372,7 +367,7 @@ a function to update it.
 ```ts
 const [counter, setCounter] = useState(0);
 setCounter(1); // counter = 1
-setCounter((count) => count + 1); // counter = 2
+setCounter((count) => count + 1) // counter = 2
 ```
 
 ##### Parameters
@@ -388,13 +383,12 @@ setCounter((count) => count + 1); // counter = 2
 ##### Deprecated
 
 Using hooks from context is deprecated and will be removed in a future release. Import and use hooks directly from the public-api.
-
 ```ts
 // Old:
 const [counter, setCounter] = context.useState(0);
 
 // New:
-import { useState } from '@devvit/public-api';
+import { useState } from '@devvit/public-api'
 
 const [counter, setCounter] = useState(0);
 ```
@@ -410,14 +404,14 @@ a function to update it.
 ```ts
 const [counter, setCounter] = useState(0);
 setCounter(1); // counter = 1
-setCounter((count) => count + 1); // counter = 2
+setCounter((count) => count + 1) // counter = 2
 ```
 
 ##### Type Parameters
 
 ###### S
 
-`S` _extends_ `undefined` \| `void` \| [`JSONValue`](JSONValue.md)
+`S` *extends* `undefined` \| `void` \| [`JSONValue`](JSONValue.md)
 
 ##### Parameters
 
@@ -430,19 +424,18 @@ a function to update it.
 ```ts
 const [counter, setCounter] = useState(0);
 setCounter(1); // counter = 1
-setCounter((count) => count + 1); // counter = 2
+setCounter((count) => count + 1) // counter = 2
 ```
 
 **Deprecated**
 
 Using hooks from context is deprecated and will be removed in a future release. Import and use hooks directly from the public-api.
-
 ```ts
 // Old:
 const [counter, setCounter] = context.useState(0);
 
 // New:
-import { useState } from '@devvit/public-api';
+import { useState } from '@devvit/public-api'
 
 const [counter, setCounter] = useState(0);
 ```
@@ -456,13 +449,12 @@ const [counter, setCounter] = useState(0);
 ##### Deprecated
 
 Using hooks from context is deprecated and will be removed in a future release. Import and use hooks directly from the public-api.
-
 ```ts
 // Old:
 const [counter, setCounter] = context.useState(0);
 
 // New:
-import { useState } from '@devvit/public-api';
+import { useState } from '@devvit/public-api'
 
 const [counter, setCounter] = useState(0);
 ```

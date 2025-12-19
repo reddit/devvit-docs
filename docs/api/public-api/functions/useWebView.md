@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Function: useWebView()
 
@@ -12,11 +12,11 @@ Use this hook to handle a web view's visibility state and any messages sent to y
 
 ### From
 
-`From` _extends_ [`JSONValue`](../type-aliases/JSONValue.md) = [`JSONValue`](../type-aliases/JSONValue.md)
+`From` *extends* [`JSONValue`](../type-aliases/JSONValue.md) = [`JSONValue`](../type-aliases/JSONValue.md)
 
 ### To
 
-`To` _extends_ [`JSONValue`](../type-aliases/JSONValue.md) = [`JSONValue`](../type-aliases/JSONValue.md)
+`To` *extends* [`JSONValue`](../type-aliases/JSONValue.md) = [`JSONValue`](../type-aliases/JSONValue.md)
 
 ## Parameters
 

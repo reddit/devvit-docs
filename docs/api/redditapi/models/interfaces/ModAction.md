@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Interface: ModAction
 
@@ -14,7 +14,7 @@
 
 When the action took place.
 
----
+***
 
 <a id="description"></a>
 
@@ -27,7 +27,7 @@ modmail-stats (Wed Jul 02 2025 08:05:47 UTC+0200 (Europe/Amsterdam))" is
 made up of `description` and `details`. The "Page modmail-stats edited" is
 the "description".
 
----
+***
 
 <a id="details"></a>
 
@@ -41,7 +41,7 @@ made up of `description` and `details`. The "Daily update of the
 modmail-stats (Wed Jul 02 2025 08:05:47 UTC+0200 (Europe/Amsterdam))" is
 the "details".
 
----
+***
 
 <a id="id"></a>
 
@@ -52,7 +52,7 @@ the "details".
 A string like `"ModAction_1b1af634-5b87-11f0-a4f1-4ddd27626cc4"`
 identifying the ModAction.
 
----
+***
 
 <a id="moderatorid"></a>
 
@@ -60,9 +60,9 @@ identifying the ModAction.
 
 > **moderatorId**: `string`
 
-The t2\_ id of the moderator.
+The t2_ id of the moderator.
 
----
+***
 
 <a id="moderatorname"></a>
 
@@ -72,7 +72,7 @@ The t2\_ id of the moderator.
 
 The username of the moderator.
 
----
+***
 
 <a id="subredditid"></a>
 
@@ -82,7 +82,7 @@ The username of the moderator.
 
 The ID of the subreddit the action took place.
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -92,7 +92,7 @@ The ID of the subreddit the action took place.
 
 The name of the subreddit the action took place.
 
----
+***
 
 <a id="target"></a>
 
@@ -102,7 +102,7 @@ The name of the subreddit the action took place.
 
 Some context of the affected item of the modaction.
 
----
+***
 
 <a id="type"></a>
 

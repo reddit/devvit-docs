@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: UseWebViewResult\<To\>
 
@@ -10,7 +10,7 @@
 
 ### To
 
-`To` _extends_ [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
+`To` *extends* [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
 
 Message from Devvit Blocks app to web view.
 
@@ -28,7 +28,7 @@ Initiate a request for the web view to open
 
 `void`
 
----
+***
 
 <a id="postmessage"></a>
 
@@ -48,7 +48,7 @@ Send a message to the web view
 
 `void`
 
----
+***
 
 <a id="unmount"></a>
 

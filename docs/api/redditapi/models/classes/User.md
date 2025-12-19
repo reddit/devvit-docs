@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: User
 
@@ -22,7 +22,7 @@ The user's public description about themselves. May be empty.
 
 `string`
 
----
+***
 
 <a id="commentkarma"></a>
 
@@ -38,7 +38,7 @@ The amount of comment karma the user has.
 
 `number`
 
----
+***
 
 <a id="createdat"></a>
 
@@ -54,7 +54,7 @@ The date the user was created.
 
 `Date`
 
----
+***
 
 <a id="displayname"></a>
 
@@ -70,7 +70,7 @@ The display name of the user. May be different from their username.
 
 `string`
 
----
+***
 
 <a id="hasverifiedemail"></a>
 
@@ -86,7 +86,7 @@ Indicates whether or not the user has verified their email address.
 
 `boolean`
 
----
+***
 
 <a id="id"></a>
 
@@ -96,19 +96,19 @@ Indicates whether or not the user has verified their email address.
 
 > **get** **id**(): `` `t2_${string}` ``
 
-The ID (starting with t2\_) of the user to retrieve.
+The ID (starting with t2_) of the user to retrieve.
 
 ##### Example
 
 ```ts
-'t2_1w72';
+'t2_1w72'
 ```
 
 ##### Returns
 
 `` `t2_${string}` ``
 
----
+***
 
 <a id="isadmin"></a>
 
@@ -124,7 +124,7 @@ Whether the user is admin.
 
 `boolean`
 
----
+***
 
 <a id="linkkarma"></a>
 
@@ -140,7 +140,7 @@ The amount of link karma the user has.
 
 `number`
 
----
+***
 
 <a id="modpermissions"></a>
 
@@ -156,7 +156,7 @@ The permissions the user has on the subreddit.
 
 `Map`\<`string`, [`ModeratorPermission`](../type-aliases/ModeratorPermission.md)[]\>
 
----
+***
 
 <a id="nsfw"></a>
 
@@ -172,7 +172,7 @@ Whether the user's profile is marked as NSFW (Not Safe For Work).
 
 `boolean`
 
----
+***
 
 <a id="permalink"></a>
 
@@ -188,7 +188,7 @@ Returns a permalink path relative to https://www.reddit.com
 
 `string`
 
----
+***
 
 <a id="url"></a>
 
@@ -204,7 +204,7 @@ Returns the HTTP URL for the user
 
 `string`
 
----
+***
 
 <a id="username"></a>
 
@@ -219,7 +219,7 @@ The username of the user omitting the u/.
 ##### Example
 
 ```ts
-'spez';
+'spez'
 ```
 
 ##### Returns
@@ -250,7 +250,7 @@ Options for the request
 
 A Listing of Comment objects.
 
----
+***
 
 <a id="getmodpermissionsforsubreddit"></a>
 
@@ -274,7 +274,7 @@ name of the subreddit
 
 the moderator permissions the user has on the subreddit
 
----
+***
 
 <a id="getposts"></a>
 
@@ -298,7 +298,7 @@ Options for the request
 
 A Listing of Post objects.
 
----
+***
 
 <a id="getsnoovatarurl"></a>
 
@@ -310,7 +310,7 @@ A Listing of Post objects.
 
 `Promise`\<`undefined` \| `string`\>
 
----
+***
 
 <a id="getsociallinks"></a>
 
@@ -332,7 +332,7 @@ A Promise that resolves an Array of UserSocialLink objects
 const socialLinks = await user.getSocialLinks();
 ```
 
----
+***
 
 <a id="getuserflairbysubreddit"></a>
 
@@ -357,13 +357,13 @@ The name of the subreddit associated with the user's flair.
 #### Example
 
 ```ts
-const username = 'badapple';
-const subredditName = 'mysubreddit';
+const username = "badapple"
+const subredditName = "mysubreddit"
 const user = await reddit.getUserByUsername(username);
 const userFlair = await user.getUserFlairBySubreddit(subredditName);
 ```
 
----
+***
 
 <a id="getuserkarmafromcurrentsubreddit"></a>
 
@@ -379,7 +379,7 @@ Returns the karma for this User in the current subreddit.
 
 The GetUserKarmaForSubredditResponse, containing the user's karma for comments and posts in the subreddit.
 
----
+***
 
 <a id="tojson"></a>
 

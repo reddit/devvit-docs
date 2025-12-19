@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: AsyncError
 
@@ -14,7 +14,7 @@
 
 > **details**: `string` \| `null`
 
----
+***
 
 <a id="message"></a>
 

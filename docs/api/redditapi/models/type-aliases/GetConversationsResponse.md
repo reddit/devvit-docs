@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: GetConversationsResponse
 
@@ -16,7 +16,7 @@
 
 Array of conversation ids, ordered by the sort parameter specified in [GetConversationsRequest](GetConversationsRequest.md).
 
----
+***
 
 <a id="conversations"></a>
 
@@ -30,7 +30,7 @@ Conversations key-value map
 
 \[`id`: `string`\]: [`ConversationData`](ConversationData.md)
 
----
+***
 
 <a id="viewerid"></a>
 

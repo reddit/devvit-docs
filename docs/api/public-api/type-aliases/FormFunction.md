@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: FormFunction()\<T\>
 
@@ -12,7 +12,7 @@ A function that returns a form. You can use this to dynamically generate a form.
 
 ### T
 
-`T` _extends_ `object` = \{\}
+`T` *extends* `object` = \{\}
 
 ## Parameters
 

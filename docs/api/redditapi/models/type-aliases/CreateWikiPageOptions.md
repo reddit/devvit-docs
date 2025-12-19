@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: CreateWikiPageOptions
 
@@ -16,7 +16,7 @@
 
 The content of the page.
 
----
+***
 
 <a id="page"></a>
 
@@ -26,7 +26,7 @@ The content of the page.
 
 The name of the page to create.
 
----
+***
 
 <a id="reason"></a>
 
@@ -36,7 +36,7 @@ The name of the page to create.
 
 The reason for creating the page.
 
----
+***
 
 <a id="subredditname"></a>
 

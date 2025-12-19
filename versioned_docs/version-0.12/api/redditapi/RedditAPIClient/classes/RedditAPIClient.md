@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.6-dev**](../../README.md)
+[**@devvit/public-api v0.12.7-dev**](../../README.md)
 
 ---
 
@@ -1976,6 +1976,30 @@ The name of the subreddit to get the user flair templates for.
 `Promise`\<[`FlairTemplate`](../../models/classes/FlairTemplate.md)[]\>
 
 A Promise that resolves with an array of FlairTemplate objects.
+
+---
+
+<a id="getuserkarmafromcurrentsubreddit"></a>
+
+### getUserKarmaFromCurrentSubreddit()
+
+> **getUserKarmaFromCurrentSubreddit**(`username`): `Promise`\<`GetUserKarmaForSubredditResponse`\>
+
+Returns the karma for a given user in the current subreddit.
+
+#### Parameters
+
+##### username
+
+`string`
+
+The username of the user to get the karma for. e.g. 'spez'
+
+#### Returns
+
+`Promise`\<`GetUserKarmaForSubredditResponse`\>
+
+The GetUserKarmaForSubredditResponse, containing the user's karma for posts and comments in the subreddit.
 
 ---
 

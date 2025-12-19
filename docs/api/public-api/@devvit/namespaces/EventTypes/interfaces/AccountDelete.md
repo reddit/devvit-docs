@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../../../README.md)
 
----
+***
 
 # Interface: AccountDelete
 
@@ -12,7 +12,7 @@
 
 > `optional` **deletedAt**: `Date`
 
----
+***
 
 <a id="user"></a>
 
@@ -20,7 +20,7 @@
 
 > `optional` **user**: `UserV2`
 
----
+***
 
 <a id="userid"></a>
 

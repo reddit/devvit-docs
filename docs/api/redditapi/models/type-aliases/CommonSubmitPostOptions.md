@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: CommonSubmitPostOptions
 
@@ -14,7 +14,7 @@
 
 > `optional` **flairId**: `string`
 
----
+***
 
 <a id="flairtext"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **flairText**: `string`
 
----
+***
 
 <a id="nsfw"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **nsfw**: `boolean`
 
----
+***
 
 <a id="runas"></a>
 
@@ -38,7 +38,7 @@
 
 > `optional` **runAs**: `"USER"` \| `"APP"`
 
----
+***
 
 <a id="sendreplies"></a>
 
@@ -46,7 +46,7 @@
 
 > `optional` **sendreplies**: `boolean`
 
----
+***
 
 <a id="spoiler"></a>
 
@@ -54,7 +54,7 @@
 
 > `optional` **spoiler**: `boolean`
 
----
+***
 
 <a id="title"></a>
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: MediaPlugin
 
@@ -31,15 +31,17 @@ A Promise that resolves to a MediaAsset object.
 #### Example
 
 ```ts
-const response = await context.media.upload({
-  url: 'https://media2.giphy.com/media/xTiN0CNHgoRf1Ha7CM/giphy.gif',
-  type: 'gif',
-});
-await context.reddit.submitPost({
-  subredditName: subreddit.name,
-  title: 'Hello World with Media',
-  richtext: new RichTextBuilder()
-    .image({ mediaId: response.mediaId })
-    .codeBlock({}, (cb) => cb.rawText('This post was created from a Devvit App')),
-});
+ const response = await context.media.upload({
+   url: "https://media2.giphy.com/media/xTiN0CNHgoRf1Ha7CM/giphy.gif",
+   type: "gif"
+ });
+ await context.reddit.submitPost(
+    {
+      subredditName: subreddit.name,
+      title: 'Hello World with Media',
+      richtext: new RichTextBuilder()
+           .image({mediaId: response.mediaId})
+           .codeBlock({}, (cb) => cb.rawText('This post was created from a Devvit App'))
+    }
+  );
 ```

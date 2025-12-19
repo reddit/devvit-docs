@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: ModLogOptions\<T\>
 
@@ -10,4 +10,4 @@
 
 ### T
 
-`T` _extends_ [`AboutSubredditTypes`](AboutSubredditTypes.md)
+`T` *extends* [`AboutSubredditTypes`](AboutSubredditTypes.md)

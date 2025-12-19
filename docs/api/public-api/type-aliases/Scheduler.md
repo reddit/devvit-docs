@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: Scheduler
 
@@ -23,7 +23,7 @@ Cancel a scheduled job
 
 The id of the job to cancel
 
----
+***
 
 <a id="listjobs"></a>
 
@@ -37,7 +37,7 @@ Gets the list of all scheduled jobs.
 
 `Promise`\<([`ScheduledJob`](ScheduledJob.md) \| [`ScheduledCronJob`](ScheduledCronJob.md))[]\>
 
----
+***
 
 <a id="runjob"></a>
 
@@ -51,7 +51,7 @@ Schedule a new job to run at a specific time or on a cron schedule
 
 ##### Data
 
-`Data` _extends_ [`JSONObject`](JSONObject.md) \| `undefined`
+`Data` *extends* [`JSONObject`](JSONObject.md) \| `undefined`
 
 #### Parameters
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: RedditVideo
 
@@ -18,7 +18,7 @@ Contains the data for a video hosted on Reddit that is in a post
 
 The bitrate of the video in kilobits per second. E.g. 450
 
----
+***
 
 <a id="dashurl"></a>
 
@@ -28,7 +28,7 @@ The bitrate of the video in kilobits per second. E.g. 450
 
 The URL to the DASH playlist file. E.g. "https://v.redd.it/abc123/DASHPlaylist.mpd"
 
----
+***
 
 <a id="duration"></a>
 
@@ -38,7 +38,7 @@ The URL to the DASH playlist file. E.g. "https://v.redd.it/abc123/DASHPlaylist.m
 
 The duration of the video in seconds. E.g. 30
 
----
+***
 
 <a id="fallbackurl"></a>
 
@@ -48,7 +48,7 @@ The duration of the video in seconds. E.g. 30
 
 The direct URL to the video. E.g. "https://v.redd.it/abc123/DASH_1080.mp4?source=fallback"
 
----
+***
 
 <a id="height"></a>
 
@@ -58,7 +58,7 @@ The direct URL to the video. E.g. "https://v.redd.it/abc123/DASH_1080.mp4?source
 
 The height of the video in pixels. E.g. 1080
 
----
+***
 
 <a id="hlsurl"></a>
 
@@ -68,7 +68,7 @@ The height of the video in pixels. E.g. 1080
 
 The URL to the HLS playlist file. E.g. "https://v.redd.it/abc123/HLSPlaylist.m3u8"
 
----
+***
 
 <a id="isgif"></a>
 
@@ -78,7 +78,7 @@ The URL to the HLS playlist file. E.g. "https://v.redd.it/abc123/HLSPlaylist.m3u
 
 If `true`, the video is a GIF
 
----
+***
 
 <a id="scrubbermediaurl"></a>
 
@@ -88,7 +88,7 @@ If `true`, the video is a GIF
 
 The URL to the scrubber media file. E.g. "https://v.redd.it/abc123/DASH_96.mp4"
 
----
+***
 
 <a id="transcodingstatus"></a>
 
@@ -98,7 +98,7 @@ The URL to the scrubber media file. E.g. "https://v.redd.it/abc123/DASH_96.mp4"
 
 The status of the transcoding process. E.g. "completed"
 
----
+***
 
 <a id="width"></a>
 

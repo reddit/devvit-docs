@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.6-dev**](../../README.md)
+[**@devvit/public-api v0.12.7-dev**](../../README.md)
 
 ---
 
@@ -14,6 +14,8 @@
 
 > `optional` **after**: `string`
 
+The ID of the object to start at.
+
 ---
 
 <a id="before"></a>
@@ -22,6 +24,8 @@
 
 > `optional` **before**: `string`
 
+The ID of the object to end at.
+
 ---
 
 <a id="limit"></a>
@@ -29,6 +33,8 @@
 ### limit?
 
 > `optional` **limit**: `number`
+
+The maximum number of objects to get.
 
 ---
 
@@ -45,3 +51,5 @@
 ### pageSize?
 
 > `optional` **pageSize**: `number`
+
+The number of objects to get per request.

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: GetCommentsOptions
 
@@ -14,7 +14,7 @@
 
 > `optional` **commentId**: `string`
 
----
+***
 
 <a id="depth"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **depth**: `number`
 
----
+***
 
 <a id="limit"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **limit**: `number`
 
----
+***
 
 <a id="pagesize"></a>
 
@@ -38,7 +38,7 @@
 
 > `optional` **pageSize**: `number`
 
----
+***
 
 <a id="postid"></a>
 
@@ -46,7 +46,7 @@
 
 > **postId**: `string`
 
----
+***
 
 <a id="sort"></a>
 

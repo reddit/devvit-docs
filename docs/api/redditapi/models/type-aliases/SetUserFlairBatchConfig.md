@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: SetUserFlairBatchConfig
 
@@ -16,7 +16,7 @@
 
 The flair CSS class
 
----
+***
 
 <a id="text"></a>
 
@@ -26,7 +26,7 @@ The flair CSS class
 
 The flair text. Can't contain the comma character (",")
 
----
+***
 
 <a id="username"></a>
 

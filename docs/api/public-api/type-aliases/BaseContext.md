@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: BaseContext
 
@@ -20,7 +20,7 @@ The ID of the current app's account
 
 Use [BaseContext.appName](#appname) instead to get the app's username
 
----
+***
 
 <a id="appname"></a>
 
@@ -30,7 +30,7 @@ Use [BaseContext.appName](#appname) instead to get the app's username
 
 The slug of the app that is running
 
----
+***
 
 <a id="appversion"></a>
 
@@ -40,7 +40,7 @@ The slug of the app that is running
 
 The version of the app that is running
 
----
+***
 
 <a id="commentid"></a>
 
@@ -50,7 +50,7 @@ The version of the app that is running
 
 The ID of the current comment
 
----
+***
 
 <a id="debug"></a>
 
@@ -60,7 +60,7 @@ The ID of the current comment
 
 More useful things, but probably not for the average developer
 
----
+***
 
 <a id="metadata"></a>
 
@@ -70,7 +70,7 @@ More useful things, but probably not for the average developer
 
 Request headers.
 
----
+***
 
 <a id="postdata"></a>
 
@@ -78,7 +78,7 @@ Request headers.
 
 > **postData**: `PostData` \| `undefined`
 
----
+***
 
 <a id="postid"></a>
 
@@ -88,7 +88,7 @@ Request headers.
 
 The ID of the current post
 
----
+***
 
 <a id="snoovatar"></a>
 
@@ -100,7 +100,7 @@ The ID of the current post
 
 The current user's snoovtar URL if logged in
 
----
+***
 
 <a id="subredditid"></a>
 
@@ -110,7 +110,7 @@ The current user's snoovtar URL if logged in
 
 The ID of the current subreddit
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -120,7 +120,7 @@ The ID of the current subreddit
 
 The name of the current subreddit
 
----
+***
 
 <a id="userid"></a>
 
@@ -130,7 +130,7 @@ The name of the current subreddit
 
 The current user's ID if this event was triggered by a logged in user
 
----
+***
 
 <a id="username"></a>
 

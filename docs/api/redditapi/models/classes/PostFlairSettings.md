@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: PostFlairSettings
 
@@ -24,7 +24,7 @@
 
 > `optional` **isEnabled**: `boolean`
 
----
+***
 
 <a id="isselfassignabled"></a>
 

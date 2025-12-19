@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: Listing\<T\>
 
@@ -18,7 +18,7 @@
 
 > **limit**: `number` = `DEFAULT_LIMIT`
 
----
+***
 
 <a id="pagesize"></a>
 
@@ -52,7 +52,7 @@
 
 `AsyncIterator`\<`T`\>
 
----
+***
 
 <a id="all"></a>
 
@@ -64,7 +64,7 @@
 
 `Promise`\<`T`[]\>
 
----
+***
 
 <a id="get"></a>
 
@@ -82,7 +82,7 @@
 
 `Promise`\<`T`[]\>
 
----
+***
 
 <a id="preventinitialfetch"></a>
 
@@ -94,7 +94,7 @@
 
 `void`
 
----
+***
 
 <a id="setmore"></a>
 

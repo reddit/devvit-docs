@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: TriggerEventType
 
@@ -22,7 +22,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"AppInstall"`
 
----
+***
 
 <a id="appupgrade"></a>
 
@@ -36,7 +36,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"AppUpgrade"`
 
----
+***
 
 <a id="automoderatorfiltercomment"></a>
 
@@ -50,7 +50,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"AutomoderatorFilterComment"`
 
----
+***
 
 <a id="automoderatorfilterpost"></a>
 
@@ -64,7 +64,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"AutomoderatorFilterPost"`
 
----
+***
 
 <a id="commentcreate"></a>
 
@@ -78,7 +78,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"CommentCreate"`
 
----
+***
 
 <a id="commentdelete"></a>
 
@@ -92,7 +92,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"CommentDelete"`
 
----
+***
 
 <a id="commentreport"></a>
 
@@ -106,7 +106,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"CommentReport"`
 
----
+***
 
 <a id="commentsubmit"></a>
 
@@ -120,7 +120,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"CommentSubmit"`
 
----
+***
 
 <a id="commentupdate"></a>
 
@@ -134,7 +134,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"CommentUpdate"`
 
----
+***
 
 <a id="modaction"></a>
 
@@ -148,7 +148,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"ModAction"`
 
----
+***
 
 <a id="modmail"></a>
 
@@ -162,7 +162,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"ModMail"`
 
----
+***
 
 <a id="postcreate"></a>
 
@@ -176,7 +176,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"PostCreate"`
 
----
+***
 
 <a id="postdelete"></a>
 
@@ -190,7 +190,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"PostDelete"`
 
----
+***
 
 <a id="postflairupdate"></a>
 
@@ -204,7 +204,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"PostFlairUpdate"`
 
----
+***
 
 <a id="postnsfwupdate"></a>
 
@@ -218,7 +218,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"PostNsfwUpdate"`
 
----
+***
 
 <a id="postreport"></a>
 
@@ -232,7 +232,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"PostReport"`
 
----
+***
 
 <a id="postspoilerupdate"></a>
 
@@ -246,7 +246,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"PostSpoilerUpdate"`
 
----
+***
 
 <a id="postsubmit"></a>
 
@@ -260,7 +260,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **type**: `"PostSubmit"`
 
----
+***
 
 <a id="postupdate"></a>
 

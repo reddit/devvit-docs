@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: BanWikiContributorOptions
 
@@ -14,7 +14,7 @@
 
 > `optional` **duration**: `number`
 
----
+***
 
 <a id="note"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **note**: `string`
 
----
+***
 
 <a id="reason"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **reason**: `string`
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -38,7 +38,7 @@
 
 > **subredditName**: `string`
 
----
+***
 
 <a id="username"></a>
 

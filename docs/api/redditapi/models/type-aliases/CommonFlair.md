@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: CommonFlair
 
@@ -21,10 +21,10 @@ Flair background color as a hex color string (# prefixed) or transparent
 #### Example
 
 ```ts
-'#FF4500';
+"#FF4500"
 ```
 
----
+***
 
 <a id="cssclass"></a>
 
@@ -34,7 +34,7 @@ Flair background color as a hex color string (# prefixed) or transparent
 
 Custom CSS classes from the subreddit's stylesheet to apply to the flair if rendered as HTML
 
----
+***
 
 <a id="richtext"></a>
 
@@ -48,7 +48,7 @@ RichText object representation of the flair
 
 > `optional` **elementType**: `string`
 
-Enum of element types. e.g. emoji or text
+Enum of element types.  e.g. emoji or text
 
 #### emojiRef?
 
@@ -68,7 +68,7 @@ Text to show up in the flair, e.g. "Need Advice"
 
 url string, e.g. "https://reddit.com/"
 
----
+***
 
 <a id="templateid"></a>
 
@@ -78,7 +78,7 @@ url string, e.g. "https://reddit.com/"
 
 Flair template ID to use when rendering this flair
 
----
+***
 
 <a id="text"></a>
 
@@ -88,7 +88,7 @@ Flair template ID to use when rendering this flair
 
 Plain text representation of the flair
 
----
+***
 
 <a id="textcolor"></a>
 
@@ -98,7 +98,7 @@ Plain text representation of the flair
 
 One of: "light", "dark"
 
----
+***
 
 <a id="type"></a>
 

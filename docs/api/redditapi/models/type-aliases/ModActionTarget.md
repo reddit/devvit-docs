@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: ModActionTarget
 
@@ -14,7 +14,7 @@
 
 > `optional` **author**: `string`
 
----
+***
 
 <a id="body"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **body**: `string`
 
----
+***
 
 <a id="id"></a>
 
@@ -30,7 +30,7 @@
 
 > **id**: `string`
 
----
+***
 
 <a id="permalink"></a>
 
@@ -38,7 +38,7 @@
 
 > `optional` **permalink**: `string`
 
----
+***
 
 <a id="title"></a>
 

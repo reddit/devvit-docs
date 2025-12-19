@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: UserSocialLink
 
@@ -34,7 +34,7 @@ title: Title or name of social media link.
 
 > `optional` **handle**: `string`
 
----
+***
 
 <a id="id"></a>
 
@@ -42,7 +42,7 @@ title: Title or name of social media link.
 
 > **id**: `string`
 
----
+***
 
 <a id="outboundurl"></a>
 
@@ -50,7 +50,7 @@ title: Title or name of social media link.
 
 > **outboundUrl**: `string`
 
----
+***
 
 <a id="title"></a>
 
@@ -58,7 +58,7 @@ title: Title or name of social media link.
 
 > **title**: `string`
 
----
+***
 
 <a id="type"></a>
 

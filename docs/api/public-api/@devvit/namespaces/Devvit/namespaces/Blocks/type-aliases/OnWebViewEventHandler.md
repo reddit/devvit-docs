@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../../../../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../../../../../README.md)
 
----
+***
 
 # Type Alias: OnWebViewEventHandler()
 
@@ -10,7 +10,7 @@
 
 ### T
 
-`T` _extends_ [`JSONValue`](../../../../../../type-aliases/JSONValue.md)
+`T` *extends* [`JSONValue`](../../../../../../type-aliases/JSONValue.md)
 
 ## Parameters
 

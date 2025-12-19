@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: MenuItem
 
@@ -16,7 +16,7 @@
 
 An optional description for the menu item
 
----
+***
 
 <a id="forusertype"></a>
 
@@ -26,7 +26,7 @@ An optional description for the menu item
 
 The user type(s) that the menu item should be displayed for
 
----
+***
 
 <a id="label"></a>
 
@@ -36,7 +36,7 @@ The user type(s) that the menu item should be displayed for
 
 The label of the menu item
 
----
+***
 
 <a id="location"></a>
 
@@ -46,7 +46,7 @@ The label of the menu item
 
 The location(s) where the menu item should be displayed
 
----
+***
 
 <a id="onpress"></a>
 
@@ -70,7 +70,7 @@ A function that is called when the menu item is pressed
 
 `void` \| `Promise`\<`void`\>
 
----
+***
 
 <a id="postfilter"></a>
 

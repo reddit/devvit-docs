@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Enumeration: ModMailActionType
 
@@ -16,7 +16,7 @@ would be created.
 
 > **Approved**: `"Approved"`
 
----
+***
 
 <a id="archived"></a>
 
@@ -24,7 +24,7 @@ would be created.
 
 > **Archived**: `"Archived"`
 
----
+***
 
 <a id="banned"></a>
 
@@ -32,7 +32,7 @@ would be created.
 
 > **Banned**: `"Banned"`
 
----
+***
 
 <a id="disapproved"></a>
 
@@ -40,7 +40,7 @@ would be created.
 
 > **Disapproved**: `"Disapproved"`
 
----
+***
 
 <a id="filtered"></a>
 
@@ -48,7 +48,7 @@ would be created.
 
 > **Filtered**: `"Filtered"`
 
----
+***
 
 <a id="highlighted"></a>
 
@@ -56,7 +56,7 @@ would be created.
 
 > **Highlighted**: `"Highlighted"`
 
----
+***
 
 <a id="muted"></a>
 
@@ -64,7 +64,7 @@ would be created.
 
 > **Muted**: `"Muted"`
 
----
+***
 
 <a id="reportedtoadmins"></a>
 
@@ -72,7 +72,7 @@ would be created.
 
 > **ReportedToAdmins**: `"ReportedToAdmins"`
 
----
+***
 
 <a id="unarchived"></a>
 
@@ -80,7 +80,7 @@ would be created.
 
 > **Unarchived**: `"Unarchived"`
 
----
+***
 
 <a id="unbanned"></a>
 
@@ -88,7 +88,7 @@ would be created.
 
 > **Unbanned**: `"Unbanned"`
 
----
+***
 
 <a id="unfiltered"></a>
 
@@ -96,7 +96,7 @@ would be created.
 
 > **Unfiltered**: `"Unfiltered"`
 
----
+***
 
 <a id="unhighlighted"></a>
 
@@ -104,7 +104,7 @@ would be created.
 
 > **Unhighlighted**: `"Unhighlighted"`
 
----
+***
 
 <a id="unmuted"></a>
 

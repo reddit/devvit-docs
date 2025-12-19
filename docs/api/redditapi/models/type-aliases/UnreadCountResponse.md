@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: UnreadCountResponse
 
@@ -14,7 +14,7 @@
 
 > `optional` **appeals**: `number`
 
----
+***
 
 <a id="archived"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **archived**: `number`
 
----
+***
 
 <a id="filtered"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **filtered**: `number`
 
----
+***
 
 <a id="highlighted"></a>
 
@@ -38,7 +38,7 @@
 
 > `optional` **highlighted**: `number`
 
----
+***
 
 <a id="inprogress"></a>
 
@@ -46,7 +46,7 @@
 
 > `optional` **inprogress**: `number`
 
----
+***
 
 <a id="joinrequests"></a>
 
@@ -54,7 +54,7 @@
 
 > `optional` **joinRequests**: `number`
 
----
+***
 
 <a id="mod"></a>
 
@@ -62,7 +62,7 @@
 
 > `optional` **mod**: `number`
 
----
+***
 
 <a id="new"></a>
 
@@ -70,7 +70,7 @@
 
 > `optional` **new**: `number`
 
----
+***
 
 <a id="notifications"></a>
 

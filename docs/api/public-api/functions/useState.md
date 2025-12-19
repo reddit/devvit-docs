@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Function: useState()
 
@@ -54,7 +54,7 @@
 
 #### S
 
-`S` _extends_ [`JSONValue`](../type-aliases/JSONValue.md)
+`S` *extends* [`JSONValue`](../type-aliases/JSONValue.md)
 
 ### Parameters
 

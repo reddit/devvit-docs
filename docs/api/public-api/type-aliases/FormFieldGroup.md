@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: FormFieldGroup
 
@@ -18,7 +18,7 @@ A grouping of fields
 
 The fields that will be displayed in the group
 
----
+***
 
 <a id="helptext"></a>
 
@@ -28,7 +28,7 @@ The fields that will be displayed in the group
 
 An optional help text that will be displayed below the group
 
----
+***
 
 <a id="label"></a>
 
@@ -38,7 +38,7 @@ An optional help text that will be displayed below the group
 
 The label of the group that will be displayed to the user
 
----
+***
 
 <a id="required"></a>
 
@@ -46,7 +46,7 @@ The label of the group that will be displayed to the user
 
 > `optional` **required**: `never`
 
----
+***
 
 <a id="type"></a>
 

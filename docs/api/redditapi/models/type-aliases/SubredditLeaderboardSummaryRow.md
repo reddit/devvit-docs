@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: SubredditLeaderboardSummaryRow
 
@@ -14,7 +14,7 @@
 
 > **key**: `string`
 
----
+***
 
 <a id="title"></a>
 
@@ -22,7 +22,7 @@
 
 > **title**: `string`
 
----
+***
 
 <a id="value"></a>
 

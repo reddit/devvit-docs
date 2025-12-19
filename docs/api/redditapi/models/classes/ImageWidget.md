@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: ImageWidget
 
@@ -56,7 +56,7 @@
 
 [`Widget`](Widget.md).[`id`](Widget.md#id)
 
----
+***
 
 <a id="images"></a>
 
@@ -70,7 +70,7 @@
 
 `WidgetImage`[]
 
----
+***
 
 <a id="name"></a>
 
@@ -88,7 +88,7 @@
 
 [`Widget`](Widget.md).[`name`](Widget.md#name)
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -122,7 +122,7 @@
 
 [`Widget`](Widget.md).[`delete`](Widget.md#delete)
 
----
+***
 
 <a id="tojson"></a>
 

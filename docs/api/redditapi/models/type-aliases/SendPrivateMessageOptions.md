@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: SendPrivateMessageOptions
 
@@ -16,7 +16,7 @@
 
 The subject of the message.
 
----
+***
 
 <a id="text"></a>
 
@@ -26,7 +26,7 @@ The subject of the message.
 
 The body of the message in markdown text format.
 
----
+***
 
 <a id="to"></a>
 

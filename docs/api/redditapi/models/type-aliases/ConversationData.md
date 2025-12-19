@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: ConversationData
 
@@ -16,7 +16,7 @@
 
 The authors of each message in the modmail conversation.
 
----
+***
 
 <a id="conversationtype"></a>
 
@@ -26,15 +26,14 @@ The authors of each message in the modmail conversation.
 
 A ConversationType specifies whether a conversation is with a subreddit
 itself, with another user, or with another subreddit entirely.
-
 - `sr_user` - This is a conversation with another user outside of the
-  subreddit. The participant ID is that user's ID.
+              subreddit. The participant ID is that user's ID.
 - `internal` - This is a Mod Discussion, internal to the subreddit. There
-  is no other participant.
+               is no other participant.
 - `sr_sr` - This is a conversation is with another subreddit. The
-  participant will have a subreddit ID.
+            participant will have a subreddit ID.
 
----
+***
 
 <a id="id"></a>
 
@@ -44,7 +43,7 @@ itself, with another user, or with another subreddit entirely.
 
 Conversation ID
 
----
+***
 
 <a id="isauto"></a>
 
@@ -54,7 +53,7 @@ Conversation ID
 
 Is the conversation automatically generated e.g. from automod, u/reddit
 
----
+***
 
 <a id="ishighlighted"></a>
 
@@ -64,7 +63,7 @@ Is the conversation automatically generated e.g. from automod, u/reddit
 
 Is the conversation highlighted
 
----
+***
 
 <a id="isinternal"></a>
 
@@ -74,7 +73,7 @@ Is the conversation highlighted
 
 Is the conversation internal (i.e. mod only)
 
----
+***
 
 <a id="lastmodupdate"></a>
 
@@ -88,7 +87,7 @@ with the conversation.
 (Note that if this is a subreddit to subreddit conversation, the mods of
 the participant subreddit are irrelevant and do not affect this field.)
 
----
+***
 
 <a id="lastunread"></a>
 
@@ -98,7 +97,7 @@ the participant subreddit are irrelevant and do not affect this field.)
 
 The datetime of the last unread message within this conversation for the current viewer.
 
----
+***
 
 <a id="lastupdated"></a>
 
@@ -108,7 +107,7 @@ The datetime of the last unread message within this conversation for the current
 
 The datetime of the last time the conversation was update.
 
----
+***
 
 <a id="lastuserupdate"></a>
 
@@ -118,7 +117,7 @@ The datetime of the last time the conversation was update.
 
 The last datetime a user made any interaction with the conversation
 
----
+***
 
 <a id="messages"></a>
 
@@ -139,7 +138,7 @@ const arrayOfMessages = Object.values(conversation.messages);
 const messageById = conversation.messages[messageId];
 ```
 
----
+***
 
 <a id="modactions"></a>
 
@@ -160,7 +159,7 @@ const arrayOfModActions = Object.values(conversation.modActions);
 const modActionById = conversation.modActions[modActionId];
 ```
 
----
+***
 
 <a id="nummessages"></a>
 
@@ -170,7 +169,7 @@ const modActionById = conversation.modActions[modActionId];
 
 Number of messages (not actions) in the conversation
 
----
+***
 
 <a id="participant"></a>
 
@@ -180,7 +179,7 @@ Number of messages (not actions) in the conversation
 
 Participant. Is absent for mod discussions
 
----
+***
 
 <a id="state"></a>
 
@@ -190,7 +189,7 @@ Participant. Is absent for mod discussions
 
 State of the conversation
 
----
+***
 
 <a id="subject"></a>
 
@@ -200,7 +199,7 @@ State of the conversation
 
 Suject of the conversation
 
----
+***
 
 <a id="subreddit"></a>
 

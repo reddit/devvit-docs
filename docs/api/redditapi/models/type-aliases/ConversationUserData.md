@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: ConversationUserData
 
@@ -18,7 +18,7 @@
 
 > `optional` **isApproved**: `boolean`
 
----
+***
 
 <a id="banstatus"></a>
 
@@ -42,7 +42,7 @@
 
 > `optional` **reason**: `string`
 
----
+***
 
 <a id="created"></a>
 
@@ -52,7 +52,7 @@
 
 When was created
 
----
+***
 
 <a id="id"></a>
 
@@ -62,7 +62,7 @@ When was created
 
 User ID
 
----
+***
 
 <a id="isshadowbanned"></a>
 
@@ -70,7 +70,7 @@ User ID
 
 > `optional` **isShadowBanned**: `boolean`
 
----
+***
 
 <a id="issuspended"></a>
 
@@ -78,7 +78,7 @@ User ID
 
 > `optional` **isSuspended**: `boolean`
 
----
+***
 
 <a id="mutestatus"></a>
 
@@ -102,7 +102,7 @@ User ID
 
 > `optional` **reason**: `string`
 
----
+***
 
 <a id="name"></a>
 
@@ -112,7 +112,7 @@ User ID
 
 Username
 
----
+***
 
 <a id="recentcomments"></a>
 
@@ -126,7 +126,7 @@ Recent comments
 
 \[`id`: `string`\]: `object`
 
----
+***
 
 <a id="recentconvos"></a>
 
@@ -140,7 +140,7 @@ Recent conversations
 
 \[`id`: `string`\]: `object`
 
----
+***
 
 <a id="recentposts"></a>
 

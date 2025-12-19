@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: ScheduledJobType\<Data\>
 
@@ -10,7 +10,7 @@
 
 ### Data
 
-`Data` _extends_ [`JSONObject`](JSONObject.md) \| `undefined`
+`Data` *extends* [`JSONObject`](JSONObject.md) \| `undefined`
 
 ## Properties
 
@@ -22,7 +22,7 @@
 
 The name of the scheduled job type
 
----
+***
 
 <a id="onrun"></a>
 

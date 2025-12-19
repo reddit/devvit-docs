@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: GalleryMedia
 
@@ -16,7 +16,7 @@ Represents media that the post may contain.
 
 > **height**: `number`
 
----
+***
 
 <a id="status"></a>
 
@@ -26,7 +26,7 @@ Represents media that the post may contain.
 
 Status of the media. Media that were successfully uplaoded will have GalleryMediaStatus.VALID status
 
----
+***
 
 <a id="url"></a>
 
@@ -34,7 +34,7 @@ Status of the media. Media that were successfully uplaoded will have GalleryMedi
 
 > **url**: `string`
 
----
+***
 
 <a id="width"></a>
 

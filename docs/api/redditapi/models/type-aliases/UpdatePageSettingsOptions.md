@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: UpdatePageSettingsOptions
 
@@ -16,7 +16,7 @@
 
 Whether the page should be listed in the wiki index.
 
----
+***
 
 <a id="page"></a>
 
@@ -26,7 +26,7 @@ Whether the page should be listed in the wiki index.
 
 The name of the page to update settings for.
 
----
+***
 
 <a id="permlevel"></a>
 
@@ -36,7 +36,7 @@ The name of the page to update settings for.
 
 The permission level for the page.
 
----
+***
 
 <a id="subredditname"></a>
 

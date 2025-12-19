@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: CustomPostType
 
@@ -16,7 +16,7 @@
 
 A description of the custom post type
 
----
+***
 
 <a id="height"></a>
 
@@ -26,7 +26,7 @@ A description of the custom post type
 
 The fixed height of the post, defaults to 'regular'
 
----
+***
 
 <a id="name"></a>
 
@@ -36,7 +36,7 @@ The fixed height of the post, defaults to 'regular'
 
 The name of the custom post type
 
----
+***
 
 <a id="render"></a>
 

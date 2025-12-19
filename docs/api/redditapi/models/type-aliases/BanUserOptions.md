@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: BanUserOptions
 
@@ -16,7 +16,7 @@
 
 The id of the post or comment you want to cite as rule breaking.
 
----
+***
 
 <a id="duration"></a>
 
@@ -26,7 +26,7 @@ The id of the post or comment you want to cite as rule breaking.
 
 The duration of the ban, in days. Use 0 for permanent; otherwise, it must be in the range of 1 to 999.
 
----
+***
 
 <a id="message"></a>
 
@@ -36,7 +36,7 @@ The duration of the ban, in days. Use 0 for permanent; otherwise, it must be in 
 
 The message to display to the user. (The "Note from the moderators:" in the ban message modmail.)
 
----
+***
 
 <a id="note"></a>
 
@@ -46,7 +46,7 @@ The message to display to the user. (The "Note from the moderators:" in the ban 
 
 The reason to show in the modlog, and the UI's user notes. This isn't show to the user, just other moderators.
 
----
+***
 
 <a id="reason"></a>
 
@@ -56,7 +56,7 @@ The reason to show in the modlog, and the UI's user notes. This isn't show to th
 
 The reason for the ban. This shows up in the Banned Users Menu.
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -66,7 +66,7 @@ The reason for the ban. This shows up in the Banned Users Menu.
 
 The name of the subreddit you want to ban the user from.
 
----
+***
 
 <a id="username"></a>
 

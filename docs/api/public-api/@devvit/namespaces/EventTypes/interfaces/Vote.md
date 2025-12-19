@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../../../README.md)
 
----
+***
 
 # Interface: Vote
 
@@ -12,7 +12,7 @@
 
 > `optional` **comment**: `CommentV2`
 
----
+***
 
 <a id="post"></a>
 
@@ -20,7 +20,7 @@
 
 > `optional` **post**: `PostV2`
 
----
+***
 
 <a id="score"></a>
 
@@ -28,7 +28,7 @@
 
 > **score**: `number`
 
----
+***
 
 <a id="subreddit"></a>
 
@@ -36,7 +36,7 @@
 
 > `optional` **subreddit**: `SubredditV2`
 
----
+***
 
 <a id="updatedat"></a>
 
@@ -44,7 +44,7 @@
 
 > `optional` **updatedAt**: `Date`
 
----
+***
 
 <a id="upvoteratio"></a>
 

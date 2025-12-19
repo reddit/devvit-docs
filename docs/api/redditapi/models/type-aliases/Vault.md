@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: Vault
 
@@ -21,10 +21,10 @@ The address of the Vault.
 #### Example
 
 ```ts
-'0x205ee28744456bDBf180A0Fa7De51e0F116d54Ed';
+'0x205ee28744456bDBf180A0Fa7De51e0F116d54Ed'
 ```
 
----
+***
 
 <a id="createdat"></a>
 
@@ -34,7 +34,7 @@ The address of the Vault.
 
 The date the Vault was created.
 
----
+***
 
 <a id="isactive"></a>
 
@@ -44,7 +44,7 @@ The date the Vault was created.
 
 Whether the Vault is active.
 
----
+***
 
 <a id="provider"></a>
 
@@ -57,10 +57,10 @@ The provider of the Vault address.
 #### Example
 
 ```ts
-'ethereum';
+'ethereum'
 ```
 
----
+***
 
 <a id="userid"></a>
 
@@ -68,10 +68,10 @@ The provider of the Vault address.
 
 > **userId**: `T2ID`
 
-The ID (starting with t2\_) of the user owning the Vault.
+The ID (starting with t2_) of the user owning the Vault.
 
 #### Example
 
 ```ts
-'t2_1w72';
+'t2_1w72'
 ```

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: UseWebViewOptions\<From, To\>
 
@@ -10,13 +10,13 @@
 
 ### From
 
-`From` _extends_ [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
+`From` *extends* [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
 
 Message from web view to Devvit Blocks app.
 
 ### To
 
-`To` _extends_ [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
+`To` *extends* [`JSONValue`](JSONValue.md) = [`JSONValue`](JSONValue.md)
 
 Message from Devvit Blocks app to web view.
 
@@ -30,7 +30,7 @@ Message from Devvit Blocks app to web view.
 
 Handle UI events originating from the web view to be handled by a Devvit app
 
----
+***
 
 <a id="onunmount"></a>
 
@@ -55,7 +55,7 @@ set state, stop or resume timers, or perform other tasks now that the web view i
 
 use the page visibility API for now.
 
----
+***
 
 <a id="url"></a>
 

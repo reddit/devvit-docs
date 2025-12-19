@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: CreateFlairTemplateOptions
 
@@ -16,7 +16,7 @@
 
 The flair template's allowable content. Either 'all', 'emoji', or 'text'.
 
----
+***
 
 <a id="allowuseredits"></a>
 
@@ -26,7 +26,7 @@ The flair template's allowable content. Either 'all', 'emoji', or 'text'.
 
 Whether or not users are allowed to edit this flair template before using it.
 
----
+***
 
 <a id="backgroundcolor"></a>
 
@@ -36,7 +36,7 @@ Whether or not users are allowed to edit this flair template before using it.
 
 The background color of the flair. Either 'transparent' or a hex color code. e.g. #FFC0CB
 
----
+***
 
 <a id="maxemojis"></a>
 
@@ -44,7 +44,7 @@ The background color of the flair. Either 'transparent' or a hex color code. e.g
 
 > `optional` **maxEmojis**: `number`
 
----
+***
 
 <a id="modonly"></a>
 
@@ -54,7 +54,7 @@ The background color of the flair. Either 'transparent' or a hex color code. e.g
 
 Whether or not this flair template is only available to moderators.
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -64,7 +64,7 @@ Whether or not this flair template is only available to moderators.
 
 The name of the subreddit to create the flair template in.
 
----
+***
 
 <a id="text"></a>
 
@@ -74,7 +74,7 @@ The name of the subreddit to create the flair template in.
 
 The text to display in the flair.
 
----
+***
 
 <a id="textcolor"></a>
 

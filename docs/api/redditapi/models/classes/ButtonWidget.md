@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: ButtonWidget
 
@@ -52,7 +52,7 @@
 
 `WidgetButton`[]
 
----
+***
 
 <a id="description"></a>
 
@@ -66,7 +66,7 @@
 
 `string`
 
----
+***
 
 <a id="id"></a>
 
@@ -84,7 +84,7 @@
 
 [`Widget`](Widget.md).[`id`](Widget.md#id)
 
----
+***
 
 <a id="name"></a>
 
@@ -102,7 +102,7 @@
 
 [`Widget`](Widget.md).[`name`](Widget.md#name)
 
----
+***
 
 <a id="styles"></a>
 
@@ -116,7 +116,7 @@
 
 `WidgetStyles`
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -150,7 +150,7 @@
 
 [`Widget`](Widget.md).[`delete`](Widget.md#delete)
 
----
+***
 
 <a id="tojson"></a>
 

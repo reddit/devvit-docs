@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Type Alias: MultiTriggerDefinition\<Event\>
 
@@ -10,7 +10,7 @@
 
 ### Event
 
-`Event` _extends_ [`TriggerEvent`](TriggerEvent.md)
+`Event` *extends* [`TriggerEvent`](TriggerEvent.md)
 
 ## Properties
 
@@ -20,7 +20,7 @@
 
 > **events**: readonly `Event`[]
 
----
+***
 
 <a id="onevent"></a>
 

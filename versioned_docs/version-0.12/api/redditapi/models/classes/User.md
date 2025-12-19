@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.6-dev**](../../README.md)
+[**@devvit/public-api v0.12.7-dev**](../../README.md)
 
 ---
 
@@ -362,6 +362,22 @@ const subredditName = 'mysubreddit';
 const user = await reddit.getUserByUsername(username);
 const userFlair = await user.getUserFlairBySubreddit(subredditName);
 ```
+
+---
+
+<a id="getuserkarmafromcurrentsubreddit"></a>
+
+### getUserKarmaFromCurrentSubreddit()
+
+> **getUserKarmaFromCurrentSubreddit**(): `Promise`\<`GetUserKarmaForSubredditResponse`\>
+
+Returns the karma for this User in the current subreddit.
+
+#### Returns
+
+`Promise`\<`GetUserKarmaForSubredditResponse`\>
+
+The GetUserKarmaForSubredditResponse, containing the user's karma for comments and posts in the subreddit.
 
 ---
 

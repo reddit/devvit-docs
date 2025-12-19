@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../README.md)
+[**@devvit/public-api v0.12.8-dev**](../README.md)
 
----
+***
 
 # Class: RichTextBuilder
 
@@ -93,7 +93,7 @@ Append an Animated Image
 
 `ImageContainer.animatedImage`
 
----
+***
 
 <a id="blockquote"></a>
 
@@ -121,7 +121,7 @@ Append a Block Quote element
 
 `BlockQuoteContainer.blockQuote`
 
----
+***
 
 <a id="build"></a>
 
@@ -135,7 +135,7 @@ Serializes the document to a JSON string
 
 `string`
 
----
+***
 
 <a id="codeblock"></a>
 
@@ -163,7 +163,7 @@ Append a Code Block element
 
 `CodeBlockContainer.codeBlock`
 
----
+***
 
 <a id="embed"></a>
 
@@ -187,7 +187,7 @@ Append an embedded iframe
 
 `EmbedContainer.embed`
 
----
+***
 
 <a id="heading"></a>
 
@@ -215,7 +215,7 @@ Append a Heading
 
 `HeadingContainer.heading`
 
----
+***
 
 <a id="horizontalrule"></a>
 
@@ -233,7 +233,7 @@ Append a Horizontal Rule
 
 `HorizontalRuleContainer.horizontalRule`
 
----
+***
 
 <a id="image"></a>
 
@@ -257,7 +257,7 @@ Append an Image
 
 `ImageContainer.image`
 
----
+***
 
 <a id="list"></a>
 
@@ -285,7 +285,7 @@ Append a List
 
 `ListContainer.list`
 
----
+***
 
 <a id="paragraph"></a>
 
@@ -309,7 +309,7 @@ Append a Paragraph
 
 `ParagraphContainer.paragraph`
 
----
+***
 
 <a id="table"></a>
 
@@ -333,7 +333,7 @@ Append a Table
 
 `TableContainer.table`
 
----
+***
 
 <a id="video"></a>
 

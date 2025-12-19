@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Enumeration: SocialLinkType
 
@@ -12,7 +12,7 @@
 
 > **Beacons**: `"BEACONS"`
 
----
+***
 
 <a id="buymeacoffee"></a>
 
@@ -20,7 +20,7 @@
 
 > **BuyMeACoffee**: `"BUY_ME_A_COFFEE"`
 
----
+***
 
 <a id="cameo"></a>
 
@@ -28,7 +28,7 @@
 
 > **Cameo**: `"CAMEO"`
 
----
+***
 
 <a id="cashapp"></a>
 
@@ -36,7 +36,7 @@
 
 > **CashApp**: `"CASH_APP"`
 
----
+***
 
 <a id="custom"></a>
 
@@ -44,7 +44,7 @@
 
 > **Custom**: `"CUSTOM"`
 
----
+***
 
 <a id="discord"></a>
 
@@ -52,7 +52,7 @@
 
 > **Discord**: `"DISCORD"`
 
----
+***
 
 <a id="facebook"></a>
 
@@ -60,7 +60,7 @@
 
 > **Facebook**: `"FACEBOOK"`
 
----
+***
 
 <a id="indiegogo"></a>
 
@@ -68,7 +68,7 @@
 
 > **Indiegogo**: `"INDIEGOGO"`
 
----
+***
 
 <a id="instagram"></a>
 
@@ -76,7 +76,7 @@
 
 > **Instagram**: `"INSTAGRAM"`
 
----
+***
 
 <a id="kickstarter"></a>
 
@@ -84,7 +84,7 @@
 
 > **Kickstarter**: `"KICKSTARTER"`
 
----
+***
 
 <a id="kofi"></a>
 
@@ -92,7 +92,7 @@
 
 > **Kofi**: `"KOFI"`
 
----
+***
 
 <a id="linktree"></a>
 
@@ -100,7 +100,7 @@
 
 > **Linktree**: `"LINKTREE"`
 
----
+***
 
 <a id="onlyfans"></a>
 
@@ -108,7 +108,7 @@
 
 > **Onlyfans**: `"ONLYFANS"`
 
----
+***
 
 <a id="patreon"></a>
 
@@ -116,7 +116,7 @@
 
 > **Patreon**: `"PATREON"`
 
----
+***
 
 <a id="paypal"></a>
 
@@ -124,7 +124,7 @@
 
 > **Paypal**: `"PAYPAL"`
 
----
+***
 
 <a id="reddit"></a>
 
@@ -132,7 +132,7 @@
 
 > **Reddit**: `"REDDIT"`
 
----
+***
 
 <a id="shopify"></a>
 
@@ -140,7 +140,7 @@
 
 > **Shopify**: `"SHOPIFY"`
 
----
+***
 
 <a id="soundcloud"></a>
 
@@ -148,7 +148,7 @@
 
 > **Soundcloud**: `"SOUNDCLOUD"`
 
----
+***
 
 <a id="spotify"></a>
 
@@ -156,7 +156,7 @@
 
 > **Spotify**: `"SPOTIFY"`
 
----
+***
 
 <a id="substack"></a>
 
@@ -164,7 +164,7 @@
 
 > **Substack**: `"SUBSTACK"`
 
----
+***
 
 <a id="tiktok"></a>
 
@@ -172,7 +172,7 @@
 
 > **Tiktok**: `"TIKTOK"`
 
----
+***
 
 <a id="tumblr"></a>
 
@@ -180,7 +180,7 @@
 
 > **Tumblr**: `"TUMBLR"`
 
----
+***
 
 <a id="twitch"></a>
 
@@ -188,7 +188,7 @@
 
 > **Twitch**: `"TWITCH"`
 
----
+***
 
 <a id="twitter"></a>
 
@@ -196,7 +196,7 @@
 
 > **Twitter**: `"TWITTER"`
 
----
+***
 
 <a id="venmo"></a>
 
@@ -204,7 +204,7 @@
 
 > **Venmo**: `"VENMO"`
 
----
+***
 
 <a id="youtube"></a>
 

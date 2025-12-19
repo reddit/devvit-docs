@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: ModMailService
 
@@ -42,7 +42,7 @@ Id of a modmail conversation
 await reddit.modMail.approveConversation('abcdef');
 ```
 
----
+***
 
 <a id="archiveconversation"></a>
 
@@ -70,7 +70,7 @@ Id of a modmail conversation
 await reddit.modMail.archive('abcdef');
 ```
 
----
+***
 
 <a id="bulkreadconversations"></a>
 
@@ -109,7 +109,7 @@ const conversationIds = await reddit.modMail.bulkReadConversations(
 );
 ```
 
----
+***
 
 <a id="createconversation"></a>
 
@@ -164,7 +164,6 @@ a user (e.g. u/username), a subreddit (e.g. r/subreddit) or null
 
 Note on {param.to}:
 The to field for this endpoint is somewhat confusing. It can be:
-
 - A User, passed like "username" or "u/username"
 - A Subreddit, passed like "r/subreddit"
 - null, meaning an internal moderator discussion
@@ -186,7 +185,7 @@ const { conversation, messages, modActions } = await reddit.modMail.createConver
 });
 ```
 
----
+***
 
 <a id="createmoddiscussionconversation"></a>
 
@@ -226,11 +225,11 @@ A Promise that resolves a string representing the conversationId of the message.
 const conversationId = await reddit.modMail.createModDiscussionConversation({
   subject: 'Test conversation',
   bodyMarkdown: '**Hello there** \n\n _Have a great day!_',
-  subredditId: context.subredditId,
+  subredditId: context.subredditId
 });
 ```
 
----
+***
 
 <a id="createmodinboxconversation"></a>
 
@@ -268,11 +267,11 @@ A Promise that resolves a string representing the conversationId of the message.
 const conversationId = await reddit.modMail.createModInboxConversation({
   subject: 'Test conversation',
   bodyMarkdown: '**Hello there** \n\n _Have a great day!_',
-  subredditId: context.subredditId,
+  subredditId: context.subredditId
 });
 ```
 
----
+***
 
 <a id="createmodnotification"></a>
 
@@ -311,11 +310,11 @@ A Promise that resolves a string representing the conversationId of the message.
 const conversationId = await reddit.modMail.createModNotification({
   subject: 'Test notification',
   bodyMarkdown: '**Hello there** \n\n _This is a notification!_',
-  subredditId: context.subredditId,
+  subredditId: context.subredditId
 });
 ```
 
----
+***
 
 <a id="disapproveconversation"></a>
 
@@ -343,7 +342,7 @@ Id of a modmail conversation
 await reddit.modMail.disapproveConversation('abcdef');
 ```
 
----
+***
 
 <a id="getconversation"></a>
 
@@ -376,13 +375,10 @@ mark read?
 #### Example
 
 ```ts
-const { conversation, messages, modActions, user } = await reddit.modMail.getConversation({
-  conversationId: 'abcdef',
-  markRead: true,
-});
+const { conversation, messages, modActions, user } = await reddit.modMail.getConversation({ conversationId: 'abcdef', markRead: true });
 ```
 
----
+***
 
 <a id="getconversations"></a>
 
@@ -405,15 +401,15 @@ Get conversations for a logged in user or subreddits
 #### Example
 
 ```ts
-const { viewerId, conversations } = await reddit.modMail.getConversations({
+const {viewerId, conversations} = await reddit.modMail.getConversations({
   after: 'abcdef',
-  limit: 42,
+  limit: 42
 });
 
 const arrayOfConversations = Object.values(conversations);
 ```
 
----
+***
 
 <a id="getsubreddits"></a>
 
@@ -438,7 +434,7 @@ for (const subreddit of Object.values(subreddits)) {
 }
 ```
 
----
+***
 
 <a id="getunreadcount"></a>
 
@@ -461,7 +457,7 @@ console.log(response.highlighted);
 console.log(response.new);
 ```
 
----
+***
 
 <a id="getuserconversations"></a>
 
@@ -492,7 +488,7 @@ console.log(data.recentComments);
 console.log(data.recentPosts);
 ```
 
----
+***
 
 <a id="highlightconversation"></a>
 
@@ -520,7 +516,7 @@ Id of a modmail conversation
 await reddit.modMail.highlightConversation('abcdef');
 ```
 
----
+***
 
 <a id="muteconversation"></a>
 
@@ -556,7 +552,7 @@ For how many hours the conversation needs to be muted. Must be one of 72, 168, o
 await reddit.modMail.muteConversation({ conversationId: 'abcdef', numHours: 72 });
 ```
 
----
+***
 
 <a id="readconversations"></a>
 
@@ -584,7 +580,7 @@ An array of ids
 await reddit.modMail.readConversations(['abcdef', 'qwerty']);
 ```
 
----
+***
 
 <a id="reply"></a>
 
@@ -635,7 +631,7 @@ await reddit.modMail.reply({
 });
 ```
 
----
+***
 
 <a id="tempbanconversation"></a>
 
@@ -671,7 +667,7 @@ duration in days, max 999
 await reddit.modMail.tempBanConversation({ conversationId: 'abcdef', duration: 42 });
 ```
 
----
+***
 
 <a id="unarchiveconversation"></a>
 
@@ -699,7 +695,7 @@ Id of a modmail conversation
 await reddit.modMail.unarchiveConversation('abcdef');
 ```
 
----
+***
 
 <a id="unbanconversation"></a>
 
@@ -727,7 +723,7 @@ a modmail conversation id
 await reddit.modMail.unbanConversation('abcdef');
 ```
 
----
+***
 
 <a id="unhighlightconversation"></a>
 
@@ -755,7 +751,7 @@ Id of a modmail conversation
 await reddit.modMail.unhighlightConversation('abcdef');
 ```
 
----
+***
 
 <a id="unmuteconversation"></a>
 
@@ -783,7 +779,7 @@ Id of a modmail conversation
 await reddit.modMail.unmuteConversation('abcdef');
 ```
 
----
+***
 
 <a id="unreadconversations"></a>
 

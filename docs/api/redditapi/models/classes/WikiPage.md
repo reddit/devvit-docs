@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Class: WikiPage
 
@@ -20,7 +20,7 @@ The Markdown content of the page.
 
 `string`
 
----
+***
 
 <a id="contenthtml"></a>
 
@@ -36,7 +36,7 @@ The HTML content of the page.
 
 `string`
 
----
+***
 
 <a id="name"></a>
 
@@ -52,7 +52,7 @@ The name of the page.
 
 `string`
 
----
+***
 
 <a id="revisionauthor"></a>
 
@@ -68,7 +68,7 @@ The author of this revision.
 
 `undefined` \| [`User`](User.md)
 
----
+***
 
 <a id="revisiondate"></a>
 
@@ -84,7 +84,7 @@ The date of the revision.
 
 `Date`
 
----
+***
 
 <a id="revisionid"></a>
 
@@ -100,7 +100,7 @@ The ID of the revision.
 
 `` `${string}-${string}-${string}-${string}-${string}` ``
 
----
+***
 
 <a id="revisionreason"></a>
 
@@ -116,7 +116,7 @@ The reason for the revision.
 
 `string`
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -152,7 +152,7 @@ Add an editor to this page.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="getrevisions"></a>
 
@@ -172,7 +172,7 @@ Get the revisions for this page.
 
 `Promise`\<[`Listing`](Listing.md)\<[`WikiPageRevision`](WikiPageRevision.md)\>\>
 
----
+***
 
 <a id="getsettings"></a>
 
@@ -186,7 +186,7 @@ Get the settings for this page.
 
 `Promise`\<[`WikiPageSettings`](WikiPageSettings.md)\>
 
----
+***
 
 <a id="removeeditor"></a>
 
@@ -206,7 +206,7 @@ Remove an editor from this page.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="revertto"></a>
 
@@ -226,7 +226,7 @@ Revert this page to a previous revision.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="tojson"></a>
 
@@ -238,7 +238,7 @@ Revert this page to a previous revision.
 
 `Pick`\<`WikiPage`, `"subredditName"` \| `"name"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
 
----
+***
 
 <a id="update"></a>
 
@@ -262,7 +262,7 @@ Update this page.
 
 `Promise`\<`WikiPage`\>
 
----
+***
 
 <a id="updatesettings"></a>
 

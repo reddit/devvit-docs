@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Enumeration: AboutLocations
 
@@ -12,7 +12,7 @@
 
 > **Edited**: `"edited"`
 
----
+***
 
 <a id="modqueue"></a>
 
@@ -20,7 +20,7 @@
 
 > **Modqueue**: `"modqueue"`
 
----
+***
 
 <a id="reports"></a>
 
@@ -28,7 +28,7 @@
 
 > **Reports**: `"reports"`
 
----
+***
 
 <a id="spam"></a>
 
@@ -36,7 +36,7 @@
 
 > **Spam**: `"spam"`
 
----
+***
 
 <a id="unmoderated"></a>
 

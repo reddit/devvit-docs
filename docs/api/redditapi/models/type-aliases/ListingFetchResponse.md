@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.12.7-dev**](../../README.md)
+[**@devvit/public-api v0.12.8-dev**](../../README.md)
 
----
+***
 
 # Type Alias: ListingFetchResponse\<T\>
 
@@ -20,7 +20,7 @@
 
 > `optional` **after**: `string`
 
----
+***
 
 <a id="before"></a>
 
@@ -28,7 +28,7 @@
 
 > `optional` **before**: `string`
 
----
+***
 
 <a id="children"></a>
 
@@ -36,7 +36,7 @@
 
 > **children**: `T`[]
 
----
+***
 
 <a id="more"></a>
 
