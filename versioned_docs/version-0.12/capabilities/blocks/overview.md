@@ -27,17 +27,17 @@ We support the following elements:
 ### Containers
 
 - **Blocks**
-- [**HStack**](../../../blocks/stacks)
-- [**VStack**](../../../blocks/stacks)
-- [**ZStack**](../../../blocks/stacks)
+- [**HStack**](../../blocks/stacks.mdx)
+- [**VStack**](../../blocks/stacks.mdx)
+- [**ZStack**](../../blocks/stacks.mdx)
 
 ### Objects
 
-- [**Text**](../../../blocks/text)
-- [**Button**](../../../blocks/button)
-- [**Spacer**](../../../blocks/spacer)
-- [**Image**](../../../blocks/image)
-- [**Icon**](../../../blocks/icon)
+- [**Text**](../../blocks/text.mdx)
+- [**Button**](../../blocks/button.mdx)
+- [**Spacer**](../../blocks/spacer.mdx)
+- [**Image**](../../blocks/image.mdx)
+- [**Icon**](../../blocks/icon.mdx)
 
 Further elements (components) may be derived from these blocks, and obey the same rules.
 
@@ -98,16 +98,16 @@ Grow elements are flexible. Whenever the full width (or height) of a parent elem
 
 All elements inherit a direction for the purposes of growing. Things only grow in one direction at a time.
 
-| Element                          | Self Direction | Child Direction |
-| -------------------------------- | -------------- | --------------- |
-| Blocks                           | N/A            | Vertical        |
-| [HStack](../../../blocks/stacks) | Inherit        | Horizontal      |
-| [VStack](../../../blocks/stacks) | Inherit        | Vertical        |
-| [ZStack](../../../blocks/stacks) | Inherit        | Inherit         |
-| [Text](../../../blocks/text)     | Horizontal     | N/A             |
-| [Button](../../../blocks/button) | Horizontal     | N/A             |
-| [Spacer](../../../blocks/spacer) | Inherit        | N/A             |
-| [Image](../../../blocks/image)   | Inherit        | N/A             |
+| Element                           | Self Direction | Child Direction |
+|-----------------------------------| -------------- | --------------- |
+| Blocks                            | N/A            | Vertical        |
+| [HStack](../../blocks/stacks.mdx) | Inherit        | Horizontal      |
+| [VStack](../../blocks/stacks.mdx) | Inherit        | Vertical        |
+| [ZStack](../../blocks/stacks.mdx) | Inherit        | Inherit         |
+| [Text](../../blocks/text.mdx)     | Horizontal     | N/A             |
+| [Button](../../blocks/button.mdx) | Horizontal     | N/A             |
+| [Spacer](../../blocks/spacer.mdx) | Inherit        | N/A             |
+| [Image](../../blocks/image.mdx)   | Inherit        | N/A             |
 
 ### Overflow
 

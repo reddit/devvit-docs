@@ -1,4 +1,4 @@
-A `string` for setting the color to any [Blocks-compatible color value](./colors). Possible values:
+A `string` for setting the color to any [Blocks-compatible color value](../colors.mdx). Possible values:
 
 - HTML color names: `red`
 - HEX: `#ff4500`

@@ -96,7 +96,7 @@ This release focuses on Reddit data access and instrumenting WebView clients
 
 **Release Date: Nov 10, 2025**
 
-Release 0.12.2 delivers a major evolution in how interactive Devvit apps load, display, and engage users. With this update, you can now leverage inline web views, in addition to expanded mode, to build your interactive posts with Devvit Web. We’re also deprecating [Splash Screens](./capabilities/server/launch_screen_and_entry_points/splash_migration) in favor of more customizable HTML inline launch screens.
+Release 0.12.2 delivers a major evolution in how interactive Devvit apps load, display, and engage users. With this update, you can now leverage inline web views, in addition to expanded mode, to build your interactive posts with Devvit Web. We’re also deprecating [Splash Screens](./capabilities/server/launch_screen_and_entry_points/splash_migration.mdx) in favor of more customizable HTML inline launch screens.
 
 **Inline Mode**
 
@@ -114,10 +114,10 @@ Devvit apps using inline web views are currently seeing inflated metrics in thei
 
 Splash screens are yesterday’s news. The improved inline launch screens are now fully customizable, HTML-based entry points for your interactive posts. This update gives you control over design, animation, and loading behavior and uses the same tools and styles as the rest of your app.
 
-The new first screen automatically loads before your app’s main entry point. Read the docs to learn how to [upgrade your app](./capabilities/server/launch_screen_and_entry_points/splash_migration) and [customize your launch screen](./capabilities/server/launch_screen_and_entry_points/launch_screen_customization).
+The new first screen automatically loads before your app’s main entry point. Read the docs to learn how to [upgrade your app](./capabilities/server/launch_screen_and_entry_points/splash_migration.mdx) and [customize your launch screen](./capabilities/server/launch_screen_and_entry_points/launch_screen_customization.md).
 
 :::note
-**Deprecation notice**: We're deprecating the splash parameter in submitCustomPost() and removing it in the next major version update. Learn how to [update your app](./capabilities/server/launch_screen_and_entry_points/splash_migration).
+**Deprecation notice**: We're deprecating the splash parameter in submitCustomPost() and removing it in the next major version update. Learn how to [update your app](./capabilities/server/launch_screen_and_entry_points/splash_migration.mdx).
 :::
 
 **Multiple App Entry Points**

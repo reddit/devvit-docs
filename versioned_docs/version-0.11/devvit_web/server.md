@@ -177,7 +177,7 @@ server.listen(getServerPort());
 
 ## Related Documentation
 
-- [Devvit Web Overview](./devvit_web_overview)
-- [Devvit Web Quickstart](./devvit_web_quickstart)
-- [@devvit/client Documentation](./client)
-- [Devvit Web Templates](./devvit_web_templates)
+- [Devvit Web Overview](./devvit_web_overview.mdx)
+- [Devvit Web Quickstart](./devvit_web_quickstart.mdx)
+- [@devvit/client Documentation](./client.md)
+- [Devvit Web Templates](./devvit_web_templates.mdx)

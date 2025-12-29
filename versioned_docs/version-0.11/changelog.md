@@ -8,7 +8,7 @@ Before upgrading `@devvit/public-api` in your project, always update the CLI fir
 
 **Release Date: Jul 21, 2025**
 
-Fun fact: most redditors (over 80%!) play Reddit games on their phones. Conversely, most devvitors create apps on desktop. Release 0.11.19 bridges this gap with [UI simulator](./ui_simulator). This tool renders your app in a mobile viewport, lets you test light/dark modes, and helps you build and test apps for a mobile audience.
+Fun fact: most redditors (over 80%!) play Reddit games on their phones. Conversely, most devvitors create apps on desktop. Release 0.11.19 bridges this gap with [UI simulator](./ui_simulator.mdx). This tool renders your app in a mobile viewport, lets you test light/dark modes, and helps you build and test apps for a mobile audience.
 
 ![UI Simulator Header](./assets/ui_simulator_header.png)
 
@@ -81,7 +81,7 @@ Learn more about [HTTP fetch](./capabilities/http-fetch.mdx) and the[allow-liste
 
 **Release Date: May 27, 2025**
 
-Release 0.11.16 has several CLI improvements. We’ve also updated our guidelines to clarify the app review process and use of LLMs, among other things. Check out [Devvit Rules](./devvit_rules) to see what’s new!
+Release 0.11.16 has several CLI improvements. We’ve also updated our guidelines to clarify the app review process and use of LLMs, among other things. Check out [Devvit Rules](./devvit_rules.md) to see what’s new!
 
 **CLI updates**
 
@@ -256,7 +256,7 @@ We’ve got a big update for our [payments pilot](./payments/payments_overview.m
 
 - **Instant Access to Sandbox Testing** – Now, all developers can immediately test sandbox payment products in their apps without needing to request allowlist access first. This means you can start experimenting with in-app purchasing right away! (You'll still need to complete the [verification process](./payments/payments_overview.md#prerequisites) before submitting your app for approval.)
 
-- **New Developer Showcase** – We’re highlighting how fellow developers are using payments in their apps! First up: [Dark Dungeon](./showcase/monetization_examples#dark-dungeon), a game with in-app purchasing thoughtfully integrated in. Check it out for inspiration on what’s possible!
+- **New Developer Showcase** – We’re highlighting how fellow developers are using payments in their apps! First up: [Dark Dungeon](./showcase/monetization_examples.md#dark-dungeon), a game with in-app purchasing thoughtfully integrated in. Check it out for inspiration on what’s possible!
 
 We can’t wait to see what you build! If you have questions or feedback, drop questions here or in the [Payments Discord channel](https://discord.com/channels/1050224141732687912/1295856497917431879).
 
@@ -337,7 +337,7 @@ Release 0.11.4 corrected issues with duplicate logs and fixed the 502 error that
 We also made a few other changes to our public API in this release:
 
 - [post.getEnrichedThumbnail](./api/redditapi/models/classes/Post.md#getenrichedthumbnail) allows developers to get a better thumbnail
-- Community fix: Allow [WikiPage revision author](./api/redditapi/models/classes/WikiPage) to be undefined (Thanks PitchforkAssistant)
+- Community fix: Allow [WikiPage revision author](./api/redditapi/models/classes/WikiPage.md) to be undefined (Thanks PitchforkAssistant)
 - Community fix: Include conversations IDs sorted array from [modMail.getConversations](./api/redditapi/models/classes//ModMailService.md#getconversations) (Thanks Pitchfork Assistant x2!)
 
 ## Devvit 0.11.2: Text fallback and post API client changes
@@ -348,7 +348,7 @@ We also made a few other changes to our public API in this release:
 
 This release also includes a few API updates:
 
-- [setCustomPostPreview](./api/redditapi/models/classes/Post.md#setcustompostpreview) lets you update and [customize the post preview](./custom_post_preview) with real content in the loading screen after the post has been created.
+- [setCustomPostPreview](./api/redditapi/models/classes/Post.md#setcustompostpreview) lets you update and [customize the post preview](./custom_post_preview.md) with real content in the loading screen after the post has been created.
 - [setSuggestedCommentSort](./api/redditapi/models/classes/Post.md#setsuggestedcommentsort) provides options for sorting comments on a post.
 - `forUserType: member’` has been removed from menu items. If you want a menu action to be visible to all users, omit the `forUserType` field.
 

@@ -14,9 +14,9 @@ Devvit lets you create rich, immersive posts that seamlessly integrate into Redd
 
 Build interactive posts that ignite your community:
 
-- [Live scoreboards](./showcase/apps#live-scores) that give your community play-by-play updates and a space for shitposting during the game.
-- [Polls](./showcase/playgrounds) to provoke spicy conversations or take the pulse of your community.
-- [Multiplayer games](./showcase/apps#bingo) played asynchronously or with other redditors in real time.
+- [Live scoreboards](./showcase/apps.mdx#live-scores) that give your community play-by-play updates and a space for shitposting during the game.
+- [Polls](./showcase/playgrounds.mdx) to provoke spicy conversations or take the pulse of your community.
+- [Multiplayer games](./showcase/apps.mdx#bingo) played asynchronously or with other redditors in real time.
 
 Or create an entirely new [community game](./community_games.md) around an app, like [r/Pixelary](https://www.reddit.com/r/Pixelary/), a multiplayer game created just for redditors to draw, guess, and compete for bragging rights.
 
