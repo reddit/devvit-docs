@@ -4,8 +4,23 @@ import React from 'react';
  * IntroTilePanel - a reusable two-tile panel for intro pages.
  * @param {Array} tiles - Array of tile configs: { image, alt, title, href, background, textColor, imageSide ('left'|'right'), ariaLabel }
  * @param {string|number} gap - CSS gap between tiles (default: '2.5rem')
+ * @param {ReactNode} children - Optional children to override tile hrefs via <a> elements
  */
-export default function IntroTilePanel({ tiles, gap = '2.5rem' }) {
+export default function IntroTilePanel({ tiles, gap = '2.5rem', children }) {
+  // So, for the links we're given, we want to allow the user to override the hrefs via children <a> elements.
+  // This allows MDX users to use relative links like [Learn More](./more) instead of hardcoding absolute URLs in the
+  // tile config, which makes versioned docs work way better & prevents trailing slash issues from mattering.
+  const titleToHRef = {};
+  if(children) {
+    for(const child of React.Children.toArray(children.props.children)) {
+      // This works for both MDX <a> and regular <a> elements, as the browser will render both as <a>
+      if(child?.type?.name === 'a' || child?.type?.name === 'MDXA') {
+        const href = child.props.href;
+        const title = child.props.children;
+        titleToHRef[title] = href;
+      }
+    }
+  }
   return (
     <div style={{ padding: '0 2.5vw' }}>
       <div
@@ -18,12 +33,13 @@ export default function IntroTilePanel({ tiles, gap = '2.5rem' }) {
           alignItems: 'flex-start',
         }}
       >
-        {tiles.map((tile, i) => {
+        {tiles.map((tile) => {
           const isImageLeft = tile.imageSide === 'left';
+          const href = titleToHRef[tile.title] ?? tile.href;
           return (
             <a
               key={tile.title}
-              href={tile.href}
+              href={href}
               style={{
                 textDecoration: 'none',
                 color: 'inherit',
