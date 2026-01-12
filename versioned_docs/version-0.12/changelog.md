@@ -9,6 +9,12 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Devvit 0.12.8: Simplified Playtest Logs
+
+**Release Date: Jan 12, 2026**
+
+In our first release of the year, we present to you simplified playtest logs. The playtest command now produces cleaner, less verbose output by default. Detailed logs, including webview asset uploads, are now hidden behind the `--verbose flag` for easier reading.
+
 ## Devvit 0.12.7: The REAL End-of-Year Updates
 
 **Release Date: Dec 22, 2025**
