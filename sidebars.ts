@@ -26,13 +26,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "doc",
-      id: "introduction/intro-games",
-      label: "Introduction to Games",
+      id: "capabilities/devvit-web/devvit_web_overview",
+      label: "Devvit Technical Overview",
     },
     {
       type: "doc",
-      id: "introduction/intro-mod-tools",
-      label: "Introduction to Mod Tools",
+      id: "examples/app-showcase",
+      label: "App Showcase",
     },
     {
       type: "html",
@@ -46,36 +46,69 @@ const sidebars: SidebarsConfig = {
       className: "sidebar-section-header",
       defaultStyle: false,
     },
-
     {
-      type: "doc",
-      id: "capabilities/devvit-web/devvit_web_overview",
-      label: "Devvit Web Overview",
-    },
-    {
-      type: "doc",
-      id: "quickstart/quickstart",
-      label: "Quickstart for Games",
-    },
-    {
-      type: "doc",
-      id: "quickstart/quickstart-unity",
-      label: "Quickstart for Unity Games",
-    },
-    {
-      type: "doc",
-      id: "quickstart/quickstart-mod-tool",
-      label: "Quickstart for Mod Tools",
-    },
-    {
-      type: "doc",
-      label: "Using AI Tools",
-      id: "guides/ai/ai",
+      type: "category",
+      label: "Build Games",
+      items: [
+        {
+          type: "doc",
+          id: "introduction/intro-games",
+          label: "Introduction to Games",
+        },
+        {
+          type: "doc",
+          id: "quickstart/quickstart",
+          label: "Quickstart for Games",
+        },
+        {
+          type: "doc",
+          id: "quickstart/quickstart-unity",
+          label: "Quickstart for Unity Games",
+        },
+      ],
     },
     {
       type: "category",
-      label: "Launch Your App",
-      items: ["guides/launch/launch-guide", "guides/launch/feature-guide"],
+      label: "Build Mod Tools",
+      items: [
+        {
+          type: "doc",
+          id: "introduction/intro-mod-tools",
+          label: "Introduction to Mod Tools",
+        },
+        {
+          type: "doc",
+          id: "quickstart/quickstart-mod-tool",
+          label: "Quickstart for Mod Tools",
+        },
+      ],
+    },
+    {
+      type: "html",
+      value: "<hr/>",
+      className: "sidebar-divider",
+      defaultStyle: false,
+    },
+    {
+      type: "html",
+      value: "<span>Launch Your App</span>",
+      className: "sidebar-section-header",
+      defaultStyle: false,
+    },
+    {
+      type: "doc",
+      id: "guides/launch/launch-guide",
+      label: "Launch Guide",
+    },
+    {
+      type: "doc",
+      id: "guides/launch/feature-guide",
+      label: "Feature Guide",
+    },
+    {
+      type: "doc",
+      id: "earn-money/reddit_developer_funds",
+      label: "Reddit Developer Funds",
     },
     {
       type: "html",
@@ -91,106 +124,131 @@ const sidebars: SidebarsConfig = {
     },
 
     {
-      type: "doc",
-      id: "capabilities/devvit-web/devvit_web_configuration",
-      label: "Devvit Web Configuration",
+      type: "category",
+      label: "Devvit Setup",
+      items: [
+        {
+          type: "doc",
+          id: "capabilities/devvit-web/devvit_web_configuration",
+          label: "Devvit Configuration",
+        },
+        {
+          type: "doc",
+          id: "capabilities/client/overview",
+          label: "Client Overview",
+        },
+        {
+          type: "doc",
+          id: "capabilities/server/overview",
+          label: "Server Overview",
+        },
+      ],
     },
 
     {
       type: "category",
-      label: "Client",
+      label: "Post Creation & Navigation",
       items: [
-        "capabilities/client/overview",
         "capabilities/client/navigation",
-        "capabilities/client/forms",
         "capabilities/client/toasts",
         "capabilities/client/menu-actions",
-      ],
-    },
-    {
-      type: "category",
-      label: "Server",
-      items: [
-        "capabilities/server/overview",
+        "capabilities/server/settings-and-secrets",
+        "capabilities/server/launch_screen_and_entry_points/view_modes_entry_points",
         {
           type: "category",
-          label: "Launch Screen and Entry Points",
-          collapsed: true, //
+          label: "Launch Screen",
+          collapsed: true,
           items: [
             "capabilities/server/launch_screen_and_entry_points/launch_overview",
             "capabilities/server/launch_screen_and_entry_points/view_modes_entry_points",
             "capabilities/server/launch_screen_and_entry_points/launch_screen_customization",
-            "capabilities/server/launch_screen_and_entry_points/splash_migration",
-          ],
-        },
-        "capabilities/server/redis",
-        "capabilities/server/userActions",
-        "capabilities/server/post-data",
-        "capabilities/server/splash-screen",
-        "capabilities/server/text_fallback",
-        "capabilities/server/scheduler",
-        "capabilities/server/triggers",
-        "capabilities/server/media-uploads",
-        "capabilities/server/settings-and-secrets",
-        "capabilities/server/cache-helper",
-        {
-          type: "category",
-          label: "HTTP Fetch",
-          items: [
-            "capabilities/server/http-fetch",
-            "capabilities/server/http-fetch-policy",
-          ],
-        },
-        {
-          type: "category",
-          label: "Reddit API",
-          items: [
-            {
-              type: "doc",
-              label: "Overview",
-              id: "capabilities/server/reddit-api",
-            },
-            {
-              type: "category",
-              label: "API Reference",
-              items: [
-                {
-                  type: "doc",
-                  label: "Reddit API Client",
-                  id: "api/redditapi/RedditAPIClient/classes/RedditAPIClient",
-                },
-                {
-                  type: "category",
-                  label: "Classes",
-                  items: [
-                    {
-                      type: "autogenerated",
-                      dirName: "api/redditapi/models/classes",
-                    },
-                  ],
-                },
-                {
-                  type: "category",
-                  label: "Interfaces",
-                  items: [
-                    {
-                      type: "autogenerated",
-                      dirName: "api/redditapi/models/interfaces",
-                    },
-                  ],
-                },
-              ],
-            },
           ],
         },
       ],
     },
     {
       type: "category",
-      label: "Realtime",
+      label: "Access External Endpoints",
       items: [
-        "capabilities/realtime/overview",
-        "capabilities/realtime/realtime_in_devvit_blocks",
+        "capabilities/server/http-fetch",
+        "capabilities/server/http-fetch-policy",
+      ],
+    },
+    {
+      type: "category",
+      label: "Saving Data",
+      items: [
+        "capabilities/server/redis",
+        "capabilities/server/cache-helper",
+        "capabilities/server/post-data",
+      ],
+    },
+    {
+      type: "category",
+      label: "User Input",
+      items: [
+        "capabilities/server/media-uploads",
+        "capabilities/client/forms",
+        "capabilities/server/userActions",
+      ],
+    },
+    {
+      type: "category",
+      label: "Realtime Apps",
+      items: ["capabilities/realtime/overview"],
+    },
+    {
+      type: "category",
+      label: "Automation & Triggers",
+      items: ["capabilities/server/scheduler", "capabilities/server/triggers"],
+    },
+    {
+      type: "category",
+      label: "In-App Purchases",
+      items: [
+        "earn-money/payments/payments_overview",
+        "earn-money/payments/payments_add",
+        "earn-money/payments/payments_migrate",
+        "earn-money/payments/payments_test",
+        "earn-money/payments/payments_publish",
+        "earn-money/payments/payments_manage",
+        "earn-money/payments/support_this_app",
+      ],
+    },
+    {
+      type: "category",
+      label: "Reddit API",
+      items: [
+        {
+          type: "doc",
+          label: "Reddit API Overview",
+          id: "capabilities/server/reddit-api",
+        },
+        {
+          type: "doc",
+          label: "Reddit API Client",
+          id: "api/redditapi/RedditAPIClient/classes/RedditAPIClient",
+        },
+        {
+          type: "category",
+          label: "Classes",
+          items: [
+            {
+              type: "autogenerated",
+              dirName: "api/redditapi/models/classes",
+            },
+          ],
+        },
+        {
+          type: "category",
+          label: "Interfaces",
+          items: [
+            {
+              type: "autogenerated",
+              dirName: "api/redditapi/models/interfaces",
+            },
+          ],
+        },
       ],
     },
     {
@@ -204,9 +262,10 @@ const sidebars: SidebarsConfig = {
         "capabilities/blocks/working_with_useinterval",
         "capabilities/blocks/working_with_useasync",
         "capabilities/blocks/app_image_assets",
+        "capabilities/realtime/realtime_in_devvit_blocks",
         {
           type: "category",
-          label: "Reference",
+          label: "Blocks Reference",
           items: [
             "blocks/stacks",
             "blocks/text",
@@ -227,64 +286,21 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "html",
-      value: "<span>Earn Money</span>",
+      value: "<span>Guides</span>",
       className: "sidebar-section-header",
       defaultStyle: false,
-    },
-    {
-      type: "doc",
-      label: "Reddit Developer Funds",
-      id: "earn-money/reddit_developer_funds",
     },
 
     {
-      type: "category",
-      label: "Payments",
-      items: [
-        "earn-money/payments/payments_overview",
-        "earn-money/payments/payments_add",
-        "earn-money/payments/payments_migrate",
-        "earn-money/payments/payments_test",
-        "earn-money/payments/payments_publish",
-        "earn-money/payments/payments_manage",
-        "earn-money/payments/support_this_app",
-      ],
-    },
-    {
-      type: "html",
-      value: "<hr/>",
-      className: "sidebar-divider",
-      defaultStyle: false,
-    },
-    {
-      type: "html",
-      value: "<span>Examples</span>",
-      className: "sidebar-section-header",
-      defaultStyle: false,
-    },
-    {
       type: "doc",
-      label: "App Showcase",
-      id: "examples/app-showcase",
+      label: "Using AI Tools",
+      id: "guides/ai/ai",
     },
     {
       type: "doc",
       label: "Template Library",
       id: "examples/template-library",
     },
-    {
-      type: "html",
-      value: "<hr/>",
-      className: "sidebar-divider",
-      defaultStyle: false,
-    },
-    {
-      type: "html",
-      value: "<span>Guides</span>",
-      className: "sidebar-section-header",
-      defaultStyle: false,
-    },
-
     {
       type: "category",
       label: "Development Tools",
@@ -293,7 +309,6 @@ const sidebars: SidebarsConfig = {
         "guides/tools/logs",
         "guides/tools/playtest",
         "guides/tools/ui_simulator",
-        "guides/tools/devvit_test",
       ],
     },
     {
@@ -305,12 +320,25 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      type: "doc",
+      label: "Text Fallback",
+      id: "capabilities/server/text_fallback",
+    },
+    {
       type: "category",
       label: "Migration Guides",
       items: [
         "guides/migrate/devvit-singleton",
         "guides/migrate/devvit-web-experimental",
         "guides/migrate/inline-web-view",
+        {
+          type: "category",
+          label: "Splash Screens",
+          items: [
+            "capabilities/server/splash-screen",
+            "capabilities/server/launch_screen_and_entry_points/splash_migration",
+          ],
+        },
       ],
     },
     {
@@ -332,13 +360,13 @@ const sidebars: SidebarsConfig = {
     {
       type: "link",
       label: "Discord",
-      href: "https://discord.gg/Cd43ExtEFS",
+      href: "https://developers.reddit.com/discord",
       className: "sidebar-icon-link discord-link",
     },
     {
       type: "link",
       label: "r/Devvit",
-      href: "https://www.reddit.com/r/devvit/",
+      href: "https://www.reddit.com/r/Devvit",
       className: "sidebar-icon-link subreddit-link",
     },
   ],
