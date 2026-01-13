@@ -125,7 +125,7 @@ const sidebars: SidebarsConfig = {
 
     {
       type: "category",
-      label: "Devvit Setup",
+      label: "Devvit Setup Overview",
       items: [
         {
           type: "doc",
@@ -144,7 +144,32 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
-
+    {
+      type: "category",
+      label: "Access External Endpoints",
+      items: [
+        "capabilities/server/http-fetch",
+        "capabilities/server/http-fetch-policy",
+      ],
+    },
+    {
+      type: "category",
+      label: "Automation & Triggers",
+      items: ["capabilities/server/scheduler", "capabilities/server/triggers"],
+    },
+    {
+      type: "category",
+      label: "In-App Purchases",
+      items: [
+        "earn-money/payments/payments_overview",
+        "earn-money/payments/payments_add",
+        "earn-money/payments/payments_migrate",
+        "earn-money/payments/payments_test",
+        "earn-money/payments/payments_publish",
+        "earn-money/payments/payments_manage",
+        "earn-money/payments/support_this_app",
+      ],
+    },
     {
       type: "category",
       label: "Post Creation & Navigation",
@@ -168,52 +193,8 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Access External Endpoints",
-      items: [
-        "capabilities/server/http-fetch",
-        "capabilities/server/http-fetch-policy",
-      ],
-    },
-    {
-      type: "category",
-      label: "Saving Data",
-      items: [
-        "capabilities/server/redis",
-        "capabilities/server/cache-helper",
-        "capabilities/server/post-data",
-      ],
-    },
-    {
-      type: "category",
-      label: "User Input",
-      items: [
-        "capabilities/server/media-uploads",
-        "capabilities/client/forms",
-        "capabilities/server/userActions",
-      ],
-    },
-    {
-      type: "category",
       label: "Realtime Apps",
       items: ["capabilities/realtime/overview"],
-    },
-    {
-      type: "category",
-      label: "Automation & Triggers",
-      items: ["capabilities/server/scheduler", "capabilities/server/triggers"],
-    },
-    {
-      type: "category",
-      label: "In-App Purchases",
-      items: [
-        "earn-money/payments/payments_overview",
-        "earn-money/payments/payments_add",
-        "earn-money/payments/payments_migrate",
-        "earn-money/payments/payments_test",
-        "earn-money/payments/payments_publish",
-        "earn-money/payments/payments_manage",
-        "earn-money/payments/support_this_app",
-      ],
     },
     {
       type: "category",
@@ -253,6 +234,89 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Saving Data",
+      items: [
+        "capabilities/server/redis",
+        "capabilities/server/cache-helper",
+        "capabilities/server/post-data",
+      ],
+    },
+    {
+      type: "category",
+      label: "User Input",
+      items: [
+        "capabilities/server/media-uploads",
+        "capabilities/client/forms",
+        "capabilities/server/userActions",
+      ],
+    },
+    {
+      type: "html",
+      value: "<hr/>",
+      className: "sidebar-divider",
+      defaultStyle: false,
+    },
+    {
+      type: "html",
+      value: "<span>Guides</span>",
+      className: "sidebar-section-header",
+      defaultStyle: false,
+    },
+
+    {
+      type: "category",
+      label: "Best Practices",
+      items: [
+        "guides/best-practices/community_games",
+        "guides/best-practices/mod_resources",
+        "capabilities/server/text_fallback",
+      ],
+    },
+    {
+      type: "category",
+      label: "Development Tools",
+      items: [
+        "guides/tools/devvit_cli",
+        "guides/tools/logs",
+        "guides/tools/playtest",
+        "guides/tools/ui_simulator",
+      ],
+    },
+    {
+      type: "category",
+      label: "Migration Guides",
+      items: [
+        "guides/migrate/devvit-singleton",
+        "guides/migrate/devvit-web-experimental",
+        "guides/migrate/inline-web-view",
+        {
+          type: "category",
+          label: "Splash Screens",
+          items: [
+            "capabilities/server/splash-screen",
+            "capabilities/server/launch_screen_and_entry_points/splash_migration",
+          ],
+        },
+      ],
+    },
+    {
+      type: "doc",
+      label: "Template Library",
+      id: "examples/template-library",
+    },
+    {
+      type: "doc",
+      label: "Using AI Tools",
+      id: "guides/ai/ai",
+    },
+    {
+      type: "html",
+      value: "<hr/>",
+      className: "sidebar-divider",
+      defaultStyle: false,
+    },
+    {
+      type: "category",
       label: "Devvit Blocks",
       items: [
         "capabilities/blocks/overview",
@@ -277,75 +341,6 @@ const sidebars: SidebarsConfig = {
           ],
         },
       ],
-    },
-    {
-      type: "html",
-      value: "<hr/>",
-      className: "sidebar-divider",
-      defaultStyle: false,
-    },
-    {
-      type: "html",
-      value: "<span>Guides</span>",
-      className: "sidebar-section-header",
-      defaultStyle: false,
-    },
-
-    {
-      type: "doc",
-      label: "Using AI Tools",
-      id: "guides/ai/ai",
-    },
-    {
-      type: "doc",
-      label: "Template Library",
-      id: "examples/template-library",
-    },
-    {
-      type: "category",
-      label: "Development Tools",
-      items: [
-        "guides/tools/devvit_cli",
-        "guides/tools/logs",
-        "guides/tools/playtest",
-        "guides/tools/ui_simulator",
-      ],
-    },
-    {
-      type: "category",
-      label: "Best Practices",
-      items: [
-        "guides/best-practices/community_games",
-        "guides/best-practices/mod_resources",
-      ],
-    },
-    {
-      type: "doc",
-      label: "Text Fallback",
-      id: "capabilities/server/text_fallback",
-    },
-    {
-      type: "category",
-      label: "Migration Guides",
-      items: [
-        "guides/migrate/devvit-singleton",
-        "guides/migrate/devvit-web-experimental",
-        "guides/migrate/inline-web-view",
-        {
-          type: "category",
-          label: "Splash Screens",
-          items: [
-            "capabilities/server/splash-screen",
-            "capabilities/server/launch_screen_and_entry_points/splash_migration",
-          ],
-        },
-      ],
-    },
-    {
-      type: "html",
-      value: "<hr/>",
-      className: "sidebar-divider",
-      defaultStyle: false,
     },
     {
       type: "doc",
