@@ -283,11 +283,6 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
-      type: "doc",
-      label: "Text Fallback",
-      id: "capabilities/server/text_fallback",
-    },
-    {
       type: "category",
       label: "Migration Guides",
       items: [
