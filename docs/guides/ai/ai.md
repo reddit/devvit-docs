@@ -94,4 +94,4 @@ Refer to the [official Copilot documentation](https://code.visualstudio.com/docs
 
 With your AI tool configured, you should now be able to leverage the Devvit MCP server. A good way to test this is to ask your AI assistant a question that requires accessing Devvit resources, for example: "Search the Devvit docs for information on redis."
 
-If you encounter problems, refer to the official Devvit documentation or reach out in the [Discord](https://discord.com/invite/R7yu2wh9Qz).
+If you encounter problems, refer to the official Devvit documentation or reach out in the [Discord](https://developers.reddit.com/discord).

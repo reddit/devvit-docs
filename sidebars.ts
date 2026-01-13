@@ -332,7 +332,7 @@ const sidebars: SidebarsConfig = {
     {
       type: "link",
       label: "Discord",
-      href: "https://discord.gg/Cd43ExtEFS",
+      href: "https://developers.reddit.com/discord",
       className: "sidebar-icon-link discord-link",
     },
     {

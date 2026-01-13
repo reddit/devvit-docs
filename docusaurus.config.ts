@@ -181,7 +181,7 @@ const config: Config = {
         },
         {
           label: "Join our Discord",
-          href: "https://discord.gg/Cd43ExtEFS",
+          href: "https://developers.reddit.com/discord",
         },
       ],
       style: "dark",
