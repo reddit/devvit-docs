@@ -63,7 +63,12 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           id: "quickstart/quickstart-unity",
-          label: "Quickstart for Unity Games",
+          label: "Quickstart for Unity",
+        },
+        {
+          type: "doc",
+          id: "quickstart/quickstart-gamemaker",
+          label: "Quickstart for GameMaker",
         },
       ],
     },
