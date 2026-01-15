@@ -111,8 +111,8 @@ const sidebars: SidebarsConfig = {
       label: "Feature Guide",
     },
     {
-      type: "doc",
-      id: "earn-money/reddit_developer_funds",
+      type: "link",
+      href: "https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms",
       label: "Reddit Developer Funds",
     },
     {
@@ -282,6 +282,7 @@ const sidebars: SidebarsConfig = {
       label: "Development Tools",
       items: [
         "guides/tools/devvit_cli",
+        "guides/tools/devvit_test",
         "guides/tools/logs",
         "guides/tools/playtest",
         "guides/tools/ui_simulator",
