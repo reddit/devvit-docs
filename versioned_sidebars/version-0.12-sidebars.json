@@ -145,10 +145,7 @@
     {
       "type": "category",
       "label": "Automation & Triggers",
-      "items": [
-        "capabilities/server/scheduler",
-        "capabilities/server/triggers"
-      ]
+      "items": ["capabilities/server/scheduler", "capabilities/server/triggers"]
     },
     {
       "type": "category",
@@ -187,9 +184,7 @@
     {
       "type": "category",
       "label": "Realtime Apps",
-      "items": [
-        "capabilities/realtime/overview"
-      ]
+      "items": ["capabilities/realtime/overview"]
     },
     {
       "type": "category",
@@ -272,6 +267,7 @@
       "items": [
         "guides/tools/devvit_cli",
         "guides/tools/devvit_test",
+        "guides/tools/vite",
         "guides/tools/logs",
         "guides/tools/playtest",
         "guides/tools/ui_simulator"
