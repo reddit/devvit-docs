@@ -9,6 +9,14 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Devvit 0.12.9: Gaming Templates and Error Handling
+
+**Release Date: Jan 20, 2026**
+
+In this release, we introduced a **Game Engines** tab on [developers.reddit.com/new](http://developers.reddit.com/new) to help you  get started faster with gaming-specific templates.
+
+You’ll also see **improved error handling** in submitCustomPost() that correctly decodes and surfaces messages when the post data size limit is exceeded.
+
 ## Devvit 0.12.8: Simplified Playtest Logs
 
 **Release Date: Jan 12, 2026**
