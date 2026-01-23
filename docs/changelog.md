@@ -13,7 +13,7 @@ To use the latest version of Devvit:
 
 **Release Date: Jan 26, 2026**
 
-In the release, getUserKarmaForCurrentSubreddit() now allows users to fetch their own subreddit karma, even if they're not moderators.
+We've updated getUserKarmaForCurrentSubreddit() to allow users to fetch their own subreddit karma, even if they're not moderators.
 
 
 ## Devvit 0.12.9: Gaming Templates and Error Handling
