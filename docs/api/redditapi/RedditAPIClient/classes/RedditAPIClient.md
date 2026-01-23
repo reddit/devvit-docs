@@ -2804,6 +2804,55 @@ const comment = await reddit.submitComment({
 
 ***
 
+### submitCustomPost()
+
+> **submitCustomPost**(`options`): `Promise`\<[`Post`](../../models/classes/Post.md)\>
+
+Submits a new [interactive post](../../../../capabilities/interactive-posts/interactive_posts_overview.mdx) to a subreddit.
+
+#### Parameters
+
+##### options
+
+[`SubmitCustomPostOptions`](../../models/type-aliases/SubmitCustomPostOptions.md)
+
+Either a self post or a link post.
+
+#### Returns
+
+`Promise`\<[`Post`](../../models/classes/Post.md)\>
+
+A Promise that resolves to a Post object.
+
+#### Examples
+
+```ts
+const post = await reddit.submitCustomPost({
+  subredditName: 'devvit',
+  title: 'Hello World',
+  entry: 'default',
+});
+```
+
+By default, `submitCustomPost()` creates a Post on behalf of the App account, but it may be called on behalf of the User making the request by setting the option `runAs: RunAs.USER`.
+When using `runAs: RunAs.USER` to create an interactive post, you must specify the `userGeneratedContent` option. For example:
+
+```ts
+import { RunAs } from '@devvit/public-api';
+
+const post = await reddit.submitCustomPost({
+ subredditName: await reddit.getCurrentSubredditName(),
+ title: 'My Devvit Post',
+ userGeneratedContent: {
+   text: "hello there", 
+   imageUrls: ["https://styles.redditmedia.com/t5_5wa5ww/styles/communityIcon_wyopomb2xb0a1.png", "https://styles.redditmedia.com/t5_49fkib/styles/bannerBackgroundImage_5a4axis7cku61.png"]
+ },
+ runAs: RunAs.USER,
+});
+```
+
+***
+
 <a id="submitpost"></a>
 
 ### submitPost()
