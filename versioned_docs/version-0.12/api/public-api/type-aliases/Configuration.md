@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.9-dev**](../README.md)
+[**@devvit/public-api v0.12.10-dev**](../README.md)
 
 ***
 
@@ -35,16 +35,6 @@ Allows your app to use the Key-Value Store
 > `optional` **media**: [`PluginSettings`](PluginSettings.md) \| `boolean`
 
 Allows media uploads from apps
-
-***
-
-<a id="modlog"></a>
-
-### modLog?
-
-> `optional` **modLog**: [`PluginSettings`](PluginSettings.md) \| `boolean`
-
-Allows using ModLog API
 
 ***
 

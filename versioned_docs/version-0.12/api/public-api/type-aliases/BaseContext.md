@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.9-dev**](../README.md)
+[**@devvit/public-api v0.12.10-dev**](../README.md)
 
 ***
 
@@ -18,15 +18,29 @@ The ID of the current app's account
 
 #### Deprecated
 
-Use [BaseContext.appName](#appname) instead to get the app's username
+Use [BaseContext.appSlug](#appslug) instead to get the app's username
 
 ***
 
 <a id="appname"></a>
 
-### appName
+### ~~appName~~
 
 > **appName**: `string`
+
+The slug of the app that is running
+
+#### Deprecated
+
+Use [BaseContext.appSlug](#appslug) instead.
+
+***
+
+<a id="appslug"></a>
+
+### appSlug
+
+> **appSlug**: `string`
 
 The slug of the app that is running
 

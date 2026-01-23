@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.10-dev**](../../README.md)
+[**@devvit/public-api v0.12.11-dev**](../../README.md)
 
 ***
 
@@ -372,6 +372,8 @@ const userFlair = await user.getUserFlairBySubreddit(subredditName);
 > **getUserKarmaFromCurrentSubreddit**(): `Promise`\<`GetUserKarmaForSubredditResponse`\>
 
 Returns the karma for this User in the current subreddit.
+The user making the request must be a moderator of the subreddit to read another user's karma in the subreddit.
+An exception is if the specified user is the same as the user making the request.
 
 #### Returns
 

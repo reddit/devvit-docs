@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.9-dev**](../../README.md)
+[**@devvit/public-api v0.12.10-dev**](../../README.md)
 
 ***
 
@@ -1234,11 +1234,11 @@ const userFlairList = response.users
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Subreddit`, `"description"` \| `"type"` \| `"id"` \| `"name"` \| `"title"` \| `"settings"` \| `"createdAt"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
+> **toJSON**(): `Pick`\<`Subreddit`, `"type"` \| `"id"` \| `"name"` \| `"title"` \| `"description"` \| `"settings"` \| `"createdAt"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
 
 #### Returns
 
-`Pick`\<`Subreddit`, `"description"` \| `"type"` \| `"id"` \| `"name"` \| `"title"` \| `"settings"` \| `"createdAt"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
+`Pick`\<`Subreddit`, `"type"` \| `"id"` \| `"name"` \| `"title"` \| `"description"` \| `"settings"` \| `"createdAt"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
 
 ***
 
