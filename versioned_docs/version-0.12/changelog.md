@@ -9,6 +9,13 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Devvit 0.12.10: Good Karma
+
+**Release Date: Jan 26, 2026**
+
+We've updated getUserKarmaForCurrentSubreddit() to allow users to fetch their own subreddit karma, even if they're not moderators.
+
+
 ## Devvit 0.12.9: Gaming Templates and Error Handling
 
 **Release Date: Jan 20, 2026**
