@@ -61,6 +61,7 @@ After enabling, you can call certain Reddit APIs on behalf of the user by passin
 Currently, the following APIs support this option:
 
 - [submitPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost)
+- [submitCustomPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcustompost)
 - [submitComment()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment)
 
 If `runAs` is not specified, the API will use `runAs: 'APP'` by default.
@@ -116,15 +117,27 @@ router.post('/internal/post-create', async (_req, res) => {
 
 The [subscribeToCurrentSubreddit()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#subscribetocurrentsubreddit) API does not take a `runAs` parameter; it subscribes as the user by default (if specified in `devvit.json` and approved).
 
-It is first required to gain permission from the client with `canRunAsUser()`.
+It is first required to gain permission from the client with `canRunAsUser()`. This shows a permissions request modal to the user, and returns a true or false value based on their choice.
 
 ```ts
-import { canRunAsUser } from "@devvit/client";
+import { canRunAsUser, showToast } from "@devvit/client";
 
-const result = await canRunAsUser();
+async function handleSubscribeButton() {
+  if (await canRunAsUser()) {
+    try {
+      const response = await fetch('/api/subscribe');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      showToast({ text: 'Subscribed to community', appearance: 'success' });
+    } catch (error) {
+      showToast('Something went wrong. Please try again.');
+    }
+  } else {
+    showToast('Permission not granted');
+  }
+}
 ```
-
-This shows a permissions request modal to the user, and returns a true or false value based on their choice.
 
 If the user has previously given permission to your app to subscribe, `canRunAsUser()` will return true without showing the request modal.
 
@@ -134,7 +147,14 @@ You can then call `subscribeToCurrentSubreddit()` on the server to complete the 
 ```ts
 import { reddit } from '@devvit/web/server';
 
-await reddit.subscribeToCurrentSubreddit();
+router.post('/api/subscribe', async (_req, res) => {
+  try {
+    await reddit.subscribeToCurrentSubreddit();
+    res.json({ status: 'success' });
+  } catch (error) {
+    res.status(500).json({ status: 'error', message: 'Failed to subscribe' });
+  }
+});
 ```
 
 For user privacy there is no API to check if the user is already subscribed to the current subreddit. You may want to store the subscription state in Redis to provide contextually aware UI.
