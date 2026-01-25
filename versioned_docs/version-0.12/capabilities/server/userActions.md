@@ -103,8 +103,8 @@ router.post('/internal/post-create', async (_req, res) => {
       text: "Hello there! This is a new post from the user's account",
     },
     subredditName,
-    title: 'Post Title'
-     entry: 'default',
+    title: 'Post Title',
+    entry: 'default',
   });
 
   res.json({ status: 'success', message: `Post created in subreddit ${subredditName}` });
