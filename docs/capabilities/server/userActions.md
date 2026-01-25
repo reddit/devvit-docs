@@ -120,7 +120,7 @@ The [subscribeToCurrentSubreddit()](../../api/redditapi/RedditAPIClient/classes/
 It is first required to gain permission from the client with `canRunAsUser()`. This shows a permissions request modal to the user, and returns a true or false value based on their choice.
 
 ```ts
-import { canRunAsUser, showToast } from "@devvit/client";
+import { canRunAsUser, showToast } from '@devvit/web/client';
 
 async function handleSubscribeButton() {
   if (await canRunAsUser()) {
