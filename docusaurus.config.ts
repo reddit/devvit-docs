@@ -168,7 +168,7 @@ const config: Config = {
         },
         {
           label: "The Reddit Developer Fund",
-          to: "/earn-money/reddit_developer_funds",
+          href: "https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms",
         },
 
         {

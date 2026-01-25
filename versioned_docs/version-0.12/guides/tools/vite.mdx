@@ -1,0 +1,130 @@
+---
+id: vite
+title: Vite Plugin
+sidebar_label: Vite Plugin
+---
+
+# Build with the Devvit Vite plugin
+
+::::warning Experimental
+The Devvit Vite plugin is experimental and subject to breaking changes.
+::::
+
+The Devvit [Vite](https://vite.dev/) plugin is a 100% optional plugin for Devvit Web that unifies your client and server builds into a single command using [Vite's Environment API](https://vite.dev/guide/api-environment).
+
+Features:
+
+- Unified build command for client and server
+- Automatic entrypoint bundling based on your `devvit.json` configuration
+- Optimized configuration for building your code for Devvit
+
+The plugin is **completely optional**. You can use Vite without it, or swap in Webpack, esbuild, or any other bundler you prefer.
+
+You can see a full template using it here: https://github.com/reddit/devvit-template-vibe-coding/blob/main/vite.config.ts
+
+## Quick start
+
+Add the plugin to your `vite.config.ts` alongside any UI tooling you already use:
+
+```ts
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwind from "@tailwindcss/vite";
+import { devvit } from "@devvit/start/vite";
+
+export default defineConfig({
+  plugins: [
+    react(),
+    tailwind(),
+    // Make sure to add the Devvit plugin last!
+    devvit(),
+  ],
+});
+```
+
+## What the plugin expects
+
+The plugin uses your `devvit.json` as the source of truth for client entry points. Make sure you have at least one entrypoint defined:
+
+```json
+{
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": {
+        "inline": true,
+        "entry": "src/splash.html"
+      }
+    }
+  }
+}
+```
+
+For the server build, the plugin looks for one of these files:
+
+- `src/server/index.ts`
+- `src/api/index.ts`
+
+If neither file exists, the build fails with a clear error message.
+
+## What it builds
+
+Out of the box, the plugin configures two environments:
+
+- **Client build** outputs to `dist/client` and uses the entry points from `devvit.json`.
+- **Server build** outputs to `dist/server` as `index.cjs`
+
+> Note that Devvit requires a single CJS bundle to run the server code. Please do not mark server dependencies as `external` as it will break your server build. This may change in the future!
+
+## Customize the build
+
+The plugin accepts a small options object that lets you tweak both environments without redoing the whole config. Each option is merged into the generated Vite environment config.
+
+```ts
+type DevvitPluginOptions = {
+  client?: EnvironmentOptions;
+  server?: EnvironmentOptions;
+  logLevel?: "info" | "warn" | "error" | "silent";
+  verbose?: boolean;
+};
+```
+
+For example, if you want to disable sourcemaps for the client build:
+
+```ts
+import { defineConfig } from "vite";
+import { devvit } from "@devvit/start/vite";
+
+export default defineConfig({
+  plugins: [
+    devvit({
+      client: {
+        build: {
+          sourcemap: false,
+        },
+      },
+    }),
+  ],
+});
+```
+
+Any customization you make is automatically merged into the generated environment config so don't worry about spreading our defaults across your config changes.
+
+## Sharing code between client and server
+
+If you need to share code between client and server, keep it outside of `src/server` and `src/api`. Treat those folders as server-only. Put shared modules in a neutral folder (for example `src/shared`) and import them from both environments.
+
+```text
+src/
+  server/
+    index.ts          # server entry
+  client/
+    main.tsx          # client entry
+  shared/
+    formatScore.ts    # safe to import from client + server
+```
+
+## Limitations and gotchas
+
+- **Build-only:** The plugin only supports `vite build`. There is no support for `vite dev` or Hot Module Replacement (HMR) at this time. This is because `devvit playtest` works by uploading your build to our servers and running it on Reddit.com. Instead, use `vite build --watch` as your dev command.
+- **Entry points are required:** Building server apps only is not yet supported. If you'd like to request this feature, please [open an issue](https://github.com/reddit/devvit/issues/new).

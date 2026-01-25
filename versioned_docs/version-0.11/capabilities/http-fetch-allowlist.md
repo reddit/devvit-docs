@@ -7,6 +7,7 @@ The following domains are globally allowed and can be fetched by any app:
 - cdn.espn.com
 - discord.com
 - api.polygon.io
+- api.massive.com
 - polygon.io
 - slack.com
 - lichess.org
