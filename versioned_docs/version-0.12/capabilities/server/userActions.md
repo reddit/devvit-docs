@@ -117,33 +117,6 @@ router.post('/internal/post-create', async (_req, res) => {
 
 The [subscribeToCurrentSubreddit()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#subscribetocurrentsubreddit) API does not take a `runAs` parameter; it subscribes as the user by default (if specified in `devvit.json` and approved).
 
-It is first required to gain permission from the client with `canRunAsUser()`. This shows a permissions request modal to the user, and returns a true or false value based on their choice.
-
-```ts
-import { canRunAsUser, showToast } from '@devvit/web/client';
-
-async function handleSubscribeButton() {
-  if (await canRunAsUser()) {
-    try {
-      const response = await fetch('/api/subscribe');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      showToast({ text: 'Subscribed to community', appearance: 'success' });
-    } catch (error) {
-      showToast('Something went wrong. Please try again.');
-    }
-  } else {
-    showToast('Permission not granted');
-  }
-}
-```
-
-If the user has previously given permission to your app to subscribe, `canRunAsUser()` will return true without showing the request modal.
-
-You can then call `subscribeToCurrentSubreddit()` on the server to complete the action.
-
-
 ```ts
 import { reddit } from '@devvit/web/server';
 
