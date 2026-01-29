@@ -286,6 +286,7 @@ const sidebars: SidebarsConfig = {
         "guides/tools/logs",
         "guides/tools/playtest",
         "guides/tools/ui_simulator",
+        "guides/tools/multiple_developers"
       ],
     },
     {
