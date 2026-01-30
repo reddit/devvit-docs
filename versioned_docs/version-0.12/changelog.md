@@ -9,6 +9,14 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+
+## Devvit 0.12.11: Faster App Review
+
+**Release Date: Feb 2, 2026**
+
+In this release, we’re cleaning up the app review process (literally). The CLI now uploads a clean, unbundled source zip (respecting .gitignore) for app review. This will help our human reviewers see properly formatted TypeScript and clearer diffs, leading to faster review times.
+
+
 ## Devvit 0.12.10: Good Karma
 
 **Release Date: Jan 26, 2026**
