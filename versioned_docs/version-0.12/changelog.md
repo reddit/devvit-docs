@@ -9,13 +9,11 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
-
-## Devvit 0.12.11: Faster App Review
+## Devvit 0.12.11: App Review Update
 
 **Release Date: Feb 2, 2026**
 
-In this release, we’re cleaning up the app review process (literally). The CLI now uploads a clean, unbundled source zip (respecting .gitignore) for app review. This will help our human reviewers see properly formatted TypeScript and clearer diffs, leading to faster review times.
-
+In this release, we’re cleaning up the app review process (literally). The CLI now uploads a clean, unbundled source zip (respecting .gitignore) for app review. This will help our human reviewers see properly formatted TypeScript and clearer diffs.
 
 ## Devvit 0.12.10: Good Karma
 
@@ -23,12 +21,11 @@ In this release, we’re cleaning up the app review process (literally). The CLI
 
 We've updated getUserKarmaForCurrentSubreddit() to allow users to fetch their own subreddit karma, even if they're not moderators.
 
-
 ## Devvit 0.12.9: Gaming Templates and Error Handling
 
 **Release Date: Jan 20, 2026**
 
-In this release, we introduced a **Game Engines** tab on [developers.reddit.com/new](http://developers.reddit.com/new) to help you  get started faster with gaming-specific templates.
+In this release, we introduced a **Game Engines** tab on [developers.reddit.com/new](http://developers.reddit.com/new) to help you get started faster with gaming-specific templates.
 
 You’ll also see **improved error handling** in submitCustomPost() that correctly decodes and surfaces messages when the post data size limit is exceeded.
 
