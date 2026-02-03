@@ -6,11 +6,7 @@ sidebar_label: Vite Plugin
 
 # Build with the Devvit Vite plugin
 
-::::warning Experimental
-The Devvit Vite plugin is experimental and subject to breaking changes.
-::::
-
-The Devvit [Vite](https://vite.dev/) plugin is a 100% optional plugin for Devvit Web that unifies your client and server builds into a single command using [Vite's Environment API](https://vite.dev/guide/api-environment).
+The Devvit [Vite](https://vite.dev/) plugin is an opinionated (and 100% optional) plugin for Devvit Web that unifies your client and server builds into a single command using [Vite's Environment API](https://vite.dev/guide/api-environment).
 
 Features:
 
@@ -53,28 +49,48 @@ The plugin uses your `devvit.json` as the source of truth for client entry point
     "entrypoints": {
       "default": {
         "inline": true,
-        "entry": "src/splash.html"
+        "entry": "splash.html"
       }
     }
+  },
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.ts"
   }
 }
 ```
+
+The plugin reads `devvit.json` from the project root (the current working directory unless you set `root` in `vite.config.ts`). If it can’t find a valid config, the build fails.
+
+<details>
+<summary>Why your client output can look nested</summary>
+
+By default, the Devvit Vite plugin sets the Vite root to `src/client` when that folder exists (unless you explicitly set `root` in `vite.config.ts`). That keeps client output flat, like `dist/client/index.html`.
+
+If you explicitly set `root` to the repo root or include `src/` in `post.entrypoints.*.entry`, Vite will preserve that path in the output, leading to nested paths like `dist/client/src/client/index.html`. Keep entry paths relative to the client root (no `src/` prefix) to preserve the flat layout.
+
+Server builds use a fixed entry point and are not affected by this behavior.
+
+</details>
 
 For the server build, the plugin looks for one of these files:
 
 - `src/server/index.ts`
 - `src/api/index.ts`
+- `src/index.ts`
 
 If neither file exists, the build fails with a clear error message.
 
 ## What it builds
 
-Out of the box, the plugin configures two environments:
+Out of the box, the plugin configures two environments depending on what's defined in your `devvit.json`:
 
 - **Client build** outputs to `dist/client` and uses the entry points from `devvit.json`.
 - **Server build** outputs to `dist/server` as `index.cjs`
 
 > Note that Devvit requires a single CJS bundle to run the server code. Please do not mark server dependencies as `external` as it will break your server build. This may change in the future!
+
+> The plugin currently always writes to `dist/client` and `dist/server`, regardless of `post.dir` or `server.dir` in `devvit.json`. Those values are used by Devvit, but Vite’s output paths are fixed in the plugin.
 
 ## Customize the build
 
@@ -124,7 +140,69 @@ src/
     formatScore.ts    # safe to import from client + server
 ```
 
+## Migrating Old Templates
+
+If you started with a template before this plugin, migrating it is simple!
+
+1. Run the installation command
+
+```bash
+npm install @devvit/start
+```
+
+2. Add a `vite.config` to the root of your project. For example, this is how you would migrate a React app:
+
+```ts title="vite.config.ts"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwind from "@tailwindcss/vite";
+import { devvit } from "@devvit/start/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwind(), devvit()],
+});
+```
+
+3. Remove `src/client/vite.config.ts` and `src/server/vite.config.ts`
+
+Technically, that's all you need to do! However, you can also make your development experience a lot nicer by utilizing the new `scripts` field in your `devvit.json` file.
+
+4. Add the following to your `devvit.json` file:
+
+```json title="devvit.json"
+{
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  }
+}
+```
+
+5. Update your `package.json` commands to look like the following:
+
+```patch title="package.json"
+diff --git a/package.json b/package.json
+--- a/package.json
++++ b/package.json
+@@ -7,14 +7,6 @@
+   "scripts": {
+-    "build:client": "cd src/client && vite build",
+-    "build:server": "cd src/server && vite build",
+-    "build": "npm run build:client && npm run build:server",
+-    "dev": "concurrently -k -p \"[{name}]\" -n \"CLIENT,SERVER,DEVVIT\" -c \"blue,green,magenta\" \"npm run dev:client\" \"npm run dev:server\" \"npm run dev:devvit\"",
+-    "dev:client": "cd src/client && vite build --watch",
+-    "dev:devvit": "devvit playtest",
+-    "dev:server": "cd src/server && vite build --watch",
+-    "dev:vite": "cd src/client && vite --port 7474",
++    "build": "vite build",
++    "dev": "devvit playtest --verbose",
+```
+
+You can also remove the `concurrently` dependency after this switch.
+
+6. Run `npm run dev` to make sure everything is working.
+
 ## Limitations and gotchas
 
 - **Build-only:** The plugin only supports `vite build`. There is no support for `vite dev` or Hot Module Replacement (HMR) at this time. This is because `devvit playtest` works by uploading your build to our servers and running it on Reddit.com. Instead, use `vite build --watch` as your dev command.
-- **Entry points are required:** Building server apps only is not yet supported. If you'd like to request this feature, please [open an issue](https://github.com/reddit/devvit/issues/new).
+- **Public dir resolution:** The plugin auto-detects a `public/` folder at the repo root or inside `src/client`. If both exist, the build fails—keep a single public directory.

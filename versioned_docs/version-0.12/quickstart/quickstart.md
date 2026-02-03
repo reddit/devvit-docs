@@ -37,7 +37,12 @@ Cutting the template to the target directory...
 To run your app, `cd my-app` and then run `npm run dev`. You should see some logs start up that finish with:
 
 ```
-✨ https://www.reddit.com/r/my-app_dev?playtest=my-app
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ ✓ Playtest ready                                                            │
+│ ➜ URL: https://www.reddit.com/r/my-app_dev/?playtest=my-app                 │
+│ ➜ Version: v0.0.0.1                                                         │
+│ ➜ Open the URL above and refresh to see your latest changes.                │
+└─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 The dev command automatically creates a development subreddit for your app and a test post for you to develop against. When you visit the url, it should look something like this.
@@ -64,12 +69,12 @@ This special file in the root of the project contains configurations for many of
 
 ## Testing your app on a specific subreddit
 
-You need to test your app on a subreddit. Your backend calls will not work when testing the app locally. For that we will be leveraging Devvit's Playtest tool. If you have a preference for a specific subreddit to playtest, change the `package.json` file to include your subreddit name in `dev:devvit`:
+You need to test your app on a subreddit. Your backend calls will not work when testing the app locally. For that we will be leveraging Devvit's Playtest tool. If you have a preference for a specific subreddit to playtest, change the `package.json` file to include your subreddit name in `dev`:
 
 ```javascript title="package.json"
 "scripts": {
     //...
-    "dev:devvit": "devvit playtest r/MY_PREFERRED_SUBREDDIT",
+    "dev": "devvit playtest r/MY_PREFERRED_SUBREDDIT",
     //...
 }
 ```

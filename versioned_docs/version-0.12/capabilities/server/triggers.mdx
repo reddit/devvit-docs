@@ -1,5 +1,5 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # Triggers
 
@@ -43,26 +43,28 @@ A full list of events and their payloads can be found in the [EventTypes documen
   <TabItem value="web" label="Devvit Web">
   Declare the triggers and their corresponding endpoints in your `devvit.json`:
 
-  ```json
-  "triggers": {
-    "onAppUpgrade": "/internal/on-app-upgrade",
-    "onCommentCreate": "/internal/on-comment-create",
-    "onPostSubmit": "/internal/on-post-submit"
-  }
-  ```
+```json
+"triggers": {
+  "onAppUpgrade": "/internal/on-app-upgrade",
+  "onCommentCreate": "/internal/on-comment-create",
+  "onPostSubmit": "/internal/on-post-submit"
+}
+```
+
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
   Declare the triggers in your `devvit.json`:
 
-  ```json
-  {
-    "name": "your-app-name",
-    "blocks": {
-      "entry": "src/main.tsx",
-      "triggers": ["onPostCreate"]
-    }
+```json
+{
+  "name": "your-app-name",
+  "blocks": {
+    "entry": "src/main.tsx",
+    "triggers": ["onPostCreate"]
   }
-  ```
+}
+```
+
   </TabItem>
 </Tabs>
 
@@ -72,65 +74,113 @@ A full list of events and their payloads can be found in the [EventTypes documen
   <TabItem value="web" label="Devvit Web">
   Listen for the events in your server and access the data passed into the request:
 
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
 ```tsx title="server/index.ts"
-  const router = express.Router();
+app.post('/internal/on-app-upgrade', async (c) => {
+  console.log('Handle event for on-app-upgrade!');
+  const body = await c.req.json();
+  const installer = body.installer;
+  console.log('Installer:', JSON.stringify(installer, null, 2));
+  return c.json({ status: 'ok' });
+});
 
-  // ..
+app.post('/internal/on-comment-create', async (c) => {
+  console.log('Handle event for on-comment-create!');
+  const body = await c.req.json();
+  const comment = body.comment;
+  const author = body.author;
+  console.log('Comment:', JSON.stringify(comment, null, 2));
+  console.log('Author:', JSON.stringify(author, null, 2));
+  return c.json({ status: 'ok' });
+});
 
-  router.post('/internal/on-app-upgrade', async (req, res) => {
-    console.log(`Handle event for on-app-upgrade!`);
-    const installer = req.body.installer;
-    console.log('Installer:', JSON.stringify(installer, null, 2));
-    res.status(200).json({ status: 'ok' });
-  });
+app.post('/internal/on-post-submit', async (c) => {
+  console.log('Handle event for on-post-submit!');
+  const body = await c.req.json();
+  const post = body.post;
+  const author = body.author;
+  console.log('Post:', JSON.stringify(post, null, 2));
+  console.log('Author:', JSON.stringify(author, null, 2));
+  return c.json({ status: 'ok' });
+});
+```
 
-  router.post('/internal/on-comment-create', async (req, res) => {
-    console.log(`Handle event for on-comment-create!`);
-    const comment = req.body.comment;
-    const author = req.body.author;
-    console.log('Comment:', JSON.stringify(comment, null, 2));
-    console.log('Author:', JSON.stringify(author, null, 2));
-    res.status(200).json({ status: 'ok' });
-  });
+</TabItem>
+<TabItem value="express">
 
-  router.post('/internal/on-post-submit', async (req, res) => {
-    console.log(`Handle event for on-post-submit!`);
-    const post = req.body.post;
-    const author = req.body.author;
-    console.log('Post:', JSON.stringify(post, null, 2));
-    console.log('Author:', JSON.stringify(author, null, 2));
-    res.status(200).json({ status: 'ok' });
-  });
-  ```
+```tsx title="server/index.ts"
+const router = express.Router();
+
+// ..
+
+router.post("/internal/on-app-upgrade", async (req, res) => {
+  console.log(`Handle event for on-app-upgrade!`);
+  const installer = req.body.installer;
+  console.log("Installer:", JSON.stringify(installer, null, 2));
+  res.status(200).json({ status: "ok" });
+});
+
+router.post("/internal/on-comment-create", async (req, res) => {
+  console.log(`Handle event for on-comment-create!`);
+  const comment = req.body.comment;
+  const author = req.body.author;
+  console.log("Comment:", JSON.stringify(comment, null, 2));
+  console.log("Author:", JSON.stringify(author, null, 2));
+  res.status(200).json({ status: "ok" });
+});
+
+router.post("/internal/on-post-submit", async (req, res) => {
+  console.log(`Handle event for on-post-submit!`);
+  const post = req.body.post;
+  const author = req.body.author;
+  console.log("Post:", JSON.stringify(post, null, 2));
+  console.log("Author:", JSON.stringify(author, null, 2));
+  res.status(200).json({ status: "ok" });
+});
+```
+
+</TabItem>
+</Tabs>
+
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
   Handle trigger events in your main file. Example (`src/main.tsx`):
 
-  ```tsx
-  import { Devvit } from '@devvit/public-api';
+```tsx
+import { Devvit } from "@devvit/public-api";
 
-  // Handling a PostSubmit event
-  Devvit.addTrigger({
-    event: 'PostSubmit', // Event name from above
-    onEvent: async (event) => {
-      console.log(`Received OnPostSubmit event:\n${JSON.stringify(event)}`);
-    },
-  });
+// Handling a PostSubmit event
+Devvit.addTrigger({
+  event: "PostSubmit", // Event name from above
+  onEvent: async (event) => {
+    console.log(`Received OnPostSubmit event:\n${JSON.stringify(event)}`);
+  },
+});
 
-  // Handling multiple events: PostUpdate and PostReport
-  Devvit.addTrigger({
-    events: ['PostUpdate', 'PostReport'], // An array of events
-    onEvent: async (event) => {
-      if (event.type == 'PostUpdate') {
-        console.log(`Received OnPostUpdate event:\n${JSON.stringify(request)}`);
-      } else if (event.type === 'PostReport') {
-        console.log(`Received OnPostReport event:\n${JSON.stringify(request)}`);
-      }
-    },
-  });
+// Handling multiple events: PostUpdate and PostReport
+Devvit.addTrigger({
+  events: ["PostUpdate", "PostReport"], // An array of events
+  onEvent: async (event) => {
+    if (event.type == "PostUpdate") {
+      console.log(`Received OnPostUpdate event:\n${JSON.stringify(request)}`);
+    } else if (event.type === "PostReport") {
+      console.log(`Received OnPostReport event:\n${JSON.stringify(request)}`);
+    }
+  },
+});
 
-  export default Devvit;
-  ```
+export default Devvit;
+```
+
   </TabItem>
 </Tabs>
 

@@ -39,7 +39,7 @@ Use `context.cache` to reduce the amount of requests to optimize performance and
 
 ### Leverage scheduled jobs to fetch or update data
 
-Use [scheduler](../server/scheduler.md) to make large data requests in the background and store it in [Redis](../server/redis.mdx) for later use. You can also [fetch data for multiple users](#how-to-cache-data).
+Use [scheduler](../server/scheduler.mdx) to make large data requests in the background and store it in [Redis](../server/redis.mdx) for later use. You can also [fetch data for multiple users](#how-to-cache-data).
 
 ### Batch API calls to make parallel requests
 
@@ -62,7 +62,7 @@ In Devvit, the first render happens on the server side. Parallel fetch requests 
 In the render function of this interactive post, the app fetches data about the post, the user, the weather, and the leaderboard stats.
 
 ```tsx
-import { Devvit, useState } from '@devvit/public-api';
+import { Devvit, useState } from "@devvit/public-api";
 
 render: (context) => {
   const [postInfo] = useState(async () => {
@@ -103,7 +103,7 @@ The main difference between these two methods is that `useState` blocks render u
 This is the best choice for performance because it allows you to render parts of your application while others may still be loading. Here’s how the same example looks for useAsync:
 
 ```tsx
-import { Devvit, useAsync } from '@devvit/public-api';
+import { Devvit, useAsync } from "@devvit/public-api";
 
 const { data: postInfo, loading: postInfoLoading } = useAsync(async () => {
   return await getThreadInfo(context);
@@ -117,9 +117,11 @@ const { data: weather, loading: weatherLoading } = useAsync(async () => {
   return await getTheWeather(context);
 });
 
-const { data: leaderboardStats, loading: leaderboardStatsLoading } = useAsync(async () => {
-  return await getLeaderboard(context);
-});
+const { data: leaderboardStats, loading: leaderboardStatsLoading } = useAsync(
+  async () => {
+    return await getLeaderboard(context);
+  },
+);
 ```
 
 #### useState
@@ -127,7 +129,7 @@ const { data: leaderboardStats, loading: leaderboardStatsLoading } = useAsync(as
 This is the same example using useState.
 
 ```tsx
-import { Devvit, useState } from '@devvit/public-api';
+import { Devvit, useState } from "@devvit/public-api";
 
 render: (context) => {
   const [appState, setAppState] = useState(async () => {
@@ -162,11 +164,11 @@ If you need to update one of the state props, you’ll need to do `setAppState({
 The following example shows how unoptimized code for fetching data from an external resource, like a weather API, looks:
 
 ```tsx
-import { Devvit, useState } from '@devvit/public-api';
+import { Devvit, useState } from "@devvit/public-api";
 
 // naive, non-optimal way of fetching that kind of data
 const [externalData] = useState(async () => {
-  const response = await fetch('https://external.weather.com');
+  const response = await fetch("https://external.weather.com");
 
   return await response.json();
 });
@@ -183,19 +185,19 @@ You can use a cache helper to make one request for data, save the response, and 
 **Example: fetch weather data every 2 hours with cache helper**
 
 ```tsx
-import { Devvit, useState } from '@devvit/public-api';
+import { Devvit, useState } from "@devvit/public-api";
 
 // optimized, performant way of fetching that kind of data
 const [externalData] = useState(async () => {
   return context.cache(
     async () => {
-      const response = await fetch('https://external.weather.com');
+      const response = await fetch("https://external.weather.com");
       return await response.json();
     },
     {
       key: `weather_data`,
       ttl: 2 * 60 * 60 * 1000, // 2 hours in milliseconds
-    }
+    },
   );
 });
 ```
@@ -206,35 +208,35 @@ Do not cache sensitive information. Cache helper randomly selects one user to ma
 
 ### Solution: schedule a job
 
-Alternatively, you can use [scheduler](../server/scheduler.md) to make the request in background, save the response to [Redis](../server/redis.mdx), and avoid unnecessary requests to the external resource.
+Alternatively, you can use [scheduler](../server/scheduler.mdx) to make the request in background, save the response to [Redis](../server/redis.mdx), and avoid unnecessary requests to the external resource.
 
 **Example: fetch weather data every 2 hours with a scheduled job**
 
 ```tsx
-import { Devvit } from '@devvit/public-api';
+import { Devvit } from "@devvit/public-api";
 
 Devvit.addSchedulerJob({
-  name: 'fetch_weather_data',
+  name: "fetch_weather_data",
   onRun: async (_event, context) => {
-    const response = await fetch('https://external.weather.com');
+    const response = await fetch("https://external.weather.com");
     const responseData = await response.json();
-    await context.redis.set('weather_data', JSON.stringify(responseData));
+    await context.redis.set("weather_data", JSON.stringify(responseData));
   },
 });
 
 Devvit.addTrigger({
-  event: 'AppInstall',
+  event: "AppInstall",
   onEvent: async (_event, context) => {
     await context.scheduler.runJob({
-      cron: '0 */2 * * *', // runs at the top of every second hour
-      name: 'fetch_weather_data',
+      cron: "0 */2 * * *", // runs at the top of every second hour
+      name: "fetch_weather_data",
     });
   },
 });
 
 // inside the render method
 const [externalData] = useState(async () => {
-  return context.redis.get('fetch_weather_data');
+  return context.redis.get("fetch_weather_data");
 });
 
 export default Devvit;
@@ -254,9 +256,9 @@ Before using realtime, the leaderboard fetching code looked like this:
 
 ```tsx
 const getLeaderboard = async () =>
-  await context.redis.zRange('leaderboard', 0, 5, {
+  await context.redis.zRange("leaderboard", 0, 5, {
     reverse: true,
-    by: 'rank',
+    by: "rank",
   });
 
 const [leaderboard, setLeaderboard] = useState(async () => {
@@ -274,7 +276,7 @@ leaderboardInterval.start();
 And code for updating the leaderboard looked like this:
 
 ```tsx
-await context.redis.zAdd('leaderboard', { member: username, score: gameScore });
+await context.redis.zAdd("leaderboard", { member: username, score: gameScore });
 ```
 
 ### With realtime​
@@ -285,9 +287,12 @@ This is the updated game completion code:
 
 ```tsx
 // stays as is
-await context.redis.zAdd('leaderboard', { member: username, score: gameScore });
+await context.redis.zAdd("leaderboard", { member: username, score: gameScore });
 // new code
-context.realtime.send('leaderboard_updates', { member: username, score: gameScore });
+context.realtime.send("leaderboard_updates", {
+  member: username,
+  score: gameScore,
+});
 ```
 
 Now replace the interval with the realtime subscription:
@@ -298,7 +303,7 @@ const [leaderboard, setLeaderboard] = useState(async () => {
 }); // stays as is
 
 const channel = useChannel({
-  name: 'leaderboard_updates',
+  name: "leaderboard_updates",
   onMessage: (newLeaderboardEntry) => {
     const newLeaderboard = [...leaderboard, newLeaderboardEntry] // append new entry
       .sort((a, b) => b.score - a.score) // sort by score
@@ -342,9 +347,12 @@ To do this, you can add:
 ```tsx
 const [subscriberCount] = useState<number>(async () => {
   const startSubscribersRequest = Date.now(); // a reference point for the request start
-  const devvitSubredditInfo = await context.reddit.getSubredditInfoByName('devvit');
+  const devvitSubredditInfo =
+    await context.reddit.getSubredditInfoByName("devvit");
 
-  console.log(`subscribers request took: ${Date.now() - startSubscribersRequest} milliseconds`);
+  console.log(
+    `subscribers request took: ${Date.now() - startSubscribersRequest} milliseconds`,
+  );
 
   return devvitSubredditInfo.subscribersCount || 0;
 });
@@ -359,7 +367,9 @@ const [performanceStartRender] = useState(Date.now()); // a reference point for 
 Add a console.log before the return statement:
 
 ```tsx
-console.log(`Getting the data took: ${Date.now() - performanceStartRender} milliseconds`);
+console.log(
+  `Getting the data took: ${Date.now() - performanceStartRender} milliseconds`,
+);
 ```
 
 All of that put together will look like this:

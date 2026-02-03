@@ -34,9 +34,9 @@ Games that see organic growth are also likely to be scouted by our team for feat
 
 Reddit features games and developers across multiple discovery surfaces to help players find new favorites:
 
-- **Games Feed.** The Games Feed showcases playable experiences directly within Reddit. When featured, games are rotated into a list of games that is algorythmically served to users visiting the feed.
+- **Games Feed.** The Games Feed showcases playable experiences directly within Reddit. When featured, games are rotated into a list of games that is algorithmically served to users visiting the feed.
 
-![Featured games](../../assets/featured_games.png)
+<img src="../../assets/featured_games.png" alt="Featured games" width="600" />
 
 - **Community Drawer.** Our lefthand drawer provides an easy access point for any redditor to see a mix of recently played games and curated popular games.
 

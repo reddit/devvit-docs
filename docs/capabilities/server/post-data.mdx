@@ -19,6 +19,60 @@ When creating a post, include the `postData` parameter with your custom data obj
 
 <Tabs>
   <TabItem value="web" label="Devvit Web">
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+  ```ts title="server/index.ts"
+  import { context, reddit } from '@devvit/web/server';
+
+  app.post('/api/create-post', async (c) => {
+    const { subredditName } = context;
+
+    if (!subredditName) {
+      return c.json({ error: 'Subreddit name is required' }, 400);
+    }
+
+    const post = await reddit.submitCustomPost({
+      subredditName,
+      title: 'Post with custom data',
+      entry: 'default',
+      postData: {
+        challengeNumber: 42,
+        totalGuesses: 0,
+        gameState: 'active',
+        pixels: [
+          [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
+          [0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0],
+          [0, 0, 0, 2, 2, 1, 1, 1, 0, 0, 0],
+          [0, 0, 2, 2, 1, 1, 1, 1, 1, 0, 0],
+          [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+          [1, 1, 2, 2, 2, 2, 2, 2, 2, 1, 1],
+          [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+          [0, 0, 2, 2, 1, 1, 1, 1, 1, 0, 0],
+          [0, 0, 0, 2, 2, 1, 1, 1, 0, 0, 0],
+          [0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0],
+          [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]
+        ],
+      },
+    });
+
+    return c.json({
+      postId: post.id,
+      message: 'Post created successfully',
+    });
+  });
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
   ```ts title="server/index.ts"
   import { context, reddit } from '@devvit/web/server';
 
@@ -61,6 +115,9 @@ When creating a post, include the `postData` parameter with your custom data obj
     });
   });
   ```
+
+  </TabItem>
+  </Tabs>
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks">
   ```ts title="main.tsx"
@@ -99,6 +156,54 @@ To update post data after creation, fetch the post and use the `setPostData()` m
 
 <Tabs>
   <TabItem value="web" label="Devvit Web">
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+  ```ts title="server/index.ts"
+  import { context, reddit } from '@devvit/web/server';
+
+  app.post('/api/update-post-data', async (c) => {
+    const { postId } = context;
+    const { favoriteColor, username } = await c.req.json();
+
+    if (!postId) {
+      return c.json({ error: 'Post ID is required' }, 400);
+    }
+
+    try {
+      const post = await reddit.getPostById(postId);
+
+      // Get existing post data to merge with updates
+      const currentData = context.postData || {};
+
+      await post.setPostData({
+        ...currentData,
+        favoriteColor: favoriteColor || 'unknown',
+        lastUpdatedBy: username || 'anonymous',
+        lastUpdatedAt: new Date().toISOString(),
+      });
+
+      return c.json({
+        success: true,
+        message: 'Post data updated successfully',
+      });
+    } catch (error) {
+      console.error('Error updating post data:', error);
+      return c.json({ error: 'Failed to update post data' }, 500);
+    }
+  });
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
   ```ts title="server/index.ts"
   import { context, reddit } from '@devvit/web/server';
 
@@ -137,6 +242,9 @@ To update post data after creation, fetch the post and use the `setPostData()` m
     }
   });
   ```
+
+  </TabItem>
+  </Tabs>
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks">
   ```ts title="main.tsx"

@@ -9,13 +9,13 @@ Any logs sent to `console` will be available via `devvit logs` for installed app
 The following example creates a basic app that simply creates a single log.
 
 ```typescript title="main.tsx"
-import { Context, Devvit } from '@devvit/public-api';
+import { Context, Devvit } from "@devvit/public-api";
 
 Devvit.addMenuItem({
-  location: 'post',
-  label: 'Create a log!',
+  location: "post",
+  label: "Create a log!",
   onPress: (event, context) => {
-    console.log('Action called!');
+    console.log("Action called!");
     context.ui.showToast(`Successfully logged!`);
   },
 });
@@ -28,13 +28,13 @@ export default Devvit;
 To stream logs for an installed app, open a terminal and navigate to your project directory and run:
 
 ```bash
-$ devvit logs <my-subreddit>
+devvit logs <my-subreddit>
 ```
 
 You can also specify the app name to stream logs for from another folder.
 
 ```bash
-$ devvit logs <my-subreddit> <app-name>
+devvit logs <my-subreddit> <app-name>
 ```
 
 You should now see logs streaming onto your console:
@@ -70,7 +70,7 @@ You can view historical logs by using the `--since=XX` flag. You can use the fol
 The following example will show logs from `my-app` on `my-subreddit` in the past day.
 
 ```bash
-$ devvit logs <my-subreddit> --since=1d
+devvit logs <my-subreddit> --since=1d
 ```
 
 You will now see historical logs created by your app on this subreddit:

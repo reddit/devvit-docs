@@ -1,3 +1,6 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 # Migrate Blocks Payments
 
 If you already have payments set up on a Blocks app, use the following steps to migrate your payments functionality.
@@ -25,14 +28,39 @@ Reference your `products.json` and declare endpoints.
 - Blocks: `addPaymentHandler({ fulfillOrder, refundOrder })`
 - Devvit Web: implement `/internal/payments/fulfill` and `/internal/payments/refund`
 
-```tsx
-import type { PaymentHandlerResponse } from '@devvit/web/server';
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: "Hono", value: "hono" },
+    { label: "Express", value: "express" },
+  ]}>
+<TabItem value="hono">
 
-router.post('/internal/payments/fulfill', async (req, res) => {
+```tsx
+import type { PaymentHandlerResponse } from "@devvit/web/server";
+
+app.post("/internal/payments/fulfill", async (c) => {
+  // migrate your old fulfillOrder logic here
+  return c.json({ success: true } satisfies PaymentHandlerResponse);
+});
+```
+
+</TabItem>
+<TabItem value="express">
+
+```tsx
+import type { PaymentHandlerResponse } from "@devvit/web/server";
+
+router.post("/internal/payments/fulfill", async (req, res) => {
   // migrate your old fulfillOrder logic here
   res.json({ success: true } satisfies PaymentHandlerResponse);
 });
 ```
+
+</TabItem>
+</Tabs>
 
 3. Update client purchase calls
 

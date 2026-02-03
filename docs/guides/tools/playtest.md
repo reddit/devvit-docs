@@ -63,13 +63,13 @@ Exiting the playtest does not uninstall the playtest version or revert your app 
 If you want to revert back to the latest non-playtest version of the app, run the following command from within your project directory:
 
 ```bash
-$ devvit install <subreddit>
+devvit install <subreddit>
 ```
 
 If you want to revert to a different version of your pre-playtest app, you can specify which version using the `install` command. Entering app name is optional if you are running this command from within your project directory.
 
 ```bash
-$ devvit install <subreddit> [@version]
+devvit install <subreddit> [@version]
 ```
 
 ## Upload your app
@@ -77,7 +77,7 @@ $ devvit install <subreddit> [@version]
 If you’re satisfied with your playtest app and want to upload an installable version, run:
 
 ```bash
-$ devvit upload
+devvit upload
 ```
 
 This will automatically bump your app version to the next patch release. For example, if your playtest version is 0.0.1.6, the upload command will remove the playtest version increment and change your app version to 0.0.2.

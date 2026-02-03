@@ -13,7 +13,7 @@ Bundles all `SVG` files in the `/assets` folder into a new file (`src/icons.ts` 
 #### Usage
 
 ```bash
-$ devvit create icons [output-file]
+devvit create icons [output-file]
 ```
 
 #### Optional argument
@@ -25,7 +25,7 @@ $ devvit create icons [output-file]
 #### Generating the SVG bundle file
 
 ```bash
-$ devvit create icons
+devvit create icons
 
 $ devvit create icons "src/my-icons.ts"
 ```
@@ -33,15 +33,19 @@ $ devvit create icons "src/my-icons.ts"
 #### Using the SVG files in app code
 
 ```tsx
-import { Devvit } from '@devvit/public-api';
-import Icons from './my-icons.ts';
+import { Devvit } from "@devvit/public-api";
+import Icons from "./my-icons.ts";
 
 Devvit.addCustomPostType({
-  name: 'my-custom-post',
+  name: "my-custom-post",
   render: (_context) => {
     return (
       <blocks>
-        <image url={Icons['my-image.svg']} imageHeight="32px" imageWidth="32px" />
+        <image
+          url={Icons["my-image.svg"]}
+          imageHeight="32px"
+          imageWidth="32px"
+        />
       </blocks>
     );
   },
@@ -57,7 +61,7 @@ Display help for devvit
 #### Usage
 
 ```bash
-$ devvit help
+devvit help
 ```
 
 ## devvit install
@@ -67,7 +71,7 @@ Install an app from the Apps directory to a subreddit that you moderate. You can
 #### Usage
 
 ```bash
-$ devvit install <subreddit> [app-name]@[version]
+devvit install <subreddit> [app-name]@[version]
 ```
 
 #### Required arguments
@@ -89,7 +93,7 @@ $ devvit install <subreddit> [app-name]@[version]
 #### Examples
 
 ```bash
-$ devvit install r/mySubreddit
+devvit install r/mySubreddit
 
 $ devvit install mySubreddit my-app
 
@@ -105,7 +109,7 @@ To see a list of apps you've published
 #### Usage
 
 ```bash
-$ devvit list apps
+devvit list apps
 ```
 
 ## devvit list installs
@@ -117,7 +121,7 @@ If no subreddit is specified, you'll get a list of all apps installed by you.
 #### Usage
 
 ```bash
-$ devvit list installs [subreddit]
+devvit list installs [subreddit]
 ```
 
 #### Optional argument
@@ -129,7 +133,7 @@ $ devvit list installs [subreddit]
 #### Examples
 
 ```bash
-$ devvit list installs
+devvit list installs
 
 $ devvit list installs mySubreddit
 
@@ -143,7 +147,7 @@ Login to Devvit with your Reddit account in the browser.
 #### Usage
 
 ```bash
-$ devvit login [--copy-paste]
+devvit login [--copy-paste]
 ```
 
 #### Optional argument
@@ -159,7 +163,7 @@ Logs the current user out of Devvit.
 #### Usage
 
 ```bash
-$ devvit logout
+devvit logout
 ```
 
 ## devvit logs
@@ -169,7 +173,7 @@ Stream logs for an installation within a specified subreddit. You can see 5,000 
 #### Usage
 
 ```bash
-$ devvit logs <subreddit> [app-name] [-d <value>] [-j] [-s <value>] [--verbose]
+devvit logs <subreddit> [app-name] [-d <value>] [-j] [-s <value>] [--verbose]
 ```
 
 #### Required arguments
@@ -213,7 +217,7 @@ $ devvit logs <subreddit> [app-name] [-d <value>] [-j] [-s <value>] [--verbose]
 #### Examples
 
 ```bash
-$ devvit logs r/mySubreddit
+devvit logs r/mySubreddit
 
 $ devvit logs mySubreddit my-app
 
@@ -229,7 +233,7 @@ Create a new app.
 #### Usage
 
 ```bash
-$ devvit new [directory-name] [--here]
+devvit new [directory-name] [--here]
 ```
 
 #### Optional arguments
@@ -245,7 +249,7 @@ $ devvit new [directory-name] [--here]
 #### Examples
 
 ```bash
-$ devvit new
+devvit new
 
 $ devvit new tic-tac-toe
 
@@ -259,7 +263,7 @@ Installs your app to your test subreddit and starts a playtest session. A new ve
 #### Usage
 
 ```bash
-$ devvit playtest
+devvit playtest
 ```
 
 #### Optional argument
@@ -282,7 +286,7 @@ List settings for your app. These settings exist at the global app-scope and are
 #### Usage
 
 ```bash
-$ devvit settings list
+devvit settings list
 ```
 
 ## devvit settings set
@@ -292,13 +296,13 @@ Create and update settings for your app. These settings will be added at the glo
 #### Usage
 
 ```bash
-$ devvit settings set <my-setting>
+devvit settings set <my-setting>
 ```
 
 #### Example
 
 ```bash
-$ devvit settings set my-feature-flag
+devvit settings set my-feature-flag
 ```
 
 ## devvit uninstall
@@ -308,7 +312,7 @@ Uninstall an app from a specified subreddit.
 #### Usage
 
 ```bash
-$ devvit uninstall <subreddit> [app-name]
+devvit uninstall <subreddit> [app-name]
 ```
 
 #### Required argument
@@ -324,7 +328,7 @@ $ devvit uninstall <subreddit> [app-name]
 #### Examples
 
 ```bash
-$ devvit uninstall r/mySubreddit
+devvit uninstall r/mySubreddit
 
 $ devvit uninstall mySubreddit
 
@@ -338,7 +342,7 @@ Update @devvit project dependencies to the currently installed CLI's version
 #### Usage
 
 ```bash
-$ devvit update app
+devvit update app
 ```
 
 ## devvit upload
@@ -348,7 +352,7 @@ Upload an app to the App directory. By default the app is private and visible on
 #### Usage
 
 ```bash
-$ devvit upload [--bump major|minor|patch|prerelease] [--copyPaste]
+devvit upload [--bump major|minor|patch|prerelease] [--copyPaste]
 ```
 
 #### Optional arguments
@@ -368,7 +372,7 @@ Get the version of the locally installed Devvit CLI.
 #### Usage
 
 ```bash
-$ devvit version
+devvit version
 ```
 
 ## devvit view
@@ -378,7 +382,7 @@ Shows you the latest version of your app and some data about uploads. Includes a
 #### Usage​
 
 ```bash
-$ devvit view [APPSLUG[@VERSION]] [--json] [version]
+devvit view [APPSLUG[@VERSION]] [--json] [version]
 ```
 
 ## devvit whoami
@@ -388,5 +392,5 @@ Display the currently logged in Reddit user.
 #### Usage
 
 ```bash
-$ devvit whoami
+devvit whoami
 ```

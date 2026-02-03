@@ -23,27 +23,30 @@ Menu items have been simplified:
 
 ```ts title="main.tsx"
 Devvit.addMenuItem({
-  label: 'Remind me later',
-  location: 'post',
+  label: "Remind me later",
+  location: "post",
   onPress: (event, context) => {
     //  if you want to show a form
     context.ui.showForm(remindMeForm);
 
     // if you want to show a toast
-    context.ui.showToast('hello');
+    context.ui.showToast("hello");
   },
 });
 
 const remindMeForm = Devvit.createForm(
   {
-    fields: [{ name: 'when', label: 'When?', type: 'string' }],
-    title: 'Remind me',
-    acceptLabel: 'Schedule',
+    fields: [{ name: "when", label: "When?", type: "string" }],
+    title: "Remind me",
+    acceptLabel: "Schedule",
   },
-  remindMeHandler
+  remindMeHandler,
 );
 
-async function remindMeHandler(event: FormOnSubmitEvent, context: Devvit.Context) {
+async function remindMeHandler(
+  event: FormOnSubmitEvent,
+  context: Devvit.Context,
+) {
   // remind me code here to do something after submitting form
 }
 ```
@@ -53,7 +56,7 @@ async function remindMeHandler(event: FormOnSubmitEvent, context: Devvit.Context
 Because we allow data as an argument in createForm, you can now create dynamic forms.
 
 ```ts title="main.tsx"
-import { Devvit } from '@devvit/public-api';
+import { Devvit } from "@devvit/public-api";
 
 const dynamicForm = Devvit.createForm(
   (data) => {
@@ -62,24 +65,24 @@ const dynamicForm = Devvit.createForm(
     return {
       fields: [
         {
-          name: 'when',
+          name: "when",
           label: `a string (default: ${data.text})`,
-          type: 'string',
+          type: "string",
           defaultValue: data.text,
         },
       ],
-      title: 'Rule Form',
-      acceptLabel: 'Send Rule',
+      title: "Rule Form",
+      acceptLabel: "Send Rule",
     };
   },
   ({ values }, ctx) => {
     return ctx.ui.showToast(`You sent ${values.when}`);
-  }
+  },
 );
 
 Devvit.addMenuItem({
-  label: 'Show a dynamic form',
-  location: 'post',
+  label: "Show a dynamic form",
+  location: "post",
   onPress: async (_event, { ui }) => {
     const randomString = Math.random().toString(36).substring(7);
 
@@ -101,7 +104,7 @@ export default Devvit;
 
 ```ts title="main.tsx"
 Devvit.addTrigger({
-  event: 'PostSubmit',
+  event: "PostSubmit",
   onEvent: (event, context) => {
     context.scheduler.runJob({ job: test - job });
   },
@@ -118,23 +121,23 @@ Devvit.addTrigger({
 
 ```ts title="main.tsx"
 Devvit.addSchedulerJob({
-  name: 'daily-thread',
+  name: "daily-thread",
   onRun: async (job, context) => {
     const subreddit = await context.reddit.getCurrentSubreddit();
     const resp = await context.reddit.submitPost({
       subredditName: subreddit.name,
-      title: 'Daily Thread',
-      text: 'This is a daily thread, commment here!',
+      title: "Daily Thread",
+      text: "This is a daily thread, commment here!",
     });
   },
 });
 
 // run job once (within a menu item or trigger)
-context.scheduler.runJob({ when: now, job: 'test-job' });
+context.scheduler.runJob({ when: now, job: "test-job" });
 
 // run recurring job (within a menu item or trigger)
 // for tips on cron syntax use https://crontab.guru/
-context.scheduler.runJob({ cron: '* 12 * * * ', job: 'test-job' });
+context.scheduler.runJob({ cron: "* 12 * * * ", job: "test-job" });
 ```
 
 ## Plugins
@@ -161,30 +164,30 @@ Devvit.configure({
 });
 
 Devvit.addMenuItem({
-  label: 'Reply to post',
-  location: 'post',
+  label: "Reply to post",
+  location: "post",
   onPress: async (event, context) => {
     const response = await context.reddit.submitComment({
       id: `t3_${context.postId}`,
-      text: 'hello world!',
+      text: "hello world!",
     });
     // if you want to show a toast
-    context.ui.showToast('Successfully replied!');
+    context.ui.showToast("Successfully replied!");
   },
 });
 
 // alernative w/ deconstruction
 
 Devvit.addMenuItem({
-  label: 'Reply to post',
-  location: 'post',
+  label: "Reply to post",
+  location: "post",
   onPress: (event, { reddit }) => {
     await reddit.submitComment({
       id: `t3_${context.postId}`,
-      text: 'hello world!',
+      text: "hello world!",
     });
     // if you want to show a toast
-    context.ui.showToast('Successfully replied!');
+    context.ui.showToast("Successfully replied!");
   },
 });
 ```
@@ -197,13 +200,13 @@ Devvit.configure({
 });
 
 Devvit.addMenuItem({
-  label: 'Fetch a response',
-  location: 'post',
+  label: "Fetch a response",
+  location: "post",
   onPress: async (event, context) => {
-    const response = await fetch('https://example.com', {
-      method: 'post',
+    const response = await fetch("https://example.com", {
+      method: "post",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ content: comment?.body }),
     });
@@ -221,10 +224,10 @@ Devvit.configure({
 });
 
 Devvit.addMenuItem({
-  label: 'Get from kv store',
-  location: 'post',
+  label: "Get from kv store",
+  location: "post",
   onPress: async (event, context) => {
-    const value = await context.kvStore.get('test-key');
+    const value = await context.kvStore.get("test-key");
     context.ui.showToast(value);
   },
 });
@@ -236,12 +239,12 @@ Devvit.addMenuItem({
 // set app configurations
 Devvit.addSettings([
   {
-    type: 'string',
-    name: 'apiKey',
-    label: 'API Key',
+    type: "string",
+    name: "apiKey",
+    label: "API Key",
     onValidate: ({ value }) => {
       if (!value || value.length < 10) {
-        return 'API Key must be at least 10 characters long';
+        return "API Key must be at least 10 characters long";
       }
     },
   },
@@ -250,16 +253,16 @@ Devvit.addSettings([
 // retreiving app configurations
 
 Devvit.addMenuItem({
-  label: 'Get settings values',
-  location: 'post',
+  label: "Get settings values",
+  location: "post",
   onPress: async (event, context) => {
-    console.log('event: ', event);
+    console.log("event: ", event);
 
-    const singleSetting = await context.settings.get('apiKey');
+    const singleSetting = await context.settings.get("apiKey");
     const allSettings = await context.settings.getAll();
 
-    console.log('All settings: ', allSettings);
-    console.log('Single setting: ', singleSetting);
+    console.log("All settings: ", allSettings);
+    console.log("Single setting: ", singleSetting);
   },
 });
 ```
@@ -281,7 +284,7 @@ $ npm i -g devvit
 To update dependencies in an existing project:
 
 ```bash
-$ devvit update app
+devvit update app
 ```
 
 ### Moving from public-api-next
@@ -302,15 +305,15 @@ Since the context object has different objects attached to it, you can use types
 ```ts title="main.tsx"
 // alernative w/ deconstruction
 Devvit.addMenuItem({
-  label: 'Reply to post',
-  location: 'post',
+  label: "Reply to post",
+  location: "post",
   onPress: (event, { reddit, ui }) => {
     await reddit.submitComment({
       id: `t3_${context.postId}`,
-      text: 'hello world!',
+      text: "hello world!",
     });
     // if you want to show a toast
-    ui.showToast('Successfully replied!');
+    ui.showToast("Successfully replied!");
   },
 });
 ```

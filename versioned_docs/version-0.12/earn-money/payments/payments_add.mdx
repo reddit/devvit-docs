@@ -1,9 +1,12 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+
 # Add Payments
 
 The Devvit payments API is available in Devvit Web. Keep reading to learn how to configure your products and accept payments.
 
 :::note
-Devvit Web is recommended for payments. Check out how to [migrate blocks apps](./payments_migrate.md) if you're app is currently using a blocks version of payments.
+Devvit Web is recommended for payments. Check out how to [migrate blocks apps](./payments_migrate.mdx) if you're app is currently using a blocks version of payments.
 :::
 
 To start with a template, select the payments template when you create a new project or run:
@@ -45,15 +48,42 @@ You can reference an external `products.json` file, or define products directly.
 
 Create endpoints to fulfill and optionally revoke purchases.
 
-```tsx title="server/index.ts"
-import type { PaymentHandlerResponse } from '@devvit/web/server';
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: "Hono", value: "hono" },
+    { label: "Express", value: "express" },
+  ]}>
+<TabItem value="hono">
 
-router.post('/internal/payments/fulfill', async (req, res) => {
+```tsx title="server/index.ts"
+import type { PaymentHandlerResponse } from "@devvit/web/server";
+
+app.post("/internal/payments/fulfill", async (c) => {
+  // Fulfill the order (grant entitlements, record delivery, etc.)
+  return c.json({ success: true } satisfies PaymentHandlerResponse);
+});
+
+app.post("/internal/payments/refund", async (c) => {
+  // Optionally revoke entitlements for a refunded order
+  return c.json({ success: true } satisfies PaymentHandlerResponse);
+});
+```
+
+</TabItem>
+<TabItem value="express">
+
+```tsx title="server/index.ts"
+import type { PaymentHandlerResponse } from "@devvit/web/server";
+
+router.post("/internal/payments/fulfill", async (req, res) => {
   // Fulfill the order (grant entitlements, record delivery, etc.)
   res.json({ success: true } satisfies PaymentHandlerResponse);
 });
 
-router.post('/internal/payments/refund', async (req, res) => {
+router.post("/internal/payments/refund", async (req, res) => {
   // Optionally revoke entitlements for a refunded order
   res.json({ success: true } satisfies PaymentHandlerResponse);
 });
@@ -61,24 +91,55 @@ router.post('/internal/payments/refund', async (req, res) => {
 export default router;
 ```
 
+</TabItem>
+</Tabs>
+
 ### Server: Fetch products
 
 On the server, use `payments.getProducts()` and `payments.getOrders()`. If the client needs product metadata, expose it via your own `/api/` endpoint.
 
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: "Hono", value: "hono" },
+    { label: "Express", value: "express" },
+  ]}>
+<TabItem value="hono">
+
 ```tsx title="server/index.ts"
 // Example: expose products for client display
-import { payments } from '@devvit/web/server';
+import { payments } from "@devvit/web/server";
 
-const products = await payments.getProducts();
-res.json(products);
+app.get("/api/products", async (c) => {
+  const products = await payments.getProducts();
+  return c.json(products);
+});
 ```
+
+</TabItem>
+<TabItem value="express">
+
+```tsx title="server/index.ts"
+// Example: expose products for client display
+import { payments } from "@devvit/web/server";
+
+app.get("/api/products", async (_req, res) => {
+  const products = await payments.getProducts();
+  res.json(products);
+});
+```
+
+</TabItem>
+</Tabs>
 
 ### Client: trigger checkout
 
 Use `purchase()` from `@devvit/web/client` with a product SKU (or array of SKUs).
 
 ```tsx title="client/index.ts"
-import { purchase, OrderResultStatus } from '@devvit/web/client';
+import { purchase, OrderResultStatus } from "@devvit/web/client";
 
 export async function buy(sku: string) {
   const result = await purchase(sku);
@@ -224,33 +285,33 @@ Use a consistent and clear product component to display paid goods or services t
 
 Use `addPaymentHandler` to specify the function that is called during the order flow. This customizes how your app fulfills product orders and provides the ability for you to reject an order.
 
-Errors thrown within the payment handler automatically reject the order. To provide a custom error message to the frontend of your application, you can return {success: false, reason: <string>} with a reason for the order rejection.
+Errors thrown within the payment handler automatically reject the order. To provide a custom error message to the frontend of your application, you can return `{success: false, reason: <string>}` with a reason for the order rejection.
 
 This example shows how to issue an "extra life" to a user when they purchase the "extra_life" product.
 
 ```ts
-import { type Context } from '@devvit/public-api';
-import { addPaymentHandler } from '@devvit/payments';
-import { Devvit, useState } from '@devvit/public-api';
+import { type Context } from "@devvit/public-api";
+import { addPaymentHandler } from "@devvit/payments";
+import { Devvit, useState } from "@devvit/public-api";
 
 Devvit.configure({
   redis: true,
   redditAPI: true,
 });
 
-const GOD_MODE_SKU = 'god_mode';
+const GOD_MODE_SKU = "god_mode";
 
 addPaymentHandler({
   fulfillOrder: async (order, ctx) => {
     if (!order.products.some(({ sku }) => sku === GOD_MODE_SKU)) {
-      throw new Error('Unable to fulfill order: sku not found');
+      throw new Error("Unable to fulfill order: sku not found");
     }
-    if (order.status !== 'PAID') {
-      throw new Error('Becoming a god has a cost (in Reddit Gold)');
+    if (order.status !== "PAID") {
+      throw new Error("Becoming a god has a cost (in Reddit Gold)");
     }
 
     const redisKey = godModeRedisKey(ctx.postId, ctx.userId);
-    await ctx.redis.set(redisKey, 'true');
+    await ctx.redis.set(redisKey, "true");
   },
 });
 ```
@@ -272,14 +333,14 @@ Your app can acknowledge or reject the order. For example, for goods with limite
 Use the `useProducts` hook or `getProducts` function to fetch details about products.
 
 ```tsx
-import { useProducts } from '@devvit/payments';
+import { useProducts } from "@devvit/payments";
 
 export function ProductsList(context: Devvit.Context): JSX.Element {
   // Only query for products with the metadata "category" of value "powerup".
   // The metadata field can be empty - if it is, useProducts will not filter on metadata.
   const { products } = useProducts(context, {
     metadata: {
-      category: 'powerup',
+      category: "powerup",
     },
   });
 

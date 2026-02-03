@@ -170,6 +170,78 @@ For forms that open from a menu item, you can use menu responses. This is useful
   ```
 
   **Server endpoint that shows form via menu response:**
+
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+  ```ts title="server/index.ts"
+  // Menu action that triggers menu response form
+  app.post('/internal/menu/start-workflow', async (c) => {
+    // Server processing before showing form
+    const userData = await fetchUserData();
+    
+    return c.json({
+      showForm: {
+        name: 'nameForm',
+        form: {
+          fields: [
+            {
+              type: 'string',
+              name: 'name',
+              label: 'Name',
+            },
+          ],
+        },
+        data: { name: userData.name } // Pre-populate from server
+      }
+    });
+  });
+
+  // Form submission handler that can chain to another form
+  app.post('/internal/form/name-submit', async (c) => {
+    const { name } = await c.req.json();
+    
+    // Server processing
+    await saveUserName(name);
+    
+    // Show next form in workflow
+    return c.json({
+      showForm: {
+        name: 'reviewForm',
+        form: {
+          fields: [
+            {
+              type: 'paragraph',
+              name: 'review',
+              label: 'How was your experience?',
+            },
+          ],
+        }
+      }
+    });
+  });
+
+  app.post('/internal/form/review-submit', async (c) => {
+    const { review } = await c.req.json();
+    
+    await saveReview(review);
+    
+    return c.json({
+      showToast: 'Thank you for your feedback!'
+    });
+  });
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
   ```ts title="server/index.ts"
   import { UIResponse } from '@devvit/web/shared';
 
@@ -229,6 +301,9 @@ For forms that open from a menu item, you can use menu responses. This is useful
     });
   });
   ```
+
+  </TabItem>
+  </Tabs>
 
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
@@ -591,6 +666,53 @@ Below is a collection of common use cases and patterns.
   }
   ```
 
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+  ```ts title="server/index.ts"
+  // Endpoint that shows form with dynamic data
+  app.post('/internal/menu/show-dynamic-form', async (c) => {
+    const user = await reddit.getCurrentUser();
+    
+    return c.json({
+      showForm: {
+        name: 'dynamicForm',
+        form: {
+          fields: [
+            {
+              type: 'string',
+              name: 'username',
+              label: 'Username',
+            },
+          ],
+        },
+        data: {
+          username: user?.username || ''
+        }
+      }
+    });
+  });
+
+  // Form submission handler
+  app.post('/internal/form/dynamic-submit', async (c) => {
+    const { username } = await c.req.json();
+    
+    return c.json({
+      showToast: `Hello ${username}`
+    });
+  });
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
   ```ts title="server/index.ts"
   // Endpoint that shows form with dynamic data
   router.post("/internal/menu/show-dynamic-form", async (_req, res: Response<UiResponse>) => {
@@ -624,6 +746,9 @@ Below is a collection of common use cases and patterns.
     });
   });
   ```
+
+  </TabItem>
+  </Tabs>
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
   ```tsx
@@ -753,6 +878,74 @@ Below is a collection of common use cases and patterns.
   }
   ```
 
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+  ```ts title="server/index.ts"
+  // Step 1: Name form
+  app.post('/internal/form/step1-submit', async (c) => {
+    const { name } = await c.req.json();
+    
+    return c.json({
+      showForm: {
+        name: 'step2Form',
+        form: {
+          fields: [
+            {
+              type: 'string',
+              name: 'food',
+              label: "What's your favorite food?",
+              required: true,
+            },
+          ],
+        },
+        data: { name } // Pass data to next step
+      }
+    });
+  });
+
+  // Step 2: Food form
+  app.post('/internal/form/step2-submit', async (c) => {
+    const { name, food } = await c.req.json();
+    
+    return c.json({
+      showForm: {
+        name: 'step3Form',
+        form: {
+          fields: [
+            {
+              type: 'string',
+              name: 'drink',
+              label: "What's your favorite drink?",
+              required: true,
+            },
+          ],
+        },
+        data: { name, food } // Pass accumulated data
+      }
+    });
+  });
+
+  // Step 3: Final form
+  app.post('/internal/form/step3-submit', async (c) => {
+    const { name, food, drink } = await c.req.json();
+    
+    return c.json({
+      showToast: `Thanks ${name}! You like ${food} and ${drink}.`
+    });
+  });
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
   ```ts title="server/index.ts"
   // Step 1: Name form
   router.post("/internal/form/step1-submit", async (req, res: Response<UiResponse>) => {
@@ -807,6 +1000,9 @@ Below is a collection of common use cases and patterns.
     });
   });
   ```
+
+  </TabItem>
+  </Tabs>
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
   ```tsx
@@ -979,6 +1175,87 @@ This example includes one of each of the [supported field types](#supported-fiel
   }
   ```
 
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+  ```ts title="server/index.ts"
+  app.post('/internal/form/everything-submit', async (c) => {
+    const formValues = await c.req.json();
+    console.log('Form values:', formValues);
+    
+    return c.json({
+      showToast: 'Thanks!'
+    });
+  });
+
+  // Example showing the form
+  app.post('/internal/menu/show-everything-form', async (c) => {
+    return c.json({
+      showForm: {
+        name: 'everythingForm',
+        form: {
+          title: 'My favorites',
+          description: 'Tell us about your favorite food!',
+          fields: [
+            {
+              type: 'string',
+              name: 'food',
+              label: 'What is your favorite food?',
+              helpText: 'Must be edible',
+              required: true,
+            },
+            {
+              label: 'About that food',
+              type: 'group',
+              fields: [
+                {
+                  type: 'number',
+                  name: 'times',
+                  label: 'How many times a week do you eat it?',
+                  defaultValue: 1,
+                },
+                {
+                  type: 'paragraph',
+                  name: 'what',
+                  label: 'What makes it your favorite?',
+                },
+                {
+                  type: 'select',
+                  name: 'healthy',
+                  label: 'Is it healthy?',
+                  options: [
+                    { label: 'Yes', value: 'yes' },
+                    { label: 'No', value: 'no' },
+                    { label: 'Maybe', value: 'maybe' },
+                  ],
+                  defaultValue: ['maybe'],
+                },
+              ],
+            },
+            {
+              type: 'boolean',
+              name: 'again',
+              label: 'Can we ask again?',
+            },
+          ],
+          acceptLabel: 'Submit',
+          cancelLabel: 'Cancel',
+        }
+      }
+    });
+  });
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
   ```ts title="server/index.ts"
   router.post("/internal/form/everything-submit", async (req, res: Response<UiResponse>) => {
     console.log('Form values:', req.body);
@@ -1045,6 +1322,9 @@ This example includes one of each of the [supported field types](#supported-fiel
     });
   });
   ```
+
+  </TabItem>
+  </Tabs>
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
   ```tsx
@@ -1161,6 +1441,31 @@ This example includes one of each of the [supported field types](#supported-fiel
   }
   ```
 
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+  ```ts title="server/index.ts"
+  app.post('/internal/form/image-submit', async (c) => {
+    const { myImage } = await c.req.json();
+    // Use the mediaUrl to store in redis and display it in an <image> block, or send to external service to modify
+    console.log('Image uploaded:', myImage);
+    
+    return c.json({
+      showToast: 'Image uploaded successfully!'
+    });
+  });
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
   ```ts title="server/index.ts"
   router.post("/internal/form/image-submit", async (req, res: Response<UiResponse>) => {
     const { myImage } = req.body;
@@ -1172,6 +1477,9 @@ This example includes one of each of the [supported field types](#supported-fiel
     });
   });
   ```
+
+  </TabItem>
+  </Tabs>
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
   ```tsx

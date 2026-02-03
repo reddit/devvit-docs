@@ -25,7 +25,7 @@
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
+[data-theme="dark"] {
   --ifm-color-primary: #fe7c53;
   --ifm-color-primary-dark: #d93a00;
   --ifm-color-primary-darker: #962900;
@@ -62,7 +62,7 @@
   background-color: var(--ifm-background-color);
 }
 
-[data-theme='dark'] .heading {
+[data-theme="dark"] .heading {
   background-color: #0f1a1c;
 }
 
@@ -70,7 +70,7 @@
   justify-content: center;
 }
 
-[data-theme='dark'] .features_src-components-HomepageFeatures-styles-module {
+[data-theme="dark"] .features_src-components-HomepageFeatures-styles-module {
   background-color: #0f1a1c;
 }
 
@@ -81,7 +81,7 @@
   background-color: #ffffff;
 }
 
-[data-theme='dark'] .feature {
+[data-theme="dark"] .feature {
   background-color: #1a282d;
   border: 1px solid #ffffff33;
 }
@@ -96,7 +96,7 @@
   --ifm-footer-color: var(--ifm-font-color-base-inverse);
 }
 
-[data-theme='dark'] footer {
+[data-theme="dark"] footer {
   background-color: #131f23;
   color: #ffede5;
 }
@@ -115,7 +115,7 @@
   color: var(--ifm-font-color-base-inverse);
 }
 
-[data-theme='dark'] #__docusaurus {
+[data-theme="dark"] #__docusaurus {
   background-color: #0b1416;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .language-bash span.token-line::before {
-  content: '$';
+  content: "$";
   padding: 0 0.7em 0 0;
   color: var(--ifm-color-emphasis-400);
 }
@@ -173,22 +173,24 @@ table tbody tr:nth-of-type(even) {
 }
 
 div.themed-col {
-  transition: transform 0.25s cubic-bezier(0.4,0.2,0.2,1), box-shadow 0.25s cubic-bezier(0.4,0.2,0.2,1);
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0.2, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0.2, 0.2, 1);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
 }
 div.themed-col:hover {
   transform: scale(1.04) translateY(-4px);
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18);
   z-index: 2;
 }
 
 /* Sidebar custom styling */
 
-.sidebar-icon-link a::before{
+.sidebar-icon-link a::before {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  content: '';
+  content: "";
   display: inline-block;
   max-width: 20px;
   max-height: 20px;
@@ -198,16 +200,16 @@ div.themed-col:hover {
   vertical-align: middle;
 }
 
-.discord-link a::before{
-  background-image: url('../../static/img/icon-discord.png');  
+.discord-link a::before {
+  background-image: url("../../static/img/icon-discord.png");
 }
 
-.subreddit-link a::before{
-  background-image: url('../../static/img/icon-reddit.png');
+.subreddit-link a::before {
+  background-image: url("../../static/img/icon-reddit.png");
 }
 
-.kiro-link a::before{
-  background-image: url('../../static/img/icon-kiro.png');
+.kiro-link a::before {
+  background-image: url("../../static/img/icon-kiro.png");
 }
 
 /* Sidebar divider styling */
@@ -218,7 +220,7 @@ div.themed-col:hover {
 }
 
 /* Dark mode support for sidebar divider */
-[data-theme='dark'] .sidebar-divider hr {
+[data-theme="dark"] .sidebar-divider hr {
   border-top-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -232,11 +234,47 @@ div.themed-col:hover {
 }
 
 /* Dark mode support for section headers */
-[data-theme='dark'] .sidebar-section-header span {
+[data-theme="dark"] .sidebar-section-header span {
   color: var(--ifm-color-emphasis-500);
 }
 
 /* Hide "Next" version from version dropdown */
 .dropdown__menu a[href*="/next/"] {
   display: none;
+}
+
+/* Compact tabs for inline switchers (e.g. Hono/Express) */
+.tabs.tabs--compact {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.2rem;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  font-weight: 600;
+}
+
+.tabs.tabs--compact .tabs__item {
+  margin: 0;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  border: none;
+  border-bottom: none;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: var(--ifm-color-emphasis-700);
+  background: transparent;
+}
+
+.tabs.tabs--compact .tabs__item:hover {
+  color: var(--ifm-color-emphasis-900);
+  background: var(--ifm-color-emphasis-200);
+}
+
+.tabs.tabs--compact .tabs__item--active,
+.tabs.tabs--compact .tabs__item--active:hover {
+  color: var(--ifm-color-primary-lightest);
+  background: var(--ifm-color-primary);
+  border-bottom: none;
 }

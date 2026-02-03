@@ -63,6 +63,74 @@ Here’s a way to set up in-app caching instead of using scheduler or interval t
 
 <Tabs>
   <TabItem value="web" label="Devvit Web">
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+  ```tsx title="server/index.ts"
+  import { Hono } from 'hono';
+  import { cache, context, createServer, getServerPort, reddit } from '@devvit/web/server';
+
+  const app = new Hono();
+
+  app.get('/api/subreddit', async (c) => {
+    const { postId } = context;
+
+    if (!postId) {
+      console.error('API Subreddit Error: postId not found in devvit context');
+      return c.json(
+        {
+          status: 'error',
+          message: 'postId is required but missing from context',
+        },
+        400
+      );
+    }
+
+    try {
+      const subredditName = await cache(
+        async () => {
+          const subreddit = await reddit.getCurrentSubreddit();
+          if (!subreddit) {
+            throw new Error('Subreddit is required but missing from context');
+          }
+          return subreddit.name;
+        },
+        {
+          key: 'current_subreddit',
+          ttl: 24 * 60 * 60, // expire after one day.
+        }
+      );
+      console.log(`Current subreddit: ${subredditName}`);
+
+      return c.json({
+        type: 'subreddit',
+        subreddit: subredditName,
+      });
+    } catch (error) {
+      console.error(`API Subreddit Error for post ${postId}:`, error);
+      let errorMessage = 'Unknown error during subreddit retrieval';
+      if (error instanceof Error) {
+        errorMessage = `Subreddit retrieval failed: ${error.message}`;
+      }
+      return c.json({ status: 'error', message: errorMessage }, 400);
+    }
+  });
+
+  const server = createServer(app);
+  server.on('error', (err) => console.error(`server error; ${err.stack}`));
+  server.listen(getServerPort());
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
   ```tsx title="server/index.ts"
     import express from "express";
     import {
@@ -138,6 +206,9 @@ Here’s a way to set up in-app caching instead of using scheduler or interval t
     server.on("error", (err) => console.error(`server error; ${err.stack}`));
     server.listen(getServerPort());
     ```
+
+  </TabItem>
+  </Tabs>
   </TabItem>
 
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">

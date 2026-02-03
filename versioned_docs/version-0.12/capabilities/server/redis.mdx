@@ -44,16 +44,45 @@ All limits are applied at a per-installation granularity.
     ]
   }
   ```
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
   ```ts title="server/index.ts"
-  // Assumes Express.js
   import { redis } from '@devvit/redis';
+
+  app.post('/internal/menu/redis-test', async (c) => {
+    const key = 'hello';
+    await redis.set(key, 'world');
+    const value = await redis.get(key);
+    console.log(`${key}: ${value}`);
+    return c.json({ status: 'ok' });
+  });
+  ```
+
+  </TabItem>
+  <TabItem value="express">
+
+  ```ts title="server/index.ts"
+  import { redis } from '@devvit/redis';
+
   router.post("/internal/menu/redis-test", async (_req, res: Response<UiResponse>) => {
     const key = 'hello';
     await redis.set(key, 'world');
     const value = await redis.get(key);
     console.log(`${key}: ${value}`);
+    res.json({ status: 'ok' });
   });
   ``` 
+
+  </TabItem>
+  </Tabs>
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
   ```ts
@@ -916,7 +945,174 @@ Register your form handler, menu trigger, and scheduler endpoint here.
 }
 ```
 
-Add these route handlers to your Express app.
+Add these route handlers to your server.
+
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```ts
+import { redis, scheduler } from '@devvit/web/server';
+// Import the compressed client
+import { redisCompressed } from '@devvit/redis';
+
+const MY_DATA_HASH_KEY = 'my:app:large:dataset';
+
+// 1. Menu Endpoint: Returns the form definition
+app.post('/internal/menu/ops/migrate-example', async (c) => {
+  return c.json({
+    showForm: {
+      name: 'migrateExampleForm', // Must match key in devvit.json "forms"
+      form: {
+        title: 'Migrate Hash to Compression',
+        acceptLabel: 'Start Migration',
+        fields: [
+          {
+            name: 'startCursor',
+            label: 'Start Cursor (0 for beginning)',
+            type: 'string',
+            defaultValue: '0',
+          },
+          {
+            name: 'chunkSize',
+            label: 'Items per batch',
+            type: 'number',
+            defaultValue: 20000,
+          },
+        ],
+      },
+    },
+  });
+});
+
+// 2. Form Handler: Receives input and schedules the first job
+app.post('/internal/form/ops/migrate-example', async (c) => {
+  const { startCursor, chunkSize } = await c.req.json().catch(() => ({}));
+  const cursor = startCursor || '0';
+  const size = Number(chunkSize) || 20000;
+
+  console.log(`[Migration] Manual start requested. Cursor: ${cursor}, Chunk: ${size}`);
+
+  // Kick off the first job in the chain
+  await scheduler.runJob({
+    name: 'migrate-example-data',
+    runAt: new Date(), // Run immediately
+    data: {
+      cursor,
+      chunkSize: size,
+      processed: 0,
+    },
+  });
+
+  return c.json({
+    showToast: {
+      text: 'Migration started in background',
+      appearance: 'success',
+    },
+  });
+});
+
+// 3. Scheduler Endpoint: The recursive worker
+app.post('/internal/scheduler/migrate-example-data', async (c) => {
+  const startTime = Date.now();
+
+  try {
+    const body = await c.req.json().catch(() => ({}));
+    const data = body.data ?? {};
+
+    let cursor = Number(data.cursor) || 0;
+    const chunkSize = Number(data.chunkSize) || 20000;
+    const processedTotal = Number(data.processed) || 0;
+
+    console.log(`[Migration] Job started. Cursor: ${cursor}, Target Chunk: ${chunkSize}`);
+
+    let keepRunning = true;
+    let processedInJob = 0;
+    const SCAN_COUNT = 250; // Internal batch size to keep event loop moving
+
+    while (keepRunning) {
+      // Stop if we've processed enough items for this single execution
+      if (processedInJob >= chunkSize) {
+        break;
+      }
+
+      const { cursor: nextCursor, fieldValues } = await redis.hScan(
+        MY_DATA_HASH_KEY,
+        cursor,
+        undefined, // match pattern
+        SCAN_COUNT
+      );
+
+      // Parallel Processing:
+      // We treat the batch as a set of promises to execute simultaneously.
+      // Promise.allSettled ensures one failure doesn't crash the whole job.
+      await Promise.allSettled(
+        fieldValues.map(async ({ field, value }) => {
+          // LOGIC:
+          // 1. We read the raw value.
+          // 2. We write it back using 'redisCompressed'.
+          //    The proxy detects the write and compresses the string if beneficial.
+          if (value && value.length > 0) {
+            await redisCompressed.hSet(MY_DATA_HASH_KEY, { [field]: value });
+          }
+        })
+      );
+
+      processedInJob += fieldValues.length;
+
+      // Cursor logic: 0 means iteration is complete
+      if (nextCursor === 0) {
+        cursor = 0;
+        keepRunning = false;
+      } else {
+        cursor = nextCursor;
+      }
+
+      // Safety: Check execution time.
+      // If we are close to 30s (Devvit limit), stop early and requeue.
+      if (Date.now() - startTime > 20000) {
+        console.log('[Migration] Time limit approaching, stopping early.');
+        keepRunning = false;
+      }
+    }
+
+    const newTotal = processedTotal + processedInJob;
+
+    // Daisy Chaining:
+    // If the cursor is not 0, we still have more data to scan.
+    // We schedule *this same job* to run again immediately.
+    if (cursor !== 0) {
+      console.log(`[Migration] Requeueing. Next cursor: ${cursor}. Processed so far: ${newTotal}`);
+      await scheduler.runJob({
+        name: 'migrate-example-data',
+        runAt: new Date(),
+        data: {
+          cursor,
+          chunkSize,
+          processed: newTotal,
+        },
+      });
+
+      return c.json({ status: 'requeued', processed: newTotal, cursor });
+    }
+
+    console.log(`[Migration] COMPLETE. Total items processed: ${newTotal}`);
+    return c.json({ status: 'success', processed: newTotal });
+  } catch (error) {
+    console.error('[Migration] Critical Job Error', error);
+    return c.json({ status: 'error', message: error.message }, 500);
+  }
+});
+```
+
+</TabItem>
+<TabItem value="express">
 
 ```ts
 import { redis, scheduler } from '@devvit/web/server';
@@ -1071,6 +1267,9 @@ app.post('/internal/scheduler/migrate-example-data', async (req, res) => {
   }
 });
 ```
+
+</TabItem>
+</Tabs>
 
 Note that the job may timeout, in which case you will need to find the last logged cursor to start the menu item action job again. Try adjusting the chunk size if you experience timeouts.
 

@@ -5,13 +5,13 @@ You can ask users to contribute to your app’s development by adding the “sup
 ## Requirements
 
 1. You must give something in return to users who support your app. This could be unique custom user flair, an honorable mention in a thank you post, or another creative way to show your appreciation.
-2. The “Support this App” purchase button must meet the Developer Platform’s [design guidelines](./payments_add.md#design-guidelines).
+2. The “Support this App” purchase button must meet the Developer Platform’s [design guidelines](./payments_add.mdx#design-guidelines).
 
 ## How to integrate app support
 
 ### Create the product
 
-Use the Devvit CLI to generate the [product configuration](./payments_add.md#register-products).
+Use the Devvit CLI to generate the [product configuration](./payments_add.mdx#register-products).
 
 ```tsx
 devvit products add support-app
@@ -19,24 +19,24 @@ devvit products add support-app
 
 ### Add a payment handler
 
-The [payment handler](./payments_add.md#complete-the-payment-flow) is where you award the promised incentive to your supporters. For example, this is how you can award custom user flair:
+The [payment handler](./payments_add.mdx#complete-the-payment-flow) is where you award the promised incentive to your supporters. For example, this is how you can award custom user flair:
 
 ```tsx
 addPaymentHandler({
   fulfillOrder: async (order, context) => {
     const username = await context.reddit.getCurrentUsername();
     if (!username) {
-      throw new Error('User not found');
+      throw new Error("User not found");
     }
 
     const subredditName = await context.reddit.getCurrentSubredditName();
 
     await context.reddit.setUserFlair({
-      text: 'Super Duper User',
+      text: "Super Duper User",
       subredditName,
       username,
-      backgroundColor: '#ffbea6',
-      textColor: 'dark',
+      backgroundColor: "#ffbea6",
+      textColor: "dark",
     });
   },
 });
@@ -47,7 +47,7 @@ addPaymentHandler({
 Next you need to provide a way for users to support your app:
 
 - If you use Devvit blocks, you can use the ProductButton helper to render a purchase button.
-- If you use webviews, make sure that your design follows the [design guidelines](./payments_add.md#design-guidelines) to [initiate purchases](./payments_add.md#initiate-orders).
+- If you use webviews, make sure that your design follows the [design guidelines](./payments_add.mdx#design-guidelines) to [initiate purchases](./payments_add.mdx#initiate-orders).
 
 ![Support App Example](../../assets/support_this_app.png)
 

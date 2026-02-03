@@ -20,7 +20,7 @@ Devvit apps support two view modes:
 
 ## Multiple Entry Points
 
-Multiple entry points let the user start the game from different contexts or states. For example, you can have a button that launches into a leaderboard view and another for a specific game mode, each of these would be configured as an entry point for your app. You can define multiple entry points in your `devvit.json` and `src/client/vite.config.ts` to create different experiences:
+Multiple entry points let the user start the game from different contexts or states. For example, you can have a button that launches into a leaderboard view and another for a specific game mode, each of these would be configured as an entry point for your app. Define multiple entry points in your `devvit.json`. If you use the [Devvit Vite plugin](../../../guides/tools/vite), it automatically infers the client build inputs from these entrypoints, so you don't need to maintain a custom Rollup `input` list.
 
 ```js title="devvit.json"
 {
@@ -30,7 +30,7 @@ Multiple entry points let the user start the game from different contexts or sta
       "default": {
         "entry": "preview.html",
         "height": "regular",
-	 "inline": true
+        "inline": true
       },
       "game": {
         "entry": "game.html"
@@ -44,32 +44,13 @@ Multiple entry points let the user start the game from different contexts or sta
 ```
 
 ```ts title="vite.config.ts"
-import { defineConfig } from 'vite';
-import tailwind from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwind from "@tailwindcss/vite";
+import { devvit } from "@devvit/start/vite";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwind()],
-  build: {
-    outDir: '../../dist/client',
-    sourcemap: true,
-    rollupOptions: {
-      input: {
-        default: resolve(dirname(fileURLToPath(import.meta.url)), 'preview.html'),
-        game: resolve(dirname(fileURLToPath(import.meta.url)), 'game.html'),
-        leaderboard: resolve(dirname(fileURLToPath(import.meta.url)), 'leaderboard.html'),
-      },
-      output: {
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
-        assetFileNames: '[name][extname]',
-        sourcemapFileNames: '[name].js.map',
-      },
-    },
-  },
+  plugins: [react(), tailwind(), devvit()],
 });
 ```
 
@@ -78,6 +59,7 @@ export default defineConfig({
 ```tsx
 your-app/
 ├── devvit.json
+├── vite.config.ts
 ├── src/
 │   ├── server/
 │   │   └── index.ts
@@ -94,23 +76,23 @@ your-app/
         └── styles.css
 ```
 
-The `dir` property specifies where your built client files are located. During development, your build process (e.g., Vite, webpack) typically compiles files from `src/client/` to `dist/client/`. The entry paths are relative to this `dir` location.
+The `dir` property specifies where your built client files are located. With the Devvit Vite plugin, the `entry` values point at your source HTML files (for example `src/client/preview.html`), and the plugin outputs the matching files into `dist/client` during `vite build`.
 
 ### Creating Posts with Specific Entry Points
 
 Use the `entry` parameter when creating posts to specify which entry point from your `devvit.json` configuration to use. The entry value must match one of the keys defined in `post.entrypoints`.
 
 ```tsx title="server/index.ts"
-import { reddit } from '@devvit/web/server';
+import { reddit } from "@devvit/web/server";
 
 // Create a post using the default entrypoint
 async function createDefaultPost(context: any) {
   return await reddit.submitCustomPost({
     subredditName: context.subredditName!,
-    title: 'Adventure Game',
-    entry: 'default',
+    title: "Adventure Game",
+    entry: "default",
     postData: {
-      gameState: 'menu',
+      gameState: "menu",
     },
   });
 }
@@ -119,10 +101,10 @@ async function createDefaultPost(context: any) {
 async function createGamePost(context: any) {
   return await reddit.submitCustomPost({
     subredditName: context.subredditName!,
-    title: 'Adventure Game',
-    entry: 'game', // Must match a key in devvit.json entrypoints
+    title: "Adventure Game",
+    entry: "game", // Must match a key in devvit.json entrypoints
     postData: {
-      gameState: 'active',
+      gameState: "active",
       initialized: true,
     },
   });
@@ -141,14 +123,14 @@ async function createGamePost(context: any) {
 You can transition from inline mode to expanded mode with a different entry point, like this:
 
 ```tsx
-import { requestExpandedMode } from '@devvit/web/client';
+import { requestExpandedMode } from "@devvit/web/client";
 
 // Switch to the 'game' entrypoint in expanded mode
 const handleStartGame = async (event: React.MouseEvent) => {
   try {
-    await requestExpandedMode(event.nativeEvent, 'game');
+    await requestExpandedMode(event.nativeEvent, "game");
   } catch (error) {
-    console.error('Failed to enter expanded mode:', error);
+    console.error("Failed to enter expanded mode:", error);
   }
 };
 ```

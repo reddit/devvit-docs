@@ -3,7 +3,7 @@
 You can use the payments template to build your app or add payment functionality to an existing app.
 
 :::note
-[Devvit Web](../../capabilities/devvit-web/devvit_web_overview.mdx) is the recommended approach for all interactive experiences. We recommend [migrating your app](../../earn-money/payments/payments_migrate.md) to Devvit Web payments.
+[Devvit Web](../../capabilities/devvit-web/devvit_web_overview.mdx) is the recommended approach for all interactive experiences. We recommend [migrating your app](../../earn-money/payments/payments_migrate.mdx) to Devvit Web payments.
 :::
 
 To start with a template, select the payments template when you create a new project or run:
@@ -161,28 +161,28 @@ Errors thrown within the payment handler automatically reject the order. To prov
 This example shows how to issue an "extra life" to a user when they purchase the "extra_life" product.
 
 ```ts
-import { type Context } from '@devvit/public-api';
-import { addPaymentHandler } from '@devvit/payments';
-import { Devvit, useState } from '@devvit/public-api';
+import { type Context } from "@devvit/public-api";
+import { addPaymentHandler } from "@devvit/payments";
+import { Devvit, useState } from "@devvit/public-api";
 
 Devvit.configure({
   redis: true,
   redditAPI: true,
 });
 
-const GOD_MODE_SKU = 'god_mode';
+const GOD_MODE_SKU = "god_mode";
 
 addPaymentHandler({
   fulfillOrder: async (order, ctx) => {
     if (!order.products.some(({ sku }) => sku === GOD_MODE_SKU)) {
-      throw new Error('Unable to fulfill order: sku not found');
+      throw new Error("Unable to fulfill order: sku not found");
     }
-    if (order.status !== 'PAID') {
-      throw new Error('Becoming a god has a cost (in Reddit Gold)');
+    if (order.status !== "PAID") {
+      throw new Error("Becoming a god has a cost (in Reddit Gold)");
     }
 
     const redisKey = godModeRedisKey(ctx.postId, ctx.userId);
-    await ctx.redis.set(redisKey, 'true');
+    await ctx.redis.set(redisKey, "true");
   },
 });
 ```
@@ -204,14 +204,14 @@ Your app can acknowledge or reject the order. For example, for goods with limite
 Use the `useProducts` hook or `getProducts` function to fetch details about products.
 
 ```tsx
-import { useProducts } from '@devvit/payments';
+import { useProducts } from "@devvit/payments";
 
 export function ProductsList(context: Devvit.Context): JSX.Element {
   // Only query for products with the metadata "category" of value "powerup".
   // The metadata field can be empty - if it is, useProducts will not filter on metadata.
   const { products } = useProducts(context, {
     metadata: {
-      category: 'powerup',
+      category: "powerup",
     },
   });
 

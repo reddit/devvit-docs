@@ -1,6 +1,6 @@
 # Configure Your App
 
-The devvit.json file serves as your app's configuration file. Use it to specify entry points, configure features like [event triggers](../server/triggers) and [scheduled actions](../server/scheduler.md), and enable app functionality such as [image uploads](../server/media-uploads.mdx). This page covers all available devvit.json configuration options. A complete devvit.json example file is provided [here](#complete-example).
+The devvit.json file serves as your app's configuration file. Use it to specify entry points, configure features like [event triggers](../server/triggers) and [scheduled actions](../server/scheduler.mdx), and enable app functionality such as [image uploads](../server/media-uploads.mdx). This page covers all available devvit.json configuration options. A complete devvit.json example file is provided [here](#complete-example).
 
 ## devvit.json
 
@@ -67,9 +67,10 @@ Additionally, you must include at least one of:
 
 ### Development
 
-| Property | Type   | Description               | Required |
-| -------- | ------ | ------------------------- | -------- |
-| `dev`    | object | Development configuration | No       |
+| Property  | Type   | Description                                         | Required |
+| --------- | ------ | --------------------------------------------------- | -------- |
+| `dev`     | object | Development configuration                           | No       |
+| `scripts` | object | Build commands run by the Devvit CLI (optional)     | No       |
 
 ## Detailed configuration
 
@@ -281,6 +282,24 @@ Configure app presentation:
 
 - `icon` (string): Path to 1024x1024 PNG icon (required)
 
+### Scripts configuration
+
+Configure build commands run by the Devvit CLI. These commands run relative to the `devvit.json` directory.
+
+```json
+{
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  }
+}
+```
+
+**Properties:**
+
+- `dev` (string): Command run by `devvit playtest` to build or watch your client/server artifacts
+- `build` (string): Command run by `devvit upload` to build your client/server artifacts
+
 ### Development configuration
 
 Configure development settings:
@@ -384,6 +403,10 @@ The `devvit.json` configuration is validated against the JSON Schema at build ti
   },
   "dev": {
     "subreddit": "my-test-sub"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
   }
 }
 ```

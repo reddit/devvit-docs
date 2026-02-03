@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # User Actions
 
 User actions allow your app to submit posts, submit comments, and subscribe to the current subreddit on behalf of the logged in user. These actions occur on the logged in user's account instead of the app account. This enables stronger user engagement while ensuring user control and transparency.
@@ -85,6 +88,44 @@ Apps that use `submitPost()` with `runAs: 'USER'` require `userGeneratedContent`
 
 This example uses a form to prompt the user for input and then submits a post as the user.
 
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```tsx title="server/index.ts"
+import { reddit } from '@devvit/web/server';
+
+// ...
+
+app.post('/internal/post-create', async (c) => {
+  const { subredditName } = context;
+  if (!subredditName) {
+    return c.json({ status: 'error', message: 'subredditName is required' }, 400);
+  }
+
+  reddit.submitPost({
+    runAs: 'USER',
+    userGeneratedContent: {
+      text: "Hello there! This is a new post from the user's account",
+    },
+    subredditName,
+    title: 'Post Title',
+    entry: 'default',
+  });
+
+  return c.json({ status: 'success', message: `Post created in subreddit ${subredditName}` });
+});
+```
+
+</TabItem>
+<TabItem value="express">
+
 ```tsx title="server/index.ts"
 import { reddit } from '@devvit/web/server';
 
@@ -111,11 +152,40 @@ router.post('/internal/post-create', async (_req, res) => {
 });
 ```
 
+</TabItem>
+</Tabs>
+
 ---
 
 ## Example: Subscribe to current subreddit
 
 The [subscribeToCurrentSubreddit()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#subscribetocurrentsubreddit) API does not take a `runAs` parameter; it subscribes as the user by default (if specified in `devvit.json` and approved).
+
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```ts
+import { reddit } from '@devvit/web/server';
+
+app.post('/api/subscribe', async (c) => {
+  try {
+    await reddit.subscribeToCurrentSubreddit();
+    return c.json({ status: 'success' });
+  } catch (error) {
+    return c.json({ status: 'error', message: 'Failed to subscribe' }, 500);
+  }
+});
+```
+
+</TabItem>
+<TabItem value="express">
 
 ```ts
 import { reddit } from '@devvit/web/server';
@@ -129,5 +199,8 @@ router.post('/api/subscribe', async (_req, res) => {
   }
 });
 ```
+
+</TabItem>
+</Tabs>
 
 For user privacy there is no API to check if the user is already subscribed to the current subreddit. You may want to store the subscription state in Redis to provide contextually aware UI.

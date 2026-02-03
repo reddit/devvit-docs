@@ -1,5 +1,5 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
 # Menu Actions
 
@@ -16,30 +16,55 @@ Add an item to the three dot menu for posts, comments, or subreddits. Menu actio
   
   **Menu items defined in devvit.json:**
 
-  ```json title="devvit.json"
-  {
-    "menu": {
-      "items": [
-        {
-          "description": "Show user information",
-          "endpoint": "/internal/menu/show-info",
-          "location": "post"
-        }
-      ]
-    }
+```json title="devvit.json"
+{
+  "menu": {
+    "items": [
+      {
+        "description": "Show user information",
+        "endpoint": "/internal/menu/show-info",
+        "location": "post"
+      }
+    ]
   }
-  ```
+}
+```
 
-  **Simple endpoint with direct client effects:**
+**Simple endpoint with direct client effects:**
 
-  ```ts title="server/index.ts"
-  router.post("/internal/menu/show-info", async (_req, res) => {
-    // Simple actions don't need server processing
-    res.json({
-      showToast: 'Menu action clicked!'
-    });
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+```ts title="server/index.ts"
+app.post("/internal/menu/show-info", async (c) => {
+  // Simple actions don't need server processing
+  return c.json({
+    showToast: "Menu action clicked!",
   });
-  ```
+});
+```
+
+  </TabItem>
+  <TabItem value="express">
+
+```ts title="server/index.ts"
+app.post("/internal/menu/show-info", async (_req, res) => {
+  // Simple actions don't need server processing
+  res.json({
+    showToast: "Menu action clicked!",
+  });
+});
+```
+
+  </TabItem>
+  </Tabs>
 
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
@@ -47,44 +72,45 @@ Add an item to the three dot menu for posts, comments, or subreddits. Menu actio
   ```tsx
   import { Devvit } from '@devvit/public-api';
 
-  // Simple menu action with direct client effects
-  Devvit.addMenuItem({
-    label: 'Show user info',
-    location: 'post', // 'post', 'comment', 'subreddit', or array
-    onPress: async (event, context) => {
-      // Direct client effect - no server processing needed  
-      context.ui.showToast('Menu action clicked!');
-    },
-  });
+// Simple menu action with direct client effects
+Devvit.addMenuItem({
+label: 'Show user info',
+location: 'post', // 'post', 'comment', 'subreddit', or array
+onPress: async (event, context) => {
+// Direct client effect - no server processing needed  
+ context.ui.showToast('Menu action clicked!');
+},
+});
 
-  // Menu action with form
-  const surveyForm = Devvit.createForm(
-    {
-      fields: [
-        {
-          type: 'string',
-          name: 'feedback',
-          label: 'Your feedback',
-        },
-      ],
-    },
-    (event, context) => {
-      // onSubmit handler
-      context.ui.showToast({ text: `Thanks for the feedback: ${event.values.feedback}` });
-    }
-  );
+// Menu action with form
+const surveyForm = Devvit.createForm(
+{
+fields: [
+{
+type: 'string',
+name: 'feedback',
+label: 'Your feedback',
+},
+],
+},
+(event, context) => {
+// onSubmit handler
+context.ui.showToast({ text: `Thanks for the feedback: ${event.values.feedback}` });
+}
+);
 
-  Devvit.addMenuItem({
-    label: 'Quick survey',
-    location: 'subreddit',
-    forUserType: 'moderator', // Optional: restrict to moderators
-    onPress: async (event, context) => {
-      context.ui.showForm(surveyForm);
-    },
-  });
-  ```
+Devvit.addMenuItem({
+label: 'Quick survey',
+location: 'subreddit',
+forUserType: 'moderator', // Optional: restrict to moderators
+onPress: async (event, context) => {
+context.ui.showForm(surveyForm);
+},
+});
 
-  </TabItem>
+````
+
+</TabItem>
 </Tabs>
 
 ## Supported Contexts
@@ -106,89 +132,142 @@ For moderator permission security, when opening a form from a menu action with `
 In Devvit Web, your menu item should respond with a client side effect to give feedback to users. This is available as a UIResponse as you do not have access to the `@devvit/web/client` library from your server endpoints.
 
 <Tabs>
-  <TabItem value="web" label="Devvit Web">
-  
-  **Menu items with server processing:**
+<TabItem value="web" label="Devvit Web">
 
-  ```json title="devvit.json"
-  {
-    "menu": {
-      "items": [
-        {
-          "label": "Process and validate data",
-          "endpoint": "/internal/menu/complex-action",
-          "forUserType": "moderator",
-          "location": "subreddit"
-        }
-      ]
-    }
+**Menu items with server processing:**
+
+```json title="devvit.json"
+{
+  "menu": {
+    "items": [
+      {
+        "label": "Process and validate data",
+        "endpoint": "/internal/menu/complex-action",
+        "forUserType": "moderator",
+        "location": "subreddit"
+      }
+    ]
   }
-  ```
+}
+````
 
-  ```ts title="server/index.ts"
-  import { UIResponse } from '@devvit/web/shared';
-  
-  router.post("/internal/menu/complex-action", async (_req, res: Response<UIResponse>) => {
+  <Tabs
+    variant="pill"
+    groupId="http-server-framework"
+    defaultValue="hono"
+    values={[
+      { label: 'Hono', value: 'hono' },
+      { label: 'Express', value: 'express' },
+    ]}>
+  <TabItem value="hono">
+
+```ts title="server/index.ts"
+app.post("/internal/menu/complex-action", async (c) => {
+  try {
+    // Perform server-side processing
+    const userData = await validateAndProcessData();
+
+    // Show form with server-fetched data
+    return c.json({
+      showForm: {
+        name: "processForm",
+        form: {
+          fields: [
+            {
+              type: "string",
+              name: "processedData",
+              label: "Processed Data",
+            },
+          ],
+        },
+        data: { processedData: userData.processed },
+      },
+    });
+  } catch (error) {
+    return c.json({
+      showToast: "Processing failed. Please try again.",
+    });
+  }
+});
+```
+
+  </TabItem>
+  <TabItem value="express">
+
+```ts title="server/index.ts"
+import { UIResponse } from "@devvit/web/shared";
+
+app.post(
+  "/internal/menu/complex-action",
+  async (_req, res: Response<UIResponse>) => {
     try {
       // Perform server-side processing
       const userData = await validateAndProcessData();
-      
+
       // Show form with server-fetched data
       res.json({
         showForm: {
-          name: 'processForm',
+          name: "processForm",
           form: {
             fields: [
               {
-                type: 'string',
-                name: 'processedData',
-                label: 'Processed Data',
+                type: "string",
+                name: "processedData",
+                label: "Processed Data",
               },
             ],
           },
-          data: { processedData: userData.processed }
-        }
+          data: { processedData: userData.processed },
+        },
       });
     } catch (error) {
       res.json({
-        showToast: 'Processing failed. Please try again.'
+        showToast: "Processing failed. Please try again.",
       });
     }
-  });
-  ``` 
+  },
+);
+```
+
+  </TabItem>
+  </Tabs>
   </TabItem>
   <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
   
   For Devvit Blocks, use the direct context approach even for complex workflows:
 
-  ```tsx
-  Devvit.addMenuItem({
-    label: 'Process and validate data',
-    location: 'post', // 'post', 'comment', 'subreddit', or array
-    forUserType: 'moderator', // Optional: restrict to moderators
-    onPress: async (event, context) => {
-      try {
-        // Perform server-side processing
-        const userData = await validateAndProcessData();
-        
-        // Show form with server-fetched data
-        const result = await context.ui.showForm({
+```tsx
+Devvit.addMenuItem({
+  label: "Process and validate data",
+  location: "post", // 'post', 'comment', 'subreddit', or array
+  forUserType: "moderator", // Optional: restrict to moderators
+  onPress: async (event, context) => {
+    try {
+      // Perform server-side processing
+      const userData = await validateAndProcessData();
+
+      // Show form with server-fetched data
+      const result = await context.ui.showForm(
+        {
           fields: [
             {
-              type: 'string',
-              name: 'processedData',
-              label: 'Processed Data',
+              type: "string",
+              name: "processedData",
+              label: "Processed Data",
             },
           ],
-        }, (values) => {
+        },
+        (values) => {
           context.ui.showToast(`Processed: ${values.processedData}`);
-        });
-      } catch (error) {
-        context.ui.showToast('Processing failed. Please try again.');
-      }
-    },
-  });
-  ```
+        },
+      );
+    } catch (error) {
+      context.ui.showToast("Processing failed. Please try again.");
+    }
+  },
+});
+```
+
   </TabItem>
 </Tabs>
 
@@ -197,27 +276,100 @@ In Devvit Web, your menu item should respond with a client side effect to give f
 Menu responses can trigger any client effect after server processing:
 
 **Show toast after processing:**
+
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```ts
+return c.json({
+  showToast: {
+    text: "Processing completed!",
+    appearance: "success",
+  },
+});
+```
+
+</TabItem>
+<TabItem value="express">
+
 ```ts
 res.json({
   showToast: {
-    text: 'Processing completed!',
-    appearance: 'success'
+    text: "Processing completed!",
+    appearance: "success",
+  },
+});
+```
+
+</TabItem>
+</Tabs>
+
+**Navigate after data fetching:**
+
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```ts
+const post = await reddit.getPostById(postId);
+return c.json({
+  navigateTo: post,
+});
+```
+
+</TabItem>
+<TabItem value="express">
+
+```ts
+const post = await reddit.getPostById(postId);
+res.json({
+  navigateTo: post,
+});
+```
+
+</TabItem>
+</Tabs>
+
+**Chain multiple forms:**
+
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```ts
+// First form response leads to second form
+return c.json({
+  showForm: {
+    name: 'secondForm',
+    form: { fields: [...] },
+    data: { fromStep1: processedData }
   }
 });
 ```
 
-**Navigate after data fetching:**
+</TabItem>
+<TabItem value="express">
+
 ```ts
-const post = await reddit.getPostById(postId);
-res.json({
-  navigateTo: post
-});
-```
-
-**Chain multiple forms:**
-```ts
-
-
 // First form response leads to second form
 res.json({
   showForm: {
@@ -227,6 +379,9 @@ res.json({
   }
 });
 ```
+
+</TabItem>
+</Tabs>
 
 ## Limitations
 

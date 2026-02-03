@@ -20,7 +20,7 @@ Allows you to query information from Reddit such as comments, posts and upvotes.
 
 Allows you to store app data in a scalable database, free of charge. Limited to the installation scope of the application.
 
-## [Scheduler](./scheduler.md)
+## [Scheduler](./scheduler.mdx)
 
 Allows you to run automated server-side tasks on a schedule, for example, checking for updates every hour.
 

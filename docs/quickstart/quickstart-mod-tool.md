@@ -12,7 +12,7 @@ This tutorial should take about 10 minutes to complete. Once complete, you'll be
 ## Environment setup
 
 1. Install Node.JS and NPM ([instructions](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm))
-2. Go to `https://developers.reddit.com/new` and choose Mod Tool under Other templates.
+2. Go to [https://developers.reddit.com/new](https://developers.reddit.com/new) and choose Mod Tool under Other templates.
 3. Go through the wizard. You will need to create a Reddit account and connect it to Reddit developers.
 4. Follow the instructions on your terminal.
 
