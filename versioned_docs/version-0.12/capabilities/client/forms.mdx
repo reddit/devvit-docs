@@ -511,6 +511,12 @@ const imageField = {
 | `placeholder` | `string` `undefined`                                                           | Placeholder text for display before a value is present.                                                                                                          |
 | `isSecret`    | `boolean` `undefined`                                                          | Makes the form field secret.                                                                                                                                     |
 
+#### Notes
+
+- The formats supported are PNG, JPEG, WEBP, and GIF.
+- The maximum file size allowed is 20 MB.
+- When uploading a WEBP image, it will be converted to JPEG. As such, the Reddit URL returned points to a JPEG image.
+
 ### Group
 
 A collection of related fields that allows for better readability.
