@@ -12,7 +12,12 @@ Here are some starter projects and templates for your Devvit projects
 
 - [Phaser starter](https://github.com/reddit/devvit-template-phaser) - a feature-rich HTML5 game framework for building 2D games in the browser. It includes preinstalled libraries for Devvit, Vite, Phaser, Express, and TypeScript. This template is good for handling physics, animations, input, sound, and asset management.
 
+- [Unity starter](https://github.com/reddit/devvit-template-unity) - a template for building games with Unity. Includes setup for WebGL builds and integration with Devvit's server-side capabilities.
+
+- [GameMaker starter](https://github.com/reddit/devvit-template-gamemaker) - a template for building games with GameMaker. Includes setup for HTML5 exports and integration with Devvit's server-side capabilities.
+
 - [Hello world](https://github.com/reddit/devvit-template-hello-world/tree/main) - a simple template to build a counter app with no frameworks or opinions.
+
 
 ## Devvit Blocks
 
