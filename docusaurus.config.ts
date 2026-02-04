@@ -4,7 +4,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const baseUrl = process.env.DOCUSAURUS_BASE_URL ?? "/docs/";
 
-const LATEST_DEVVIT_VERSION = '0.12'; // update-versioned-docs.mjs sets this automatically
+const LATEST_DEVVIT_VERSION = "0.12"; // update-versioned-docs.mjs sets this automatically
 
 const config: Config = {
   future: {
@@ -16,10 +16,12 @@ const config: Config = {
   url: "https://developers.reddit.com",
   baseUrl,
   onBrokenLinks: "warn",
-  onBrokenMarkdownLinks: "warn",
   favicon: "/img/devvit_icon.png",
   markdown: {
     format: "detect",
+    hooks: {
+      onBrokenMarkdownLinks: "warn",
+    },
   },
   scripts: [
     {
@@ -86,7 +88,8 @@ const config: Config = {
               if (!/next|\/\d+\.\d+\//.test(item.url)) {
                 return true;
               } else {
-                console.log("excluding", item.url);
+                // Too noisy!
+                // console.log("excluding", item.url);
                 return false;
               }
             });
