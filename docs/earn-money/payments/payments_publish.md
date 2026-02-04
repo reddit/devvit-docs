@@ -16,4 +16,4 @@ You can change your app visibility at any time. See publishing an app for detail
 
 ### Ineligible products
 
-Any apps or products for which you wish to enable payments must comply with our [Earn Policy](../reddit_developer_funds#terms-and-conditions) and [Devvit Guidelines](../../devvit_rules).
+Any apps or products for which you wish to enable payments must comply with our [Earn Policy](https://developers.reddit.com/docs/earn-money/reddit_developer_funds) and [Devvit Guidelines](../../devvit_rules).
