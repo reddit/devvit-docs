@@ -6,21 +6,43 @@ Stream log events from your installed app to your command line to troubleshoot y
 
 Any logs sent to `console` will be available via `devvit logs` for installed apps. For example, `console.log()`, `console.info()` and `console.error()` will produce logs with timestamps as expected.
 
-The following example creates a basic app that simply creates a single log.
+The following example creates a basic app with a menu action that creates a log when clicked.
 
-```typescript title="main.tsx"
-import { Context, Devvit } from '@devvit/public-api';
+```json title="devvit.json"
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "app-name",
 
-Devvit.addMenuItem({
-  location: 'post',
-  label: 'Create a log!',
-  onPress: (event, context) => {
-    console.log('Action called!');
-    context.ui.showToast(`Successfully logged!`);
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
   },
-});
+  "permissions": {
+    "reddit": true
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "Create a log!",
+        "location": "subreddit",
+        "endpoint": "/internal/log-action",
+        "forUserType": "moderator"
+      }
+    ]
+  }
+}
+```
 
-export default Devvit;
+```typescript title="server/index.ts"
+router.post("/internal/log-action", async (_req, res): Promise<void> => {
+  console.log("log-action");
+  res.json({
+    showToast: {
+      text: "Log action",
+      appearance: "success",
+    },
+  });
+});
 ```
 
 ## Stream logs
