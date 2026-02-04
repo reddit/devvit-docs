@@ -1,6 +1,6 @@
-# User actions
+# User Actions
 
-User actions allow your app to perform certain actions—such as creating posts, comments, or subscribing to subreddits—on behalf of the user, rather than the app account. This enables stronger user engagement while ensuring user control and transparency.
+User actions allow your app to submit posts, submit comments, and subscribe to the current subreddit on behalf of the logged in user. These actions occur on the logged in user's account instead of the app account. This enables stronger user engagement while ensuring user control and transparency.
 
 ---
 
@@ -13,17 +13,19 @@ By default, apps make posts or comments using their associated app account. With
 
 ---
 
-## Guidelines
+Requirements
+--------------
 
 To ensure a positive user experience and compliance with Reddit policies:
 
-- **Be transparent:** Inform users and show them the content that will be posted on their behalf.
-- **No auto-creation:** Users must opt in to allow the app to post or comment on their behalf. This can only happen on an explicit action.
-- **Provide user control:**  If you are relying on persistent user opt-in, you must make it clear on how the user can opt-out.
-
+- **Always ask permission:** Your app must always inform users before posting, commenting, or subscribing on their behalf. This can only happen on an explicit manual action, e.g. from a button.
+- **No automated actions:** Users must explicitly opt-in to the app acting on their behalf. Do not mislead or surprise users.
+- **Establish a reporting flow:** Ensure `userGeneratedContent` is correctly set for posts submitted on behalf of the user. 
+- **Do not gate functionality behind subscribing:** Users should not be made to subscribe to the current subreddit to access any part of your app.
+- **Remember the human:** Follow Reddit's safety and compliance guidelines for user-generated content.
 
 :::note
-Apps using user actions must follow these guidelines to be approved.
+Apps using user actions must follow these requirements to be approved.
 :::
 
 ---
@@ -59,6 +61,7 @@ After enabling, you can call certain Reddit APIs on behalf of the user by passin
 Currently, the following APIs support this option:
 
 - [submitPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost)
+- [submitCustomPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcustompost)
 - [submitComment()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment)
 
 If `runAs` is not specified, the API will use `runAs: 'APP'` by default.
@@ -100,8 +103,8 @@ router.post('/internal/post-create', async (_req, res) => {
       text: "Hello there! This is a new post from the user's account",
     },
     subredditName,
-    title: 'Post Title'
-     entry: 'default',
+    title: 'Post Title',
+    entry: 'default',
   });
 
   res.json({ status: 'success', message: `Post created in subreddit ${subredditName}` });
@@ -110,26 +113,21 @@ router.post('/internal/post-create', async (_req, res) => {
 
 ---
 
-## Example: Subscribe to subreddit
+## Example: Subscribe to current subreddit
 
-The subscribe API does not take a `runAs` parameter; it subscribes as the user by default (if specified in `devvit.json` and approved).
+The [subscribeToCurrentSubreddit()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#subscribetocurrentsubreddit) API does not take a `runAs` parameter; it subscribes as the user by default (if specified in `devvit.json` and approved).
 
 ```ts
 import { reddit } from '@devvit/web/server';
 
-await reddit.subscribeToCurrentSubreddit();
+router.post('/api/subscribe', async (_req, res) => {
+  try {
+    await reddit.subscribeToCurrentSubreddit();
+    res.json({ status: 'success' });
+  } catch (error) {
+    res.status(500).json({ status: 'error', message: 'Failed to subscribe' });
+  }
+});
 ```
 
-:::note
-There is no API to check if the user is already subscribed to the subreddit. You may want to store the subscription state in Redis to provide contextually aware UI.
-:::
-
----
-
-## Best practices
-
-- Always inform users before posting or commenting on their behalf.
-- Require explicit user opt-in for all user actions.
-- Use `userGeneratedContent` for all user-submitted posts.
-- Store user consent and subscription state if needed for your app's UX.
-- Follow Reddit's safety and compliance guidelines for user-generated content.
+For user privacy there is no API to check if the user is already subscribed to the current subreddit. You may want to store the subscription state in Redis to provide contextually aware UI.

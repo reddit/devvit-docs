@@ -1,4 +1,6 @@
-/docs/reddit_developer_funds: /docs/earn-money/reddit_developer_funds
+/docs/reddit_developer_funds: https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms
+/docs/earn-money/reddit_developer_funds: https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms
+/docs/0.12/earn-money/reddit_developer_funds: https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms
 /docs/0.12/api/public-api/@devvit/namespaces/EventTypes/variables/CommentReport: /docs/next/api/public-api/@devvit/namespaces/EventTypes/variables/CommentReport
 /docs/0.12/api/redditapi/RedditAPIClient/classes/RedditAPIClient: /docs/api/redditapi/RedditAPIClient/classes/RedditAPIClient
 /docs/0.12/api/redditapi/RedditAPIClient/type-aliases/MuteUserOptions: /docs/next/api/redditapi/RedditAPIClient/type-aliases/MuteUserOptions
@@ -303,10 +305,11 @@
 /docs/experimental/api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentReport: /docs/api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentReport
 /docs/experimental/api/redditapi/models/type-aliases/SubmitSelfPostOptions: /docs/api/redditapi/models/type-aliases/SubmitSelfPostOptions
 /docs/next/capabilities/forms: /docs/next/capabilities/client/forms
-/docs/next/reddit_developer_funds: /docs/next/earn-money/reddit_developer_funds
+/docs/next/reddit_developer_funds: https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms
+/docs/next/earn-money/reddit_developer_funds: https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms
 /docs/next/capabilities/client/adding-links.mdx: /docs/next/capabilities/client/navigation
 /docs/next/capabilities/image-uploads: /docs/next/capabilities/server/media-uploads
-/docs/experimental/reddit_developer_funds: /docs/next/earn-money/reddit_developer_funds
+/docs/experimental/reddit_developer_funds: https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms
 /docs/next/capabilities/realtime: /docs/next/capabilities/realtime/overview
 /docs/0.12/blocks/colors: /docs/blocks/colors
 /docs/next/capabilities/http-fetch: /docs/next/capabilities/server/http-fetch

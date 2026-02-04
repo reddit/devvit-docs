@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.8-dev**](../README.md)
+[**@devvit/public-api v0.12.11-dev**](../README.md)
 
 ***
 
@@ -84,16 +84,6 @@ A client for the Key Value Store
 > **media**: [`MediaPlugin`](MediaPlugin.md)
 
 A client for media API
-
-***
-
-<a id="modlog"></a>
-
-### modLog
-
-> **modLog**: `ModLogClient`
-
-A client for the ModLog API
 
 ***
 
