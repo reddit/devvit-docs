@@ -77,6 +77,16 @@ Here’s a way to set up in-app caching instead of using scheduler or interval t
   import { Hono } from 'hono';
   import { cache, context, createServer, getServerPort, reddit } from '@devvit/web/server';
 
+  type SubredditResponse = {
+    type: 'subreddit';
+    subreddit: string;
+  };
+
+  type SubredditErrorResponse = {
+    status: 'error';
+    message: string;
+  };
+
   const app = new Hono();
 
   app.get('/api/subreddit', async (c) => {
@@ -84,7 +94,7 @@ Here’s a way to set up in-app caching instead of using scheduler or interval t
 
     if (!postId) {
       console.error('API Subreddit Error: postId not found in devvit context');
-      return c.json(
+      return c.json<SubredditErrorResponse>(
         {
           status: 'error',
           message: 'postId is required but missing from context',
@@ -109,7 +119,7 @@ Here’s a way to set up in-app caching instead of using scheduler or interval t
       );
       console.log(`Current subreddit: ${subredditName}`);
 
-      return c.json({
+      return c.json<SubredditResponse>({
         type: 'subreddit',
         subreddit: subredditName,
       });
@@ -119,7 +129,7 @@ Here’s a way to set up in-app caching instead of using scheduler or interval t
       if (error instanceof Error) {
         errorMessage = `Subreddit retrieval failed: ${error.message}`;
       }
-      return c.json({ status: 'error', message: errorMessage }, 400);
+      return c.json<SubredditErrorResponse>({ status: 'error', message: errorMessage }, 400);
     }
   });
 
@@ -134,15 +144,22 @@ Here’s a way to set up in-app caching instead of using scheduler or interval t
   ```tsx title="server/index.ts"
     import express from "express";
     import {
-      SubredditResponse,
-    } from "../shared/types/api";
-    import {
       cache,
       createServer,
       context,
       getServerPort,
       reddit,
     } from "@devvit/web/server";
+
+    type SubredditResponse = {
+      type: "subreddit";
+      subreddit: string;
+    };
+
+    type SubredditErrorResponse = {
+      status: "error";
+      message: string;
+    };
 
     const app = express();
 
@@ -155,50 +172,50 @@ Here’s a way to set up in-app caching instead of using scheduler or interval t
 
     const router = express.Router();
 
-    router.get<
-      { postId: string },
-      SubredditResponse | { status: string; message: string }
-    >("/api/subreddit", async (_req, res): Promise<void> => {
-      const { postId } = context;
+    router.get<string, never, SubredditResponse | SubredditErrorResponse, never>(
+      "/api/subreddit",
+      async (_req, res): Promise<void> => {
+        const { postId } = context;
 
-      if (!postId) {
-        console.error("API Subreddit Error: postId not found in devvit context");
-        res.status(400).json({
-          status: "error",
-          message: "postId is required but missing from context",
-        });
-        return;
-      }
-
-      try {
-        const subredditName = await cache(
-          async () => {
-            const subreddit = await reddit.getCurrentSubreddit();
-            if (!subreddit) {
-              throw new Error("Subreddit is required but missing from context");
-            }
-            return subreddit.name;
-          },
-          {
-            key: `current_subreddit`,
-            ttl: 24 * 60 * 60 // expire after one day.
-          }
-        );
-        console.log(`Current subreddit: ${subredditName}`);
-
-        res.json({
-          type: "subreddit" as "subreddit",
-          subreddit: subredditName,
-        });
-      } catch (error) {
-        console.error(`API Subreddit Error for post ${postId}:`, error);
-        let errorMessage = "Unknown error during subreddit retrieval";
-        if (error instanceof Error) {
-          errorMessage = `Subreddit retrieval failed: ${error.message}`;
+        if (!postId) {
+          console.error("API Subreddit Error: postId not found in devvit context");
+          res.status(400).json({
+            status: "error",
+            message: "postId is required but missing from context",
+          });
+          return;
         }
-        res.status(400).json({ status: "error", message: errorMessage });
+
+        try {
+          const subredditName = await cache(
+            async () => {
+              const subreddit = await reddit.getCurrentSubreddit();
+              if (!subreddit) {
+                throw new Error("Subreddit is required but missing from context");
+              }
+              return subreddit.name;
+            },
+            {
+              key: `current_subreddit`,
+              ttl: 24 * 60 * 60 // expire after one day.
+            }
+          );
+          console.log(`Current subreddit: ${subredditName}`);
+
+          res.json({
+            type: "subreddit",
+            subreddit: subredditName,
+          });
+        } catch (error) {
+          console.error(`API Subreddit Error for post ${postId}:`, error);
+          let errorMessage = "Unknown error during subreddit retrieval";
+          if (error instanceof Error) {
+            errorMessage = `Subreddit retrieval failed: ${error.message}`;
+          }
+          res.status(400).json({ status: "error", message: errorMessage });
+        }
       }
-    });
+    );
 
     app.use(router);
 

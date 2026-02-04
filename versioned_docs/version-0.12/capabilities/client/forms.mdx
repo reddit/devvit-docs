@@ -182,12 +182,18 @@ For forms that open from a menu item, you can use menu responses. This is useful
   <TabItem value="hono">
 
   ```ts title="server/index.ts"
+  import type { MenuItemRequest, UiResponse } from '@devvit/web/shared';
+
+  type NameFormRequest = { name: string };
+  type ReviewFormRequest = { review: string };
+
   // Menu action that triggers menu response form
   app.post('/internal/menu/start-workflow', async (c) => {
+    const _input = await c.req.json<MenuItemRequest>();
     // Server processing before showing form
     const userData = await fetchUserData();
     
-    return c.json({
+    return c.json<UiResponse>({
       showForm: {
         name: 'nameForm',
         form: {
@@ -206,13 +212,13 @@ For forms that open from a menu item, you can use menu responses. This is useful
 
   // Form submission handler that can chain to another form
   app.post('/internal/form/name-submit', async (c) => {
-    const { name } = await c.req.json();
+    const { name } = await c.req.json<NameFormRequest>();
     
     // Server processing
     await saveUserName(name);
     
     // Show next form in workflow
-    return c.json({
+    return c.json<UiResponse>({
       showForm: {
         name: 'reviewForm',
         form: {
@@ -229,11 +235,11 @@ For forms that open from a menu item, you can use menu responses. This is useful
   });
 
   app.post('/internal/form/review-submit', async (c) => {
-    const { review } = await c.req.json();
+    const { review } = await c.req.json<ReviewFormRequest>();
     
     await saveReview(review);
     
-    return c.json({
+    return c.json<UiResponse>({
       showToast: 'Thank you for your feedback!'
     });
   });
@@ -243,10 +249,13 @@ For forms that open from a menu item, you can use menu responses. This is useful
   <TabItem value="express">
 
   ```ts title="server/index.ts"
-  import { UIResponse } from '@devvit/web/shared';
+  import type { MenuItemRequest, UiResponse } from '@devvit/web/shared';
+
+  type NameFormRequest = { name: string };
+  type ReviewFormRequest = { review: string };
 
   // Menu action that triggers menu response form
-  router.post("/internal/menu/start-workflow", async (_req, res: Response<UIResponse>) => {
+  router.post<string, never, UiResponse, MenuItemRequest>("/internal/menu/start-workflow", async (_req, res) => {
     // Server processing before showing form
     const userData = await fetchUserData();
     
@@ -268,7 +277,7 @@ For forms that open from a menu item, you can use menu responses. This is useful
   });
 
   // Form submission handler that can chain to another form
-  router.post("/internal/form/name-submit", async (req, res: Response<UIResponse>) => {
+  router.post<string, never, UiResponse, NameFormRequest>("/internal/form/name-submit", async (req, res) => {
     const { name } = req.body;
     
     // Server processing
@@ -291,7 +300,7 @@ For forms that open from a menu item, you can use menu responses. This is useful
     });
   });
 
-  router.post("/internal/form/review-submit", async (req, res: Response<UIResponse>) => {
+  router.post<string, never, UiResponse, ReviewFormRequest>("/internal/form/review-submit", async (req, res) => {
     const { review } = req.body;
     
     await saveReview(review);
@@ -677,11 +686,16 @@ Below is a collection of common use cases and patterns.
   <TabItem value="hono">
 
   ```ts title="server/index.ts"
+  import type { MenuItemRequest, UiResponse } from '@devvit/web/shared';
+
+  type DynamicFormRequest = { username: string };
+
   // Endpoint that shows form with dynamic data
   app.post('/internal/menu/show-dynamic-form', async (c) => {
+    const _input = await c.req.json<MenuItemRequest>();
     const user = await reddit.getCurrentUser();
     
-    return c.json({
+    return c.json<UiResponse>({
       showForm: {
         name: 'dynamicForm',
         form: {
@@ -702,9 +716,9 @@ Below is a collection of common use cases and patterns.
 
   // Form submission handler
   app.post('/internal/form/dynamic-submit', async (c) => {
-    const { username } = await c.req.json();
+    const { username } = await c.req.json<DynamicFormRequest>();
     
-    return c.json({
+    return c.json<UiResponse>({
       showToast: `Hello ${username}`
     });
   });
@@ -714,8 +728,12 @@ Below is a collection of common use cases and patterns.
   <TabItem value="express">
 
   ```ts title="server/index.ts"
+  import type { MenuItemRequest, UiResponse } from '@devvit/web/shared';
+
+  type DynamicFormRequest = { username: string };
+
   // Endpoint that shows form with dynamic data
-  router.post("/internal/menu/show-dynamic-form", async (_req, res: Response<UiResponse>) => {
+  router.post<string, never, UiResponse, MenuItemRequest>("/internal/menu/show-dynamic-form", async (_req, res) => {
     const user = await reddit.getCurrentUser();
     
     res.json({
@@ -738,7 +756,7 @@ Below is a collection of common use cases and patterns.
   });
 
   // Form submission handler
-  router.post("/internal/form/dynamic-submit", async (req, res: Response<UiResponse>) => {
+  router.post<string, never, UiResponse, DynamicFormRequest>("/internal/form/dynamic-submit", async (req, res) => {
     const { username } = req.body;
     
     res.json({
@@ -889,11 +907,17 @@ Below is a collection of common use cases and patterns.
   <TabItem value="hono">
 
   ```ts title="server/index.ts"
+  import type { UiResponse } from '@devvit/web/shared';
+
+  type Step1FormRequest = { name: string };
+  type Step2FormRequest = { name: string; food: string };
+  type Step3FormRequest = { name: string; food: string; drink: string };
+
   // Step 1: Name form
   app.post('/internal/form/step1-submit', async (c) => {
-    const { name } = await c.req.json();
+    const { name } = await c.req.json<Step1FormRequest>();
     
-    return c.json({
+    return c.json<UiResponse>({
       showForm: {
         name: 'step2Form',
         form: {
@@ -913,9 +937,9 @@ Below is a collection of common use cases and patterns.
 
   // Step 2: Food form
   app.post('/internal/form/step2-submit', async (c) => {
-    const { name, food } = await c.req.json();
+    const { name, food } = await c.req.json<Step2FormRequest>();
     
-    return c.json({
+    return c.json<UiResponse>({
       showForm: {
         name: 'step3Form',
         form: {
@@ -935,9 +959,9 @@ Below is a collection of common use cases and patterns.
 
   // Step 3: Final form
   app.post('/internal/form/step3-submit', async (c) => {
-    const { name, food, drink } = await c.req.json();
+    const { name, food, drink } = await c.req.json<Step3FormRequest>();
     
-    return c.json({
+    return c.json<UiResponse>({
       showToast: `Thanks ${name}! You like ${food} and ${drink}.`
     });
   });
@@ -947,8 +971,14 @@ Below is a collection of common use cases and patterns.
   <TabItem value="express">
 
   ```ts title="server/index.ts"
+  import type { UiResponse } from '@devvit/web/shared';
+
+  type Step1FormRequest = { name: string };
+  type Step2FormRequest = { name: string; food: string };
+  type Step3FormRequest = { name: string; food: string; drink: string };
+
   // Step 1: Name form
-  router.post("/internal/form/step1-submit", async (req, res: Response<UiResponse>) => {
+  router.post<string, never, UiResponse, Step1FormRequest>("/internal/form/step1-submit", async (req, res) => {
     const { name } = req.body;
     
     res.json({
@@ -970,7 +1000,7 @@ Below is a collection of common use cases and patterns.
   });
 
   // Step 2: Food form
-  router.post("/internal/form/step2-submit", async (req, res: Response<UiResponse>) => {
+  router.post<string, never, UiResponse, Step2FormRequest>("/internal/form/step2-submit", async (req, res) => {
     const { name, food } = req.body;
     
     res.json({
@@ -992,7 +1022,7 @@ Below is a collection of common use cases and patterns.
   });
 
   // Step 3: Final form
-  router.post("/internal/form/step3-submit", async (req, res: Response<UiResponse>) => {
+  router.post<string, never, UiResponse, Step3FormRequest>("/internal/form/step3-submit", async (req, res) => {
     const { name, food, drink } = req.body;
     
     res.json({
@@ -1186,18 +1216,29 @@ This example includes one of each of the [supported field types](#supported-fiel
   <TabItem value="hono">
 
   ```ts title="server/index.ts"
+  import type { MenuItemRequest, UiResponse } from '@devvit/web/shared';
+
+  type EverythingFormRequest = {
+    food: string;
+    times?: number;
+    what?: string;
+    healthy?: string[];
+    again?: boolean;
+  };
+
   app.post('/internal/form/everything-submit', async (c) => {
-    const formValues = await c.req.json();
+    const formValues = await c.req.json<EverythingFormRequest>();
     console.log('Form values:', formValues);
     
-    return c.json({
+    return c.json<UiResponse>({
       showToast: 'Thanks!'
     });
   });
 
   // Example showing the form
   app.post('/internal/menu/show-everything-form', async (c) => {
-    return c.json({
+    const _input = await c.req.json<MenuItemRequest>();
+    return c.json<UiResponse>({
       showForm: {
         name: 'everythingForm',
         form: {
@@ -1257,7 +1298,17 @@ This example includes one of each of the [supported field types](#supported-fiel
   <TabItem value="express">
 
   ```ts title="server/index.ts"
-  router.post("/internal/form/everything-submit", async (req, res: Response<UiResponse>) => {
+  import type { MenuItemRequest, UiResponse } from '@devvit/web/shared';
+
+  type EverythingFormRequest = {
+    food: string;
+    times?: number;
+    what?: string;
+    healthy?: string[];
+    again?: boolean;
+  };
+
+  router.post<string, never, UiResponse, EverythingFormRequest>("/internal/form/everything-submit", async (req, res) => {
     console.log('Form values:', req.body);
     
     res.json({
@@ -1266,7 +1317,7 @@ This example includes one of each of the [supported field types](#supported-fiel
   });
 
   // Example showing the form
-  router.post("/internal/menu/show-everything-form", async (_req, res: Response<UiResponse>) => {
+  router.post<string, never, UiResponse, MenuItemRequest>("/internal/menu/show-everything-form", async (_req, res) => {
     res.json({
       showForm: {
         name: 'everythingForm',
@@ -1452,12 +1503,16 @@ This example includes one of each of the [supported field types](#supported-fiel
   <TabItem value="hono">
 
   ```ts title="server/index.ts"
+  import type { UiResponse } from '@devvit/web/shared';
+
+  type ImageFormRequest = { myImage: string };
+
   app.post('/internal/form/image-submit', async (c) => {
-    const { myImage } = await c.req.json();
+    const { myImage } = await c.req.json<ImageFormRequest>();
     // Use the mediaUrl to store in redis and display it in an <image> block, or send to external service to modify
     console.log('Image uploaded:', myImage);
     
-    return c.json({
+    return c.json<UiResponse>({
       showToast: 'Image uploaded successfully!'
     });
   });
@@ -1467,7 +1522,11 @@ This example includes one of each of the [supported field types](#supported-fiel
   <TabItem value="express">
 
   ```ts title="server/index.ts"
-  router.post("/internal/form/image-submit", async (req, res: Response<UiResponse>) => {
+  import type { UiResponse } from '@devvit/web/shared';
+
+  type ImageFormRequest = { myImage: string };
+
+  router.post<string, never, UiResponse, ImageFormRequest>("/internal/form/image-submit", async (req, res) => {
     const { myImage } = req.body;
     // Use the mediaUrl to store in redis and display it in an <image> block, or send to external service to modify
     console.log('Image uploaded:', myImage);

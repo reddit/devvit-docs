@@ -85,32 +85,39 @@ A full list of events and their payloads can be found in the [EventTypes documen
 <TabItem value="hono">
 
 ```tsx title="server/index.ts"
+import type {
+  OnAppUpgradeRequest,
+  OnCommentCreateRequest,
+  OnPostSubmitRequest,
+  TriggerResponse,
+} from '@devvit/web/shared';
+
 app.post('/internal/on-app-upgrade', async (c) => {
   console.log('Handle event for on-app-upgrade!');
-  const body = await c.req.json();
-  const installer = body.installer;
+  const input = await c.req.json<OnAppUpgradeRequest>();
+  const installer = input.installer;
   console.log('Installer:', JSON.stringify(installer, null, 2));
-  return c.json({ status: 'ok' });
+  return c.json<TriggerResponse>({ status: 'ok' });
 });
 
 app.post('/internal/on-comment-create', async (c) => {
   console.log('Handle event for on-comment-create!');
-  const body = await c.req.json();
-  const comment = body.comment;
-  const author = body.author;
+  const input = await c.req.json<OnCommentCreateRequest>();
+  const comment = input.comment;
+  const author = input.author;
   console.log('Comment:', JSON.stringify(comment, null, 2));
   console.log('Author:', JSON.stringify(author, null, 2));
-  return c.json({ status: 'ok' });
+  return c.json<TriggerResponse>({ status: 'ok' });
 });
 
 app.post('/internal/on-post-submit', async (c) => {
   console.log('Handle event for on-post-submit!');
-  const body = await c.req.json();
-  const post = body.post;
-  const author = body.author;
+  const input = await c.req.json<OnPostSubmitRequest>();
+  const post = input.post;
+  const author = input.author;
   console.log('Post:', JSON.stringify(post, null, 2));
   console.log('Author:', JSON.stringify(author, null, 2));
-  return c.json({ status: 'ok' });
+  return c.json<TriggerResponse>({ status: 'ok' });
 });
 ```
 
@@ -118,18 +125,29 @@ app.post('/internal/on-post-submit', async (c) => {
 <TabItem value="express">
 
 ```tsx title="server/index.ts"
+import type {
+  OnAppUpgradeRequest,
+  OnCommentCreateRequest,
+  OnPostSubmitRequest,
+  TriggerResponse,
+} from '@devvit/web/shared';
+
 const router = express.Router();
 
 // ..
 
-router.post("/internal/on-app-upgrade", async (req, res) => {
+router.post<string, never, TriggerResponse, OnAppUpgradeRequest>(
+  "/internal/on-app-upgrade",
+  async (req, res) => {
   console.log(`Handle event for on-app-upgrade!`);
   const installer = req.body.installer;
   console.log("Installer:", JSON.stringify(installer, null, 2));
   res.status(200).json({ status: "ok" });
 });
 
-router.post("/internal/on-comment-create", async (req, res) => {
+router.post<string, never, TriggerResponse, OnCommentCreateRequest>(
+  "/internal/on-comment-create",
+  async (req, res) => {
   console.log(`Handle event for on-comment-create!`);
   const comment = req.body.comment;
   const author = req.body.author;
@@ -138,7 +156,9 @@ router.post("/internal/on-comment-create", async (req, res) => {
   res.status(200).json({ status: "ok" });
 });
 
-router.post("/internal/on-post-submit", async (req, res) => {
+router.post<string, never, TriggerResponse, OnPostSubmitRequest>(
+  "/internal/on-post-submit",
+  async (req, res) => {
   console.log(`Handle event for on-post-submit!`);
   const post = req.body.post;
   const author = req.body.author;

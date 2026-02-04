@@ -43,9 +43,12 @@ Add an item to the three dot menu for posts, comments, or subreddits. Menu actio
   <TabItem value="hono">
 
 ```ts title="server/index.ts"
+import type { MenuItemRequest, UiResponse } from "@devvit/web/shared";
+
 app.post("/internal/menu/show-info", async (c) => {
+  const _input = await c.req.json<MenuItemRequest>();
   // Simple actions don't need server processing
-  return c.json({
+  return c.json<UiResponse>({
     showToast: "Menu action clicked!",
   });
 });
@@ -55,12 +58,17 @@ app.post("/internal/menu/show-info", async (c) => {
   <TabItem value="express">
 
 ```ts title="server/index.ts"
-app.post("/internal/menu/show-info", async (_req, res) => {
-  // Simple actions don't need server processing
-  res.json({
-    showToast: "Menu action clicked!",
-  });
-});
+import type { MenuItemRequest, UiResponse } from "@devvit/web/shared";
+
+app.post<string, never, UiResponse, MenuItemRequest>(
+  "/internal/menu/show-info",
+  async (_req, res) => {
+    // Simple actions don't need server processing
+    res.json({
+      showToast: "Menu action clicked!",
+    });
+  },
+);
 ```
 
   </TabItem>
@@ -162,13 +170,16 @@ In Devvit Web, your menu item should respond with a client side effect to give f
   <TabItem value="hono">
 
 ```ts title="server/index.ts"
+import type { MenuItemRequest, UiResponse } from "@devvit/web/shared";
+
 app.post("/internal/menu/complex-action", async (c) => {
+  const _input = await c.req.json<MenuItemRequest>();
   try {
     // Perform server-side processing
     const userData = await validateAndProcessData();
 
     // Show form with server-fetched data
-    return c.json({
+    return c.json<UiResponse>({
       showForm: {
         name: "processForm",
         form: {
@@ -184,7 +195,7 @@ app.post("/internal/menu/complex-action", async (c) => {
       },
     });
   } catch (error) {
-    return c.json({
+    return c.json<UiResponse>({
       showToast: "Processing failed. Please try again.",
     });
   }
@@ -195,11 +206,11 @@ app.post("/internal/menu/complex-action", async (c) => {
   <TabItem value="express">
 
 ```ts title="server/index.ts"
-import { UIResponse } from "@devvit/web/shared";
+import type { MenuItemRequest, UiResponse } from "@devvit/web/shared";
 
-app.post(
+app.post<string, never, UiResponse, MenuItemRequest>(
   "/internal/menu/complex-action",
-  async (_req, res: Response<UIResponse>) => {
+  async (_req, res) => {
     try {
       // Perform server-side processing
       const userData = await validateAndProcessData();

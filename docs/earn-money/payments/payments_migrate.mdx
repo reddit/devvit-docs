@@ -39,11 +39,12 @@ Reference your `products.json` and declare endpoints.
 <TabItem value="hono">
 
 ```tsx
-import type { PaymentHandlerResponse } from "@devvit/web/server";
+import type { PaymentHandlerResponse, Order } from "@devvit/web/server";
 
 app.post("/internal/payments/fulfill", async (c) => {
+  const order = await c.req.json<Order>();
   // migrate your old fulfillOrder logic here
-  return c.json({ success: true } satisfies PaymentHandlerResponse);
+  return c.json<PaymentHandlerResponse>({ success: true });
 });
 ```
 
@@ -51,12 +52,16 @@ app.post("/internal/payments/fulfill", async (c) => {
 <TabItem value="express">
 
 ```tsx
-import type { PaymentHandlerResponse } from "@devvit/web/server";
+import type { PaymentHandlerResponse, Order } from "@devvit/web/server";
 
-router.post("/internal/payments/fulfill", async (req, res) => {
+router.post<string, never, PaymentHandlerResponse, Order>(
+  "/internal/payments/fulfill",
+  async (req, res) => {
+    const order = req.body;
   // migrate your old fulfillOrder logic here
-  res.json({ success: true } satisfies PaymentHandlerResponse);
-});
+    res.json({ success: true });
+  },
+);
 ```
 
 </TabItem>

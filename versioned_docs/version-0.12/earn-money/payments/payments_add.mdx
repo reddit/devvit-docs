@@ -59,16 +59,18 @@ Create endpoints to fulfill and optionally revoke purchases.
 <TabItem value="hono">
 
 ```tsx title="server/index.ts"
-import type { PaymentHandlerResponse } from "@devvit/web/server";
+import type { PaymentHandlerResponse, Order } from "@devvit/web/server";
 
 app.post("/internal/payments/fulfill", async (c) => {
+  const order = await c.req.json<Order>();
   // Fulfill the order (grant entitlements, record delivery, etc.)
-  return c.json({ success: true } satisfies PaymentHandlerResponse);
+  return c.json<PaymentHandlerResponse>({ success: true });
 });
 
 app.post("/internal/payments/refund", async (c) => {
+  const order = await c.req.json<Order>();
   // Optionally revoke entitlements for a refunded order
-  return c.json({ success: true } satisfies PaymentHandlerResponse);
+  return c.json<PaymentHandlerResponse>({ success: true });
 });
 ```
 
@@ -76,17 +78,25 @@ app.post("/internal/payments/refund", async (c) => {
 <TabItem value="express">
 
 ```tsx title="server/index.ts"
-import type { PaymentHandlerResponse } from "@devvit/web/server";
+import type { PaymentHandlerResponse, Order } from "@devvit/web/server";
 
-router.post("/internal/payments/fulfill", async (req, res) => {
-  // Fulfill the order (grant entitlements, record delivery, etc.)
-  res.json({ success: true } satisfies PaymentHandlerResponse);
-});
+router.post<string, never, PaymentHandlerResponse, Order>(
+  "/internal/payments/fulfill",
+  async (req, res) => {
+    const order = req.body;
+    // Fulfill the order (grant entitlements, record delivery, etc.)
+    res.json({ success: true });
+  },
+);
 
-router.post("/internal/payments/refund", async (req, res) => {
-  // Optionally revoke entitlements for a refunded order
-  res.json({ success: true } satisfies PaymentHandlerResponse);
-});
+router.post<string, never, PaymentHandlerResponse, Order>(
+  "/internal/payments/refund",
+  async (req, res) => {
+    const order = req.body;
+    // Optionally revoke entitlements for a refunded order
+    res.json({ success: true });
+  },
+);
 
 export default router;
 ```
@@ -110,11 +120,12 @@ On the server, use `payments.getProducts()` and `payments.getOrders()`. If the c
 
 ```tsx title="server/index.ts"
 // Example: expose products for client display
+import type { Product } from "@devvit/web/shared";
 import { payments } from "@devvit/web/server";
 
 app.get("/api/products", async (c) => {
   const products = await payments.getProducts();
-  return c.json(products);
+  return c.json<Product[]>(products);
 });
 ```
 
@@ -123,9 +134,10 @@ app.get("/api/products", async (c) => {
 
 ```tsx title="server/index.ts"
 // Example: expose products for client display
+import type { Product } from "@devvit/web/shared";
 import { payments } from "@devvit/web/server";
 
-app.get("/api/products", async (_req, res) => {
+app.get<string, never, Product[], never>("/api/products", async (_req, res) => {
   const products = await payments.getProducts();
   res.json(products);
 });

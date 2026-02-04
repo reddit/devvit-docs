@@ -47,10 +47,13 @@ Ensure the endpoint follows the format `/internal/.+` and specify a `cron` sched
 <TabItem value="hono">
 
 ```ts title="/server/index.ts"
+import type { TaskRequest, TaskResponse } from "@devvit/web/server";
+
 app.post("/internal/scheduler/regular-interval-task-example", async (c) => {
+  const _input = await c.req.json<TaskRequest>();
   console.log(`Handle event for cron example at ${new Date().toISOString()}!`);
   // Handle the event here
-  return c.json({ status: "ok" }, 200);
+  return c.json<TaskResponse>({ status: "ok" }, 200);
 });
 ```
 
@@ -58,7 +61,9 @@ app.post("/internal/scheduler/regular-interval-task-example", async (c) => {
 <TabItem value="express">
 
 ```ts title="/server/index.ts"
-app.post(
+import type { TaskRequest, TaskResponse } from "@devvit/web/server";
+
+app.post<string, never, TaskResponse, TaskRequest>(
   "/internal/scheduler/regular-interval-task-example",
   async (_req, res) => {
     console.log(
@@ -106,8 +111,11 @@ Example usage:
 <TabItem value="hono">
 
 ```ts title="/server/index.ts"
+import type { TaskRequest, TaskResponse } from "@devvit/web/server";
+
 app.post("/internal/scheduler/one-off-task-example", async (c) => {
-  const { postId } = await c.req.json();
+  const { data } = await c.req.json<TaskRequest<{ postId: string }>>();
+  const { postId } = data!;
   const oneMinuteFromNow = new Date(Date.now() + 1000 * 60);
 
   const scheduledJob: ScheduledJob = {
@@ -121,7 +129,7 @@ app.post("/internal/scheduler/one-off-task-example", async (c) => {
   console.log(`Scheduled job ${jobId} for post ${postId}`);
   console.log(`Handle event for one-off event at ${new Date().toISOString()}!`);
   // Handle the event here
-  return c.json({ status: "ok" }, 200);
+  return c.json<TaskResponse>({ status: "ok" }, 200);
 });
 ```
 
@@ -129,8 +137,13 @@ app.post("/internal/scheduler/one-off-task-example", async (c) => {
 <TabItem value="express">
 
 ```ts title="/server/index.ts"
-app.post("/internal/scheduler/one-off-task-example", async (req, res) => {
-  const { postId } = req.body;
+import type { TaskRequest, TaskResponse } from "@devvit/web/server";
+
+app.post<string, never, TaskResponse, TaskRequest<{ postId: string }>>(
+  "/internal/scheduler/one-off-task-example",
+  async (req, res) => {
+    const { data } = req.body;
+    const { postId } = data!;
   const oneMinuteFromNow = new Date(Date.now() + 1000 * 60);
 
   const scheduledJob: ScheduledJob = {
@@ -145,7 +158,8 @@ app.post("/internal/scheduler/one-off-task-example", async (req, res) => {
   console.log(`Handle event for one-off event at ${new Date().toISOString()}!`);
   // Handle the event here
   res.status(200).json({ status: "ok" });
-});
+  },
+);
 ```
 
 </TabItem>
@@ -185,16 +199,18 @@ Use the job ID to cancel a scheduled action and remove it from your app. This ex
 <TabItem value="hono">
 
 ```ts title="/server/index.ts"
+import type { MenuItemRequest, UiResponse } from "@devvit/web/shared";
+
 app.post("/internal/menu/cancel-job", async (c) => {
   try {
     // Get the post ID from the menu action request
-    const { targetId: postId } = await c.req.json();
+    const { targetId: postId } = await c.req.json<MenuItemRequest>();
 
     // Retrieve the job ID from Redis (stored when the job was created)
     const jobId = await redis.get(`job:${postId}`);
 
     if (!jobId) {
-      return c.json({
+      return c.json<UiResponse>({
         showToast: {
           text: "No scheduled job found for this post",
           appearance: "neutral",
@@ -208,7 +224,7 @@ app.post("/internal/menu/cancel-job", async (c) => {
     // Clean up the stored job ID
     await redis.del(`job:${postId}`);
 
-    return c.json({
+    return c.json<UiResponse>({
       showToast: {
         text: "Successfully cancelled the scheduled job",
         appearance: "success",
@@ -216,7 +232,7 @@ app.post("/internal/menu/cancel-job", async (c) => {
     });
   } catch (error) {
     console.error("Error cancelling job:", error);
-    return c.json({
+    return c.json<UiResponse>({
       showToast: {
         text: "Failed to cancel job",
         appearance: "neutral",
@@ -230,22 +246,26 @@ app.post("/internal/menu/cancel-job", async (c) => {
 <TabItem value="express">
 
 ```ts title="/server/index.ts"
-app.post("/internal/menu/cancel-job", async (req, res) => {
-  try {
-    // Get the post ID from the menu action request
-    const postId = req.body.targetId;
+import type { MenuItemRequest, UiResponse } from "@devvit/web/shared";
+
+app.post<string, never, UiResponse, MenuItemRequest>(
+  "/internal/menu/cancel-job",
+  async (req, res) => {
+    try {
+      // Get the post ID from the menu action request
+      const postId = req.body.targetId;
 
     // Retrieve the job ID from Redis (stored when the job was created)
     const jobId = await redis.get(`job:${postId}`);
 
-    if (!jobId) {
-      return res.json({
-        showToast: {
-          text: "No scheduled job found for this post",
-          appearance: "neutral",
-        },
-      });
-    }
+      if (!jobId) {
+        return res.json({
+          showToast: {
+            text: "No scheduled job found for this post",
+            appearance: "neutral",
+          },
+        });
+      }
 
     // Cancel the scheduled job
     await scheduler.cancelJob(jobId);
@@ -253,22 +273,23 @@ app.post("/internal/menu/cancel-job", async (req, res) => {
     // Clean up the stored job ID
     await redis.del(`job:${postId}`);
 
-    return res.json({
-      showToast: {
-        text: "Successfully cancelled the scheduled job",
-        appearance: "success",
-      },
-    });
-  } catch (error) {
-    console.error("Error cancelling job:", error);
-    return res.json({
-      showToast: {
-        text: "Failed to cancel job",
-        appearance: "neutral",
-      },
-    });
-  }
-});
+      return res.json({
+        showToast: {
+          text: "Successfully cancelled the scheduled job",
+          appearance: "success",
+        },
+      });
+    } catch (error) {
+      console.error("Error cancelling job:", error);
+      return res.json({
+        showToast: {
+          text: "Failed to cancel job",
+          appearance: "neutral",
+        },
+      });
+    }
+  },
+);
 ```
 
 </TabItem>
@@ -285,8 +306,12 @@ When you create a scheduled job, store its ID in Redis so you can reference it l
 <TabItem value="hono">
 
 ```ts title="/server/index.ts"
+type ScheduleActionRequest = { postId: string; delayMinutes: number };
+type ScheduleActionResponse = { jobId: string; message: string };
+
 app.post("/api/schedule-action", async (c) => {
-  const { postId, delayMinutes } = await c.req.json();
+  const { postId, delayMinutes } =
+    await c.req.json<ScheduleActionRequest>();
   const runAt = new Date(Date.now() + delayMinutes * 60 * 1000);
 
   const scheduledJob: ScheduledJob = {
@@ -301,7 +326,7 @@ app.post("/api/schedule-action", async (c) => {
   // Store the job ID in Redis for later cancellation
   await redis.set(`job:${postId}`, jobId);
 
-  return c.json({
+  return c.json<ScheduleActionResponse>({
     jobId,
     message: "Job scheduled successfully",
   });
@@ -312,8 +337,13 @@ app.post("/api/schedule-action", async (c) => {
 <TabItem value="express">
 
 ```ts title="/server/index.ts"
-app.post("/api/schedule-action", async (req, res) => {
-  const { postId, delayMinutes } = req.body;
+type ScheduleActionRequest = { postId: string; delayMinutes: number };
+type ScheduleActionResponse = { jobId: string; message: string };
+
+app.post<string, never, ScheduleActionResponse, ScheduleActionRequest>(
+  "/api/schedule-action",
+  async (req, res) => {
+    const { postId, delayMinutes } = req.body;
   const runAt = new Date(Date.now() + delayMinutes * 60 * 1000);
 
   const scheduledJob: ScheduledJob = {
@@ -328,11 +358,12 @@ app.post("/api/schedule-action", async (req, res) => {
   // Store the job ID in Redis for later cancellation
   await redis.set(`job:${postId}`, jobId);
 
-  return res.json({
-    jobId,
-    message: "Job scheduled successfully",
-  });
-});
+    return res.json({
+      jobId,
+      message: "Job scheduled successfully",
+    });
+  },
+);
 ```
 
 </TabItem>
@@ -349,6 +380,14 @@ This example shows how to handle a request within your server/index.ts to list y
 <TabItem value="hono">
 
 ```ts title="/server/index.ts"
+type ListJobsSuccessResponse = {
+  status: "success";
+  jobs: (ScheduledJob | ScheduledCronJob)[];
+  count: number;
+};
+type ListJobsErrorResponse = { status: "error"; message: string };
+type ListJobsResponse = ListJobsSuccessResponse | ListJobsErrorResponse;
+
 app.get("/api/list-jobs", async (c) => {
   try {
     const jobs: (ScheduledJob | ScheduledCronJob)[] =
@@ -356,14 +395,14 @@ app.get("/api/list-jobs", async (c) => {
 
     console.log(`[LIST] Found ${jobs.length} scheduled jobs`);
 
-    return c.json({
+    return c.json<ListJobsResponse>({
       status: "success",
       jobs,
       count: jobs.length,
     });
   } catch (error) {
     console.error(`[LIST] Error listing jobs:`, error);
-    return c.json(
+    return c.json<ListJobsResponse>(
       {
         status: "error",
         message: error instanceof Error ? error.message : "Failed to list jobs",
@@ -378,26 +417,37 @@ app.get("/api/list-jobs", async (c) => {
 <TabItem value="express">
 
 ```ts title="/server/index.ts"
-app.get("/api/list-jobs", async (_req, res): Promise<void> => {
-  try {
-    const jobs: (ScheduledJob | ScheduledCronJob)[] =
-      await scheduler.listJobs();
+type ListJobsSuccessResponse = {
+  status: "success";
+  jobs: (ScheduledJob | ScheduledCronJob)[];
+  count: number;
+};
+type ListJobsErrorResponse = { status: "error"; message: string };
+type ListJobsResponse = ListJobsSuccessResponse | ListJobsErrorResponse;
+
+app.get<string, never, ListJobsResponse, never>(
+  "/api/list-jobs",
+  async (_req, res): Promise<void> => {
+    try {
+      const jobs: (ScheduledJob | ScheduledCronJob)[] =
+        await scheduler.listJobs();
 
     console.log(`[LIST] Found ${jobs.length} scheduled jobs`);
 
-    res.json({
-      status: "success",
-      jobs,
-      count: jobs.length,
-    });
-  } catch (error) {
-    console.error(`[LIST] Error listing jobs:`, error);
-    res.status(500).json({
-      status: "error",
-      message: error instanceof Error ? error.message : "Failed to list jobs",
-    });
-  }
-});
+      res.json({
+        status: "success",
+        jobs,
+        count: jobs.length,
+      });
+    } catch (error) {
+      console.error(`[LIST] Error listing jobs:`, error);
+      res.status(500).json({
+        status: "error",
+        message: error instanceof Error ? error.message : "Failed to list jobs",
+      });
+    }
+  },
+);
 ```
 
 </TabItem>
