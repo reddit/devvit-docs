@@ -20,7 +20,7 @@ const config: Config = {
   markdown: {
     format: "detect",
     hooks: {
-      onBrokenMarkdownLinks: "warn",
+      onBrokenMarkdownLinks: "throw",
     },
   },
   scripts: [
