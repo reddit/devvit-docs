@@ -16,9 +16,9 @@ Allows you to build apps where the end user can upload custom images to Reddit's
 
 Allows you to query information from Reddit such as comments, posts and upvotes. Limited to installation scope of the application.
 
-## [Scalable storage (Redis)](./redis.mdx)
+## [Data storage (Redis)](./redis.mdx)
 
-Allows you to store app data in a scalable database, free of charge. Limited to the installation scope of the application.
+Allows you to store app data in a key-value database, free of charge. Limited to the installation scope of the application.
 
 ## [Scheduler](./scheduler.md)
 
