@@ -32,7 +32,7 @@ Allows you to build an app where the moderator can store secret keys in a safe a
 
 Allows you to run automated server-side tasks when certain events happen on Reddit, for example: when a new post is created, or when a new comment is created.
 
-## [User actions](./userActions.md)
+## [User actions](./userActions.mdx)
 
 Allows you to execute some actions, like posting or commenting, on behalf of the user. This means that these new posts or comments will not show up as created by the app, but by the user that is currently using the app. Access to this feature is subject to review by Admins.
 

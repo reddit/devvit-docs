@@ -140,7 +140,7 @@ In this release, Devvit introduces a new way for apps to let users create conten
 - **Saves the user time and effort**. It’s easy for users to jump into the conversation.
 - **Improves retention**. When people interact with your app, they’re more likely to stick around, and continued user engagement helps your app reach new people. Total positive feedback loop!
 
-Check out our new [user action API](./capabilities/userActions.mdx) to see how you can add this to your own app.
+Check out our new [user action API](./capabilities/userActions.md) to see how you can add this to your own app.
 
 Also in this release, we’ve streamlined developer communication. New devs will get automatic email notifications when they [upload](./dev_guide.mdx) their first app and every time an app is approved for [publishing](./publishing.md).
 
@@ -312,7 +312,7 @@ Release 0.11.4 introduces [payments](./payments/payments_overview.md)! This pilo
 
 Since this is a pilot program, you'll need to submit an [enrollment form](https://forms.gle/TuTV5jbUwFKTcerUA) before developing and playtesting payments in your app. Before you publish your app, you’ll need to complete additional steps outlined in the payments documentation.
 
-We’ve also added a new [template](./payments/payments_add.mdx) to help you set up payments functionality without needing to code a full app from scratch.
+We’ve also added a new [template](./payments/payments_add.md) to help you set up payments functionality without needing to code a full app from scratch.
 
 **New features**
 This release also includes:
