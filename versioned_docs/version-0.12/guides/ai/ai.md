@@ -7,10 +7,6 @@ Devvit ships with first class support for common AI tools and patterns.
 - https://developers.reddit.com/docs/llms.txt: Most useful for pasting into the chat UI of common LLMs BEFORE your prompt. Place your prompt last as models are auto-regressive.
 - https://developers.reddit.com/docs/llms-full.txt: Useful for pasting into the chat UI of LLMs with large context windows (Gemini, Claude Sonnet 4). This lets you chat with the docs instead of reading them. It's easy to pollute your context if your using this for coding so we recommend only using this to learn about Devvit or plan. To execute, use `llms.txt` as most modern LLMs can tool call websites.
 
-## Cursor Support
-
-The React, ThreeJS, and Phaser templates ship with support for cursor rules out of the box. We've found these helps Cursor output high quality code for Devvit. Feel free to add and remove them as you see fit.
-
 ## MCP
 
 Devvit ships with a MCP server to assist with agent driven development. There are two commands at the moment:
