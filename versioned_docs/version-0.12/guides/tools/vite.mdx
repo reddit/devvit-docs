@@ -52,6 +52,10 @@ The plugin uses your `devvit.json` as the source of truth for client entry point
         "entry": "splash.html"
       }
     }
+  },
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.ts"
   }
 }
 ```
@@ -79,7 +83,7 @@ If neither file exists, the build fails with a clear error message.
 
 ## What it builds
 
-Out of the box, the plugin configures two environments:
+Out of the box, the plugin configures two environments depending on what's defined in your `devvit.json`:
 
 - **Client build** outputs to `dist/client` and uses the entry points from `devvit.json`.
 - **Server build** outputs to `dist/server` as `index.cjs`
@@ -136,7 +140,72 @@ src/
     formatScore.ts    # safe to import from client + server
 ```
 
+## Migrating Old Templates
+
+If you started with a template before this plugin, migrating it is simple!
+
+1. Run the installation command
+
+```bash
+npm install @devvit/start
+```
+
+2. Add a `vite.config` to the root of your project. For example, this is how you would migrate a React app:
+
+```ts title="vite.config.ts"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwind from "@tailwindcss/vite";
+import { devvit } from "@devvit/start/vite";
+
+export default defineConfig({
+  plugins: [react(), tailwind(), devvit()],
+});
+```
+
+> Note: You might see TypeScript errors when using this config because it's not included in any of the tsconfigs you have. You will need to include the file in a tsconfig file for this to be fixed. You can also rename it to `vite.config.js` if you don't want to use TypeScript.
+
+3. Remove `src/client/vite.config.ts` and `src/server/vite.config.ts`
+
+Technically, that's all you need to do! However, you can also make your development experience a lot nicer by utilizing the new `scripts` field in your `devvit.json` file.
+
+4. Add the following to your `devvit.json` file:
+
+```json title="devvit.json"
+{
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  }
+}
+```
+
+5. Update your `package.json` commands to look like the following:
+
+```patch title="package.json"
+diff --git a/package.json b/package.json
+--- a/package.json
++++ b/package.json
+@@ -7,14 +7,6 @@
+   "scripts": {
+-    "build:client": "cd src/client && vite build",
+-    "build:server": "cd src/server && vite build",
+-    "build": "npm run build:client && npm run build:server",
+-    "dev": "concurrently -k -p \"[{name}]\" -n \"CLIENT,SERVER,DEVVIT\" -c \"blue,green,magenta\" \"npm run dev:client\" \"npm run dev:server\" \"npm run dev:devvit\"",
+-    "dev:client": "cd src/client && vite build --watch",
+-    "dev:devvit": "devvit playtest",
+-    "dev:server": "cd src/server && vite build --watch",
+-    "dev:vite": "cd src/client && vite --port 7474",
++    "build": "vite build",
++    "dev": "devvit playtest",
+```
+
+You can also remove the `concurrently` dependency after this switch.
+
+6. Run `npm run dev` to make sure everything is working.
+
 ## Limitations and gotchas
 
 - **Build-only:** The plugin only supports `vite build`. There is no support for `vite dev` or Hot Module Replacement (HMR) at this time. This is because `devvit playtest` works by uploading your build to our servers and running it on Reddit.com. Instead, use `vite build --watch` as your dev command.
 - **Public dir resolution:** The plugin auto-detects a `public/` folder at the repo root or inside `src/client`. If both exist, the build fails—keep a single public directory.
+- If you run into this error while using `tailwindcss`: `[@tailwindcss/vite:generate:build] Cannot create proxy with a non-object as target or handler`. All you need to do is bump `@tailwindcss/vite` and `tailwindcss` to `4.1.18` in your `package.json` and `npm install`

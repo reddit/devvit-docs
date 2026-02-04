@@ -163,6 +163,8 @@ export default defineConfig({
 });
 ```
 
+> Note: You might see TypeScript errors when using this config because it's not included in any of the tsconfigs you have. You will need to include the file in a tsconfig file for this to be fixed. You can also rename it to `vite.config.js` if you don't want to use TypeScript.
+
 3. Remove `src/client/vite.config.ts` and `src/server/vite.config.ts`
 
 Technically, that's all you need to do! However, you can also make your development experience a lot nicer by utilizing the new `scripts` field in your `devvit.json` file.
@@ -195,7 +197,7 @@ diff --git a/package.json b/package.json
 -    "dev:server": "cd src/server && vite build --watch",
 -    "dev:vite": "cd src/client && vite --port 7474",
 +    "build": "vite build",
-+    "dev": "devvit playtest --verbose",
++    "dev": "devvit playtest",
 ```
 
 You can also remove the `concurrently` dependency after this switch.
@@ -206,3 +208,4 @@ You can also remove the `concurrently` dependency after this switch.
 
 - **Build-only:** The plugin only supports `vite build`. There is no support for `vite dev` or Hot Module Replacement (HMR) at this time. This is because `devvit playtest` works by uploading your build to our servers and running it on Reddit.com. Instead, use `vite build --watch` as your dev command.
 - **Public dir resolution:** The plugin auto-detects a `public/` folder at the repo root or inside `src/client`. If both exist, the build fails—keep a single public directory.
+- If you run into this error while using `tailwindcss`: `[@tailwindcss/vite:generate:build] Cannot create proxy with a non-object as target or handler`. All you need to do is bump `@tailwindcss/vite` and `tailwindcss` to `4.1.18` in your `package.json` and `npm install`
