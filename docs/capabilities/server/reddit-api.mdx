@@ -36,6 +36,31 @@ Here's how to obtain a reference to the Reddit client
   </TabItem>
 </Tabs>
 
+## Reddit Thing IDs
+
+Reddit uses prefixed IDs (called "things") to identify different types of content:
+
+| Prefix | Type | Example | Description |
+| ------ | ---- | ------- | ----------- |
+| `t1_` | Comment | `t1_abc123` | A comment on a post or reply to another comment |
+| `t2_` | User | `t2_xyz789` | A Reddit user account |
+| `t3_` | Post | `t3_def456` | A post |
+| `t4_` | Message | `t4_ghi012` | A private message |
+| `t5_` | Subreddit | `t5_jkl345` | A subreddit community |
+
+These IDs are returned by API methods and used when referencing specific content:
+
+```ts
+// Get a post by its full ID
+const post = await reddit.getPostById('t3_abc123');
+
+// Get a comment by its full ID  
+const comment = await reddit.getCommentById('t1_xyz789');
+
+// A comment's parentId can be either a post (t3_) or another comment (t1_)
+const parentId = comment.parentId; // 't3_abc123' or 't1_def456'
+```
+
 ## Example usage
 
 ### Submitting a post
