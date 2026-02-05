@@ -4,7 +4,7 @@ Stream log events from your installed app to your command line to troubleshoot y
 
 ## Create logs
 
-Any logs sent to `console` will be available via `devvit logs` for installed apps. For example, `console.log()`, `console.info()` and `console.error()` will produce logs with timestamps as expected.
+Use `console.log()`, `console.info()`, and `console.error()` in your server code to create logs. View them with `devvit logs` for installed apps, or add `--verbose` to include timestamps.
 
 The following example creates a basic app with a menu action that creates a log when clicked.
 
@@ -71,13 +71,6 @@ You should now see logs streaming onto your console:
 
 To exit the streaming logger, enter `CTRL + c`.
 
-Currently, `console.log` calls will only stream when they are run from the server (not the client).
-
-:::note
-
-Custom post apps use a client-side runtime to speed up execution, so `console.log` calls won't always show up in Devvit logs or Devvit playtest commands. However, these calls will show up in other dev tools (like Chrome) when viewing the app during a playtest.
-
-:::
 
 ## Historical logs
 
