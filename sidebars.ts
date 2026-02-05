@@ -300,7 +300,6 @@ const sidebars: SidebarsConfig = {
           type: "category",
           label: "Splash Screens",
           items: [
-            "capabilities/server/splash-screen",
             "capabilities/server/launch_screen_and_entry_points/splash_migration",
           ],
         },
