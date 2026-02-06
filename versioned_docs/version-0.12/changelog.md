@@ -9,6 +9,30 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Devvit 0.12.12: New Templates, Vite Plugin, and Test Harness
+**Release Date: February 9, 2026**
+
+Release 0.12.12 is all about streamlining the developer experience. This release includes:
+
+- **Updated templates**. All templates now use the Vite plugin and a simplified structure, which includes: 
+  - Vite plugin support
+  - `agents.md` replacing `.kiro` and `.cursor` files
+  - Simpler dev workflow with clearer playtest logs
+  - No `.env` required for playtests
+  - Hono replaces Express as the default server (but you can still use any web framework you prefer!)
+  - Typed endpoints
+  - A bare template (formerly “hello world”) that now uses esbuild with no server framework
+  - New React + tRPC vibe coding template
+
+- **New Vite plugin**. This is an **optional plugin** that provides simpler console output, clearer logs, and unified build commands. The plugin hides the protobuf warning and automatically bundles entrypoints based on `devvit.json`, making multi-entrypoint apps easier to manage.
+
+- **Scripts field in devvit.json**. Enables you to provide a command to run during `devvit upload` and `devvit playtest`. You’ll notice a big difference in the level of noise your logs emit during playtest by using this instead of the `concurrently` script that templates previously used.
+
+- **Devvit test harness.** Adds an easy way to write integration tests for Devvit plugins using Vitest, supporting a more test-driven workflow.
+
+- **Standardized image upload limits**. GIF uploads are now all limited to 20 MB across all upload paths, aligning them with existing upload limits for a more consistent developer experience. 
+
+
 ## Devvit 0.12.11: App Review Update
 
 **Release Date: Feb 2, 2026**
