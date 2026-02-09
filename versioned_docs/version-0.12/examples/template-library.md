@@ -12,7 +12,7 @@ Here are some starter projects and templates for your Devvit projects
 
 - [Phaser starter](https://github.com/reddit/devvit-template-phaser) - a feature-rich HTML5 game framework for building 2D games in the browser. It includes preinstalled libraries for Devvit, Vite, Phaser, Express, and TypeScript. This template is good for handling physics, animations, input, sound, and asset management.
 
-- [Hello world](https://github.com/reddit/devvit-template-hello-world/tree/main) - a simple template to build a counter app with no frameworks or opinions.
+- [Bare](https://github.com/reddit/devvit-template-bare) - a bare minimum template to get started with Devvit.
 
 ## Devvit Blocks
 
