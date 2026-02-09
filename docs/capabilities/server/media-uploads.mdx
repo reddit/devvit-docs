@@ -22,7 +22,7 @@ Enable the `media` permission in your `devvit.json` file.
 ```
 
 ## Using media uploads
-On the server, you can pass the URL of any remotely hosted image (even if its not hosted on Reddit) to the `media.upload` function. The media function will return a Reddit URL.
+On the server, you can pass the URL of any remotely hosted image (even if its not hosted on Reddit) to the `media.upload` function. This function will return a Reddit URL. Both HTTP and data URLs are supported.
 
 <Tabs>
   <TabItem value="web" label="Devvit Web">
@@ -50,9 +50,10 @@ On the server, you can pass the URL of any remotely hosted image (even if its no
 
 
 ## Limitations
-Supported file types are:
-- GIF
-- PNG
-- JPEG
 
-Maximum size is 20 MB.
+- The formats supported are PNG, JPEG, WEBP, and GIF.
+- The maximum file size allowed is 20 MB.
+
+### Notes
+
+- When uploading a WEBP image, it will be converted to JPEG. As such, the Reddit URL returned points to a JPEG image.

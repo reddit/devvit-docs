@@ -4,23 +4,45 @@ Stream log events from your installed app to your command line to troubleshoot y
 
 ## Create logs
 
-Any logs sent to `console` will be available via `devvit logs` for installed apps. For example, `console.log()`, `console.info()` and `console.error()` will produce logs with timestamps as expected.
+Use `console.log()`, `console.info()`, and `console.error()` in your server code to create logs. View them with `devvit logs` for installed apps, or add `--verbose` to include timestamps.
 
-The following example creates a basic app that simply creates a single log.
+The following example creates a basic app with a menu action that creates a log when clicked.
 
-```typescript title="main.tsx"
-import { Context, Devvit } from "@devvit/public-api";
+```json title="devvit.json"
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "app-name",
 
-Devvit.addMenuItem({
-  location: "post",
-  label: "Create a log!",
-  onPress: (event, context) => {
-    console.log("Action called!");
-    context.ui.showToast(`Successfully logged!`);
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
   },
-});
+  "permissions": {
+    "reddit": true
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "Create a log!",
+        "location": "subreddit",
+        "endpoint": "/internal/log-action",
+        "forUserType": "moderator"
+      }
+    ]
+  }
+}
+```
 
-export default Devvit;
+```typescript title="server/index.ts"
+router.post("/internal/log-action", async (_req, res): Promise<void> => {
+  console.log("log-action");
+  res.json({
+    showToast: {
+      text: "Log action",
+      appearance: "success",
+    },
+  });
+});
 ```
 
 ## Stream logs
@@ -28,13 +50,13 @@ export default Devvit;
 To stream logs for an installed app, open a terminal and navigate to your project directory and run:
 
 ```bash
-devvit logs <my-subreddit>
+$ devvit logs <my-subreddit>
 ```
 
 You can also specify the app name to stream logs for from another folder.
 
 ```bash
-devvit logs <my-subreddit> <app-name>
+$ devvit logs <my-subreddit> <app-name>
 ```
 
 You should now see logs streaming onto your console:
@@ -49,13 +71,6 @@ You should now see logs streaming onto your console:
 
 To exit the streaming logger, enter `CTRL + c`.
 
-Currently, `console.log` calls will only stream when they are run from the server (not the client).
-
-:::note
-
-Custom post apps use a client-side runtime to speed up execution, so `console.log` calls won't always show up in Devvit logs or Devvit playtest commands. However, these calls will show up in other dev tools (like Chrome) when viewing the app during a playtest.
-
-:::
 
 ## Historical logs
 
@@ -70,7 +85,7 @@ You can view historical logs by using the `--since=XX` flag. You can use the fol
 The following example will show logs from `my-app` on `my-subreddit` in the past day.
 
 ```bash
-devvit logs <my-subreddit> --since=1d
+$ devvit logs <my-subreddit> --since=1d
 ```
 
 You will now see historical logs created by your app on this subreddit:

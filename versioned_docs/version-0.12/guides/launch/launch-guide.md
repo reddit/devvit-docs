@@ -23,12 +23,12 @@ Before submitting your app for review, be sure to:
 We also recommend getting feedback from the community:
 
 - **All apps:**
-  - [Cross-post](https://support.reddithelp.com/hc/en-us/articles/4835584113684-What-is-Crossposting) your post to r/Devvit using the **Feedback Friday** flair.
-  - Share your app in the **#sharing** channel in the Reddit Devs Discord.
+  - [Cross-post](https://support.reddithelp.com/hc/en-us/articles/4835584113684-What-is-Crossposting) your post to [r/Devvit](https://reddit.com/r/Devvit) using the **Feedback Friday** flair.
+  - Share your app in the **#ideas-and-feedback** channel in the Reddit Devs Discord.
 - **Games:**
-  - Cross-post gameplay posts to r/GamesOnReddit with the **Feedback** flair.
+  - Cross-post gameplay posts to [r/GamesOnReddit](https://reddit.com/r/GamesOnReddit) with the **Feedback** flair.
 - **Mod Apps:**
-  - Share your app in the **#mod-discussion** Discord channel for moderator-specific feedback.
+  - Share your app in the **#mod-chat** Discord channel for moderator-specific feedback.
 
 If your app is a **game**, ensure the experience:
 
@@ -57,7 +57,7 @@ You will receive email confirmation when your app is approved. If we need more i
 Because you must run `npx devvit publish` for **every version** you want to launch, we recommend batching updates into weekly (or less frequent) releases.
 
 Review times vary. We aim to review most apps — especially version updates — within **1–2 business days**. New apps, apps with policy ambiguity, or apps using higher-risk features (e.g., payments, fetch) may require more time.  
-If you haven’t heard from us after a week, please reach out in Discord or via r/Devvit Modmail.
+If you haven’t heard from us after a week, please reach out in Discord or via [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit).
 
 Ensuring your app complies with all [Devvit Rules](https://developers.reddit.com/docs/devvit_rules) will streamline review.
 
@@ -77,7 +77,7 @@ Publicly listed apps must include a detailed `README.md` with:
 
 To list your app:
 
-1. Run `npx devvit publish --listed`
+1. Run `npx devvit publish --public`
 2. Once approved, it will appear in the Apps Directory for any community to install.
 
 We do not recommend listing apps built for a single subreddit, as this may confuse moderators and clutter the directory.

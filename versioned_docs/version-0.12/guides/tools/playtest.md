@@ -37,7 +37,7 @@ The auto-generated playtest subreddit is created for you by u/devvit-dev-bot. Th
 - Allows reddit admins to join your subreddit
 
 :::note
-If you need help, run `devvit playtest —-help` for additional information.
+If you need help, run `devvit playtest --help` for additional information.
 :::
 
 ## View logs

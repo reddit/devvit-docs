@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.12-dev**](../../README.md)
+[**@devvit/public-api v0.12.13-dev**](../../README.md)
 
 ***
 
@@ -2639,7 +2639,7 @@ A Promise that resolves if the private message was successfully sent.
 
 <a id="sendprivatemessageassubreddit"></a>
 
-### sendPrivateMessageAsSubreddit()
+### ~~sendPrivateMessageAsSubreddit()~~
 
 > **sendPrivateMessageAsSubreddit**(`options`): `Promise`\<`void`\>
 
@@ -2658,6 +2658,10 @@ The options for sending the message as a subreddit.
 `Promise`\<`void`\>
 
 A Promise that resolves if the private message was successfully sent.
+
+#### Deprecated
+
+No longer working as expected. Use modMail.createConversation with `isAuthorHidden: true` instead
 
 ***
 
