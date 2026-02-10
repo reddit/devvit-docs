@@ -1,4 +1,4 @@
-# Launch Your App
+# Launch your app
 
 Once your app is ready, you can launch it to users and moderators across Reddit. This guide outlines what “launch-ready” means and the steps you need to take to submit your app for review.
 

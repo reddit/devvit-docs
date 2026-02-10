@@ -8,7 +8,7 @@ sidebar_label: Testing
 
 The `@devvit/test` package provides utilities to write unit and integration tests for your backend logic with [Vitest](https://vitest.dev/).
 
-## Capability Support
+## Capability support
 
 Out of the box, the test harness mocks many of Devvit's capabilities for you. Here's what's supported:
 
@@ -26,7 +26,7 @@ Out of the box, the test harness mocks many of Devvit's capabilities for you. He
 
 You can use these capabilities inside your tests exactly as you do in production code.
 
-## Getting Started
+## Getting started
 
 The `@devvit/test` package provides a miniature Devvit backend on demand. Every time you call `test()`, the harness spins up a temporary, isolated test world in memory, including its own Redis, Reddit API, Scheduler, and other capabilities. This lets you write tests that verify your app's behavior in a production-like environment.
 
@@ -94,7 +94,7 @@ const test = createDevvitTest({
 });
 ```
 
-## Integration Testing & Isolation
+## Integration testing & isolation
 
 The test harness is built for integration-style testing. Each test defined with `test()` runs in its own isolated world. State (including Redis and mocks) is reset for you between runs. There is no supported way to share state across tests. Vitest concurrency (`test.concurrent`) and parameterized tests (`test.each`) are fully supported.
 
@@ -119,7 +119,7 @@ test("should also increment counter to 1", async ({ redis }) => {
 });
 ```
 
-### Staging Data For Your Tests
+### Staging data for your tests
 
 When testing your app logic, it's best to use your own service layer methods to stage data rather than manually manipulating the mock storage. This ensures your tests cover your actual application flows and behavior more accurately.
 
@@ -152,7 +152,7 @@ test("can delete a user", async ({ redis }) => {
 
 If you just need a quick smoke test, you _can_ stage data directly via the same capabilities you use in production (e.g., `await redis.set('user:bob', JSON.stringify({ age: 30 }))`), but using your service APIs helps you cover more of your stack.
 
-## Capability Guides
+## Capability guides
 
 Each mocked capability exposes the same API surface you use in production. Unless noted otherwise, every `test()` gets a completely fresh, isolated world, so state never bleeds between tests.
 
@@ -370,7 +370,7 @@ test("blocks HTTP by default", async () => {
 });
 ```
 
-#### Basic Mocking
+#### Basic mocking
 
 Use `vi.spyOn` to mock `fetch()` calls:
 
@@ -402,7 +402,7 @@ test("fetches Pokemon data", async () => {
 });
 ```
 
-#### Testing Error Cases
+#### Testing error cases
 
 You can also test error handling by making your mock return error responses:
 
@@ -429,7 +429,7 @@ test("handles API errors", async () => {
 });
 ```
 
-#### Mocking POST Requests
+#### Mocking POST requests
 
 You can also mock POST requests and inspect the request body:
 
@@ -489,7 +489,7 @@ The harness seeds a default user and subreddit based on your configuration. Use 
 
 _Note: `LinksAndComments` is more commonly referred to as `posts`._
 
-#### Mocking Methods on Returned Objects
+#### Mocking methods on returned objects
 
 Some methods exist on the objects returned by the API (like `user.getSocialLinks()`). Since these objects are real instances returned by the harness, you can spy on the specific instance to mock them.
 
@@ -526,7 +526,7 @@ test("mocks social links on a returned user", async ({ mocks }) => {
 });
 ```
 
-#### Seeding Supported Models
+#### Seeding supported models
 
 For supported calls like `getUserByUsername`, use the provided `mocks.reddit` fixture to seed the backing store.
 
@@ -565,7 +565,7 @@ test("can fetch a post", async ({ mocks }) => {
 });
 ```
 
-## Multiple Test Instances
+## Multiple test instances
 
 Most of the time, you'll define a single `const test = createDevvitTest()` at the top of your spec file and use fixtures/settings to customize behavior. But if you need distinct contexts, such as different subreddits or users, you can spin up additional instances, even within the same file.
 

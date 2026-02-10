@@ -1,4 +1,4 @@
-# App Quickstart
+# App quickstart
 
 This tutorial takes you through the step-by-step process of building your first app with Devvit. It should take you about 1 minute to complete. Once complete, you'll be able to see your app in a Reddit post
 

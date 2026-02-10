@@ -1,4 +1,4 @@
-# Configure Your App
+# Configure your app
 
 The devvit.json file serves as your app's configuration file. Use it to specify entry points, configure features like [event triggers](../server/triggers) and [scheduled actions](../server/scheduler.mdx), and enable app functionality such as [image uploads](../server/media-uploads.mdx). This page covers all available devvit.json configuration options. A complete devvit.json example file is provided [here](#complete-example).
 

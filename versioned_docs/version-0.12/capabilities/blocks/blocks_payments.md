@@ -1,4 +1,4 @@
-# Adding Payments
+# Adding payments
 
 You can use the payments template to build your app or add payment functionality to an existing app.
 

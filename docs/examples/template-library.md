@@ -1,4 +1,4 @@
-# Template Library
+# Template library
 
 Here are some starter projects and templates for your Devvit projects
 

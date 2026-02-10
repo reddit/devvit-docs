@@ -1,6 +1,6 @@
-# Setting up View Modes and Entry Points
+# Setting up view modes and entry points
 
-## View Modes
+## View modes
 
 Devvit apps support two view modes:
 
@@ -18,7 +18,7 @@ Devvit apps support two view modes:
 - **Use case**: Full games, longer load times, detailed interfaces, or any content that needs more space or full gesture support
 - **Trigger**: User-initiated only (button click, gesture, etc.)
 
-## Multiple Entry Points
+## Multiple entry points
 
 Multiple entry points let the user start the game from different contexts or states. For example, you can have a button that launches into a leaderboard view and another for a specific game mode, each of these would be configured as an entry point for your app. Define multiple entry points in your `devvit.json`. If you use the [Devvit Vite plugin](../../../guides/tools/vite), it automatically infers the client build inputs from these entrypoints, so you don't need to maintain a custom Rollup `input` list.
 
@@ -78,7 +78,7 @@ your-app/
 
 The `dir` property specifies where your built client files are located. With the Devvit Vite plugin, the `entry` values point at your source HTML files (for example `src/client/preview.html`), and the plugin outputs the matching files into `dist/client` during `vite build`.
 
-### Creating Posts with Specific Entry Points
+### Creating posts with specific entry points
 
 Use the `entry` parameter when creating posts to specify which entry point from your `devvit.json` configuration to use. The entry value must match one of the keys defined in `post.entrypoints`.
 
@@ -118,7 +118,7 @@ async function createGamePost(context: any) {
 - Each entry point can have its own HTML file and height setting.
 - Invalid entry point names will cause an error.
 
-### Switching Between View Modes
+### Switching between view modes
 
 You can transition from inline mode to expanded mode with a different entry point, like this:
 
@@ -135,7 +135,7 @@ const handleStartGame = async (event: React.MouseEvent) => {
 };
 ```
 
-## Inline Mode Requirements
+## Inline mode requirements
 
 All Devvit web view apps load in inline mode by default. Your app loads directly in the post unit without requiring users to click to expand.
 
