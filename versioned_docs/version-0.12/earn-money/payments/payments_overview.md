@@ -1,4 +1,4 @@
-# Overview
+# In-App Purchases Overview
 
 Add products to your app and get paid for what you sell. The payments plugin lets you prompt users to buy premium features that you build into your app, like in-game items, additional lives, or exclusive features into your app.
 
