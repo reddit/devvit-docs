@@ -1,11 +1,17 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Text Fallback for old.reddit
+# Text Fallback
 
-Old.reddit does not render interactive posts. To remedy this, use textFallback to ensure that you can specify the text for the instances when Devvit cannot render your post. You can do this with a text string or in rich text.
+Text fallback lets you specify alternative text content for your interactive post, enabling:
 
-Setting a relevant text fallback is critical for SEO and growth of your app.
+- **Old Reddit and third-party app support** - These platforms cannot render interactive posts
+- **Google (SEO) and Reddit Answers indexing** - Critical for discoverability and growth
+- **AutoModerator rule compatibility** - Allows mod rules to process your post content
+- **Reddit safety checks and filters** - Enables content moderation systems to work properly
+- **Custom post thumbnail** - Link to an image to generate a thumbnail
+
+Text fallback uses Markdown formatting and allows for up to 40,000 characters.
 
 ## [Reddit API](./reddit-api.mdx)
 The text fallback is only available when using the Reddit API to create a post. It is available for both [Devvit Web](../devvit-web/devvit_web_overview.mdx) and [Devvit Blocks](../blocks/overview.md) applications. 
