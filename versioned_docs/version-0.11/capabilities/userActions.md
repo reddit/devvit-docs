@@ -66,8 +66,6 @@ Note: Apps that `submitPost()` with `runAs: 'USER'` require `userGeneratedConten
 
 ## Example
 
-This example app uses a form to prompt the user for their favorite color and then submits a post displaying the user's text input.
-
 ```tsx
 import { Devvit, useForm, useState } from '@devvit/public-api';
 
