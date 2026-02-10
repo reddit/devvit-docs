@@ -1,5 +1,3 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 # Text Fallback
 
@@ -14,37 +12,17 @@ Text fallback lets you specify alternative text content for your interactive pos
 Text fallback uses Markdown formatting and allows for up to 40,000 characters.
 
 ## [Reddit API](./reddit-api.mdx)
-The text fallback is only available when using the Reddit API to create a post. It is available for both [Devvit Web](../devvit-web/devvit_web_overview.mdx) and [Devvit Blocks](../blocks/overview.md) applications. 
-The code samples below assume that you already have a reference to the Reddit API client. Please see below how to obtain a refere
-nce to the Reddit API client in both Devvit Web and Devvit Blocks.
+The text fallback is only available when using the Reddit API to create a post. 
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
+
+
   ```json title="devvit.json"
   {
     "permissions": {
-      "redditApi": true
+      "reddit": true
     }
   }
   ```
-
-  ```ts title="server/index.ts"
-  import { reddit } from '@devvit/web/server';
-  ```
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```ts
-  import { Devvit } from '@devvit/public-api';
-
-  Devvit.configure({
-    redditApi: true,
-  });
-
-  //Then, in any function that has a reference to Devvit.Context:
-  const reddit = context.reddit;
-  ```
-  </TabItem>
-</Tabs>
 
 ## Use a text string
 
