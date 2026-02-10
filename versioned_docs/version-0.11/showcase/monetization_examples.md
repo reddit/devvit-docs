@@ -26,7 +26,7 @@ In-game purchasing is integrated into the “build” aspect of the game. There 
 
 ### From the developer
 
-_Although the primary focus of buildit was on competition, we also wanted to allow players to customize the tile sets behind the levels. This was a perfect fit for monetization using Reddit gold. Including the SDK was quick and easy, and offers a small but important customization element to the final game._
+_Although the primary focus of buildit was on competition, we also wanted to allow players to customize the tile sets behind the levels. This was a perfect fit for monetization using Reddit Gold. Including the SDK was quick and easy, and offers a small but important customization element to the final game._
 
 _It’s proven that adding optional purchases for core users can increase engagement and boost retention. We’re excited to see how players customize their levels in the future!_
 
@@ -79,7 +79,7 @@ XP stay within each subreddit, and your level determines what features you unloc
 
 ### Adding payments
 
-Using the [monetization](../payments/payments_overview.md) feature, Hammertime Studio added the ability for players to purchase AI credits using Reddit gold. Each AI credit enables players to generate one riddle using AI or unlock an AI generated hint for everyone as a comment. The option to unlock AI Riddle mode and buy AI credits becomes available once players reach level 5.
+Using the [monetization](../payments/payments_overview.md) feature, Hammertime Studio added the ability for players to purchase AI credits using Reddit Gold. Each AI credit enables players to generate one riddle using AI or unlock an AI generated hint for everyone as a comment. The option to unlock AI Riddle mode and buy AI credits becomes available once players reach level 5.
 
 ![Riddonkulous IAP](../assets/showcase/riddonkulous_reddit_gold.gif)
 

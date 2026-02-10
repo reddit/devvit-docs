@@ -1,6 +1,6 @@
 # Support this app
 
-You can ask users to contribute to your app’s development by adding the “support this app” feature. This allows users to support your app with Reddit gold in exchange for some kind of award or recognition.
+You can ask users to contribute to your app’s development by adding the “support this app” feature. This allows users to support your app with Reddit Gold in exchange for some kind of award or recognition.
 
 ## Requirements
 

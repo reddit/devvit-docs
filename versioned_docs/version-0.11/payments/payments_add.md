@@ -38,7 +38,7 @@ Each product in the products field has the following attributes:
 | `sku` | A product identifier that can be used to group orders or organize your products. Each sku must be unique for each product in your app. |
 | `displayName` | The official name of the product that is displayed in purchase confirmation screens. The name must be fewer than 50 characters, including spaces. |
 | `description` | A text string that describes the product and is displayed in purchase confirmation screens. The description must be fewer than 150 characters, including spaces. |
-| `price` | An predefined integer that sets the product price in Reddit gold. See details below. |
+| `price` | An predefined integer that sets the product price in Reddit Gold. See details below. |
 | `image.icon` | **(optional)** The path to the icon that represents your product in your [assets](../app_image_assets) folder. |
 | `metadata` | **(optional)** An optional object that contains additional attributes you want to use to group and filter products. Keys and values must be alphanumeric (a - Z, 0 - 9, and - ) and contain 30 characters or less. You can add up to 10 metadata keys. Metadata keys cannot start with "devvit-". |
 | `accountingType` | Categories for how buyers consume your products. Possible values are: <ul><li>`INSTANT` for purchased items that are used immediately and disappear.</li><li>`DURABLE` for purchased items that are permanently applied to the account and can be used any number of times</li><li>`CONSUMABLE` for items that can be used at a later date but are removed once they are used.</li><li>`VALID_FOR_` values indicate a product can be used throughout a period of time after it is purchased.</li></ul> |
@@ -70,7 +70,7 @@ You’ll need to clearly identify paid products or services. Here are some best 
 - Use a short name, description, and image for each product.
 - Don’t overwhelm users with too many items.
 - Try to keep purchases in a consistent location or use a consistent visual pattern.
-- Only use the gold icon to indicate purchases for Reddit gold.
+- Only use the gold icon to indicate purchases for Reddit Gold.
 
 ### Product image
 
