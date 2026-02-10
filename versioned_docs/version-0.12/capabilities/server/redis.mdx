@@ -26,15 +26,11 @@ Each installation of an app is uniquely name-spaced, which means Redis data is s
 
 All limits are applied at a per-installation granularity.
 
-:::note
-If your app exceeds 500 MB of storage, writes to Redis may fail, which can affect features that depend on cached or stored data.
-
-To stay under the limit:
+If your app exceeds 500 MB of storage, writes to Redis may fail, which can affect features that depend on cached or stored data. To stay under the limit:
 
 - Evict data by removing keys you no longer need
 - Use TTLs to set expirations for temporary or stale data
 - Monitor your app's data usage and be selective about what you store
-  :::
 
 ## Examples
 
