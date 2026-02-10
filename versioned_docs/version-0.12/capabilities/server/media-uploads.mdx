@@ -49,6 +49,39 @@ On the server, you can pass the URL of any remotely hosted image (even if its no
 </Tabs>
 
 
+## Canvas screenshots
+
+The Canvas API is fully supported in Devvit Web. You can use it to capture screenshots of your app's current state and upload them using the media API.
+
+This is useful for letting users share their progress, achievements, or creations as image posts. Sharing screenshots is an effective way to build community engagement and increase visibility for your app.
+
+```ts title="client/screenshot.ts"
+// Capture the canvas as a data URL
+const canvas = document.querySelector('canvas');
+const dataUrl = canvas.toDataURL('image/png');
+
+// Send to server endpoint for upload
+const response = await fetch('/api/upload-screenshot', {
+  method: 'POST',
+  body: JSON.stringify({ image: dataUrl }),
+});
+```
+
+```ts title="server/index.ts"
+import { media } from '@devvit/media';
+
+app.post('/api/upload-screenshot', async (c) => {
+  const { image } = await c.req.json();
+  
+  const response = await media.upload({
+    url: image,  // data URL from canvas
+    type: 'png',
+  });
+  
+  return c.json({ url: response.mediaUrl });
+});
+```
+
 ## Limitations
 
 - The formats supported are PNG, JPEG, WEBP, and GIF.
