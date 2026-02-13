@@ -9,6 +9,15 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Devvit 0.12.13: Minor Tweaks
+**Release Date: Feb 17, 2026**
+
+This release has a few minor tweaks to make your life easier: 
+
+- **CLI update**: By developer request, `publish` now bumps the patch version by default instead of the minor version.
+- **Playtest fix**: Live reloading for apps during playtests is working again.
+- **General clean-up**: We removed outdated templates that were previously used in CLI mode.
+
 ## Devvit 0.12.12: New Templates, Vite Plugin, and Test Harness
 **Release Date: February 9, 2026**
 
