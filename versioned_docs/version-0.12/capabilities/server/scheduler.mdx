@@ -41,8 +41,8 @@ Ensure the endpoint follows the format `/internal/.+` and specify a `cron` sched
 ### 2. Handle the event in your server
 
 <Tabs variant="pill" groupId="http-server-framework" defaultValue="hono" values={[
-{ label: 'Hono', value: 'hono' },
-{ label: 'Express', value: 'express' },
+  { label: 'Hono', value: 'hono' },
+  { label: 'Express', value: 'express' },
 ]}>
 <TabItem value="hono">
 
@@ -105,8 +105,8 @@ One-off tasks must also be declared in `devvit.json`.
 Example usage:
 
 <Tabs variant="pill" groupId="http-server-framework" defaultValue="hono" values={[
-{ label: 'Hono', value: 'hono' },
-{ label: 'Express', value: 'express' },
+  { label: 'Hono', value: 'hono' },
+  { label: 'Express', value: 'express' },
 ]}>
 <TabItem value="hono">
 
@@ -193,8 +193,8 @@ Use the job ID to cancel a scheduled action and remove it from your app. This ex
 ### 2. Handle the menu action in your server
 
 <Tabs variant="pill" groupId="http-server-framework" defaultValue="hono" values={[
-{ label: 'Hono', value: 'hono' },
-{ label: 'Express', value: 'express' },
+  { label: 'Hono', value: 'hono' },
+  { label: 'Express', value: 'express' },
 ]}>
 <TabItem value="hono">
 
@@ -300,8 +300,8 @@ app.post<string, never, UiResponse, MenuItemRequest>(
 When you create a scheduled job, store its ID in Redis so you can reference it later
 
 <Tabs variant="pill" groupId="http-server-framework" defaultValue="hono" values={[
-{ label: 'Hono', value: 'hono' },
-{ label: 'Express', value: 'express' },
+  { label: 'Hono', value: 'hono' },
+  { label: 'Express', value: 'express' },
 ]}>
 <TabItem value="hono">
 
@@ -374,8 +374,8 @@ app.post<string, never, ScheduleActionResponse, ScheduleActionRequest>(
 This example shows how to handle a request within your server/index.ts to list your scheduled jobs and return them to the client.
 
 <Tabs variant="pill" groupId="http-server-framework" defaultValue="hono" values={[
-{ label: 'Hono', value: 'hono' },
-{ label: 'Express', value: 'express' },
+  { label: 'Hono', value: 'hono' },
+  { label: 'Express', value: 'express' },
 ]}>
 <TabItem value="hono">
 

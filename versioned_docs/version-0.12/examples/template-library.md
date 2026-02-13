@@ -16,7 +16,8 @@ Here are some starter projects and templates for your Devvit projects
 
 - [GameMaker starter](https://github.com/reddit/devvit-template-gamemaker) - a template for building games with GameMaker. Includes setup for HTML5 exports and integration with Devvit's server-side capabilities.
 
-- [Bare](https://github.com/reddit/devvit-template-bare) - a bare minimum template to get started with Devvit.
+- [Hello world](https://github.com/reddit/devvit-template-hello-world/tree/main) - a simple template to build a counter app with no frameworks or opinions.
+
 
 ## Devvit Blocks
 

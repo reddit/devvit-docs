@@ -8,7 +8,16 @@ Many great Unity games are already running on Devvit, including [Blokkit](https:
 
 This starter template creates a simple Unity game and demonstrates data exchange between Reddit and Unity. The example game can be played [here.](https://www.reddit.com/r/unity_starter_dev/comments/1p2fm6y/unitystarter/)
 
-<img src={require('../assets/quickstart_unity.gif').default} alt="Unity example" style={{maxWidth: '60%', height: 'auto', display: 'block', margin: '0 auto'}} />
+<img
+  src={require("../assets/quickstart_unity.gif").default}
+  alt="Unity example"
+  style={{
+    maxWidth: "60%",
+    height: "auto",
+    display: "block",
+    margin: "0 auto",
+  }}
+/>
 
 ## What you'll need
 
@@ -53,7 +62,7 @@ To run your app, navigate to your project directory with `cd my-app` and run `np
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
-Follow this link to see your app. 
+Follow this link to see your app.
 
 ## Devvit project structure
 
@@ -83,14 +92,13 @@ Contains the code for `splash.html`, the first screen users see when your post a
 **`src/client/script.ts`:**  
 Contains the code to load your Unity instance. This script powers `index.html`.
 
-
 ## Updating your Unity project
 
 The starter template includes 4 files in the `src/client/public/Build` folder. You'll need to replace these 3 files from your export:
-  
-  - SampleGame.data.unityweb
-  - SampleGame.framework.js
-  - SampleGame.wasm.unityweb
+
+- SampleGame.data.unityweb
+- SampleGame.framework.js
+- SampleGame.wasm.unityweb
 
 To replace these files, export your project from Unity twice: once with compression and once without.
 
@@ -100,28 +108,29 @@ To replace these files, export your project from Unity twice: once with compress
 4. Build your project twice:
 
    a. Set **Compression Format** to **GZip** and select **Build** in the Build Profiles window  
-   b. Copy these files into your `src/client/Public/Build` folder:  
-      - `exportName.data.unityweb`  
-      - `exportName.wasm.unityweb`  
+   b. Copy these files into your `src/client/Public/Build` folder:
+
+   - `exportName.data.unityweb`
+   - `exportName.wasm.unityweb`
 
    c. In Publishing Settings, set **Compression Format** to **Disabled** and select **Build** again  
-   d. Copy this file into your `src/client/Public/Build` folder:  
-      - `exportName.framework.js`
+   d. Copy this file into your `src/client/Public/Build` folder:
+
+   - `exportName.framework.js`
 
 5. If you used a name other than `SampleGame`, update `src/client/script.ts` lines 29-34 to point to your new files
 
 6. Run `npm run dev` in your Devvit project to see your Unity app running on Reddit
 
-
-:::warning 
+:::warning
 File uploads have a 100 MB size limit and a 30-second timeout. We’re working to improve these limits. If you encounter issues, try splitting large files or using a faster network connection.
 :::
 
-## Communicate between Unity and Reddit 
+## Communicate between Unity and Reddit
 
 The Unity app includes a [DevvitBridge.cs](https://github.com/reddit/devvit-unity-project/blob/main/Assets/Scripts/DevvitBridge.cs) file that uses UnityWebRequests to communicate with the `src/server/index.ts` file.
 
-For example, the following sends a message to the server, which receives the event, loads data from Reddit, and replies with the specified data. 
+For example, the following sends a message to the server, which receives the event, loads data from Reddit, and replies with the specified data.
 
 ```csharp
 UnityWebRequest request = UnityWebRequest.Get("/api/init");
@@ -136,7 +145,7 @@ Be sure that the object structure for the response type (such as `InitResponse` 
 
 This starter project also includes an example of saving the completion time to Reddit through the `LevelCompletedRequest`. For Devvit apps, data is stored in [Redis](../capabilities/server/redis).
 
-  ```ts
-    const redisKey = `${postId}:${username}`;
-    await redis.set(redisKey, time);
-  ```
+```ts
+const redisKey = `${postId}:${username}`;
+await redis.set(redisKey, time);
+```

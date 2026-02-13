@@ -35,7 +35,7 @@ The imageWidth and imageHeight attributes are in device independent pixels (DIPs
 2. Use the URL string to get the image’s public URL from the code.
 
 ```ts
-context.assets.getURL("imageName.jpg");
+context.assets.getURL('imageName.jpg');
 ```
 
 :::note
@@ -66,22 +66,20 @@ const render: Devvit.CustomPostComponent = () => {
 };
 
 Devvit.addCustomPostType({
-  name: "My custom post",
-  description: "Test custom post for showing a custom asset!",
+  name: 'My custom post',
+  description: 'Test custom post for showing a custom asset!',
   render,
 });
 
 Devvit.addMenuItem({
-  location: "subreddit",
-  label: "Make custom post with image asset",
+  location: 'subreddit',
+  label: 'Make custom post with image asset',
   onPress: async (event, context) => {
-    const subreddit = await context.reddit.getSubredditById(
-      context.subredditId,
-    );
+    const subreddit = await context.reddit.getSubredditById(context.subredditId);
 
     await context.reddit.submitPost({
       subredditName: subreddit.name,
-      title: "Custom post!",
+      title: 'Custom post!',
       preview: render(context),
     });
   },
@@ -102,10 +100,10 @@ Devvit.addMenuItem({
 
 ```ts
 Devvit.addMenuItem({
-  location: "subreddit",
-  label: "Get image URL",
+  location: 'subreddit',
+  label: 'Get image URL',
   onPress: async (event, context) => {
-    const url = await context.assets.getURL("hello.png");
+    const url = await context.assets.getURL('hello.png');
     context.ui.showToast(url); // should show 'https://i.redd.it/<id>.png'
     // and if you go to the URL it showed, it should be your art
     // Note, it doesn't display the image this way, just the URL as text!
