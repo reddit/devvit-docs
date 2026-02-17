@@ -262,6 +262,10 @@ Reddit reserves the right to update these guidelines, including approved LLMs, a
 
 If you want to contact users of your app, you'll currently need to coordinate with our team. This will change in the future, but please reach out to the Developer Platform team to communicate key updates, bugs, etc.
 
-### See something, say something
+### Reporting violations of the Devvit Rules
 
-If you come across an app that you believe violates these Devvit Rules or other Reddit Terms & Policies, please [reach out](https://developers.reddit.com/docs/help) and report it.
+If you see an app breaking the [Devvit Rules](https://developers.reddit.com/docs/devvit_rules), please [report it via Modmail](https://www.reddit.com/message/compose?to=r/Devvit). We will investigate the case and action it if appropriate.
+
+However, we ask our community to assume positive intent, and to only make considered, good faith reports. Persistent hypervigilance over other developers, overzealous reporting, “witch-hunting” or repeated attempts to discredit or rally against other developers will not not tolerated. Doing so makes it harder for our team to review and respond to genuine issues, and can result in a violation of our community rules.
+
+If you see an app or user breaking [Reddit Rules](https://redditinc.com/policies/reddit-rules), make sure to report the violating content directly through the Reddit report flow.
