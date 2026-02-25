@@ -86,6 +86,9 @@ const config: Config = {
             [LATEST_DEVVIT_VERSION]: {
               badge: false,
             },
+            "0.11": {
+              noIndex: true,
+            },
           },
         },
         blog: {
