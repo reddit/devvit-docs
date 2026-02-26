@@ -86,6 +86,9 @@ const config: Config = {
             [LATEST_DEVVIT_VERSION]: {
               badge: false,
             },
+            "current": {  // This refers to "/docs/next/"
+              noIndex: true,
+            },
           },
         },
         blog: {
