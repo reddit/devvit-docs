@@ -87,6 +87,7 @@ const config: Config = {
               badge: false,
             },
             "current": {  // This refers to "/docs/next/"
+            "0.11": {
               noIndex: true,
             },
           },
