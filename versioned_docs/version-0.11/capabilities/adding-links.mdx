@@ -102,6 +102,7 @@ import { Devvit } from '@devvit/public-api';
 Devvit.configure({ redditAPI: true });
 
 // Interactive post definition
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Name',
   render: (context) => {

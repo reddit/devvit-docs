@@ -65,6 +65,7 @@ const render: Devvit.CustomPostComponent = () => {
   );
 };
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'My custom post',
   description: 'Test custom post for showing a custom asset!',

@@ -57,6 +57,8 @@ Copy and paste the following code snippets into your `main.tsx` file below the i
 6. Create a custom post component.
 
 ```jsx
+
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'My Custom Post Type',
   render: () => {
@@ -76,6 +78,7 @@ Devvit.addCustomPostType({
 ```jsx
 import { Devvit, useState } from '@devvit/public-api';
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'My Custom Post Type',
   render: (context) => {
@@ -100,6 +103,7 @@ Devvit.addCustomPostType({
 ```tsx
 import { Devvit, useState, useForm } from '@devvit/public-api';
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'My Custom Post Type',
   render: (context) => {

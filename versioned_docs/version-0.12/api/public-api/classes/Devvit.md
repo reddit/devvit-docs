@@ -18,6 +18,10 @@
 
 ## Methods
 
+:::warning Deprecation notice
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+:::
+
 <a id="addcustomposttype"></a>
 
 ### addCustomPostType()

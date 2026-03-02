@@ -38,6 +38,7 @@ $ npx devvit create icons "src/my-icons.ts"
 import { Devvit } from '@devvit/public-api';
 import Icons from './my-icons.ts';
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'my-custom-post',
   render: (_context) => {

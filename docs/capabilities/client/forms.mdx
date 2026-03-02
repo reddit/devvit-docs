@@ -77,6 +77,7 @@ A form lets your app ask users to input and submit data. Forms can be defined wi
   import { Devvit, useState, useForm } from '@devvit/public-api';
 
   // Interactive post with form
+  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
   Devvit.addCustomPostType({
     name: 'FormExample',
     render: (context) => {
@@ -1048,6 +1049,7 @@ Below is a collection of common use cases and patterns.
     redditAPI: true,
   });
 
+  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
   Devvit.addCustomPostType({
     name: 'Multi-step Form',
     render: (context) => {

@@ -46,6 +46,7 @@ Client-side effects enable your Devvit app to provide interactive feedback and n
   import { Devvit } from '@devvit/public-api';
 
   // In a custom post component
+  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
   Devvit.addCustomPostType({
     name: 'Interactive Post',
     render: (context) => {

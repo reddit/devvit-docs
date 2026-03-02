@@ -10,6 +10,10 @@ Want to know more about custom posts? You’re in the right place. This page wil
 
 Custom posts need a definition for the post type and the post loading state:
 
+:::warning Deprecation notice
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+:::
+
 - The `addCustomPostType()` method defines the custom post type.
 - The `submitPost()` method instantiates the post and defines the loading state.
 
@@ -30,6 +34,7 @@ The UI is wrapped in `<blocks>`. If you don’t include them, `<blocks>` will be
 **Example**
 
 ```tsx
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'My Custom Post Type',
   description: 'A big hello text.',

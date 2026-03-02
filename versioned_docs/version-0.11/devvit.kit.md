@@ -21,6 +21,7 @@ Once @devvit/kit is installed, you can use the components in your app. This exam
 import { Devvit } from '@devvit/public-api';
 import { Columns } from '@devvit/kit';
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Columns static content',
   render: () => {

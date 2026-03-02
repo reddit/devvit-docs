@@ -19,6 +19,7 @@ This example shows an interactive post with a text label and a button that trigg
 ```tsx
 import { Devvit, useState, useForm } from '@devvit/public-api';
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'TemplateName',
   render: (context) => {
@@ -522,6 +523,7 @@ Devvit.configure({
   redditAPI: true,
 });
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Multi-step Form',
   render: (context) => {

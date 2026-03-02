@@ -103,6 +103,7 @@ async function fetchResponse(context: Devvit.Context): Promise<string> {
   }
 }
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Devvit - Ask GPT',
   render: (context) => {

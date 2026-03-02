@@ -15,6 +15,7 @@ Let's start with a simple "Hello World" app using the Devvit playground, which i
    ```tsx
    import { Devvit, useState } from '@devvit/public-api';
 
+  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
    Devvit.addCustomPostType({
      name: 'Say Hello',
      render: (context) => {
@@ -125,6 +126,10 @@ Let's break down the code you just wrote. Think of Typescript as Python's cousin
 - **`import {Devvit} from '@devvit/public-api'`:** This line imports the Devvit library, just like you'd import modules in Python using `import`. You mainly need this line for simple apps, but you can save a lot of time by importing and using public packages just like you can with pip.
 
 ### Creating an interactive post
+
+:::warning Deprecation notice
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+:::
 
 - **`Devvit.addCustomPostType({...})`:** This tells Devvit you're creating a new type of post on Reddit.
 

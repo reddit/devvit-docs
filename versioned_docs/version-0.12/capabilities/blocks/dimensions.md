@@ -15,6 +15,10 @@ You can use dimensions to:
 
 ## Getting dimensions
 
+:::warning Deprecation notice
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+:::
+
 Dimension information is specified in density-independent pixels. These pixel units are located on the context object.
 
 | Dimension | Description                                                                                                                                                                |
@@ -28,6 +32,7 @@ Dimension information is specified in density-independent pixels. These pixel un
 This example shows a custom post that specifies dimensions.
 
 ```tsx
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Dimensions app',
   render: (context) => {
@@ -53,6 +58,7 @@ export const MyHeader: Devvit.BlockComponent = (props, context) => {
   );
 };
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Name',
   render: (_context) => {

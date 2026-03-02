@@ -28,6 +28,7 @@ Dimension information is specified in density-independent pixels. These pixel un
 This example shows a custom post that specifies dimensions.
 
 ```tsx
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Dimensions app',
   render: (context) => {
@@ -53,6 +54,7 @@ export const MyHeader: Devvit.BlockComponent = (props, context) => {
   );
 };
 
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Name',
   render: (_context) => {
