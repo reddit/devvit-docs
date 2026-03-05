@@ -31,29 +31,17 @@ Short-term and long-term goals give players something to work toward, and you’
 
 For short-term goals, [r/HotandCold](https://www.reddit.com/r/HotAndCold/) uses the fire emoji to let players know they’re on the right track, and keeps a progress bar with player avatars to see gameplay progress.
 
-<p align="center">
-  <img src="../../assets/community-games/hotandcold.jpg"
-       alt="HotandCold progress bar"
-       width="50%" />
-</p>
+![HotandCold progress bar](../../assets/community-games/hotandcold.jpg)
 
 For long-term goals, [r/BubbleShooterPro](https://www.reddit.com/r/BubbleShooterPro/) sets up weekly tournaments to establish leagues and encourages players to return to try to get promoted to the next level.
 
-<p align="center">
-  <img src="../../assets/community-games/bubbleshooterpro.png"
-       alt="BubbleShooterPro tournament"
-       width="50%" />
-</p>
+![BubbleShooterPro](../../assets/community-games/bubbleshooterpro.png)
 
 ### Competition and social pull
 
 Reddit is inherently social, and it’s a natural fit for **leaderboards**. The daily leaderboard on [r/syllo](https://www.reddit.com/r/syllo/) gives everyone a fresh chance to compete each day.
 
-<p align="center">
-  <img src="../../assets/community-games/syllo_leaderboard.jpg"
-       alt="Syllo leaderboard"
-       width="50%" />
-</p>
+![Syllo leaderboard](../../assets/community-games/syllo_leaderboard.jpg)
 
 Leverage the community to **highlight top contributors** or celebrate a “**player of the week**” in a way that's visible in the feed. Social visibility turns participation into status.
 
@@ -72,11 +60,7 @@ Give players clear goals on a cadence to drive engagement:
 
 Use rewards to reinforce meaningful participation. Allow players to accumulate **points** they can **redeem** for perks or other in-game advantages. In [r/FarmMergeValley](https://www.reddit.com/r/FarmMergeValley/), players earn diamonds they can use toward things like purchasing land for their farm.
 
-<p align="center">
-  <img src="../../assets/community-games/farmmergevalley.png"
-       alt="FMV diamonds"
-       width="50%" />
-</p>
+![FMV diamonds](../../assets/community-games/farmmergevalley.png)
 
 **Tip**: Align incentives with community values. High-quality contributions should earn more than low-effort ones.
 
