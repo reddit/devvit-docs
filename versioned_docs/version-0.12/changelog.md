@@ -7,7 +7,26 @@ To use the latest version of Devvit:
 1. Run `npm install devvit@latest` to update your CLI.
 2. Run `npx devvit update app` to update your @devvit dependencies.
 
-**Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
+**Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.  
+
+## Devvit 0.12.14:  Community Game Pro Tips , Platform Changes, and Fixes
+**Release Date: Mar 9, 2026**   
+
+This release brings new guidance to help you build more engaging community games, along with important platform updates and several developer experience improvements.  
+
+**Level Up Your Community Games**  
+
+The newly updated [Building Community Games](https://developers.reddit.com/docs/guides/best-practices/community_games#player-retention) guide includes new tips for creating engaging gameplay that thrives on Reddit!  Learn which mechanics drive long-term engagement and how to improve your chances of [getting featured](https://developers.reddit.com/docs/guides/launch/feature-guide).  
+
+**Deprecating Devvit Blocks**   
+
+As we announced last month, [Devvit Blocks will be deprecated](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/) effective June 30, 2026. In this release, we added a deprecation notice to `Devvit.addCustomPostType`. New apps that use this API will now be rejected during app review.    
+
+**Other Fixes**   
+- **Improved modmail validation and logging**: Added subreddit ID validation for Reddit Modmail requests and improved error logging.
+- **Fixed image uploads in comments created with RichTextBuilder**: Resolved an issue where comment creation failed when adding images due to media processing conflicts. RichTextBuilder now accepts media URLs instead of media IDs, and the Devvit runtime converts them during processing to ensure compatibility with native post and comment media handling.
+- **Custom Post styles support**: You can now pass an optional `styles` parameter to `submitCustomPost()`, and use the new `getPostStyles()` and `setPostStyles()` methods available on both the Reddit API and Post objects.
+
 
 ## Devvit 0.12.13: Minor Tweaks
 **Release Date: Feb 17, 2026**
