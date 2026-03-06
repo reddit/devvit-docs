@@ -18,6 +18,7 @@ This release has a few minor tweaks to make your life easier:
 - **Playtest fix**: Live reloading for apps during playtests is working again.
 - **General clean-up**: We removed outdated templates that were previously used in CLI mode.
 
+
 ## Devvit 0.12.12: New Templates, Vite Plugin, and Test Harness
 **Release Date: February 9, 2026**
 

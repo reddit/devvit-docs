@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.14-dev**](../README.md)
+[**@devvit/public-api v0.12.15-dev**](../README.md)
 
 ***
 
@@ -7,6 +7,16 @@
 > **Configuration** = `object`
 
 ## Properties
+
+<a id="blob"></a>
+
+### blob?
+
+> `optional` **blob**: [`PluginSettings`](PluginSettings.md) \| `boolean`
+
+Allows your app to use the Blob Plugin
+
+***
 
 <a id="http"></a>
 

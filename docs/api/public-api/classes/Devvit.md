@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.14-dev**](../README.md)
+[**@devvit/public-api v0.12.15-dev**](../README.md)
 
 ***
 
@@ -20,15 +20,9 @@
 
 <a id="addcustomposttype"></a>
 
-### addCustomPostType()
-
-:::warning Deprecation notice
-`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
-:::
+### ~~addCustomPostType()~~
 
 > `static` **addCustomPostType**(`customPostType`): `void`
-
-Add a custom post type for your app.
 
 #### Parameters
 
@@ -42,12 +36,17 @@ The custom post type to add.
 
 `void`
 
+#### Deprecated
+
+Blocks is deprecated. Use [Web](https://developers.reddit.com/docs/capabilities/devvit-web/devvit_web_overview|Devvit) instead
+
+Add a custom post type for your app.
+
 #### Example
 
 ```ts
 import { Devvit, useState } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
 Devvit.addCustomPostType({
   name: 'Counter',
   description: 'A simple click counter post.',
