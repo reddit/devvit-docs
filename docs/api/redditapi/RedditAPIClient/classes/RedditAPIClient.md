@@ -6,27 +6,29 @@
 
 The Reddit API Client
 
-To use the Reddit API Client, add it to the plugin configuration at the top of the file.
+To use the Reddit API Client, enable the `redditAPI` permission in your `devvit.json` file.
+
+```json title="devvit.json"
+{
+  "permissions": {
+    "redditAPI": true
+  }
+}
+```
 
 ## Example
 
 ```ts
+import { reddit } from '@devvit/web/server';
 
-Devvit.configure({
-   redditAPI: true,
-   // other plugins
-})
-
-// use within one of our capability handlers e.g. Menu Actions, Triggers, Scheduled Job Type, etc
-async (event, context) => {
-    const subreddit = await context.reddit.getSubredditById(context.subredditId);
-    context.reddit.submitPost({
-      subredditName: subreddit.name,
-      title: 'test post',
-      text: 'test body',
-    })
-    // additional code
-}
+export const menuActionHandler = async () => {
+  const subredditName = await reddit.getCurrentSubredditName();
+  return await reddit.submitPost({
+    subredditName,
+    title: 'test post',
+    text: 'test body',
+  });
+};
 ```
 
 ## Constructors
