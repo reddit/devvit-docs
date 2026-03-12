@@ -19,7 +19,7 @@
 ## Methods
 
 :::warning Deprecation notice
-`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30. [View announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 :::
 
 <a id="addcustomposttype"></a>
@@ -47,7 +47,7 @@ The custom post type to add.
 ```ts
 import { Devvit, useState } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'Counter',
   description: 'A simple click counter post.',
@@ -63,6 +63,7 @@ Devvit.addCustomPostType({
   },
 });
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ---
 

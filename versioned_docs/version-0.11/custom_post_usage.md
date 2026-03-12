@@ -11,7 +11,7 @@ Want to know more about custom posts? You’re in the right place. This page wil
 Custom posts need a definition for the post type and the post loading state:
 
 :::warning Deprecation notice
-`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30. [View announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 :::
 
 - The `addCustomPostType()` method defines the custom post type.
@@ -34,7 +34,7 @@ The UI is wrapped in `<blocks>`. If you don’t include them, `<blocks>` will be
 **Example**
 
 ```tsx
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'My Custom Post Type',
   description: 'A big hello text.',
@@ -52,6 +52,7 @@ Devvit.addCustomPostType({
   },
 });
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 :::note
 Check out our extensive [Icon Library](blocks/icon)! These can be used in `<button>`s or on their own as `<icon>`s.

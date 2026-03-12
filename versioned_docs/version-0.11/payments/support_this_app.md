@@ -58,7 +58,7 @@ import { usePayments, useProducts } from '@devvit/payments';
 import { ProductButton } from '@devvit/payments/helpers/ProductButton';
 import { Devvit } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   render: (context) => {
     const { products } = useProducts(context);
@@ -83,6 +83,7 @@ Devvit.addCustomPostType({
    );
 })
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ## Example
 

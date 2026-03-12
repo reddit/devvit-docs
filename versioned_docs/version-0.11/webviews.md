@@ -379,7 +379,7 @@ Your user will interact with a web view, but payments APIs can only be invoked i
 ### Communicating between web view and payments
 
 :::warning Deprecation notice
-`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30. [View announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 :::
 
 Both your web view and payments integrations need to be declared in the same `addCustomPostType` block. At that point, the lambdas given to each integration will be able to reference each other:

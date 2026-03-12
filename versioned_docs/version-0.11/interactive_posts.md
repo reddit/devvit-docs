@@ -73,7 +73,7 @@ Here’s a comparison between the two:
 ### 1. Define your post type with `addCustomPostType`
 
 :::warning Deprecation notice
-`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30. [View announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 :::
 
 The `.addCustomPostType(customPostType: CustomPostType)` function contains:
@@ -90,7 +90,7 @@ The UI is wrapped in `<blocks>`. If you don’t include them, `<blocks>` will be
 
 ```ts
 // blocks
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
  name: 'My Custom Post Type',
  description: 'A big hello text.',
@@ -109,7 +109,7 @@ Devvit.addCustomPostType({
 });
 
 // webviews
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
  name: 'My Custom Post Type',
  description: 'A big hello text.',
@@ -123,6 +123,7 @@ Devvit.addCustomPostType({
 });
 
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ### 2. Add a menu item to create your post
 

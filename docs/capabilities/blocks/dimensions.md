@@ -16,7 +16,7 @@ You can use dimensions to:
 ## Getting dimensions
 
 :::warning Deprecation notice
-`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30. [View announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 :::
 
 Dimension information is specified in density-independent pixels. These pixel units are located on the context object.
@@ -32,7 +32,7 @@ Dimension information is specified in density-independent pixels. These pixel un
 This example shows a custom post that specifies dimensions.
 
 ```tsx
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'Dimensions app',
   render: (context) => {
@@ -40,6 +40,7 @@ Devvit.addCustomPostType({
   },
 });
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 This example shows that dimensions always references the root element, even if it’s in a child element. Although `MyHeader` is a component within the root element, this does not change the custom post dimensions provided in the context object.
 
@@ -58,7 +59,7 @@ export const MyHeader: Devvit.BlockComponent = (props, context) => {
   );
 };
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'Name',
   render: (_context) => {
@@ -66,6 +67,7 @@ Devvit.addCustomPostType({
   },
 });
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ## Limitations
 

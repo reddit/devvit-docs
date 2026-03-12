@@ -58,7 +58,7 @@ Copy and paste the following code snippets into your `main.tsx` file below the i
 
 ```jsx
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'My Custom Post Type',
   render: () => {
@@ -72,13 +72,14 @@ Devvit.addCustomPostType({
   },
 });
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 7. Use the Reddit API to say hello to the user.
 
 ```jsx
 import { Devvit, useState } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'My Custom Post Type',
   render: (context) => {
@@ -97,13 +98,14 @@ Devvit.addCustomPostType({
   },
 });
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 8.  Create a form to collect user input.
 
 ```tsx
 import { Devvit, useState, useForm } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'My Custom Post Type',
   render: (context) => {
@@ -159,6 +161,7 @@ Devvit.addCustomPostType({
   },
 });
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 9. Add a subreddit menu item to submit your custom post.
 

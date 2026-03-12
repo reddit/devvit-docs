@@ -154,13 +154,14 @@ const App = () => {
 };
 
 //add your custom post
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'AppName',
   description: 'Using useAsync with XKCD API',
   render: App,
 });
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ## When to use useAsync and useState
 

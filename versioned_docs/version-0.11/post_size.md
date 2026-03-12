@@ -9,7 +9,7 @@ There are two sets of dimensions that you’ll need to think about when creating
 Height is a property on `addCustomPostType`. You can set the height to `regular` or `tall`. By default, posts are regular height.
 
 :::warning Deprecation notice
-`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30. [View announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 :::
 
 ### [Playground link](https://developers.reddit.com/play#pen/N4IgdghgtgpiBcIQBoQGcBOBjBICWUADgPYYAuABMACIwBudeZAvhQGYbFQUDkAAgBN6jMgHpCAVwBGAGzxYAtBEJ4eAHTAbaDJgDoIAgQGEJaMlwAKxMwBUAnoRgAKYBooVIseLwBy0GDzIbhQAFjB4AOYhZN48ZBAyMoHBGDBgQhjeAPpYxGBkMAAelAC8AHxUwe6pZBIYYBROVe4UADyyxFgA1mhlze6toh3dvc0AlMHMGswTmmBFJOQUQmwQEjKU2iIoIHQwGGh4eQgAjMxAA)
@@ -19,7 +19,7 @@ Height is a property on `addCustomPostType`. You can set the height to `regular`
 ```tsx
 import { Devvit } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'Name',
   height: 'tall',
@@ -30,6 +30,7 @@ Devvit.addCustomPostType({
 
 export default Devvit;
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ## Elements height and width
 
@@ -42,7 +43,7 @@ Elements in blocks have a height, width, and a corresponding minimum and maximum
 ```tsx
 import { Devvit } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'Name',
   render: (_context) => {
@@ -58,6 +59,7 @@ Devvit.addCustomPostType({
 
 export default Devvit;
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ## Min/max height and width
 
@@ -70,7 +72,7 @@ You can also specify the minimum and maximum height and width in your interactiv
 ```tsx
 import { Devvit } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'Name',
   render: (_context) => {
@@ -86,3 +88,4 @@ Devvit.addCustomPostType({
 
 export default Devvit;
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)

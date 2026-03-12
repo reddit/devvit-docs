@@ -15,7 +15,7 @@ Let's start with a simple "Hello World" app using the Devvit playground, which i
    ```tsx
    import { Devvit, useState } from '@devvit/public-api';
 
-  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
    Devvit.addCustomPostType({
      name: 'Say Hello',
      render: (context) => {
@@ -36,6 +36,7 @@ Let's start with a simple "Hello World" app using the Devvit playground, which i
 
    export default Devvit;
    ```
+   [View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 4. **See your app come to life.** The live preview will update automatically as you type, showing you your "Hello, Pythonistas!" message and a clickable button. Each click will increment a counter and display the number of clicks.
 
@@ -128,7 +129,7 @@ Let's break down the code you just wrote. Think of Typescript as Python's cousin
 ### Creating an interactive post
 
 :::warning Deprecation notice
-`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30.
+`addCustomPostType` is deprecated and will be unsupported. It will not work after June 30. [View announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 :::
 
 - **`Devvit.addCustomPostType({...})`:** This tells Devvit you're creating a new type of post on Reddit.

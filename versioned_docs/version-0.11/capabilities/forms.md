@@ -19,7 +19,7 @@ This example shows an interactive post with a text label and a button that trigg
 ```tsx
 import { Devvit, useState, useForm } from '@devvit/public-api';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'TemplateName',
   render: (context) => {
@@ -58,6 +58,7 @@ Devvit.addCustomPostType({
 
 export default Devvit;
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 [Explore example in playground](https://developers.reddit.com/play#pen/N4IgdghgtgpiBcIBiB7ATlABASzJgogB4AOMa2MYAxjJgAooDOALiADQiNpUIjZTF0zTMEwARGADdJ2YQF9MAMzQosAcgACAEykzmAemIBXAEYAbbFQC0EYtjUBuADpgXE6bIB0ELVoDCRiyqDCwAKgCepAAUwC6YmJCw8JhqoTACZhDMMABy0DBqbHGYaJQ6aMlRVChg2YTMAJSYALwAfCLF8dVgLJgA2okwbJiMMMx5sAC6LZjddcyegTAAysxZMFFqRmAA1mAoAO5gag3OrnjxszW9UOGoGDNzMPWLo-dQUZ2XsReXl4oUMxaRjJPpfP7xH4Q6GYZiRGDJNQschgADmhXBMMGiMGGN+MPimRMMDMiImBSK+OhckpBMmtIhNMxUUkEDMRhgjCabQ6VMuo3G+RZbI5jE8g1OmLkX0l5z+pWYRjQeE+fIAPJIWBAqDtMKjbM0nCBYFpsEYoEbMAALGDYVFW5iGkAARgADK6AKSWtl2sCwWpOqDYXxmWg0WpkI2tTHxNXzVoACRJZhQIkGcgAhGr9PGY5g1SYjMxmDU8-EanRSoxGM1gFFue0oQTLk8XkZsJ5GFbDu8ord3rLm5g5NK+fFo2PLssxgl8nns4XizUJ9Ds5q1jqV5dB8PKXJZS5noI0MIdIoIEYzMJ3HoHOwQJIyIxsDUEM65EA).
 
@@ -523,7 +524,7 @@ Devvit.configure({
   redditAPI: true,
 });
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30.
+// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   name: 'Multi-step Form',
   render: (context) => {
@@ -627,6 +628,7 @@ Devvit.addMenuItem({
 
 export default Devvit;
 ```
+[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 [Explore example in a playground](https://developers.reddit.com/play#pen/N4IgdghgtgpiBcICyBXANgFwJYFoDOGMADgAQBmA9gE5QlZgkwAeRMVWMYAxjCURQRAAaEHipcEILFH5UMJYCQAiMAG6qs8gL7kqFWgHIAAgBM1GjAHoiKAEZosXHBCJYDAbgA6YbyvWaAOi4KMDIsAHMUKhgACmBvEhJokxNNAEEABQBJeBIMKhQYIW8tAEovHzA-CwCIFIBhFAJ9DIEMABUAT1Y4hJJIWFyDVExcAmISADFqKANihiTOMypcmOCwQiYMUpIAXgA+BT7E9YISAG0BopI8GAwAOWgYAF09knXNjACmmABlDAghBiBgM5WO7xCZ3OlAoJiENzu01hr12EI2zC+P3+gNiILBCxOkPk5xM7DAAGt4bcMEoyeSUWjPt9btigXiKuDTvJKDQAMxvD4Y5kwaY0GLgxLxAmJGVhGBoEx4XLnCUyyWqtWJDDdGBDAhk8JzDWaq5DUn0clG6WamVoCC2eW5TwgADqAAtAQY8CROhQouQIKpqJpeOaKQB+Z3zG026IARxQWGSuXyhWjMcSWnTNue2ZlWdVMVUEDQhTwOwOR2tMuptItRZLZYCYfJ+JtWnB+M5RPIMwATAKQkyfqKoOLq1KM3KFUqLsb1dWbdrWHr8vRDXmM6aSAYYSYrRm1XaHWgna6PRgvT6-VQA0H2IRe7DI8J5zL44nk3kCkU3wXFyQuaqv+NoNqWMDlnshyTjG1JIiYYFNnubYxoKWzfFgAR4G6FAAO6jjEPJQLyKFqh20pdtKXK9jQACMg7ouhI4zOONowTa06Ksqb7sYey66ju+rrgeh6JNuBhXCJonHo6JDOu6nrer6-pXC+m4xh+SYwCYKY-upZH6YB6kgZqiEQRW0HGtSjywGZeABFcpGamhmKYdheEEURfZOZmnYctKZAoNw2AhIsBAQHIMQ7LxiTWU8wKghUNpwRQsIJT5CI0nS6VJc5Q5ComWE4fhLFEbRTnkd2YBnFgeBpNVuFsNpbxXCQABkbVPiY7WdS2-lqtEGBRAwrGagAPKo4VcOSJBujAERuhguzOrRAAMq0AKTOiQJYRGAsAbMtIA8Oit5QFgKRoDA23hC4R1gCE10gPsxrALV9V4I1yQ9SQo0ZmNL0AWqY2fPsNkCcAVxaGNlig2+iQgxi+yTIGwaPnuuTAHu0Ow0j8MkIjWzI6jD6hnSmMtjjcNAzKY14EQEA8LeeBYAAXjAR12lQ4RPSQliA6JCO2CgGAYKFIQZNEeB4LswBSwCchaPsABKEEKxgMPC6LIQC4eMO6zapTkRmwAAITvQ1TXdR1BNa2LDAS1LMty2rEUYEr7QQOSvAJmrWAhJAWmayL9v7Mb42WJNALTQbJAof+ZT+cwsjyGYZAQOg8jVJoFTCCAqhsCzIQILRWhAA).
 
