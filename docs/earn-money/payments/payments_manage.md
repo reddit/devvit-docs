@@ -4,29 +4,22 @@ Once your app and products have been approved, you’re ready to use Reddit’s 
 
 ## Check orders
 
-Reddit keeps track of historical purchases and lets you query user purchases.
+Reddit keeps track of historical purchases and lets you query orders.
 
-Orders are returned in reverse chronological order and can be filtered based on user, product, success state, or other attributes.
+In Devvit Web, use **server-side** `payments.getOrders()` from `@devvit/web/server`. Orders are returned in reverse chronological order and can be filtered by user, product, success state, or other attributes. Expose the data to your client via your own API (e.g. `/api/orders`) if the client needs it.
 
-**Example**
+**Example (server):** expose orders for the current user so the client can show "Purchased!" or a purchase button.
 
-```tsx
-import { useOrders, OrderStatus } from '@devvit/payments';
+```tsx title="server/index.ts"
+import { payments } from "@devvit/web/server";
 
-export function CosmicSwordShop(context: Devvit.Context): JSX.Element {
-  const { orders } = useOrders(context, {
-    sku: 'cosmic_sword',
-  });
-
-  // if the user hasn’t already bought the cosmic sword
-  // then show them the purchase button
-  if (orders.length > 0) {
-    return <text>Purchased!</text>;
-  } else {
-    return <button onPress={/* Trigger purchase */}>Buy Cosmic Sword</button>;
-  }
-}
+app.get("/api/orders", async (c) => {
+  const orders = await payments.getOrders({ sku: "cosmic_sword" });
+  return c.json(orders);
+});
 ```
+
+**Client:** call your `/api/orders` endpoint; if the user has already bought the product, show "Purchased!"; otherwise show a button that calls `purchase("cosmic_sword")` from `@devvit/web/client`.
 
 ## Update products
 
@@ -38,25 +31,23 @@ Automatic updates will be supported in a future release.
 
 Reddit may reverse transactions under certain circumstances, such as card disputes, policy violations, or technical issues. If there’s a problem with a digital good, a user can submit a request for a refund via [Reddit Help](https://support.reddithelp.com/hc/en-us/requests/new?ticket_form_id=29770197409428).
 
-When a transaction is reversed for any reason, you may optionally revoke product functionality from the user by adding a `refundOrder` handler.
+When a transaction is reversed for any reason, you may optionally revoke product functionality from the user by implementing the **refund** endpoint (configured in `devvit.json` under `payments.endpoints.refundOrder`).
 
-**Example**
+**Example (Devvit Web):** in your server’s refund endpoint, revoke the entitlement (e.g. decrement lives in Redis).
 
-```tsx
-addPaymentHandler({
-  fulfillOrder: async (order: Order, ctx: Context) => {
-    // Snip order fulfillment
-  },
-  refundOrder: async (order: Order, ctx: Context) => {
-    // check if the order contains an extra life
-    if (order.products.some(({ sku }) => sku === GOD_MODE_SKU)) {
-      // redis key for storing number of lives user has left
-      const livesKey = `${ctx.userId}:lives`;
+```tsx title="server/index.ts"
+import type { PaymentHandlerResponse, Order } from "@devvit/web/server";
+import { redis } from "@devvit/web/server";
 
-      // if so, decrement the number of lives
-      await ctx.redis.incrBy(livesKey, -1);
-    }
-  },
+const GOD_MODE_SKU = "god_mode";
+
+app.post("/internal/payments/refund", async (c) => {
+  const order = await c.req.json<Order>();
+  if (order.products.some((p) => p.sku === GOD_MODE_SKU)) {
+    const livesKey = `${order.userId}:lives`;
+    await redis.incrBy(livesKey, -1);
+  }
+  return c.json<PaymentHandlerResponse>({ success: true });
 });
 ```
 

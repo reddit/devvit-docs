@@ -1,11 +1,11 @@
 # Support this app
 
-You can ask users to contribute to your app’s development by adding the “support this app” feature. This allows users to support your app with Reddit Gold in exchange for some kind of award or recognition.
+You can ask users to contribute to your app's development by adding the "support this app" feature. This allows users to support your app with Reddit Gold in exchange for some kind of award or recognition.
 
 ## Requirements
 
 1. You must give something in return to users who support your app. This could be unique custom user flair, an honorable mention in a thank you post, or another creative way to show your appreciation.
-2. The “Support this App” purchase button must meet the Developer Platform’s [design guidelines](./payments_add.mdx#design-guidelines).
+2. The "Support this App" purchase button must meet the Developer Platform's [design guidelines](./payments_add.mdx#design-guidelines).
 
 ## How to integrate app support
 
@@ -19,45 +19,50 @@ devvit products add support-app
 
 ### Add a payment handler
 
-The [payment handler](./payments_add.mdx#complete-the-payment-flow) is where you award the promised incentive to your supporters. For example, this is how you can award custom user flair:
+In Devvit Web, the [payment handler](./payments_add.mdx#complete-the-payment-flow) is your server's **fulfill** endpoint. That's where you award the promised incentive (e.g. custom user flair). Implement it in your server and reference it in `devvit.json` under `payments.endpoints.fulfillOrder`.
 
-```tsx
-addPaymentHandler({
-  fulfillOrder: async (order, context) => {
-    const username = await context.reddit.getCurrentUsername();
-    if (!username) {
-      throw new Error("User not found");
-    }
+Example: award custom user flair when a user completes a support purchase:
 
-    const subredditName = await context.reddit.getCurrentSubredditName();
+```tsx title="server/index.ts"
+import type { PaymentHandlerResponse, Order } from "@devvit/web/server";
+import { reddit } from "@devvit/web/server";
 
-    await context.reddit.setUserFlair({
-      text: "Super Duper User",
-      subredditName,
-      username,
-      backgroundColor: "#ffbea6",
-      textColor: "dark",
-    });
-  },
+app.post("/internal/payments/fulfill", async (c) => {
+  const order = await c.req.json<Order>();
+  const username = order.userId; // or the username field on the order
+  if (!username) {
+    return c.json<PaymentHandlerResponse>({ success: false, reason: "User not found" });
+  }
+
+  const subredditName = order.subredditName ?? order.subredditId;
+
+  await reddit.setUserFlair({
+    text: "Super Duper User",
+    subredditName,
+    username,
+    backgroundColor: "#ffbea6",
+    textColor: "dark",
+  });
+
+  return c.json<PaymentHandlerResponse>({ success: true });
 });
 ```
 
 ### Initiate purchases
 
-Next you need to provide a way for users to support your app:
+Provide a way for users to support your app from your client:
 
-- If you use Devvit blocks, you can use the ProductButton helper to render a purchase button.
-- If you use webviews, make sure that your design follows the [design guidelines](./payments_add.mdx#design-guidelines) to [initiate purchases](./payments_add.mdx#initiate-orders).
+- **Devvit Web:** Add a button or link that calls `purchase("support-app")` from `@devvit/web/client`. Handle the result (e.g. show a toast on success). Optionally fetch product info from your `/api/products` endpoint to display the support option.
+- Follow the [design guidelines](./payments_add.mdx#design-guidelines) when [initiating purchases](./payments_add.mdx#initiate-orders).
 
 ![Support App Example](../../assets/support_this_app.png)
 
-Here's how you create a ProductButton in blocks:
+Example client code:
 
-```tsx
-import { usePayments, useProducts } from '@devvit/payments';
-import { ProductButton } from '@devvit/payments/helpers/ProductButton';
-import { Devvit } from '@devvit/public-api';
+```tsx title="client/index.ts"
+import { purchase, OrderResultStatus } from "@devvit/web/client";
 
+<<<<<<< HEAD
 // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
 Devvit.addCustomPostType({
   render: (context) => {
@@ -82,6 +87,16 @@ Devvit.addCustomPostType({
      />
    );
 })
+=======
+async function handleSupportApp() {
+  const result = await purchase("support-app");
+  if (result.status === OrderResultStatus.STATUS_SUCCESS) {
+    // show success, e.g. toast: "Thanks for your support!"
+  } else {
+    // show error or retry (result.errorMessage may be set)
+  }
+}
+>>>>>>> 64da331 (DR-370 update payments docs referencing Ddevvit singleton)
 ```
 [View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 

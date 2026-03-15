@@ -255,31 +255,13 @@ If you don’t provide an image, the default Reddit product image is used.
 
 ### Purchase buttons (required)
 
-#### Blocks
+#### Devvit Web
 
-The `ProductButton` is a Devvit blocks component designed to render a product with a purchase button. It can be customized to match your app's look and feel.
+In Devvit Web, use your own UI (e.g. a button or product card) and call `purchase(sku)` from `@devvit/web/client` when the user chooses a product. Follow the [design guidelines](#design-guidelines) (e.g. gold icon, clear labeling).
 
-**Usage:**
+#### Blocks (legacy)
 
-```tsx
-<ProductButton
-  showIcon
-  product={product}
-  onPress={(p) => payments.purchase(p.sku)}
-  appearance="tile"
-/>
-```
-
-##### `ProductButtonProps`
-
-| **Prop Name**      | **Type**                                        | **Description**                                                                      |
-| ------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------ |
-| `product`          | `Product`                                       | The product object containing details such as `sku`, `price`, and `metadata`.        |
-| `onPress`          | `(product: Product) => void`                    | Callback function triggered when the button is pressed.                              |
-| `showIcon`         | `boolean`                                       | Determines whether the product icon is displayed on the button. Defaults to `false`. |
-| `appearance`       | `'compact'` &#124; `'detailed'` &#124; `'tile'` | Defines the visual style of the button. Defaults to `compact`.                       |
-| `buttonAppearance` | `string`                                        | Optional [button appearance](../../blocks/button.mdx#appearance).                    |
-| `textColor`        | `string`                                        | Optional [text color](../../blocks/text.mdx#color).                                  |
+If your app still uses Devvit Blocks, you can use the `ProductButton` component and [migrate to Devvit Web](./payments_migrate.mdx) when ready. The `ProductButton` renders a product with a purchase button; use `payments.purchase(p.sku)` in the `onPress` callback (from `@devvit/payments`).
 
 #### Webviews
 
@@ -297,36 +279,30 @@ Use a consistent and clear product component to display paid goods or services t
 
 ## Complete the payment flow
 
-Use `addPaymentHandler` to specify the function that is called during the order flow. This customizes how your app fulfills product orders and provides the ability for you to reject an order.
+Your **fulfill** endpoint (configured in `devvit.json` and implemented in the server) is called during the order flow. It customizes how your app fulfills product orders and lets you reject an order.
 
-Errors thrown within the payment handler automatically reject the order. To provide a custom error message to the frontend of your application, you can return `{success: false, reason: <string>}` with a reason for the order rejection.
+Return `{ success: true }` to accept the order, or `{ success: false, reason: "<string>" }` to reject it and send a message to the client. Throwing an error in the handler also rejects the order.
 
-This example shows how to issue an "extra life" to a user when they purchase the "extra_life" product.
+This example shows how to grant an "extra life" in your fulfill endpoint when the user purchases the "god_mode" product (using Redis from `@devvit/web/server`):
 
-```ts
-import { type Context } from "@devvit/public-api";
-import { addPaymentHandler } from "@devvit/payments";
-import { Devvit, useState } from "@devvit/public-api";
-
-Devvit.configure({
-  redis: true,
-  redditAPI: true,
-});
+```tsx title="server/index.ts"
+import type { PaymentHandlerResponse, Order } from "@devvit/web/server";
+import { redis } from "@devvit/web/server";
 
 const GOD_MODE_SKU = "god_mode";
 
-addPaymentHandler({
-  fulfillOrder: async (order, ctx) => {
-    if (!order.products.some(({ sku }) => sku === GOD_MODE_SKU)) {
-      throw new Error("Unable to fulfill order: sku not found");
-    }
-    if (order.status !== "PAID") {
-      throw new Error("Becoming a god has a cost (in Reddit Gold)");
-    }
+app.post("/internal/payments/fulfill", async (c) => {
+  const order = await c.req.json<Order>();
+  if (!order.products.some((p) => p.sku === GOD_MODE_SKU)) {
+    return c.json<PaymentHandlerResponse>({ success: false, reason: "Unable to fulfill order: sku not found" });
+  }
+  if (order.status !== "PAID") {
+    return c.json<PaymentHandlerResponse>({ success: false, reason: "Becoming a god has a cost (in Reddit Gold)" });
+  }
 
-    const redisKey = godModeRedisKey(ctx.postId, ctx.userId);
-    await ctx.redis.set(redisKey, "true");
-  },
+  const redisKey = `post:${order.postId}:user:${order.userId}:god_mode`;
+  await redis.set(redisKey, "true");
+  return c.json<PaymentHandlerResponse>({ success: true });
 });
 ```
 
@@ -336,61 +312,44 @@ The frontend and backend of your app coordinate order processing.
 
 ![Order workflow diagram](../../assets/payments_order_flow_diagram.png)
 
-To launch the payment flow, create a hook with `usePayments()` followed by `hook.purchase()` to initiate the purchase from the frontend.
-
-This triggers a native payment flow on all platforms (web, iOS, Android) that works with the Reddit backend to process the order. The `fulfillOrder()` hook calls your app during this process.
-
-Your app can acknowledge or reject the order. For example, for goods with limited quantities, your app may reject an order once the product is sold out.
+To launch the payment flow, call `purchase(sku)` from `@devvit/web/client`. That triggers the native payment flow on all platforms (web, iOS, Android); Reddit then calls your server's **fulfill** endpoint. Your app can acknowledge or reject the order (for example, reject once a limited product is sold out).
 
 ### Get your product details
 
-Use the `useProducts` hook or `getProducts` function to fetch details about products.
+**Server:** Use `payments.getProducts()` in your server (see [Server: Fetch products](#server-fetch-products)) and expose products via your own `/api/products` (or similar) endpoint if the client needs them.
 
-```tsx
-import { useProducts } from "@devvit/payments";
+**Client:** Fetch product metadata from your API and use it to display products and call `purchase(sku)`:
 
-export function ProductsList(context: Devvit.Context): JSX.Element {
-  // Only query for products with the metadata "category" of value "powerup".
-  // The metadata field can be empty - if it is, useProducts will not filter on metadata.
-  const { products } = useProducts(context, {
-    metadata: {
-      category: "powerup",
-    },
-  });
+```tsx title="client/index.ts"
+import { purchase, OrderResultStatus } from "@devvit/web/client";
 
-  return (
-    <vstack>
-      {products.map((product) => (
-        <hstack>
-          <text>{product.name}</text>
-          <text>{product.price}</text>
-        </hstack>
-      ))}
-    </vstack>
-  );
+// Fetch products from your server endpoint
+const products = await fetch("/api/products").then((r) => r.json());
+
+// Render your UI; when user chooses a product:
+async function handleBuy(sku: string) {
+  const result = await purchase(sku);
+  if (result.status === OrderResultStatus.STATUS_SUCCESS) {
+    // show success
+  } else {
+    // show error or retry (result.errorMessage may be set)
+  }
 }
-```
-
-You can also fetch all products using custom-defined metadata or by an array of skus. Only one is required; if you provide both then they will be AND’d.
-
-```tsx
-import { getProducts } from '@devvit/payments';
-const products = await getProducts({,
-});
 ```
 
 ### Initiate orders
 
-Provide the product sku to trigger a purchase. This automatically populates the most recently-approved product metadata for that product id.
+Provide the product SKU to trigger a purchase. Use `purchase(sku)` from `@devvit/web/client`; the result indicates success or failure.
 
-**Example**
+```tsx title="client/index.ts"
+import { purchase, OrderResultStatus } from "@devvit/web/client";
 
-```tsx
-import { usePayments } from '@devvit/payments';
-
-// handles purchase results
-const payments = usePayments((result: OnPurchaseResult) => { console.log('Tried to buy:', result.sku, '; result:', result.status); });
-
-// for each sku in products:
-<button onPress{payments.purchase(sku)}>Buy a {sku}</button>
+export async function buy(sku: string) {
+  const result = await purchase(sku);
+  if (result.status === OrderResultStatus.STATUS_SUCCESS) {
+    // show success
+  } else {
+    // show error or retry (result.errorMessage may be set)
+  }
+}
 ```
