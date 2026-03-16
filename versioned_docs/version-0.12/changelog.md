@@ -9,6 +9,11 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.  
 
+## Devvit 0.12.15:  The Nothing-To-See-Here Release
+**Release Date: Mar 16, 2026**   
+
+This release contains internal improvements and infrastructure updates to improve stability and support future development.
+
 ## Devvit 0.12.14:  Community Game Pro Tips, Platform Changes, and Fixes
 **Release Date: Mar 9, 2026**   
 
