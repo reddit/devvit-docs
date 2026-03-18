@@ -171,6 +171,7 @@ const config: Config = {
       sidebar: {
         autoCollapseCategories: false,
       },
+      versionPersistence: "none",
     },
     navbar: {
       logo: {
