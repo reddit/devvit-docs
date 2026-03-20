@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.16-dev**](../../README.md)
+[**@devvit/public-api v0.12.17-dev**](../../README.md)
 
 ***
 
@@ -331,6 +331,22 @@ A Promise that resolves an Array of UserSocialLink objects
 ```ts
 const socialLinks = await user.getSocialLinks();
 ```
+
+***
+
+<a id="gettrophies"></a>
+
+### getTrophies()
+
+> **getTrophies**(): `Promise`\<[`Trophy`](../type-aliases/Trophy.md)[]\>
+
+Get the trophies displayed on this user's profile.
+
+#### Returns
+
+`Promise`\<[`Trophy`](../type-aliases/Trophy.md)[]\>
+
+A Promise that resolves to an array of Trophy objects.
 
 ***
 

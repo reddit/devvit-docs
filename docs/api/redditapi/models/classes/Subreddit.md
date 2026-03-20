@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.16-dev**](../../README.md)
+[**@devvit/public-api v0.12.17-dev**](../../README.md)
 
 ***
 
@@ -284,6 +284,38 @@ This is only true if the user flairs are enabled.
 
 ## Methods
 
+<a id="addremovalreason"></a>
+
+### addRemovalReason()
+
+> **addRemovalReason**(`options`): `Promise`\<`string`\>
+
+Add a removal reason to this subreddit.
+
+#### Parameters
+
+##### options
+
+###### message
+
+`string`
+
+The message associated with the removal reason.
+
+###### title
+
+`string`
+
+The title of the removal reason.
+
+#### Returns
+
+`Promise`\<`string`\>
+
+The new removal reason ID.
+
+***
+
 <a id="addwikicontributor"></a>
 
 ### addWikiContributor()
@@ -374,6 +406,28 @@ This is only true if the user flairs are enabled.
 
 ***
 
+<a id="createrule"></a>
+
+### createRule()
+
+> **createRule**(`options`): `Promise`\<`void`\>
+
+Create a new subreddit rule.
+
+#### Parameters
+
+##### options
+
+`Readonly`\<[`CreateRuleOptions`](../type-aliases/CreateRuleOptions.md)\>
+
+Options for creating a new subreddit rule.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
 <a id="createuserflairtemplate"></a>
 
 ### createUserFlairTemplate()
@@ -389,6 +443,26 @@ This is only true if the user flairs are enabled.
 #### Returns
 
 `Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
+
+***
+
+<a id="deleteremovalreason"></a>
+
+### deleteRemovalReason()
+
+> **deleteRemovalReason**(`reasonId`): `Promise`\<`void`\>
+
+Delete a removal reason from this subreddit.
+
+#### Parameters
+
+##### reasonId
+
+`string`
+
+#### Returns
+
+`Promise`\<`void`\>
 
 ***
 
@@ -729,6 +803,20 @@ console.log("Posts: ", await listing.all())
 
 ***
 
+<a id="getremovalreasons"></a>
+
+### getRemovalReasons()
+
+> **getRemovalReasons**(): `Promise`\<[`RemovalReason`](../type-aliases/RemovalReason.md)[]\>
+
+Get the list of this subreddit's removal reasons (ordered).
+
+#### Returns
+
+`Promise`\<[`RemovalReason`](../type-aliases/RemovalReason.md)[]\>
+
+***
+
 <a id="getreports"></a>
 
 ### getReports()
@@ -810,6 +898,18 @@ console.log("Posts and Comments: ", await listing.all())
 listing = await subreddit.getReports({ type: "post"});
 console.log("Posts: ", await listing.all())
 ```
+
+***
+
+<a id="getrules"></a>
+
+### getRules()
+
+> **getRules**(): `Promise`\<[`Rule`](Rule.md)[]\>
+
+#### Returns
+
+`Promise`\<[`Rule`](Rule.md)[]\>
 
 ***
 
@@ -1172,6 +1272,24 @@ const userFlairList = response.users
 
 ***
 
+<a id="reorderrules"></a>
+
+### reorderRules()
+
+> **reorderRules**(`rules`): `Promise`\<`void`\>
+
+#### Parameters
+
+##### rules
+
+[`Rule`](Rule.md)[]
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
 <a id="revokemoderatorinvite"></a>
 
 ### revokeModeratorInvite()
@@ -1234,11 +1352,11 @@ const userFlairList = response.users
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Subreddit`, `"type"` \| `"id"` \| `"name"` \| `"title"` \| `"description"` \| `"settings"` \| `"createdAt"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
+> **toJSON**(): `Pick`\<`Subreddit`, `"type"` \| `"description"` \| `"id"` \| `"name"` \| `"title"` \| `"settings"` \| `"createdAt"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
 
 #### Returns
 
-`Pick`\<`Subreddit`, `"type"` \| `"id"` \| `"name"` \| `"title"` \| `"description"` \| `"settings"` \| `"createdAt"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
+`Pick`\<`Subreddit`, `"type"` \| `"description"` \| `"id"` \| `"name"` \| `"title"` \| `"settings"` \| `"createdAt"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
 
 ***
 
@@ -1293,3 +1411,65 @@ const userFlairList = response.users
 #### Returns
 
 `Promise`\<`void`\>
+
+***
+
+<a id="updateremovalreason"></a>
+
+### updateRemovalReason()
+
+> **updateRemovalReason**(`reasonId`, `options`): `Promise`\<`void`\>
+
+Update a removal reason's title and message in this subreddit.
+
+#### Parameters
+
+##### reasonId
+
+`string`
+
+##### options
+
+###### message
+
+`string`
+
+###### title
+
+`string`
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
+<a id="updatesettings"></a>
+
+### updateSettings()
+
+> **updateSettings**(`options`): `Promise`\<`void`\>
+
+Updates subreddit settings via the SiteAdmin API. Current settings are used as the base;
+only provided options are applied. In order to reset a field to its default value,
+pass the default value as the option value.
+
+#### Parameters
+
+##### options
+
+[`SubredditSettingsOptions`](../type-aliases/SubredditSettingsOptions.md)
+
+Optional settings to apply. Omitted fields are left unchanged.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Example
+
+```ts
+const subreddit = await reddit.getSubredditByName('mysubreddit');
+await subreddit.updateSettings({ restrictPosting: true, allowImages: false });
+await subreddit.updateSettings({ type: 'restricted', title: 'New Title', description: 'Sidebar text' });
+```

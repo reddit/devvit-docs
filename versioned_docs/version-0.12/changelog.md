@@ -7,7 +7,7 @@ To use the latest version of Devvit:
 1. Run `npm install devvit@latest` to update your CLI.
 2. Run `npx devvit update app` to update your @devvit dependencies.
 
-**Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.  
+**Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
 ## Devvit 0.12.15:  The Nothing-To-See-Here Release
 **Release Date: Mar 16, 2026**   

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.16-dev**](../../README.md)
+[**@devvit/public-api v0.12.17-dev**](../../README.md)
 
 ***
 
@@ -676,6 +676,44 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 ***
 
+<a id="showcomment"></a>
+
+### showComment()
+
+> **showComment**(): `Promise`\<`void`\>
+
+Marks that this comment should not be collapsed by the crowd control system.
+It can still be collapsed for other reasons.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
+<a id="snoozereports"></a>
+
+### snoozeReports()
+
+> **snoozeReports**(`reason`): `Promise`\<`void`\>
+
+Snooze subsequent reports with the given reason from the same users for the next 7 days.
+Only works for free-form reports.
+
+#### Parameters
+
+##### reason
+
+`string`
+
+The report reason to snooze.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
 <a id="tojson"></a>
 
 ### toJSON()
@@ -717,6 +755,29 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 ### unlock()
 
 > **unlock**(): `Promise`\<`void`\>
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
+<a id="unsnoozereports"></a>
+
+### unsnoozeReports()
+
+> **unsnoozeReports**(`reason`): `Promise`\<`void`\>
+
+Unsnooze reports with the given reason.
+Only works for free-form reports.
+
+#### Parameters
+
+##### reason
+
+`string`
+
+The report reason to unsnooze.
 
 #### Returns
 
