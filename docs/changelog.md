@@ -9,6 +9,32 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.12.16  Subreddit APIs and Poll Post Updates
+**Release Date: Mar 23, 2026**  
+
+This release adds new APIs for smoother subreddit management and adds new poll post functionality.
+
+**Subreddit Management** 
+
+* `subreddit.updateSettings()` updates subreddit settings (this method only supports the settings currently exposed in the `SubredditSettings` type).  
+* `subreddit.updateRemovalReasons()` updates subreddit removal reasons and provides support for deleting them. This method converts the `RemovalReason` type into a class, enabling it to include methods for managing removal reasons.
+
+**Subreddit Rules** 
+
+* `subreddit.getRules()` (or `reddit.getRules()`) retrieves rules.   
+* `subreddit.createRule()` (or `reddit.createRule()`) creates rules.  
+* `subreddit.reorderRules()` (or `reddit.reorderRules()`) reorders rules.  
+* `rule.updateRule()` updates an existing rule.  
+* `rule.removeRule()` deletes a rule.
+
+Note: methods available on reddit provide the same functionality as their subreddit counterparts, but do not require a Subreddit instance.
+
+**Poll Post Enhancements**
+
+* Introduces a `pollOption` field on the `Post` object to access poll options.  
+* Adds a `getCurrentUserPollOption()` method to retrieve the option selected by the current user (if any).  
+* Fetches user-specific poll data via `/api/info` using user authentication, with a dedicated proto method to allow overriding only the poll option retrieval logic.
+
 ## Devvit 0.12.15:  The Nothing-To-See-Here Release
 **Release Date: Mar 16, 2026**   
 
