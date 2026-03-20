@@ -12,7 +12,7 @@ To use the latest version of Devvit:
 ## Release 0.12.16  Subreddit APIs and Poll Post Updates
 **Release Date: Mar 23, 2026**  
 
-This release adds new APIs for smoother subreddit management and adds new poll post functionality.
+This release adds new APIs for smoother subreddit management, a unified rules model, and shared proto endpoints.  Also included: new poll post functionality.
 
 **Subreddit Management** 
 
@@ -29,6 +29,16 @@ This release adds new APIs for smoother subreddit management and adds new poll p
 * `rule.removeRule()` deletes a rule.
 
 Note: methods available on `reddit` provide the same functionality as their `subreddit` counterparts but do not require a subreddit instance.
+
+**Proto APIs**
+
+* `reddit.getBestPosts` returns a list of posts from the authenticated user’s front page. By default this runs as the app account, but it can be overridden on a per-app basis to always run as the user.  
+* `reddit.getDuplicatesForPosts` returns a list of other posts containing the same link as the input post.  
+* `reddit.showComment` unhides a comment that was hidden due to crowd control. Comments hidden for other reasons remain hidden.  
+* `comment.snoozeReports` and `post.snoozeReports` prevent reports for the input comment or post with the given reason from escalating to subreddit moderators for 7 days.  
+* `comment.unsnoozeReports` and `post.unsnoozeReports` remove the snooze applied by snoozeReports for the input comment or post.  
+* `comment.updateCrowdControlLevel` and `post.updateCrowdControlLevel` update the crowd control level for the comment or post (OFF, LENIENT, MEDIUM, or STRICT).  
+* `user.getTrophies` returns a list of trophies the user has earned.
 
 **Poll Post Enhancements**
 
