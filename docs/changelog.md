@@ -27,7 +27,7 @@ This release adds new APIs for smoother subreddit management and adds new poll p
 * `rule.updateRule()` updates an existing rule.  
 * `rule.removeRule()` deletes a rule.
 
-Note: methods available on reddit provide the same functionality as their subreddit counterparts, but do not require a Subreddit instance.
+Note: methods available on `reddit` provide the same functionality as their `subreddit` counterparts but do not require a subreddit instance.
 
 **Poll Post Enhancements**
 
