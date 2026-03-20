@@ -17,7 +17,8 @@ This release adds new APIs for smoother subreddit management and adds new poll p
 **Subreddit Management** 
 
 * `subreddit.updateSettings()` updates subreddit settings (this method only supports the settings currently exposed in the `SubredditSettings` type).  
-* `subreddit.updateRemovalReasons()` updates subreddit removal reasons and provides support for deleting them. This method converts the `RemovalReason` type into a class, enabling it to include methods for managing removal reasons.
+* `subreddit.updateRemovalReasons()` updates subreddit removal reasons.
+* `subreddit.deleteRemovalReasons()` deletes a subreddit removal reason.
 
 **Subreddit Rules** 
 
@@ -32,8 +33,7 @@ Note: methods available on `reddit` provide the same functionality as their `sub
 **Poll Post Enhancements**
 
 * Introduces a `pollOption` field on the `Post` object to access poll options.  
-* Adds a `getCurrentUserPollOption()` method to retrieve the option selected by the current user (if any).  
-* Fetches user-specific poll data via `/api/info` using user authentication, with a dedicated proto method to allow overriding only the poll option retrieval logic.
+* Adds a `getCurrentUserPollOption()` method to retrieve the option selected by the current user (if any). This method needs `runAs` permission to work, so please contact us if you intend to use it.
 
 ## Devvit 0.12.15:  The Nothing-To-See-Here Release
 **Release Date: Mar 16, 2026**   
