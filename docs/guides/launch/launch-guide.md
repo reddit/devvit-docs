@@ -7,7 +7,7 @@ Polished apps may also apply for **Reddit featuring**, which includes on-platfor
 ---
 
 :::warning
-Our team pauses all app reviews during the December holidays. Please see community announcements in [r/Devvit](https://www.reddit.com/r/Devvit/comments/1pnf6r6/reminder_limited_support_hours_december_23rd/) and Discord for specific limited support dates
+Our team pauses all app reviews during certain holiday periods each year. Please see community announcements in r/Devvit and Discord for specific limited support dates.
 :::
 
 ## When is an app ready to be launched?
@@ -47,8 +47,14 @@ Launching your app signals to Reddit’s algorithmic feeds that it is ready for 
 Apps are submitted for review through the CLI. To launch your app:
 
 1. Add a user-friendly overview in your app’s `README.md`.
-2. Run `npx devvit upload` for the version you want to launch.
-3. Run `npx devvit publish`.
+2. Run `npx devvit publish`.
+
+    You can optionally choose the version bump type with `--bump`:
+    - `npx devvit publish --bump major`
+    - `npx devvit publish --bump minor`
+    - `npx devvit publish --bump patch` (default)
+
+    `--bump` accepts only `major`, `minor`, or `patch`, and cannot be used with `--version`.
 
 Once submitted, your app enters Reddit’s review queue. Our team evaluates your code, example posts, and app documentation.
 
@@ -89,3 +95,4 @@ We do not recommend listing apps built for a single subreddit, as this may confu
 - Questions? Join our Discord or post in [r/Devvit](https://www.reddit.com/r/Devvit/).
 - Review the [Devvit Rules](https://developers.reddit.com/docs/devvit_rules) before publishing.
 - Learn more about [how to earn](../../earn-money/payments/payments_overview.md) from your apps.
+
