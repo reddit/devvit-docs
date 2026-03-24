@@ -20,7 +20,7 @@ You can start the Reddit app review process by [publishing your app](./guides/la
 - Carefully reviewing these Devvit Rules and other Reddit Terms & Policies, and
 - Providing a detailed app description.
 
-As part of Reddit app review, we may review your code, read through your app’s description, test your app, and provide feedback. When your app review is complete, we’ll notify you about your app’s status, which could be:
+As part of Reddit app review, we may review your code, read through your app’s description, test your app, and provide feedback. We may use third-party LLMs to help us conduct this review. When your app review is complete, we’ll notify you about your app’s status, which could be:
 
 - Approved
 - Approved with non-blocking feedback
