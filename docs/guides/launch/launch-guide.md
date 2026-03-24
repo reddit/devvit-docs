@@ -56,6 +56,10 @@ Apps are submitted for review through the CLI. To launch your app:
 
     `--bump` accepts only `major`, `minor`, or `patch`, and cannot be used with `--version`.
 
+    If you prefer to set a specific version directly, use `--version`:
+  - `npx devvit publish --version 1.0.1`
+    `--version` must be a stable version (for example, `1.0.1`), prerelease versions are not allowed, and it cannot be used with `--bump`.
+
 Once submitted, your app enters Reddit’s review queue. Our team evaluates your code, example posts, and app documentation.
 
 You will receive email confirmation when your app is approved. If we need more information, a team member may contact you via Modmail or Reddit chat.

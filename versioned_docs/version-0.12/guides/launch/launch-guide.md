@@ -49,12 +49,16 @@ Apps are submitted for review through the CLI. To launch your app:
 1. Add a user-friendly overview in your app’s `README.md`.
 2. Run `npx devvit publish`.
 
-    You can optionally choose the version bump type with `--bump`:
-    - `npx devvit publish --bump major`
-    - `npx devvit publish --bump minor`
-    - `npx devvit publish --bump patch` (default)
-
+  You can optionally choose the version bump type with `--bump`:
+  - `npx devvit publish --bump major`
+  - `npx devvit publish --bump minor`
+  - `npx devvit publish --bump patch` (default)
+    
     `--bump` accepts only `major`, `minor`, or `patch`, and cannot be used with `--version`.
+
+    If you prefer to set a specific version directly, use `--version`:
+  - `npx devvit publish --version 1.0.1`
+    `--version` must be a stable version (for example, `1.0.1`), prerelease versions are not allowed, and it cannot be used with `--bump`.
 
 Once submitted, your app enters Reddit’s review queue. Our team evaluates your code, example posts, and app documentation.
 
@@ -95,3 +99,4 @@ We do not recommend listing apps built for a single subreddit, as this may confu
 - Questions? Join our Discord or post in [r/Devvit](https://www.reddit.com/r/Devvit/).
 - Review the [Devvit Rules](https://developers.reddit.com/docs/devvit_rules) before publishing.
 - Learn more about [how to earn](../../earn-money/payments/payments_overview.md) from your apps.
+
