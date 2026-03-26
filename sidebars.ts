@@ -248,11 +248,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "User Input",
+      label: "User Interaction",
       items: [
         "capabilities/server/media-uploads",
         "capabilities/client/forms",
         "capabilities/server/userActions",
+        "capabilities/user-interaction/logged-out",
       ],
     },
     {

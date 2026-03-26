@@ -1,0 +1,38 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Logged-out users
+
+Logged-out visitors can interact with your app even when they are not signed in to Reddit. In that case there is no Reddit user for the session, so `userId` in the app Context is `null`. 
+
+You can still distinguish anonymous visitors and improve continuity by reading each visitor's **logged-out ID (LOID)** from Context.
+
+## What is the LOID?
+
+The LOID, or logged-out ID, is a stable Reddit identifier assigned to logged-out visitors. Every visitor to Reddit is assigned a LOID.
+When a visitor registers a Reddit account and becomes a logged-in user, they retain the LOID assigned to them. 
+
+This can be useful for tracking the same user from their first interaction with your app, through account creation and sign-in.
+
+## The LOID and Devvit
+In Devvit apps, the LOID value is a hash of the Reddit LOID and the app's installation ID. 
+This means the LOID exposed to an app is **not stable across different installations**.
+
+Despite the name, signed-in users also have a `loid` in Context. Reddit keeps the same LOID after someone registers, so the field is not limited to logged-out sessions.
+
+### Reading the LOID
+
+:::note
+This feature is experimental. Apps must be allowlisted and approved for the `loid` value to be populated.
+:::
+
+The `loid` is exposed in both the client and server Context objects:
+
+```ts
+import { context } from '@devvit/web/server';
+
+const loid = context.loid;
+
+console.log('Logged-out ID: ', loid);   // Example value: UNJCeIIkaU3YHkiWlCeyAGfFHUHSz7F_xg5IebdxxaE 
+```
+
