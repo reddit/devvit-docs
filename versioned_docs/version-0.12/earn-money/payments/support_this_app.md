@@ -1,11 +1,11 @@
 # Support this app
 
-You can ask users to contribute to your app's development by adding the "support this app" feature. This allows users to support your app with Reddit Gold in exchange for some kind of award or recognition.
+You can ask users to contribute to your app’s development by adding the “support this app” feature. This allows users to support your app with Reddit Gold in exchange for some kind of award or recognition.
 
 ## Requirements
 
 1. You must give something in return to users who support your app. This could be unique custom user flair, an honorable mention in a thank you post, or another creative way to show your appreciation.
-2. The "Support this App" purchase button must meet the Developer Platform's [design guidelines](./payments_add.mdx#design-guidelines).
+2. The “Support this App” purchase button must meet the Developer Platform’s [design guidelines](./payments_add.mdx#design-guidelines).
 
 ## How to integrate app support
 
@@ -19,7 +19,7 @@ devvit products add support-app
 
 ### Add a payment handler
 
-In Devvit Web, the [payment handler](./payments_add.mdx#complete-the-payment-flow) is your server's **fulfill** endpoint. That's where you award the promised incentive (e.g. custom user flair). Implement it in your server and reference it in `devvit.json` under `payments.endpoints.fulfillOrder`.
+In Devvit Web, the [payment handler](./payments_add.mdx#complete-the-payment-flow) is your server’s **fulfill** endpoint. That’s where you award the promised incentive (e.g. custom user flair). Implement it in your server and reference it in `devvit.json` under `payments.endpoints.fulfillOrder`.
 
 Example: award custom user flair when a user completes a support purchase:
 

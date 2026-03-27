@@ -1,6 +1,6 @@
 # Manage Payments
 
-Once your app and products have been approved, you're ready to use Reddit's production payments system. Real payments will be triggered automatically when invoked from approved app versions. No code changes are required.
+Once your app and products have been approved, you’re ready to use Reddit’s production payments system. Real payments will be triggered automatically when invoked from approved app versions. No code changes are required.
 
 ## Check orders
 
@@ -29,11 +29,11 @@ Automatic updates will be supported in a future release.
 
 ## Issue a refund
 
-Reddit may reverse transactions under certain circumstances, such as card disputes, policy violations, or technical issues. If there's a problem with a digital good, a user can submit a request for a refund via [Reddit Help](https://support.reddithelp.com/hc/en-us/requests/new?ticket_form_id=29770197409428).
+Reddit may reverse transactions under certain circumstances, such as card disputes, policy violations, or technical issues. If there’s a problem with a digital good, a user can submit a request for a refund via [Reddit Help](https://support.reddithelp.com/hc/en-us/requests/new?ticket_form_id=29770197409428).
 
 When a transaction is reversed for any reason, you may optionally revoke product functionality from the user by implementing the **refund** endpoint (configured in `devvit.json` under `payments.endpoints.refundOrder`).
 
-**Example (Devvit Web):** in your server's refund endpoint, revoke the entitlement (e.g. decrement lives in Redis).
+**Example (Devvit Web):** in your server’s refund endpoint, revoke the entitlement (e.g. decrement lives in Redis).
 
 ```tsx title="server/index.ts"
 import type { PaymentHandlerResponse, Order } from "@devvit/web/server";

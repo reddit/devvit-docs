@@ -49,11 +49,11 @@ Apps are submitted for review through the CLI. To launch your app:
 1. Add a user-friendly overview in your app’s `README.md`.
 2. Run `npx devvit publish`.
 
-  You can optionally choose the version bump type with `--bump`:
-  - `npx devvit publish --bump major`
-  - `npx devvit publish --bump minor`
-  - `npx devvit publish --bump patch` (default)
-    
+    You can optionally choose the version bump type with `--bump`:
+    - `npx devvit publish --bump major`
+    - `npx devvit publish --bump minor`
+    - `npx devvit publish --bump patch` (default)
+
     `--bump` accepts only `major`, `minor`, or `patch`, and cannot be used with `--version`.
 
     If you prefer to set a specific version directly, use `--version`:

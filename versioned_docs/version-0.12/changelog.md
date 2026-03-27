@@ -39,7 +39,7 @@ Note: methods available on `reddit` provide the same functionality as their `sub
 * `comment.unsnoozeReports` and `post.unsnoozeReports` remove the snooze applied by snoozeReports for the input comment or post.  
 * `comment.updateCrowdControlLevel` and `post.updateCrowdControlLevel` update the crowd control level for the comment or post (OFF, LENIENT, MEDIUM, or STRICT).  
 * `user.getTrophies` returns a list of trophies the user has earned.
-  
+
 **Poll Post Enhancements**
 
 * Introduces a `pollOption` field on the `Post` object to access poll options.  

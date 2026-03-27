@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.16-dev**](../../README.md)
+[**@devvit/public-api v0.12.17-dev**](../../README.md)
 
 ***
 
@@ -6,29 +6,27 @@
 
 The Reddit API Client
 
-To use the Reddit API Client, enable the `redditAPI` permission in your `devvit.json` file.
-
-```json title="devvit.json"
-{
-  "permissions": {
-    "redditAPI": true
-  }
-}
-```
+To use the Reddit API Client, add it to the plugin configuration at the top of the file.
 
 ## Example
 
 ```ts
-import { reddit } from '@devvit/web/server';
 
-export const menuActionHandler = async () => {
-  const subredditName = await reddit.getCurrentSubredditName();
-  return await reddit.submitPost({
-    subredditName,
-    title: 'test post',
-    text: 'test body',
-  });
-};
+Devvit.configure({
+   redditAPI: true,
+   // other plugins
+})
+
+// use within one of our capability handlers e.g. Menu Actions, Triggers, Scheduled Job Type, etc
+async (event, context) => {
+    const subreddit = await context.reddit.getSubredditById(context.subredditId);
+    context.reddit.submitPost({
+      subredditName: subreddit.name,
+      title: 'test post',
+      text: 'test body',
+    })
+    // additional code
+}
 ```
 
 ## Constructors
@@ -160,7 +158,7 @@ Add a mod note for why a post or comment was removed
 
 > **addSubredditRemovalReason**(`subredditName`, `options`): `Promise`\<`string`\>
 
-Add a removal reason to a subreddit
+Add a removal reason to a subreddit.
 
 #### Parameters
 
@@ -168,7 +166,7 @@ Add a removal reason to a subreddit
 
 `string`
 
-Name of the subreddit being removed.
+Name of the subreddit (e.g. `askReddit` or `r/askReddit`).
 
 ##### options
 
@@ -384,6 +382,32 @@ The created FlairTemplate object.
 
 ***
 
+<a id="createrule"></a>
+
+### createRule()
+
+> **createRule**(`subredditName`, `options`): `Promise`\<`void`\>
+
+Create a new rule in a subreddit.
+
+#### Parameters
+
+##### subredditName
+
+`string`
+
+The name of the subreddit to add the rule to.
+
+##### options
+
+[`CreateRuleOptions`](../../models/type-aliases/CreateRuleOptions.md)
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
 <a id="createuserflairtemplate"></a>
 
 ### createUserFlairTemplate()
@@ -505,6 +529,34 @@ Options for the request
 `Promise`\<`boolean`\>
 
 True if it was deleted successfully; false otherwise.
+
+***
+
+<a id="deletesubredditremovalreason"></a>
+
+### deleteSubredditRemovalReason()
+
+> **deleteSubredditRemovalReason**(`subredditName`, `reasonId`): `Promise`\<`void`\>
+
+Delete a removal reason from a subreddit.
+
+#### Parameters
+
+##### subredditName
+
+`string`
+
+Name of the subreddit (e.g. `askReddit` or `r/askReddit`).
+
+##### reasonId
+
+`string`
+
+ID of the removal reason (from get or add).
+
+#### Returns
+
+`Promise`\<`void`\>
 
 ***
 
@@ -652,6 +704,41 @@ Options for the request
 [`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
 
 A Listing of User objects.
+
+***
+
+<a id="getbestposts"></a>
+
+### getBestPosts()
+
+> **getBestPosts**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md)\>
+
+Get a list of best posts from the front page.
+This method will get the front page for the app account by default.
+To get the front page for a user, please contact Reddit.
+
+#### Parameters
+
+##### options
+
+[`ListingFetchOptions`](../../models/type-aliases/ListingFetchOptions.md)
+
+Options for the request
+
+#### Returns
+
+[`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md)\>
+
+A Listing of Post objects.
+
+#### Example
+
+```ts
+const posts = await reddit.getBestPosts({
+  limit: 1000,
+  pageSize: 100
+}).all();
+```
 
 ***
 
@@ -888,6 +975,40 @@ A Promise that resolves to a string representing the username or undefined
 
 ```ts
 const username = await reddit.getCurrentUsername();
+```
+
+***
+
+<a id="getduplicatesforpost"></a>
+
+### getDuplicatesForPost()
+
+> **getDuplicatesForPost**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md)\>
+
+Get posts that shared the same link as the given post.
+
+#### Parameters
+
+##### options
+
+[`GetDuplicatesOptions`](../../models/type-aliases/GetDuplicatesOptions.md)
+
+Options for the request. Post ID is required, eveything else is optional.
+
+#### Returns
+
+[`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md)\>
+
+A Listing of Post objects.
+
+#### Example
+
+```ts
+const duplicates = await reddit.getDuplicatesForPost({
+  postId: 't3_abc123',
+  sort: 'num_comments',
+  limit: 100
+}).all();
 ```
 
 ***
@@ -1448,6 +1569,30 @@ const posts = await reddit.getRisingPosts({
 
 ***
 
+<a id="getrules"></a>
+
+### getRules()
+
+> **getRules**(`subredditName`): `Promise`\<[`Rule`](../../models/classes/Rule.md)[]\>
+
+Get the rules for a subreddit.
+
+#### Parameters
+
+##### subredditName
+
+`string`
+
+The name of the subreddit to get the rules for.
+
+#### Returns
+
+`Promise`\<[`Rule`](../../models/classes/Rule.md)[]\>
+
+An array of Rule objects.
+
+***
+
 <a id="getsnoovatarurl"></a>
 
 ### getSnoovatarUrl()
@@ -1714,7 +1859,7 @@ Leaderboard for the given subreddit.
 
 > **getSubredditRemovalReasons**(`subredditName`): `Promise`\<[`RemovalReason`](../../models/type-aliases/RemovalReason.md)[]\>
 
-Get the list of subreddit's removal reasons (ordered)
+Get the list of subreddit's removal reasons (ordered).
 
 #### Parameters
 
@@ -1722,19 +1867,23 @@ Get the list of subreddit's removal reasons (ordered)
 
 `string`
 
+Name of the subreddit (e.g. `askReddit` or `r/askReddit`).
+
 #### Returns
 
 `Promise`\<[`RemovalReason`](../../models/type-aliases/RemovalReason.md)[]\>
 
-Ordered array of Removal Reasons
+Ordered array of plain removal reason objects.
 
 #### Example
 
 ```ts
 const reasons = await reddit.getSubredditRemovalReasons('askReddit');
-
-for (let reason of reasons) {
-  console.log(reason.id, reason.message, reason.title)
+const sub = await reddit.getSubredditByName('askReddit');
+for (const reason of reasons) {
+  console.log(reason.id, reason.message, reason.title);
+  await sub.updateRemovalReason(reason.id, { title: 'Spam', message: 'Updated.' });
+  await sub.deleteRemovalReason(reason.id);
 }
 ```
 
@@ -2483,6 +2632,34 @@ The name of the subreddit to remove the user's wiki contributor status from. e.g
 
 ***
 
+<a id="reorderrules"></a>
+
+### reorderRules()
+
+> **reorderRules**(`subredditName`, `rules`): `Promise`\<`void`\>
+
+Reorder the rules in a subreddit.
+
+#### Parameters
+
+##### subredditName
+
+`string`
+
+The name of the subreddit to reorder the rules for.
+
+##### rules
+
+[`Rule`](../../models/classes/Rule.md)[]
+
+Array of Rule objects in the desired order (order is determined by array position).
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
 <a id="reorderwidgets"></a>
 
 ### reorderWidgets()
@@ -2983,6 +3160,48 @@ The name of the subreddit to unmute the user in. e.g. 'memes'
 Unsubscribes from the subreddit in which the app is installed. No-op if the user isn't subscribed.
 This method will execute as the app account by default.
 To unsubscribe on behalf of a user, please contact Reddit.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
+<a id="updatesubredditremovalreason"></a>
+
+### updateSubredditRemovalReason()
+
+> **updateSubredditRemovalReason**(`subredditName`, `reasonId`, `options`): `Promise`\<`void`\>
+
+Update an existing removal reason in a subreddit.
+
+#### Parameters
+
+##### subredditName
+
+`string`
+
+Name of the subreddit (e.g. `askReddit` or `r/askReddit`).
+
+##### reasonId
+
+`string`
+
+ID of the removal reason (from get or add).
+
+##### options
+
+###### message
+
+`string`
+
+The message associated with the removal reason.
+
+###### title
+
+`string`
+
+The title of the removal reason.
 
 #### Returns
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.16-dev**](../../README.md)
+[**@devvit/public-api v0.12.17-dev**](../../README.md)
 
 ***
 
@@ -341,6 +341,22 @@ Get the media in the post. Empty if the post doesn't have any media.
 ##### Returns
 
 `string`
+
+***
+
+<a id="polldata"></a>
+
+### pollData
+
+#### Get Signature
+
+> **get** **pollData**(): `undefined` \| [`PollData`](../type-aliases/PollData.md)
+
+Poll data for the post, if the post is a poll. Undefined otherwise.
+
+##### Returns
+
+`undefined` \| [`PollData`](../type-aliases/PollData.md)
 
 ***
 
@@ -709,6 +725,42 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 #### Returns
 
 `Promise`\<`undefined` \| [`User`](User.md)\>
+
+***
+
+<a id="getcurrentuserpolloption"></a>
+
+### getCurrentUserPollOption()
+
+> **getCurrentUserPollOption**(): `Promise`\<`undefined` \| [`PollOption`](../type-aliases/PollOption.md)\>
+
+Get the poll option the authenticated user selected for this post.
+Returns undefined if the post is not a poll or the user has not voted.
+
+This method will get the poll option for the app account by default.
+To get the poll option for a user, please contact Reddit.
+
+#### Returns
+
+`Promise`\<`undefined` \| [`PollOption`](../type-aliases/PollOption.md)\>
+
+***
+
+<a id="getduplicates"></a>
+
+### getDuplicates()
+
+> **getDuplicates**(`options`): [`Listing`](Listing.md)\<`Post`\>
+
+#### Parameters
+
+##### options
+
+`Omit`\<[`GetDuplicatesOptions`](../type-aliases/GetDuplicatesOptions.md), `"postId"`\> = `{}`
+
+#### Returns
+
+[`Listing`](Listing.md)\<`Post`\>
 
 ***
 
@@ -1135,6 +1187,29 @@ await post.setTextFallback(newTextFallback);
 
 ***
 
+<a id="snoozereports"></a>
+
+### snoozeReports()
+
+> **snoozeReports**(`reason`): `Promise`\<`void`\>
+
+Snooze subsequent reports with the given reason from the same users for the next 7 days.
+Only works for free-form reports.
+
+#### Parameters
+
+##### reason
+
+`string`
+
+The report reason to snooze.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
 <a id="sticky"></a>
 
 ### sticky()
@@ -1237,11 +1312,56 @@ await post.setTextFallback(newTextFallback);
 
 ***
 
+<a id="unsnoozereports"></a>
+
+### unsnoozeReports()
+
+> **unsnoozeReports**(`reason`): `Promise`\<`void`\>
+
+Unsnooze reports with the given reason.
+Only works for free-form reports.
+
+#### Parameters
+
+##### reason
+
+`string`
+
+The report reason to unsnooze.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
 <a id="unsticky"></a>
 
 ### unsticky()
 
 > **unsticky**(): `Promise`\<`void`\>
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
+<a id="updatecrowdcontrollevel"></a>
+
+### updateCrowdControlLevel()
+
+> **updateCrowdControlLevel**(`level`): `Promise`\<`void`\>
+
+Updates the crowd control level of the post to hide comments accordingly.
+
+#### Parameters
+
+##### level
+
+[`CrowdControlLevel`](../type-aliases/CrowdControlLevel.md)
+
+The crowd control level to set. See [CrowdControlLevel](../type-aliases/CrowdControlLevel.md) for more information.
 
 #### Returns
 
