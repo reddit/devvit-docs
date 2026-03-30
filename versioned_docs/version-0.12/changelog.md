@@ -9,6 +9,22 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.12.17  Redis Update and Minor Fixes
+**Release Date: Mar 30, 2026**  
+
+This release included updated Redis transaction support.  `hSetNX` was available on `RedisClient` but missing from transaction interfaces, preventing atomic hash set-if-not-exists operations within transactions. Updates include:
+
+* Added `hSetNX` to the `TxClientLike` type  
+* Implemented `hSetNX` in the Redis transaction class, following the existing `hSet` pattern  
+* Added `hSetNX` and lowercase `hsetnx` alias to the public API transaction class, consistent with other hash method aliases
+
+**Other Fixes**
+
+* Fixed an issue where editing a post or comment with an image in the rich text builder triggered an `INVALID_SELFPOST: richtext_json` error.
+
+* Fixed an issue where SVG files containing XML declarations or `DOCTYPE` tags produced broken icons in `devvit create icons` by stripping content before the `<svg>` tag.
+
+
 ## Release 0.12.16  Subreddit APIs and Poll Post Updates
 **Release Date: Mar 23, 2026**  
 
