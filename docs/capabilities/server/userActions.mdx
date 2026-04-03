@@ -24,13 +24,28 @@ Some actions are not available to apps to prevent abuse and maintain platform in
 Requirements
 --------------
 
-To ensure a positive user experience and compliance with Reddit policies:
+To ensure a positive user experience and compliance with Reddit policies, your app must meet the requirements below. **Review can reject** apps until user action issues, including the game-specific items at the end, are resolved.
 
-- **Always ask permission:** Your app must always inform users before posting, commenting, or subscribing on their behalf. This can only happen on an explicit manual action, e.g. from a button.
-- **No automated actions:** Users must explicitly opt-in to the app acting on their behalf. Do not mislead or surprise users.
-- **Establish a reporting flow:** Ensure `userGeneratedContent` is correctly set for posts submitted on behalf of the user. 
-- **Do not gate any functionality:** Users should not be made or encouraged to post, comment, or subscribe to continue using your app. 
-- **Remember the human:** Follow Reddit's safety and compliance guidelines for user-generated content. Do not create spam-like content or poor user experiences in pursuit of engagement.
+- **When to post or comment as the user:**
+  - If users enter text or imagery that appears in your app, publish that content somewhere with reportable, actionable attribution, such as posts or comments submitted as the user.
+  - For score sharing, comments should be submitted as the user, not the app account.
+- **Before you post or comment as the user:**
+  - Use an explicit manual action (for example, a button), users must clearly understand what will happen before they confirm.
+  - Make it clear they are posting or commenting as themselves, and what will appear on Reddit, including when their username is shown to others.
+  - Label buttons and flows so the action is obviously from the user's account, not only the app account.
+  - Do not automate these actions, and do not mislead or surprise users.
+- **When posting or commenting as the user:**
+  - Set `userGeneratedContent` correctly for posts submitted on behalf of the user.
+  - For generic score comments, reply to a sticky comment.
+  - If the user adds meaningful commentary to their score, a top-level comment is allowed.
+  - Follow the detailed guidance in [Commenting scores](#commenting-scores).
+- **Subscribe actions and gating:**
+  - Subscribing on behalf of the user must also be explicit and manual, with clear user understanding before confirmation.
+  - Do not require or encourage posting, commenting, or subscribing as a condition of progress, access, or core functionality.
+  - Do not merge gameplay actions with posting, commenting, or subscribing, each action must remain a separate, clear choice. See [End-of-game actions](#end-of-game-actions).
+- **Remember the human:**
+  - Follow Reddit's safety and compliance guidelines for user-generated content.
+  - Do not create spam-like content or poor user experiences in pursuit of engagement.
 
 :::note
 Apps using user actions must follow these requirements to be approved.
