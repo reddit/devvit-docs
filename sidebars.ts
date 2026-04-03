@@ -179,7 +179,8 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Post Creation & Navigation",
       items: [
-        "capabilities/client/navigation",
+       "capabilities/creating_custom_post",
+       "capabilities/client/navigation",
         "capabilities/client/toasts",
         "capabilities/client/menu-actions",
         "capabilities/server/settings-and-secrets",
