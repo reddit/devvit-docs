@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.12.18-dev**](../../README.md)
+[**@devvit/public-api v0.12.19-dev**](../../README.md)
 
 ***
 
 # Type Alias: CommentMediaTypes
 
-> **CommentMediaTypes** = `"giphy"` \| `"static"` \| `"animated"` \| `"expression"`
+> **CommentMediaTypes** = `"giphy"` \| `"static"` \| `"animated"` \| `"expression"` \| `"video"`

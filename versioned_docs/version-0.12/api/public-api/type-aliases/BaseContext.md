@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.17-dev**](../README.md)
+[**@devvit/public-api v0.12.18-dev**](../README.md)
 
 ***
 
@@ -73,6 +73,19 @@ The ID of the current comment
 > **debug**: [`ContextDebugInfo`](ContextDebugInfo.md)
 
 More useful things, but probably not for the average developer
+
+***
+
+<a id="loid"></a>
+
+### loid?
+
+> `optional` **loid**: `string`
+
+**`Experimental`**
+
+LOID (logged-out ID) is a token assigned on first visit and persists across sessions, account creation, and sign-in.
+Logged-in users retain a LOID for attribution, analytics, and cross-session tracking.
 
 ***
 
