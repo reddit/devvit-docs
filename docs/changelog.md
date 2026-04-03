@@ -9,6 +9,15 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.12.18:  Custom Post  Styling, Video Comments, and Cache
+**Release Date: Apr 6, 2026**
+
+This release adds support for post styles, which lets you customize how your app posts look within Reddit. We’ve added [Creating a custom post](../capabilities/creating_custom_post.md)  documentation to walk you through building custom posts and configuring post styles. This includes options for setting background colors before your app loads, adjusting post height, and enabling custom share images when your app is shared.
+
+**Other fixes**
+* Added `video` to the `CommentMediaTypes` type. This fixes an issue where apps on subreddits with video comments crashed due to `getCurrentSubreddit()` throwing `invalid comment media type: video` error. 
+* Fixed an issue where in-memory cache data was unintentionally shared across subreddits. Cache is now partitioned per subreddit, which ensures you’ll get accurate data for each subreddit.
+
 ## Release 0.12.17  Redis Update and Minor Fixes
 **Release Date: Mar 30, 2026**  
 
