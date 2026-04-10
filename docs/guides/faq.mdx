@@ -87,9 +87,9 @@ One other common gotcha: Devvit projects use `vite build --watch` rather than a 
 
 </details>
 
-<span id="how-do-i-update-the-devvit-cli-and-app-version"></span>
+<span id="how-do-i-update-the-devvit-cli"></span>
 <details>
-<summary>How do I update the Devvit CLI and app version?</summary>
+<summary>How do I update the Devvit CLI?</summary>
 
 Prefer updating the project-local CLI dependency instead of relying on a global install. The current docs recommend updating `devvit` in your project, then running `npx devvit update app` so your `@devvit` packages match the CLI.
 
@@ -97,13 +97,13 @@ For the current commands and workflow, see [Devvit CLI](./tools/devvit_cli.mdx),
 
 </details>
 
-<span id="how-do-i-handle-scrolling-and-touch-gestures-in-inline-vs-expanded-mode"></span>
+<span id="how-do-i-update-my-app-version"></span>
 <details>
-<summary>How do I handle scrolling and touch gestures in inline vs expanded mode?</summary>
+<summary>How do I update my app version?</summary>
 
-Treat inline and expanded mode differently. Inline should avoid scroll traps and heavy gesture hijacking so users can still scroll past the post, while expanded is the right place for richer touch interaction and more space.
+Updating the CLI and publishing a new app version are separate steps. Your app version changes when you publish: `npx devvit publish` creates the next launch version, and you can control that with `--bump` or `--version` as described in [Launch your app](./launch/launch-guide.md).
 
-There is no single canonical viewport size for all devices. Design responsively, test in [UI Simulator](./tools/ui_simulator.mdx), and use the current launch-mode docs for inline vs expanded behavior in [View modes and entry points](../capabilities/server/launch_screen_and_entry_points/view_modes_entry_points.md) and [Launch screen customization](../capabilities/server/launch_screen_and_entry_points/launch_screen_customization.md).
+After that, the subreddit still needs to be on the version you want installed. In other words, publishing a new version is not the same as updating every subreddit automatically. Use [`devvit install`](./tools/devvit_cli.mdx#devvit-install) or the normal app install/update flow for that subreddit to move it to the desired version.
 
 </details>
 
@@ -114,6 +114,16 @@ There is no single canonical viewport size for all devices. Design responsively,
 Use `npx devvit upload` when you want a private uploaded build for yourself, and use `npx devvit publish` when you are ready to submit a version for launch review. In practice, playtest is still the normal dev loop, `upload` is useful for a private installable build, and `publish` is the launch step documented in [Launch your app](./launch/launch-guide.md).
 
 For command syntax, see [Devvit CLI](./tools/devvit_cli.mdx). For the review and launch flow, see [Launch your app](./launch/launch-guide.md).
+
+</details>
+
+<span id="what-should-i-do-after-playtest-when-i-am-ready-to-launch"></span>
+<details>
+<summary>What should I do after playtest when I am ready to launch?</summary>
+
+Before launch, make sure the app is stable across mobile and web, test with multiple accounts, and add an installer-friendly `README.md`. Then follow the publish flow in [Launch your app](./launch/launch-guide.md).
+
+If you are just ending a playtest session, remember that the latest playtest install remains in place until you change installs. [Playtest](./tools/playtest.md) and [`devvit install`](./tools/devvit_cli.mdx#devvit-install) cover that handoff.
 
 </details>
 
@@ -133,15 +143,7 @@ If the goal is broader distribution, follow [Launch your app](./launch/launch-gu
 
 Published apps are unlisted by default. That is usually the right fit for games and single-community tools. If you want your app to appear in the App Directory so any moderator can install it, use `npx devvit publish --public` and follow the listing guidance in [Launch your app](./launch/launch-guide.md).
 
-</details>
-
-<span id="what-should-i-do-after-playtest-when-i-am-ready-to-launch"></span>
-<details>
-<summary>What should I do after playtest when I am ready to launch?</summary>
-
-Before launch, make sure the app is stable across mobile and web, test with multiple accounts, and add an installer-friendly `README.md`. Then follow the publish flow in [Launch your app](./launch/launch-guide.md).
-
-If you are just ending a playtest session, remember that the latest playtest install remains in place until you change installs. [Playtest](./tools/playtest.md) and [`devvit install`](./tools/devvit_cli.mdx#devvit-install) cover that handoff.
+Public apps should look launch-ready: the launch docs call for a detailed installer-facing `README.md`, and game launch guidance expects a custom launch or first screen rather than a rough default experience.
 
 </details>
 
@@ -211,6 +213,16 @@ Prefer HTML launch entry points for new work. The older `splash` parameter is st
 
 </details>
 
+<span id="how-do-i-handle-scrolling-and-touch-gestures-in-inline-vs-expanded-mode"></span>
+<details>
+<summary>How do I handle scrolling and touch gestures in inline vs expanded mode?</summary>
+
+Treat inline and expanded mode differently. Inline should avoid scroll traps and heavy gesture hijacking so users can still scroll past the post, while expanded is the right place for richer touch interaction and more space.
+
+There is no single canonical viewport size for all devices. Design responsively, test in [UI Simulator](./tools/ui_simulator.mdx), and use the current launch-mode docs for inline vs expanded behavior in [View modes and entry points](../capabilities/server/launch_screen_and_entry_points/view_modes_entry_points.md) and [Launch screen customization](../capabilities/server/launch_screen_and_entry_points/launch_screen_customization.md).
+
+</details>
+
 <span id="how-do-i-add-images-that-ship-with-my-app"></span>
 <details>
 <summary>How do I add images that ship with my app?</summary>
@@ -253,6 +265,32 @@ Set `postData` when creating the post, then read it from `context.postData` on e
 
 </details>
 
+<span id="how-do-i-build-a-leaderboard-with-redis"></span>
+<details>
+<summary>How do I build a leaderboard with Redis?</summary>
+
+The standard Devvit pattern is to build leaderboards with Redis sorted sets. Use [Redis](../capabilities/server/redis.mdx) for score storage and ranking, use [Scheduler](../capabilities/server/scheduler.mdx) for daily or periodic resets, and prefer realtime updates over constant polling when you need a live leaderboard.
+
+Keep the FAQ answer short: Redis is the right storage layer, but the exact schema depends on whether you need daily, weekly, or all-time rankings. The best starting points are [Redis](../capabilities/server/redis.mdx) and the leaderboard/performance guidance in [Optimizing performance](../capabilities/blocks/optimize_performance.md).
+
+</details>
+
+<span id="can-a-menu-action-create-a-new-post"></span>
+<details>
+<summary>Can a menu action create a new post?</summary>
+
+Yes. Define the menu item in `devvit.json`, implement the server endpoint it calls, and create the post from that route. The pattern is documented across [Menu actions](../capabilities/client/menu-actions.mdx) and [Interactive posts overview](../capabilities/interactive-posts/interactive_posts_overview.mdx).
+
+</details>
+
+<span id="how-do-i-automate-daily-or-scheduled-game-posts"></span>
+<details>
+<summary>How do I automate daily or scheduled game posts?</summary>
+
+Use [Scheduler](../capabilities/server/scheduler.mdx) for cron-style recurring jobs or one-off jobs declared in `devvit.json`, then handle the matching `/internal/...` endpoint in your server code. The scheduler docs explain the plumbing; the post creation step still uses the normal Reddit APIs such as `submitCustomPost()`.
+
+</details>
+
 <span id="how-do-i-post-or-comment-as-the-user-instead-of-the-app"></span>
 <details>
 <summary>How do I post or comment as the user instead of the app?</summary>
@@ -266,22 +304,6 @@ Add the required `permissions.reddit.asUser` entries in `devvit.json`, then call
 <summary>Why does <code>runAs: 'USER'</code> still post as the app during playtest?</summary>
 
 Before the app version is approved, user actions are not enabled for everyone. During playtest or other unapproved versions, `runAs: 'USER'` falls back to the app account for most users, while actions taken by the app owner are attributed to the owner's username. After publishing and approval, it operates on behalf of the user for all users. See [User Actions](../capabilities/server/userActions.mdx).
-
-</details>
-
-<span id="how-do-i-automate-daily-or-scheduled-game-posts"></span>
-<details>
-<summary>How do I automate daily or scheduled game posts?</summary>
-
-Use [Scheduler](../capabilities/server/scheduler.mdx) for cron-style recurring jobs or one-off jobs declared in `devvit.json`, then handle the matching `/internal/...` endpoint in your server code. The scheduler docs explain the plumbing; the post creation step still uses the normal Reddit APIs such as `submitCustomPost()`.
-
-</details>
-
-<span id="can-a-menu-action-create-a-new-post"></span>
-<details>
-<summary>Can a menu action create a new post?</summary>
-
-Yes. Define the menu item in `devvit.json`, implement the server endpoint it calls, and create the post from that route. The pattern is documented across [Menu actions](../capabilities/client/menu-actions.mdx) and [Interactive posts overview](../capabilities/interactive-posts/interactive_posts_overview.mdx).
 
 </details>
 
@@ -312,16 +334,6 @@ If you need more profile information, use `getCurrentUser()` from the [Reddit AP
 Some handlers also expose experimental identity fields such as `username` and `snoovatar` on [BaseContext](../api/public-api/type-aliases/BaseContext.md), but the Reddit client methods are the clearest documented path.
 
 If you are building with Devvit Blocks, the API also exposes an [`avatar`](../api/public-api/@devvit/namespaces/Devvit/namespaces/Blocks/type-aliases/AvatarProps.md) component that renders from a `thingId`.
-
-</details>
-
-<span id="how-do-i-build-a-leaderboard-with-redis"></span>
-<details>
-<summary>How do I build a leaderboard with Redis?</summary>
-
-The standard Devvit pattern is to build leaderboards with Redis sorted sets. Use [Redis](../capabilities/server/redis.mdx) for score storage and ranking, use [Scheduler](../capabilities/server/scheduler.mdx) for daily or periodic resets, and prefer realtime updates over constant polling when you need a live leaderboard.
-
-Keep the FAQ answer short: Redis is the right storage layer, but the exact schema depends on whether you need daily, weekly, or all-time rankings. The best starting points are [Redis](../capabilities/server/redis.mdx) and the leaderboard/performance guidance in [Optimizing performance](../capabilities/blocks/optimize_performance.md).
 
 </details>
 
