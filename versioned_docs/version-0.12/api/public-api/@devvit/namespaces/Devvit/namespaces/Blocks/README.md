@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.18-dev**](../../../../../README.md)
+[**@devvit/public-api v0.12.19-dev**](../../../../../README.md)
 
 ***
 
