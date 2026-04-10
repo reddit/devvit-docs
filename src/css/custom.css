@@ -278,3 +278,77 @@ div.themed-col:hover {
   background: var(--ifm-color-primary);
   border-bottom: none;
 }
+
+/* FAQ accordion styling */
+.faq-page details.alert.alert--info {
+  --ifm-alert-background-color: transparent;
+  --ifm-alert-background-color-highlight: transparent;
+  --ifm-alert-border-color: var(--ifm-toc-border-color);
+  --ifm-alert-foreground-color: var(--ifm-font-color-base);
+  --ifm-link-color: #ff4500;
+  --docusaurus-details-decoration-color: var(--ifm-toc-border-color);
+  margin: 0 0 0.75rem;
+  border: 1px solid var(--ifm-toc-border-color);
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: none;
+  color: var(--ifm-font-color-base);
+}
+
+.faq-page details.alert.alert--info > summary {
+  cursor: pointer;
+  color: var(--ifm-link-color);
+  background: transparent !important;
+  padding: 0.85rem 1rem !important;
+  font-weight: 600;
+  list-style: none;
+  text-decoration: none !important;
+  margin: 0;
+}
+
+.faq-page details.alert.alert--info > summary::before {
+  content: none !important;
+  display: none !important;
+}
+
+.faq-page details.alert.alert--info > summary::marker {
+  content: "";
+}
+
+.faq-page details.alert.alert--info > summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-page details.alert.alert--info > summary:hover,
+.faq-page details.alert.alert--info[open] > summary {
+  color: var(--ifm-link-color);
+  background: transparent !important;
+  text-decoration: none !important;
+}
+
+.faq-page details.alert.alert--info > summary code {
+  color: inherit;
+}
+
+.faq-page details.alert.alert--info > summary:focus {
+  outline: none;
+}
+
+.faq-page details.alert.alert--info > summary:focus-visible {
+  outline: 2px solid var(--ifm-link-color);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.faq-page details.alert.alert--info [class*="collapsibleContent"] {
+  border-top: 1px solid var(--ifm-toc-border-color) !important;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.faq-page details.alert.alert--info a,
+.faq-page details.alert.alert--info a:hover,
+.faq-page details.alert.alert--info a:visited,
+.faq-page details.alert.alert--info a:active {
+  color: var(--ifm-link-color);
+}

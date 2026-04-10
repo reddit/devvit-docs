@@ -318,6 +318,11 @@ const sidebars: SidebarsConfig = {
       id: "guides/ai/ai",
     },
     {
+      type: "doc",
+      label: "FAQ",
+      id: "guides/faq",
+    },
+    {
       type: "html",
       value: "<hr/>",
       className: "sidebar-divider",
