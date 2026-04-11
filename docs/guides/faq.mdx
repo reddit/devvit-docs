@@ -103,7 +103,7 @@ For the current commands and workflow, see [Devvit CLI](./tools/devvit_cli.mdx),
 
 Updating the CLI and publishing a new app version are separate steps. Your app version changes when you publish: `npx devvit publish` creates the next launch version, and you can control that with `--bump` or `--version` as described in [Launch your app](./launch/launch-guide.md).
 
-After that, the subreddit still needs to be on the version you want installed. In other words, publishing a new version is not the same as updating every subreddit automatically. Use [`devvit install`](./tools/devvit_cli.mdx#devvit-install) or the normal app install/update flow for that subreddit to move it to the desired version.
+After that, the subreddit still needs to be on the version you want installed. In other words, publishing a new version is not the same as updating every subreddit automatically. Use [`devvit install`](./tools/devvit_cli.mdx#devvit-install) or open your app in the [App Directory](https://developers.reddit.com/apps/) and, under **Installed in communities**, use the blue **Update** button for the subreddit that is out of date.
 
 </details>
 
@@ -409,6 +409,8 @@ For help from the Devvit team and community:
 <summary>How do I uninstall or remove a Devvit app from a subreddit?</summary>
 
 Use the CLI to inspect installs and uninstall from a subreddit. The current docs point to `list installs` and `uninstall` in [Devvit CLI](./tools/devvit_cli.mdx).
+
+There is also a manual path in the [App Directory](https://developers.reddit.com/apps/). Open your app there, then either use **Installed in communities** to select a subreddit and choose **Remove from community**, or scroll to the bottom of the app page and use **Archive** if you want to archive the app itself.
 
 Be careful: uninstalling from a subreddit can remove that installation's stored data and settings. See [Mod resources](./best-practices/mod_resources.md) for the current warning about uninstall data loss. The current docs are much clearer about uninstalling from a subreddit than they are about a full developer-side "delete this app from the platform" flow.
 
