@@ -11,10 +11,7 @@ Add an item to the three dot menu for posts, comments, or subreddits. Menu actio
 
 **For most menu actions, use direct client effects.** These provide immediate responses and are perfect for simple actions that don't require server processing.
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  
-  **Menu items defined in devvit.json:**
+**Menu items defined in devvit.json:**
 
 ```json title="devvit.json"
 {
@@ -74,53 +71,6 @@ app.post<string, never, UiResponse, MenuItemRequest>(
   </TabItem>
   </Tabs>
 
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  
-  ```tsx
-  import { Devvit } from '@devvit/public-api';
-
-// Simple menu action with direct client effects
-Devvit.addMenuItem({
-label: 'Show user info',
-location: 'post', // 'post', 'comment', 'subreddit', or array
-onPress: async (event, context) => {
-// Direct client effect - no server processing needed  
- context.ui.showToast('Menu action clicked!');
-},
-});
-
-// Menu action with form
-const surveyForm = Devvit.createForm(
-{
-fields: [
-{
-type: 'string',
-name: 'feedback',
-label: 'Your feedback',
-},
-],
-},
-(event, context) => {
-// onSubmit handler
-context.ui.showToast({ text: `Thanks for the feedback: ${event.values.feedback}` });
-}
-);
-
-Devvit.addMenuItem({
-label: 'Quick survey',
-location: 'subreddit',
-forUserType: 'moderator', // Optional: restrict to moderators
-onPress: async (event, context) => {
-context.ui.showForm(surveyForm);
-},
-});
-
-````
-
-</TabItem>
-</Tabs>
-
 ## Supported contexts
 
 You can decide where the menu action shows up by specifying the location property.
@@ -138,9 +88,6 @@ For moderator permission security, when opening a form from a menu action with `
 ## Menu responses
 
 In Devvit Web, your menu item should respond with a client side effect to give feedback to users. This is available as a UIResponse as you do not have access to the `@devvit/web/client` library from your server endpoints.
-
-<Tabs>
-<TabItem value="web" label="Devvit Web">
 
 **Menu items with server processing:**
 
@@ -242,45 +189,6 @@ app.post<string, never, UiResponse, MenuItemRequest>(
 
   </TabItem>
   </Tabs>
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  
-  For Devvit Blocks, use the direct context approach even for complex workflows:
-
-```tsx
-Devvit.addMenuItem({
-  label: "Process and validate data",
-  location: "post", // 'post', 'comment', 'subreddit', or array
-  forUserType: "moderator", // Optional: restrict to moderators
-  onPress: async (event, context) => {
-    try {
-      // Perform server-side processing
-      const userData = await validateAndProcessData();
-
-      // Show form with server-fetched data
-      const result = await context.ui.showForm(
-        {
-          fields: [
-            {
-              type: "string",
-              name: "processedData",
-              label: "Processed Data",
-            },
-          ],
-        },
-        (values) => {
-          context.ui.showToast(`Processed: ${values.processedData}`);
-        },
-      );
-    } catch (error) {
-      context.ui.showToast("Processing failed. Please try again.");
-    }
-  },
-});
-```
-
-  </TabItem>
-</Tabs>
 
 ### Menu response examples
 

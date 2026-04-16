@@ -39,9 +39,7 @@ A full list of events and their payloads can be found in the [EventTypes documen
 
 ### 1. Add triggers and endpoints to `devvit.json`
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  Declare the triggers and their corresponding endpoints in your `devvit.json`:
+Declare the triggers and their corresponding endpoints in your `devvit.json`:
 
 ```json
 "triggers": {
@@ -51,28 +49,10 @@ A full list of events and their payloads can be found in the [EventTypes documen
 }
 ```
 
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  Declare the triggers in your `devvit.json`:
-
-```json
-{
-  "name": "your-app-name",
-  "blocks": {
-    "entry": "src/main.tsx",
-    "triggers": ["onPostCreate"]
-  }
-}
-```
-
-  </TabItem>
-</Tabs>
 
 ### 2. Handle trigger events in your server logic
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  Listen for the events in your server and access the data passed into the request:
+Listen for the events in your server and access the data passed into the request:
 
 <Tabs
   variant="pill"
@@ -169,39 +149,6 @@ router.post<string, never, TriggerResponse, OnPostSubmitRequest>(
 ```
 
 </TabItem>
-</Tabs>
-
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  Handle trigger events in your main file. Example (`src/main.tsx`):
-
-```tsx
-import { Devvit } from "@devvit/public-api";
-
-// Handling a PostSubmit event
-Devvit.addTrigger({
-  event: "PostSubmit", // Event name from above
-  onEvent: async (event) => {
-    console.log(`Received OnPostSubmit event:\n${JSON.stringify(event)}`);
-  },
-});
-
-// Handling multiple events: PostUpdate and PostReport
-Devvit.addTrigger({
-  events: ["PostUpdate", "PostReport"], // An array of events
-  onEvent: async (event) => {
-    if (event.type == "PostUpdate") {
-      console.log(`Received OnPostUpdate event:\n${JSON.stringify(request)}`);
-    } else if (event.type === "PostReport") {
-      console.log(`Received OnPostReport event:\n${JSON.stringify(request)}`);
-    }
-  },
-});
-
-export default Devvit;
-```
-
-  </TabItem>
 </Tabs>
 
 ## Best practices

@@ -30,9 +30,7 @@ All limits are applied at a per-installation granularity.
 
 ### Menu actions
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  ```js title="devvit.json"
+```js title="devvit.json"
   {
     "menuActions": [
       {
@@ -89,22 +87,6 @@ All limits are applied at a per-installation granularity.
 
   </TabItem>
   </Tabs>
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```ts
-  Devvit.addMenuItem({
-    location: 'subreddit',
-    label: 'Test Redis',
-    onPress: async (event, { redis }) => {
-      const key = 'hello';
-      await redis.set(key, 'world');
-      const value = await redis.get(key);
-      console.log(`${key}: ${value}`);
-    },
-  });
-  ```
-  </TabItem>
-</Tabs>
 
 
 ### Games
@@ -117,11 +99,9 @@ You can take a look at this [Game Template](https://github.com/reddit/devvit-tem
 Not all Redis features are supported. If you would like to request a specific Redis feature, please reach out to our team [via modmail](https://www.reddit.com/message/compose/?to=%2Fr%2FDevvit) or Discord.
 :::
 
-For all examples below, we assume that you already have obtained a Redis Client. Here's how to obtain a Redis Client for Devvit Web, Devvit Blocks and Mod Tools:
+For all examples below, we assume that you already have obtained a Redis Client. Here's how to obtain a Redis Client:
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  ```json title="devvit.json"
+```json title="devvit.json"
   {
     "permissions": {
       "redis": true
@@ -131,20 +111,6 @@ For all examples below, we assume that you already have obtained a Redis Client.
   ```ts title="server/index.ts"
   import { redis } from '@devvit/redis';
   ```
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```ts title="devvit.tsx"
-  import { Devvit } from '@devvit/public-api';
-  
-  Devvit.configure({
-    redis: true,
-  });
-
-  //Then, in any function that has a reference to Devvit.Context:
-  const redis = context.redis;
-  ```
-  </TabItem>
-</Tabs>
 
 
 ### Simple read/write

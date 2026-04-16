@@ -1,6 +1,3 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Media Uploads
 
 :::warning
@@ -24,29 +21,16 @@ Enable the `media` permission in your `devvit.json` file.
 ## Using media uploads
 On the server, you can pass the URL of any remotely hosted image (even if its not hosted on Reddit) to the `media.upload` function. This function will return a Reddit URL. Both HTTP and data URLs are supported.
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  ```ts title="server/index.ts"
-  import { media } from '@devvit/media';
-  function submitImage() {
-    const response = await media.upload({
-      url: 'https://media2.giphy.com/media/xTiN0CNHgoRf1Ha7CM/giphy.gif',
-      type: 'gif',
-    });
-  }
-  ```
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```ts
-  import { Devvit } from '@devvit/public-api';
+```ts title="server/index.ts"
+import { media } from '@devvit/media';
 
+function submitImage() {
   const response = await media.upload({
     url: 'https://media2.giphy.com/media/xTiN0CNHgoRf1Ha7CM/giphy.gif',
     type: 'gif',
   });
-  ```
-  </TabItem>
-</Tabs>
+}
+```
 
 
 ## Canvas screenshots

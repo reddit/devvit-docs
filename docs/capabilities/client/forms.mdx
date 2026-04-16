@@ -9,10 +9,7 @@ A form lets your app ask users to input and submit data. Forms can be defined wi
 
 ## Using forms
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  
-  **Promise-based forms:**
+**Promise-based forms:**
   ```ts title="client/index.ts"
   import { showForm } from '@devvit/web/client';
 
@@ -64,104 +61,18 @@ A form lets your app ask users to input and submit data. Forms can be defined wi
   }
   ```
 
-  ### Parameters
+### Parameters
 
-  **`showForm(options)` → Returns Promise**
-  - `form` (Form): The form specification object
-  - `data` (FormValues, optional): Initial form field values
-  - **Returns**: `Promise<FormValues | null>` - Resolves with form data or null if cancelled
-
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```tsx
-  import { Devvit, useState, useForm } from '@devvit/public-api';
-
-  // Interactive post with form
-  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
-  Devvit.addCustomPostType({
-    name: 'FormExample',
-    render: (context) => {
-      const [name, setName] = useState('unknown');
-
-      const myForm = useForm(
-        {
-          fields: [
-            {
-              type: 'string',
-              name: 'name',
-              label: 'Name',
-            },
-          ],
-        },
-        (values) => {
-          // onSubmit handler
-          setName(values.name);
-        }
-      );
-
-      return (
-        <vstack gap="medium" height="100%" alignment="middle center">
-          <text>Hello {name}!</text>
-          <button
-            onPress={() => {
-              context.ui.showForm(myForm);
-            }}
-          >
-            Set name
-          </button>
-        </vstack>
-      );
-    },
-  });
-
-  // Menu action with form
-  const myForm = Devvit.createForm(
-    {
-      fields: [
-        {
-          type: 'string',
-          name: 'food',
-          label: 'What is your favorite food?',
-        },
-      ],
-    },
-    (event, context) => {
-      // onSubmit handler
-      context.ui.showToast({ text: event.values.food });
-    }
-  );
-
-  Devvit.addMenuItem({
-    label: 'Show a form',
-    location: 'subreddit',
-    onPress: async (_event, context) => {
-      context.ui.showForm(myForm);
-    },
-  });
-  ```
-  [View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
-
-  ### Methods
-
-  **`context.ui.showForm(formConfig, onSubmit)`** - For interactive posts
-  - `formConfig` (Form): The form specification object
-  - `onSubmit` (function): Callback function when form is submitted
-
-  **`Devvit.createForm(formConfig, onSubmit)`** - For menu actions
-  - `formConfig` (Form): The form specification object  
-  - `onSubmit` (function): Callback function when form is submitted
-
-  </TabItem>
-</Tabs>
+**`showForm(options)` → Returns Promise**
+- `form` (Form): The form specification object
+- `data` (FormValues, optional): Initial form field values
+- **Returns**: `Promise<FormValues | null>` - Resolves with form data or null if cancelled
 
 ## Menu response forms
 
 For forms that open from a menu item, you can use menu responses. This is useful since you do not have access to the `@devvit/web/client` library from a menu item endpoint.
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  
-  **Configure forms in devvit.json:**
+**Configure forms in devvit.json:**
   ```json title="devvit.json"
   {
     "forms": {
@@ -315,57 +226,6 @@ For forms that open from a menu item, you can use menu responses. This is useful
 
   </TabItem>
   </Tabs>
-
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  
-  For Devvit Blocks, use the standard promise-based approach even in menu actions:
-
-  ```tsx
-  Devvit.addMenuItem({
-    label: 'Multi-step workflow',
-    location: 'subreddit',
-    onPress: async (_event, context) => {
-      // Step 1: Get user data from server
-      const userData = await fetchUserData();
-      
-      // Step 2: Show form with server data
-      const step1 = await context.ui.showForm({
-        fields: [
-          {
-            type: 'string',
-            name: 'name',
-            label: 'Name',
-          },
-        ],
-        data: { name: userData.name }
-      });
-      
-      if (!step1) return;
-      
-      // Step 3: Save and continue to next form
-      await saveUserName(step1.name);
-      
-      const step2 = await context.ui.showForm({
-        fields: [
-          {
-            type: 'paragraph',
-            name: 'review',
-            label: 'How was your experience?',
-          },
-        ],
-      });
-      
-      if (step2) {
-        await saveReview(step2.review);  
-        context.ui.showToast('Thank you for your feedback!');
-      }
-    },
-  });
-  ```
-
-  </TabItem>
-</Tabs>
 
 
 ## Form object
@@ -643,10 +503,7 @@ Below is a collection of common use cases and patterns.
 
 ### Dynamic forms
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  
-  **Client-side approach:**
+**Client-side approach:**
   ```ts title="client/index.ts"
   import { showForm } from '@devvit/web/client';
 
@@ -775,56 +632,10 @@ Below is a collection of common use cases and patterns.
 
   </TabItem>
   </Tabs>
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```tsx
-  import { Devvit } from '@devvit/public-api';
-
-  Devvit.configure({
-    redditAPI: true,
-  });
-
-  const myForm = Devvit.createForm(
-    (data) => {
-      return {
-        fields: [
-          {
-            type: 'string',
-            name: 'username',
-            label: 'Username',
-            defaultValue: data.username,
-          },
-        ],
-        // Adding `as const` helps you get accurate types in the onSubmit function below
-        // This will only work if the function does not have any branching logic
-      } as const;
-    },
-    (event, context) => {
-      context.ui.showToast({
-        text: `Hello ${event.values.username}`,
-      });
-    }
-  );
-
-  Devvit.addMenuItem({
-    label: 'Show a dynamic form',
-    location: 'subreddit',
-    onPress: async (_event, context) => {
-      const user = await context.reddit.getCurrentUser();
-      const username = user?.username;
-      context.ui.showForm(myForm, { username });
-    },
-  });
-  ```
-  </TabItem>
-</Tabs>
 
 ### Multi-step forms
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  
-  **Client-side approach (Promise chaining):**
+**Client-side approach (Promise chaining):**
   ```ts title="client/index.ts"
   import { showForm } from '@devvit/web/client';
 
@@ -1041,111 +852,12 @@ Below is a collection of common use cases and patterns.
 
   </TabItem>
   </Tabs>
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```tsx
-  import { Devvit, useState, useForm } from '@devvit/public-api';
-
-  Devvit.configure({
-    redditAPI: true,
-  });
-
-  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
-  Devvit.addCustomPostType({
-    name: 'Multi-step Form',
-    render: (context) => {
-      const [name, setName] = useState('');
-      const [food, setFood] = useState('');
-      const [drink, setDrink] = useState('');
-
-      const form3 = useForm(
-        {
-          fields: [
-            {
-              type: 'string',
-              name: 'drink',
-              label: "What's your favorite drink?",
-              required: true,
-            },
-          ],
-        },
-        (values) => {
-          setDrink(values.drink);
-        }
-      );
-
-      const form2 = useForm(
-        {
-          fields: [
-            {
-              type: 'string',
-              name: 'food',
-              label: "What's your favorite food?",
-              required: true,
-            },
-          ],
-        },
-        (values) => {
-          setFood(values.food);
-          context.ui.showForm(form3);
-        }
-      );
-
-      const form1 = useForm(
-        {
-          fields: [
-            {
-              type: 'string',
-              name: 'name',
-              label: "What's your name?",
-              required: true,
-            },
-          ],
-        },
-        (values) => {
-          setName(values.name);
-          context.ui.showForm(form2);
-        }
-      );
-
-      function restart() {
-        setName('');
-        setFood('');
-        setDrink('');
-        context.ui.showForm(form1);
-      }
-
-      const isAnswered = name && food && drink;
-
-      return (
-        <vstack height="100%" alignment="center middle" gap="none">
-          {isAnswered && (
-            <>
-              <text>Name: {name}</text>
-              <text>Favorite food: {food}</text>
-              <text>Favorite drink: {drink}</text>
-              <spacer size="large" />
-              <button onPress={restart}>Restart</button>
-            </>
-          )}
-          {!isAnswered && <button onPress={restart}>Take questionnaire</button>}
-        </vstack>
-      );
-    },
-  });
-  ```
-  [View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
-  </TabItem>
-</Tabs>
 
 ### One of everything
 
 This example includes one of each of the [supported field types](#supported-fields-types).
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  
-  **Client-side approach:**
+**Client-side approach:**
   ```ts title="client/index.ts"
   import { showForm } from '@devvit/web/client';
 
@@ -1386,83 +1098,10 @@ This example includes one of each of the [supported field types](#supported-fiel
 
   </TabItem>
   </Tabs>
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```tsx
-  import { Devvit } from '@devvit/public-api';
-
-  const exampleForm = Devvit.createForm(
-    {
-      title: 'My favorites',
-      description: 'Tell us about your favorite food!',
-      fields: [
-        {
-          type: 'string',
-          name: 'food',
-          label: 'What is your favorite food?',
-          helpText: 'Must be edible',
-          required: true,
-        },
-        {
-          label: 'About that food',
-          type: 'group',
-          fields: [
-            {
-              type: 'number',
-              name: 'times',
-              label: 'How many times a week do you eat it?',
-              defaultValue: 1,
-            },
-            {
-              type: 'paragraph',
-              name: 'what',
-              label: 'What makes it your favorite?',
-            },
-            {
-              type: 'select',
-              name: 'healthy',
-              label: 'Is it healthy?',
-              options: [
-                { label: 'Yes', value: 'yes' },
-                { label: 'No', value: 'no' },
-                { label: 'Maybe', value: 'maybe' },
-              ],
-              defaultValue: ['maybe'],
-            },
-          ],
-        },
-        {
-          type: 'boolean',
-          name: 'again',
-          label: 'Can we ask again?',
-        },
-      ],
-      acceptLabel: 'Submit',
-      cancelLabel: 'Cancel',
-    },
-    (event, context) => {
-      console.log(event.values);
-      context.ui.showToast('Thanks!');
-    }
-  );
-
-  Devvit.addMenuItem({
-    location: 'subreddit',
-    label: 'One of everything form',
-    onPress: (_event, context) => {
-      context.ui.showForm(exampleForm);
-    },
-  });
-  ```
-  </TabItem>
-</Tabs>
 
 ### Image uploads
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  
-  **Client-side approach:**
+**Client-side approach:**
   ```ts title="client/index.ts"
   import { showForm } from '@devvit/web/client';
 
@@ -1549,28 +1188,3 @@ This example includes one of each of the [supported field types](#supported-fiel
 
   </TabItem>
   </Tabs>
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```tsx
-  import { Devvit } from '@devvit/public-api';
-
-  const form = Devvit.createForm(
-    {
-      title: 'Upload an image!',
-      fields: [
-        {
-          name: 'myImage',
-          type: 'image', // This tells the form to expect an image
-          label: 'Image goes here',
-          required: true,
-        },
-      ],
-    },
-    (event, context) => {
-      // returns an i.redd.it URL
-      const imageUrl = event.values.myImage;
-    }
-  );
-  ```
-  </TabItem>
-</Tabs>

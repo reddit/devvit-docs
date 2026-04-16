@@ -1,6 +1,3 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Toasts
 
 Display temporary notification messages to users at the bottom of the screen.
@@ -24,108 +21,44 @@ Toasts will not work from scheduled jobs or triggers.
 
 ## Basic toast usage
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  ```ts
-  import { showToast } from '@devvit/web/client';
+```ts
+import { showToast } from '@devvit/web/client';
 
-  // Simple text toast
-  showToast('Operation completed successfully!');
+// Simple text toast
+showToast('Operation completed successfully!');
 
-  // Toast with custom appearance
-  showToast({
-    text: 'Data saved successfully!',
-    appearance: 'success', // 'neutral' | 'success'
-  });
+// Toast with custom appearance
+showToast({
+  text: 'Data saved successfully!',
+  appearance: 'success', // 'neutral' | 'success'
+});
 
-  // Use in button handlers or user interactions
-  function handleButtonClick() {
-    try {
-      // Perform some operation
-      processUserData();
-      
-      showToast({
-        text: 'Your data has been processed!',
-        appearance: 'success'
-      });
-    } catch (error) {
-      showToast('Something went wrong. Please try again.');
-    }
+// Use in button handlers or user interactions
+function handleButtonClick() {
+  try {
+    // Perform some operation
+    processUserData();
+
+    showToast({
+      text: 'Your data has been processed!',
+      appearance: 'success'
+    });
+  } catch (error) {
+    showToast('Something went wrong. Please try again.');
   }
-  ```
+}
+```
 
-  ### Parameters
+### Parameters
 
-  **`showToast(textOrToast)`**
+**`showToast(textOrToast)`**
 
-  - `textOrToast`: Either a string message or a `Toast` object
+- `textOrToast`: Either a string message or a `Toast` object
 
-  **Toast Object Properties:**
+**Toast Object Properties:**
 
-  - `text` (string): The message to display
-  - `appearance` (string, optional): The visual style (`'neutral'` | `'success'`). Defaults to `'neutral'`
-
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```ts
-  import { Devvit } from '@devvit/public-api';
-
-  // Example with menu action
-  Devvit.addMenuItem({
-    label: 'Save Data',
-    location: 'post',
-    forUserType: 'moderator',
-    onPress: async (event, context) => {
-      try {
-        // Perform some operation
-        await performAction();
-        
-        // Show success toast
-        context.ui.showToast({
-          text: 'Data saved successfully!',
-          appearance: 'success'
-        });
-      } catch (error) {
-        // Show error toast
-        context.ui.showToast('Something went wrong. Please try again.');
-      }
-    },
-  });
-
-  // Example in blocks
-  // addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
-  Devvit.addCustomPostType({
-    name: 'My Custom Post',
-    render: (context) => {
-      return (
-        <vstack>
-          <button
-            onPress={() => {
-              context.ui.showToast('Button clicked!');
-            }}
-          >
-            Click me
-          </button>
-        </vstack>
-      );
-    },
-  });
-  ```
-  [View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
-
-  ### Parameters
-
-  **`context.ui.showToast(textOrToast)`**
-
-  - `textOrToast`: Either a string message or a `Toast` object
-
-  **Toast Object Properties:**
-
-  - `text` (string): The message to display
-  - `appearance` (string, optional): The visual style (`'neutral'` | `'success'`). Defaults to `'neutral'`
-
-  </TabItem>
-</Tabs>
+- `text` (string): The message to display
+- `appearance` (string, optional): The visual style (`'neutral'` | `'success'`). Defaults to `'neutral'`
 
 :::tip Menu response toasts
 For toasts in menu response workflows (when you need server processing before showing toasts), see the [Menu Actions](./menu-actions.mdx) documentation.

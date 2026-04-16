@@ -1,6 +1,3 @@
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # Reddit API Overview
 
 The Reddit API allows you to read and write Reddit content such as posts / comments / upvotes, in order to integrate your app's behavior with the content of the community it's installed in.
@@ -24,32 +21,17 @@ Devvit apps cannot access certain private user data. This data is private to the
 
 Here's how to obtain a reference to the Reddit client
 
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  ```json title="devvit.json"
-  {
-    "permissions": {
-      "reddit": true
-    }
+```json title="devvit.json"
+{
+  "permissions": {
+    "reddit": true
   }
-  ```
-  ```ts title="server/index.ts"
-  import { reddit } from '@devvit/reddit';
-  ```
-  </TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-  ```ts title="devvit.tsx"
-  import { Devvit } from '@devvit/public-api';
-  
-  Devvit.configure({
-    redditAPI: true,
-  });
+}
+```
 
-  //Then, in any function that has a reference to Devvit.Context:
-  const reddit = context.reddit;
-  ```
-  </TabItem>
-</Tabs>
+```ts title="server/index.ts"
+import { reddit } from '@devvit/reddit';
+```
 
 ## Reddit Thing IDs
 
@@ -79,9 +61,7 @@ const parentId = comment.parentId; // 't3_abc123' or 't1_def456'
 ## Example usage
 
 ### Submitting a post
-<Tabs>
-  <TabItem value="web" label="Devvit Web">
-  ```ts
+```ts
 import { Devvit } from '@devvit/public-api';
 import { context, reddit } from '@devvit/web/server';
 
@@ -100,36 +80,7 @@ export const createPost = async () => {
     entry: 'default',
   });
 };
-  ```
-</TabItem>
-  <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-
-```tsx
-import { Devvit } from '@devvit/public-api';
-
-Devvit.configure({
-  redditAPI: true,
-});
-
-function createPost(context: Devvit.Context) {
-  const currentSubreddit = context.reddit.getCurrentSubreddit();
-  if (!currentSubreddit) {
-    throw new Error('No subreddit found');
-  }
-
-  return context.reddit.submitPost({
-    title: 'My custom post',
-    subredditName: currentSubreddit.name,
-    preview: (
-      <vstack height="100%" width="100%" alignment="middle center">
-        <text size="large">Loading...</text>
-      </vstack>
-    ),
-  });
-}
 ```
-</TabItem>
-</Tabs>
 
 ### Submitting a comment
 
@@ -138,42 +89,19 @@ Auto-comments should be used to spark conversation in the post comments, but you
 :::
 
 
-<Tabs>
-    <TabItem value="web" label="Devvit Web">
-    ```ts
-        import { context, reddit } from '@devvit/web/server';
+```ts
+import { context, reddit } from '@devvit/web/server';
 
-        export const createComment = async () => {
-            const { subredditName } = context;
-            if (!subredditName) {
-                throw new Error('subredditName is required');
-            }
+export const createComment = async () => {
+  const { subredditName } = context;
+  if (!subredditName) {
+    throw new Error('subredditName is required');
+  }
 
-            reddit.submitComment({
-                postId: 't3_123456', // Replace with the actual post ID
-                text: 'This is a comment from a Devvit app',
-                runAs: 'USER' // Optional: specify the user to run as
-            });
-        };
+  reddit.submitComment({
+    postId: 't3_123456', // Replace with the actual post ID
+    text: 'This is a comment from a Devvit app',
+    runAs: 'USER' // Optional: specify the user to run as
+  });
+};
 ```
-    </TabItem>
-    <TabItem value="blocks" label="Devvit Blocks / Mod Tools">
-    ```tsx
-        import { Devvit } from '@devvit/public-api';
-
-        Devvit.configure({
-            redditAPI: true,
-        });
-
-        function createComment(context: Devvit.Context) {
-            const { reddit } = context;
-
-            reddit.submitComment({
-                postId: 't3_123456', // Replace with the actual post ID
-                text: 'This is a comment from a Devvit app',
-                runAs: RunAs.USER, // Optional: specify the user to run as
-            });
-        };
-```
-    </TabItem>
-</Tabs>
