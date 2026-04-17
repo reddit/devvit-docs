@@ -16,7 +16,7 @@ This release includes the following updates:
 
 * Clarified that when `requestExpandedMode()` navigates to the same entrypoint, it may (but not always) trigger a reload.
 
-* Added a `post` parameter to the `shareSheet` effect to allow association with a specific post ID.
+* Added a `post` parameter to the `shareSheet` effect to allow sharing links to other posts.
 
 ## Release 0.12.18:  Custom Post  Styling, Video Comments, and Cache
 **Release Date: Apr 6, 2026**
