@@ -6,9 +6,7 @@ Create live and event-driven interactive posts. Realtime provides a set of primi
 - **Event-driven**. Posts render automatically in response to server events.
 - **Synced**. Using realtime with [Redis](../server/redis.mdx) lets you build persistent community experiences that are backed by high performance data synchronization.
 
-Realtime is supported in both [Devvit Web](../devvit-web/devvit_web_overview.mdx) and [Devvit Blocks](../blocks/overview.md) applications.
-
-Follow this guide, [Realtime in Devvit Blocks](./realtime_in_devvit_blocks.md), for instructions on using realtime in Devvit Blocks.
+Realtime is supported in [Devvit Web](../devvit-web/devvit_web_overview.mdx) applications.
 
 # Realtime in Devvit Web
 

@@ -168,7 +168,6 @@ const sidebars: SidebarsConfig = {
       items: [
         "earn-money/payments/payments_overview",
         "earn-money/payments/payments_add",
-        "earn-money/payments/payments_migrate",
         "earn-money/payments/payments_test",
         "earn-money/payments/payments_publish",
         "earn-money/payments/payments_manage",
@@ -295,9 +294,6 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Migration Guides",
       items: [
-        "guides/migrate/devvit-singleton",
-        "guides/migrate/devvit-web-experimental",
-        "guides/migrate/inline-web-view",
         {
           type: "category",
           label: "Splash Screens",
@@ -327,33 +323,6 @@ const sidebars: SidebarsConfig = {
       value: "<hr/>",
       className: "sidebar-divider",
       defaultStyle: false,
-    },
-    {
-      type: "category",
-      label: "Devvit Blocks",
-      items: [
-        "capabilities/blocks/overview",
-        "capabilities/blocks/blocks_payments",
-        "capabilities/blocks/dimensions",
-        "capabilities/blocks/working_with_usestate",
-        "capabilities/blocks/working_with_useinterval",
-        "capabilities/blocks/working_with_useasync",
-        "capabilities/blocks/app_image_assets",
-        "capabilities/realtime/realtime_in_devvit_blocks",
-        {
-          type: "category",
-          label: "Blocks Reference",
-          items: [
-            "blocks/stacks",
-            "blocks/text",
-            "blocks/icon",
-            "blocks/button",
-            "blocks/image",
-            "blocks/spacer",
-            "blocks/colors",
-          ],
-        },
-      ],
     },
     {
       type: "doc",

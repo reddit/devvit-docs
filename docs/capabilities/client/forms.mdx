@@ -230,7 +230,7 @@ For forms that open from a menu item, you can use menu responses. This is useful
 
 ## Form object
 
-The form object enables you to customize the form container and the [list of form fields](#supported-fields-types) included. The form object structure is the same for both Devvit Web and Devvit Blocks.
+The form object enables you to customize the form container and the [list of form fields](#supported-fields-types) included.
 
 #### Usage
 
@@ -1158,7 +1158,7 @@ This example includes one of each of the [supported field types](#supported-fiel
 
   app.post('/internal/form/image-submit', async (c) => {
     const { myImage } = await c.req.json<ImageFormRequest>();
-    // Use the mediaUrl to store in redis and display it in an <image> block, or send to external service to modify
+    // Store the mediaUrl in Redis and render it via an <img> tag on the client, or send to external service to modify
     console.log('Image uploaded:', myImage);
     
     return c.json<UiResponse>({
@@ -1177,7 +1177,7 @@ This example includes one of each of the [supported field types](#supported-fiel
 
   router.post<string, never, UiResponse, ImageFormRequest>("/internal/form/image-submit", async (req, res) => {
     const { myImage } = req.body;
-    // Use the mediaUrl to store in redis and display it in an <image> block, or send to external service to modify
+    // Store the mediaUrl in Redis and render it via an <img> tag on the client, or send to external service to modify
     console.log('Image uploaded:', myImage);
     
     res.json({

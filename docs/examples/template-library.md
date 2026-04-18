@@ -8,7 +8,7 @@ Here are some starter projects and templates for your Devvit projects
 
 - [React starter](https://github.com/reddit/devvit-template-react) - a boilerplate project scaffolding to help you kickstart your React project. It includes preinstalled libraries for Devvit, Vite, React, Express, Tailwind, and TypeScript for faster development.
 
-- [Three.js starter](https://github.com/reddit/devvit-template-threejs) - a tower blocks example that shows you how to create 3D graphics in the browser. It includes preinstalled libraries for Devvit, Vite, Three.js, Express, and TypeScript. This template is great for visualizations and games.
+- [Three.js starter](https://github.com/reddit/devvit-template-threejs) - a 3D stacking game example that shows you how to create 3D graphics in the browser. It includes preinstalled libraries for Devvit, Vite, Three.js, Express, and TypeScript. This template is great for visualizations and games.
 
 - [Phaser starter](https://github.com/reddit/devvit-template-phaser) - a feature-rich HTML5 game framework for building 2D games in the browser. It includes preinstalled libraries for Devvit, Vite, Phaser, Express, and TypeScript. This template is good for handling physics, animations, input, sound, and asset management.
 
@@ -18,14 +18,7 @@ Here are some starter projects and templates for your Devvit projects
 
 - [Hello world](https://github.com/reddit/devvit-template-hello-world/tree/main) - a simple template to build a counter app with no frameworks or opinions.
 
-
-## Devvit Blocks
-
-[Devvit Blocks](../capabilities/blocks/overview.md) lets you build applications that run inside of a Reddit post, using Reddit's own design system: optimized for performance and cross-platform compatibility.
-
-- [Blocks Empty Template](https://github.com/reddit/devvit-template-blocks) - an empty project leveraging Devvit Blocks
-
-- [Payments Template](https://github.com/reddit/devvit-template-payments) - a template that contains all boilerplate code to enable [Devvit Payments](../earn-money/payments/payments_overview.md) in your Blocks app.
+- [Payments Template](https://github.com/reddit/devvit-template-payments) - a template that contains all boilerplate code to enable [Devvit Payments](../earn-money/payments/payments_overview.md) in your app.
 
 ## Mod Tools
 

@@ -34,25 +34,13 @@ $ npx devvit create icons "src/my-icons.ts"
 
 #### Using the SVG files in app code
 
-```tsx
-import { Devvit } from '@devvit/public-api';
+```tsx title="src/client/App.tsx"
 import Icons from './my-icons.ts';
 
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
-Devvit.addCustomPostType({
-  name: 'my-custom-post',
-  render: (_context) => {
-    return (
-      <blocks>
-        <image url={Icons['my-image.svg']} imageHeight="32px" imageWidth="32px" />
-      </blocks>
-    );
-  },
-});
-
-export default Devvit;
+export const App = () => (
+  <img src={Icons['my-image.svg']} width={32} height={32} alt="" />
+);
 ```
-[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ### devvit help
 

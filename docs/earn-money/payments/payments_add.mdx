@@ -5,10 +5,6 @@ import TabItem from "@theme/TabItem";
 
 The Devvit payments API is available in Devvit Web. Keep reading to learn how to configure your products and accept payments.
 
-:::note
-Devvit Web is recommended for payments. Check out how to [migrate blocks apps](./payments_migrate.mdx) if you're app is currently using a blocks version of payments.
-:::
-
 To start with a template, select the payments template when you create a new project or run:
 
 ```bash
@@ -255,13 +251,7 @@ If you don’t provide an image, the default Reddit product image is used.
 
 ### Purchase buttons (required)
 
-#### Devvit Web
-
-In Devvit Web, use your own UI (e.g. a button or product card) and call `purchase(sku)` from `@devvit/web/client` when the user chooses a product. Follow the [design guidelines](#design-guidelines) (e.g. gold icon, clear labeling).
-
-#### Blocks (legacy)
-
-If your app still uses Devvit Blocks, you can use the `ProductButton` component and [migrate to Devvit Web](./payments_migrate.mdx) when ready. The `ProductButton` renders a product with a purchase button; use `payments.purchase(p.sku)` in the `onPress` callback (from `@devvit/payments`).
+Use your own UI (e.g. a button or product card) and call `purchase(sku)` from `@devvit/web/client` when the user chooses a product. Follow the [design guidelines](#design-guidelines) (e.g. gold icon, clear labeling).
 
 #### Webviews
 

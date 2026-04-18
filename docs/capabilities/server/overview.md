@@ -1,6 +1,6 @@
 # Server Overview
 
-Devvit offers a wide variety of features that help you integrate your app with Reddit's APIs, scale your app free of charge using Reddit's backend, and more. The features in this section are executed on the server side. They can be imported in both [Devvit Web](../devvit-web/devvit_web_overview.mdx) and [Devvit Blocks](../blocks/overview.md) applications, as well as Mod Tools.
+Devvit offers a wide variety of features that help you integrate your app with Reddit's APIs, scale your app free of charge using Reddit's backend, and more. The features in this section are executed on the server side. They can be imported in [Devvit Web](../devvit-web/devvit_web_overview.mdx) applications, as well as Mod Tools.
 
 Below is a brief explanation of all features in this section:
 

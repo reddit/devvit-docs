@@ -34,135 +34,120 @@ Cutting the template to the target directory...
 
 This tutorial lets you build your own version of [Comment Mop](https://developers.reddit.com/apps/comment-nuke). This tool allows moderators to remove and/or lock a full comment tree with a single menu action, avoiding repetitive mechanical tasks for community moderators.
 
-### Create a menu action for moderators
+### Declare a menu action for moderators
 
-The template leverages [Menu Actions](../capabilities/client/menu-actions) to enable moderators to Delete/Lock child comments of a post or comment. Menu Actions appear in the moderator menu:  
+Menu items are declared in `devvit.json`. Each entry points at a server endpoint that runs when a moderator clicks it. The template leverages [Menu Actions](../capabilities/client/menu-actions.mdx) to enable moderators to Delete/Lock child comments of a post or comment.
+
 ![menu actions](../assets/quickstart/quickstart-mod-tool-1.png)
 
-The following code adds a menu action to comments. Once the app is installed on a subreddit, all moderators of the subreddit will see this option appear in the moderator menu for all comments.
-
-```ts
-Devvit.addMenuItem({
-  label: 'Mop comments',
-  description: 'Remove this comment and all child comments. This might take a few seconds to run.',
-  location: 'comment',
-  forUserType: 'moderator',
-  onPress: (_event, context) => {
-    context.ui.showForm(nukeForm);
+```json title="devvit.json"
+{
+  "menu": {
+    "items": [
+      {
+        "label": "Mop comments",
+        "description": "Remove this comment and all child comments. This might take a few seconds to run.",
+        "forUserType": "moderator",
+        "location": ["comment"],
+        "endpoint": "/internal/menu/mop-comments"
+      }
+    ]
   },
-});
+  "forms": {
+    "mopForm": "/internal/form/mop-submit"
+  },
+  "permissions": {
+    "reddit": { "enable": true, "scope": "moderator" }
+  }
+}
 ```
 
-You'll notice that the `onPress` handler of this Menu Item action invokes a form with `context.ui.showForm()`. This will be explained in the next step.
+### Show a form from the menu action
 
-### Devvit forms
-
-Optionally, some moderator tools might need to request some additional information from the moderator before they can execute. In these cases we can leverage [Devvit Forms](../capabilities/client/forms). Comment Mop will display a form with some options regarding the action to be taken:
+Some moderator tools need additional information before they execute. The menu endpoint can respond with a form using [menu responses](../capabilities/client/menu-actions.mdx). Comment Mop displays a form with options for the action to be taken:
 
 ![forms](../assets/quickstart/quickstart-mod-tool-2.png)
 
-The code that defines this form is:
+```ts title="server/index.ts"
+import type { MenuItemRequest, UiResponse } from '@devvit/web/shared';
 
-```ts
-// Define form fields
-const nukeFields: FormField[] = [
-  {
-    name: 'remove',
-    label: 'Remove comments',
-    type: 'boolean',
-    defaultValue: true,
-  },
-  {
-    name: 'lock',
-    label: 'Lock comments',
-    type: 'boolean',
-    defaultValue: false,
-  },
-  {
-    name: 'skipDistinguished',
-    label: 'Skip distinguished comments',
-    type: 'boolean',
-    defaultValue: false,
-  },
-] as const;
-
-// Create form
-const nukeForm = Devvit.createForm(
-  () => {
-    return {
-      fields: nukeFields,
-      title: 'Mop Comments',
-      acceptLabel: 'Mop',
-      cancelLabel: 'Cancel',
-    };
-  },
-  // Form confirmation handler
-  async ({ values }, context) => {
-    if (!values.lock && !values.remove) {
-      context.ui.showToast('You must select either lock or remove.');
-      return;
-    }
-
-    if (context.commentId) {
-      // ...
-      // mop comments here
-      // ...
-    }
-  }
-);
+app.post('/internal/menu/mop-comments', async (c) => {
+  const _input = await c.req.json<MenuItemRequest>();
+  return c.json<UiResponse>({
+    showForm: {
+      name: 'mopForm',
+      form: {
+        title: 'Mop Comments',
+        acceptLabel: 'Mop',
+        cancelLabel: 'Cancel',
+        fields: [
+          { name: 'remove', label: 'Remove comments', type: 'boolean', defaultValue: true },
+          { name: 'lock', label: 'Lock comments', type: 'boolean', defaultValue: false },
+          {
+            name: 'skipDistinguished',
+            label: 'Skip distinguished comments',
+            type: 'boolean',
+            defaultValue: false,
+          },
+        ],
+      },
+    },
+  });
+});
 ```
 
-The code that handles mopping the comment has been redacted from the sample above. It uses the Reddit API to traverse through the comments and perform the necessary actions. It will be explained in the next step.
+### Handle the form submission with the Reddit API
 
-### Reddit API
+Devvit apps can use the Reddit API to act on comments and posts. The form submission endpoint receives the moderator's selections and traverses the comment tree:
 
-Apps made with Devvit can leverage the Reddit API to perform actions on comments, posts, get information about the current session, etc. The following code uses the Reddit API to find the child comments of the selected comment and delete all of them:
+```ts title="server/index.ts"
+import { reddit, context } from '@devvit/web/server';
+import type { UiResponse } from '@devvit/web/shared';
 
-```ts
-Devvit.configure({
-  redditAPI: true,
+type MopFormRequest = {
+  remove: boolean;
+  lock: boolean;
+  skipDistinguished: boolean;
+};
+
+app.post('/internal/form/mop-submit', async (c) => {
+  const { remove, lock, skipDistinguished } = await c.req.json<MopFormRequest>();
+  const { commentId } = context;
+
+  if (!remove && !lock) {
+    return c.json<UiResponse>({ showToast: 'You must select either lock or remove.' });
+  }
+
+  if (!commentId) {
+    return c.json<UiResponse>({ showToast: 'This action must be run on a comment.' });
+  }
+
+  try {
+    const rootComment = await reddit.getCommentById(commentId);
+
+    for await (const comment of walkReplies(rootComment, skipDistinguished)) {
+      if (remove && !comment.removed) await comment.remove();
+      if (lock && !comment.locked) await comment.lock();
+    }
+
+    return c.json<UiResponse>({
+      showToast: 'Comments mopped! Refresh the page to see the cleanup.',
+    });
+  } catch (err) {
+    console.error(err);
+    return c.json<UiResponse>({ showToast: 'Mop failed! Please try again later.' });
+  }
 });
 
-export async function handleNuke(props: NukeProps, context: Devvit.Context) {
-  try {
-    // Get Comment and User from Reddit API
-    const comment = await context.reddit.getCommentById(props.commentId);
-    const user = await context.reddit.getCurrentUser();
-
-    // Get Comments for Removal
-    const comments: Comment[] = [];
-    for await (const eachComment of getAllCommentsInThread(comment, skipDistinguished)) {
-      comments.push(eachComment);
-    }
-
-    // Remove all comments
-    await Promise.all(comments.map((comment) => comment.removed || comment.remove()));
-
-    // Add to Mod Log
-    try {
-      await context.modLog.add({
-        action: 'removecomment',
-        target: props.commentId,
-        details: 'comment-mop app',
-        description: `u/${user.username} used comment-mop to ${verbage} this comment and all child comments.`,
-      });
-    } catch (e: unknown) {
-      console.error(`Failed to add modlog for comment: ${props.commentId}.`, (e as Error).message);
-    }
-
-    // Show Toast with Result
-    context.ui.showToast('Comments removed! Refresh the page to see the cleanup.');
-  } catch (err: unknown) {
-    context.ui.showToast('Mop failed! Please try again later.');
-    console.error(err);
-  }
-}
-
-// Helper Function - Depth-first traversal to get all comments in a thread
-async function* getAllCommentsInThread(comment: Comment): AsyncGenerator<Comment> {
+async function* walkReplies(
+  comment: Awaited<ReturnType<typeof reddit.getCommentById>>,
+  skipDistinguished: boolean,
+): AsyncGenerator<typeof comment> {
+  if (skipDistinguished && comment.distinguishedBy) return;
+  yield comment;
   const replies = await comment.replies.all();
   for (const reply of replies) {
-    yield* getAllCommentsInThread(reply);
+    yield* walkReplies(reply, skipDistinguished);
   }
 }
 ```
@@ -186,6 +171,6 @@ Now you have a mod tool running from the code that you deployed yourself. Feel f
 ## Further reading
 
 - Use our [launch guide](../guides/launch/launch-guide.md) to guide you where to get your first users.
-- [Devvit Forms](../capabilities/client/forms)
-- [Menu Actions](../capabilities/client/menu-actions)
+- [Devvit Forms](../capabilities/client/forms.mdx)
+- [Menu Actions](../capabilities/client/menu-actions.mdx)
 - [Reddit Developer Funds](../earn-money/reddit_developer_funds)

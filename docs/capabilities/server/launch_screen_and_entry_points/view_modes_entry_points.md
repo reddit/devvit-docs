@@ -149,7 +149,7 @@ Apps must meet these requirements for approval and featuring:
   - To find your Lighthouse score you can follow these steps:
     1. Open your inline post
     2. Open Developer Tools in Chrome and navigate to the elements tab
-    3. Find the `devvit-blocks-web-view` element and open it in a new tab
+    3. Find the Devvit web view element in the DOM and open it in a new tab
     4. Open Developer Tools in the new tab and navigate to Lighthouse
     5. Ensure you have mobile selected and select Analyze Page Load
 

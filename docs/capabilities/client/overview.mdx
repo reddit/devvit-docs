@@ -33,11 +33,11 @@ if (result) {
 
 ## Available client effects
 
-| Effect | Description | Devvit Web | Devvit Blocks |
-|--------|-------------|------------|---------------|
-| **Toast** | Show temporary notification messages | `showToast()` | `context.ui.showToast()` |
-| **Form** | Display interactive forms with promise-based responses | `showForm()` | `context.ui.showForm()` |
-| **Navigation** | Redirect to Reddit content or external URLs | `navigateTo()` | `context.ui.navigateTo()` |
+| Effect | Description | API |
+|--------|-------------|-----|
+| **Toast** | Show temporary notification messages | `showToast()` |
+| **Form** | Display interactive forms with promise-based responses | `showForm()` |
+| **Navigation** | Redirect to Reddit content or external URLs | `navigateTo()` |
 
 :::note When to use client library functions
 You should only use client library functions in response to a user-initiated action.
@@ -45,7 +45,7 @@ You should only use client library functions in response to a user-initiated act
 
 ## Menu responses
 
-In Devvit Web, menu items can respond with client effects after server processing.
+Menu items can respond with client effects after server processing.
 
 Menu responses allow you to:
 - Process data on the server before showing client effects

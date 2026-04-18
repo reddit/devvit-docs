@@ -43,7 +43,7 @@ export const createPost = async () => {
 | `entry` | Key of the entrypoint defined in `devvit.json` |
 | `postData` |  [Updates post data after creation](../capabilities/server/post-data) |
 | `textFallback` | [Specifies alternative text content](../capabilities/server/text_fallback) |
-| `userGeneratedContent` | [Enables user-generated content](..capabilities/server/userActions) |
+| `userGeneratedContent` | [Enables user-generated content](../capabilities/server/userActions) |
 | `styles` | Controls post appearance in the Reddit UI. See [Custom Post Styles](#custom-post-styles) |
 
 ## **Custom Post Styles**

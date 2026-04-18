@@ -24,7 +24,6 @@ Additionally, you must include at least one of:
 
 - **`post`**: For web view apps
 - **`server`**: For Node.js server apps
-- **`blocks`**: For Blocks
 
 ## Configuration sections
 
@@ -37,11 +36,10 @@ Additionally, you must include at least one of:
 
 ### App components
 
-| Property | Type   | Description                        | Required                  |
-| -------- | ------ | ---------------------------------- | ------------------------- |
-| `post`   | object | Custom post/web view configuration | One of post/server/blocks |
-| `server` | object | Node.js server configuration       | One of post/server/blocks |
-| `blocks` | object | Blocks                             | One of post/server/blocks |
+| Property | Type   | Description                        | Required           |
+| -------- | ------ | ---------------------------------- | ------------------ |
+| `post`   | object | Custom post/web view configuration | One of post/server |
+| `server` | object | Node.js server configuration       | One of post/server |
 
 ### Permissions & capabilities
 
@@ -316,23 +314,13 @@ Configure development settings:
 
 - `subreddit` (string): Default development subreddit (can be overridden by `DEVVIT_SUBREDDIT` env var)
 
-## Migration from `devvit.yaml`
-
-1. Create a new `devvit.json` file in the project root.
-2. Copy over the `name` property from `devvit.yaml`.
-3. Delete `devvit.yaml`.
-4. Move configuration from `Devvit.configure()` calls to `permissions`. For example, if the app called `Devvit.configure({redis: true})` set `permissions.redis` to `true` in `devvit.json`.
-5. If the app has a web view, set `post` in `devvit.json` and either configure `post.entry` to `webroot/` or to your build output directory. Optionally, delete calls to `Devvit.addCustomPostType()` and `Devvit.addMenuItem()`.
-6. If the app has a Node.js server, set `server` in `devvit.json`.
-7. (Optional) Set `blocks.entry` to `src/main.tsx` (or `src.main.ts`) to continue using `@devvit/public-api` legacy APIs.
-
 ## Validation rules
 
 The `devvit.json` configuration is validated against the JSON Schema at build time. Many IDEs will also underline errors as you write. Common validation errors include:
 
 - **JSON Syntax:** Adding comments or trailing commas (unsupported by JSON)
 - **Required Properties:** Missing the required `name` property
-- **App Components:** Missing at least one of `post`, `server`, or `blocks`
+- **App Components:** Missing at least one of `post` or `server`
 - **Dependencies:** Missing `server` when `triggers` is specified
 - **File References:** Missing files referenced in `devvit.json`
 - **Permissions:** Missing required permissions for used features

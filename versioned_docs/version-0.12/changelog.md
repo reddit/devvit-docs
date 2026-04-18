@@ -93,10 +93,6 @@ This release brings new guidance to help you build more engaging community games
 
 The newly updated [Building Community Games](https://developers.reddit.com/docs/guides/best-practices/community_games#player-retention) guide includes new tips for creating engaging gameplay that thrives on Reddit!  Learn which mechanics drive long-term engagement and how to improve your chances of [getting featured](https://developers.reddit.com/docs/guides/launch/feature-guide).  
 
-**Deprecating Devvit Blocks**   
-
-As we announced last month, [Devvit Blocks will be deprecated](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/) effective June 30, 2026. In this release, we added a deprecation notice to `Devvit.addCustomPostType`. New apps that use this API will now be rejected during app review.    
-
 **Other Fixes**   
 - **Improved modmail validation and logging**: Added subreddit ID validation for Reddit Modmail requests and improved error logging.
 - **Fixed image uploads in comments created with RichTextBuilder**: Resolved an issue where comment creation failed when adding images due to media processing conflicts. RichTextBuilder now accepts media URLs instead of media IDs, and the Devvit runtime converts them during processing to ensure compatibility with native post and comment media handling.
@@ -201,9 +197,6 @@ In the last release of 2025, we’ve made a slew of minor updates (they're still
 
 In this release, we’re excited to bring payment support to Devvit Web. If you’re looking to add payments to your app, check out our [updated docs](./earn-money/payments/payments_overview.md).
 
-Devvit Web has reached full feature parity with blocks, and we strongly recommend using Devvit Web for all new apps. If you want to convert your existing blocks apps (including mod apps) to Devvit Web, check out the [migration guide](./guides/migrate/devvit-singleton.md).
-
-To keep things clear (and friendlier to AI-assisted IDEs), we're moving all [blocks documentation](./capabilities/blocks/overview.md) into its own dedicated section.
 
 ## Devvit 0.12.4: Ins and Outs
 
@@ -311,7 +304,7 @@ This release also includes a handful of other fixes including:
 
 - Added a method mergePostData() to append to postData.
 - Fixed reddit.setPostFlair() method.
-- Added a new triggers field that fixed the issue where triggers within the blocks entrypoint weren’t working. The migration guide has been updated.
+- Added a new triggers field that fixed an entrypoint triggers issue.
 - Added error handling when trying to `devvit new`on an already existing app name.
 - Added disconnectRealtime() and isRealtimeConnected() as helper methods for the realtime plugin.
 
@@ -341,8 +334,6 @@ There's also a new [web-based creation flow](https://developers.reddit.com/new/)
 
 - **Client/server architecture**: Clear separation between frontend (@devvit/web/client) and backend (@devvit/web/server)
 - **Full platform access**: Continued access to Redis, Reddit API, and Devvit's hosting services
-- **Flexible development**: Use Devvit Web alongside existing Blocks - choose the right tool for each feature
-
 **Current Limitations**
 
 - Serverless endpoints only (no long-running connections or streaming)
@@ -353,10 +344,6 @@ There's also a new [web-based creation flow](https://developers.reddit.com/new/)
 **Getting Started**
 
 - **New apps**: Go to developers.reddit.com/new to start building new apps
-- **Existing apps**: Migration is optional - your current apps continue to work on 0.11, but we recommend using these migration guides to move your app over to Devvit Web.
-  - [Devvit Web Experimental to Devvit Web](./guides/migrate/devvit-web-experimental.md)
-  - [useWebView to Devvit Web](./guides/migrate/inline-web-view.md)
-  - [Blocks app to Devvit Web](./guides/migrate/devvit-singleton.md)
 
 **Support & Feedback**
 

@@ -93,7 +93,7 @@ One other common gotcha: Devvit projects use `vite build --watch` rather than a 
 
 Prefer updating the project-local CLI dependency instead of relying on a global install. The current docs recommend updating `devvit` in your project, then running `npx devvit update app` so your `@devvit` packages match the CLI.
 
-For the current commands and workflow, see [Devvit CLI](./tools/devvit_cli.mdx), [Optimizing performance](../capabilities/blocks/optimize_performance.md), and the update notes in [Changelog](../changelog.md).
+For the current commands and workflow, see [Devvit CLI](./tools/devvit_cli.mdx) and the update notes in [Changelog](../changelog.md).
 
 </details>
 
@@ -173,30 +173,6 @@ Devvit Web is the current client/server app model for building Devvit apps with 
 
 </details>
 
-<span id="should-i-use-devvit-web-or-devvit-blocks-for-a-new-game"></span>
-<details>
-<summary>Should I use Devvit Web or Devvit Blocks for a new game?</summary>
-
-Use Devvit Web for new games. The current docs say Devvit Web has reached feature parity with Blocks for new apps, strongly recommend Devvit Web for all new apps, and note that `Devvit.addCustomPostType()` is deprecated and new apps using it will be rejected during review. The clearest sources are [Devvit Web overview](../capabilities/devvit-web/devvit_web_overview.mdx) and [Changelog](../changelog.md).
-
-</details>
-
-<span id="can-i-combine-devvit-blocks-and-devvit-web"></span>
-<details>
-<summary>Can I combine Devvit Blocks and Devvit Web?</summary>
-
-Legacy and partially migrated apps can still mix pieces while they transition, and the migration guides explicitly say apps can be partially migrated. But for new game-style interactive posts, the better direction is to move the experience to Devvit Web instead of designing a new Blocks-plus-Web architecture around deprecated custom post APIs. See [Migrating from useWebView to Devvit Web](./migrate/inline-web-view.md) and [Migrating Blocks/Mod Tools to Devvit Web](./migrate/devvit-singleton.md).
-
-</details>
-
-<span id="how-do-i-migrate-from-blocks-or-usewebview-to-devvit-web"></span>
-<details>
-<summary>How do I migrate from Blocks or <code>useWebView</code> to Devvit Web?</summary>
-
-There are separate migration guides depending on what you are starting from: Blocks/Mod Tools, `useWebView`, and Devvit Web experimental. In all cases, the main shift is toward `devvit.json`, explicit client/server folders, and direct server endpoints instead of older message-passing or singleton-based setup. Start with [Blocks/Mod Tools to Devvit Web](./migrate/devvit-singleton.md), [useWebView to Devvit Web](./migrate/inline-web-view.md), or [Devvit Web Experimental to Devvit Web](./migrate/devvit-web-experimental.md).
-
-</details>
-
 <span id="where-do-i-customize-the-first-screen-or-launch-screen"></span>
 <details>
 <summary>Where do I customize the first screen or launch screen?</summary>
@@ -227,7 +203,7 @@ There is no single canonical viewport size for all devices. Design responsively,
 <details>
 <summary>How do I add images that ship with my app?</summary>
 
-Put static images in the root `assets/` directory when they should ship with the app version, such as logos, backgrounds, or other bundled art. The docs cover both `<image url="filename.png" ... />` usage and `context.assets.getURL()` in [App image assets](../capabilities/blocks/app_image_assets.md).
+Put static images in your client `dist/` directory when they should ship with the app version, such as logos, backgrounds, or other bundled art. Reference them directly from your web client (for example via `<img src="/logo.png" />`).
 
 </details>
 
@@ -245,7 +221,7 @@ See [Forms](../capabilities/client/forms.mdx) and [Media uploads](../capabilitie
 <details>
 <summary>What image URLs can I use in a Devvit app?</summary>
 
-The documented display paths are bundled asset filenames, Reddit-hosted URLs, and SVG data URLs, depending on the UI surface. If your source image lives somewhere else on the web, do not assume you can hotlink it directly into the UI. Upload it first so Reddit hosts the image, then use the returned URL. See [Image](../blocks/image.mdx), [App image assets](../capabilities/blocks/app_image_assets.md), and [Media uploads](../capabilities/server/media-uploads.mdx).
+The documented display paths are bundled client assets, Reddit-hosted URLs, and SVG data URLs, depending on the UI surface. If your source image lives somewhere else on the web, do not assume you can hotlink it directly into the UI. Upload it first so Reddit hosts the image, then use the returned URL. See [Media uploads](../capabilities/server/media-uploads.mdx).
 
 </details>
 
@@ -271,7 +247,7 @@ Set `postData` when creating the post, then read it from `context.postData` on e
 
 The standard Devvit pattern is to build leaderboards with Redis sorted sets. Use [Redis](../capabilities/server/redis.mdx) for score storage and ranking, use [Scheduler](../capabilities/server/scheduler.mdx) for daily or periodic resets, and prefer realtime updates over constant polling when you need a live leaderboard.
 
-Keep the FAQ answer short: Redis is the right storage layer, but the exact schema depends on whether you need daily, weekly, or all-time rankings. The best starting points are [Redis](../capabilities/server/redis.mdx) and the leaderboard/performance guidance in [Optimizing performance](../capabilities/blocks/optimize_performance.md).
+Keep the FAQ answer short: Redis is the right storage layer, but the exact schema depends on whether you need daily, weekly, or all-time rankings. [Redis](../capabilities/server/redis.mdx) is the best starting point.
 
 </details>
 
@@ -327,13 +303,11 @@ If you need to react to flair changes, Devvit documents an [`onPostFlairUpdate`]
 <details>
 <summary>How do I get a user's username or snoovatar?</summary>
 
-If you only need the current user's name, prefer `getCurrentUsername()`. The [performance guide](../capabilities/blocks/optimize_performance.md) recommends this over fetching the full user object.
+If you only need the current user's name, prefer `getCurrentUsername()` over fetching the full user object.
 
 If you need more profile information, use `getCurrentUser()` from the [Reddit API client](../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md). To get a snoovatar URL, use `reddit.getSnoovatarUrl(username)` or `user.getSnoovatarUrl()` on the [User](../api/redditapi/models/classes/User.md) model.
 
 Some handlers also expose experimental identity fields such as `username` and `snoovatar` on [BaseContext](../api/public-api/type-aliases/BaseContext.md), but the Reddit client methods are the clearest documented path.
-
-If you are building with Devvit Blocks, the API also exposes an [`avatar`](../api/public-api/@devvit/namespaces/Devvit/namespaces/Blocks/type-aliases/AvatarProps.md) component that renders from a `thingId`.
 
 </details>
 
@@ -359,7 +333,7 @@ There is no single limits page today, but these are the most commonly referenced
 - [Devvit Web](../capabilities/devvit-web/devvit_web_overview.mdx): 30 second max request time, 4 MB max payload size, and 10 MB max response size.
 - [Post data](../capabilities/server/post-data.mdx): 2 KB per post.
 - [Settings and secrets](../capabilities/server/settings-and-secrets.mdx): 2 KB per setting value.
-- [Realtime](../capabilities/realtime/realtime_in_devvit_blocks.md): 1 MB maximum message payload and 100 messages per second per installation.
+- [Realtime](../capabilities/realtime/overview.md): 1 MB maximum message payload and 100 messages per second per installation.
 - [Scheduler](../capabilities/server/scheduler.mdx): up to 10 live recurring actions per installation, plus `runJob()` limits documented on that page.
 
 If you need data to survive app updates, do not rely on browser `localStorage`. The [Devvit Web overview](../capabilities/devvit-web/devvit_web_overview.mdx) recommends Redis for persistent storage across versions.
@@ -372,7 +346,7 @@ If you need data to survive app updates, do not rely on browser `localStorage`. 
 
 The docs do not publish one fixed pixel size for every device or view mode. Instead, build responsive layouts and test them across the views supported by the [UI Simulator](./tools/ui_simulator.mdx): mobile, desktop, and fullscreen.
 
-For Devvit Web, inline and expanded mode behave differently: expanded is the larger experience, with more room for rich interaction, while inline should stay lightweight and feed-friendly. For Devvit Blocks, layout sizing is based on [device-independent pixels and percentages](../blocks/overview.mdx), not a single universal viewport.
+Inline and expanded mode behave differently: expanded is the larger experience, with more room for rich interaction, while inline should stay lightweight and feed-friendly.
 
 If you are tuning layout behavior, start with mobile-first assumptions and validate in the simulator before hard-coding dimensions. The best references are [View modes and entry points](../capabilities/server/launch_screen_and_entry_points/view_modes_entry_points.md), [Launch screen customization](../capabilities/server/launch_screen_and_entry_points/launch_screen_customization.md), and [UI Simulator](./tools/ui_simulator.mdx).
 
@@ -384,7 +358,7 @@ If you are tuning layout behavior, start with mobile-first assumptions and valid
 
 There is no separate NSFW platform guide in these docs, so the main source of truth is [Devvit Rules](../devvit_rules.md) plus Reddit's linked platform policies.
 
-The rules explicitly require labels or age-gating before exposing users to graphic, sexually explicit, or otherwise mature content. Static assets and uploaded media are also subject to the same safety checks and policy review described in [App image assets](../capabilities/blocks/app_image_assets.md) and [Media uploads](../capabilities/server/media-uploads.mdx).
+The rules explicitly require labels or age-gating before exposing users to graphic, sexually explicit, or otherwise mature content. Static assets and uploaded media are also subject to the same safety checks and policy review described in [Media uploads](../capabilities/server/media-uploads.mdx).
 
 If your app idea depends on adult content or NSFW communities, review those rules first and get clarification in the [Devvit Discord](https://developers.reddit.com/discord) before you ship.
 

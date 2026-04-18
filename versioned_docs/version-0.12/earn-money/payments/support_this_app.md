@@ -62,32 +62,6 @@ Example client code:
 ```tsx title="client/index.ts"
 import { purchase, OrderResultStatus } from "@devvit/web/client";
 
-<<<<<<< HEAD
-// addCustomPostType() is deprecated and will be unsupported. It will not work after June 30. View the announcement below this example.
-Devvit.addCustomPostType({
-  render: (context) => {
-    const { products } = useProducts(context);
-    const payments = usePayments((result: OnPurchaseResult) => {
-      if (result.status === OrderResultStatus.Success) {
-        context.ui.showToast({
-          appearance: 'success',
-          text: 'Thanks for your support!',
-        });
-      } else {
-        context.ui.showToast(
-          `Purchase failed! Please try again.`
-        );
-      }
-    });
-   const supportProduct = products.find(products.find((p) => p.sku === 'support-app');
-   return (
-     <ProductButton
-       product={supportProduct}
-       onPress={(p) => payments.purchase(p.sku)}
-     />
-   );
-})
-=======
 async function handleSupportApp() {
   const result = await purchase("support-app");
   if (result.status === OrderResultStatus.STATUS_SUCCESS) {
@@ -96,9 +70,7 @@ async function handleSupportApp() {
     // show error or retry (result.errorMessage may be set)
   }
 }
->>>>>>> 64da331 (DR-370 update payments docs referencing Ddevvit singleton)
 ```
-[View `addCustomPostType` deprecation announcement.](https://www.reddit.com/r/Devvit/comments/1r3xcm2/devvit_web_and_the_future_of_devvit/)
 
 ## Example
 
