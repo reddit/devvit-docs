@@ -150,6 +150,29 @@ Any content used or created by your Devvit app must comply with Reddit Terms & P
 
 If any content created or otherwise displayed through your app violates these Devvit Rules or other Reddit Terms & Policies, then Reddit may remove the content and/or request you remove the content. Failure to do so can result in your app being removed from Devvit.
 
+### User action requirements
+
+If your app uses [user actions](./capabilities/server/userActions.mdx) (posting, commenting, or subscribing on behalf of the user), you must follow these requirements. Apps that do not meet them will be rejected during review.
+
+- **When to post or comment as the user:**
+  - If users enter text or imagery that appears in your app, publish that content with reportable, actionable attribution — such as posts or comments submitted as the user.
+  - For score sharing, comments must be submitted as the user, not the app account.
+
+- **Before you post or comment as the user:**
+  - Trigger the action only via an explicit manual action (for example, a button). Users must clearly understand what will happen before they confirm.
+  - Make it clear they are posting or commenting as themselves, including what will appear on Reddit and when their username is shown to others.
+  - Label buttons and flows so the action is obviously from the user's account, not only the app account.
+  - Do not automate these actions, and do not mislead or surprise users.
+
+- **When posting or commenting as the user:**
+  - Set `userGeneratedContent` correctly for posts submitted on behalf of the user.
+  - For generic score comments, reply to a sticky comment. If the user adds meaningful commentary to their score, a top-level comment is allowed.
+
+- **Subscribe actions and gating:**
+  - Subscribing on behalf of the user must also be explicit and manual, with clear user understanding before confirmation.
+  - Do not require or encourage posting, commenting, or subscribing as a condition of progress, access, or core functionality.
+  - Do not merge gameplay actions with posting, commenting, or subscribing — each action must remain a separate, clear choice.
+
 ### Enable and respect user deletions
 
 Whether your app uses existing user content or otherwise allows users to create new user content, you and your app must always honor user deletion requests and respect redditors’ privacy rights. More specifically:
