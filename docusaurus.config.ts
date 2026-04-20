@@ -9,7 +9,7 @@ const LATEST_DEVVIT_VERSION = '0.12'; // update-versioned-docs.mjs sets this aut
 const config: Config = {
   future: {
     v4: true,
-    experimental_faster: true,
+    faster: true,
   },
   title: "Reddit for Developers",
   tagline: "An app for anything",
