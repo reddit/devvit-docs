@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.12.21-dev**](../../README.md)
+[**Reddit API Reference v0.12.21-dev**](../../README.md)
 
 ***
 
 # Type Alias: CommentSubmissionOptions
 
-> **CommentSubmissionOptions** = \{ `runAs`: `"USER"` \| `"APP"`; `text`: `string`; \} \| \{ `richtext`: `object` \| `RichTextBuilder`; `runAs`: `"USER"` \| `"APP"`; \}
+> **CommentSubmissionOptions** = \{ `id`: `string`; `runAs`: `"USER"` \| `"APP"`; `text`: `string`; \} \| \{ `id`: `string`; `richtext`: `object` \| `RichTextBuilder`; `runAs`: `"USER"` \| `"APP"`; \}

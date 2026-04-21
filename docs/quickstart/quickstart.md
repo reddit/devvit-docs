@@ -85,7 +85,7 @@ After adding the subreddit, use `npm run dev` to see the app on the new subreddi
 
 Use our [launch guide](../guides/launch/launch-guide.md) to guide you where to get your first users.
 
-When you are ready to launch your app, run `npm run launch`. This will upload your app to Reddit for our team to review. All apps must be reviewed before they can be installed on subreddits > 200 members. We will send you an email once your app is approved.
+When you are ready to launch your app, run `npx devvit publish`. This submits your app to Reddit for review. All apps must be reviewed before they can be installed on subreddits > 200 members. We will send you an email once your app is approved.
 
 ## Result
 

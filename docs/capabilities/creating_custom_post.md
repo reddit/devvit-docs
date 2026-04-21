@@ -1,6 +1,6 @@
 # Creating a Custom Post
 
-Redditors interact with your app through custom posts. To create a custom post, you’ll define the entry points in `devvit.json,` then use `submitCustomPost` to create a post that references one of those entry points.
+Redditors interact with your app through custom posts. To create a custom post, define the entry points in `devvit.json`, then use `submitCustomPost` to create a post that references one of those entry points.
 
 ## **How it Works**
 
@@ -45,6 +45,8 @@ export const createPost = async () => {
 | `textFallback` | [Specifies alternative text content](../capabilities/server/text_fallback) |
 | `userGeneratedContent` | [Enables user-generated content](../capabilities/server/userActions) |
 | `styles` | Controls post appearance in the Reddit UI. See [Custom Post Styles](#custom-post-styles) |
+
+You do not need to provide a separate `preview` element when creating a custom post with Devvit Web.
 
 ## **Custom Post Styles**
 

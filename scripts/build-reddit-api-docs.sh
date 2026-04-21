@@ -6,6 +6,7 @@ echo "Building Reddit API docs..."
 
 typedoc \
     --plugin typedoc-plugin-markdown \
+    --name 'Reddit API Reference' \
     --entryPoints '../packages/public-api/src/apis/reddit/RedditAPIClient.ts' \
     --entryPoints '../packages/public-api/src/apis/reddit/models' \
     --tsconfig '../packages/public-api/tsconfig.json' \

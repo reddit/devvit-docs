@@ -14,7 +14,7 @@ Allows you to build apps where the end user can upload custom images to Reddit's
 
 ## [Reddit API](./reddit-api.mdx)
 
-Allows you to query information from Reddit such as comments, posts and upvotes. Limited to installation scope of the application.
+Allows you to query information from Reddit such as comments, posts, moderation state, and other community data. Limited to the installation scope of the application.
 
 ## [Data storage (Redis)](./redis.mdx)
 

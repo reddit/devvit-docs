@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.21-dev**](../../README.md)
+[**Reddit API Reference v0.12.21-dev**](../../README.md)
 
 ***
 
@@ -12,9 +12,9 @@
 
 > `optional` **postData**: `PostData`
 
-### preview
+### preview?
 
-> **preview**: `JSX.Element`
+> `optional` **preview**: `JSX.Element`
 
 ### userGeneratedContent?
 

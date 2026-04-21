@@ -28,12 +28,12 @@ Event triggers let your app automatically respond to a user's or moderator's act
 - `onPostSpoilerUpdate`
 - `onAppInstall`
 - `onAppUpgrade`
-- `onModActions`
+- `onModAction`
 - `onModMail`
 - `onAutomoderatorFilterPost`
 - `onAutomoderatorFilterComment`
 
-A full list of events and their payloads can be found in the [EventTypes documentation](../../api/public-api/@devvit/namespaces/EventTypes/). For more details on Mod specific actions, see [ModActions](../../api/redditapi/models/interfaces/ModAction) and [ModMail](../../api/public-api/type-aliases/ModMailDefinition).
+A full list of events and their payloads can be found in the [EventTypes documentation](../../api/public-api/@devvit/namespaces/EventTypes/). In `devvit.json`, use the trigger key `onModAction`; the underlying trigger event type is documented as `ModAction`. For more details on mod-specific actions, see [ModActions](../../api/redditapi/models/interfaces/ModAction) and [ModMail](../../api/public-api/type-aliases/ModMailDefinition).
 
 ## Setting up triggers
 

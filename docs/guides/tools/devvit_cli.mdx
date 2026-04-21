@@ -248,6 +248,8 @@ $ npx devvit new --here
 
 Installs your app to your test subreddit and starts a playtest session. A new version of your app is installed whenever you save changes to your app code, and logs are continuously streamed. Press `ctrl+c` to end the playtest session. Once ended, the latest installed version will remain unless you revert to a previous version using [`devvit install`](#devvit-install). For more information, see the [playtest page](playtest.md).
 
+You do not need to run `devvit upload` before using `devvit playtest`.
+
 #### Usage
 
 ```bash
@@ -335,7 +337,7 @@ $ npx devvit update app
 
 ### devvit upload
 
-Upload an app to the App directory. By default the app is private and visible only to you.
+Upload an app to the App directory as a private build. By default the app is private and visible only to you. This command is not required for playtest.
 
 #### Usage
 
@@ -352,6 +354,42 @@ $ npx devvit upload [--bump major|minor|patch|prerelease] [--copyPaste]
 - `--copyPaste`
 
   Copy-paste the auth code instead of opening a browser
+
+### devvit publish
+
+Submit an app version for Reddit review. Use this when you are ready to launch an app beyond your private development flow.
+
+#### Usage
+
+```bash
+$ npx devvit publish [--bump major|minor|patch] [--version <version>] [--public]
+```
+
+#### Optional arguments
+
+- `--bump <option>`
+
+  Type of stable version bump (`major`, `minor`, or `patch`). Cannot be used with `--version`.
+
+- `--version <value>`
+
+  Set an explicit stable version such as `1.0.1`. Cannot be used with `--bump`.
+
+- `--public`
+
+  Request that the published app be listed in the App Directory for any moderator to install after approval.
+
+#### Examples
+
+```bash
+$ npx devvit publish
+
+$ npx devvit publish --bump minor
+
+$ npx devvit publish --version 1.0.1
+
+$ npx devvit publish --public
+```
 
 ### devvit version
 

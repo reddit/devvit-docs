@@ -4,4 +4,4 @@
 
 # Type Alias: MenuItemUserType
 
-> **MenuItemUserType** = `"loggedOut"` \| `"moderator"`
+> **MenuItemUserType** = `"user"` \| `"moderator"`

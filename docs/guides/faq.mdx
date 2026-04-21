@@ -26,6 +26,8 @@ If you are building an external script, bot, or website outside Devvit, that is 
 
 The fastest path is the [App quickstart](../quickstart/quickstart.md), which walks you through creating a project, connecting your Reddit account, and starting a playtest environment.
 
+If you already know you are building a moderator workflow, start with [Quickstart for Mod Tools](../quickstart/quickstart-mod-tool.md) instead of the general app quickstart.
+
 If you already know which kind of app you want to build, you can also start with:
 
 - [Quickstart for Games](../quickstart/quickstart.md)
@@ -66,6 +68,8 @@ For command details, see the [`devvit login`](./tools/devvit_cli.mdx#devvit-logi
 Not completely. Devvit apps run against Reddit, so the normal development flow uses a playtest subreddit instead of a fully local backend-only workflow.
 
 The quickstart uses `npm run dev`, which starts a Devvit playtest session for you. If you need more control over that flow, see [Playtest](./tools/playtest.md).
+
+You do not need to run `upload` before starting a normal playtest session.
 
 If you are wondering why a purely local setup is not enough, the quickstart calls this out directly: backend calls do not work when you test the app only locally.
 
