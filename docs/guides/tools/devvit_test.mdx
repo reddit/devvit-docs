@@ -42,7 +42,7 @@ To get started, create a test instance using `createDevvitTest()`. This returns 
 
 ```typescript
 import { createDevvitTest } from "@devvit/test/server/vitest";
-import { reddit } from "@devvit/reddit";
+import { reddit } from "@devvit/web/server";
 import { expect } from "vitest";
 
 const test = createDevvitTest();
@@ -495,7 +495,7 @@ Some methods exist on the objects returned by the API (like `user.getSocialLinks
 
 ```typescript
 import { createDevvitTest } from "@devvit/test/server/vitest";
-import { reddit, type SocialLinkType } from "@devvit/reddit";
+import { reddit, type SocialLinkType } from "@devvit/web/server";
 import { expect, vi } from "vitest";
 
 const test = createDevvitTest();
@@ -551,7 +551,7 @@ test("can fetch a user", async ({ mocks }) => {
 You can also seed Posts for `getPostById`:
 
 ```typescript
-import { reddit } from "@devvit/reddit";
+import { reddit } from "@devvit/web/server";
 
 test("can fetch a post", async ({ mocks }) => {
   mocks.reddit.linksAndComments.addPost({

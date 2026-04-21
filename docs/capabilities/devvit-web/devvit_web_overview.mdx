@@ -12,8 +12,8 @@ Devvit Web allows developers to build Devvit apps just like you would for the we
 - **Server endpoints** that you define to communicate between the webview client and the Devvit server, using industry-standard frameworks and technologies (like Express.js, Hono, Koa, etc.).
 - **Devvit configuration** with a traditional client/server split. Devvit capabilities are now in one of three places:
   - A configuration file in devvit.json for defining app metadata, permissions, and capabilities
-  - Client capabilities in the @devvit/client SDK
-  - Server capabilities, like Redis and Reddit API with the @devvit/server SDK
+  - Client capabilities in the `@devvit/web/client` SDK
+  - Server capabilities, like Redis and Reddit API, in the `@devvit/web/server` SDK
 
 With Devvit Web, you have continued access to our hosting services, key capabilities like Redis and Reddit API, standard web technologies, and a typical client/server pattern to build your apps.
 
@@ -81,7 +81,9 @@ This folder includes server-side code. We provide a node server, and you can use
 We also provide an authentication middleware so you don’t have to worry about authentication.
 
 :::note
-All server endpoints must start with `/api/` (e.g. `/api/get-something` or `/api/widgets/42`).
+Use `/api/` for client-facing endpoints that your webview calls with `fetch()`.
+
+Use `/internal/` for Devvit-managed handlers declared in `devvit.json`, such as menu actions, forms, triggers, scheduler tasks, settings validation, and payments endpoints.
 :::
 
 <img
@@ -92,6 +94,6 @@ All server endpoints must start with `/api/` (e.g. `/api/get-something` or `/api
 
 ### Configuration in `devvit.json`
 
-`devvit.json` is the configuration file for Devvit apps. It defines an app's post configuration, Node.js server configuration, permissions, scheduled jobs, event triggers, menu entries, payments configuration, and project settings. `devvit.json` replaces the legacy `devvit.yaml` configuration. A project should have one or the other but not both.
+`devvit.json` is the configuration file for Devvit apps. It defines an app's post configuration, Node.js server configuration, permissions, scheduled jobs, event triggers, menu entries, payments configuration, and project settings.
 
 Learn more about [devvit.json](./devvit_web_configuration.md)

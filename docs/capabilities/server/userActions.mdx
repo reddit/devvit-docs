@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 # User Actions
 
-User actions allow your app to submit posts, submit comments, and subscribe to the current subreddit on behalf of the logged in user. These actions occur on the logged in user's account instead of the app account. This enables stronger user engagement while ensuring user control and transparency.
+User actions allow your app to submit posts, submit comments, and, with manual Reddit approval, subscribe to the current subreddit on behalf of the logged in user. These actions occur on the logged in user's account instead of the app account. This enables stronger user engagement while ensuring user control and transparency.
 
 ---
 
@@ -12,7 +12,7 @@ User actions allow your app to submit posts, submit comments, and subscribe to t
 By default, apps make posts or comments using their associated app account. With user actions enabled, your app can:
 
 - Create posts or comments on behalf of the user (from the post UI, a form, or a menu action)
-- Subscribe the user to the current subreddit
+- Subscribe the user to the current subreddit after manual Reddit approval
 
 Some actions are not available to apps to prevent abuse and maintain platform integrity:
 
@@ -73,7 +73,7 @@ To enable user actions, add the required permissions to your `devvit.json`:
 After enabling, you can call certain Reddit APIs on behalf of the user by passing the option `runAs: 'USER'`. The following APIs support this option:
 
 - [submitPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost)
-- [submitCustomPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md)
+- [submitCustomPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcustompost)
 - [submitComment()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment)
 
 If `runAs` is not specified, the API will use `runAs: 'APP'` by default.
@@ -110,7 +110,7 @@ Your app version needs to be approved in order for user actions to be enabled fo
 <TabItem value="hono">
 
 ```tsx title="server/index.ts"
-import { reddit } from '@devvit/web/server';
+import { context, reddit } from '@devvit/web/server';
 
 // ...
 
@@ -138,7 +138,7 @@ app.post('/internal/post-create', async (c) => {
 <TabItem value="express">
 
 ```tsx title="server/index.ts"
-import { reddit } from '@devvit/web/server';
+import { context, reddit } from '@devvit/web/server';
 
 // ...
 
@@ -170,7 +170,7 @@ router.post('/internal/post-create', async (_req, res) => {
 
 ## Example: Subscribe to current subreddit
 
-The [subscribeToCurrentSubreddit()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#subscribetocurrentsubreddit) API does not take a `runAs` parameter; it subscribes as the user by default (if specified in `devvit.json` and approved).
+The [subscribeToCurrentSubreddit()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#subscribetocurrentsubreddit) API does not take a `runAs` parameter. This API still requires manual approval from Reddit before it can subscribe on behalf of the user.
 
 <Tabs
   variant="pill"

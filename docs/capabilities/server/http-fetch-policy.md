@@ -13,7 +13,7 @@ When requesting domains to be allow-listed, they fall into three categories:
      - `spacetimedb.com`
      - `s3.amazonaws.com`
      - `storage.googleapis.com`
-   - Demonstrate a capability that `@devvit/server` doesn't support
+   - Demonstrate a capability that `@devvit/web/server` doesn't support
    - Valid use cases include:
      - Asset hosting (videos, images, music)
      - Relational databases

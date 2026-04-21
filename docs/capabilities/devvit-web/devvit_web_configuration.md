@@ -27,6 +27,11 @@ Additionally, you must include at least one of:
 
 ## Configuration sections
 
+### Endpoint conventions
+
+- Use `/api/` for client-facing endpoints that your webview calls with `fetch()`.
+- Use `/internal/` for handlers declared in `devvit.json`, such as menu actions, forms, triggers, scheduler tasks, settings validation, and payments endpoints.
+
 ### Core properties
 
 | Property  | Type   | Description                                                               | Required         |
@@ -46,6 +51,7 @@ Additionally, you must include at least one of:
 | Property          | Type   | Description                    | Required |
 | ----------------- | ------ | ------------------------------ | -------- |
 | `permissions`     | object | What your app is allowed to do | No       |
+| `settings`        | object | Global and subreddit settings  | No       |
 | `media`           | object | Static asset configuration     | No       |
 | `marketingAssets` | object | Assets for featuring your app  | No       |
 
@@ -258,11 +264,38 @@ Map form identifiers to submission endpoints:
 ```json
 {
   "forms": {
-    "contact_form": "/internal/forms/contact",
-    "feedback_form": "/internal/forms/feedback"
+    "contact_form": "/internal/form/contact",
+    "feedback_form": "/internal/form/feedback"
   }
 }
 ```
+
+### Settings configuration
+
+Define settings that can be managed globally by developers or per-installation by moderators:
+
+```json
+{
+  "settings": {
+    "global": {
+      "apiKey": {
+        "type": "string",
+        "label": "API Key",
+        "isSecret": true
+      }
+    },
+    "subreddit": {
+      "mopEnabled": {
+        "type": "boolean",
+        "label": "Enable Comment Mop",
+        "defaultValue": true
+      }
+    }
+  }
+}
+```
+
+See [Settings and Secrets](../server/settings-and-secrets.mdx) for the full settings schema, supported field types, and validation endpoints.
 
 ### Marketing assets
 
@@ -296,7 +329,7 @@ Configure build commands run by the Devvit CLI. These commands run relative to t
 **Properties:**
 
 - `dev` (string): Command run by `devvit playtest` to build or watch your client/server artifacts
-- `build` (string): Command run by `devvit upload` to build your client/server artifacts
+- `build` (string): Command run when Devvit needs a production build, such as `devvit upload` or `devvit publish`
 
 ### Development configuration
 
@@ -331,7 +364,7 @@ The `devvit.json` configuration is validated against the JSON Schema at build ti
 1. **Always include the `$schema` property** for IDE autocompletion and validation.
 2. **Use specific permission scopes.** Only request permissions your app actually uses.
 3. **Set appropriate menu scopes.** Consider whether features should be available to all users or just moderators.
-4. **Validate endpoints.** Ensure all internal endpoints start with `/internal/`.
+4. **Validate endpoints.** Use `/api/` for client-facing fetch routes and `/internal/` for `devvit.json` handlers.
 5. **Use meaningful names.** Choose descriptive names for entrypoints, tasks, and forms.
 6. **Test configurations.** Validate your config with `devvit build` before deployment.
 

@@ -6,8 +6,8 @@ Use the payments sandbox environment to simulate payment transactions. All apps 
 
 To test your app:
 
-1. Run `devvit upload` to upload your app to the Apps directory.
-2. Run `devvit playtest` <test-subreddit-name> .
+1. Run `devvit playtest <test-subreddit-name>`.
+2. If your app does not already have a playtest subreddit, Devvit will automatically create one for you.
 
 Once you start a playtest session, a new pre-release version of your app is automatically created and installed on your test subreddit. The pre-release version has a fourth decimal place, so if your current app is 0.0.1, the first pre-release version will be 0.0.1.1.
 

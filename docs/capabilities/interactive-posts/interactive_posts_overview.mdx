@@ -77,7 +77,7 @@ For larger amounts of data, you should use [Redis](../server/redis). Learn more 
 Enable your app to perform actions on behalf of users (with their permission):
 
 - Create posts or comments as the user
-- Subscribe users to subreddits (coming soon)
+- Subscribe users to subreddits after manual Reddit approval
 
 Learn more about [User Actions](../server/userActions)
 
@@ -114,5 +114,10 @@ const post = await reddit.submitCustomPost({
 // Later, update post data when someone wins
 const updatedPost = await reddit.getPostById(post.id); await updatedPost.setPostData({ ...context.postData, gameState: 'completed', winner: currentUsername, totalGuesses: context.postData.totalGuesses + 1 });
 
-// Create a comment as the user announcing their win await reddit.submitComment({ runAs: 'USER', id: post.id, text: 🎉 ${currentUsername} won the game! });
+// Create a comment as the user announcing their win
+await reddit.submitComment({
+  runAs: 'USER',
+  id: post.id,
+  text: `🎉 ${currentUsername} won the game!`,
+});
 ```

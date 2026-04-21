@@ -6,8 +6,10 @@ Code changes you save during the playtest will automatically update your app on 
 
 ## Start a playtest
 
-1. Run `devvit upload` to add your app to the Apps directory. This automatically creates a playtest subreddit for you.
-2. Run `devvit playtest` to start your app on your default subreddit.
+You do not need to run `devvit upload` before playtesting.
+
+1. Run `devvit playtest` to start your app on your default subreddit.
+2. If your app does not already have a playtest subreddit, Devvit will automatically create one for you.
 3. The CLI will return the playtest subreddit link for your app.
 
 ## Playtest on an alternate subreddit
@@ -72,9 +74,9 @@ If you want to revert to a different version of your pre-playtest app, you can s
 devvit install <subreddit> [@version]
 ```
 
-## Upload your app
+## Upload or publish your app
 
-If you’re satisfied with your playtest app and want to upload an installable version, run:
+If you’re satisfied with your playtest app and want a private uploaded build for yourself, run:
 
 ```bash
 devvit upload
@@ -82,4 +84,10 @@ devvit upload
 
 This will automatically bump your app version to the next patch release. For example, if your playtest version is 0.0.1.6, the upload command will remove the playtest version increment and change your app version to 0.0.2.
 
-Once you publish your app to the Apps Directory, it will be available for users to install.
+If you are ready to submit your app for review and launch, use:
+
+```bash
+devvit publish
+```
+
+See the [launch guide](../launch/launch-guide.md) for the full review and listing flow.

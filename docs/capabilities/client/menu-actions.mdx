@@ -79,7 +79,7 @@ You can decide where the menu action shows up by specifying the location propert
 | ---------------------- | ------------------------------ | ------------------------------------------------------------------------------- |
 | location (required)    | `comment`, `post`, `subreddit` | Determines where the menu action appears.                    |
 | postFilter (optional)  | `currentApp`                   | Shows the action created by your app. The default is no filtering.              |
-| forUserType (optional) | `moderator`                    | Specifies the user types that can see the menu action. The default is everyone. |
+| forUserType (optional) | `moderator`, `user`            | Specifies the user types that can see the menu action. The default is `moderator`. |
 
 :::note
 For moderator permission security, when opening a form from a menu action with `forUserType: moderator`, the user initiating the action must complete all actions within 10 minutes.

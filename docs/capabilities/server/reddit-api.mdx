@@ -1,6 +1,6 @@
 # Reddit API Overview
 
-The Reddit API allows you to read and write Reddit content such as posts / comments / upvotes, in order to integrate your app's behavior with the content of the community it's installed in.
+The Reddit API allows you to read and write Reddit content such as posts, comments, and moderation actions so your app can integrate with the community where it is installed.
 
 :::note
 Unlike traditional Reddit API usage, you don't need to create an app at [reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) or manage API keys. Devvit handles authentication automatically when you enable the `reddit` permission in your app.
@@ -30,7 +30,7 @@ Here's how to obtain a reference to the Reddit client
 ```
 
 ```ts title="server/index.ts"
-import { reddit } from '@devvit/reddit';
+import { reddit } from '@devvit/web/server';
 ```
 
 ## Reddit Thing IDs
@@ -62,7 +62,6 @@ const parentId = comment.parentId; // 't3_abc123' or 't1_def456'
 
 ### Submitting a post
 ```ts
-import { Devvit } from '@devvit/public-api';
 import { context, reddit } from '@devvit/web/server';
 
 export const createPost = async () => {
@@ -99,7 +98,7 @@ export const createComment = async () => {
   }
 
   reddit.submitComment({
-    postId: 't3_123456', // Replace with the actual post ID
+    id: 't3_123456', // Replace with the actual post or comment ID
     text: 'This is a comment from a Devvit app',
     runAs: 'USER' // Optional: specify the user to run as
   });
