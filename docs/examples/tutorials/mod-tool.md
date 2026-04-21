@@ -4,8 +4,6 @@ slug: /examples/tutorials/mod-tool
 
 # Build a Mod Tool
 
-The older Three Strikes tutorial has been replaced by the current Devvit Web mod-tool path.
-
 If you're building a new moderator workflow today, start with:
 
 - [Quickstart for Mod Tools](../../quickstart/quickstart-mod-tool.md)
