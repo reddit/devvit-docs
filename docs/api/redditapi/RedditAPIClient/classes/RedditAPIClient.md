@@ -1,4 +1,4 @@
-[**Reddit API Reference v0.12.21-dev**](../../README.md)
+[**@devvit/public-api v0.12.21-dev**](../../README.md)
 
 ***
 
@@ -6,20 +6,27 @@
 
 The Reddit API Client
 
-To use the Reddit API Client, enable the Reddit capability in `devvit.json` and import the client from `@devvit/web/server`.
+To use the Reddit API Client, add it to the plugin configuration at the top of the file.
 
 ## Example
 
 ```ts
-import { context, reddit } from '@devvit/web/server';
 
-const subreddit = await reddit.getSubredditById(context.subredditId);
+Devvit.configure({
+   redditAPI: true,
+   // other plugins
+})
 
-await reddit.submitPost({
-  subredditName: subreddit.name,
-  title: 'test post',
-  text: 'test body',
-});
+// use within one of our capability handlers e.g. Menu Actions, Triggers, Scheduled Job Type, etc
+async (event, context) => {
+    const subreddit = await context.reddit.getSubredditById(context.subredditId);
+    context.reddit.submitPost({
+      subredditName: subreddit.name,
+      title: 'test post',
+      text: 'test body',
+    })
+    // additional code
+}
 ```
 
 ## Constructors
@@ -2971,51 +2978,14 @@ A Promise that resolves to a Comment object.
 #### Example
 
 ```ts
+import { RunAs } from '@devvit/public-api';
+
 const comment = await reddit.submitComment({
- id: 't3_123456',
+ id: 't1_1qgif',
  text: 'Hello world!',
- runAs: 'APP',
+ runAs: RunAs.APP,
 })
 ```
-
-***
-
-<a id="submitcustompost"></a>
-
-### submitCustomPost()
-
-> **submitCustomPost**(`options`): `Promise`\<[`Post`](../../models/classes/Post.md)\>
-
-Submits a custom post that renders one of your configured Devvit Web entrypoints.
-
-#### Parameters
-
-##### options
-
-[`SubmitCustomPostOptions`](../../models/type-aliases/SubmitCustomPostOptions.md)
-
-#### Returns
-
-`Promise`\<[`Post`](../../models/classes/Post.md)\>
-
-A Promise that resolves to a Post object.
-
-#### Example
-
-```ts
-import { context, reddit } from '@devvit/web/server';
-
-const post = await reddit.submitCustomPost({
-  subredditName: context.subredditName!,
-  title: 'Hello World',
-  entry: 'default',
-  postData: {
-    count: 0,
-  },
-});
-```
-
-Unlike older Blocks-based examples, you do not need to provide a separate `preview` element when creating a custom post with Devvit Web.
 
 ***
 
@@ -3057,17 +3027,27 @@ const post = await reddit.submitPost({
 ```
 
 By default, `submitPost()` creates a Post on behalf of the App account, but it may be called on behalf of the User making the request by setting the option `runAs: RunAs.USER`.
-When using `runAs: RunAs.USER`, you must specify the `userGeneratedContent` option. For example:
+When using `runAs: RunAs.USER` to create an experience Post, you must specify the `userGeneratedContent` option. For example:
 
 ```ts
+import { RunAs } from '@devvit/public-api';
+
 const post = await reddit.submitPost({
  title: 'My Devvit Post',
- runAs: 'USER',
+ runAs: RunAs.USER,
  userGeneratedContent: {
-   text: "hello there",
- },
+   text: "hello there", 
+   imageUrls: ["https://styles.redditmedia.com/t5_5wa5ww/styles/communityIcon_wyopomb2xb0a1.png", "https://styles.redditmedia.com/t5_49fkib/styles/bannerBackgroundImage_5a4axis7cku61.png"]
+   },
  subredditName: await reddit.getCurrentSubredditName(),
- text: 'This is a Devvit post!',
+ textFallback: {
+   text: 'This is a Devvit post!',
+ },
+ preview: (
+   <vstack height="100%" width="100%" alignment="middle center">
+     <text size="large">Loading...</text>
+   </vstack>
+ ),
 });
 ```
 
@@ -3080,8 +3060,8 @@ const post = await reddit.submitPost({
 > **subscribeToCurrentSubreddit**(): `Promise`\<`void`\>
 
 Subscribes to the subreddit in which the app is installed. No-op if the user is already subscribed.
-This method does not take a `runAs` parameter.
-Manual approval from Reddit is still required before this API can subscribe on behalf of the user.
+This method will execute as the app account by default.
+To subscribe on behalf of a user, please contact Reddit.
 
 #### Returns
 
