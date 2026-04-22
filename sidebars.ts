@@ -294,6 +294,7 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Migration Guides",
       items: [
+        "guides/migrate/inline-web-view",
         {
           type: "category",
           label: "Splash Screens",
