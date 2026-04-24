@@ -10,7 +10,7 @@ To use the latest version of Devvit:
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
 ## Release 0.12.21: Stability and Performance Improvements for Portal
-**Release Date: Apr 20, 2026**
+**Release Date: Apr 27, 2026**
 
 In this release, Portal now retrieves data directly from reliable backend services and no longer depends on GraphQL.  This means: 
 * Faster responses — average request time reduced by 40% (from 364ms → 216ms)
