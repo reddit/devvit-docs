@@ -202,7 +202,6 @@ In the last release of 2025, we’ve made a slew of minor updates (they're still
 
 In this release, we’re excited to bring payment support to Devvit Web. If you’re looking to add payments to your app, check out our [updated docs](./earn-money/payments/payments_overview.md).
 
-
 ## Devvit 0.12.4: Ins and Outs
 
 **Release Date: Nov 24, 2025**
