@@ -90,6 +90,16 @@ You and your app(s) must not:
 
 You should not create an app or functionality that promotes or facilitates transactions in a prohibited or regulated industry such as (but not limited to) gambling, healthcare, financial and cryptocurrency products and services, political, alcohol, recreational drugs, or any other restricted category listed in the [Reddit Advertising Policy](https://redditinc.force.com/helpcenter/s/article/Reddit-Advertising-Policy-Restricted-Advertisements).
 
+### No linking out to external apps
+
+Apps should not link out to other apps, or promote other versions of the app in external platforms. This includes, but is not limited to:
+
+- "Demo" apps published on Devvit that link out to a full version of the app in other platforms
+- Apps that promote or upsell a link to playing the same app in other platforms
+- Apps that ask the user to create a separate profile external to Reddit
+
+Apps can be rejected, limited or removed even if they don't fall into the categories listed above, if Reddit understands that the Devvit app is encouraging the user to navigate away from Reddit.
+
 ### Apps may be limited or removed
 
 If your app violates any of these Devvit Rules or any other Reddit Terms & Policies, including by mods or redditors using your app, then we may suspend or remove your app from Devvit or require you to update it or add disclaimers. We may also limit your app (including its reach, access to content, and functionality) when appropriate.
@@ -155,16 +165,19 @@ If any content created or otherwise displayed through your app violates these De
 If your app uses [user actions](./capabilities/server/userActions.mdx) (posting, commenting, or subscribing on behalf of the user), you must follow these requirements. Apps that do not meet them will be rejected during review.
 
 - **When to post or comment as the user:**
+
   - If users enter text or imagery that appears in your app, publish that content with reportable, actionable attribution — such as posts or comments submitted as the user.
   - For score sharing, comments must be submitted as the user, not the app account.
 
 - **Before you post or comment as the user:**
+
   - Trigger the action only via an explicit manual action (for example, a button). Users must clearly understand what will happen before they confirm.
   - Make it clear they are posting or commenting as themselves, including what will appear on Reddit and when their username is shown to others.
   - Label buttons and flows so the action is obviously from the user's account, not only the app account.
   - Do not automate these actions, and do not mislead or surprise users.
 
 - **When posting or commenting as the user:**
+
   - Set `userGeneratedContent` correctly for posts submitted on behalf of the user.
   - For generic score comments, reply to a sticky comment. If the user adds meaningful commentary to their score, a top-level comment is allowed.
 
