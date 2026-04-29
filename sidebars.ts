@@ -297,13 +297,7 @@ const sidebars: SidebarsConfig = {
         "guides/migrate/devvit-singleton",
         "guides/migrate/devvit-web-experimental",
         "guides/migrate/inline-web-view",
-        {
-          type: "category",
-          label: "Splash Screens",
-          items: [
-            "capabilities/server/launch_screen_and_entry_points/splash_migration",
-          ],
-        },
+        "guides/migrate/public-api",
       ],
     },
     {
