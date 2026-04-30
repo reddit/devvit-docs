@@ -45,28 +45,25 @@ In Devvit Web, you configure Triggers in your devvit.json. When an event happens
 
 ```ts
 // Hono is a small web framework used to define HTTP routes.
-import { Hono } from "hono";
+import { Hono } from 'hono';
 // TriggerResponse is the expected JSON response shape for trigger endpoints.
-import type { TriggerResponse } from "@devvit/web/shared";
+import type { TriggerResponse } from '@devvit/web/shared';
 
 // Create a web server app instance.
 const app = new Hono();
 
 // Listen for the onCommentSubmit trigger endpoint configured in devvit.json.
-app.post("/internal/triggers/on-comment-submit", async (c) => {
+app.post('/internal/triggers/on-comment-submit', async (c) => {
   // Parse the incoming JSON body from Devvit.
   // The <...> part is a TypeScript type hint for what fields we expect.
-  const input = await c.req.json<{
-    author?: { username?: string; name?: string };
-  }>();
+  const input = await c.req.json<{ author?: { username?: string; name?: string } }>();
   // Pick a display name safely:
   // - ?. means "if this exists, read it"
   // - ?? means "if left side is null/undefined, use right side"
-  const authorName =
-    input.author?.username ?? input.author?.name ?? "unknown user";
+  const authorName = input.author?.username ?? input.author?.name ?? 'unknown user';
   console.log(`New comment created by ${authorName}!`);
   // Return a standard "ok" response with HTTP 200 status.
-  return c.json<TriggerResponse>({ status: "ok" }, 200);
+  return c.json<TriggerResponse>({ status: 'ok' }, 200);
 });
 
 export default app;
@@ -78,15 +75,15 @@ To moderate content in Devvit Web, you use the Reddit API client accessible with
 
 ```ts
 // Hono handles incoming HTTP requests from Devvit.
-import { Hono } from "hono";
+import { Hono } from 'hono';
 // reddit is the Devvit Reddit API client for moderation/content actions.
-import { reddit } from "@devvit/web/server";
+import { reddit } from '@devvit/web/server';
 // TriggerResponse is the response type expected by trigger handlers.
-import type { TriggerResponse } from "@devvit/web/shared";
+import type { TriggerResponse } from '@devvit/web/shared';
 
 const app = new Hono();
 
-app.post("/internal/triggers/on-comment-submit", async (c) => {
+app.post('/internal/triggers/on-comment-submit', async (c) => {
   // Parse request JSON and describe expected fields with a TypeScript type.
   const input = await c.req.json<{
     author?: { id?: string };
@@ -95,13 +92,13 @@ app.post("/internal/triggers/on-comment-submit", async (c) => {
   // Get the comment ID if it exists.
   const commentId = input.comment?.id;
   // If we cannot find the comment ID, we cannot moderate the comment.
-  if (!commentId) return c.json<TriggerResponse>({ status: "ignored" }, 200);
+  if (!commentId) return c.json<TriggerResponse>({ status: 'ignored' }, 200);
 
   // Normalize text to lowercase so our keyword check is case-insensitive.
-  const body = input.comment?.body?.toLowerCase() ?? "";
+  const body = input.comment?.body?.toLowerCase() ?? '';
 
   // Check if the comment matches a specific moderation rule
-  if (body.includes("rule-breaking string")) {
+  if (body.includes('rule-breaking string')) {
     // 1. Remove the comment natively
     await reddit.remove(commentId, true); // true = flag as spam
 
@@ -109,13 +106,13 @@ app.post("/internal/triggers/on-comment-submit", async (c) => {
     await reddit.submitComment({
       // Reply to the removed comment itself.
       id: commentId,
-      text: "Your comment was removed automatically for violating our community guidelines.",
+      text: 'Your comment was removed automatically for violating our community guidelines.',
       // Run as the app account rather than a user account.
-      runAs: "APP",
+      runAs: 'APP',
     });
   }
 
-  return c.json<TriggerResponse>({ status: "ok" }, 200);
+  return c.json<TriggerResponse>({ status: 'ok' }, 200);
 });
 
 export default app;
@@ -127,21 +124,21 @@ Instead of maintaining a local SQLite database for tracking user warnings or con
 
 ```ts
 // Hono handles HTTP routes.
-import { Hono } from "hono";
+import { Hono } from 'hono';
 // Redis client for key-value storage.
-import { redis } from "@devvit/redis";
+import { redis } from '@devvit/redis';
 // Standard trigger response type.
-import type { TriggerResponse } from "@devvit/web/shared";
+import type { TriggerResponse } from '@devvit/web/shared';
 
 const app = new Hono();
 
-app.post("/internal/triggers/on-post-submit", async (c) => {
+app.post('/internal/triggers/on-post-submit', async (c) => {
   // Read trigger payload JSON.
   const input = await c.req.json<{ author?: { id?: string } }>();
   // Extract the submitting user's ID.
   const authorId = input.author?.id;
   // If author is missing, skip this event safely.
-  if (!authorId) return c.json<TriggerResponse>({ status: "ignored" }, 200);
+  if (!authorId) return c.json<TriggerResponse>({ status: 'ignored' }, 200);
 
   // Build a per-user counter key, for example: post_count:t2_abc123
   const redisKey = `post_count:${authorId}`;
@@ -150,7 +147,7 @@ app.post("/internal/triggers/on-post-submit", async (c) => {
   const newCount = await redis.incrBy(redisKey, 1);
   console.log(`User ${authorId} has submitted ${newCount} posts.`);
 
-  return c.json<TriggerResponse>({ status: "ok" }, 200);
+  return c.json<TriggerResponse>({ status: 'ok' }, 200);
 });
 
 export default app;
@@ -171,24 +168,25 @@ PRAW bots frequently rely on time.sleep() for delayed tasks. In Devvit Web, you 
     }
   }
 }
+
 ```
 
 **Step 2: Scheduling and Handling (src/server/index.ts)**
 
 ```ts
 // Hono handles incoming webhook/scheduler HTTP requests.
-import { Hono } from "hono";
+import { Hono } from 'hono';
 // scheduler queues delayed jobs, reddit sends private messages.
-import { scheduler, reddit } from "@devvit/web/server";
+import { scheduler, reddit } from '@devvit/web/server';
 // Types for scheduler request/response payloads.
-import type { TaskRequest, TaskResponse } from "@devvit/web/server";
+import type { TaskRequest, TaskResponse } from '@devvit/web/server';
 // Type for standard trigger responses.
-import type { TriggerResponse } from "@devvit/web/shared";
+import type { TriggerResponse } from '@devvit/web/shared';
 
 const app = new Hono();
 
 // 1. Triggering the scheduled job (e.g., from a comment trigger)
-app.post("/internal/triggers/on-comment-submit", async (c) => {
+app.post('/internal/triggers/on-comment-submit', async (c) => {
   // Parse incoming trigger JSON.
   // This generic type describes what data shape we expect from the payload.
   const input = await c.req.json<{
@@ -196,13 +194,13 @@ app.post("/internal/triggers/on-comment-submit", async (c) => {
     comment?: { body?: string };
   }>();
   // Normalize body text so command checks are case-insensitive.
-  const body = input.comment?.body?.toLowerCase() ?? "";
+  const body = input.comment?.body?.toLowerCase() ?? '';
 
-  if (body.includes("!remindme")) {
+  if (body.includes('!remindme')) {
     // Use username when available, otherwise fall back to name.
     const username = input.author?.username ?? input.author?.name;
     // If we still do not have a recipient, skip this event.
-    if (!username) return c.json<TriggerResponse>({ status: "ignored" }, 200);
+    if (!username) return c.json<TriggerResponse>({ status: 'ignored' }, 200);
 
     // Create a timestamp one hour in the future.
     const oneHourFromNow = new Date(Date.now() + 60 * 60 * 1000);
@@ -212,36 +210,34 @@ app.post("/internal/triggers/on-comment-submit", async (c) => {
       // A unique job ID (useful for debugging/canceling).
       id: `remind-user-${username}-${Date.now()}`,
       // Must match a task name declared in devvit.json.
-      name: "remind-user-job",
+      name: 'remind-user-job',
       // Custom payload delivered later to the scheduler endpoint.
-      data: { username, message: "Your 1-hour reminder!" },
+      data: { username, message: 'Your 1-hour reminder!' },
       // Time when this job should run.
       runAt: oneHourFromNow,
     });
   }
-  return c.json<TriggerResponse>({ status: "ok" }, 200);
+  return c.json<TriggerResponse>({ status: 'ok' }, 200);
 });
 
 // 2. The endpoint that executes when the timer concludes
-app.post("/internal/scheduler/remind-user-job", async (c) => {
+app.post('/internal/scheduler/remind-user-job', async (c) => {
   // Parse scheduler payload JSON.
   // TaskRequest<{ ... }> means "TaskRequest whose data looks like this object".
-  const req =
-    await c.req.json<TaskRequest<{ username: string; message: string }>>();
+  const req = await c.req.json<TaskRequest<{ username: string; message: string }>>();
   // Read values from req.data safely; default to empty object if data is missing.
   const { username, message } = req.data ?? {};
   // Guard clause: ensure required fields exist before continuing.
-  if (!username || !message)
-    return c.json<TaskResponse>({ status: "ignored" }, 200);
+  if (!username || !message) return c.json<TaskResponse>({ status: 'ignored' }, 200);
 
   // Send a Reddit private message to the user.
   await reddit.sendPrivateMessage({
     to: username,
-    subject: "Automated Reminder",
+    subject: 'Automated Reminder',
     text: message,
   });
 
-  return c.json<TaskResponse>({ status: "ok" }, 200);
+  return c.json<TaskResponse>({ status: 'ok' }, 200);
 });
 
 export default app;
