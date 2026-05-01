@@ -14,7 +14,11 @@ To use the latest version of Devvit:
 
 This release adds support for editing your [app’s profile settings](./guides/faq.mdx#AppFeatures). You can now update your display name, public description, and NSFW flag directly from the **Developer Settings** tab, then save your changes in the Developer Portal to update the profile.
 
-We also had a few fixes and updates from our community (thanks, fsvreddit!): 
+**Bug Fixes**
+* Fixed a bug causing apps to throw `undefined undefined: undefined error` when making plugin calls.
+
+**Community Updates** 
+Shoutout to **fsvreddit** for these udpates: 
 * `User.nsfw` now correctly reports whether the user profile is NSFW.
 * `User.showNsfw` reports whether the user is over 18 and wishes to see NSFW content.
 * `User.hasRedditPremium` reports whether the user is enrolled in Reddit Premium/Reddit Gold.
