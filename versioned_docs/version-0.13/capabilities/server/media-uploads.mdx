@@ -1,0 +1,206 @@
+# Media Uploads
+
+:::warning
+Apps can only display media hosted on Reddit
+:::
+
+You can upload media to Reddit at runtime using the `media` capability. This is different than static images, which you bundle with your app's client assets.
+
+Runtime media is useful for embedding media in RTJSON (Posts and Comments) as well as displaying it within an interactive post app.
+
+## Enabling media uploads
+Enable the `media` permission in your `devvit.json` file.
+```json title="devvit.json"
+{
+  "permissions": {
+    "media": true
+  }
+}
+```
+
+## Media uploads
+On the server, pass a remote URL or data URL to `media.upload()` to upload an image, GIF, or video and get a Reddit-hosted asset you can safely render in posts, comments, and rich text.
+
+### Response type
+`media.upload()` returns:
+
+```ts
+type MediaAsset = {
+  mediaId: string;
+  mediaUrl: string;
+};
+```
+
+- `mediaId`: Reddit media asset ID.
+- `mediaUrl`: Reddit CDN URL (use this in rich text or UI).
+
+### `media.upload()` input
+`media.upload()` expects an object with:
+
+- `url`: The media URL (remote URL or data URL).
+- `type`: The media kind (`'image'`, `'gif'`, or `'video'`).
+
+```ts
+type UploadMediaOptions = {
+  url: string; // remote URL or data URL
+  type: 'image' | 'gif' | 'video';
+};
+```
+
+Use `type: 'image'` for PNG, JPEG, and WEBP uploads.
+
+### Basic server usage
+```ts title="server/index.ts"
+import { media } from '@devvit/web/server';
+
+const uploaded = await media.upload({
+  url: 'https://example.com/my-image.png',
+  type: 'image',
+});
+
+// uploaded.mediaId
+// uploaded.mediaUrl
+```
+
+### Example: API endpoint returning upload response
+```ts title="server/index.ts"
+import { media } from '@devvit/web/server';
+
+app.post('/api/upload', async (c) => {
+  const { url, type } = await c.req.json<{
+    url: string;
+    type: 'image' | 'gif' | 'video';
+  }>();
+
+  const uploaded = await media.upload({ url, type });
+
+  return c.json({
+    mediaId: uploaded.mediaId,
+    mediaUrl: uploaded.mediaUrl,
+  });
+});
+```
+
+### Example: submit a post with uploaded media using RichTextBuilder
+```ts title="server/index.ts"
+import { media } from '@devvit/web/server';
+import { reddit, RichTextBuilder } from '@devvit/reddit';
+
+const uploaded = await media.upload({
+  url: 'https://example.com/cover.png',
+  type: 'image',
+});
+
+const richtext = new RichTextBuilder()
+  .paragraph((p) => {
+    p.text({ text: 'Uploaded image:' });
+  })
+  .paragraph((p) => {
+    p.image({
+      mediaUrl: uploaded.mediaUrl,
+      caption: 'Rendered from media.upload()',
+    });
+  });
+
+await reddit.submitPost({
+  subredditName: 'my_subreddit',
+  title: 'Post with uploaded media',
+  richtext,
+});
+```
+
+### Example: submit a comment with uploaded media using RichTextBuilder
+```ts title="server/index.ts"
+import { media } from '@devvit/web/server';
+import { reddit, RichTextBuilder } from '@devvit/reddit';
+
+// Parent can be a post id (t3_...) or comment id (t1_...)
+const parentId = 't3_abc123';
+
+const uploaded = await media.upload({
+  url: 'https://example.com/reply-image.png',
+  type: 'image',
+});
+
+const commentRichtext = new RichTextBuilder()
+  .paragraph((p) => {
+    p.text({ text: 'Here is the image:' });
+  })
+  .paragraph((p) => {
+    p.image({ mediaUrl: uploaded.mediaUrl });
+  });
+
+await reddit.submitComment({
+  id: parentId,
+  richtext: commentRichtext,
+});
+```
+
+### Example: raw RTJSON (without RichTextBuilder)
+If you prefer raw RTJSON, pass an object directly to `richtext`:
+
+```ts title="server/index.ts"
+import { media } from '@devvit/web/server';
+import { reddit } from '@devvit/reddit';
+
+const uploaded = await media.upload({
+  url: 'https://example.com/raw-rtjson.png',
+  type: 'image',
+});
+
+await reddit.submitComment({
+  id: 't3_abc123',
+  richtext: {
+    document: [
+      {
+        e: 'par',
+        c: [{ e: 'text', t: 'Raw RTJSON image:' }],
+      },
+      {
+        e: 'par',
+        c: [{ e: 'img', mediaUrl: uploaded.mediaUrl, c: 'RTJSON image node' }],
+      },
+    ],
+  },
+});
+```
+
+
+## Canvas screenshots
+
+The Canvas API is fully supported by Devvit. You can use it to capture screenshots of your app's current state and upload them using the media API.
+
+This is useful for letting users share their progress, achievements, or creations as image posts. Sharing screenshots is an effective way to build community engagement and increase visibility for your app.
+
+```ts title="client/screenshot.ts"
+// Capture the canvas as a data URL
+const canvas = document.querySelector('canvas');
+const dataUrl = canvas.toDataURL('image/png');
+
+// Send to server endpoint for upload
+const response = await fetch('/api/upload-screenshot', {
+  method: 'POST',
+  body: JSON.stringify({ image: dataUrl }),
+});
+```
+
+```ts title="server/index.ts"
+import { media } from '@devvit/web/server';
+
+app.post('/api/upload-screenshot', async (c) => {
+  const { image } = await c.req.json();
+  
+  const response = await media.upload({
+    url: image, // data URL from canvas
+    type: 'image',
+  });
+  
+  return c.json({ url: response.mediaUrl });
+});
+```
+
+## Notes and limits
+
+- Supported image upload formats: PNG, JPEG, WEBP, and GIF.
+- Maximum upload size: 20 MB.
+- WEBP uploads may be converted to JPEG in the returned Reddit URL.
