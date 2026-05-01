@@ -12,7 +12,7 @@ To use the latest version of Devvit:
 ## Release 0.12.22: Profile Settings and Community Contributions
 **Release Date: May 4, 2026**
 
-This release adds support for editing your app’s profile settings.  You can now update your display name, public description, and NSFW flag directly from the Developer Settings tab.
+This release adds support for editing your [app’s profile settings](./guides/faq.mdx#AppFeatures). You can now update your display name, public description, and NSFW flag directly from the **Developer Settings** tab, then save your changes in the Developer Portal to update the profile.
 
 We also had a few fixes and updates from our community (thanks, fsvreddit!): 
 * `User.nsfw` now correctly reports whether the user profile is NSFW.
