@@ -92,13 +92,13 @@ You should not create an app or functionality that promotes or facilitates trans
 
 ### No linking out to external apps
 
-Apps should not link out to other apps, or promote other versions of the app in external platforms. This includes, but is not limited to:
+Apps should not link out to other apps, or promote other versions of the app on external platforms. This includes, but is not limited to:
 
-- "Demo" apps published on Devvit that link out to a full version of the app in other platforms
-- Apps that promote or upsell a link to playing the same app in other platforms
-- Apps that ask the user to create a separate profile external to Reddit
+- "Demo" apps published on Devvit that link out to a full version of the app on other platforms
+- Apps that promote or upsell a link to playing the same app on other platforms
+- Apps that ask users to create a profile outside of Reddit
 
-Apps can be rejected, limited or removed even if they don't fall into the categories listed above, if Reddit understands that the Devvit app is encouraging the user to navigate away from Reddit.
+Reddit reserves the right to reject, limit, or remove any app that encourages users to navigate off-platform, regardless of whether the app falls into the specific categories listed above.
 
 ### Apps may be limited or removed
 
