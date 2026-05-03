@@ -107,6 +107,18 @@ After that, the subreddit still needs to be on the version you want installed. I
 
 </details>
 
+<span id="i-published-and-it-says-a-new-devvit-version-is-available-do-i-need-to-upgrade"></span>
+<details>
+<summary>I published and it says a new Devvit version is available. Do I need to upgrade?</summary>
+
+Not immediately. If your app is within 2–3 versions of the current Devvit release, it will continue to work as-is. The version notice is informational and does not mean your app is broken or blocked from publishing.
+
+That said, staying reasonably current is good practice so you have access to the latest capabilities and fixes. When you are ready, run `npx devvit update app` to bring your project's `@devvit` packages in line with the latest CLI, then test in playtest before publishing the update.
+
+For upgrade steps, see [Devvit CLI](./tools/devvit_cli.mdx) and the [Changelog](../changelog.md).
+
+</details>
+
 <span id="what-is-the-difference-between-devvit-upload-and-devvit-publish"></span>
 <details>
 <summary>What is the difference between <code>npx devvit upload</code> and <code>npx devvit publish</code>?</summary>
@@ -124,6 +136,26 @@ For command syntax, see [Devvit CLI](./tools/devvit_cli.mdx). For the review and
 Before launch, make sure the app is stable across mobile and web, test with multiple accounts, and add an installer-friendly `README.md`. Then follow the publish flow in [Launch your app](./launch/launch-guide.md).
 
 If you are just ending a playtest session, remember that the latest playtest install remains in place until you change installs. [Playtest](./tools/playtest.md) and [`devvit install`](./tools/devvit_cli.mdx#devvit-install) cover that handoff.
+
+</details>
+
+<span id="how-long-does-it-take-to-get-my-app-published"></span>
+<details>
+<summary>How long does it take to get my app published?</summary>
+
+Most app versions are reviewed within **1–2 business days**. New apps or versions that include higher-risk features may take longer. Features that commonly extend review time:
+
+- **Payments**: apps using the payments capability go through additional policy review.
+- **`runAs: 'USER'`**: user action permissions require explicit approval as part of the review.
+- **External fetch domains**: new domain requests are reviewed separately and can add time (see [HTTP Fetch Policy](../capabilities/server/http-fetch-policy.md)).
+
+To keep review moving:
+
+- Make sure your `README.md` is clear, accurate, and up to date.
+- Ensure your app complies with the [Devvit Rules](../devvit_rules.md).
+- If your app uses fetch domains, document them in a "Fetch Domains" section of your README.
+
+If you have not heard back after a week, reach out in the [Devvit Discord](https://developers.reddit.com/discord) or via [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit). For the full publish flow, see [Launch your app](./launch/launch-guide.md).
 
 </details>
 
@@ -173,6 +205,21 @@ Devvit Web is the current client/server app model for building Devvit apps with 
 
 </details>
 
+<span id="i-got-a-notice-that-blocks-is-deprecated-what-do-i-need-to-do"></span>
+<details>
+<summary>I got a notice that Blocks is deprecated. What do I need to do?</summary>
+
+Blocks is being replaced by [Devvit Web](../capabilities/devvit-web/devvit_web_overview.mdx). The migration path depends on how your app is built, but here is what to check first:
+
+- **`devvit.yaml`**: If your project still has a `devvit.yaml`, replace it with a `devvit.json`. See [Migrating Blocks/Mod Tools to Devvit Web](./migrate/devvit-singleton.md) for the updated config format and steps.
+- **`Devvit.addCustomPostType()`**: This is the core Blocks API and is deprecated. Move your post rendering to a `client` entry in `devvit.json`, backed by a standard HTML, React, or other web app.
+- **`submitCustomPost()` with `preview`**: The `preview` field (used to render a Blocks component as the post preview) is no longer the right pattern. Use `post.entrypoints` in `devvit.json` to define your inline and expanded views as HTML entry points instead.
+- **`useWebView`**: If your app launched a web view from inside Blocks, migrate to Devvit Web. See [Migrating from useWebView to Devvit Web](./migrate/inline-web-view.md).
+
+If your app uses only Blocks without a web view, [Migrating Blocks/Mod Tools to Devvit Web](./migrate/devvit-singleton.md) is the quickest path. If your app has a web view, start with [Migrating from useWebView to Devvit Web](./migrate/inline-web-view.md).
+
+</details>
+
 <span id="where-do-i-customize-the-first-screen-or-launch-screen"></span>
 <details>
 <summary>Where do I customize the first screen or launch screen?</summary>
@@ -185,7 +232,11 @@ For current Devvit Web apps, customize the first screen through your `post.entry
 <details>
 <summary>Should I use the legacy <code>splash</code> field or HTML launch entry points?</summary>
 
-Prefer HTML launch entry points for new work. The older `splash` parameter is still documented, but the migration guide marks it as deprecated in favor of entrypoint-based launch screens and `entry` selection in `submitCustomPost()`. If you are updating an older app or wondering why splash changes are confusing, start with [Migrating from Splash Screens](../capabilities/server/launch_screen_and_entry_points/splash_migration.mdx).
+:::warning
+**Deprecation notice**: The `splash` parameter in `submitCustomPost()` and Blocks-based launch screens will be deprecated in June. Migrate to HTML-based entry points before then.
+:::
+
+Use HTML launch entry points for all new and existing work. The older `splash` parameter is deprecated in favor of entrypoint-based launch screens and `entry` selection in `submitCustomPost()`. If you are updating an older app, start with [Migrating from Splash Screens](../capabilities/server/launch_screen_and_entry_points/splash_migration.mdx).
 
 </details>
 
@@ -346,6 +397,22 @@ There is no single limits page today, but these are the most commonly referenced
 - [Scheduler](../capabilities/server/scheduler.mdx): up to 10 live recurring actions per installation, plus `runJob()` limits documented on that page.
 
 If you need data to survive app updates, do not rely on browser `localStorage`. The [Devvit Web overview](../capabilities/devvit-web/devvit_web_overview.mdx) recommends Redis for persistent storage across versions.
+
+</details>
+
+<span id="how-long-does-it-take-to-get-my-domain-approved"></span>
+<details>
+<summary>How long does it take to get my domain approved?</summary>
+
+Domain requests are reviewed separately from app publishing and can take **up to 4 business days**. If your app was approved but a requested fetch domain was not yet granted, the domain review may still be in progress.
+
+To improve your chances of a smooth approval:
+
+- Use exact hostnames only — no wildcards (`*.example.com`), no protocols (`https://`), and no paths (`api.example.com/webhooks`).
+- Add a "Fetch Domains" section to your `README.md` listing each domain and explaining why you need it. The expected format is documented in [HTTP Fetch Policy](../capabilities/server/http-fetch-policy.md).
+- Include links to your Terms and Conditions and Privacy Policy in your app details form.
+
+Before submitting, check the [global fetch allowlist](../capabilities/server/http-fetch-policy.md#global-fetch-allowlist) — if your domain is already listed there, no separate request is needed. Personal domains (e.g., `personaldomain.com`) are not approved.
 
 </details>
 
