@@ -21,6 +21,15 @@ When requesting domains to be allow-listed, they fall into three categories:
 
 3. **Personal domains** (e.g., `personaldomain.com`) \- Will not be approved. If you have a use case that our Devvit server does not support, please submit your request with detailed justification.
 
+### AI providers
+
+At this time, the only AI providers we allow are OpenAI and Google Gemini:
+
+- `api.openai.com`
+- `generativelanguage.googleapis.com`
+
+Requests to use any other AI provider will be denied.
+
 ### Documentation requirements
 
 If your app uses fetch domains, you must add context to your app's README for the approval process:
@@ -66,6 +75,8 @@ Any app that uses `fetch` must upload Terms and Conditions and a Privacy Policy.
 
 The following domains are globally allowed and can be fetched by any app:
 
+- api.openai.com
+- generativelanguage.googleapis.com
 - example.com
 - site.api.espn.com
 - cdn.espn.com
@@ -79,13 +90,11 @@ The following domains are globally allowed and can be fetched by any app:
 - commentanalyzer.googleapis.com
 - language.googleapis.com
 - statsapi.mlb.com
-- api.openai.com
 - api.scryfall.com
 - api.nasa.gov
 - api.sportradar.us
 - api.sportradar.com
 - random.org
-- generativelanguage.googleapis.com
 - youtube.googleapis.com
 - api.weather.gov
 - wikipedia.org
