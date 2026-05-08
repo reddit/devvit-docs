@@ -2,6 +2,7 @@
 set -xeuo pipefail
 
 git checkout -b docs-release-$1
+yarn
 git add .
 git commit -m "v$1 release"
 git push --set-upstream origin docs-release-$1
