@@ -23,6 +23,7 @@ Shoutout to **fsvreddit** for these udpates:
 * `User.showNsfw` reports whether the user is over 18 and wishes to see NSFW content.
 * `User.hasRedditPremium` reports whether the user is enrolled in Reddit Premium/Reddit Gold.
 
+
 ## Release 0.12.21: Stability and Performance Improvements for Portal
 **Release Date: Apr 27, 2026**
 

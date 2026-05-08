@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.22-dev**](../../README.md)
+[**@devvit/public-api v0.12.23-dev**](../../README.md)
 
 ***
 
@@ -72,6 +72,22 @@ The display name of the user. May be different from their username.
 
 ***
 
+<a id="hasredditpremium"></a>
+
+### hasRedditPremium
+
+#### Get Signature
+
+> **get** **hasRedditPremium**(): `boolean`
+
+Whether the user has Reddit Premium.
+
+##### Returns
+
+`boolean`
+
+***
+
 <a id="hasverifiedemail"></a>
 
 ### hasVerifiedEmail
@@ -119,6 +135,22 @@ The ID (starting with t2_) of the user to retrieve.
 > **get** **isAdmin**(): `boolean`
 
 Whether the user is admin.
+
+##### Returns
+
+`boolean`
+
+***
+
+<a id="ismoderator"></a>
+
+### isModerator
+
+#### Get Signature
+
+> **get** **isModerator**(): `boolean`
+
+Whether the user is a moderator of any subreddit.
 
 ##### Returns
 
@@ -187,6 +219,22 @@ Returns a permalink path relative to https://www.reddit.com
 ##### Returns
 
 `string`
+
+***
+
+<a id="shownsfw"></a>
+
+### showNsfw
+
+#### Get Signature
+
+> **get** **showNsfw**(): `boolean`
+
+Whether the user is over 18 and wishes to see NSFW content.
+
+##### Returns
+
+`boolean`
 
 ***
 
