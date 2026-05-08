@@ -15,7 +15,7 @@ Each installation of an app is uniquely name-spaced, which means Redis data is s
 
 - Max commands per second: 1000
 - Max request size: 5 MB
-- Max storage: 500 MB
+- Max storage: 500 MB (recommended)
 
 All limits are applied at a per-installation granularity.
 
@@ -25,11 +25,11 @@ All limits are applied at a per-installation granularity.
 
 ```tsx
 Devvit.addMenuItem({
-  location: 'subreddit',
-  label: 'Test Redis',
+  location: "subreddit",
+  label: "Test Redis",
   onPress: async (event, { redis }) => {
-    const key = 'hello';
-    await redis.set(key, 'world');
+    const key = "hello";
+    await redis.set(key, "world");
     const value = await redis.get(key);
     console.log(`${key}: ${value}`);
   },
@@ -62,19 +62,19 @@ Not all Redis features are supported. If you would like to request a specific Re
 ```tsx
 async function simpleReadWriteExample(context: Devvit.Context) {
   // Set a key
-  await context.redis.set('color', 'red');
+  await context.redis.set("color", "red");
 
   // Check if a key exists
-  console.log('Key exists: ' + (await context.redis.exists('color')));
+  console.log("Key exists: " + (await context.redis.exists("color")));
 
   // Get a key
-  console.log('Color: ' + (await context.redis.get('color')));
+  console.log("Color: " + (await context.redis.get("color")));
 
   // Get the type of a key
-  console.log('Type: ' + (await context.redis.type('color')));
+  console.log("Type: " + (await context.redis.type("color")));
 
   // Delete a key
-  await context.redis.del('color');
+  await context.redis.del("color");
 }
 ```
 
@@ -98,13 +98,13 @@ Type: string
 async function batchReadWriteExample(context: Devvit.Context) {
   // Set multiple keys at once
   await context.redis.mSet({
-    name: 'Devvit',
-    occupation: 'Developer',
-    yearsOfExperience: '9000',
+    name: "Devvit",
+    occupation: "Developer",
+    yearsOfExperience: "9000",
   });
 
   // Get multiple keys
-  console.log('Result: ' + (await context.redis.mGet(['name', 'occupation'])));
+  console.log("Result: " + (await context.redis.mGet(["name", "occupation"])));
 }
 ```
 
@@ -127,18 +127,22 @@ Result: Devvit,Developer
 ```tsx
 async function stringsExample(context: Devvit.Context) {
   // First, set 'word' to 'tacocat'
-  await context.redis.set('word', 'tacocat');
+  await context.redis.set("word", "tacocat");
 
   // Use getRange() to get the letters in 'word' between index 0 to 3, inclusive
-  console.log('Range from index 0 to 3: ' + (await context.redis.getRange('word', 0, 3)));
+  console.log(
+    "Range from index 0 to 3: " + (await context.redis.getRange("word", 0, 3))
+  );
 
   // Use setRange() to insert 'blue' at index 0
-  await context.redis.setRange('word', 0, 'blue');
+  await context.redis.setRange("word", 0, "blue");
 
-  console.log('Word after using setRange(): ' + (await context.redis.get('word')));
+  console.log(
+    "Word after using setRange(): " + (await context.redis.get("word"))
+  );
 
   // Use strLen() to verify the word length
-  console.log('Word length: ' + (await context.redis.strLen('word')));
+  console.log("Word length: " + (await context.redis.strLen("word")));
 }
 ```
 
@@ -210,17 +214,24 @@ Number of fields deleted: 3
 // Example using hGetAll()
 async function hashExample2(context: Devvit.Context) {
   // Set 'groceryList' to fields containing products with quantities
-  await context.redis.hSet('groceryList', {
-    eggs: '12',
-    apples: '3',
-    milk: '1',
+  await context.redis.hSet("groceryList", {
+    eggs: "12",
+    apples: "3",
+    milk: "1",
   });
 
   // Get the groceryList record
-  const record = await context.redis.hGetAll('groceryList');
+  const record = await context.redis.hGetAll("groceryList");
 
   if (record != undefined) {
-    console.log('Eggs: ' + record.eggs + ', Apples: ' + record.apples + ', Milk: ' + record.milk);
+    console.log(
+      "Eggs: " +
+        record.eggs +
+        ", Apples: " +
+        record.apples +
+        ", Milk: " +
+        record.milk
+    );
   }
 }
 ```
@@ -236,13 +247,13 @@ Eggs: 12, Apples: 3, Milk: 1
 ```tsx
 // Example using hKeys()
 async function hashExample3(context: Devvit.Context) {
-  await context.redis.hSet('prices', {
-    chair: '48',
-    desk: '95',
-    whiteboard: '23',
+  await context.redis.hSet("prices", {
+    chair: "48",
+    desk: "95",
+    whiteboard: "23",
   });
 
-  console.log('Keys: ' + (await context.redis.hKeys('prices')));
+  console.log("Keys: " + (await context.redis.hKeys("prices")));
 }
 ```
 
@@ -257,14 +268,14 @@ Keys: chair,desk,whiteboard
 ```tsx
 // Example using hScan()
 async function hashExample4(context: Devvit.Context) {
-  await context.redis.hSet('userInfo', {
-    name: 'Bob',
-    startDate: '01-05-20',
-    totalAwards: '12',
+  await context.redis.hSet("userInfo", {
+    name: "Bob",
+    startDate: "01-05-20",
+    totalAwards: "12",
   });
 
   // Scan and interate over all the fields within 'userInfo'
-  const hScanResponse = await context.redis.hScan('userInfo', 0);
+  const hScanResponse = await context.redis.hScan("userInfo", 0);
 
   hScanResponse.fieldValues.forEach((x) => {
     console.log("Field: '" + x.field + "', Value: '" + x.value + "'");
@@ -286,10 +297,12 @@ Field: 'startDate', Value: '01-05-20'
 // Example using hIncrBy()
 async function hashExample5(context: Devvit.Context) {
   // Set user123's karma to 100
-  await context.redis.hSet('user123', { karma: '100' });
+  await context.redis.hSet("user123", { karma: "100" });
 
   // Increase user123's karma by 5
-  console.log('Updated karma: ' + (await context.redis.hIncrBy('user123', 'karma', 5)));
+  console.log(
+    "Updated karma: " + (await context.redis.hIncrBy("user123", "karma", 5))
+  );
 }
 ```
 
@@ -304,14 +317,14 @@ Updated karma: 105
 ```tsx
 // Example using hLen()
 async function hashExample6(context: Devvit.Context) {
-  await context.redis.hSet('supplies', {
-    paperclips: '25',
-    pencils: '10',
-    erasers: '5',
-    pens: '7',
+  await context.redis.hSet("supplies", {
+    paperclips: "25",
+    pencils: "10",
+    erasers: "5",
+    pens: "7",
   });
 
-  console.log('Number of fields: ' + (await context.redis.hLen('supplies')));
+  console.log("Number of fields: " + (await context.redis.hLen("supplies")));
 }
 ```
 
@@ -331,9 +344,11 @@ Number of fields: 4
 
 ```tsx
 async function numbersExample(context: Devvit.Context) {
-  await context.redis.set('totalPoints', '53');
+  await context.redis.set("totalPoints", "53");
 
-  console.log('Updated points: ' + (await context.redis.incrBy('totalPoints', 100)));
+  console.log(
+    "Updated points: " + (await context.redis.incrBy("totalPoints", 100))
+  );
 }
 ```
 
@@ -355,16 +370,18 @@ Updated points: 153
 ```tsx
 async function keyExpirationExample(context: Devvit.Context) {
   // Set a key 'product' with value 'milk'
-  await context.redis.set('product', 'milk');
+  await context.redis.set("product", "milk");
 
   // Get the current expireTime for the product
-  console.log('Expire time: ' + (await context.redis.expireTime('product')));
+  console.log("Expire time: " + (await context.redis.expireTime("product")));
 
   // Set the product to expire in 60 seconds
-  await context.redis.expire('product', 60);
+  await context.redis.expire("product", 60);
 
   // Get the updated expireTime for the product
-  console.log('Updated expire time: ' + (await context.redis.expireTime('product')));
+  console.log(
+    "Updated expire time: " + (await context.redis.expireTime("product"))
+  );
 }
 ```
 
@@ -404,18 +421,18 @@ If an error occurs inside a transaction before `exec` is called, Redis discards 
 ```tsx
 // Example using exec()
 async function transactionsExample1(context: Devvit.Context) {
-  await context.redis.mSet({ quantity: '5', karma: '32' });
+  await context.redis.mSet({ quantity: "5", karma: "32" });
 
-  const txn = await context.redis.watch('quantity');
+  const txn = await context.redis.watch("quantity");
 
   await txn.multi(); // Begin a transaction
-  await txn.incrBy('karma', 10);
-  await txn.set('name', 'Devvit');
+  await txn.incrBy("karma", 10);
+  await txn.set("name", "Devvit");
   await txn.exec(); // Execute the commands in the transaction
 
   console.log(
-    'Keys after completing transaction: ' +
-      (await context.redis.mGet(['quantity', 'karma', 'name']))
+    "Keys after completing transaction: " +
+      (await context.redis.mGet(["quantity", "karma", "name"]))
   );
 }
 ```
@@ -431,15 +448,15 @@ Keys after completing transaction: 5,42,Devvit
 ```tsx
 // Example using discard()
 async function transactionsExample2(context: Devvit.Context) {
-  await context.redis.set('price', '25');
+  await context.redis.set("price", "25");
 
-  const txn = await context.redis.watch('price');
+  const txn = await context.redis.watch("price");
 
   await txn.multi(); // Begin a transaction
-  await txn.incrBy('price', 5);
+  await txn.incrBy("price", 5);
   await txn.discard(); // Discard the commands in the transaction
 
-  console.log('Price value: ' + (await context.redis.get('price'))); // 'price' should still be '25'
+  console.log("Price value: " + (await context.redis.get("price"))); // 'price' should still be '25'
 }
 ```
 
@@ -454,21 +471,21 @@ Price value: 25
 ```tsx
 // Example using unwatch()
 async function transactionsExample3(context: Devvit.Context) {
-  await context.redis.set('gold', '50');
+  await context.redis.set("gold", "50");
 
-  const txn = await context.redis.watch('gold');
+  const txn = await context.redis.watch("gold");
 
   await txn.multi(); // Begin a transaction
-  await txn.incrBy('gold', 30);
+  await txn.incrBy("gold", 30);
   await txn.unwatch(); // Unwatch "gold"
 
   // Now that "gold" has been unwatched, we can increment its value
   // outside the transaction without canceling the transaction
-  await context.redis.incrBy('gold', -20);
+  await context.redis.incrBy("gold", -20);
 
   await txn.exec(); // Execute the commands in the transaction
 
-  console.log('Gold value: ' + (await context.redis.get('gold'))); // The value of 'gold' should be 50 + 30 - 20 = 60
+  console.log("Gold value: " + (await context.redis.get("gold"))); // The value of 'gold' should be 50 + 30 - 20 = 60
 }
 ```
 
@@ -502,29 +519,33 @@ Gold value: 60
 // Example using zRange() with by 'score'
 async function sortedSetExample1(context: Devvit.Context) {
   await context.redis.zAdd(
-    'leaderboard',
-    { member: 'louis', score: 37 },
-    { member: 'fernando', score: 10 },
-    { member: 'caesar', score: 20 },
-    { member: 'alexander', score: 25 }
+    "leaderboard",
+    { member: "louis", score: 37 },
+    { member: "fernando", score: 10 },
+    { member: "caesar", score: 20 },
+    { member: "alexander", score: 25 }
   );
 
   // Cardinality should be '4' as there are 4 elements in the leaderboard set
-  console.log('Cardinality: ' + (await context.redis.zCard('leaderboard')));
+  console.log("Cardinality: " + (await context.redis.zCard("leaderboard")));
 
   // View elements with scores between 0 and 30 inclusive, sorted by score
-  let scores = await context.redis.zRange('leaderboard', 0, 30, { by: 'score' });
-  console.log('Scores: ' + JSON.stringify(scores));
+  let scores = await context.redis.zRange("leaderboard", 0, 30, {
+    by: "score",
+  });
+  console.log("Scores: " + JSON.stringify(scores));
 
   // Remove 'fernando' from the leaderboard
-  await context.redis.zRem('leaderboard', ['fernando']);
+  await context.redis.zRem("leaderboard", ["fernando"]);
 
   // View the elements sorted by score again. This time 'fernando' should not appear in the output
-  scores = await context.redis.zRange('leaderboard', 0, 30, { by: 'score' });
-  console.log('Updated scores: ' + JSON.stringify(scores));
+  scores = await context.redis.zRange("leaderboard", 0, 30, { by: "score" });
+  console.log("Updated scores: " + JSON.stringify(scores));
 
   // View caesar's score
-  console.log("Caesar's score: " + (await context.redis.zScore('leaderboard', 'caesar')));
+  console.log(
+    "Caesar's score: " + (await context.redis.zScore("leaderboard", "caesar"))
+  );
 }
 ```
 
@@ -543,17 +564,19 @@ Caesar's score: 20
 // Example using zRange() with by 'lex'
 async function sortedSetExample2(context: Devvit.Context) {
   await context.redis.zAdd(
-    'checkpoints',
-    { member: 'delta', score: 0 },
-    { member: 'omega', score: 0 },
-    { member: 'alpha', score: 0 },
-    { member: 'charlie', score: 0 }
+    "checkpoints",
+    { member: "delta", score: 0 },
+    { member: "omega", score: 0 },
+    { member: "alpha", score: 0 },
+    { member: "charlie", score: 0 }
   );
 
   // View elements between the words 'alpha' and 'fox' inclusive, sorted lexicographically
   // Note that 'by: "lex"' only works if all elements have the same score
-  const members = await context.redis.zRange('checkpoints', 'alpha', 'fox', { by: 'lex' });
-  console.log('Members: ' + JSON.stringify(members));
+  const members = await context.redis.zRange("checkpoints", "alpha", "fox", {
+    by: "lex",
+  });
+  console.log("Members: " + JSON.stringify(members));
 }
 ```
 
@@ -569,17 +592,17 @@ Members: [{"score":0,"member":"alpha"},{"score":0,"member":"charlie"},{"score":0
 // Example using zRange() with by 'rank'
 async function sortedSetExample3(context: Devvit.Context) {
   await context.redis.zAdd(
-    'grades',
-    { member: 'sam', score: 80 },
-    { member: 'norma', score: 95 },
-    { member: 'alex', score: 77 },
-    { member: 'don', score: 84 },
-    { member: 'zeek', score: 92 }
+    "grades",
+    { member: "sam", score: 80 },
+    { member: "norma", score: 95 },
+    { member: "alex", score: 77 },
+    { member: "don", score: 84 },
+    { member: "zeek", score: 92 }
   );
 
   // View elements with a rank between 2 and 4 inclusive. Note that ranks start at index 0.
-  const members = await context.redis.zRange('grades', 2, 4, { by: 'rank' });
-  console.log('Members: ' + JSON.stringify(members));
+  const members = await context.redis.zRange("grades", 2, 4, { by: "rank" });
+  console.log("Members: " + JSON.stringify(members));
 }
 ```
 
@@ -595,26 +618,29 @@ Members: [{"score":84,"member":"don"},{"score":92,"member":"zeek"},{"score":95,"
 // Example using zRank() and zIncrBy()
 async function sortedSetExample4(context: Devvit.Context) {
   await context.redis.zAdd(
-    'animals',
-    { member: 'zebra', score: 92 },
-    { member: 'cat', score: 100 },
-    { member: 'dog', score: 95 },
-    { member: 'elephant', score: 97 }
+    "animals",
+    { member: "zebra", score: 92 },
+    { member: "cat", score: 100 },
+    { member: "dog", score: 95 },
+    { member: "elephant", score: 97 }
   );
 
   // View the rank of 'dog' in the animals set
   // Rank should be '1' since 'dog' has the second lowest score. Note that ranks start at index 0.
-  console.log("Dog's rank: " + (await context.redis.zRank('animals', 'dog')));
+  console.log("Dog's rank: " + (await context.redis.zRank("animals", "dog")));
 
   // View the rank of 'zebra'
-  console.log("Zebra's rank: " + (await context.redis.zRank('animals', 'zebra')));
+  console.log(
+    "Zebra's rank: " + (await context.redis.zRank("animals", "zebra"))
+  );
 
   // Increase the score of 'dog' by 10
-  await context.redis.zIncrBy('animals', 'dog', 10);
+  await context.redis.zIncrBy("animals", "dog", 10);
 
   // View the rank of 'dog' again. This time it should be '3' because dog has the highest score.
   console.log(
-    "Dog's rank after incrementing score: " + (await context.redis.zRank('animals', 'dog'))
+    "Dog's rank after incrementing score: " +
+      (await context.redis.zRank("animals", "dog"))
   );
 }
 ```
@@ -633,21 +659,21 @@ Dog's rank after incrementing score: 3
 // Example using zRemRangeByLex()
 async function sortedSetExample5(context: Devvit.Context) {
   await context.redis.zAdd(
-    'fruits',
-    { member: 'kiwi', score: 0 },
-    { member: 'mango', score: 0 },
-    { member: 'banana', score: 0 },
-    { member: 'orange', score: 0 },
-    { member: 'apple', score: 0 }
+    "fruits",
+    { member: "kiwi", score: 0 },
+    { member: "mango", score: 0 },
+    { member: "banana", score: 0 },
+    { member: "orange", score: 0 },
+    { member: "apple", score: 0 }
   );
 
   // Remove fruits alphabetically ordered between 'kiwi' inclusive and 'orange' exclusive
   // Note: The symbols '[' and '(' indicate inclusive or exclusive, respectively. These must be included in the call to zRemRangeByLex().
-  await context.redis.zRemRangeByLex('fruits', '[kiwi', '(orange');
+  await context.redis.zRemRangeByLex("fruits", "[kiwi", "(orange");
 
   // Only 'apple', 'banana', and 'orange' should remain in the set
-  const zScanResponse = await context.redis.zScan('fruits', 0);
-  console.log('zScanResponse: ' + JSON.stringify(zScanResponse));
+  const zScanResponse = await context.redis.zScan("fruits", 0);
+  console.log("zScanResponse: " + JSON.stringify(zScanResponse));
 }
 ```
 
@@ -663,20 +689,20 @@ zScanResponse: {"cursor":0,"members":[{"score":0,"member":"apple"},{"score":0,"m
 // Example using zRemRangeByRank()
 async function sortedSetExample6(context: Devvit.Context) {
   await context.redis.zAdd(
-    'fruits',
-    { member: 'kiwi', score: 10 },
-    { member: 'mango', score: 20 },
-    { member: 'banana', score: 30 },
-    { member: 'orange', score: 40 },
-    { member: 'apple', score: 50 }
+    "fruits",
+    { member: "kiwi", score: 10 },
+    { member: "mango", score: 20 },
+    { member: "banana", score: 30 },
+    { member: "orange", score: 40 },
+    { member: "apple", score: 50 }
   );
 
   // Remove fruits ranked 1 through 3 inclusive
-  await context.redis.zRemRangeByRank('fruits', 1, 3);
+  await context.redis.zRemRangeByRank("fruits", 1, 3);
 
   // Only 'kiwi' and 'apple' should remain in the set
-  const zScanResponse = await context.redis.zScan('fruits', 0);
-  console.log('zScanResponse: ' + JSON.stringify(zScanResponse));
+  const zScanResponse = await context.redis.zScan("fruits", 0);
+  console.log("zScanResponse: " + JSON.stringify(zScanResponse));
 }
 ```
 
@@ -692,20 +718,20 @@ zScanResponse: {"cursor":0,"members":[{"score":10,"member":"kiwi"},{"score":50,"
 // Example using zRemRangeByScore() example
 async function sortedSetExample7(context: Devvit.Context) {
   await context.redis.zAdd(
-    'fruits',
-    { member: 'kiwi', score: 10 },
-    { member: 'mango', score: 20 },
-    { member: 'banana', score: 30 },
-    { member: 'orange', score: 40 },
-    { member: 'apple', score: 50 }
+    "fruits",
+    { member: "kiwi", score: 10 },
+    { member: "mango", score: 20 },
+    { member: "banana", score: 30 },
+    { member: "orange", score: 40 },
+    { member: "apple", score: 50 }
   );
 
   // Remove fruits scored between 30 and 50 inclusive
-  await context.redis.zRemRangeByScore('fruits', 30, 50);
+  await context.redis.zRemRangeByScore("fruits", 30, 50);
 
   // Only 'kiwi' and 'mango' should remain in the set
-  const zScanResponse = await context.redis.zScan('fruits', 0);
-  console.log('zScanResponse: ' + JSON.stringify(zScanResponse));
+  const zScanResponse = await context.redis.zScan("fruits", 0);
+  console.log("zScanResponse: " + JSON.stringify(zScanResponse));
 }
 ```
 
@@ -725,40 +751,51 @@ zScanResponse: {"cursor":0,"members":[{"score":10,"member":"kiwi"},{"score":20,"
 
 ```tsx
 async function bitfieldExample(context: Devvit.Context) {
-  const setBits: number[] = await context.redis.bitfield('foo', 'set', 'i5', '#0', 11);
-  console.log('Set result: ' + setBits); // [0]
+  const setBits: number[] = await context.redis.bitfield(
+    "foo",
+    "set",
+    "i5",
+    "#0",
+    11
+  );
+  console.log("Set result: " + setBits); // [0]
 
-  const getBits: number[] = await context.redis.bitfield('foo', 'get', 'i5', '#0');
-  console.log('Get result: ' + setBits); // [11]
+  const getBits: number[] = await context.redis.bitfield(
+    "foo",
+    "get",
+    "i5",
+    "#0"
+  );
+  console.log("Get result: " + setBits); // [11]
 
   const manyOperations: number[] = await context.redis.bitfield(
-    'bar',
-    'set',
-    'u2',
+    "bar",
+    "set",
+    "u2",
     0,
     3,
-    'get',
-    'u2',
+    "get",
+    "u2",
     0,
-    'incrBy',
-    'u2',
+    "incrBy",
+    "u2",
     0,
     1,
-    'overflow',
-    'sat',
-    'get',
-    'u2',
+    "overflow",
+    "sat",
+    "get",
+    "u2",
     0,
-    'set',
-    'u2',
+    "set",
+    "u2",
     0,
     3,
-    'incrBy',
-    'u2',
+    "incrBy",
+    "u2",
     0,
     1
   );
-  console.log('Results of many operations: ' + manyOperations); // [0, 3, 0, 0, 3, 3]
+  console.log("Results of many operations: " + manyOperations); // [0, 3, 0, 0, 3, 3]
 }
 ```
 
