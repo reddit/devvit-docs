@@ -156,3 +156,9 @@ router.post<string, never, TriggerResponse, OnPostSubmitRequest>(
 - Avoid creating recursive triggers that could cause infinite loops or crashes (for example, a comment trigger that creates a comment).
 - Always check the event payload to ensure your app is not the source of the event before taking action.
 - Review the [EventTypes documentation](../../api/public-api/@devvit/namespaces/EventTypes/) for details on event payloads.
+
+:::caution
+
+Triggers are not guaranteed to deliver only once for a single event. Ensure your app logic is able to handle this case, e.g. checking if content has been recently actioned before taking action again.
+
+:::
