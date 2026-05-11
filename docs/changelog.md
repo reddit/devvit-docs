@@ -9,142 +9,161 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.12.23
+
+**Release Date: May 11, 2026**
+
+This release doesn't present any developer-facing changes, and just includes stability, performance and code quality improvements for internal Devvit tools and packages.
+
 ## Release 0.12.22: Profile Settings and Community Contributions
+
 **Release Date: May 1, 2026**
 
 This release adds support for editing your [app’s profile settings](./guides/faq.mdx#AppFeatures). You can now update your display name, public description, and NSFW flag directly from the **Developer Settings** tab, then save your changes in the Developer Portal to update the profile.
 
 **Bug Fixes**
-* Fixed a bug causing apps to throw `undefined undefined: undefined error` when making plugin calls.
 
-**Community Updates** 
-Shoutout to **fsvreddit** for these udpates: 
-* `User.nsfw` now correctly reports whether the user profile is NSFW.
-* `User.showNsfw` reports whether the user is over 18 and wishes to see NSFW content.
-* `User.hasRedditPremium` reports whether the user is enrolled in Reddit Premium/Reddit Gold.
+- Fixed a bug causing apps to throw `undefined undefined: undefined error` when making plugin calls.
 
+**Community Updates**
+Shoutout to **fsvreddit** for these udpates:
+
+- `User.nsfw` now correctly reports whether the user profile is NSFW.
+- `User.showNsfw` reports whether the user is over 18 and wishes to see NSFW content.
+- `User.hasRedditPremium` reports whether the user is enrolled in Reddit Premium/Reddit Gold.
 
 ## Release 0.12.21: Stability and Performance Improvements for Portal
+
 **Release Date: Apr 27, 2026**
 
-In this release, Portal now retrieves data directly from reliable backend services and no longer depends on GraphQL.  This means: 
-* Faster responses — average request time reduced by 40% (from 364ms → 216ms)
-* Fewer errors — 62% reduction in server errors
-* Improved reliability — Portal is no longer affected by GraphQL outages
+In this release, Portal now retrieves data directly from reliable backend services and no longer depends on GraphQL. This means:
+
+- Faster responses — average request time reduced by 40% (from 364ms → 216ms)
+- Fewer errors — 62% reduction in server errors
+- Improved reliability — Portal is no longer affected by GraphQL outages
 
 Also added: a `Filter()` method to the Reddit API (similar to AutoMod) that removes content from public view, sends it to ModQueue/Removed, and logs the action in ModLog.
 
 ## Release 0.12.20: Maintenance Release
+
 **Release Date: Apr 20, 2026**
 
-This release contains a few internal fixes and improvements only. 
+This release contains a few internal fixes and improvements only.
 
 ## Release 0.12.19: Minor Updates
+
 **Release Date: Apr 13, 2026**
 
-This release includes the following updates: 
+This release includes the following updates:
 
-* Clarified that when `requestExpandedMode()` navigates to the same entrypoint, it may (but not always) trigger a reload.
+- Clarified that when `requestExpandedMode()` navigates to the same entrypoint, it may (but not always) trigger a reload.
 
-* Added a `post` parameter to the `shareSheet` effect to allow sharing links to other posts.
+- Added a `post` parameter to the `shareSheet` effect to allow sharing links to other posts.
 
-## Release 0.12.18:  Custom Post  Styling, Video Comments, and Cache
+## Release 0.12.18: Custom Post Styling, Video Comments, and Cache
+
 **Release Date: Apr 6, 2026**
 
-This release adds support for post styles, which lets you customize how your app posts look within Reddit. We’ve added [Creating a custom post](./capabilities/creating_custom_post.md)  documentation to walk you through building custom posts and configuring post styles. This includes options for setting background colors before your app loads, adjusting post height, and enabling custom share images when your app is shared.
+This release adds support for post styles, which lets you customize how your app posts look within Reddit. We’ve added [Creating a custom post](./capabilities/creating_custom_post.md) documentation to walk you through building custom posts and configuring post styles. This includes options for setting background colors before your app loads, adjusting post height, and enabling custom share images when your app is shared.
 
 **Other fixes**
-* Added `video` to the `CommentMediaTypes` type. This fixes an issue where apps on subreddits with video comments crashed due to `getCurrentSubreddit()` throwing `invalid comment media type: video` error. 
-* Fixed an issue where in-memory cache data was unintentionally shared across subreddits. Cache is now partitioned per subreddit, which ensures you’ll get accurate data for each subreddit.
 
-## Release 0.12.17  Redis Update and Minor Fixes
-**Release Date: Mar 30, 2026**  
+- Added `video` to the `CommentMediaTypes` type. This fixes an issue where apps on subreddits with video comments crashed due to `getCurrentSubreddit()` throwing `invalid comment media type: video` error.
+- Fixed an issue where in-memory cache data was unintentionally shared across subreddits. Cache is now partitioned per subreddit, which ensures you’ll get accurate data for each subreddit.
 
-This release included updated Redis transaction support.  `hSetNX` was available on `RedisClient` but missing from transaction interfaces, preventing atomic hash set-if-not-exists operations within transactions. Updates include:
+## Release 0.12.17 Redis Update and Minor Fixes
 
-* Added `hSetNX` to the `TxClientLike` type  
-* Implemented `hSetNX` in the Redis transaction class, following the existing `hSet` pattern  
-* Added `hSetNX` and lowercase `hsetnx` alias to the public API transaction class, consistent with other hash method aliases
+**Release Date: Mar 30, 2026**
+
+This release included updated Redis transaction support. `hSetNX` was available on `RedisClient` but missing from transaction interfaces, preventing atomic hash set-if-not-exists operations within transactions. Updates include:
+
+- Added `hSetNX` to the `TxClientLike` type
+- Implemented `hSetNX` in the Redis transaction class, following the existing `hSet` pattern
+- Added `hSetNX` and lowercase `hsetnx` alias to the public API transaction class, consistent with other hash method aliases
 
 **Other Fixes**
 
-* Fixed an issue where editing a post or comment with an image in the rich text builder triggered an `INVALID_SELFPOST: richtext_json` error.
+- Fixed an issue where editing a post or comment with an image in the rich text builder triggered an `INVALID_SELFPOST: richtext_json` error.
 
-* Fixed an issue where SVG files containing XML declarations or `DOCTYPE` tags produced broken icons in `devvit create icons` by stripping content before the `<svg>` tag.
+- Fixed an issue where SVG files containing XML declarations or `DOCTYPE` tags produced broken icons in `devvit create icons` by stripping content before the `<svg>` tag.
 
+## Release 0.12.16 Subreddit APIs and Poll Post Updates
 
-## Release 0.12.16  Subreddit APIs and Poll Post Updates
-**Release Date: Mar 23, 2026**  
+**Release Date: Mar 23, 2026**
 
-This release adds new APIs for smoother subreddit management, a unified rules model, and shared proto endpoints.  Also included: new poll post functionality.
+This release adds new APIs for smoother subreddit management, a unified rules model, and shared proto endpoints. Also included: new poll post functionality.
 
-**Subreddit Management** 
+**Subreddit Management**
 
-* `subreddit.updateSettings()` updates subreddit settings (this method only supports the settings currently exposed in the `SubredditSettings` type).  
-* `subreddit.updateRemovalReasons()` updates subreddit removal reasons.
-* `subreddit.deleteRemovalReasons()` deletes a subreddit removal reason.
+- `subreddit.updateSettings()` updates subreddit settings (this method only supports the settings currently exposed in the `SubredditSettings` type).
+- `subreddit.updateRemovalReasons()` updates subreddit removal reasons.
+- `subreddit.deleteRemovalReasons()` deletes a subreddit removal reason.
 
-**Subreddit Rules** 
+**Subreddit Rules**
 
-* `subreddit.getRules()` (or `reddit.getRules()`) retrieves rules.   
-* `subreddit.createRule()` (or `reddit.createRule()`) creates rules.  
-* `subreddit.reorderRules()` (or `reddit.reorderRules()`) reorders rules.  
-* `rule.updateRule()` updates an existing rule.  
-* `rule.removeRule()` deletes a rule.
+- `subreddit.getRules()` (or `reddit.getRules()`) retrieves rules.
+- `subreddit.createRule()` (or `reddit.createRule()`) creates rules.
+- `subreddit.reorderRules()` (or `reddit.reorderRules()`) reorders rules.
+- `rule.updateRule()` updates an existing rule.
+- `rule.removeRule()` deletes a rule.
 
 Note: methods available on `reddit` provide the same functionality as their `subreddit` counterparts but do not require a subreddit instance.
 
 **Proto APIs**
 
-* `reddit.getBestPosts` returns a list of posts from the authenticated user’s front page. By default this runs as the app account, but it can be overridden on a per-app basis to always run as the user.  
-* `reddit.getDuplicatesForPosts` returns a list of other posts containing the same link as the input post.  
-* `reddit.showComment` unhides a comment that was hidden due to crowd control. Comments hidden for other reasons remain hidden.  
-* `comment.snoozeReports` and `post.snoozeReports` prevent reports for the input comment or post with the given reason from escalating to subreddit moderators for 7 days.  
-* `comment.unsnoozeReports` and `post.unsnoozeReports` remove the snooze applied by snoozeReports for the input comment or post.  
-* `comment.updateCrowdControlLevel` and `post.updateCrowdControlLevel` update the crowd control level for the comment or post (OFF, LENIENT, MEDIUM, or STRICT).  
-* `user.getTrophies` returns a list of trophies the user has earned.
+- `reddit.getBestPosts` returns a list of posts from the authenticated user’s front page. By default this runs as the app account, but it can be overridden on a per-app basis to always run as the user.
+- `reddit.getDuplicatesForPosts` returns a list of other posts containing the same link as the input post.
+- `reddit.showComment` unhides a comment that was hidden due to crowd control. Comments hidden for other reasons remain hidden.
+- `comment.snoozeReports` and `post.snoozeReports` prevent reports for the input comment or post with the given reason from escalating to subreddit moderators for 7 days.
+- `comment.unsnoozeReports` and `post.unsnoozeReports` remove the snooze applied by snoozeReports for the input comment or post.
+- `comment.updateCrowdControlLevel` and `post.updateCrowdControlLevel` update the crowd control level for the comment or post (OFF, LENIENT, MEDIUM, or STRICT).
+- `user.getTrophies` returns a list of trophies the user has earned.
 
 **Poll Post Enhancements**
 
-* Introduces a `pollOption` field on the `Post` object to access poll options.  
-* Adds a `getCurrentUserPollOption()` method to retrieve the option selected by the current user (if any). This method needs `runAs` permission to work, so please contact us if you intend to use it.
+- Introduces a `pollOption` field on the `Post` object to access poll options.
+- Adds a `getCurrentUserPollOption()` method to retrieve the option selected by the current user (if any). This method needs `runAs` permission to work, so please contact us if you intend to use it.
 
-## Devvit 0.12.15:  The Nothing-To-See-Here Release
-**Release Date: Mar 16, 2026**   
+## Devvit 0.12.15: The Nothing-To-See-Here Release
+
+**Release Date: Mar 16, 2026**
 
 This release contains internal improvements and infrastructure updates to improve stability and support future development.
 
-## Devvit 0.12.14:  Community Game Pro Tips, Platform Changes, and Fixes
-**Release Date: Mar 9, 2026**   
+## Devvit 0.12.14: Community Game Pro Tips, Platform Changes, and Fixes
 
-This release brings new guidance to help you build more engaging community games, along with important platform updates and several developer experience improvements.  
+**Release Date: Mar 9, 2026**
 
-**Level Up Your Community Games**  
+This release brings new guidance to help you build more engaging community games, along with important platform updates and several developer experience improvements.
 
-The newly updated [Building Community Games](https://developers.reddit.com/docs/guides/best-practices/community_games#player-retention) guide includes new tips for creating engaging gameplay that thrives on Reddit!  Learn which mechanics drive long-term engagement and how to improve your chances of [getting featured](https://developers.reddit.com/docs/guides/launch/feature-guide).  
+**Level Up Your Community Games**
 
-**Other Fixes**   
+The newly updated [Building Community Games](https://developers.reddit.com/docs/guides/best-practices/community_games#player-retention) guide includes new tips for creating engaging gameplay that thrives on Reddit! Learn which mechanics drive long-term engagement and how to improve your chances of [getting featured](https://developers.reddit.com/docs/guides/launch/feature-guide).
+
+**Other Fixes**
+
 - **Improved modmail validation and logging**: Added subreddit ID validation for Reddit Modmail requests and improved error logging.
 - **Fixed image uploads in comments created with RichTextBuilder**: Resolved an issue where comment creation failed when adding images due to media processing conflicts. RichTextBuilder now accepts media URLs instead of media IDs, and the Devvit runtime converts them during processing to ensure compatibility with native post and comment media handling.
 - **Custom Post styles support**: You can now pass an optional `styles` parameter to `submitCustomPost()`, and use the new `getPostStyles()` and `setPostStyles()` methods available on both the Reddit API and Post objects.
 
-
 ## Devvit 0.12.13: Minor Tweaks
+
 **Release Date: Feb 17, 2026**
 
-This release has a few minor tweaks to make your life easier: 
+This release has a few minor tweaks to make your life easier:
 
 - **CLI update**: By developer request, `publish` now bumps the patch version by default instead of the minor version.
 - **Playtest fix**: Live reloading for apps during playtests is working again.
 - **General clean-up**: We removed outdated templates that were previously used in CLI mode.
 
-
 ## Devvit 0.12.12: New Templates, Vite Plugin, and Test Harness
+
 **Release Date: February 9, 2026**
 
 Release 0.12.12 is all about streamlining the developer experience. This release includes:
 
-- **Updated templates**. All templates now use the Vite plugin and a simplified structure, which includes: 
+- **Updated templates**. All templates now use the Vite plugin and a simplified structure, which includes:
+
   - Vite plugin support
   - `agents.md` replacing `.kiro` and `.cursor` files
   - Simpler dev workflow with clearer playtest logs
@@ -160,8 +179,7 @@ Release 0.12.12 is all about streamlining the developer experience. This release
 
 - **Devvit test harness.** Adds an easy way to write integration tests for Devvit plugins using Vitest, supporting a more test-driven workflow.
 
-- **Standardized image upload limits**. GIF uploads are now all limited to 20 MB across all upload paths, aligning them with existing upload limits for a more consistent developer experience. 
-
+- **Standardized image upload limits**. GIF uploads are now all limited to 20 MB across all upload paths, aligning them with existing upload limits for a more consistent developer experience.
 
 ## Devvit 0.12.11: App Review Update
 
@@ -363,7 +381,7 @@ There's also a new [web-based creation flow](https://developers.reddit.com/new/)
 
 - **Client/server architecture**: Clear separation between frontend (@devvit/web/client) and backend (@devvit/web/server)
 - **Full platform access**: Continued access to Redis, Reddit API, and Devvit's hosting services
-**Current Limitations**
+  **Current Limitations**
 
 - Serverless endpoints only (no long-running connections or streaming)
 - Package restrictions (no fs or external native packages)
