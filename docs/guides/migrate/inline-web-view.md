@@ -16,7 +16,7 @@ Apps can be partially migrated, you don't need to re-write everything!
 
 - No postMessage required
 - Use web native fetch() to server endpoints directly
-- App logic is either on the client, or the server, with clear deliniation
+- App logic is either on the client, or the server, with clear delineation
 - Client effects are available directly from web views
 
 ## Setting up devvit.json
@@ -160,8 +160,6 @@ server.listen(port, () => console.log(`http://localhost:${port}`));
 ```
 
 ### Calling your server endpoints
-
-Now
 
 Instead of using `postMessage`, your client-side code can now directly fetch the initial state from the `/api/init` endpoint we defined in the server.
 
