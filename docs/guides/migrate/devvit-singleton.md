@@ -34,7 +34,7 @@ Delete the `devvit.yaml` file from your project root. All configuration is now h
 
 ### 3. Handle static assets
 
-If your app uses static assets (images, fonts, etc.) from an `assets` folder, you'll need to define this in update your `devvit.json` to point to these assets:
+If your app uses static assets (images, fonts, etc.) from an `assets` folder, you'll need to update your `devvit.json` to point to these assets:
 
 ```json
 {
