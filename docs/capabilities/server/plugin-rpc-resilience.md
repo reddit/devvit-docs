@@ -205,12 +205,18 @@ with these enabled.
 
 ## Related issues
 
-The platform-side patterns described above were validated against these
-open Devvit GitHub issues that share the empty-gRPC-envelope signature:
+These patterns are useful regardless of whether any specific platform issue
+is currently active — the same defensive shape protects against transient
+failures (sidecar restart, secret rotation timing, partial deploy). For
+context, the empty-gRPC-envelope signature has been observed in the
+following issues:
 
-- [reddit/devvit#258](https://github.com/reddit/devvit/issues/258) — `reddit.submitCustomPost()` / `submitPost()` fail with the same `undefined undefined: undefined` shape on playtest.
-- [reddit/devvit#259](https://github.com/reddit/devvit/issues/259) — `scheduler.runJob()` returns a UUID but `listJobs()` is empty and the registered job never executes; same gRPC layer.
-- [reddit/devvit#261](https://github.com/reddit/devvit/issues/261) — `settings.get` / `redis.get,zRange` / `reddit.getModerators` all throw the empty envelope from the same handler. Confirms the failure is plugin-RPC-wide, not per-client.
+- [reddit/devvit#258](https://github.com/reddit/devvit/issues/258) — `reddit.submitCustomPost()` / `submitPost()` (open at time of writing).
+- [reddit/devvit#259](https://github.com/reddit/devvit/issues/259) — `scheduler.runJob()` returns a UUID but `listJobs()` is empty (open at time of writing).
+- [reddit/devvit#261](https://github.com/reddit/devvit/issues/261) — `settings.get` / `redis.get,zRange` / `reddit.getModerators` all throwing from the same handler (closed 2026-05-14 as could-not-reproduce in current state).
+
+If the bug returns or a similar one surfaces, the patterns in this page
+will keep your app's UX usable instead of blank-screening on the throw.
 
 ## Summary
 
