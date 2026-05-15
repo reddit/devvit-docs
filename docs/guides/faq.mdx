@@ -376,7 +376,17 @@ If you actually need remote data or remote media, that's a different path: use [
 <details>
 <summary>How do I update my app profile settings?</summary>
 
-You can edit the display name, about description, and mature flag (18+) fields in the Developer Portal under Developer Settings. Updates will appear in the Developer Portal and on the app's Reddit profile.
+App profile settings let you control how your app appears on Reddit via a combination of configuration in `devvit.json` and fields in the Developer Portal.
+
+**Avatar (profile icon)**
+To update your avatar:
+
+1. In your `devvit.json`, set the `marketingAssets.icon` field to the path to your icon from the project root.
+2. When you publish your app and it is approved, this icon is uploaded to your app’s Reddit profile.
+3. To change the icon later, update `marketingAssets.icon` in `devvit.json` and submit the app for a new review.
+4. Only image avatars are supported at this time. Snoovatars are not supported for apps.
+
+You can also edit the display name, about description, and mature flag (18+) fields in the Developer Portal under Developer Settings. Updates will appear in the Developer Portal and on the app's Reddit profile.
 
 </details>
 
