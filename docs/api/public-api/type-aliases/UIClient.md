@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.24-dev**](../README.md)
+[**@devvit/public-api v0.12.25-dev**](../README.md)
 
 ***
 
@@ -51,7 +51,7 @@ Navigate to a URL
 
 ###### subreddit
 
-`Pick`\<`Subreddit`, `"url"`\>
+`Pick`\<`Subreddit`, `"permalink"` \| `"url"`\>
 
 ##### Returns
 
@@ -65,7 +65,7 @@ Navigate to a URL
 
 ###### post
 
-`Pick`\<`Post`, `"url"`\>
+`Pick`\<`Post`, `"permalink"` \| `"url"`\>
 
 ##### Returns
 
@@ -79,7 +79,7 @@ Navigate to a URL
 
 ###### comment
 
-`Pick`\<`Comment`, `"url"`\>
+`Pick`\<`Comment`, `"permalink"` \| `"url"`\>
 
 ##### Returns
 
@@ -93,7 +93,7 @@ Navigate to a URL
 
 ###### user
 
-`Pick`\<`User`, `"url"`\>
+`Pick`\<`User`, `"permalink"` \| `"url"`\>
 
 ##### Returns
 
@@ -107,7 +107,7 @@ Navigate to a URL
 
 ###### urlOrThing
 
-`string` | \{ `url`: `string`; \}
+`string` | \{ `permalink`: `string`; `url`: `string`; \}
 
 ##### Returns
 

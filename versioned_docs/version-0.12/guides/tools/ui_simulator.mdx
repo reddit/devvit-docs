@@ -65,7 +65,25 @@ Always test your app in mobile view first to validate that all critical features
    - Test all new features in mobile view before desktop
    - Verify both dark and light mode appearances
 
-Remember: Mobile users are your primary audience. If it works well on mobile, it will likely work well everywhere else.  
+Remember: Mobile users are your primary audience. If it works well on mobile, it will likely work well everywhere else.
+
+Example of how to use a CSS media query to set different colors for light and dark mode:
+
+```css
+/* Light mode (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+  }
+}
+```
 
 
 # Adding dark mode support

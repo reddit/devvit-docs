@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.23-dev**](../../README.md)
+[**@devvit/public-api v0.12.24-dev**](../../README.md)
 
 ***
 
@@ -62,9 +62,9 @@ List of allowed media types in the comments made in the subreddit.
 
 ### allowedPostType
 
-> **allowedPostType**: `"any"` \| `"link"` \| `"self"`
+> **allowedPostType**: `"any"` \| `"link"` \| `"self"` \| `"other"`
 
-The types of post allowed in this subreddit. Either "any", "link", or "self".
+The types of post allowed in this subreddit. Either "any", "link", "self", or "other".
 
 ***
 
