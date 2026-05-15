@@ -18,9 +18,9 @@ You can now upload an [app icon](./guides/faq.mdx#AppFeatures) that appears both
 Other improvements in this release include: 
 - **Post URL handling**:  improved post URL resolution for media posts (e.g. image and video posts), where the url field may point directly to the asset.  If the url pathname differs from the post permalink, the canonical post URL is now resolved as `reddit.com + permalink` to handle edge cases. Otherwise, the existing url field continues to be used.
 - **Playtest command stability improvements**, including: 
- - Waiting for `scripts.dev` to produce its first complete output before continuing
- - Always uploading a fresh playtest build on startup
- - Running `scripts.dev` as a killable process group for more reliable cleanup and shutdown behavior
+  - Waiting for `scripts.dev` to produce its first complete output before continuing
+  - Always uploading a fresh playtest build on startup
+  - Running `scripts.dev` as a killable process group for more reliable cleanup and shutdown behavior
 
 
 ## Release 0.12.23
