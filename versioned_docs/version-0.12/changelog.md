@@ -9,6 +9,19 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.12.24: App Profile Icons
+
+**Release Date: May 18, 2026** 
+
+You can now upload an [app icon](./guides/faq.mdx#AppFeatures) that appears both in Dev Portal and on the app’s Reddit profile, once your app has been approved and published. This helps your app maintain a consistent identity across surfaces.
+
+Other improvements in this release include: 
+- **Post URL handling**:  improved post URL resolution for media posts (e.g. image and video posts), where the url field may point directly to the asset.  If the url pathname differs from the post permalink, the canonical post URL is now resolved as `reddit.com + permalink` to handle edge cases. Otherwise, the existing url field continues to be used.
+- **Playtest command stability improvements**, including: 
+  - Waiting for `scripts.dev` to produce its first complete output before continuing
+  - Always uploading a fresh playtest build on startup
+  - Running `scripts.dev` as a killable process group for more reliable cleanup and shutdown behavior
+
 ## Release 0.12.23
 
 **Release Date: May 11, 2026**
