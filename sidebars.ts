@@ -151,16 +151,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Access External Endpoints",
-      items: [
-        "capabilities/server/http-fetch",
-        "capabilities/server/http-fetch-policy",
-      ],
-    },
-    {
-      type: "category",
       label: "Automation & Triggers",
       items: ["capabilities/server/scheduler", "capabilities/server/triggers"],
+    },
+    {
+      type: "doc",
+      label: "HTTP Fetch",
+      id: "capabilities/http-fetch",
     },
     {
       type: "category",
