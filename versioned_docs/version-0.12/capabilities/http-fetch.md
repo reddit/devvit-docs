@@ -114,7 +114,7 @@ To resolve this:
 
 ## Global fetch allowlist
 
-These domains are globally allowed and can be fetched by any app. Expand to see full list.
+These domains are globally allowed and can be fetched by any app.
 
 - api.openai.com
 - generativelanguage.googleapis.com
@@ -149,7 +149,6 @@ These domains are globally allowed and can be fetched by any app. Expand to see 
 - pbs.org
 - i.giphy.com
 - chessboardjs.com
-
 
 ## HTTP Fetch Policy
 
