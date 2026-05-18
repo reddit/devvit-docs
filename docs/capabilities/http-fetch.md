@@ -114,41 +114,41 @@ To resolve this:
 
 ## Global fetch allowlist
 
-These domains are globally allowed and can be fetched by any app. Expand to see full list.
+These domains are globally allowed and can be fetched by any app.
 
-* api.massive.com  
-* api.nasa.gov  
-* api.openai.com  
-* api.petfinder.com  
-* api.polygon.io  
-* api.scryfall.com  
-* api.sportradar.com  
-* api.sportradar.us  
-* api.telegram.org  
-* api.twitter.com  
-* api.weather.gov  
-* cdn.espn.com  
-* chessboardjs.com  
-* commentanalyzer.googleapis.com  
-* discord.com  
-* example.com  
-* finance.yahoo.com  
-* fonts.googleapis.com  
-* generativelanguage.googleapis.com  
-* i.giphy.com  
-* language.googleapis.com  
-* lichess.org  
-* npr.org  
-* nytimes.com  
-* pbs.org  
-* polygon.io  
-* propublica.org  
-* random.org  
-* site.api.espn.com  
-* slack.com  
-* statsapi.mlb.com  
-* wikipedia.org  
-* youtube.googleapis.com
+- api.openai.com
+- generativelanguage.googleapis.com
+- example.com
+- site.api.espn.com
+- cdn.espn.com
+- discord.com
+- api.polygon.io
+- api.massive.com
+- polygon.io
+- slack.com
+- lichess.org
+- api.telegram.org
+- commentanalyzer.googleapis.com
+- language.googleapis.com
+- statsapi.mlb.com
+- api.scryfall.com
+- api.nasa.gov
+- api.sportradar.us
+- api.sportradar.com
+- random.org
+- youtube.googleapis.com
+- api.weather.gov
+- wikipedia.org
+- finance.yahoo.com
+- api.twitter.com
+- api.petfinder.com
+- fonts.googleapis.com
+- nytimes.com
+- npr.org
+- propublica.org
+- pbs.org
+- i.giphy.com
+- chessboardjs.com
 
 ## HTTP Fetch Policy
 
@@ -164,9 +164,7 @@ Allow-listed domains fall into three categories:
      * s3.amazonaws.com  
      * storage.googleapis.com  
    * Demonstrate a capability that @devvit/server doesn't support  
-   * Valid use cases include:  
-     * Asset hosting (videos, images, music)  
-     * Relational databases  
+   * Valid use cases include relational databases  
    * Note: Approval can be revoked at any time  
 3. **Personal domains** (e.g., personaldomain.com) \- Will not be approved. If you have a use case that our Devvit server does not support, please submit your request with detailed justification for a possible exception.
 
