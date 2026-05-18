@@ -165,20 +165,6 @@ const config: Config = {
     ],
     "./plugins/copyDocsRaw.ts",
     "./plugins/fixPrism.ts",
-    [
-      "@docusaurus/plugin-client-redirects",
-      {
-        redirects: [
-          {
-            from: [
-              "/docs/capabilities/server/http-fetch",
-              "/docs/capabilities/server/http-fetch-policy",
-            ],
-            to: "/docs/capabilities/http-fetch",
-          },
-        ],
-      },
-    ],
   ],
   themeConfig: {
     docs: {
