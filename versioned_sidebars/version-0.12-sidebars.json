@@ -135,14 +135,14 @@
       ]
     },
     {
-      type: "category",
-      label: "Automation & Triggers",
-      items: ["capabilities/server/scheduler", "capabilities/server/triggers"],
+      "type": "category",
+      "label": "Automation & Triggers",
+      "items": ["capabilities/server/scheduler", "capabilities/server/triggers"]
     },
     {
-      type: "doc",
-      label: "HTTP Fetch",
-      id: "capabilities/http-fetch",
+      "type": "doc",
+      "label": "HTTP Fetch",
+      "id": "capabilities/http-fetch"
     },
     {
       "type": "category",
