@@ -165,8 +165,7 @@ const config: Config = {
     ],
     "./plugins/copyDocsRaw.ts",
     "./plugins/fixPrism.ts",
-  ],
-      [
+    [
       "@docusaurus/plugin-client-redirects",
       {
         redirects: [
