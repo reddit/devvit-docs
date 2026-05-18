@@ -69,12 +69,10 @@ console.log('External API response:', data);
 
 ### Client-side fetch
 
-Client-side fetch has different restrictions and can only make requests to your own webview domain:
-
-**Client-side restrictions:**
+Client-side fetch has different restrictions:
 
 * **Domain limitation**: Can only make requests to your own webview domain  
-* **Endpoint requirement**: All requests must target endpoints that end with /api  
+* **Endpoint requirement**: All requests must target endpoints that start with /api  
 * **Authentication**: Handled automatically \- no need to manage auth tokens  
 * **No external domains**: Cannot make requests to external domains from client-side code  
   client/index.ts
@@ -97,21 +95,22 @@ const handleFetchData = async () => {
 // Incorrect: cannot fetch external domains from client-side
 // const response = await fetch('https://external-api.com/data');
 
-// Incorrect: endpoint must end with /api
+// Incorrect: endpoint must start with /api
 // const response = await fetch('/user-data');
 ```
 
 ## Troubleshooting
 
-The following error means HTTP Fetch requests are hitting the internal timeout limits. To resolve this:
+The following error means HTTP Fetch requests are hitting the internal timeout limits. 
+
+```
+HTTP request to domain: <domain> timed out with error: context deadline exceeded.
+```
+
+To resolve this:
 
 * Use a queue or kick off an async request in your back end. You can use [Scheduler](https://developers.reddit.com/docs/capabilities/server/scheduler) to monitor the result.  
 * Optimize the overall HTTP request latency if you have a self-hosted server.
-
-```
-
-HTTP request to domain: <domain> timed out with error: context deadline exceeded.
-```
 
 ## Global fetch allowlist
 
