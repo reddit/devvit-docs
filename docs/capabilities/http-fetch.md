@@ -168,11 +168,11 @@ Allow-listed domains fall into three categories:
      * Asset hosting (videos, images, music)  
      * Relational databases  
    * Note: Approval can be revoked at any time  
-3. **Personal domains** (e.g., personaldomain.com) \- Will not be approved. If you have a use case that our Devvit server does not support, please submit your request with detailed justification.
+3. **Personal domains** (e.g., personaldomain.com) \- Will not be approved. If you have a use case that our Devvit server does not support, please submit your request with detailed justification for a possible exception.
 
 ### AI providers
 
-At this time, the OpenAI and Google Gemini are the only allowed providers:
+At this time, OpenAI and Google Gemini are the only allowed providers:
 
 * api.openai.com  
 * generativelanguage.googleapis.com
