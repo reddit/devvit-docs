@@ -20,6 +20,24 @@ window.sendV2Event = (event) => {
   });
 };
 
+function getReferrerInfo() {
+  if (!document.referrer) {
+    return {};
+  }
+
+  try {
+    const referrerUrl = new URL(document.referrer);
+    return {
+      url: document.referrer,
+      domain: referrerUrl.host,
+    };
+  } catch {
+    return {
+      url: document.referrer,
+    };
+  }
+}
+
 // Lovingly ripped off from client/src/lib/globalEventHandler.ts
 class GlobalEventHandler {
   #isVisible = true;
@@ -72,16 +90,8 @@ class GlobalEventHandler {
       request: {
         base_url: window.location.href,
       },
-      referrer: {},
+      referrer: getReferrerInfo(),
     };
-
-    if (document.referrer) {
-      const referrerUrl = new URL(document.referrer);
-      event.referrer = {
-        url: document.referrer,
-        domain: referrerUrl.host,
-      };
-    }
 
     window.sendV2Event(event);
   }
