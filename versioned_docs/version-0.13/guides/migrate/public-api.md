@@ -1,267 +1,413 @@
-# Migrating Your PRAW App to Devvit Web
+# Migrating from PRAW to Devvit Web
 
-If you have built Reddit bots or moderation tools using PRAW (Python Reddit API Wrapper) and the standard Reddit API, you can port them directly into Reddit using Devvit Web. Devvit Web is Reddit's modern client/server architecture for applications, allowing you to build rich moderation tools and automated bots using familiar web frameworks (like Hono and Vite).
+[Devvit Web](../../capabilities/devvit-web/devvit_web_overview.mdx) is how
+you ship the same kind of automation **on Reddit’s platform**. This guide will outline the basics
 
-This guide shows you how to transition your Python/PRAW app to a Devvit Web app with concepts and logic structures you're already familiar with.
+:::note
+This guide assumes you have basic familiarity with Python and PRAW (e.g., `pip`, `requirements.txt`, and
+`praw.Reddit(...)`). The sections below focus on what changes on Devvit.
+:::
 
-## Creating a Devvit app
+This guide is a **PRAW → Devvit** mapping: same workflows, different runtime. For Devvit setup, start with
+the [app quickstart](../../quickstart/quickstart.md) or [mod tool quickstart](../../quickstart/quickstart-mod-tool.md).
 
-Unlike standard Python scripts, a Devvit Web app is structurally split into a front-end client and a back-end server and tied together by a configuration file. To jumpstart your migration, you can use official Devvit templates.
+| Topic                   | Devvit                                                                          |
+|-------------------------|---------------------------------------------------------------------------------|
+| Architecture and limits | [Devvit Web overview](../../capabilities/devvit-web/devvit_web_overview.mdx)    |
+| `devvit.json`           | [Configure your app](../../capabilities/devvit-web/devvit_web_configuration.md) |
 
-### Mod tool template
+---
 
-A highly recommended starting point for migrating PRAW moderation tools is the **Mod Tool Template**. Go to [developers.reddit.com/new](http://developers.reddit.com/new), select the Mod Tool Template, and follow the instructions. The project created for you provides a complete foundation with a lightweight web framework (Hono) for backend logic, Vite for web components, and TypeScript for type safety.
+## 1. Project layout and auth
 
-### Architecture
+| PRAW                           | Devvit                                                                                                                                        |
+|--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| `pip` / `requirements.txt`     | `npm` / [`package.json`](https://docs.npmjs.com/cli/configuring-npm/package-json)                                                             |
+| `praw.Reddit(...)` + env       | [`devvit.json`](../../capabilities/devvit-web/devvit_web_configuration.md) + [`permissions.reddit`](../../capabilities/server/reddit-api.mdx) |
+| `python bot.py` on your server | `npm run dev` (playtest on Reddit); handlers are HTTP routes, not a forever loop                                                              |
 
-A typical Devvit Web template will generate the following file structure:
+**Devvit (typical new project)**
 
-- **devvit.json**: This is your app's configuration file (replacing the old devvit.yaml paradigm). It defines your app's name, permissions, triggers, and scheduled jobs.
-- **src/client/**: This directory holds your webview code (HTML/CSS/JS or React components built with Vite). For Mod Tools it's common to not use the client folder
-- **src/server/**: This directory contains your backend API logic. Here, a Node server framework (like Hono) processes requests, interacts with the Reddit API, and handles triggers. All server endpoints typically start with /internal/ or /api/.
+```bash
+npm install && npm run dev
+```
 
-## Python to TypeScript: Server Concepts
-
-In PRAW, you managed state in a continuous Python loop. In Devvit Web, your application acts as an API server responding to specific incoming webhook requests (handled seamlessly by Hono). Here are the key analogies:
-
-- **dict vs. Object/Record:** Python dictionaries serve the same structural purpose as TypeScript objects.
-- **pip install vs. npm install:** Instead of managing a requirements.txt file, Devvit uses a package.json file to track dependencies.
-- **Continuous Polling vs. Webhooks:** Instead of polling Reddit in a while True: loop, Devvit automatically sends a POST request to your Hono server whenever an event occurs.
-
-## Triggers (replacing continuous polling)
-
-In Devvit Web, triggers are configured in your devvit.json. When an event happens (like a new comment), Devvit sends a payload to the designated endpoint on your server.
-
-**Step 1: Configuration (devvit.json)**
-
-```json
+```json title="devvit.json (excerpt)"
 {
-  "name": "my-moderator-bot",
+  "name": "my-app",
+  "server": {
+    "entry": "dist/server/index.cjs"
+  },
+  "permissions": {
+    "reddit": true
+  },
+  "triggers": {
+    "onAppInstall": "/internal/triggers/on-app-install"
+  }
+}
+```
+
+```ts title="src/server/index.ts (excerpt)"
+import { Hono } from "hono";
+import type { TriggerResponse } from "@devvit/web/shared";
+
+const app = new Hono();
+
+app.post("/internal/triggers/on-app-install", async (c) => {
+  return c.json<TriggerResponse>({ status: "ok" });
+});
+
+export default app;
+```
+
+---
+
+## 2. `praw.Reddit` → `reddit` and `context`
+
+| PRAW                                                                     | Devvit                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `reddit.subreddit(...)`, `reddit.comment(...)`, `reddit.submission(...)` | Import **`reddit`** from `@devvit/web/server`. Load: [`getSubredditInfoByName`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getsubredditinfobyname), [`getCurrentSubreddit`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getcurrentsubreddit), [`getCommentById`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getcommentbyid), [`getPostById`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getpostbyid). Submit: [`submitPost`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost), [`submitComment`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment). See [`RedditAPIClient`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md). |
+| Hard-coded subreddit / “current” thing from your script                  | **`context`** from `@devvit/web/server` — [`subredditName`](../../api/public-api/type-aliases/BaseContext.md#subredditname), [`subredditId`](../../api/public-api/type-aliases/BaseContext.md#subredditid), [`postId`](../../api/public-api/type-aliases/BaseContext.md#postid), [`commentId`](../../api/public-api/type-aliases/BaseContext.md#commentid) (menu/form/post surfaces), [`postData`](../../api/public-api/type-aliases/BaseContext.md#postdata). See [`BaseContext`](../../api/public-api/type-aliases/BaseContext.md).                                                                                                                                                                                                                                             |
+| Thing id from a menu or form action                                      | [`context.commentId`](../../api/public-api/type-aliases/BaseContext.md#commentid), [`context.postId`](../../api/public-api/type-aliases/BaseContext.md#postid) — [mod tool quickstart](../../quickstart/quickstart-mod-tool.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Subreddit secrets / config in your script                                | Import [`settings`](../../capabilities/server/settings-and-secrets.mdx) from `@devvit/web/server` (`settings.get(...)`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Event payload from a stream or webhook                                   | `await c.req.json<OnCommentCreateRequest>()` (and similar types from `@devvit/web/shared`) — [Triggers](../../capabilities/server/triggers.mdx) (see [Streams → triggers](#3-streams--triggers) below)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+
+**PRAW**
+
+```python
+for comment in reddit.subreddit("learnpython").stream.comments(skip_existing=True):
+    print(comment.author, comment.body)
+```
+
+**Devvit** — declare a trigger in `devvit.json`, then handle the event (same idea
+as [Streams → triggers](#3-streams--triggers) below):
+
+```json title="devvit.json (excerpt)"
+{
+  "triggers": {
+    "onCommentCreate": "/internal/triggers/on-comment-create"
+  }
+}
+```
+
+```ts title="src/server/index.ts"
+import { Hono } from "hono";
+import { context } from "@devvit/web/server";
+import type { OnCommentCreateRequest, TriggerResponse } from "@devvit/web/shared";
+
+const app = new Hono();
+
+app.post("/internal/triggers/on-comment-create", async (c) => {
+  const { subredditName } = context;
+  const input = await c.req.json<OnCommentCreateRequest>();
+  const commentId = input.comment?.id;
+  const postId = input.comment?.postId;
+  if (subredditName && commentId) {
+    console.log(`r/${subredditName} new comment (${commentId}) on ${postId}: ${input.comment?.body}`);
+  }
+  return c.json<TriggerResponse>({ status: "ok" });
+});
+
+export default app;
+```
+
+---
+
+## 3. Streams → triggers
+
+Your [`subreddit.stream`](https://praw.readthedocs.io/en/stable/code_overview/other/subredditstream.html) / [
+`mod.stream`](https://praw.readthedocs.io/en/stable/code_overview/other/subredditmoderationstream.html) loops do not
+have a direct Devvit equivalent. Declare [**triggers**](../../capabilities/server/triggers.mdx) in `devvit.json`; Reddit
+POSTs one event per handler invocation (`onCommentSubmit`, `onPostCreate`, `onModAction`, `onModMail`, …).
+
+**PRAW**
+
+```python
+for comment in reddit.subreddit("your_sub").stream.comments(skip_existing=True):
+    if "spam phrase" in (comment.body or "").lower():
+        comment.mod.remove(spam=True)
+```
+
+**Devvit**
+
+```json title="devvit.json"
+{
   "triggers": {
     "onCommentSubmit": "/internal/triggers/on-comment-submit"
   }
 }
 ```
 
-**Step 2: Server Logic (src/server/index.ts)**
-
-```ts
-// Hono is a small web framework used to define HTTP routes.
+```ts title="src/server/index.ts"
 import { Hono } from "hono";
-// TriggerResponse is the expected JSON response shape for trigger endpoints.
-import type { TriggerResponse } from "@devvit/web/shared";
-
-// Create a web server app instance.
-const app = new Hono();
-
-// Listen for the onCommentSubmit trigger endpoint configured in devvit.json.
-app.post("/internal/triggers/on-comment-submit", async (c) => {
-  // Parse the incoming JSON body from Devvit.
-  // The <...> part is a TypeScript type hint for what fields we expect.
-  const input = await c.req.json<{
-    author?: { username?: string; name?: string };
-  }>();
-  // Pick a display name safely:
-  // - ?. means "if this exists, read it"
-  // - ?? means "if left side is null/undefined, use right side"
-  const authorName =
-    input.author?.username ?? input.author?.name ?? "unknown user";
-  console.log(`New comment created by ${authorName}!`);
-  // Return a standard "ok" response with HTTP 200 status.
-  return c.json<TriggerResponse>({ status: "ok" }, 200);
-});
-
-export default app;
-```
-
-## Adding and removing comments
-
-To moderate content in Devvit Web, use the Reddit API client accessible within your server logic. This behaves similarly to `comment.mod.remove()` in PRAW but relies on asynchronous function calls.
-
-```ts
-// Hono handles incoming HTTP requests from Devvit.
-import { Hono } from "hono";
-// reddit is the Devvit Reddit API client for moderation/content actions.
 import { reddit } from "@devvit/web/server";
-// TriggerResponse is the response type expected by trigger handlers.
-import type { TriggerResponse } from "@devvit/web/shared";
+import type { OnCommentSubmitRequest, TriggerResponse } from "@devvit/web/shared";
 
 const app = new Hono();
 
 app.post("/internal/triggers/on-comment-submit", async (c) => {
-  // Parse request JSON and describe expected fields with a TypeScript type.
-  const input = await c.req.json<{
-    author?: { id?: string };
-    comment?: { id?: string; body?: string };
-  }>();
-  // Get the comment ID if it exists.
-  const commentId = input.comment?.id;
-  // If we cannot find the comment ID, we cannot moderate the comment.
-  if (!commentId) return c.json<TriggerResponse>({ status: "ignored" }, 200);
-
-  // Normalize text to lowercase so our keyword check is case-insensitive.
-  const body = input.comment?.body?.toLowerCase() ?? "";
-
-  // Check if the comment matches a specific moderation rule
-  if (body.includes("rule-breaking string")) {
-    // 1. Remove the comment natively
-    await reddit.remove(commentId, true); // true = flag as spam
-
-    // 2. Reply to the removed comment with a removal reason
-    await reddit.submitComment({
-      // Reply to the removed comment itself.
-      id: commentId,
-      text: "Your comment was removed automatically for violating our community guidelines.",
-      // Run as the app account rather than a user account.
-      runAs: "APP",
-    });
-  }
-
-  return c.json<TriggerResponse>({ status: "ok" }, 200);
+  const input = await c.req.json<OnCommentSubmitRequest>();
+  const body = (input.comment?.body ?? "").toLowerCase();
+  const id = input.comment?.id;
+  if (id && body.includes("spam phrase"))
+    await reddit.remove(id, true);
+  return c.json<TriggerResponse>({ status: "ok" });
 });
 
 export default app;
 ```
 
-## Using Redis for storage (replacing SQLite/JSON)
+:::note
+Handlers should return quickly ([limitations](../../capabilities/devvit-web/devvit_web_overview.mdx#limitations)). Defer
+heavy work to the [scheduler](#4-scheduler-redis-and-http) or an allow-listed [
+`fetch`](../../capabilities/server/http-fetch.mdx).
+:::
+---
 
-Instead of maintaining a local SQLite database for tracking user warnings or config states, Devvit Web gives you direct access to a managed Redis instance.
+## 4. Scheduler, Redis, and HTTP
 
-```ts
-// Hono handles HTTP routes.
-import { Hono } from "hono";
-// Redis client for key-value storage.
-import { redis } from "@devvit/redis";
-// Standard trigger response type.
-import type { TriggerResponse } from "@devvit/web/shared";
+| PRAW                                 | Devvit                                                                                                                                                                                                  |
+|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `while True`, `time.sleep`, cron job | [Scheduler](../../capabilities/server/scheduler.mdx) — cron in `devvit.json` and/or `scheduler.runJob` ([recurring scheduler tasks](../../capabilities/server/scheduler.mdx#scheduling-recurring-jobs)) |
+| SQLite / JSON files / pickle on disk | [Redis](../../capabilities/server/redis.mdx) (per subreddit)                                                                                                                                            |
+| `requests.get` to any URL            | Server-side [HTTP fetch](../../capabilities/server/http-fetch.mdx) — `fetch` to domains in `permissions.http.domains`                                                                                   |
 
-const app = new Hono();
+**Redis** (replaces local SQLite / JSON files):
+
+```ts title="src/server/index.ts (excerpt)"
+import { redis } from "@devvit/web/server";
+import type { OnPostSubmitRequest, TriggerResponse } from "@devvit/web/shared";
 
 app.post("/internal/triggers/on-post-submit", async (c) => {
-  // Read trigger payload JSON.
-  const input = await c.req.json<{ author?: { id?: string } }>();
-  // Extract the submitting user's ID.
+  const input = await c.req.json<OnPostSubmitRequest>();
   const authorId = input.author?.id;
-  // If author is missing, skip this event safely.
-  if (!authorId) return c.json<TriggerResponse>({ status: "ignored" }, 200);
+  if (!authorId) return c.json<TriggerResponse>({ status: "ignored" });
 
-  // Build a per-user counter key, for example: post_count:t2_abc123
-  const redisKey = `post_count:${authorId}`;
-
-  // Increment the count in Redis
-  const newCount = await redis.incrBy(redisKey, 1);
-  console.log(`User ${authorId} has submitted ${newCount} posts.`);
-
-  return c.json<TriggerResponse>({ status: "ok" }, 200);
+  const count = await redis.incrBy(`post_count:${authorId}`, 1);
+  console.log(`User ${authorId} has submitted ${count} posts.`);
+  return c.json<TriggerResponse>({ status: "ok" });
 });
-
-export default app;
 ```
 
-## Using schedulers (replacing cron jobs or time.sleep)
+**Scheduler** (replaces `time.sleep` / cron; declare the task in `devvit.json` first):
 
-PRAW bots frequently rely on time.sleep() for delayed tasks. In Devvit Web, you define Scheduled Tasks in devvit.json and map them to internal Hono endpoints. You can schedule recurring jobs (like cron) or one-off tasks.
+```ts title="src/server/index.ts (excerpt)"
+import { scheduler } from "@devvit/web/server";
 
-**Step 1: Configuration (devvit.json)**
+await scheduler.runJob({
+  name: "my-delayed-task",
+  data: { message: "Reminder in one hour" },
+  runAt: new Date(Date.now() + 60 * 60 * 1000),
+});
+```
 
-```json
+**HTTP fetch** (HTTPS only; domain must be allow-listed):
+
+```json title="devvit.json — HTTP allow-list"
 {
-  "scheduler": {
-    "tasks": {
-      "remind-user-job": {
-        "endpoint": "/internal/scheduler/remind-user-job"
-      }
+  "permissions": {
+    "http": {
+      "enable": true,
+      "domains": [
+        "api.example.com"
+      ]
     }
   }
 }
 ```
 
-**Step 2: Scheduling and handling (src/server/index.ts)**
-
 ```ts
-// Hono handles incoming webhook/scheduler HTTP requests.
-import { Hono } from "hono";
-// scheduler queues delayed jobs, reddit sends private messages.
-import { scheduler, reddit } from "@devvit/web/server";
-// Types for scheduler request/response payloads.
-import type { TaskRequest, TaskResponse } from "@devvit/web/server";
-// Type for standard trigger responses.
-import type { TriggerResponse } from "@devvit/web/shared";
-
-const app = new Hono();
-
-// 1. Triggering the scheduled job (e.g., from a comment trigger)
-app.post("/internal/triggers/on-comment-submit", async (c) => {
-  // Parse incoming trigger JSON.
-  // This generic type describes what data shape we expect from the payload.
-  const input = await c.req.json<{
-    author?: { username?: string; name?: string };
-    comment?: { body?: string };
-  }>();
-  // Normalize body text so command checks are case-insensitive.
-  const body = input.comment?.body?.toLowerCase() ?? "";
-
-  if (body.includes("!remindme")) {
-    // Use username when available, otherwise fall back to name.
-    const username = input.author?.username ?? input.author?.name;
-    // If we still do not have a recipient, skip this event.
-    if (!username) return c.json<TriggerResponse>({ status: "ignored" }, 200);
-
-    // Create a timestamp one hour in the future.
-    const oneHourFromNow = new Date(Date.now() + 60 * 60 * 1000);
-
-    // Enqueue the job
-    await scheduler.runJob({
-      // A unique job ID (useful for debugging/canceling).
-      id: `remind-user-${username}-${Date.now()}`,
-      // Must match a task name declared in devvit.json.
-      name: "remind-user-job",
-      // Custom payload delivered later to the scheduler endpoint.
-      data: { username, message: "Your 1-hour reminder!" },
-      // Time when this job should run.
-      runAt: oneHourFromNow,
-    });
-  }
-  return c.json<TriggerResponse>({ status: "ok" }, 200);
-});
-
-// 2. The endpoint that executes when the timer concludes
-app.post("/internal/scheduler/remind-user-job", async (c) => {
-  // Parse scheduler payload JSON.
-  // TaskRequest<{ ... }> means "TaskRequest whose data looks like this object".
-  const req =
-    await c.req.json<TaskRequest<{ username: string; message: string }>>();
-  // Read values from req.data safely; default to empty object if data is missing.
-  const { username, message } = req.data ?? {};
-  // Guard clause: ensure required fields exist before continuing.
-  if (!username || !message)
-    return c.json<TaskResponse>({ status: "ignored" }, 200);
-
-  // Send a Reddit private message to the user.
-  await reddit.sendPrivateMessage({
-    to: username,
-    subject: "Automated Reminder",
-    text: message,
-  });
-
-  return c.json<TaskResponse>({ status: "ok" }, 200);
-});
-
-export default app;
+const res = await fetch("https://api.example.com/v1/status");
+const data = await res.json();
 ```
 
-## Concept Summary
+---
 
-| Concept              | PRAW (Python)               | Devvit Web (Hono \+ TypeScript)                     |
-| :------------------- | :-------------------------- | :-------------------------------------------------- |
-| Architecture         | Continuous Running Script   | Client/Server API driven by devvit.json             |
-| Listening for Events | subreddit.stream.comments() | Webhooks handled via app.post('/internal/...', ...) |
-| Database Storage     | SQLite, JSON, external DBs  | import { redis } from '@devvit/redis'               |
-| Delayed Actions      | time.sleep()                | scheduler.runJob() \+ Server Endpoint               |
+## 5. Posts, comments, moderation
 
-**References**
+Same Reddit actions you already call from PRAW. Devvit’s client is async. PRAW loads comments and posts by base36 id;
+Devvit APIs use fullnames (`t1_`, `t3_`) —
+see [Reddit thing IDs](../../capabilities/server/reddit-api.mdx#reddit-thing-ids).
 
-1. [Mod Tools Template - GitHub](https://github.com/reddit/devvit-template-mod-tool-devvit-web)
-2. [Redis](../../capabilities/server/redis.mdx)
-3. [Scheduler](../../capabilities/server/scheduler.mdx)
-4. [Triggers](../../capabilities/server/triggers.mdx)
+### Posts
+
+**PRAW** — `subreddit.submit(...)`
+
+```python
+reddit.subreddit("learnpython").submit(
+    "Weekly thread",
+    selftext="Discussion goes here.",
+)
+```
+
+**Devvit** — [`submitPost`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost) / [
+`submitCustomPost`](../../capabilities/server/reddit-api.mdx); prefer `context.subredditName` over hard-coding the sub
+name.
+
+```ts title="src/server/index.ts"
+import { context, reddit } from "@devvit/web/server";
+
+export async function createWeeklyThread() {
+  const { subredditName } = context;
+  if (!subredditName) throw new Error("subredditName is required");
+
+  return await reddit.submitPost({
+    subredditName,
+    title: "Weekly thread",
+    text: "Discussion goes here.",
+  });
+}
+```
+
+Acting as the **logged-in user** (not the app account): [`runAs: "USER"`](../../capabilities/server/userActions.mdx).
+
+### Comments
+
+Get post and comment fullnames from the current request — do not hard-code `t1_` / `t3_` ids in app code.
+
+| PRAW                                              | Devvit                                                                                              |
+|---------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `comment.id` / `submission.id` on a loaded object | `.id` on `Post`, `Comment`, or the return value of `submitComment`                                  |
+| Hard-coded id in a long-running script            | `context.postId`, `context.commentId` ([`reddit` and `context`](#2-prawreddit--reddit-and-context)) |
+| Id from a streamed or webhook event               | `input.post?.id`, `input.comment?.id` in the JSON body ([Streams → triggers](#3-streams--triggers)) |
+
+**PRAW** — `.reply()` on a `Comment` / `Submission`
+
+```python
+reddit.comment("abc123").reply("Thanks for the context.")
+comment_reply = reddit.submission("def456").reply("Pinned notice.")
+comment_reply.distinguish(True)  # to pin comment
+```
+
+**Devvit** — either pattern works: pass the fullname to [
+`reddit.*`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) (e.g. [
+`submitComment`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment)), or fetch a [
+`Comment`](../../api/redditapi/models/classes/Comment.md) / [`Post`](../../api/redditapi/models/classes/Post.md) and
+call methods on it (like PRAW). **Fetching first adds an extra API round trip** — prefer the id-only `reddit.*` path
+when you only need a single action; fetch when you will chain several methods on the same thing.
+
+```ts title="src/server/index.ts — reply on a comment, id only (preferred)"
+import { context, reddit } from "@devvit/web/server";
+
+const { commentId } = context;
+if (!commentId) throw new Error("Run on a comment.");
+
+await reddit.submitComment({ id: commentId, text: "Thanks for the context.", runAs: "APP" });
+```
+
+```ts title="src/server/index.ts — reply on a comment via Comment.reply()"
+import { context, reddit } from "@devvit/web/server";
+
+const { commentId } = context;
+if (!commentId) throw new Error("Run on a comment.");
+
+const comment = await reddit.getCommentById(commentId);
+await comment.reply({ text: "Thanks for the context.", runAs: "APP" });
+```
+
+```ts title="src/server/index.ts — reply on a post, id only (preferred)"
+import { context, reddit } from "@devvit/web/server";
+
+const { postId } = context;
+if (!postId) throw new Error("Run on a post.");
+
+const pinned = await reddit.submitComment({
+  postId,
+  text: "Pinned notice.",
+  runAs: "APP",
+});
+await pinned.distinguish(true); // sticky mod comment (maps to PRAW distinguish(True))
+```
+
+```ts title="src/server/index.ts — reply on a post via Post.addComment()"
+import { context, reddit } from "@devvit/web/server";
+
+const { postId } = context;
+if (!postId) throw new Error("Run on a post.");
+
+const post = await reddit.getPostById(postId);
+const pinned = await post.addComment({ text: "Pinned notice.", runAs: "APP" });
+await pinned.distinguish(true);
+```
+
+In a trigger handler, use ids from the event payload (see [Streams → triggers](#3-streams--triggers)) —
+`input.comment?.id`,
+`input.post?.id` — with either approach.
+
+### Moderation
+
+**PRAW** — `.mod.lock()`, `.mod.remove()`, `.mod.approve()`, `subreddit.banned.add`, Modmail via `subreddit.modmail`, …
+
+```python
+submission = reddit.submission("def456")
+submission.mod.lock()
+comment = reddit.comment("abc123")
+comment.mod.remove(spam=False)
+comment.mod.approve()
+```
+
+**Devvit** — same choice as comments: prefer [
+`reddit.*`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) with fullnames when that covers the
+action ([`remove`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#remove), [
+`approve`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#approve), …). Fetch [
+`Post`](../../api/redditapi/models/classes/Post.md) / [`Comment`](../../api/redditapi/models/classes/Comment.md) when
+you need object-only methods (e.g. [`lock`](../../api/redditapi/models/classes/Post.md#lock)) or several calls on the
+same thing — each `getPostById` / `getCommentById` is an extra round trip.
+
+```ts title="src/server/index.ts — moderate a comment (reddit.* with ids)"
+import { context, reddit } from "@devvit/web/server";
+
+const { commentId } = context;
+if (!commentId) throw new Error("Run this action on a comment.");
+
+await reddit.remove(commentId, false);
+await reddit.approve(commentId);
+```
+
+```ts title="src/server/index.ts — lock post and moderate comment (object methods)"
+import { context, reddit } from "@devvit/web/server";
+
+const { commentId } = context;
+if (!commentId) throw new Error("Run this action on a comment.");
+
+const comment = await reddit.getCommentById(commentId);
+const post = await reddit.getPostById(comment.postId);
+await post.lock();
+await comment.remove(false);
+await comment.approve();
+```
+
+More: [`RedditAPIClient`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md), [
+`ModMailService`](../../api/redditapi/models/classes/ModMailService.md). Mod tools often set `permissions.reddit.scope`
+to `"moderator"` — [permissions](../../capabilities/devvit-web/devvit_web_configuration.md#permissions-configuration).
+
+---
+
+## 6. Gaps: what your PRAW bot may do that Devvit does not
+
+| PRAW                                               | Devvit                                                                                        | Notes                                                                                                        |
+|----------------------------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `redditor.subreddits`, saved, upvoted, friends, …  | [Private user data](../../capabilities/server/reddit-api.mdx#private-user-data) not available | Public data only                                                                                             |
+| Infinite `stream` / open socket to Reddit          | No in-process stream; short-lived handlers                                                    | Triggers + [scheduler](../../capabilities/server/scheduler.mdx)                                              |
+| `requests` to any host                             | Allow-listed `fetch` only                                                                     | [HTTP fetch](../../capabilities/server/http-fetch.mdx); request domains early                                |
+| Local SQLite / arbitrary files                     | No general `fs` persistence                                                                   | [Redis](../../capabilities/server/redis.mdx); [settings](../../capabilities/server/settings-and-secrets.mdx) |
+| One bot process across all of Reddit from your VPS | Per-installation, hosted app                                                                  | Design for subreddit-scoped installs                                                                         |
+| Your own OAuth app from prefs                      | Platform-managed Reddit access                                                                | `permissions.reddit` in `devvit.json`                                                                        |
+
+Most **subreddit moderation and engagement** flows you built with PRAW still map cleanly; the shift is event-driven
+hosting and installation scope, not relearning Reddit’s content model.
+
+---
+
+## References
+
+**Devvit**
+
+- [App quickstart](../../quickstart/quickstart.md) · [Mod tool quickstart](../../quickstart/quickstart-mod-tool.md)
+- [Triggers](../../capabilities/server/triggers.mdx) · [Scheduler](../../capabilities/server/scheduler.mdx) · [Redis](../../capabilities/server/redis.mdx) · [HTTP fetch](../../capabilities/server/http-fetch.mdx)
+- [Reddit API overview](../../capabilities/server/reddit-api.mdx) · [
+  `RedditAPIClient`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) · [User actions](../../capabilities/server/userActions.mdx)
+
+**PRAW**
+
+- [PRAW documentation](https://praw.readthedocs.io/)
