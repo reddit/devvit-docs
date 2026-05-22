@@ -16,7 +16,7 @@ To use the latest version of Devvit:
 We’re very excited to introduce Release 0.13.0, which introduces new features to attract logged out users, drive user engagement, and provide telemetry data to your game. We also have some breaking changes, which are going to be really important if your app currently uses Blocks functionality. Read on…
 
 :::note
-Upgrading to 0.13.0 is not mandatory, but you should be aware that Blocks UI support will be removed from all clients (web, Android, iOS) on June 30, 2026.
+Upgrading to 0.13.0 is not required, but you should be aware that Blocks UI support will be removed from all clients (web, Android, iOS) on June 30, 2026.
 :::
 
 ### Breaking Changes
