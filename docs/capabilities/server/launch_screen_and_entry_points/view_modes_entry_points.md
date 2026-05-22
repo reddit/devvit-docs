@@ -1,17 +1,17 @@
-# Setting up view modes and entry points
+# View Modes & Entry Points
 
 ## View modes
 
 Devvit apps support two view modes:
 
-**Inline Mode**
+**Inline mode**
 
 - **What it is**: Your app loads directly within the post unit
 - **User experience**: Users see your app content immediately without clicking
 - **Use case**: Preview screens, game menus, leaderboards, or any content that works well in a post-sized container
 - **Requirements**: Only respond to taps and clicks, load quickly, and respect post boundaries
 
-**Expanded Mode**
+**Expanded mode**
 
 - **What it is**: Your app displays in a larger modal (web) or full screen (mobile)
 - **User experience**: Users click to enter a dedicated experience
@@ -83,16 +83,16 @@ The `dir` property specifies where your built client files are located. With the
 Use the `entry` parameter when creating posts to specify which entry point from your `devvit.json` configuration to use. The entry value must match one of the keys defined in `post.entrypoints`.
 
 ```tsx title="server/index.ts"
-import { reddit } from '@devvit/web/server';
+import { reddit } from "@devvit/web/server";
 
 // Create a post using the default entrypoint
 async function createDefaultPost(context: any) {
   return await reddit.submitCustomPost({
     subredditName: context.subredditName!,
-    title: 'Adventure Game',
-    entry: 'default',
+    title: "Adventure Game",
+    entry: "default",
     postData: {
-      gameState: 'menu',
+      gameState: "menu",
     },
   });
 }
@@ -101,10 +101,10 @@ async function createDefaultPost(context: any) {
 async function createGamePost(context: any) {
   return await reddit.submitCustomPost({
     subredditName: context.subredditName!,
-    title: 'Adventure Game',
-    entry: 'game', // Must match a key in devvit.json entrypoints
+    title: "Adventure Game",
+    entry: "game", // Must match a key in devvit.json entrypoints
     postData: {
-      gameState: 'active',
+      gameState: "active",
       initialized: true,
     },
   });
@@ -123,14 +123,14 @@ async function createGamePost(context: any) {
 You can transition from inline mode to expanded mode with a different entry point, like this:
 
 ```tsx
-import { requestExpandedMode } from '@devvit/web/client';
+import { requestExpandedMode } from "@devvit/web/client";
 
 // Switch to the 'game' entrypoint in expanded mode
 const handleStartGame = async (event: React.MouseEvent) => {
   try {
-    await requestExpandedMode(event.nativeEvent, 'game');
+    await requestExpandedMode(event.nativeEvent, "game");
   } catch (error) {
-    console.error('Failed to enter expanded mode:', error);
+    console.error("Failed to enter expanded mode:", error);
   }
 };
 ```

@@ -1,8 +1,7 @@
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-# Post data
+# Post Data
 
 You can attach small amounts of data (2KB) to a post when creating it and update this data using the `postData` capability. This enables dynamic, stateful experiences available on posts without a server call. Post data is scoped to the post, not users.
 
@@ -15,6 +14,7 @@ Post data is sent to the client. Never store secrets or sensitive information.
 :::
 
 ## Creating posts with data
+
 When creating a post, include the `postData` parameter with your custom data object.
 
 <Tabs
@@ -28,8 +28,8 @@ When creating a post, include the `postData` parameter with your custom data obj
 <TabItem value="hono">
 
 ```ts title="server/index.ts"
-import { context, reddit } from '@devvit/web/server';
-import type { JsonObject } from '@devvit/web/shared';
+import { context, reddit } from "@devvit/web/server";
+import type { JsonObject } from "@devvit/web/shared";
 
 type CreatePostResponse = {
   postId: string;
@@ -40,17 +40,17 @@ type ErrorResponse = {
   error: string;
 };
 
-app.post('/api/create-post', async (c) => {
+app.post("/api/create-post", async (c) => {
   const { subredditName } = context;
 
   if (!subredditName) {
-    return c.json<ErrorResponse>({ error: 'Subreddit name is required' }, 400);
+    return c.json<ErrorResponse>({ error: "Subreddit name is required" }, 400);
   }
 
   const postData: JsonObject = {
     challengeNumber: 42,
     totalGuesses: 0,
-    gameState: 'active',
+    gameState: "active",
     pixels: [
       [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
       [0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0],
@@ -62,20 +62,20 @@ app.post('/api/create-post', async (c) => {
       [0, 0, 2, 2, 1, 1, 1, 1, 1, 0, 0],
       [0, 0, 0, 2, 2, 1, 1, 1, 0, 0, 0],
       [0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]
+      [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
     ],
   };
 
   const post = await reddit.submitCustomPost({
     subredditName,
-    title: 'Post with custom data',
-    entry: 'default',
+    title: "Post with custom data",
+    entry: "default",
     postData,
   });
 
   return c.json<CreatePostResponse>({
     postId: post.id,
-    message: 'Post created successfully',
+    message: "Post created successfully",
   });
 });
 ```
@@ -84,8 +84,8 @@ app.post('/api/create-post', async (c) => {
 <TabItem value="express">
 
 ```ts title="server/index.ts"
-import { context, reddit } from '@devvit/web/server';
-import type { JsonObject } from '@devvit/web/shared';
+import { context, reddit } from "@devvit/web/server";
+import type { JsonObject } from "@devvit/web/shared";
 
 type CreatePostResponse = {
   postId: string;
@@ -97,20 +97,20 @@ type ErrorResponse = {
 };
 
 router.post<string, never, CreatePostResponse | ErrorResponse, never>(
-  '/api/create-post',
+  "/api/create-post",
   async (_req, res) => {
     const { subredditName } = context;
 
     if (!subredditName) {
       return res.status(400).json({
-        error: 'Subreddit name is required'
+        error: "Subreddit name is required",
       });
     }
 
     const postData: JsonObject = {
       challengeNumber: 42,
       totalGuesses: 0,
-      gameState: 'active',
+      gameState: "active",
       pixels: [
         [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0],
@@ -122,20 +122,20 @@ router.post<string, never, CreatePostResponse | ErrorResponse, never>(
         [0, 0, 2, 2, 1, 1, 1, 1, 1, 0, 0],
         [0, 0, 0, 2, 2, 1, 1, 1, 0, 0, 0],
         [0, 0, 0, 0, 2, 2, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]
+        [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0],
       ],
     };
 
     const post = await reddit.submitCustomPost({
       subredditName,
-      title: 'Post with custom data',
-      entry: 'default',
+      title: "Post with custom data",
+      entry: "default",
       postData,
     });
 
     res.json({
       postId: post.id,
-      message: 'Post created successfully'
+      message: "Post created successfully",
     });
   },
 );
@@ -145,6 +145,7 @@ router.post<string, never, CreatePostResponse | ErrorResponse, never>(
 </Tabs>
 
 ## Updating post data
+
 To update post data after creation, fetch the post and use the `setPostData()` method.
 
 <Tabs
@@ -158,8 +159,8 @@ To update post data after creation, fetch the post and use the `setPostData()` m
 <TabItem value="hono">
 
 ```ts title="server/index.ts"
-import { context, reddit } from '@devvit/web/server';
-import type { JsonObject } from '@devvit/web/shared';
+import { context, reddit } from "@devvit/web/server";
+import type { JsonObject } from "@devvit/web/shared";
 
 type UpdatePostDataRequest = {
   favoriteColor?: string;
@@ -175,12 +176,12 @@ type ErrorResponse = {
   error: string;
 };
 
-app.post('/api/update-post-data', async (c) => {
+app.post("/api/update-post-data", async (c) => {
   const { postId } = context;
   const { favoriteColor, username } = await c.req.json<UpdatePostDataRequest>();
 
   if (!postId) {
-    return c.json<ErrorResponse>({ error: 'Post ID is required' }, 400);
+    return c.json<ErrorResponse>({ error: "Post ID is required" }, 400);
   }
 
   try {
@@ -191,18 +192,18 @@ app.post('/api/update-post-data', async (c) => {
 
     await post.setPostData({
       ...currentData,
-      favoriteColor: favoriteColor || 'unknown',
-      lastUpdatedBy: username || 'anonymous',
+      favoriteColor: favoriteColor || "unknown",
+      lastUpdatedBy: username || "anonymous",
       lastUpdatedAt: new Date().toISOString(),
     });
 
     return c.json<UpdatePostDataResponse>({
       success: true,
-      message: 'Post data updated successfully',
+      message: "Post data updated successfully",
     });
   } catch (error) {
-    console.error('Error updating post data:', error);
-    return c.json<ErrorResponse>({ error: 'Failed to update post data' }, 500);
+    console.error("Error updating post data:", error);
+    return c.json<ErrorResponse>({ error: "Failed to update post data" }, 500);
   }
 });
 ```
@@ -211,8 +212,8 @@ app.post('/api/update-post-data', async (c) => {
 <TabItem value="express">
 
 ```ts title="server/index.ts"
-import { context, reddit } from '@devvit/web/server';
-import type { JsonObject } from '@devvit/web/shared';
+import { context, reddit } from "@devvit/web/server";
+import type { JsonObject } from "@devvit/web/shared";
 
 type UpdatePostDataRequest = {
   favoriteColor?: string;
@@ -228,43 +229,45 @@ type ErrorResponse = {
   error: string;
 };
 
-router.post<string, never, UpdatePostDataResponse | ErrorResponse, UpdatePostDataRequest>(
-  '/api/update-post-data',
-  async (req, res) => {
-    const { postId } = context;
-    const { favoriteColor, username } = req.body;
+router.post<
+  string,
+  never,
+  UpdatePostDataResponse | ErrorResponse,
+  UpdatePostDataRequest
+>("/api/update-post-data", async (req, res) => {
+  const { postId } = context;
+  const { favoriteColor, username } = req.body;
 
-    if (!postId) {
-      return res.status(400).json({
-        error: 'Post ID is required'
-      });
-    }
+  if (!postId) {
+    return res.status(400).json({
+      error: "Post ID is required",
+    });
+  }
 
-    try {
-      const post = await reddit.getPostById(postId);
+  try {
+    const post = await reddit.getPostById(postId);
 
-      // Get existing post data to merge with updates
-      const currentData = (context.postData || {}) as JsonObject;
+    // Get existing post data to merge with updates
+    const currentData = (context.postData || {}) as JsonObject;
 
-      await post.setPostData({
-        ...currentData,
-        favoriteColor: favoriteColor || 'unknown',
-        lastUpdatedBy: username || 'anonymous',
-        lastUpdatedAt: new Date().toISOString(),
-      });
+    await post.setPostData({
+      ...currentData,
+      favoriteColor: favoriteColor || "unknown",
+      lastUpdatedBy: username || "anonymous",
+      lastUpdatedAt: new Date().toISOString(),
+    });
 
-      res.json({
-        success: true,
-        message: 'Post data updated successfully'
-      });
-    } catch (error) {
-      console.error('Error updating post data:', error);
-      res.status(500).json({
-        error: 'Failed to update post data'
-      });
-    }
-  },
-);
+    res.json({
+      success: true,
+      message: "Post data updated successfully",
+    });
+  } catch (error) {
+    console.error("Error updating post data:", error);
+    res.status(500).json({
+      error: "Failed to update post data",
+    });
+  }
+});
 ```
 
 </TabItem>
@@ -275,23 +278,26 @@ router.post<string, never, UpdatePostDataResponse | ErrorResponse, UpdatePostDat
 :::
 
 ## Accessing post data
+
 Post data is available through `context.postData` in both client and server contexts.
 
 ```tsx title="client/index.tsx"
-import { context } from '@devvit/web/client';
+import { context } from "@devvit/web/client";
 
 export const App = () => {
   return (
     <div>
-      <div className='mt-1 font-bold'>Post Data:</div>
-      <pre>{JSON.stringify(context.postData, null, 2) ?? 'undefined'}</pre>
+      <div className="mt-1 font-bold">Post Data:</div>
+      <pre>{JSON.stringify(context.postData, null, 2) ?? "undefined"}</pre>
     </div>
   );
-}
+};
 ```
 
 ## Limitations
+
 Post data supports:
+
 - JSON-serializable objects only
 - Maximum size of 2KB
 - Data persists with the post lifecycle (deleted when post is deleted)

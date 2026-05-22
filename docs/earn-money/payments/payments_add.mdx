@@ -1,7 +1,7 @@
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Add payments
+# Add Payments
 
 The Devvit payments API is available in Devvit Web. Keep reading to learn how to configure your products and accept payments.
 
@@ -176,14 +176,14 @@ The JSON schema for the file format is available at <a href="https://developers.
 
 Each product in the products field has the following attributes:
 
-| **Attribute** | **Description** |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `sku` | A product identifier that can be used to group orders or organize your products. Each sku must be unique for each product in your app. |
-| `displayName` | The official name of the product that is displayed in purchase confirmation screens. The name must be fewer than 50 characters, including spaces. |
-| `description` | A text string that describes the product and is displayed in purchase confirmation screens. The description must be fewer than 150 characters, including spaces. |
-| `price` | An predefined integer that sets the product price in Reddit Gold. See details below. |
-| `image.icon` | **(optional)** The path to the icon that represents your product in your assets folder. |
-| `metadata` | **(optional)** An optional object that contains additional attributes you want to use to group and filter products. Keys and values must be alphanumeric (a - Z, 0 - 9, and - ) and contain 30 characters or less. You can add up to 10 metadata keys. Metadata keys cannot start with "devvit-". |
+| **Attribute**    | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `sku`            | A product identifier that can be used to group orders or organize your products. Each sku must be unique for each product in your app.                                                                                                                                                                                                                                                                                                                                                                 |
+| `displayName`    | The official name of the product that is displayed in purchase confirmation screens. The name must be fewer than 50 characters, including spaces.                                                                                                                                                                                                                                                                                                                                                      |
+| `description`    | A text string that describes the product and is displayed in purchase confirmation screens. The description must be fewer than 150 characters, including spaces.                                                                                                                                                                                                                                                                                                                                       |
+| `price`          | An predefined integer that sets the product price in Reddit Gold. See details below.                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `image.icon`     | **(optional)** The path to the icon that represents your product in your assets folder.                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `metadata`       | **(optional)** An optional object that contains additional attributes you want to use to group and filter products. Keys and values must be alphanumeric (a - Z, 0 - 9, and - ) and contain 30 characters or less. You can add up to 10 metadata keys. Metadata keys cannot start with "devvit-".                                                                                                                                                                                                      |
 | `accountingType` | Categories for how buyers consume your products. Possible values are: <ul><li>`INSTANT` for purchased items that are used immediately and disappear.</li><li>`DURABLE` for purchased items that are permanently applied to the account and can be used any number of times</li><li>`CONSUMABLE` for items that can be used at a later date but are removed once they are used.</li><li>`VALID_FOR_` values indicate a product can be used throughout a period of time after it is purchased.</li></ul> |
 
 </details>
@@ -284,10 +284,16 @@ const GOD_MODE_SKU = "god_mode";
 app.post("/internal/payments/fulfill", async (c) => {
   const order = await c.req.json<Order>();
   if (!order.products.some((p) => p.sku === GOD_MODE_SKU)) {
-    return c.json<PaymentHandlerResponse>({ success: false, reason: "Unable to fulfill order: sku not found" });
+    return c.json<PaymentHandlerResponse>({
+      success: false,
+      reason: "Unable to fulfill order: sku not found",
+    });
   }
   if (order.status !== "PAID") {
-    return c.json<PaymentHandlerResponse>({ success: false, reason: "Becoming a god has a cost (in Reddit Gold)" });
+    return c.json<PaymentHandlerResponse>({
+      success: false,
+      reason: "Becoming a god has a cost (in Reddit Gold)",
+    });
   }
 
   const redisKey = `post:${order.postId}:user:${order.userId}:god_mode`;
