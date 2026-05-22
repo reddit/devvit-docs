@@ -1,0 +1,333 @@
+{
+  "tutorialSidebar": [
+    {
+      "type": "html",
+      "value": "<span>Introduction</span>",
+      "className": "sidebar-section-header"
+    },
+    {
+      "type": "doc",
+      "id": "introduction/introduction",
+      "label": "Welcome to Devvit"
+    },
+    {
+      "type": "doc",
+      "id": "capabilities/devvit-web/devvit_web_overview",
+      "label": "Devvit Technical Overview"
+    },
+    {
+      "type": "doc",
+      "id": "examples/app-showcase",
+      "label": "App Showcase"
+    },
+    {
+      "type": "html",
+      "value": "<hr/>",
+      "className": "sidebar-divider",
+      "defaultStyle": false
+    },
+    {
+      "type": "html",
+      "value": "<span>Build Your App</span>",
+      "className": "sidebar-section-header",
+      "defaultStyle": false
+    },
+    {
+      "type": "category",
+      "label": "Build Games",
+      "items": [
+        {
+          "type": "doc",
+          "id": "introduction/intro-games",
+          "label": "Introduction to Games"
+        },
+        {
+          "type": "doc",
+          "id": "quickstart/quickstart",
+          "label": "Quickstart for Games"
+        },
+        {
+          "type": "doc",
+          "id": "quickstart/quickstart-unity",
+          "label": "Quickstart for Unity"
+        },
+        {
+          "type": "doc",
+          "id": "quickstart/quickstart-gamemaker",
+          "label": "Quickstart for GameMaker"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Build Mod Tools",
+      "items": [
+        {
+          "type": "doc",
+          "id": "introduction/intro-mod-tools",
+          "label": "Introduction to Mod Tools"
+        },
+        {
+          "type": "doc",
+          "id": "quickstart/quickstart-mod-tool",
+          "label": "Quickstart for Mod Tools"
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr/>",
+      "className": "sidebar-divider",
+      "defaultStyle": false
+    },
+    {
+      "type": "html",
+      "value": "<span>Launch Your App</span>",
+      "className": "sidebar-section-header",
+      "defaultStyle": false
+    },
+    {
+      "type": "doc",
+      "id": "guides/launch/launch-guide",
+      "label": "Launch Guide"
+    },
+    {
+      "type": "doc",
+      "id": "guides/launch/feature-guide",
+      "label": "Feature Guide"
+    },
+    {
+      "type": "link",
+      "href": "https://support.reddithelp.com/hc/en-us/articles/27958169342996-Reddit-Developer-Funds-2025-Terms",
+      "label": "Reddit Developer Funds"
+    },
+    {
+      "type": "html",
+      "value": "<hr/>",
+      "className": "sidebar-divider",
+      "defaultStyle": false
+    },
+    {
+      "type": "html",
+      "value": "<span>Capabilities</span>",
+      "className": "sidebar-section-header",
+      "defaultStyle": false
+    },
+    {
+      "type": "category",
+      "label": "Devvit Setup Overview",
+      "items": [
+        {
+          "type": "doc",
+          "id": "capabilities/devvit-web/devvit_web_configuration",
+          "label": "Devvit Configuration"
+        },
+        {
+          "type": "doc",
+          "id": "capabilities/client/overview",
+          "label": "Client Overview"
+        },
+        {
+          "type": "doc",
+          "id": "capabilities/server/overview",
+          "label": "Server Overview"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Automation & Triggers",
+      "items": [
+        "capabilities/server/scheduler",
+        "capabilities/server/triggers"
+      ]
+    },
+    {
+      "type": "doc",
+      "label": "HTTP Fetch",
+      "id": "capabilities/http-fetch"
+    },
+    {
+      "type": "category",
+      "label": "In-App Purchases",
+      "items": [
+        "earn-money/payments/payments_overview",
+        "earn-money/payments/payments_add",
+        "earn-money/payments/payments_test",
+        "earn-money/payments/payments_publish",
+        "earn-money/payments/payments_manage",
+        "earn-money/payments/support_this_app"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Post Creation & Navigation",
+      "items": [
+        "capabilities/creating_custom_post",
+        "capabilities/client/navigation",
+        "capabilities/client/toasts",
+        "capabilities/client/menu-actions",
+        "capabilities/server/settings-and-secrets",
+        "capabilities/server/launch_screen_and_entry_points/view_modes_entry_points",
+        {
+          "type": "category",
+          "label": "Launch Screen",
+          "collapsed": true,
+          "items": [
+            "capabilities/server/launch_screen_and_entry_points/launch_overview",
+            "capabilities/server/launch_screen_and_entry_points/view_modes_entry_points",
+            "capabilities/server/launch_screen_and_entry_points/launch_screen_customization"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Realtime Apps",
+      "items": [
+        "capabilities/realtime/overview"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Reddit API",
+      "items": [
+        {
+          "type": "doc",
+          "label": "Reddit API Overview",
+          "id": "capabilities/server/reddit-api"
+        },
+        {
+          "type": "doc",
+          "label": "Reddit API Client",
+          "id": "api/redditapi/RedditAPIClient/classes/RedditAPIClient"
+        },
+        {
+          "type": "category",
+          "label": "Classes",
+          "items": [
+            {
+              "type": "autogenerated",
+              "dirName": "api/redditapi/models/classes"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Interfaces",
+          "items": [
+            {
+              "type": "autogenerated",
+              "dirName": "api/redditapi/models/interfaces"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Saving Data",
+      "items": [
+        "capabilities/server/redis",
+        "capabilities/server/cache-helper",
+        "capabilities/server/post-data"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "User Input",
+      "items": [
+        "capabilities/server/media-uploads",
+        "capabilities/client/forms",
+        "capabilities/server/userActions"
+      ]
+    },
+    {
+      "type": "html",
+      "value": "<hr/>",
+      "className": "sidebar-divider",
+      "defaultStyle": false
+    },
+    {
+      "type": "html",
+      "value": "<span>Guides</span>",
+      "className": "sidebar-section-header",
+      "defaultStyle": false
+    },
+    {
+      "type": "category",
+      "label": "Best Practices",
+      "items": [
+        "guides/best-practices/community_games",
+        "guides/best-practices/mod_resources",
+        "capabilities/server/text_fallback"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Development Tools",
+      "items": [
+        "guides/tools/devvit_cli",
+        "guides/tools/devvit_test",
+        "guides/tools/logs",
+        "guides/tools/playtest",
+        "guides/tools/ui_simulator",
+        "guides/tools/multiple_developers",
+        "guides/tools/vite"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Migration Guides",
+      "items": [
+        "guides/migrate/devvit-singleton",
+        "guides/migrate/devvit-web-experimental",
+        "guides/migrate/inline-web-view",
+        "guides/migrate/public-api"
+      ]
+    },
+    {
+      "type": "doc",
+      "label": "Template Library",
+      "id": "examples/template-library"
+    },
+    {
+      "type": "doc",
+      "label": "Using AI Tools",
+      "id": "guides/ai/ai"
+    },
+    {
+      "type": "doc",
+      "label": "FAQ",
+      "id": "guides/faq"
+    },
+    {
+      "type": "html",
+      "value": "<hr/>",
+      "className": "sidebar-divider",
+      "defaultStyle": false
+    },
+    {
+      "type": "doc",
+      "label": "Changelog",
+      "id": "changelog"
+    },
+    {
+      "type": "doc",
+      "label": "Devvit Rules",
+      "id": "devvit_rules"
+    },
+    {
+      "type": "link",
+      "label": "Discord",
+      "href": "https://developers.reddit.com/discord",
+      "className": "sidebar-icon-link discord-link"
+    },
+    {
+      "type": "link",
+      "label": "r/Devvit",
+      "href": "https://www.reddit.com/r/Devvit",
+      "className": "sidebar-icon-link subreddit-link"
+    }
+  ]
+}
