@@ -151,6 +151,11 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Analytics",
+      items: ["capabilities/analytics/analytics-overview", "capabilities/analytics/devvit-journeys"],
+    },
+    {
+      type: "category",
       label: "Automation & Triggers",
       items: ["capabilities/server/scheduler", "capabilities/server/triggers"],
     },
@@ -170,6 +175,14 @@ const sidebars: SidebarsConfig = {
         "earn-money/payments/payments_manage",
         "earn-money/payments/support_this_app",
       ],
+    },
+    {
+      type: "category",
+      label: "Notifications",
+      items: [
+        "capabilities/notifications/notifications-overview", 
+        "capabilities/notifications/pn-best-practices",
+        "capabilities/notifications/adding-streaks"],
     },
     {
       type: "category",
@@ -296,6 +309,11 @@ const sidebars: SidebarsConfig = {
         "guides/migrate/inline-web-view",
         "guides/migrate/public-api",
       ],
+    },
+    {
+      type: "doc",
+      label: "Building for Logged Out Players",
+      id: "guides/logged-out-users",
     },
     {
       type: "doc",
