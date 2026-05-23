@@ -68,6 +68,9 @@ If you use the old `@devvit/public-api`, **Blocks UI is no longer supported** in
 - Removed obsolete` @devvit/security` and `@devvit/pushnotif` packages.
 - Remove obsolete key-value (`Context.kvStore`) plugin which had `List()` disabled for more than a year. Please use Redis directly.
 
+### Reddit API Changes
+- Added a new `crosspostParentId` field in the `Post` object to identify the original post for a crosspost.
+
 ### New Features
 
 - **Building for Logged Out Users**. Reddit has an untapped resource for your apps: [logged out users](../docs/guides/logged-out-users.mdx). We’ve given you a guide to design your game so that it can be played and shared with anyone, and you can prompt logged out users to subscribe to your game.
