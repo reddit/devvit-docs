@@ -135,6 +135,11 @@
       ]
     },
     {
+      type: "category",
+      label: "Analytics",
+      items: ["capabilities/analytics/analytics-overview", "capabilities/analytics/devvit-journeys"],
+    },
+    {
       "type": "category",
       "label": "Automation & Triggers",
       "items": [
@@ -158,6 +163,14 @@
         "earn-money/payments/payments_manage",
         "earn-money/payments/support_this_app"
       ]
+    },
+    {
+      type: "category",
+      label: "Notifications",
+      items: [
+        "capabilities/notifications/notifications-overview", 
+        "capabilities/notifications/pn-best-practices",
+        "capabilities/notifications/adding-streaks"],
     },
     {
       "type": "category",
