@@ -1,0 +1,458 @@
+[**@devvit/public-api v0.13.0-dev**](../../README.md)
+
+***
+
+# Class: User
+
+A class representing a user.
+
+## Accessors
+
+<a id="about"></a>
+
+### about
+
+#### Get Signature
+
+> **get** **about**(): `string`
+
+The user's public description about themselves. May be empty.
+
+##### Returns
+
+`string`
+
+***
+
+<a id="commentkarma"></a>
+
+### commentKarma
+
+#### Get Signature
+
+> **get** **commentKarma**(): `number`
+
+The amount of comment karma the user has.
+
+##### Returns
+
+`number`
+
+***
+
+<a id="createdat"></a>
+
+### createdAt
+
+#### Get Signature
+
+> **get** **createdAt**(): `Date`
+
+The date the user was created.
+
+##### Returns
+
+`Date`
+
+***
+
+<a id="displayname"></a>
+
+### displayName
+
+#### Get Signature
+
+> **get** **displayName**(): `string`
+
+The display name of the user. May be different from their username.
+
+##### Returns
+
+`string`
+
+***
+
+<a id="hasredditpremium"></a>
+
+### hasRedditPremium
+
+#### Get Signature
+
+> **get** **hasRedditPremium**(): `boolean`
+
+Whether the user has Reddit Premium.
+
+##### Returns
+
+`boolean`
+
+***
+
+<a id="hasverifiedemail"></a>
+
+### hasVerifiedEmail
+
+#### Get Signature
+
+> **get** **hasVerifiedEmail**(): `boolean`
+
+Indicates whether or not the user has verified their email address.
+
+##### Returns
+
+`boolean`
+
+***
+
+<a id="id"></a>
+
+### id
+
+#### Get Signature
+
+> **get** **id**(): `` `t2_${string}` ``
+
+The ID (starting with t2_) of the user to retrieve.
+
+##### Example
+
+```ts
+'t2_1w72'
+```
+
+##### Returns
+
+`` `t2_${string}` ``
+
+***
+
+<a id="isadmin"></a>
+
+### isAdmin
+
+#### Get Signature
+
+> **get** **isAdmin**(): `boolean`
+
+Whether the user is admin.
+
+##### Returns
+
+`boolean`
+
+***
+
+<a id="ismoderator"></a>
+
+### isModerator
+
+#### Get Signature
+
+> **get** **isModerator**(): `boolean`
+
+Whether the user is a moderator of any subreddit.
+
+##### Returns
+
+`boolean`
+
+***
+
+<a id="linkkarma"></a>
+
+### linkKarma
+
+#### Get Signature
+
+> **get** **linkKarma**(): `number`
+
+The amount of link karma the user has.
+
+##### Returns
+
+`number`
+
+***
+
+<a id="modpermissions"></a>
+
+### modPermissions
+
+#### Get Signature
+
+> **get** **modPermissions**(): `Map`\<`string`, [`ModeratorPermission`](../type-aliases/ModeratorPermission.md)[]\>
+
+The permissions the user has on the subreddit.
+
+##### Returns
+
+`Map`\<`string`, [`ModeratorPermission`](../type-aliases/ModeratorPermission.md)[]\>
+
+***
+
+<a id="nsfw"></a>
+
+### nsfw
+
+#### Get Signature
+
+> **get** **nsfw**(): `boolean`
+
+Whether the user's profile is marked as NSFW (Not Safe For Work).
+
+##### Returns
+
+`boolean`
+
+***
+
+<a id="permalink"></a>
+
+### permalink
+
+#### Get Signature
+
+> **get** **permalink**(): `string`
+
+Returns a permalink path relative to https://www.reddit.com
+
+##### Returns
+
+`string`
+
+***
+
+<a id="shownsfw"></a>
+
+### showNsfw
+
+#### Get Signature
+
+> **get** **showNsfw**(): `boolean`
+
+Whether the user is over 18 and wishes to see NSFW content.
+
+##### Returns
+
+`boolean`
+
+***
+
+<a id="url"></a>
+
+### url
+
+#### Get Signature
+
+> **get** **url**(): `string`
+
+Returns the HTTP URL for the user
+
+##### Returns
+
+`string`
+
+***
+
+<a id="username"></a>
+
+### username
+
+#### Get Signature
+
+> **get** **username**(): `string`
+
+The username of the user omitting the u/.
+
+##### Example
+
+```ts
+'spez'
+```
+
+##### Returns
+
+`string`
+
+## Methods
+
+<a id="getcomments"></a>
+
+### getComments()
+
+> **getComments**(`options`): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+
+Get the user's comments.
+
+#### Parameters
+
+##### options
+
+`Omit`\<[`GetCommentsByUserOptions`](../type-aliases/GetCommentsByUserOptions.md), `"username"`\>
+
+Options for the request
+
+#### Returns
+
+[`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+
+A Listing of Comment objects.
+
+***
+
+<a id="getmodpermissionsforsubreddit"></a>
+
+### getModPermissionsForSubreddit()
+
+> **getModPermissionsForSubreddit**(`subredditName`): `Promise`\<[`ModeratorPermission`](../type-aliases/ModeratorPermission.md)[]\>
+
+Get the mod permissions the user has on the subreddit if they are a moderator.
+
+#### Parameters
+
+##### subredditName
+
+`string`
+
+name of the subreddit
+
+#### Returns
+
+`Promise`\<[`ModeratorPermission`](../type-aliases/ModeratorPermission.md)[]\>
+
+the moderator permissions the user has on the subreddit
+
+***
+
+<a id="getposts"></a>
+
+### getPosts()
+
+> **getPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+
+Get the user's posts.
+
+#### Parameters
+
+##### options
+
+`Omit`\<[`GetPostsByUserOptions`](../type-aliases/GetPostsByUserOptions.md), `"username"`\>
+
+Options for the request
+
+#### Returns
+
+[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+
+A Listing of Post objects.
+
+***
+
+<a id="getsnoovatarurl"></a>
+
+### getSnoovatarUrl()
+
+> **getSnoovatarUrl**(): `Promise`\<`undefined` \| `string`\>
+
+#### Returns
+
+`Promise`\<`undefined` \| `string`\>
+
+***
+
+<a id="getsociallinks"></a>
+
+### getSocialLinks()
+
+> **getSocialLinks**(): `Promise`\<[`UserSocialLink`](../type-aliases/UserSocialLink.md)[]\>
+
+Gets social links of the user
+
+#### Returns
+
+`Promise`\<[`UserSocialLink`](../type-aliases/UserSocialLink.md)[]\>
+
+A Promise that resolves an Array of UserSocialLink objects
+
+#### Example
+
+```ts
+const socialLinks = await user.getSocialLinks();
+```
+
+***
+
+<a id="gettrophies"></a>
+
+### getTrophies()
+
+> **getTrophies**(): `Promise`\<[`Trophy`](../type-aliases/Trophy.md)[]\>
+
+Get the trophies displayed on this user's profile.
+
+#### Returns
+
+`Promise`\<[`Trophy`](../type-aliases/Trophy.md)[]\>
+
+A Promise that resolves to an array of Trophy objects.
+
+***
+
+<a id="getuserflairbysubreddit"></a>
+
+### getUserFlairBySubreddit()
+
+> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+
+Retrieve the user's flair for the subreddit.
+
+#### Parameters
+
+##### subreddit
+
+`string`
+
+The name of the subreddit associated with the user's flair.
+
+#### Returns
+
+`Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+
+#### Example
+
+```ts
+const username = "badapple"
+const subredditName = "mysubreddit"
+const user = await reddit.getUserByUsername(username);
+const userFlair = await user.getUserFlairBySubreddit(subredditName);
+```
+
+***
+
+<a id="getuserkarmafromcurrentsubreddit"></a>
+
+### getUserKarmaFromCurrentSubreddit()
+
+> **getUserKarmaFromCurrentSubreddit**(): `Promise`\<`GetUserKarmaForSubredditResponse`\>
+
+Returns the karma for this User in the current subreddit.
+The user making the request must be a moderator of the subreddit to read another user's karma in the subreddit.
+An exception is if the specified user is the same as the user making the request.
+
+#### Returns
+
+`Promise`\<`GetUserKarmaForSubredditResponse`\>
+
+The GetUserKarmaForSubredditResponse, containing the user's karma for comments and posts in the subreddit.
+
+***
+
+<a id="tojson"></a>
+
+### toJSON()
+
+> **toJSON**(): `Pick`\<`User`, `"username"` \| `"id"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object`
+
+#### Returns
+
+`Pick`\<`User`, `"username"` \| `"id"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object`

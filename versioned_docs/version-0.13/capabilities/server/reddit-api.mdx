@@ -1,0 +1,107 @@
+# Reddit API Overview
+
+The Reddit API allows you to read and write Reddit content such as posts / comments / upvotes, in order to integrate your app's behavior with the content of the community it's installed in.
+
+:::note
+Unlike traditional Reddit API usage, you don't need to create an app at [reddit.com/prefs/apps](https://www.reddit.com/prefs/apps) or manage API keys. Devvit handles authentication automatically when you enable the `reddit` permission in your app.
+:::
+
+## Private user data
+
+Devvit apps cannot access certain private user data. This data is private to the logged-in user and is not exposed through the Devvit platform:
+
+- **Subscribed subreddits** - The list of subreddits a user is subscribed to
+- **Upvoted and downvoted content** - Posts and comments the user has voted on
+- **Saved content** - Posts and comments the user has saved
+- **Recently viewed posts** - The user's browsing history
+- **Private profile information** - Any profile data that is not publicly visible
+- **Follows and friends** - The list of users someone follows (on reddit.com) or has friended (on Old Reddit)
+
+## The Reddit client
+
+Here's how to obtain a reference to the Reddit client
+
+```json title="devvit.json"
+{
+  "permissions": {
+    "reddit": true
+  }
+}
+```
+
+```ts title="server/index.ts"
+import { reddit } from '@devvit/reddit';
+```
+
+## Reddit Thing IDs
+
+Reddit uses prefixed IDs (called "things") to identify different types of content:
+
+| Prefix | Type | Example | Description |
+| ------ | ---- | ------- | ----------- |
+| `t1_` | Comment | `t1_abc123` | A comment on a post or reply to another comment |
+| `t2_` | User | `t2_xyz789` | A Reddit user account |
+| `t3_` | Post | `t3_def456` | A post |
+| `t4_` | Message | `t4_ghi012` | A private message |
+| `t5_` | Subreddit | `t5_jkl345` | A subreddit community |
+
+These IDs are returned by API methods and used when referencing specific content:
+
+```ts
+// Get a post by its full ID
+const post = await reddit.getPostById('t3_abc123');
+
+// Get a comment by its full ID  
+const comment = await reddit.getCommentById('t1_xyz789');
+
+// A comment's parentId can be either a post (t3_) or another comment (t1_)
+const parentId = comment.parentId; // 't3_abc123' or 't1_def456'
+```
+
+## Example usage
+
+### Submitting a post
+```ts
+import { Devvit } from '@devvit/public-api';
+import { context, reddit } from '@devvit/web/server';
+
+export const createPost = async () => {
+  const { subredditName } = context;
+  if (!subredditName) {
+    throw new Error('subredditName is required');
+  }
+
+  return await reddit.submitCustomPost({
+    userGeneratedContent: {
+      text: 'Hello there! This is a post from a Devvit app',
+    },
+    subredditName: subredditName,
+    title: 'New Post',
+    entry: 'default',
+  });
+};
+```
+
+### Submitting a comment
+
+:::note
+Auto-comments should be used to spark conversation in the post comments, but you should avoid lower-signal updates (e.g., level/progress pings).
+:::
+
+
+```ts
+import { context, reddit } from '@devvit/web/server';
+
+export const createComment = async () => {
+  const { subredditName } = context;
+  if (!subredditName) {
+    throw new Error('subredditName is required');
+  }
+
+  reddit.submitComment({
+    postId: 't3_123456', // Replace with the actual post ID
+    text: 'This is a comment from a Devvit app',
+    runAs: 'USER' // Optional: specify the user to run as
+  });
+};
+```
