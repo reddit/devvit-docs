@@ -1,4 +1,4 @@
-# Setting up view modes and entry points
+# View Modes & Entry Points
 
 ## View modes
 
