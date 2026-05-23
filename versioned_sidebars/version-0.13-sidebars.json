@@ -299,6 +299,11 @@
         "guides/migrate/public-api"
       ]
     },
+     {
+      "type": "doc",
+      "label": "Building for Logged Out Players",
+      "id": "guides/logged-out-users",
+    },
     {
       "type": "doc",
       "label": "Template Library",
