@@ -9,6 +9,12 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.13.1: Maintenance Update
+
+**Release Date: June 1, 2026**
+
+No dev-facing changes today! This release just includes a few under-the-hood performance improvements. 
+
 ## Release 0.13.0: Logged Out Users, Push Notifications, App Telemetry, and More!
 
 **Release Date: May 26, 2026**
