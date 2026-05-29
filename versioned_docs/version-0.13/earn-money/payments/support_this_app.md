@@ -31,7 +31,10 @@ app.post("/internal/payments/fulfill", async (c) => {
   const order = await c.req.json<Order>();
   const username = order.userId; // or the username field on the order
   if (!username) {
-    return c.json<PaymentHandlerResponse>({ success: false, reason: "User not found" });
+    return c.json<PaymentHandlerResponse>({
+      success: false,
+      reason: "User not found",
+    });
   }
 
   const subredditName = order.subredditName ?? order.subredditId;

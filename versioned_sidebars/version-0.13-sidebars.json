@@ -137,7 +137,10 @@
     {
       "type": "category",
       "label": "Analytics",
-      "items": ["capabilities/analytics/analytics-overview", "capabilities/analytics/devvit-journeys"]
+      "items": [
+        "capabilities/analytics/analytics-overview",
+        "capabilities/analytics/devvit-journeys"
+      ]
     },
     {
       "type": "category",
@@ -168,9 +171,10 @@
       "type": "category",
       "label": "Notifications",
       "items": [
-        "capabilities/notifications/notifications-overview", 
+        "capabilities/notifications/notifications-overview",
         "capabilities/notifications/pn-best-practices",
-        "capabilities/notifications/adding-streaks"]
+        "capabilities/notifications/adding-streaks"
+      ]
     },
     {
       "type": "category",
@@ -299,7 +303,7 @@
         "guides/migrate/public-api"
       ]
     },
-     {
+    {
       "type": "doc",
       "label": "Building for Logged Out Players",
       "id": "guides/logged-out-users"
