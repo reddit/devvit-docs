@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.0-dev**](../../README.md)
+[**@devvit/public-api v0.13.1-dev**](../../README.md)
 
 ***
 
@@ -157,6 +157,22 @@
 ##### Returns
 
 `Date`
+
+***
+
+<a id="crosspostparentid"></a>
+
+### crosspostParentId
+
+#### Get Signature
+
+> **get** **crosspostParentId**(): `undefined` \| `` `t3_${string}` ``
+
+The ID of the original post this was crossposted from. Undefined if this post is not a crosspost.
+
+##### Returns
+
+`undefined` \| `` `t3_${string}` ``
 
 ***
 
@@ -792,27 +808,6 @@ const enrichedThumbnail = await post.getEnrichedThumbnail();
 
 ***
 
-<a id="getpostdata"></a>
-
-### getPostData()
-
-> **getPostData**(): `Promise`\<`undefined` \| `JsonObject`\>
-
-Get the postData for the post.
-
-#### Returns
-
-`Promise`\<`undefined` \| `JsonObject`\>
-
-#### Example
-
-```ts
-const post = await context.reddit.getPostById(context.postId);
-const postData = await post.getPostData();
-```
-
-***
-
 <a id="hide"></a>
 
 ### hide()
@@ -1047,80 +1042,6 @@ const postData = await post.getPostData();
 
 ***
 
-<a id="setcustompostpreview"></a>
-
-### setCustomPostPreview()
-
-> **setCustomPostPreview**(`ui`): `Promise`\<`void`\>
-
-Set a lightweight UI that shows while the custom post renders
-
-#### Parameters
-
-##### ui
-
-`ComponentFunction`
-
-A JSX component function that returns a simple ui to be rendered.
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Throws
-
-Throws an error if the preview could not be set.
-
-#### Example
-
-```ts
-const preview = (
-  <vstack height="100%" width="100%" alignment="middle center">
-    <text size="large">An updated preview!</text>
-  </vstack>
-);
-const post = await reddit.getPostById(context.postId);
-await post.setCustomPostPreview(() => preview);
-```
-
-***
-
-<a id="setpostdata"></a>
-
-### setPostData()
-
-> **setPostData**(`postData`): `Promise`\<`void`\>
-
-Set the postData on a custom post.
-
-#### Parameters
-
-##### postData
-
-`JsonObject`
-
-Represents the postData to be set, eg: { currentScore: 55, secretWord: 'barbeque' }
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Throws
-
-Throws an error if the postData could not be set.
-
-#### Example
-
-```ts
-const post = await reddit.getPostById(context.postId);
-await post.setPostData({
-  currentScore: 55,
-  secretWord: 'barbeque',
-});
-```
-
-***
-
 <a id="setsuggestedcommentsort"></a>
 
 ### setSuggestedCommentSort()
@@ -1148,41 +1069,6 @@ Throws an error if the suggested sort could not be set.
 ```ts
 const post = await reddit.getPostById(context.postId);
 await post.setSuggestedCommentSort("NEW");
-```
-
-***
-
-<a id="settextfallback"></a>
-
-### setTextFallback()
-
-> **setTextFallback**(`options`): `Promise`\<`void`\>
-
-Set a text fallback for the custom post
-
-#### Parameters
-
-##### options
-
-[`CustomPostTextFallbackOptions`](../type-aliases/CustomPostTextFallbackOptions.md)
-
-A text or a richtext to render in a fallback
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Throws
-
-Throws an error if the fallback could not be set.
-
-#### Example
-
-```ts
-// from a menu action, form, scheduler, trigger, custom post click event, etc
-const newTextFallback = { text: 'This is an updated text fallback' };
-const post = await context.reddit.getPostById(context.postId);
-await post.setTextFallback(newTextFallback);
 ```
 
 ***
@@ -1232,11 +1118,11 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"score"` \| `"title"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReportReasons"`\>
+> **toJSON**(): `Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"score"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
 #### Returns
 
-`Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"score"` \| `"title"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReportReasons"`\>
+`Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"score"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
 ***
 
