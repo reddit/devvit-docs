@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.25-dev**](../../README.md)
+[**@devvit/public-api v0.13.1-dev**](../../README.md)
 
 ***
 
@@ -68,11 +68,11 @@
 
 #### Get Signature
 
-> **get** **id**(): `TID`
+> **get** **id**(): `Tid`
 
 ##### Returns
 
-`TID`
+`Tid`
 
 ## Methods
 

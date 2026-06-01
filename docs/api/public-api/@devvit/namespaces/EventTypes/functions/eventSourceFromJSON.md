@@ -1,10 +1,10 @@
-[**@devvit/public-api v0.12.25-dev**](../../../../README.md)
+[**@devvit/public-api v0.13.1-dev**](../../../../README.md)
 
 ***
 
 # Function: eventSourceFromJSON()
 
-> **eventSourceFromJSON**(`object`): [`EventSource`](../../../../enumerations/EventSource.md)
+> **eventSourceFromJSON**(`object`): [`EventSource`](../enumerations/EventSource.md)
 
 ## Parameters
 
@@ -14,4 +14,4 @@
 
 ## Returns
 
-[`EventSource`](../../../../enumerations/EventSource.md)
+[`EventSource`](../enumerations/EventSource.md)

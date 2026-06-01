@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.25-dev**](../README.md)
+[**@devvit/public-api v0.13.1-dev**](../README.md)
 
 ***
 
@@ -75,8 +75,6 @@
 - [CrosspostOptions](type-aliases/CrosspostOptions.md)
 - [CrowdControlLevel](type-aliases/CrowdControlLevel.md)
 - [CustomizationFlag](type-aliases/CustomizationFlag.md)
-- [CustomPostRichTextFallback](type-aliases/CustomPostRichTextFallback.md)
-- [CustomPostTextFallbackOptions](type-aliases/CustomPostTextFallbackOptions.md)
 - [DeleteNotesOptions](type-aliases/DeleteNotesOptions.md)
 - [EditCommentOptions](type-aliases/EditCommentOptions.md)
 - [EditFlairTemplateOptions](type-aliases/EditFlairTemplateOptions.md)
@@ -142,8 +140,6 @@
 - [SetPostFlairOptions](type-aliases/SetPostFlairOptions.md)
 - [SetUserFlairBatchConfig](type-aliases/SetUserFlairBatchConfig.md)
 - [SetUserFlairOptions](type-aliases/SetUserFlairOptions.md)
-- [SubmitCustomPostOptions](type-aliases/SubmitCustomPostOptions.md)
-- [SubmitCustomPostTextFallbackOptions](type-aliases/SubmitCustomPostTextFallbackOptions.md)
 - [SubmitLinkOptions](type-aliases/SubmitLinkOptions.md)
 - [SubmitMediaOptions](type-aliases/SubmitMediaOptions.md)
 - [SubmitPostOptions](type-aliases/SubmitPostOptions.md)

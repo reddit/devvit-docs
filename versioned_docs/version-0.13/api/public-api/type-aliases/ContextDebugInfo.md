@@ -1,7 +1,21 @@
-[**@devvit/public-api v0.13.1-dev**](../README.md)
+[**@devvit/public-api v0.13.0-dev**](../README.md)
 
 ***
 
 # Type Alias: ContextDebugInfo
 
-> **ContextDebugInfo** = `{ [key in AppDebug]?: string }`
+> **ContextDebugInfo** = `object` & `{ [key in AppDebug]?: string }`
+
+## Type declaration
+
+### effects?
+
+> `optional` **effects**: `EffectEmitter`
+
+### ~~metadata~~
+
+> **metadata**: [`Metadata`](Metadata.md)
+
+#### Deprecated
+
+Use Context.metadata.

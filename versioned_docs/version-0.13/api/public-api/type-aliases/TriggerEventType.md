@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.1-dev**](../README.md)
+[**@devvit/public-api v0.13.0-dev**](../README.md)
 
 ***
 
@@ -140,7 +140,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 ### ModAction
 
-> **ModAction**: `object` & `ModAction`
+> **ModAction**: `object` & `protos.ModAction`
 
 #### Type declaration
 
@@ -154,7 +154,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 ### ModMail
 
-> **ModMail**: `object` & `ModMail`
+> **ModMail**: `object` & `protos.ModMail`
 
 #### Type declaration
 

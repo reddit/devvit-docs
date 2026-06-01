@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.25-dev**](../../../../README.md)
+[**@devvit/public-api v0.13.1-dev**](../../../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### object
 
-[`DeletionReason`](../../../../enumerations/DeletionReason.md)
+[`DeletionReason`](../enumerations/DeletionReason.md)
 
 ## Returns
 

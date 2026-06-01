@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.25-dev**](../README.md)
+[**@devvit/public-api v0.13.1-dev**](../README.md)
 
 ***
 
@@ -20,4 +20,4 @@
 
 ### onEvent
 
-> **onEvent**: [`TriggerOnEventHandler`](TriggerOnEventHandler.md)\<`protos.ModMail`\>
+> **onEvent**: [`TriggerOnEventHandler`](TriggerOnEventHandler.md)\<`ModMail`\>

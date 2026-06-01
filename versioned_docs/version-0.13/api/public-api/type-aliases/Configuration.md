@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.1-dev**](../README.md)
+[**@devvit/public-api v0.13.0-dev**](../README.md)
 
 ***
 
@@ -28,6 +28,16 @@ Allows your app to use the HTTP/Fetch API
 
 ***
 
+<a id="kvstore"></a>
+
+### kvStore?
+
+> `optional` **kvStore**: [`PluginSettings`](PluginSettings.md) \| `boolean`
+
+Allows your app to use the Key-Value Store
+
+***
+
 <a id="media"></a>
 
 ### media?
@@ -35,6 +45,16 @@ Allows your app to use the HTTP/Fetch API
 > `optional` **media**: [`PluginSettings`](PluginSettings.md) \| `boolean`
 
 Allows media uploads from apps
+
+***
+
+<a id="realtime"></a>
+
+### realtime?
+
+> `optional` **realtime**: [`PluginSettings`](PluginSettings.md) \| `boolean`
+
+Allows your app to use the Realtime Plugin
 
 ***
 

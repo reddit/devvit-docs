@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.25-dev**](../README.md)
+[**@devvit/public-api v0.13.1-dev**](../README.md)
 
 ***
 
@@ -18,53 +18,6 @@
 
 ## Methods
 
-<a id="addcustomposttype"></a>
-
-### ~~addCustomPostType()~~
-
-> `static` **addCustomPostType**(`customPostType`): `void`
-
-#### Parameters
-
-##### customPostType
-
-[`CustomPostType`](../type-aliases/CustomPostType.md)
-
-The custom post type to add.
-
-#### Returns
-
-`void`
-
-#### Deprecated
-
-Blocks is deprecated. Use [Web](https://developers.reddit.com/docs/capabilities/devvit-web/devvit_web_overview|Devvit) instead
-
-Add a custom post type for your app.
-
-#### Example
-
-```ts
-import { Devvit, useState } from '@devvit/public-api';
-
-Devvit.addCustomPostType({
-  name: 'Counter',
-  description: 'A simple click counter post.',
-  render: (context) => {
-    const [counter, setCounter] = useState();
-
-    return (
-      <vstack>
-        <text>{counter}</text>
-        <button onPress={() => setCounter((counter) => counter + 1)}>Click me!</button>
-      </vstack>
-    );
-  },
-});
-```
-
-***
-
 <a id="addmenuitem"></a>
 
 ### addMenuItem()
@@ -78,6 +31,8 @@ Add a menu item to the Reddit UI.
 ##### item
 
 [`MenuItem`](../type-aliases/MenuItem.md)
+
+The menu item to add.
 
 #### Returns
 
@@ -262,13 +217,19 @@ occurs in a subreddit where the app is installed.
 
 ###### definition
 
+The trigger definition.
+
 ###### event
 
 `T`
 
+The event to listen for.
+
 ###### onEvent
 
 [`TriggerOnEventHandler`](../type-aliases/TriggerOnEventHandler.md)\<[`TriggerEventType`](../type-aliases/TriggerEventType.md)\[`T`\]\>
+
+The function to call when the event happens.
 
 ##### Returns
 
@@ -314,8 +275,6 @@ occurs in a subreddit where the app is installed.
 ###### triggerDefinition
 
 [`MultiTriggerDefinition`](../type-aliases/MultiTriggerDefinition.md)\<`Event`\>
-
-The trigger definition.
 
 ##### Returns
 
@@ -384,7 +343,7 @@ Devvit.configure({
 
 > `static` **createForm**\<`T`\>(`form`, `onSubmit`): [`FormKey`](../type-aliases/FormKey.md)
 
-Create a form that can be opened from menu items and custom posts.
+Create a form that can be opened from menu items.
 
 #### Type Parameters
 

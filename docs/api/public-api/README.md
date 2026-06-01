@@ -1,8 +1,8 @@
-**@devvit/public-api v0.12.25-dev**
+**@devvit/public-api v0.13.1-dev**
 
 ***
 
-# @devvit/public-api v0.12.25-dev
+# @devvit/public-api v0.13.1-dev
 
 ## Namespaces
 
@@ -22,19 +22,15 @@
 
 ## Type Aliases
 
-- [AllIconName](type-aliases/AllIconName.md)
 - [AppInstall](type-aliases/AppInstall.md)
 - [AppInstallDefinition](type-aliases/AppInstallDefinition.md)
 - [AppUpgrade](type-aliases/AppUpgrade.md)
 - [AppUpgradeDefinition](type-aliases/AppUpgradeDefinition.md)
-- [AsyncError](type-aliases/AsyncError.md)
-- [AsyncUseStateInitializer](type-aliases/AsyncUseStateInitializer.md)
 - [AutomoderatorFilterComment](type-aliases/AutomoderatorFilterComment.md)
 - [AutomoderatorFilterPost](type-aliases/AutomoderatorFilterPost.md)
 - [BaseContext](type-aliases/BaseContext.md)
 - [BaseField](type-aliases/BaseField.md)
 - [BitfieldCommand](type-aliases/BitfieldCommand.md)
-- [BlockElement](type-aliases/BlockElement.md)
 - [BooleanField](type-aliases/BooleanField.md)
 - [CancelJob](type-aliases/CancelJob.md)
 - [CommentCreate](type-aliases/CommentCreate.md)
@@ -51,7 +47,6 @@
 - [Context](type-aliases/Context.md)
 - [ContextAPIClients](type-aliases/ContextAPIClients.md)
 - [ContextDebugInfo](type-aliases/ContextDebugInfo.md)
-- [CustomPostType](type-aliases/CustomPostType.md)
 - [~~Data~~](type-aliases/Data.md)
 - [DevvitDebug](type-aliases/DevvitDebug.md)
 - [Dispatch](type-aliases/Dispatch.md)
@@ -65,14 +60,12 @@
 - [FormOnSubmitEventHandler](type-aliases/FormOnSubmitEventHandler.md)
 - [FormToFormValues](type-aliases/FormToFormValues.md)
 - [FormValues](type-aliases/FormValues.md)
-- [IconName](type-aliases/IconName.md)
 - [ImageField](type-aliases/ImageField.md)
 - [JobContext](type-aliases/JobContext.md)
 - [JSONArray](type-aliases/JSONArray.md)
 - [JSONObject](type-aliases/JSONObject.md)
 - [JSONPrimitive](type-aliases/JSONPrimitive.md)
 - [JSONValue](type-aliases/JSONValue.md)
-- [KVStore](type-aliases/KVStore.md)
 - [MediaAsset](type-aliases/MediaAsset.md)
 - [MediaPlugin](type-aliases/MediaPlugin.md)
 - [MenuItem](type-aliases/MenuItem.md)
@@ -125,14 +118,12 @@
 - [Scheduler](type-aliases/Scheduler.md)
 - [SelectField](type-aliases/SelectField.md)
 - [SetOptions](type-aliases/SetOptions.md)
-- [SetStateAction](type-aliases/SetStateAction.md)
 - [SettingsClient](type-aliases/SettingsClient.md)
 - [SettingScopeType](type-aliases/SettingScopeType.md)
 - [SettingsFormField](type-aliases/SettingsFormField.md)
 - [SettingsFormFieldGroup](type-aliases/SettingsFormFieldGroup.md)
 - [SettingsFormFieldValidatorEvent](type-aliases/SettingsFormFieldValidatorEvent.md)
 - [SettingsValues](type-aliases/SettingsValues.md)
-- [StateSetter](type-aliases/StateSetter.md)
 - [StringField](type-aliases/StringField.md)
 - [Toast](type-aliases/Toast.md)
 - [TriggerContext](type-aliases/TriggerContext.md)
@@ -143,18 +134,6 @@
 - [TxClientLike](type-aliases/TxClientLike.md)
 - [UIClient](type-aliases/UIClient.md)
 - [UploadMediaOptions](type-aliases/UploadMediaOptions.md)
-- [UseAsyncResult](type-aliases/UseAsyncResult.md)
-- [UseChannelHook](type-aliases/UseChannelHook.md)
-- [UseChannelResult](type-aliases/UseChannelResult.md)
-- [UseFormHook](type-aliases/UseFormHook.md)
-- [UseIntervalHook](type-aliases/UseIntervalHook.md)
-- [UseIntervalResult](type-aliases/UseIntervalResult.md)
-- [UseStateHook](type-aliases/UseStateHook.md)
-- [UseStateInitializer](type-aliases/UseStateInitializer.md)
-- [UseStateResult](type-aliases/UseStateResult.md)
-- [UseWebViewOnMessage](type-aliases/UseWebViewOnMessage.md)
-- [UseWebViewOptions](type-aliases/UseWebViewOptions.md)
-- [UseWebViewResult](type-aliases/UseWebViewResult.md)
 - [ValidatedBooleanField](type-aliases/ValidatedBooleanField.md)
 - [ValidatedFormField](type-aliases/ValidatedFormField.md)
 - [ValidatedNumberField](type-aliases/ValidatedNumberField.md)
@@ -164,18 +143,3 @@
 - [ZMember](type-aliases/ZMember.md)
 - [ZRangeByScoreOptions](type-aliases/ZRangeByScoreOptions.md)
 - [ZRangeOptions](type-aliases/ZRangeOptions.md)
-
-## Variables
-
-- [ALL\_ICON\_NAMES](variables/ALL_ICON_NAMES.md)
-
-## Functions
-
-- [fetchDevvitWeb](functions/fetchDevvitWeb.md)
-- [svg](functions/svg.md)
-- [useAsync](functions/useAsync.md)
-- [useChannel](functions/useChannel.md)
-- [useForm](functions/useForm.md)
-- [useInterval](functions/useInterval.md)
-- [useState](functions/useState.md)
-- [useWebView](functions/useWebView.md)

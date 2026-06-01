@@ -1,8 +1,8 @@
-**@devvit/public-api v0.12.25-dev**
+**@devvit/public-api v0.13.1-dev**
 
 ***
 
-# @devvit/public-api v0.12.25-dev
+# @devvit/public-api v0.13.1-dev
 
 ## Modules
 
