@@ -11,7 +11,7 @@ To use the latest version of Devvit:
 
 ## Release 0.13.1: Maintenance Update
 
-**Release Date: June 1, 2026**
+**Release Date: June 2, 2026**
 
 No dev-facing changes today! This release just includes a few under-the-hood performance improvements. 
 
