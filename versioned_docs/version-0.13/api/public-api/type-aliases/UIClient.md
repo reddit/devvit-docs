@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.0-dev**](../README.md)
+[**@devvit/public-api v0.13.1-dev**](../README.md)
 
 ***
 
@@ -10,16 +10,6 @@ The UI client lets your app interact with the Reddit frontend.
 This client will only be available for capabilities that have
 a frontend component, such as within the Custom Post component's
 event handlers, a Form's `onSubmit` handler, and Menu items.
-
-## Properties
-
-<a id="webview"></a>
-
-### webView
-
-> **webView**: `WebViewUIClient`
-
-Interact with WebView blocks
 
 ## Methods
 

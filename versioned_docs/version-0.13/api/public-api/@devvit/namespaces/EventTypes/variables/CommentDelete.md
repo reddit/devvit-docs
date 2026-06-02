@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.0-dev**](../../../../README.md)
+[**@devvit/public-api v0.13.1-dev**](../../../../README.md)
 
 ***
 
@@ -128,11 +128,11 @@
 
 ###### reason?
 
-[`DeletionReason`](../../../../enumerations/DeletionReason.md)
+[`DeletionReason`](../enumerations/DeletionReason.md)
 
 ###### source?
 
-[`EventSource`](../../../../enumerations/EventSource.md)
+[`EventSource`](../enumerations/EventSource.md)
 
 ###### subreddit?
 
@@ -354,11 +354,11 @@
 
 ###### reason?
 
-[`DeletionReason`](../../../../enumerations/DeletionReason.md)
+[`DeletionReason`](../enumerations/DeletionReason.md)
 
 ###### source?
 
-[`EventSource`](../../../../enumerations/EventSource.md)
+[`EventSource`](../enumerations/EventSource.md)
 
 ###### subreddit?
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.0-dev**](../../../../README.md)
+[**@devvit/public-api v0.13.1-dev**](../../../../README.md)
 
 ***
 
@@ -58,7 +58,7 @@
 
 ### reason
 
-> **reason**: [`DeletionReason`](../../../../enumerations/DeletionReason.md)
+> **reason**: [`DeletionReason`](../enumerations/DeletionReason.md)
 
 ***
 
@@ -66,7 +66,7 @@
 
 ### source
 
-> **source**: [`EventSource`](../../../../enumerations/EventSource.md)
+> **source**: [`EventSource`](../enumerations/EventSource.md)
 
 ***
 
