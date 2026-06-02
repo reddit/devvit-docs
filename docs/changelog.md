@@ -9,6 +9,12 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.13.2: More Maintenance
+
+**Release Date: June 2, 2026**
+
+Just a little more clean-up; pardon our dust!
+
 ## Release 0.13.1: Maintenance Update
 
 **Release Date: June 2, 2026**
