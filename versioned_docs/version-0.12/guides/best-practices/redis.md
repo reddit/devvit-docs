@@ -10,6 +10,8 @@ Each installation of your app has its own Redis storage. An app installed on one
 
 This is the right model for most community games, mod tools, settings, leaderboards, and user state. Build with the assumption that each subreddit installation is its own environment.
 
+If your app stores user content from Reddit, make sure you remove it from your app when that content is deleted from Reddit. Devvit provides post and comment delete events through triggers to help with this. See [Enable and respect user deletions](../../devvit_rules.md#enable-and-respect-user-deletions) in the Devvit Rules.
+
 If your app needs cross-community data, like a global leaderboard or analytics rollup, plan for that directly. Use a shared service through [HTTP Fetch](../../capabilities/server/http-fetch.mdx) instead of assuming every installation can read the same keys.
 
 ## Key design
