@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
   issues: write
-  pull-requests: read
+  pull-requests: write
 
 concurrency:
   group: preview-pr-${{ github.event.issue.number }}
@@ -47,6 +47,7 @@ jobs:
 
       - name: React to preview request
         uses: actions/github-script@v7
+        continue-on-error: true
         with:
           script: |
             await github.rest.reactions.createForIssueComment({
