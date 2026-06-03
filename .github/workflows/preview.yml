@@ -1,0 +1,124 @@
+name: Preview Documentation
+
+on:
+  issue_comment:
+    types:
+      - created
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: read
+
+concurrency:
+  group: preview-pr-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    name: Build and serve preview
+    if: >-
+      github.event.issue.pull_request &&
+      (
+        github.event.comment.body == 'preview' ||
+        github.event.comment.body == '/preview'
+      ) &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+
+    steps:
+      - name: Get pull request
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.issue.number;
+            const { data: pull } = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number,
+            });
+
+            core.setOutput('head_repo', pull.head.repo.full_name);
+            core.setOutput('head_ref', pull.head.ref);
+            core.setOutput('head_sha', pull.head.sha);
+
+      - name: React to preview request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.reactions.createForIssueComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: context.payload.comment.id,
+              content: 'rocket',
+            });
+
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.pr.outputs.head_repo }}
+          ref: ${{ steps.pr.outputs.head_sha }}
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build documentation
+        run: yarn build
+
+      - name: Install cloudflared
+        run: |
+          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o cloudflared.deb
+          sudo dpkg -i cloudflared.deb
+
+      - name: Start Docusaurus server
+        run: |
+          nohup yarn serve --host 0.0.0.0 --port 3000 > docusaurus-preview.log 2>&1 &
+
+      - name: Start preview tunnel
+        id: tunnel
+        run: |
+          nohup cloudflared tunnel --url http://localhost:3000 --no-autoupdate > cloudflared-preview.log 2>&1 &
+
+          for attempt in {1..30}; do
+            preview_url="$(grep -o 'https://[^ ]*trycloudflare.com' cloudflared-preview.log | head -n 1 || true)"
+            if [ -n "$preview_url" ]; then
+              echo "url=$preview_url" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
+            sleep 2
+          done
+
+          echo "Failed to start preview tunnel."
+          cat cloudflared-preview.log
+          exit 1
+
+      - name: Comment preview URL
+        uses: actions/github-script@v7
+        env:
+          PREVIEW_URL: ${{ steps.tunnel.outputs.url }}
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.issue.number,
+              body: [
+                `Preview: ${process.env.PREVIEW_URL}`,
+                '',
+                'This preview will stay live for 1 hour. Comment `preview` again to replace it with a fresh build.',
+              ].join('\n'),
+            });
+
+      - name: Keep preview live for one hour
+        run: sleep 3600
