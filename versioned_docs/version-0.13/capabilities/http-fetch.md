@@ -34,7 +34,7 @@ Domain entries must be exact hostnames only, such as nytimes.com or wikipedia.or
 * No protocols: https://api.example.com  
 * No paths: api.example.com/webhooks
 
-Domains that are approved for your app will be displayed in the Developer Settings section for your app at https://developers.reddit.com/apps/{your-app-slug}/developer-settings. These domains are allow-listed for **your app only** and not globally.
+Domains that are approved for your app will be displayed in the Developer Settings section for your app at `https://developers.reddit.com/apps/{your-app-slug}/developer-settings`. These domains are allow-listed for **your app only** and not globally.
 
 Apps must request each individual domain that it intends to fetch, even if the domain is already globally allowed. See the [global fetch allowlist](#global-fetch-allowlist) to view the list of globally allowed domains.
 
@@ -206,7 +206,7 @@ Domain entries must be exact hostnames only, such as nytimes.com or wikipedia.or
 * No protocols: https://api.example.com  
 * No paths: api.example.com/webhooks
 
-Domains that are approved for your app are displayed in the \[Developer Settings\](https://developers.reddit.com/apps/{your-app-slug}/developer-settings) section for your app. These domains are allow-listed for **your app only** and not globally.
+Domains that are approved for your app are displayed in the Developer Settings section for your app at `https://developers.reddit.com/apps/{your-app-slug}/developer-settings`. These domains are allow-listed for **your app only** and not globally.
 
 Apps must request each individual domain that it intends to fetch, even if the domain is already globally allowed. See the [global fetch allowlist](#global-fetch-allowlist) to view the list of globally allowed domains.
 
