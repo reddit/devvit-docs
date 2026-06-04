@@ -147,7 +147,7 @@ Most app versions are reviewed within **1–2 business days**. New apps or versi
 
 - **Payments**: apps using the payments capability go through additional policy review.
 - **`runAs: 'USER'`**: user action permissions require explicit approval as part of the review.
-- **External fetch domains**: new domain requests are reviewed separately and can add time (see [HTTP Fetch Policy](../capabilities/server/http-fetch-policy.md)).
+- **External fetch domains**: new domain requests are reviewed separately and can add time (see [HTTP Fetch](../capabilities/http-fetch.md)).
 
 To keep review moving:
 
@@ -418,10 +418,10 @@ Domain requests are reviewed separately from app publishing and can take **up to
 To make approval go smoothly:
 
 - Use exact hostnames only — no wildcards (`*.example.com`), no protocols (`https://`), and no paths (`api.example.com/webhooks`).
-- Add a "Fetch Domains" section to your `README.md` listing each domain and explaining why you need it. The expected format is documented in [HTTP Fetch Policy](../capabilities/server/http-fetch-policy.md).
+- Add a "Fetch Domains" section to your `README.md` listing each domain and explaining why you need it. The expected format is documented in [HTTP Fetch](../capabilities/http-fetch.md).
 - Include links to your Terms and Conditions and Privacy Policy in your app details form.
 
-Before submitting, check the [global fetch allowlist](../capabilities/server/http-fetch-policy.md#global-fetch-allowlist) — if your domain is already listed there, no separate request is needed. Personal domains (e.g., `personaldomain.com`) aren't approved.
+Before submitting, check the [global fetch allowlist](../capabilities/http-fetch.md#global-fetch-allowlist) — if your domain is already listed there, no separate request is needed. Personal domains (e.g., `personaldomain.com`) aren't approved.
 
 </details>
 

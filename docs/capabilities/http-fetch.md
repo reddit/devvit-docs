@@ -36,7 +36,7 @@ Domain entries must be exact hostnames only, such as nytimes.com or wikipedia.or
 
 Domains that are approved for your app will be displayed in the Developer Settings section for your app at https://developers.reddit.com/apps/{your-app-slug}/developer-settings. These domains are allow-listed for **your app only** and not globally.
 
-Apps must request each individual domain that it intends to fetch, even if the domain is already globally allowed. See the [global fetch allowlist](https://developers.reddit.com/docs/capabilities/server/http-fetch#global-fetch-allowlist) to view the list of globally allowed domains.
+Apps must request each individual domain that it intends to fetch, even if the domain is already globally allowed. See the [global fetch allowlist](#global-fetch-allowlist) to view the list of globally allowed domains.
 
 ## Limitations
 
@@ -208,7 +208,7 @@ Domain entries must be exact hostnames only, such as nytimes.com or wikipedia.or
 
 Domains that are approved for your app are displayed in the \[Developer Settings\](https://developers.reddit.com/apps/{your-app-slug}/developer-settings) section for your app. These domains are allow-listed for **your app only** and not globally.
 
-Apps must request each individual domain that it intends to fetch, even if the domain is already globally allowed. See the [global fetch allowlist](https://developers.reddit.com/docs/capabilities/server/http-fetch-policy#global-fetch-allowlist) to view the list of globally allowed domains.
+Apps must request each individual domain that it intends to fetch, even if the domain is already globally allowed. See the [global fetch allowlist](#global-fetch-allowlist) to view the list of globally allowed domains.
 
 ### Terms and conditions
 
