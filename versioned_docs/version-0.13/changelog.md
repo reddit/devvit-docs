@@ -12,12 +12,12 @@ To use the latest version of Devvit:
 ## Release 0.13.3: Devvit Journeys: a Dashboard and Receipts
 **Release Date: June 8, 2026**
 
-If you’re enrolled in the [Devvit Journeys](..docs/capabilities/analytics/devvit-journeys) beta, you’ll see a couple of new features in 0.13.3: 
+If you’re enrolled in the [Devvit Journeys](../docs/capabilities/analytics/devvit-journeys) beta, you’ll see a couple of new features in 0.13.3: 
 
 - A [new dashboard](../docs/capabilities/analytics/journeys-dashboard) that surfaces your app’s activity and performance metrics—including starts, completions, engagement, session frequency, and duration. These insights help you understand how users progress through your app and evaluate the effectiveness of your design. 
-- [Event receipts](..docs/capabilities/analytics/journeys-receipts) included in the API responses that provide feedback on how telemetry events were processed. Receipts help you verify whether an event was recorded successfully or identify when it was skipped, rejected, rate limited, or could not be confirmed, making it easier to debug integrations and validate telemetry behavior.
+- [Event receipts](../docs/capabilities/analytics/journeys-receipts) included in the API responses that provide feedback on how telemetry events were processed. Receipts help you verify whether an event was recorded successfully or identify when it was skipped, rejected, rate limited, or could not be confirmed, making it easier to debug integrations and validate telemetry behavior.
 
-Also in this release: we’ve expanded the available in-app [purchase price tiers](..docs/capabilities/earn-money/payments/payments_add#priceproducts), giving you more flexibility to price products and subscriptions.
+Also in this release: we’ve expanded the available in-app [purchase price tiers](../docs/capabilities/earn-money/payments/payments_add#priceproducts), giving you more flexibility to price products and subscriptions.
 
 ## Release 0.13.2: More Maintenance
 
