@@ -6,7 +6,7 @@ Journey metrics are displayed in a dedicated section below the existing engageme
 
 ![Journeys-1](../../assets/analytics/journeys-dashboard.png)
 
-## **Understanding your data**
+## Understanding your data
 
 Journey analytics data is aggregated into a single record per app per UTC day.  This data helps you understand the user’s experience of your app. At a high level: 
 
@@ -16,7 +16,7 @@ Journey analytics data is aggregated into a single record per app per UTC day.  
 * **Median Session Duration**: How much time are users spending in my app?  
 * **Journey Progress & Interaction Events**: Where are users engaging or getting stuck?
 
-## **Journeys insights**
+## Journeys insights
 
 Raw event counts show overall Journey activity and usage volume. 
 
