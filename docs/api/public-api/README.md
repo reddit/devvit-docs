@@ -1,8 +1,8 @@
-**@devvit/public-api v0.13.3-dev**
+**@devvit/public-api v0.13.4-dev**
 
 ***
 
-# @devvit/public-api v0.13.3-dev
+# @devvit/public-api v0.13.4-dev
 
 ## Namespaces
 
@@ -68,6 +68,8 @@
 - [JSONValue](type-aliases/JSONValue.md)
 - [MediaAsset](type-aliases/MediaAsset.md)
 - [MediaPlugin](type-aliases/MediaPlugin.md)
+- [MentionInCommentCreate](type-aliases/MentionInCommentCreate.md)
+- [MentionInCommentCreateDefinition](type-aliases/MentionInCommentCreateDefinition.md)
 - [MenuItem](type-aliases/MenuItem.md)
 - [MenuItemLocation](type-aliases/MenuItemLocation.md)
 - [MenuItemOnPressEvent](type-aliases/MenuItemOnPressEvent.md)
