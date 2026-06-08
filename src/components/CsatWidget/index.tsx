@@ -164,7 +164,6 @@ export default function CsatWidget(): React.ReactElement | null {
       submit(score, {
         reaction: option.reaction,
         feedback: '',
-        feedback_length: 0,
         reasons: [],
       });
     }
@@ -185,7 +184,6 @@ export default function CsatWidget(): React.ReactElement | null {
     submit(selectedScore, {
       reaction: 'negative',
       feedback: trimmedFeedback,
-      feedback_length: trimmedFeedback.length,
       reasons: selectedReasons,
     });
   };
