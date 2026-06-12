@@ -12,12 +12,12 @@ To use the latest version of Devvit:
 ## Release 0.13.3: Devvit Journeys: a Dashboard and Receipts
 **Release Date: June 8, 2026**
 
-If you’re enrolled in the [Devvit Journeys](../docs/capabilities/analytics/devvit-journeys) beta, you’ll see a couple of new features in 0.13.3: 
+If you’re enrolled in the [Devvit Journeys](./capabilities/analytics/devvit-journeys.md) beta, you’ll see a couple of new features in 0.13.3: 
 
-- A [new dashboard](../docs/capabilities/analytics/journeys-dashboard) that surfaces your app’s activity and performance metrics—including starts, completions, engagement, session frequency, and duration. These insights help you understand how users progress through your app and evaluate the effectiveness of your design. 
-- [Event receipts](../docs/capabilities/analytics/journeys-receipts) included in the API responses that provide feedback on how telemetry events were processed. Receipts help you verify whether an event was recorded successfully or identify when it was skipped, rejected, rate limited, or could not be confirmed, making it easier to debug integrations and validate telemetry behavior.
+- A [new dashboard](./capabilities/analytics/journeys-dashboard.md) that surfaces your app’s activity and performance metrics—including starts, completions, engagement, session frequency, and duration. These insights help you understand how users progress through your app and evaluate the effectiveness of your design. 
+- [Event receipts](./capabilities/analytics/journeys-receipts.md) included in the API responses that provide feedback on how telemetry events were processed. Receipts help you verify whether an event was recorded successfully or identify when it was skipped, rejected, rate limited, or could not be confirmed, making it easier to debug integrations and validate telemetry behavior.
 
-Also in this release: we’ve expanded the available in-app [purchase price tiers](../docs/capabilities/earn-money/payments/payments_add#price-products), giving you more flexibility to price products and subscriptions.
+Also in this release: we’ve expanded the available in-app [purchase price tiers](./earn-money/payments/payments_add.mdx#price-products), giving you more flexibility to price products and subscriptions.
 
 ## Release 0.13.2: More Maintenance
 
@@ -47,7 +47,7 @@ _**Devvit Web**_
 
 If you use **Devvit Web** (`@devvit/web`), there’s only one breaking change:
 
-- The `splash` and `loading` screen support has been removed from `submitCustomPost()`. Please use a dedicated splash entrypoint HTML page instead as shown in the [project templates](../docs/examples/template-library.md).
+- The `splash` and `loading` screen support has been removed from `submitCustomPost()`. Please use a dedicated splash entrypoint HTML page instead as shown in the [project templates](./examples/template-library.md).
 
 Old method:
 
@@ -95,11 +95,11 @@ If you use the old `@devvit/public-api`, **Blocks UI is no longer supported** in
 
 ### New Features
 
-- **Building for Logged Out Users**. Reddit has an untapped resource for your apps: [logged out users](../docs/guides/logged-out-users.mdx). We’ve given you a guide to design your game so that it can be played and shared with anyone, and you can prompt logged out users to subscribe to your game.
+- **Building for Logged Out Users**. Reddit has an untapped resource for your apps: [logged out users](./guides/logged-out-users.mdx). We’ve given you a guide to design your game so that it can be played and shared with anyone, and you can prompt logged out users to subscribe to your game.
 
-- **Push Notifications (experimental)**. [Push notifications](../docs/capabilities/notifications/notifications-overview.md) help drive engagement, increase player retention, and build habit loops for players by bringing players back into your game at the right moments. We’ve also included detailed support for adding streaks to your game to encourage daily play!
+- **Push Notifications (experimental)**. [Push notifications](./capabilities/notifications/notifications-overview.md) help drive engagement, increase player retention, and build habit loops for players by bringing players back into your game at the right moments. We’ve also included detailed support for adding streaks to your game to encourage daily play!
 
-- **Devvit Journeys (experimental)**. We’ve added a new telemetry feature that tracks the full lifecycle of a user session. [Devvit Journeys](../docs/capabilities/analytics/analytics-overview.md) gives you a new way to understand how players move through your game session from start to finish, making it easier to see where users engage, where they drop off, and which moments lead to completion.
+- **Devvit Journeys (experimental)**. We’ve added a new telemetry feature that tracks the full lifecycle of a user session. [Devvit Journeys](./capabilities/analytics/analytics-overview.md) gives you a new way to understand how players move through your game session from start to finish, making it easier to see where users engage, where they drop off, and which moments lead to completion.
 
 :::note
 Experimental features are gated beta programs. Access to Push Notifications and Devvit Journeys is currently limited and requires approval before it can be functional in your app.  

@@ -1,6 +1,6 @@
 # Journeys Dashboard
 
-Once you’ve implemented [Devvit Journeys](../docs/capabilities/analytics/devvit-journeys), you’ll be able to see how users are engaging with your app.  You’ll find Journeys analytics on the App Details page, under the Analytics tab. 
+Once you’ve implemented [Devvit Journeys](./devvit-journeys.md), you’ll be able to see how users are engaging with your app.  You’ll find Journeys analytics on the App Details page, under the Analytics tab. 
 
 Journey metrics are displayed in a dedicated section below the existing engagement metrics.
 
