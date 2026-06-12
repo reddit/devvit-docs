@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.3-dev**](../README.md)
+[**@devvit/public-api v0.13.4-dev**](../README.md)
 
 ***
 
@@ -133,6 +133,20 @@ Maps a TriggerEvent to a Protobuf message and type.
 ##### type
 
 > **type**: `"CommentUpdate"`
+
+***
+
+<a id="mentionincommentcreate"></a>
+
+### MentionInCommentCreate
+
+> **MentionInCommentCreate**: `object` & [`MentionInCommentCreate`](../@devvit/namespaces/EventTypes/interfaces/MentionInCommentCreate.md)
+
+#### Type declaration
+
+##### type
+
+> **type**: `"MentionInCommentCreate"`
 
 ***
 
