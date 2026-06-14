@@ -9,6 +9,11 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Relese 0.13.4: Updated Redis Docs
+**Release Date: June 15, 2026**
+
+In this release, we’ve updated our [Redis](../capbilities/server/redis.mdx) documentation based on your feedback, adding clearer guidance around key design, data structures, shared states, and scheduled maintenance.
+
 ## Release 0.13.3: Devvit Journeys: a Dashboard and Receipts
 **Release Date: June 8, 2026**
 
