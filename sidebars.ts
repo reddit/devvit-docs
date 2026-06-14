@@ -249,7 +249,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Saving Data",
+      label: "Storing Data",
       items: [
         "capabilities/server/redis",
         "capabilities/server/cache-helper",
