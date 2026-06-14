@@ -14,7 +14,7 @@ You can add a database to your app to store and retrieve data. The Redis plugin 
 
 Redis is a good model for most community games, mod tools, settings, leaderboards, and user state.  If your app needs cross-community data, like a global leaderboard or aggregated analytics, design for that explicitly. Instead of assuming every installation can access the same Redis keys, use a shared service exposed through [HTTP Fetch](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/http-fetch.mdx) to manage and serve cross-community data.
 
-## **Data storage**
+## Data storage
 
 Each installation of an app is uniquely name-spaced, which means Redis data is siloed by subreddit. Keep in mind that there won’t be a single source of truth for all installations of your app, since each app installation can only access the data that it has stored in the Redis database.
 
@@ -22,7 +22,7 @@ Each installation of an app is uniquely name-spaced, which means Redis data is s
 If your app stores user content from Reddit, make sure you remove it from your app when that content is deleted from Reddit. Devvit provides post and comment delete events through triggers to help with this. See [Enable and respect user deletions](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/devvit_rules.md#enable-and-respect-user-deletions) in the Devvit Rules.  
 :::
 
-## **Key design**
+## Key design
 
 On Devvit, Redis does not support listing every key in an installation. If your app loses track of a key name, it cannot discover that key later with a global scan.
 
@@ -46,7 +46,7 @@ const profiles = await redis.hScan('app:user_profiles', 0);
 
 This gives your app a known place to look and lets you iterate within the collection with `hScan` or `hKeys`.
 
-## **Data structures**
+## Data structures
 
 Redis in Devvit supports strings, hashes, sorted sets, numbers, bitfields, and transactions. It does not support every Redis data type, including plain sets and lists.
 
@@ -62,7 +62,7 @@ Use these patterns when you need set-like or queue-like behavior.
 
 For command-specific behavior and limits, see the [supported Redis commands](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#supported-redis-commands).
 
-## **Storage values**
+## Storage values
 
 Redis is best for small, frequently accessed app states. Each Redis installation has a 500 MB storage limit and a 5 MB request size limit. 
 
@@ -78,7 +78,7 @@ The compressed client compresses supported writes when compression saves space, 
 :::tip: Do not mix `redis` and `redisCompressed` on the same key. Data written by `redisCompressed` should be read with `redisCompressed`. To migrate existing data, read the old values with the standard client and write them back with the compressed client. For a complete migration example, see [Compression](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#compression-experimental).  
 :::
 
-## **Shared state**
+## Shared state
 
 Devvit app requests are stateless and can run concurrently. Popular posts, games, comment triggers, and moderator actions can all cause multiple requests to update the same data at the same time.
 
@@ -106,7 +106,7 @@ Transactions are limited to 30 concurrent transaction blocks per installation, a
 
 For more details, see [Transactions](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#transactions).
 
-## **Quota failures**
+## Quota failures
 
 When an installation reaches the Redis storage limit, write operations can fail. Treat Redis writes as operations that may need a user-facing fallback.
 
@@ -144,7 +144,7 @@ async function savePlayerProfile(userId: string, profile: PlayerProfile): Promis
 
 When storage is full, avoid deleting arbitrary data at write time. Make cleanup predictable: use TTLs for temporary keys, cap sorted sets to the number of entries you actually display, and run scheduled cleanup jobs for old records.
 
-## **Scheduled maintenance**
+## Scheduled maintenance
 
 Large migrations, leaderboard maintenance, and cleanup jobs can exceed request time limits if they process everything in one request. Use the scheduler to process a bounded batch, save the cursor or progress marker, and schedule the next batch.
 
@@ -160,7 +160,7 @@ The Redis reference includes a full scheduled migration example. The Scheduler r
 * [Redis migration example](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#migration-example)  
 * [Scheduler](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/scheduler.mdx)
 
-## **Platform limits**
+## Platform limits
 
 Design around these limits early so your app stays responsive as more people use it.
 
@@ -1010,26 +1010,6 @@ barResults: [0, 3, 0, 0, 3, 3]
 
 </details>
 
-## Compression (Experimental)
-
-The Redis package includes a `redisCompressed` client that transparently handles compression and decompression of values. This is useful for storing large strings or JSON objects that exceed the Redis storage limits or to optimize storage usage.
-
-To use it, update your import:
-
-```ts
-// import { redis } from '@devvit/redis';
-import { redisCompressed as redis } from '@devvit/redis';
-```
-
-:::warning
-**One-Way Migration**: Once you start using `redisCompressed` and writing compressed data, switching back to the standard `redis` client will result in errors when reading that data, as the standard client does not know how to decompress the values.
-:::
-
-The `redisCompressed` client automatically:
-- Compresses values on write (`set`, `hSet`, `mSet`, `hSetNX`) if it saves space.
-- Decompresses values on read (`get`, `hGet`, `mGet`, `hMGet`, `hGetAll`).
-
-**Note:** Existing uncompressed data is **not** automatically compressed when read. It is only compressed when you write it back. To migrate existing large datasets, you need to read and re-write the data.
 
 ### Migration Example
 
