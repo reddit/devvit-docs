@@ -9,7 +9,7 @@ Devvit Journeys adds a telemetry stream to your app that tracks the entire lifec
 A journey has a defined start and end point. Progress is tracked throughout and ends with a completion status. You can also attach optional game-specific data (like win/loss results or scores) at the end.
 
 :::note
-This is currently an experimental feature, and you'll need to [apply](https://docs.google.com/forms/d/e/1FAIpQLScB3eXHVCBf3kyHueyf3G_raxH9_BsCGiXyGjQOOmPxWz6fEg/viewform?usp=publish-editor) for a spot in our beta program to implement Devvit Journeys.
+This is currently an experimental feature, and you'll need to [apply](../analytics/analytics-overview.md#how-to-apply) for a spot in our beta program to implement Devvit Journeys.
 :::
 
 ## Journey map

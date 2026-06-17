@@ -5,7 +5,7 @@ Streaks are valuable to app developers because they turn occasional use into hab
 ![Streak PN](../../assets/notifications/visible-progress.png)
 
 :::note
-This is currently an experimental feature, and you'll need to [apply](https://docs.google.com/forms/d/e/1FAIpQLScB3eXHVCBf3kyHueyf3G_raxH9_BsCGiXyGjQOOmPxWz6fEg/viewform?usp=publish-editor) for a spot in our beta program to implement push notifications in your app.
+This is currently an experimental feature, and you'll need to [apply](../notifications/notifications-overview.md#how-to-apply) for a spot in our beta program to implement push notifications in your app.
 :::
 
 ## **Recommended streak logic**

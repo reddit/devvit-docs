@@ -33,10 +33,10 @@ Other Journey calls return:
 
 Covered calls:
 
-- Start Journey  
-- Journey Progress  
-- Journey Interaction  
-- End Journey  
+- Start Journey
+- Journey Progress
+- Journey Interaction
+- End Journey
 - App Ready
 
 ## Receipt fields
@@ -47,7 +47,7 @@ Covered calls:
 
 ## Upgrade note for existing devs
 
-`startJourney()` changed from returning only the Journey ID information to returning the Journey ID plus a receipt. If you’re  upgrading existing code,  you  may need to update any custom response types, mocks, or destructuring assumptions so they account for the new `receipt` field.
+`startJourney()` changed from returning only the Journey ID information to returning the Journey ID plus a receipt. If you’re upgrading existing code, you may need to update any custom response types, mocks, or destructuring assumptions so they account for the new `receipt` field.
 
 For example, code that only typed the response as `{ journeyId: string }` should now expect:
 
@@ -63,16 +63,16 @@ For example, code that only typed the response as `{ journeyId: string }` should
 
 ## Possible receipt outcomes
 
-| Status | Meaning | Current Message |
-| :---- | :---- | :---- |
-| `JOURNEY_RECEIPT_VALID` | Event was accepted and recorded. | `Success: Event was recorded.` |
+| Status                                   | Meaning                                                                | Current Message                                                  |
+| :--------------------------------------- | :--------------------------------------------------------------------- | :--------------------------------------------------------------- |
+| `JOURNEY_RECEIPT_VALID`                  | Event was accepted and recorded.                                       | `Success: Event was recorded.`                                   |
 | `JOURNEY_RECEIPT_DENIED_NOT_ALLOWLISTED` | Event was valid, but the app is not enabled for Journey telemetry yet. | `Denied: Your app is not allowlisted for Journey telemetry yet.` |
-| `JOURNEY_RECEIPT_DENIED_RATE_LIMITED` | Event was valid, but skipped because the app sent too many events. | `Denied: Event was rate limited.` |
-| `JOURNEY_RECEIPT_DENIED_DUPLICATE` | Event was valid, but skipped because it was already recorded. | `Denied: Event was already recorded.` |
-| `JOURNEY_RECEIPT_INVALID` | Event payload was invalid and was not recorded. | `Invalid: Event payload was not recorded.` |
-| `JOURNEY_RECEIPT_UNSPECIFIED` | Recording status could not be confirmed. | `Unknown: Telemetry recording status could not be confirmed.` |
+| `JOURNEY_RECEIPT_DENIED_RATE_LIMITED`    | Event was valid, but skipped because the app sent too many events.     | `Denied: Event was rate limited.`                                |
+| `JOURNEY_RECEIPT_DENIED_DUPLICATE`       | Event was valid, but skipped because it was already recorded.          | `Denied: Event was already recorded.`                            |
+| `JOURNEY_RECEIPT_INVALID`                | Event payload was invalid and was not recorded.                        | `Invalid: Event payload was not recorded.`                       |
+| `JOURNEY_RECEIPT_UNSPECIFIED`            | Recording status could not be confirmed.                               | `Unknown: Telemetry recording status could not be confirmed.`    |
 
-## 
+##
 
 Example:
 
