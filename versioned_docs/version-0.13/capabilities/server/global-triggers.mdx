@@ -3,17 +3,15 @@ import TabItem from "@theme/TabItem";
 
 # Global Triggers
 
-Global triggers are events that occur on Reddit that can invoke the app. 
-Unlike other triggers, the events do not need to occur in the subreddit where the app is installed to invoke the app.
+Global triggers let your app respond to Reddit events even when those events happen outside the subreddit where your app is installed.
 
-Currently, the only supported global trigger is:
+Currently, Devvit supports one global trigger:
 
-* `onMentionInCommentCreate`
+- `onMentionInCommentCreate`
 
 ## Example usage
 
-Apps can respond to global trigger events just like any other trigger event. In `devvit.json`, declare the trigger and its corresponding endpoint:
-
+Configure a global trigger the same way you configure other trigger events: declare the event in `devvit.json`, map it to an internal endpoint, then handle requests at that endpoint.
 
 ```json
 "triggers": {
@@ -21,7 +19,7 @@ Apps can respond to global trigger events just like any other trigger event. In 
 }
 ```
 
-Then handle the global trigger event in your server logic:
+Then handle the global trigger event in your server:
 
 <Tabs
   variant="pill"
@@ -34,16 +32,16 @@ Then handle the global trigger event in your server logic:
 <TabItem value="hono">
 
 ```tsx title="server/index.ts"
-import {
-  type OnMentionInCommentCreateRequest,
-  type TriggerResponse,
+import type {
+  OnMentionInCommentCreateRequest,
+  TriggerResponse,
 } from '@devvit/web/shared';
 
-triggers.post('/on-mention-in-comment-create', async (c) => {
+app.post('/internal/triggers/on-mention-in-comment-create', async (c) => {
   console.log('Handle event for on-mention-in-comment-create!');
   const input = await c.req.json<OnMentionInCommentCreateRequest>();
-  const comment = input.comment;
-  console.log('Comment ID: ', comment?.id);
+  const commentId = input.comment?.id;
+  console.log('Comment ID:', commentId);
   return c.json<TriggerResponse>({ status: 'ok' });
 });
 ```
@@ -52,48 +50,49 @@ triggers.post('/on-mention-in-comment-create', async (c) => {
 <TabItem value="express">
 
 ```tsx title="server/index.ts"
-import type { OnMentionInCommentCreateRequest } from '@devvit/web/shared';
+import type {
+  OnMentionInCommentCreateRequest,
+  TriggerResponse,
+} from '@devvit/web/shared';
 
 const router = express.Router();
 
 // ..
 
 router.post<string, never, TriggerResponse, OnMentionInCommentCreateRequest>(
-  "/internal/on-mention-in-comment-create",
+  "/internal/triggers/on-mention-in-comment-create",
   async (req, res) => {
-  console.log(`Handle event for on-mention-in-comment-create!`);
-  const commentId = req.body.comment.id;
-  console.log("Comment ID:", commentId);
-  res.status(200).json({ status: "ok" });
-});
-
+    console.log("Handle event for on-mention-in-comment-create!");
+    const commentId = req.body.comment?.id;
+    console.log("Comment ID:", commentId);
+    res.status(200).json({ status: "ok" });
+  }
+);
 ```
 
 </TabItem>
 </Tabs>
 
-
 ## Playtesting global triggers
 
-When your app is in development, you may playtest global trigger events, but only using events that occur within the playtest subreddit.
+During development, you can playtest global trigger events only when the triggering event occurs in the playtest subreddit. Events from other subreddits do not invoke your app while you are playtesting.
 
-## Responding to global trigger events
+## Responding to global trigger events across Reddit
 
-In order for your app to respond to global trigger events across Reddit, your app must meet the following criteria:
+To receive global trigger events across Reddit, your app version must:
 
-* App version must be published and approved
-* App version must be installed to the app's profile subreddit
-
+- Be published and approved.
+- Be installed to the app's profile subreddit.
 
 ## Profile subreddit installations
 
-Certain app versions are eligible to be installed to the app's profile subreddit. 
+Some app versions can be installed to the app's profile subreddit. An app version is eligible when it has been approved and uses at least one global trigger event.
 
-To be eligible for profile installation, the app version must be approved and make use of at least one global trigger event.
-
-Eligible app versions will appear under the "Profile installation" section on the App's settings page at https://developers.reddit.com/apps/your-app-slug
+Eligible app versions appear in the **Profile installation** section of your app's settings page at [developers.reddit.com/apps/your-app-slug](https://developers.reddit.com/apps/your-app-slug).
 
 ## Restrictions
-Apps may not receive global trigger events under these circumstances:
-* The event originates from a subreddit where the app is banned
-* The event does not pass safety checks (eg, contains illegal content). Events may contain NSFW content.
+
+Apps do not receive global trigger events when:
+
+- The event originates from a subreddit where the app is banned.
+- The event does not pass safety checks, such as checks for illegal content. Events may contain NSFW content.
