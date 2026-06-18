@@ -23,16 +23,20 @@ devvit.json
 
 ### Requesting a domain to be allow-listed
 
+:::note
+If you're porting a Data API app as part of our [App Migration Programs](https://www.reddit.com/r/Devvit/comments/1sgwkm7/bring_your_data_api_apps_to_devvit_and_details/) you may be eligible for special fetch domain exceptions. Please list at the top of your Devvit app's README.md file which Data API app you are migrating (account username), and which domains you need access to. Our App Review team will provide exemptions for program participants.
+:::
+
 Apps may request a domain to be added to the allow-list by specifying domains in the http configuration. This configuration is optional, and apps can still configure http: true as before.
 
 Requested domains will be submitted for review when you playtest or upload your app. Admins may approve or deny domain requests.
 
 Domain entries must be exact hostnames only, such as nytimes.com or wikipedia.org. These fetch requests are not allowed:
 
-* Be specific. No using \*.example.com when you need api.example.com  
-* No wildcards: \*.example.com  
-* No protocols: https://api.example.com  
-* No paths: api.example.com/webhooks
+- Be specific. No using \*.example.com when you need api.example.com
+- No wildcards: \*.example.com
+- No protocols: https://api.example.com
+- No paths: api.example.com/webhooks
 
 Domains that are approved for your app will be displayed in the Developer Settings section for your app at `https://developers.reddit.com/apps/{your-app-slug}/developer-settings`. These domains are allow-listed for **your app only** and not globally.
 
@@ -40,9 +44,9 @@ Apps must request each individual domain that it intends to fetch, even if the d
 
 ## Limitations
 
-* Access is only allowed to https URIs.  
-* Supported HTTP methods: GET, POST, PUT, DELETE, OPTIONS and PATCH.  
-* HTTP timeout limit is 30 seconds.
+- Access is only allowed to https URIs.
+- Supported HTTP methods: GET, POST, PUT, DELETE, OPTIONS and PATCH.
+- HTTP timeout limit is 30 seconds.
 
 ## Example usage
 
@@ -71,10 +75,10 @@ console.log('External API response:', data);
 
 Client-side fetch has different restrictions:
 
-* **Domain limitation**: Can only make requests to your own webview domain  
-* **Endpoint requirement**: All requests must target endpoints that start with /api  
-* **Authentication**: Handled automatically \- no need to manage auth tokens  
-* **No external domains**: Cannot make requests to external domains from client-side code  
+- **Domain limitation**: Can only make requests to your own webview domain
+- **Endpoint requirement**: All requests must target endpoints that start with /api
+- **Authentication**: Handled automatically \- no need to manage auth tokens
+- **No external domains**: Cannot make requests to external domains from client-side code  
   client/index.ts
 
 ```
@@ -101,7 +105,7 @@ const handleFetchData = async () => {
 
 ## Troubleshooting
 
-The following error means HTTP Fetch requests are hitting the internal timeout limits. 
+The following error means HTTP Fetch requests are hitting the internal timeout limits.
 
 ```
 HTTP request to domain: <domain> timed out with error: context deadline exceeded.
@@ -109,8 +113,8 @@ HTTP request to domain: <domain> timed out with error: context deadline exceeded
 
 To resolve this:
 
-* Use a queue or kick off an async request in your back end. You can use [Scheduler](https://developers.reddit.com/docs/capabilities/server/scheduler) to monitor the result.  
-* Optimize the overall HTTP request latency if you have a self-hosted server.
+- Use a queue or kick off an async request in your back end. You can use [Scheduler](https://developers.reddit.com/docs/capabilities/server/scheduler) to monitor the result.
+- Optimize the overall HTTP request latency if you have a self-hosted server.
 
 ## Global fetch allowlist
 
@@ -154,26 +158,26 @@ These domains are globally allowed and can be fetched by any app.
 
 Allow-listed domains fall into three categories:
 
-1. **APIs that provide data or specific services** (e.g., api.openai.com, api.wikipedia.org) \- These will be approved if they have a **publicly documented and publicly accessible API** for valid use cases, and if they adhere to the Devvit rules. Please reference our AI providers and account linking policies for common invalid use cases.  
-2. **Limited scope cloud providers** (e.g., username.supabase.com, my-app.firebase.com) \- May be granted with exceptions. You must:  
-   * Follow user privacy guidelines and data governance requirements  
-   * Use an approved provider from the list below (please include your subdomain, and request for the most granular domain possible, e.g. my-app.s3.amazonaws.com)  
-     * supabase.com  
-     * firebase.com  
-     * spacetimedb.com  
-     * s3.amazonaws.com  
-     * storage.googleapis.com  
-   * Demonstrate a capability that @devvit/server doesn't support  
-   * Valid use cases include relational databases  
-   * Note: Approval can be revoked at any time  
+1. **APIs that provide data or specific services** (e.g., api.openai.com, api.wikipedia.org) \- These will be approved if they have a **publicly documented and publicly accessible API** for valid use cases, and if they adhere to the Devvit rules. Please reference our AI providers and account linking policies for common invalid use cases.
+2. **Limited scope cloud providers** (e.g., username.supabase.com, my-app.firebase.com) \- May be granted with exceptions. You must:
+   - Follow user privacy guidelines and data governance requirements
+   - Use an approved provider from the list below (please include your subdomain, and request for the most granular domain possible, e.g. my-app.s3.amazonaws.com)
+     - supabase.com
+     - firebase.com
+     - spacetimedb.com
+     - s3.amazonaws.com
+     - storage.googleapis.com
+   - Demonstrate a capability that @devvit/server doesn't support
+   - Valid use cases include relational databases
+   - Note: Approval can be revoked at any time
 3. **Personal domains** (e.g., personaldomain.com) \- Will not be approved. If you have a use case that our Devvit server does not support, please submit your request with detailed justification for a possible exception.
 
 ### AI providers
 
 At this time, OpenAI and Google Gemini are the only allowed providers:
 
-* api.openai.com  
-* generativelanguage.googleapis.com
+- api.openai.com
+- generativelanguage.googleapis.com
 
 Requests to use any other AI provider will be denied.
 
@@ -181,8 +185,8 @@ Requests to use any other AI provider will be denied.
 
 If your app uses fetch domains, you must add context to your app's README for the approval process:
 
-1. Create a "Fetch Domains" section in your README  
-2. List each domain you're requesting and explain why you need it  
+1. Create a "Fetch Domains" section in your README
+2. List each domain you're requesting and explain why you need it
 3. Ensure your usage complies with our fetch guidelines
 
 Example README section:
@@ -199,12 +203,16 @@ The following domains are requested for this app:
 
 ### Domain requirements
 
+:::note
+If you're porting a Data API app as part of our [App Migration Programs](https://www.reddit.com/r/Devvit/comments/1sgwkm7/bring_your_data_api_apps_to_devvit_and_details/) you may be eligible for special fetch domain exceptions. Please list at the top of your Devvit app's README.md file which Data API app you are migrating (account username), and which domains you need access to. Our App Review team will provide exemptions for program participants.
+:::
+
 Domain entries must be exact hostnames only, such as nytimes.com or wikipedia.org. In addition:
 
-* Be specific. No using \*.example.com when you need api.example.com  
-* No wildcards: \*.example.com  
-* No protocols: https://api.example.com  
-* No paths: api.example.com/webhooks
+- Be specific. No using \*.example.com when you need api.example.com
+- No wildcards: \*.example.com
+- No protocols: https://api.example.com
+- No paths: api.example.com/webhooks
 
 Domains that are approved for your app are displayed in the Developer Settings section for your app at `https://developers.reddit.com/apps/{your-app-slug}/developer-settings`. These domains are allow-listed for **your app only** and not globally.
 
