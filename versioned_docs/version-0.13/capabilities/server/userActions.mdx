@@ -1,0 +1,237 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# User Actions
+
+User actions allow your app to submit posts, submit comments, and subscribe to the current subreddit on behalf of the logged in user. These actions occur on the logged in user's account instead of the app account. This enables stronger user engagement while ensuring user control and transparency.
+
+---
+
+## What are user actions?
+
+By default, apps make posts or comments using their associated app account. With user actions enabled, your app can:
+
+- Create posts or comments on behalf of the user (from the post UI, a form, or a menu action)
+- Subscribe the user to the current subreddit
+
+Some actions are not available to apps to prevent abuse and maintain platform integrity:
+
+- Apps cannot upvote or downvote posts or comments, either as the app account or on behalf of the logged-in user
+- Apps cannot follow users (on reddit.com) or add friends (on old.reddit.com), either as the app account or on behalf of the logged-in user
+
+---
+
+Requirements
+--------------
+
+To ensure a positive user experience and compliance with Reddit policies:
+
+- **Always ask permission:** Your app must always inform users before posting, commenting, or subscribing on their behalf. This can only happen on an explicit manual action, e.g. from a button.
+- **No automated actions:** Users must explicitly opt-in to the app acting on their behalf. Do not mislead or surprise users.
+- **Establish a reporting flow:** Ensure `userGeneratedContent` is correctly set for posts submitted on behalf of the user.
+- **Do not gate any functionality:** Users should not be made or encouraged to post, comment, or subscribe to continue using your app.
+- **Keep actions separate:** Do not merge posting, commenting, or subscribing with other app actions. Each must remain a distinct, clear choice.
+- **Remember the human:** Follow Reddit's safety and compliance guidelines for user-generated content. Do not create spam-like content or poor user experiences in pursuit of engagement.
+
+:::note
+Apps using user actions must follow these requirements to be approved.
+:::
+
+
+---
+
+## Enabling user actions
+
+To enable user actions, add the required permissions to your `devvit.json`:
+
+```json title="devvit.json"
+"permissions": {
+  "reddit": {
+    "asUser": [
+      "SUBMIT_POST",
+      "SUBMIT_COMMENT",
+      "SUBSCRIBE_TO_SUBREDDIT"
+    ]
+  }
+}
+```
+
+After enabling, you can call certain Reddit APIs on behalf of the user by passing the option `runAs: 'USER'`. The following APIs support this option:
+
+- [submitPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost)
+- [submitCustomPost()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md)
+- [submitComment()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment)
+
+If `runAs` is not specified, the API will use `runAs: 'APP'` by default.
+
+### Parameters
+
+| Parameter              | Description                                                                                                              |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `runAs`                | The type of account to perform the action on behalf of: `'USER'` or `'APP'`. Defaults to `'APP'`.                        |
+| `userGeneratedContent` | Text or images submitted by the user. Required for `submitPost()` with `runAs: 'USER'` for safety and compliance review. |
+
+### Differences during playtesting
+
+Your app version needs to be approved in order for user actions to be enabled for all users. Expect the following behavior:
+
+- **Unapproved/playtest apps:**
+  - `runAs: 'USER'` will operate from the app account unless the app owner takes the action.
+  - User actions taken by the app owner will be attributed to the app owner's username.
+- **Approved apps:**
+  - After publishing and approval, `runAs: 'USER'` will operate on behalf of the user for all users.
+
+---
+
+## Example: Submit a post as the user
+
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```tsx title="server/index.ts"
+import { reddit } from '@devvit/web/server';
+
+// ...
+
+app.post('/internal/post-create', async (c) => {
+  const { subredditName } = context;
+  if (!subredditName) {
+    return c.json({ status: 'error', message: 'subredditName is required' }, 400);
+  }
+
+  reddit.submitPost({
+    runAs: 'USER',
+    userGeneratedContent: {
+      text: "Hello there! This is a new post from the user's account",
+    },
+    subredditName,
+    title: 'Post Title',
+    entry: 'default',
+  });
+
+  return c.json({ status: 'success', message: `Post created in subreddit ${subredditName}` });
+});
+```
+
+</TabItem>
+<TabItem value="express">
+
+```tsx title="server/index.ts"
+import { reddit } from '@devvit/web/server';
+
+// ...
+
+router.post('/internal/post-create', async (_req, res) => {
+  const { subredditName } = context;
+  if (!subredditName) {
+    res.status(400).json({ status: 'error', message: 'subredditName is required' });
+    return;
+  }
+
+  reddit.submitPost({
+    runAs: 'USER',
+    userGeneratedContent: {
+      text: "Hello there! This is a new post from the user's account",
+    },
+    subredditName,
+    title: 'Post Title',
+    entry: 'default',
+  });
+
+  res.json({ status: 'success', message: `Post created in subreddit ${subredditName}` });
+});
+```
+
+</TabItem>
+</Tabs>
+
+---
+
+## Example: Subscribe to current subreddit
+
+The [subscribeToCurrentSubreddit()](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#subscribetocurrentsubreddit) API does not take a `runAs` parameter; it subscribes as the user by default (if specified in `devvit.json` and approved).
+
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```ts
+import { reddit } from '@devvit/web/server';
+
+app.post('/api/subscribe', async (c) => {
+  try {
+    await reddit.subscribeToCurrentSubreddit();
+    return c.json({ status: 'success' });
+  } catch (error) {
+    return c.json({ status: 'error', message: 'Failed to subscribe' }, 500);
+  }
+});
+```
+
+</TabItem>
+<TabItem value="express">
+
+```ts
+import { reddit } from '@devvit/web/server';
+
+router.post('/api/subscribe', async (_req, res) => {
+  try {
+    await reddit.subscribeToCurrentSubreddit();
+    res.json({ status: 'success' });
+  } catch (error) {
+    res.status(500).json({ status: 'error', message: 'Failed to subscribe' });
+  }
+});
+```
+
+</TabItem>
+</Tabs>
+
+For user privacy there is no API to check if the user is already subscribed to the current subreddit. You may want to store the subscription state in Redis to provide contextually aware UI.
+
+---
+
+## Adding user actions to games
+
+### End-of-game actions
+
+✅ An example of a clear end-of-game layout:
+
+- `Play Again`
+- `Comment My Score`
+- `Subscribe to r/your_subreddit`
+
+This example keeps each action separate and straightforward for the user. Playing again, commenting, and subscribing are distinct decisions and are therefore presented as distinct actions.
+
+❌ An example of an unclear end-of-game layout:
+
+- `Play Again and Subscribe`
+- `Post Score to Play Next Level`
+- `Comment & Continue`
+
+This example mixes intention and is confusing for the user. Apps like this that merge functionality (e.g. playing again) with user actions (e.g. subscribing or commenting) will be rejected during review.
+
+### Commenting scores
+
+✅ The required pattern for commenting scores is:
+
+- Commenting after explicit manual action (e.g. from a button)
+- Commenting by the user (not the app account)
+- Commenting as a reply to a single stickied comment
+
+This avoids surprising the user, enables a reporting flow, and allows the user to easily delete their score comment. Replying to a stickied comment keeps this repetitive content with low discussion value out of the way, in an area that needs to be expanded to view.
+
+If offering a way for the user to add a custom message to their score, the comment can be posted as a top-level comment. This prioritizes human discussion and creates a more engaging comment section.

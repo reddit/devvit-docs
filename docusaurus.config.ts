@@ -4,7 +4,7 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const baseUrl = process.env.DOCUSAURUS_BASE_URL ?? "/docs/";
 
-const LATEST_DEVVIT_VERSION = '0.12'; // update-versioned-docs.mjs sets this automatically
+const LATEST_DEVVIT_VERSION = '0.13'; // update-versioned-docs.mjs sets this automatically
 
 const config: Config = {
   future: {
@@ -87,6 +87,9 @@ const config: Config = {
               badge: false,
             },
             "current": {  // This refers to "/docs/next/"
+              noIndex: true,
+            },
+            "0.12": {
               noIndex: true,
             },
             "0.11": {

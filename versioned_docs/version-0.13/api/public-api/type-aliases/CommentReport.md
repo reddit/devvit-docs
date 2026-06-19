@@ -1,0 +1,9 @@
+[**@devvit/public-api v0.13.4-dev**](../README.md)
+
+***
+
+# Type Alias: CommentReport
+
+> **CommentReport** = `"CommentReport"`
+
+The event name for when a comment is reported

@@ -151,16 +151,23 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Access External Endpoints",
+      label: "Analytics",
       items: [
-        "capabilities/server/http-fetch",
-        "capabilities/server/http-fetch-policy",
-      ],
+        "capabilities/analytics/analytics-overview", 
+        "capabilities/analytics/devvit-journeys",
+        "capabilities/analytics/journeys-dashboard",
+        "capabilities/analytics/journeys-receipts"
+       ],
     },
     {
       type: "category",
       label: "Automation & Triggers",
       items: ["capabilities/server/scheduler", "capabilities/server/triggers"],
+    },
+    {
+      type: "doc",
+      label: "HTTP Fetch",
+      id: "capabilities/http-fetch",
     },
     {
       type: "category",
@@ -173,6 +180,14 @@ const sidebars: SidebarsConfig = {
         "earn-money/payments/payments_manage",
         "earn-money/payments/support_this_app",
       ],
+    },
+    {
+      type: "category",
+      label: "Notifications",
+      items: [
+        "capabilities/notifications/notifications-overview", 
+        "capabilities/notifications/pn-best-practices",
+        "capabilities/notifications/adding-streaks"],
     },
     {
       type: "category",
@@ -239,7 +254,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Saving Data",
+      label: "Storing Data",
       items: [
         "capabilities/server/redis",
         "capabilities/server/cache-helper",
@@ -299,6 +314,11 @@ const sidebars: SidebarsConfig = {
         "guides/migrate/inline-web-view",
         "guides/migrate/public-api",
       ],
+    },
+    {
+      type: "doc",
+      label: "Building for Logged Out Players",
+      id: "guides/logged-out-users",
     },
     {
       type: "doc",

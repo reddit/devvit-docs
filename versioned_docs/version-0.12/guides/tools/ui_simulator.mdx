@@ -84,3 +84,39 @@ Example of how to use a CSS media query to set different colors for light and da
   }
 }
 ```
+
+
+# Adding dark mode support
+
+Devvit webviews automatically receive the user's color scheme preference (light or dark) from the Reddit app. To make your app respond to these changes, you need to add dark mode styles using either a CSS media query or Tailwind's `dark:` variant.
+
+:::info
+Note: the UI simulator color scheme toggle does not currently work in Safari. This is a known issue due to browser limitations. Please use a Chrome-based browser to access this functionality while we work on a fix.
+:::
+
+Example of how to use a CSS media query to set different colors for light and dark mode:
+
+```css
+/* Light mode (default) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+  }
+}
+```
+
+Example of how to use Tailwind's `dark:` class:
+```tsx
+/* Before: Only light mode */
+<div className="bg-white text-black" />
+
+/* After: Light + dark mode */
+<div className="bg-white dark:bg-black text-black dark:text-white" />
+```

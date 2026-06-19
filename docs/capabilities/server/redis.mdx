@@ -12,19 +12,166 @@ You can add a database to your app to store and retrieve data. The Redis plugin 
 - [Hashes](#hash) for managing a collection of key-value pairs
 - [Bitfields](#bitfield) for efficient operation on sequences of bits
 
+Redis is a good model for most community games, mod tools, settings, leaderboards, and user state.  If your app needs cross-community data, like a global leaderboard or aggregated analytics, design for that explicitly. Instead of assuming every installation can access the same Redis keys, use a shared service exposed through [HTTP Fetch](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/http-fetch.mdx) to manage and serve cross-community data.
+
+## Data storage
+
 Each installation of an app is uniquely name-spaced, which means Redis data is siloed by subreddit. Keep in mind that there won’t be a single source of truth for all installations of your app, since each app installation can only access the data that it has stored in the Redis database.
 
-## Limits and quotas
+:::note    
+If your app stores user content from Reddit, make sure you remove it from your app when that content is deleted from Reddit. Devvit provides post and comment delete events through triggers to help with this. See [Enable and respect user deletions](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/devvit_rules.md#enable-and-respect-user-deletions) in the Devvit Rules.  
+:::
 
-- Max commands per second: 40000
-- Max request size: 5 MB
-- Max storage: 500 MB
-- [Pipelining](https://redis.io/docs/latest/develop/using-commands/pipelining/) is not supported
-- [Sets](https://redis.io/docs/latest/commands/set/) - only sorted sets are supported
-- No support for listing keys
-- No support for lua scripts to execute custom logic on redis server
+## Key design
 
-All limits are applied at a per-installation granularity.
+On Devvit, Redis does not support listing every key in an installation. If your app loses track of a key name, it cannot discover that key later with a global scan.
+
+Avoid scattering related data across too many independent keys:
+
+```
+await redis.set(`profile:${userId}`, JSON.stringify(profile));
+await redis.set(`profile:${otherUserId}`, JSON.stringify(otherProfile));
+```
+
+Use stable collection keys when you need to read or update related records:
+
+```
+await redis.hSet('app:user_profiles', {
+  [userId]: JSON.stringify(profile),
+  [otherUserId]: JSON.stringify(otherProfile),
+});
+
+const profiles = await redis.hScan('app:user_profiles', 0);
+```
+
+This gives your app a known place to look and lets you iterate within the collection with `hScan` or `hKeys`.
+
+## Data structures
+
+Redis in Devvit supports strings, hashes, sorted sets, numbers, bitfields, and transactions. It does not support every Redis data type, including plain sets and lists.
+
+Use these patterns when you need set-like or queue-like behavior.
+
+| Use case | Recommended pattern |
+| :---- | :---- |
+| Unique unordered collection | Use a sorted set and give every member the same score, like 0\. |
+| Leaderboard | Use a sorted set with the score as the ranking value. |
+| FIFO queue | Use a sorted set with a timestamp score, read the oldest entries with zRange, then remove processed entries with zRem. |
+| Dense flags or compact counters | Use bitfield when you need bitmap-style storage for many small values. |
+| Temporary data | Use expire for short-lived keys, or remove old sorted set entries by score. |
+
+For command-specific behavior and limits, see the [supported Redis commands](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#supported-redis-commands).
+
+## Storage values
+
+Redis is best for small, frequently accessed app states. Each Redis installation has a 500 MB storage limit and a 5 MB request size limit. 
+
+If your app stores large JSON objects, long text values, or historical records that still belong in Redis, use`redisCompressed`. 
+
+```
+  import { redisCompressed } from '@devvit/redis';
+await redisCompressed.set('cache:heavy_payload', JSON.stringify(payload));
+```
+
+The compressed client compresses supported writes when compression saves space, and decompresses those values on supported reads.
+
+:::tip: Do not mix `redis` and `redisCompressed` on the same key. Data written by `redisCompressed` should be read with `redisCompressed`. To migrate existing data, read the old values with the standard client and write them back with the compressed client. For a complete migration example, see [Compression](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#compression-experimental).  
+:::
+
+## Shared state
+
+Devvit app requests are stateless and can run concurrently. Popular posts, games, comment triggers, and moderator actions can all cause multiple requests to update the same data at the same time.
+
+Use Redis transactions when correctness depends on reading a value, checking it, and writing a new value based on the result.
+
+Good candidates for transactions include:
+
+* Spending points, coins, inventory, or other balances.  
+* Claiming a limited reward where only one user should win.  
+* Enforcing one vote, entry, redemption, or action per user.  
+* Updating multiple related keys that must stay in sync.
+
+You usually do not need a transaction for single-command atomic operations, like `incrBy`, `hIncrBy`, or `zIncrBy`, unless the update depends on a separate read or validation step.
+
+```
+ async function deductBalance(userId: string, cost: number): Promise<boolean> {
+const key = `user:${userId}:balance`;const txn = await redis.watch(key);
+const currentRaw = await txn.get(key);const current = currentRaw ? Number.parseInt(currentRaw, 10) : 0;
+if (current < cost) {	await txn.unwatch();	return false; }
+await txn.multi();await txn.set(key, String(current - cost));
+const result = await txn.exec();return result !== null;}
+```
+
+Transactions are limited to 30 concurrent transaction blocks per installation, and transaction execution has a 5-second timeout. Always call unwatch() or discard() when your code exits early before exec().
+
+For more details, see [Transactions](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#transactions).
+
+## Quota failures
+
+When an installation reaches the Redis storage limit, write operations can fail. Treat Redis writes as operations that may need a user-facing fallback.
+
+A good failure path should:
+
+* Prevent the failed write from crashing the request.  
+* Keep read-only behavior working where possible.  
+* Tell the user or moderator what happened and which actions are temporarily unavailable.
+
+```
+ type WriteResult =
+  | { ok: true }
+  | { ok: false; reason: 'storage-quota' }
+  | { ok: false; reason: 'unknown'; message: string };
+
+async function savePlayerProfile(userId: string, profile: PlayerProfile): Promise<WriteResult> {
+  try {
+    await redis.hSet('app:player_profiles', {
+      [userId]: JSON.stringify(profile),
+    });
+
+    return { ok: true };
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown Redis error';
+    const normalized = message.toLowerCase();
+
+    if (normalized.includes('quota') || normalized.includes('storage')) {
+      return { ok: false, reason: 'storage-quota' };
+    }
+
+    return { ok: false, reason: 'unknown', message };
+  }
+}
+```
+
+When storage is full, avoid deleting arbitrary data at write time. Make cleanup predictable: use TTLs for temporary keys, cap sorted sets to the number of entries you actually display, and run scheduled cleanup jobs for old records.
+
+## Scheduled maintenance
+
+Large migrations, leaderboard maintenance, and cleanup jobs can exceed request time limits if they process everything in one request. Use the scheduler to process a bounded batch, save the cursor or progress marker, and schedule the next batch.
+
+This pattern works well for:
+
+* Migrating uncompressed data to `redisCompressed`.  
+* Rebuilding derived indexes.  
+* Cleaning up old sorted set entries.  
+* Backfilling new fields in large hashes.
+
+The Redis reference includes a full scheduled migration example. The Scheduler reference covers recurring and one-off jobs, including platform limits for runJob().
+
+* [Redis migration example](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#migration-example)  
+* [Scheduler](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/scheduler.mdx)
+
+## Platform limits
+
+Design around these limits early so your app stays responsive as more people use it.
+
+| Platform Behavior | Limit | Best practice |
+| :---- | :---- | :---- |
+| Command throughput | 40,000 commands per second per installation | Avoid one Redis call per item in hot loops. Use batch commands such as `mGet`, `mSet`, and `hash` writes where they fit. |
+| Pipelining | Not supported | Reduce round trips by grouping related fields under hashes or compact JSON values. |
+| Storage | 500 MB per installation | Use `redisCompressed` for large values, expire temporary data, and cap unbounded histories. |
+| Request size | 5 MB | Store large datasets as multiple records and process them in batches. |
+| Transactions | 20 concurrent transaction blocks; 5-second execution timeout | Keep transaction logic small and release transactions with `exec`, `discard`, or `unwatch`. |
+
 
 ## Examples
 
@@ -863,26 +1010,6 @@ barResults: [0, 3, 0, 0, 3, 3]
 
 </details>
 
-## Compression (Experimental)
-
-The Redis package includes a `redisCompressed` client that transparently handles compression and decompression of values. This is useful for storing large strings or JSON objects that exceed the Redis storage limits or to optimize storage usage.
-
-To use it, update your import:
-
-```ts
-// import { redis } from '@devvit/redis';
-import { redisCompressed as redis } from '@devvit/redis';
-```
-
-:::warning
-**One-Way Migration**: Once you start using `redisCompressed` and writing compressed data, switching back to the standard `redis` client will result in errors when reading that data, as the standard client does not know how to decompress the values.
-:::
-
-The `redisCompressed` client automatically:
-- Compresses values on write (`set`, `hSet`, `mSet`, `hSetNX`) if it saves space.
-- Decompresses values on read (`get`, `hGet`, `mGet`, `hMGet`, `hGetAll`).
-
-**Note:** Existing uncompressed data is **not** automatically compressed when read. It is only compressed when you write it back. To migrate existing large datasets, you need to read and re-write the data.
 
 ### Migration Example
 

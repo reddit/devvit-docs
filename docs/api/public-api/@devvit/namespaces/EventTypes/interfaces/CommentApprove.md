@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.12.24-dev**](../../../../README.md)
+[**@devvit/public-api v0.13.5-dev**](../../../../README.md)
 
 ***
 
@@ -42,7 +42,7 @@
 
 ### source
 
-> **source**: [`EventSource`](../../../../enumerations/EventSource.md)
+> **source**: [`EventSource`](../enumerations/EventSource.md)
 
 ***
 
