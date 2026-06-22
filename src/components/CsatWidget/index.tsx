@@ -14,7 +14,6 @@ declare global {
 
 type CsatReaction = "positive" | "negative";
 type CsatScore = 1 | 5;
-type CsatAction = "view" | "select_score" | "submit" | "dismiss";
 
 function getStorageKey(pathname: string): string {
   return `${CSAT_STORAGE_PREFIX}${pathname}`;
@@ -80,9 +79,11 @@ export default function CsatWidget(): React.ReactElement | null {
     return normalizedPath !== "/" && normalizedPath !== "/docs";
   }, [pathname]);
 
-  const sendCsatEvent = (
-    action: CsatAction,
-    details: Record<string, unknown> = {},
+  const sendCsatSubmitEvent = (
+    score: CsatScore,
+    reaction: CsatReaction,
+    feedbackValue: string,
+    reasons: string[],
   ) => {
     if (
       typeof window === "undefined" ||
@@ -93,13 +94,16 @@ export default function CsatWidget(): React.ReactElement | null {
 
     window.sendV2Event({
       source: "docs_csat_widget",
-      action,
+      action: "submit",
       noun: "csat",
       action_info: {
         page_type: "dev_portal_docs",
         page_path: pathname,
         widget: "docs_csat",
-        ...details,
+        score,
+        reaction,
+        feedback: feedbackValue,
+        reasons,
       },
       request: {
         base_url: window.location.href,
@@ -128,14 +132,9 @@ export default function CsatWidget(): React.ReactElement | null {
     setSelectedReasons([]);
     setIsSubmitted(false);
     setIsVisible(!hasSubmitted);
-
-    if (!hasSubmitted) {
-      sendCsatEvent("view");
-    }
   }, [storageKey, shouldShowForPath]);
 
   const dismiss = () => {
-    sendCsatEvent("dismiss");
     setIsVisible(false);
   };
 
@@ -149,12 +148,7 @@ export default function CsatWidget(): React.ReactElement | null {
       return;
     }
 
-    sendCsatEvent("submit", {
-      score,
-      reaction,
-      feedback: feedbackValue,
-      reasons,
-    });
+    sendCsatSubmitEvent(score, reaction, feedbackValue, reasons);
 
     window.sessionStorage.setItem(storageKey, "1");
     setIsSubmitted(true);
@@ -170,11 +164,6 @@ export default function CsatWidget(): React.ReactElement | null {
       setSelectedReasons([]);
       setFeedback("");
     }
-
-    sendCsatEvent("select_score", {
-      score,
-      reaction: option.reaction,
-    });
 
     if (option.reaction === "positive") {
       submit(score, option.reaction, "", []);
