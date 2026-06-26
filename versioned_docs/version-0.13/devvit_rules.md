@@ -28,12 +28,11 @@ Your README serves as a public-facing overview and populates the **General** sec
 
 Your README should include:
 
-- A mandatory App Review Summary at the top of the README, 1000 words or fewer
-- An app overview
+- An app overview at the top of the README, 1000 words or fewer
 - Instructions for setting up and using the app
 - A changelog for new versions
 
-The App Review Summary should briefly explain what the app does, who it is for, and any important setup or usage notes reviewers should know. Readers should be able to understand how to set up the app, how to use its full feature set, and what to expect when upgrading to a new version.
+The app overview should explain what the app does, who it is for, and any important setup or usage notes readers should know. It should be more detailed than a short app description, but shorter than the full setup, usage, and changelog sections. Readers should be able to understand how to set up the app, how to use its full feature set, and what to expect when upgrading to a new version.
 
 As part of Reddit app review, we may review your code, read through your app’s description, test your app, and provide feedback. We may use third-party LLMs to help us conduct this review. When your app review is complete, we’ll notify you about your app’s status, which could be:
 
