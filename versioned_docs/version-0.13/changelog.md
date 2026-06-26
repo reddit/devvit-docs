@@ -14,6 +14,7 @@ To use the latest version of Devvit:
 
 In this release, we've improved trace propagation between web view and plugin calls. Apps running v0.13.5+ will have more complete traces, providing better observability and simplifying debugging and support.
 
+
 ## Relese 0.13.4: Updated Redis Docs
 **Release Date: June 15, 2026**
 
