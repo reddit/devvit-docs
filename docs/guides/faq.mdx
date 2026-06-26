@@ -133,7 +133,7 @@ For command syntax, see [Devvit CLI](./tools/devvit_cli.mdx). For the review and
 <details>
 <summary>What should I do after playtest when I am ready to launch?</summary>
 
-Before launch, make sure the app is stable across mobile and web, test with multiple accounts, and add an installer-friendly `README.md`. Then follow the publish flow in [Launch your app](./launch/launch-guide.md).
+Before launch, make sure the app is stable across mobile and web, test with multiple accounts, and add the required app [`README.md`](../devvit_rules.md#app-readme-requirements). Then follow the publish flow in [Launch your app](./launch/launch-guide.md).
 
 If you're just ending a playtest session, remember that the latest playtest install remains in place until you change installs. [Playtest](./tools/playtest.md) and [`devvit install`](./tools/devvit_cli.mdx#devvit-install) cover that handoff.
 
@@ -151,9 +151,9 @@ Most app versions are reviewed within **1–2 business days**. New apps or versi
 
 To keep review moving:
 
-- Make sure your `README.md` is clear, accurate, and up to date.
+- Make sure your app [`README.md`](../devvit_rules.md#app-readme-requirements) is clear, accurate, and up to date.
 - Ensure your app complies with the [Devvit Rules](../devvit_rules.md).
-- If your app uses fetch domains, document them in a "Fetch Domains" section of your README.
+- If your app uses fetch domains, document them in a "Fetch Domains" section of your [README](../devvit_rules.md#app-readme-requirements).
 
 If you haven't heard back after a week, reach out in the [Devvit Discord](https://developers.reddit.com/discord) or via [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit). For the full publish flow, see [Launch your app](./launch/launch-guide.md).
 
@@ -175,7 +175,7 @@ If the goal is broader distribution, follow [Launch your app](./launch/launch-gu
 
 Published apps are unlisted by default. That's usually the right fit for games and single-community tools. If you want your app to appear in the App Directory so any moderator can install it, use `npx devvit publish --public` and follow the listing guidance in [Launch your app](./launch/launch-guide.md).
 
-Public apps should look launch-ready: the launch docs call for a detailed installer-facing `README.md`, and game launch guidance expects a custom launch or first screen rather than a rough default experience.
+All apps submitted for review should look launch-ready: the launch docs require an app [`README.md`](../devvit_rules.md#app-readme-requirements), and game launch guidance expects a custom launch or first screen rather than a rough default experience.
 
 </details>
 
@@ -416,7 +416,7 @@ Domain requests are reviewed separately from app publishing and can take **up to
 To make approval go smoothly:
 
 - Use exact hostnames only — no wildcards (`*.example.com`), no protocols (`https://`), and no paths (`api.example.com/webhooks`).
-- Add a "Fetch Domains" section to your `README.md` listing each domain and explaining why you need it. The expected format is documented in [HTTP Fetch](../capabilities/http-fetch.md).
+- Add a "Fetch Domains" section to your app [`README.md`](../devvit_rules.md#app-readme-requirements) listing each domain and explaining why you need it. The expected format is documented in [HTTP Fetch](../capabilities/http-fetch.md).
 - Include links to your Terms and Conditions and Privacy Policy in your app details form.
 
 Before submitting, check the [global fetch allowlist](../capabilities/http-fetch.md#global-fetch-allowlist) — if your domain is already listed there, no separate request is needed. Personal domains (e.g., `personaldomain.com`) aren't approved.

@@ -46,7 +46,7 @@ Launching your app signals to Reddit’s algorithmic feeds that it is ready for 
 
 Apps are submitted for review through the CLI. To launch your app:
 
-1. Add a user-friendly overview in your app’s `README.md`.
+1. Add the required app [`README.md`](../../devvit_rules.md#app-readme-requirements).
 2. Run `npx devvit publish`.
 
     You can optionally choose the version bump type with `--bump`:
@@ -80,11 +80,7 @@ Ensuring your app complies with all [Devvit Rules](https://developers.reddit.com
 
 If your app is a general-purpose moderation tool, community utility, or otherwise broadly applicable, you can request to list it in the [App Directory](https://developers.reddit.com/apps). Listing makes your app installable by any moderator.
 
-Publicly listed apps must include a detailed `README.md` with:
-
-- A comprehensive app overview.
-- Installer-facing instructions.
-- Changelogs for major updates.
+All apps submitted for review must include an app [`README.md`](../../devvit_rules.md#app-readme-requirements).
 
 To list your app:
 
@@ -100,4 +96,3 @@ We do not recommend listing apps built for a single subreddit, as this may confu
 - Questions? Join our Discord or post in [r/Devvit](https://www.reddit.com/r/Devvit/).
 - Review the [Devvit Rules](https://developers.reddit.com/docs/devvit_rules) before publishing.
 - Learn more about [how to earn](../../earn-money/payments/payments_overview.md) from your apps.
-

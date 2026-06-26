@@ -24,7 +24,7 @@ devvit.json
 ### Requesting a domain to be allow-listed
 
 :::note
-If you're porting a Data API app as part of our [App Migration Programs](https://www.reddit.com/r/Devvit/comments/1sgwkm7/bring_your_data_api_apps_to_devvit_and_details/) you may be eligible for special fetch domain exceptions. Please list at the top of your Devvit app's README.md file which Data API app you are migrating, and which domains you need access to. Our App Review team will provide exemptions for program participants
+If you're porting a Data API app as part of our [App Migration Programs](https://www.reddit.com/r/Devvit/comments/1sgwkm7/bring_your_data_api_apps_to_devvit_and_details/) you may be eligible for special fetch domain exceptions. Please list at the top of your Devvit app's [`README.md`](../devvit_rules.md#app-readme-requirements) file which Data API app you are migrating, and which domains you need access to. Our App Review team will provide exemptions for program participants
 :::
 
 Apps may request a domain to be added to the allow-list by specifying domains in the http configuration. This configuration is optional, and apps can still configure http: true as before.
@@ -183,13 +183,13 @@ Requests to use any other AI provider will be denied.
 
 ### Documentation requirements
 
-If your app uses fetch domains, you must add context to your app's README for the approval process:
+If your app uses fetch domains, add this context to your app's [README](../devvit_rules.md#app-readme-requirements) for the approval process:
 
-1. Create a "Fetch Domains" section in your README
+1. Create a "Fetch Domains" section in your [README](../devvit_rules.md#app-readme-requirements)
 2. List each domain you're requesting and explain why you need it
 3. Ensure your usage complies with our fetch guidelines
 
-Example README section:
+Example Fetch Domains section:
 
 ```
 
