@@ -22,17 +22,13 @@ You can start the Reddit app review process by [publishing your app](./guides/la
 
 ### App README requirements
 
-Apps submitted for Reddit app review through the publish command must include a descriptive `README.md` file in the root directory of the app project (for example, `project-directory/README.md`). Apps submitted without a README, with an empty README, with a default template README, or with a README that does not provide a proper overview will be rejected until the README is added or updated.
+Apps must include a descriptive `README.md` file in the root directory of the app project (for example, `project-directory/README.md`). Apps submitted with a missing, empty, default template README, or vague README will be rejected.
 
-Your README serves as a public-facing overview and populates the **General** section of your app details page. App details pages help mods, redditors, and admins understand what your app does, how it is used, and, when applicable, what changed in new versions. Write your README in simple terms for a non-developer audience, and include helpful images when they make the app easier to understand.
+Your README should be written in simple terms for a non-developer audience and include:
 
-Your README should include:
-
-- An app overview at the top of the README, 1000 words or fewer
-- Instructions for setting up and using the app
-- A changelog for new versions
-
-The app overview should explain what the app does, who it is for, and any important setup or usage notes readers should know. It should be more detailed than a short app description, but shorter than the full setup, usage, and changelog sections. Readers should be able to understand how to set up the app, how to use its full feature set, and what to expect when upgrading to a new version.
+- An app overview summary at the top (1000 words or fewer) explaining what the app does, who it is for, and critical operational notes
+- Instructions on how to configure, deploy, and interact with the app's full feature set
+- A changelog detailing what has changed in each new version submission
 
 As part of Reddit app review, we may review your code, read through your app’s description, test your app, and provide feedback. We may use third-party LLMs to help us conduct this review. When your app review is complete, we’ll notify you about your app’s status, which could be:
 
