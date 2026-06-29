@@ -9,14 +9,27 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
-## Release 0.13.6:   App Mentions Triggers (Limited Access)
+## Release 0.13.6:   External Endpoints and App Mentions Triggers (Limited Access)
 **Release Date: June 29, 2026**
 
-This release introduces [App Mentions Triggers](./capabilities/server/global-triggers.mdx), a new limited-access Devvit feature that lets apps respond when they’re mentioned in comments anywhere on Reddit using the u/<AppName> syntax. 
+This release introduces two new limited-access features that expand how apps connect with external services and respond to events across Reddit: [External Endpoints](./capabilities/server/external-endpoints.mdx) and [App Mentions Triggers](./capabilities/server/global-triggers.mdx). 
 
-Because App Mention Triggers can respond to events across Reddit, access is currently limited behind an allowlist. Interested developers can request access [here](http://forms.gle/jVNPNwmUFPCRuEvy8). Priority access will be granted to moderation tools that are part of our [App Migration Program](https://www.reddit.com/r/Devvit/comments/1sgwkm7/bring_your_data_api_apps_to_devvit_and_details/).
+:::note
+Because both features extend your app's capabilities beyond its installed subreddit, access is currently limited behind an allowlist. Devs can request access [here](http://forms.gle/jVNPNwmUFPCRuEvy8). Priority access will be granted to moderation tools that are part of our [App Migration Program](https://www.reddit.com/r/Devvit/comments/1sgwkm7/bring_your_data_api_apps_to_devvit_and_details/).
+:::
 
-Other improvements in this release include: 
+**External Endpoints** 
+
+External Endpoints provide a secure way for external services to communicate with your Devvit app.
+Endpoints are externally accessible routes exposed by your app, making it easy to integrate with third-party services, webhooks, and other external systems while maintaining secure communication.
+
+**App Mention Triggers**
+App Mention Triggers let Devvit apps respond whenever they're mentioned in comments anywhere on Reddit using the `u/<AppName>` syntax.
+
+This enables apps to provide on-demand functionality that users can invoke directly from Reddit conversations, regardless of which subreddit the mention occurs in.
+
+**Other Fixes**
+Additional improvements in this release include: 
 - **Increased visibility in your app’s installation history**. Now whenever a moderator changes a setting for one of your installed apps, it'll appear in the portal.
 - **Increased app slug length**. App slugs can now be up to 20 characters. 
 
