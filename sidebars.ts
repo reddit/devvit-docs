@@ -184,7 +184,7 @@ const sidebars: SidebarsConfig = {
     {
       "type": "doc",
       "label": "External Endpoints",
-      "id": "capabilities/external-endpoints"
+      "id": "capabilities/server/external-endpoints"
     },
     {
       type: "doc",
