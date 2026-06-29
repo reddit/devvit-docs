@@ -7,6 +7,7 @@ type RouteUpdateArgs = {
 };
 
 const headingSelector = "h1, h2, h3, h4, h5, h6";
+const faqLinkButtonClass = "faq-answer-link";
 
 function getHashId(location: HashLocation): string | null {
   if (!location.hash) {
@@ -65,6 +66,90 @@ function openFollowingDetails(element: HTMLElement): HTMLDetailsElement | null {
   return null;
 }
 
+function getDetailsLinkId(details: HTMLDetailsElement): string | null {
+  const previousElement = details.previousElementSibling;
+
+  if (previousElement instanceof HTMLElement && previousElement.id) {
+    return previousElement.id;
+  }
+
+  return null;
+}
+
+function getLinkForId(id: string): string {
+  const url = new URL(window.location.href);
+  url.hash = id;
+  return url.toString();
+}
+
+async function copyText(text: string): Promise<void> {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch {
+      // Fall back to the legacy copy path below.
+    }
+  }
+
+  const textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.setAttribute("readonly", "");
+  textArea.style.position = "fixed";
+  textArea.style.opacity = "0";
+  document.body.appendChild(textArea);
+  textArea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textArea);
+}
+
+function addFaqAnswerLinks(): void {
+  const faqDetails = document.querySelectorAll<HTMLDetailsElement>(
+    ".faq-page details"
+  );
+
+  faqDetails.forEach((details) => {
+    const summary = details.querySelector(":scope > summary");
+
+    if (
+      !(summary instanceof HTMLElement) ||
+      summary.querySelector(`.${faqLinkButtonClass}`)
+    ) {
+      return;
+    }
+
+    const id = getDetailsLinkId(details);
+
+    if (!id) {
+      return;
+    }
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = faqLinkButtonClass;
+    button.textContent = "#";
+    button.setAttribute("aria-label", "Copy link to this answer");
+    button.title = "Copy link to this answer";
+
+    button.addEventListener("click", async (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const link = getLinkForId(id);
+      await copyText(link);
+      button.dataset.copied = "true";
+      button.setAttribute("aria-label", "Copied link to this answer");
+
+      window.setTimeout(() => {
+        delete button.dataset.copied;
+        button.setAttribute("aria-label", "Copy link to this answer");
+      }, 1500);
+    });
+
+    summary.appendChild(button);
+  });
+}
+
 function openDetailsForCurrentHash(location: HashLocation = window.location): void {
   const id = getHashId(location);
 
@@ -93,10 +178,24 @@ function scheduleOpenDetails(location: HashLocation = window.location): void {
   window.setTimeout(() => openDetailsForCurrentHash(location), 100);
 }
 
+function initFaqDeepLinks(location: HashLocation = window.location): void {
+  addFaqAnswerLinks();
+  scheduleOpenDetails(location);
+}
+
 if (typeof window !== "undefined") {
-  window.addEventListener("hashchange", () => scheduleOpenDetails());
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => initFaqDeepLinks(), {
+      once: true,
+    });
+  } else {
+    initFaqDeepLinks();
+  }
+
+  window.addEventListener("load", () => initFaqDeepLinks(), { once: true });
+  window.addEventListener("hashchange", () => initFaqDeepLinks());
 }
 
 export function onRouteDidUpdate({ location }: RouteUpdateArgs): void {
-  scheduleOpenDetails(location);
+  initFaqDeepLinks(location);
 }

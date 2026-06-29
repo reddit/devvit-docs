@@ -10,7 +10,7 @@ You must comply with: these Devvit Rules and Reddit’s [Developer Terms](https:
 
 Your app is subject to our app review and approval. Reddit may reject or remove any app that violates these Devvit Rules or any other Reddit Terms & Policies at our discretion. We may also suspend or ban accounts tied to developers who violate these Devvit Rules or any other Reddit Terms & Policies.
 
-These Devvit Rules are intended to clarify how we review Devvit apps and streamline the process for you and Reddit. Our goal is to keep redditors safe and enable developers to build fun and useful apps for redditors. This means our Devvit Rules may evolve over time, which you should keep in mind when building or updating your app. Please [reach out](https://developers.reddit.com/docs/guides/faq#help-and-next-steps:~:text=For%20help%20from%20the%20Devvit%20team%20and%20community%3A) if you have any questions on these Devvit Rules. Any exceptions to these Devvit Rules or any other Reddit Terms & Policies must be approved in writing by Reddit.
+These Devvit Rules are intended to clarify how we review Devvit apps and streamline the process for you and Reddit. Our goal is to keep redditors safe and enable developers to build fun and useful apps for redditors. This means our Devvit Rules may evolve over time, which you should keep in mind when building or updating your app. Please [reach out](https://developers.reddit.com/docs/guides/faq#where-do-i-go-for-help-if-i-am-stuck) if you have any questions on these Devvit Rules. Any exceptions to these Devvit Rules or any other Reddit Terms & Policies must be approved in writing by Reddit.
 
 You can use Devvit and test your app without needing to submit it to Reddit’s App Review. However, to make your app visible in the [Reddit App Directory](https://developers.reddit.com/apps) and publicly available for other mods and admins to install, you’ll need prior app approval. Additionally, if you want to unlock premium features for your app (for example, [payments](./earn-money/payments/payments_overview.md), [fetching](./capabilities/server/http-fetch.mdx), or [using LLMs](#generative-aillm-rules)), you’ll also need prior app approval.
 
@@ -43,7 +43,7 @@ You are required to resubmit your app for Reddit app review every time you publi
 
 We may require you to provide additional information to us in order to complete our app review. We also may periodically or randomly re-review your app and require you to make changes or otherwise face a suspension or ban of your app if we find it to no longer be compliant with these Devvit Rules and Reddit Terms & Policies.
 
-If you have questions about Reddit’s app review and approval process or these Devvit Rules, please reach out for [help](https://developers.reddit.com/docs/guides/faq#help-and-next-steps:~:text=For%20help%20from%20the%20Devvit%20team%20and%20community%3A).
+If you have questions about Reddit’s app review and approval process or these Devvit Rules, please reach out for [help](https://developers.reddit.com/docs/guides/faq#where-do-i-go-for-help-if-i-am-stuck).
 
 ## General rules
 

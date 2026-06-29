@@ -296,6 +296,9 @@ div.themed-col:hover {
 }
 
 .faq-page details.alert.alert--info > summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
   color: var(--ifm-link-color);
   background: transparent !important;
@@ -304,6 +307,37 @@ div.themed-col:hover {
   list-style: none;
   text-decoration: none !important;
   margin: 0;
+}
+
+.faq-page .faq-answer-link {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: auto;
+  padding: 0;
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--ifm-color-emphasis-600);
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+}
+
+.faq-page .faq-answer-link:hover,
+.faq-page .faq-answer-link:focus-visible,
+.faq-page .faq-answer-link[data-copied="true"] {
+  color: var(--ifm-link-color);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.faq-page .faq-answer-link[data-copied="true"]::after {
+  content: " copied";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
 }
 
 .faq-page details.alert.alert--info > summary::before {
