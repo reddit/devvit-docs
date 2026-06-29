@@ -47,7 +47,7 @@ Covered calls:
 
 ## Upgrade note for existing devs
 
-`startJourney()` changed from returning only the Journey ID information to returning the Journey ID plus a receipt. If you’re upgrading existing code,  you  may need to update any custom response types, mocks, or destructuring assumptions so they account for the new `receipt` field.
+`startJourney()` changed from returning only the Journey ID information to returning the Journey ID plus a receipt. If you’re upgrading existing code, you may need to update any custom response types, mocks, or destructuring assumptions so they account for the new `receipt` field.
 
 For example, code that only typed the response as `{ journeyId: string }` should now expect:
 
