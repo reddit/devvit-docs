@@ -615,7 +615,7 @@ Redis transactions allow a group of commands to be executed in a single isolated
 - Increment the count for selected option.
 - Add the user to voted user list.
 
-The `watch` command provides an entrypoint for transactions. It returns a [TxClientLike](https://developers.reddit.com/docs/api/public-api/#-txclientlike) which can be used to call `multi`, `exec`, `discard`, `unwatch`, and all other Redis commands to be executed within a transaction.
+The `watch` command provides an entrypoint for transactions. It returns a [TxClientLike](https://developers.reddit.com/docs/api/public-api/type-aliases/TxClientLike) which can be used to call `multi`, `exec`, `discard`, `unwatch`, and all other Redis commands to be executed within a transaction.
 
 You can sequence all of the above steps in a single transaction using `multi` and `exec` to ensure that either all of the steps happen together or none at all.
 
@@ -626,7 +626,7 @@ If an error occurs inside a transaction before `exec` is called, Redis discards 
 | [multi](https://redis.io/commands/multi/)     | Marks the start of a transaction block.                                                                                                                                                                                                         | Max concurrent transactions per installation: 20 (default) |
 | [exec](https://redis.io/commands/exec/)       | Executes all previously queued commands in a transaction and restores the connection state to normal.                                                                                                                                           | Transaction execution timeout: 5 seconds |
 | [discard](https://redis.io/commands/discard/) | Flushes all previously queued commands in a transaction and restores the connection state to normal.                                                                                                                                            | None |
-| [watch](https://redis.io/commands/watch/)     | Marks the given keys to be watched for conditional execution of a transaction. `watch` returns a [TxClientLike](https://developers.reddit.com/docs/api/public-api/#-txclientlike) which should be used to call Redis commands in a transaction. | None |
+| [watch](https://redis.io/commands/watch/)     | Marks the given keys to be watched for conditional execution of a transaction. `watch` returns a [TxClientLike](https://developers.reddit.com/docs/api/public-api/type-aliases/TxClientLike) which should be used to call Redis commands in a transaction. | None |
 | [unwatch](https://redis.io/commands/unwatch/) | Flushes all the previously watched keys for a transaction.                                                                                                                                                                                      | None |
 
 <details>
