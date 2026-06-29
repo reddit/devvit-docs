@@ -182,6 +182,11 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      "type": "doc",
+      "label": "External Endpoints",
+      "id": "capabilities/external-endpoints"
+    },
+    {
       type: "doc",
       label: "HTTP Fetch",
       id: "capabilities/http-fetch",
