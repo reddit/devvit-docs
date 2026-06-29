@@ -9,6 +9,17 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.13.6:   App Mentions Triggers (Limited Access)
+**Release Date: June 29, 2026**
+
+This release introduces [App Mentions Triggers](./capabilities/server/global-trigger.mdx), a new limited-access Devvit feature that lets apps respond when they’re mentioned in comments anywhere on Reddit using the u/<AppName> syntax. 
+
+Because App Mention Triggers can respond to events across Reddit, access is currently limited behind an allowlist. Interested developers can request access [here](http://forms.gle/jVNPNwmUFPCRuEvy8). Priority access will be granted to moderation tools that are part of our [App Migration Program](https://www.reddit.com/r/Devvit/comments/1sgwkm7/bring_your_data_api_apps_to_devvit_and_details/).
+
+Other improvements in this release include: 
+- **Increased visibility in your app’s installation history**. Now whenever a moderator changes a setting for one of your installed apps, it'll appear in the portal.
+- **Increased app slug length**. App slugs can now be up to 20 characters. 
+
 ## Relese 0.13.5: Improved Tracing
 **Release Date: June 23, 2026**
 
