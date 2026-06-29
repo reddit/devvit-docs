@@ -1,21 +1,19 @@
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Global Triggers
+# App Mention Triggers
 
-Global triggers let your app respond to Reddit events even when those events happen outside the subreddit where your app is installed.
+App mention triggers let your app respond to Reddit events even when those events happen outside the subreddit where your app is installed. App mention triggers are limited to app usernames.
 
-Currently, Devvit supports one global trigger:
+Devvit currently supports one global trigger: `onMentionInCommentCreate`
 
-- `onMentionInCommentCreate` - The app receives trigger events when it is mentioned in a comment, for example: "Hello u/my-reply-bot, what's up?" 
-
-:::warning
-This feature is for approved apps only. Developers can request access to app mention triggers here.
+:::note
+This is a limited-access feature. Fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLScLU2m-IH9xtt4hqFBNy5AlrswY0pvfvoyTiQREbq_9xDQJkQ/viewform) to request access. 
 :::
 
 ## Example usage
 
-Configure a global trigger the same way you configure other trigger events: declare the event in `devvit.json`, map it to an internal endpoint, then handle requests at that endpoint.
+Configure an app mention trigger the same way you configure other trigger events: declare the event in `devvit.json`, map it to an internal endpoint, then handle requests at that endpoint.
 
 ```json
 "triggers": {
@@ -23,7 +21,7 @@ Configure a global trigger the same way you configure other trigger events: decl
 }
 ```
 
-Then handle the global trigger event in your server:
+Then handle the app mention trigger event in your server:
 
 <Tabs
   variant="pill"
@@ -77,25 +75,25 @@ router.post<string, never, TriggerResponse, OnMentionInCommentCreateRequest>(
 </TabItem>
 </Tabs>
 
-## Playtesting global triggers
+## Playtesting app mention triggers
 
-During development, you can playtest global trigger events only when the triggering event occurs in the playtest subreddit. Events from other subreddits do not invoke your app while you are playtesting.
+During development, you can playtest app mention trigger events only when the triggering event occurs in the playtest subreddit. Events from other subreddits do not invoke your app while you are playtesting.
 
-## Responding to global trigger events across Reddit
+## Responding to app mention trigger events across Reddit
 
-To receive global trigger events across Reddit, your app version must:
+To receive app mention trigger events across Reddit, your app version must:
 
 - Be published and approved.
 - Be installed to the app's profile subreddit.
 
 ## Profile subreddit installations
 
-Some app versions can be installed to the app's profile subreddit. An app version is eligible when it has been approved and uses at least one global trigger event.
+Some app versions can be installed to the app's profile subreddit. An app version is eligible when it has been approved and uses at least one app mention trigger event.
 
 Eligible app versions appear in the **Profile installation** section of your app's settings page at [developers.reddit.com/apps/your-app-slug](https://developers.reddit.com/apps/your-app-slug).
 
-## Restrictions
+## Limitations
 
-Apps do not receive global trigger events when:
+Apps do not receive app mention trigger events when:
 
 - The event does not pass safety checks, such as checks for illegal content. Events may contain NSFW content.
