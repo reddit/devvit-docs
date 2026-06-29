@@ -312,7 +312,7 @@ const { postId } = context;
 if (!postId) throw new Error("Run on a post.");
 
 const pinned = await reddit.submitComment({
-  postId,
+  id: postId,
   text: "Pinned notice.",
   runAs: "APP",
 });

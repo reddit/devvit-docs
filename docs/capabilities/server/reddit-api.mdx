@@ -90,16 +90,11 @@ Auto-comments should be used to spark conversation in the post comments, but you
 
 
 ```ts
-import { context, reddit } from '@devvit/web/server';
+import { reddit } from '@devvit/web/server';
 
 export const createComment = async () => {
-  const { subredditName } = context;
-  if (!subredditName) {
-    throw new Error('subredditName is required');
-  }
-
-  reddit.submitComment({
-    postId: 't3_123456', // Replace with the actual post ID
+  return await reddit.submitComment({
+    id: 't3_123456', // Replace with the actual post ID
     text: 'This is a comment from a Devvit app',
     runAs: 'USER' // Optional: specify the user to run as
   });

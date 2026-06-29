@@ -76,7 +76,7 @@ await reddit.submitCustomPost({
     "backgroundColor": "#FFFFFFFF",       // white, fully opaque
     "backgroundColorDark": "#000000FF",  // black, fully opaque
     "height": "TALL",
-    "shareImageUrl": "https://reddi.it/12345.png"
+    "shareImageUrl": "https://i.redd.it/o0h58lzmax6a1.png"
   }
 })
 ```
@@ -90,9 +90,7 @@ Use  `post.setCustomPostStyles()` to update styles on an existing post. Only inc
 ```javascript
 const post = await reddit.getPostById(context.postId);
 await post.setCustomPostStyles({
-  "styles": {
-    "shareImageUrl": "https://example.com/new-preview.png"
-  }
+  "shareImageUrl": "https://i.redd.it/o0h58lzmax6a1.png"
 });
 ```
 

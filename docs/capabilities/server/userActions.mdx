@@ -69,7 +69,7 @@ If `runAs` is not specified, the API will use `runAs: 'APP'` by default.
 | Parameter              | Description                                                                                                              |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `runAs`                | The type of account to perform the action on behalf of: `'USER'` or `'APP'`. Defaults to `'APP'`.                        |
-| `userGeneratedContent` | Text or images submitted by the user. Required for `submitPost()` with `runAs: 'USER'` for safety and compliance review. |
+| `userGeneratedContent` | Text or images submitted by the user. Required for `submitCustomPost()` with `runAs: 'USER'` for safety and compliance review. |
 
 ### Differences during playtesting
 
@@ -96,7 +96,7 @@ Your app version needs to be approved in order for user actions to be enabled fo
 <TabItem value="hono">
 
 ```tsx title="server/index.ts"
-import { reddit } from '@devvit/web/server';
+import { context, reddit } from '@devvit/web/server';
 
 // ...
 
@@ -106,7 +106,7 @@ app.post('/internal/post-create', async (c) => {
     return c.json({ status: 'error', message: 'subredditName is required' }, 400);
   }
 
-  reddit.submitPost({
+  await reddit.submitCustomPost({
     runAs: 'USER',
     userGeneratedContent: {
       text: "Hello there! This is a new post from the user's account",
@@ -124,7 +124,7 @@ app.post('/internal/post-create', async (c) => {
 <TabItem value="express">
 
 ```tsx title="server/index.ts"
-import { reddit } from '@devvit/web/server';
+import { context, reddit } from '@devvit/web/server';
 
 // ...
 
@@ -135,7 +135,7 @@ router.post('/internal/post-create', async (_req, res) => {
     return;
   }
 
-  reddit.submitPost({
+  await reddit.submitCustomPost({
     runAs: 'USER',
     userGeneratedContent: {
       text: "Hello there! This is a new post from the user's account",
