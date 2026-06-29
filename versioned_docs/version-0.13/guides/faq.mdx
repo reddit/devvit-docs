@@ -129,6 +129,34 @@ For command syntax, see [Devvit CLI](./tools/devvit_cli.mdx). For the review and
 
 </details>
 
+<span id="why-does-devvit-upload-say-assets-uploaded-then-you-must-be-logged-in"></span>
+<details>
+<summary>Why does <code>npx devvit upload</code> say assets uploaded, then fail with "You must be logged in to upload a new app version"?</summary>
+
+This usually means your local Devvit authentication state is stale or corrupted. The asset upload can finish before the CLI fails while creating the new app version.
+
+Reset your local Devvit auth state, then log in again.
+
+On Windows PowerShell:
+
+```powershell
+npx devvit logout
+Remove-Item -Recurse -Force "$env:USERPROFILE\.devvit"
+npx devvit login
+```
+
+On macOS, Linux, or WSL:
+
+```bash
+npx devvit logout
+rm -rf ~/.devvit
+npx devvit login
+```
+
+After logging in, run `npx devvit whoami` to confirm the CLI is using the expected Reddit account, then try `npx devvit upload` again.
+
+</details>
+
 <span id="what-should-i-do-after-playtest-when-i-am-ready-to-launch"></span>
 <details>
 <summary>What should I do after playtest when I am ready to launch?</summary>
