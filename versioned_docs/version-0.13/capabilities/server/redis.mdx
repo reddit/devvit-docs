@@ -144,7 +144,7 @@ async function savePlayerProfile(userId: string, profile: PlayerProfile): Promis
 
 When storage is full, avoid deleting arbitrary data at write time. Make cleanup predictable: use TTLs for temporary keys, cap sorted sets to the number of entries you actually display, and run scheduled cleanup jobs for old records.
 
-## **Scheduled maintenance**
+## Scheduled maintenance
 
 Large migrations, leaderboard maintenance, and cleanup jobs can exceed request time limits if they process everything in one request. Use the scheduler to process a bounded batch, save the cursor or progress marker, and schedule the next batch.
 
@@ -1009,6 +1009,7 @@ barResults: [0, 3, 0, 0, 3, 3]
 ```
 
 </details>
+
 
 ### Migration Example
 

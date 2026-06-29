@@ -25,9 +25,38 @@ jobs:
       ) &&
       contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 360
 
     steps:
+      - name: Authorize preview request
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const actor = context.payload.comment.user.login;
+            const { owner, repo } = context.repo;
+            let permission = 'none';
+
+            try {
+              const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+                owner,
+                repo,
+                username: actor,
+              });
+              permission = data.permission;
+            } catch (error) {
+              if (error.status !== 404) {
+                throw error;
+              }
+            }
+
+            const allowed = new Set(['admin', 'maintain', 'write']);
+            if (!allowed.has(permission)) {
+              core.setFailed(
+                `Preview builds are limited to repository members with write access. ` +
+                `${actor} has ${permission} access.`
+              );
+            }
+
       - name: Get pull request
         id: pr
         uses: actions/github-script@v7
@@ -117,9 +146,9 @@ jobs:
               body: [
                 `Preview: ${process.env.PREVIEW_URL}`,
                 '',
-                'This preview will stay live for 1 hour. Comment `preview` again to replace it with a fresh build.',
+                'This preview will stay live for up to 6 hours. Comment `preview` again to replace it with a fresh build.',
               ].join('\n'),
             });
 
-      - name: Keep preview live for one hour
-        run: sleep 3600
+      - name: Keep preview live for up to six hours
+        run: sleep 21600

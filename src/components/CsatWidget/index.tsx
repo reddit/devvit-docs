@@ -1,16 +1,19 @@
-import clsx from 'clsx';
-import { useLocation } from '@docusaurus/router';
-import React, { useEffect, useMemo, useState } from 'react';
+import clsx from "clsx";
+import { useLocation } from "@docusaurus/router";
+import React, { useEffect, useMemo, useState } from "react";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
-const CSAT_STORAGE_PREFIX = 'devvit_docs_csat_submitted:';
+const CSAT_STORAGE_PREFIX = "devvit_docs_csat_submitted:";
 
 declare global {
   interface Window {
     sendV2Event?: (event: unknown) => void;
   }
 }
+
+type CsatReaction = "positive" | "negative";
+type CsatScore = 1 | 5;
 
 function getStorageKey(pathname: string): string {
   return `${CSAT_STORAGE_PREFIX}${pathname}`;
@@ -36,59 +39,71 @@ function getReferrerInfo(): { url?: string; domain?: string } {
 
 type ScoreOption = {
   label: string;
-  value: number;
+  value: CsatScore;
   emoji: string;
-  reaction: 'positive' | 'negative';
+  reaction: CsatReaction;
 };
 
 const SCORE_OPTIONS: ScoreOption[] = [
   {
-    label: 'Thumbs down',
+    label: "Thumbs down",
     value: 1,
-    emoji: '👎',
-    reaction: 'negative',
+    emoji: "👎",
+    reaction: "negative",
   },
   {
-    label: 'Thumbs up',
+    label: "Thumbs up",
     value: 5,
-    emoji: '👍',
-    reaction: 'positive',
+    emoji: "👍",
+    reaction: "positive",
   },
 ];
 
 const NEGATIVE_REASON_OPTIONS = [
-  'The page is unclear',
-  'Important details are missing',
-  'The instructions did not work',
+  "The page is unclear",
+  "Important details are missing",
+  "The instructions did not work",
 ];
 
 export default function CsatWidget(): React.ReactElement | null {
   const { pathname } = useLocation();
   const [selectedScore, setSelectedScore] = useState<number | null>(null);
-  const [feedback, setFeedback] = useState('');
+  const [feedback, setFeedback] = useState("");
   const [selectedReasons, setSelectedReasons] = useState<string[]>([]);
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const storageKey = useMemo(() => getStorageKey(pathname), [pathname]);
   const shouldShowForPath = useMemo(() => {
-    const normalizedPath = pathname.replace(/\/+$/, '') || '/';
-    return normalizedPath !== '/' && normalizedPath !== '/docs';
+    const normalizedPath = pathname.replace(/\/+$/, "") || "/";
+    return normalizedPath !== "/" && normalizedPath !== "/docs";
   }, [pathname]);
 
-  const sendEvent = (action: string, details: Record<string, unknown>) => {
-    if (typeof window === 'undefined' || typeof window.sendV2Event !== 'function') {
+  const sendCsatSubmitEvent = (
+    score: CsatScore,
+    reaction: CsatReaction,
+    feedbackValue: string,
+    reasons: string[],
+  ) => {
+    if (
+      typeof window === "undefined" ||
+      typeof window.sendV2Event !== "function"
+    ) {
       return;
     }
 
     window.sendV2Event({
-      source: 'docs_csat_widget',
-      action,
-      noun: 'csat',
+      source: "docs_csat_widget",
+      action: "submit",
+      noun: "csat",
       action_info: {
-        page_type: 'dev_portal_docs',
+        page_type: "dev_portal_docs",
         page_path: pathname,
-        ...details,
+        widget: "docs_csat",
+        score,
+        reaction,
+        feedback: feedbackValue,
+        reasons,
       },
       request: {
         base_url: window.location.href,
@@ -98,48 +113,44 @@ export default function CsatWidget(): React.ReactElement | null {
   };
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window === "undefined") {
       return;
     }
 
     if (!shouldShowForPath) {
       setSelectedScore(null);
-      setFeedback('');
+      setFeedback("");
       setSelectedReasons([]);
       setIsSubmitted(false);
       setIsVisible(false);
       return;
     }
 
-    const hasSubmitted = window.sessionStorage.getItem(storageKey) === '1';
+    const hasSubmitted = window.sessionStorage.getItem(storageKey) === "1";
     setSelectedScore(null);
-    setFeedback('');
+    setFeedback("");
     setSelectedReasons([]);
     setIsSubmitted(false);
     setIsVisible(!hasSubmitted);
-
-    if (!hasSubmitted) {
-      sendEvent('view', { widget: 'docs_csat' });
-    }
   }, [storageKey, shouldShowForPath]);
 
   const dismiss = () => {
-    sendEvent('dismiss', { widget: 'docs_csat' });
     setIsVisible(false);
   };
 
-  const submit = (score: number, extraDetails: Record<string, unknown> = {}) => {
-    if (typeof window === 'undefined') {
+  const submit = (
+    score: CsatScore,
+    reaction: CsatReaction,
+    feedbackValue: string,
+    reasons: string[],
+  ) => {
+    if (typeof window === "undefined") {
       return;
     }
 
-    sendEvent('submit', {
-      widget: 'docs_csat',
-      score,
-      ...extraDetails,
-    });
+    sendCsatSubmitEvent(score, reaction, feedbackValue, reasons);
 
-    window.sessionStorage.setItem(storageKey, '1');
+    window.sessionStorage.setItem(storageKey, "1");
     setIsSubmitted(true);
     window.setTimeout(() => {
       setIsVisible(false);
@@ -149,29 +160,21 @@ export default function CsatWidget(): React.ReactElement | null {
   const onScoreSelect = (option: ScoreOption) => {
     const score = option.value;
     setSelectedScore(score);
-    if (option.reaction === 'positive') {
+    if (option.reaction === "positive") {
       setSelectedReasons([]);
-      setFeedback('');
+      setFeedback("");
     }
 
-    sendEvent('select_score', {
-      widget: 'docs_csat',
-      score,
-      reaction: option.reaction,
-    });
-
-    if (option.reaction === 'positive') {
-      submit(score, {
-        reaction: option.reaction,
-        feedback: '',
-        reasons: [],
-      });
+    if (option.reaction === "positive") {
+      submit(score, option.reaction, "", []);
     }
   };
 
   const toggleReason = (reason: string) => {
     setSelectedReasons((current) =>
-      current.includes(reason) ? current.filter((item) => item !== reason) : [...current, reason]
+      current.includes(reason)
+        ? current.filter((item) => item !== reason)
+        : [...current, reason],
     );
   };
 
@@ -181,11 +184,7 @@ export default function CsatWidget(): React.ReactElement | null {
     }
 
     const trimmedFeedback = feedback.trim();
-    submit(selectedScore, {
-      reaction: 'negative',
-      feedback: trimmedFeedback,
-      reasons: selectedReasons,
-    });
+    submit(selectedScore, "negative", trimmedFeedback, selectedReasons);
   };
 
   if (!isVisible) {
@@ -243,12 +242,18 @@ export default function CsatWidget(): React.ReactElement | null {
               </label>
             ))}
           </div>
-          <button className={styles.submitButton} type="button" onClick={submitNegativeFeedback}>
+          <button
+            className={styles.submitButton}
+            type="button"
+            onClick={submitNegativeFeedback}
+          >
             Send feedback
           </button>
         </div>
       )}
-      {isSubmitted && <div className={styles.thanks}>Thanks for the feedback!</div>}
+      {isSubmitted && (
+        <div className={styles.thanks}>Thanks for the feedback!</div>
+      )}
     </div>
   );
 }

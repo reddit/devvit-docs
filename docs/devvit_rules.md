@@ -18,7 +18,17 @@ You can start the Reddit app review process by [publishing your app](./guides/la
 
 - Thoroughly playtesting your app,
 - Carefully reviewing these Devvit Rules and other Reddit Terms & Policies, and
-- Providing a detailed app description.
+- Providing a detailed app description and app README.
+
+### App README requirements
+
+Apps must include a descriptive `README.md` file in the root directory of the app project (for example, `project-directory/README.md`). Apps submitted with a missing, empty, default template README, or vague README will be rejected.
+
+Your README should be written in simple terms for a non-developer audience and include:
+
+- An app overview summary at the top (1000 words or fewer) explaining what the app does, who it is for, and critical operational notes
+- Instructions on how to configure, deploy, and interact with the app's full feature set
+- A changelog detailing what has changed in each new version submission
 
 As part of Reddit app review, we may review your code, read through your app’s description, test your app, and provide feedback. We may use third-party LLMs to help us conduct this review. When your app review is complete, we’ll notify you about your app’s status, which could be:
 

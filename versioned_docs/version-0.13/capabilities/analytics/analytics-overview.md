@@ -10,9 +10,12 @@ Devvit Journeys is a **gated beta**, which means that you’ll need to apply to 
 
 ## How to apply
 
-If you meet the beta requirements, fill out [this form](https://docs.google.com/forms/d/e/1FAIpQLScB3eXHVCBf3kyHueyf3G_raxH9_BsCGiXyGjQOOmPxWz6fEg/viewform?usp=publish-editor) for consideration, and be sure to include:
+If you meet the requirements and want to apply for a spot in our beta program:
 
-- The app identifier.
-- Your push notification copy. We’ll do a quick review to ensure that it complies with our [Reddit Rules](https://redditinc.com/policies/reddit-rules).
+1. Download the [Devvit Journeys Mapping Template](https://docs.google.com/spreadsheets/d/1DortAxlk2sPO17HUgRCLQ6UAN0A-QAdlbmngBGQsvok/edit?gid=266062773#gid=266062773).
+2. Make a copy, and fill out the template with your app’s details.
+3. Submit an [application form](https://docs.google.com/forms/d/1QOR3rs6TjnsfSPDmERjyEaLV-UuONPUJP_jWdh0Q58Y/edit) with a link to your template.
 
-Note that spaces are limited, and not all apps that meet the criteria will be accepted.
+:::note
+Spaces are limited, and not all apps that meet the criteria will be accepted.
+:::
