@@ -32,13 +32,13 @@ Requests to use any other AI provider will be denied.
 
 ### Documentation requirements
 
-If your app uses fetch domains, you must add context to your app's README for the approval process:
+If your app uses fetch domains, add this context to your app's [README](../../devvit_rules.md#app-readme-requirements) for the approval process:
 
-1. Create a "Fetch Domains" section in your README
+1. Create a "Fetch Domains" section in your [README](../../devvit_rules.md#app-readme-requirements)
 2. List each domain you're requesting and explain why you need it
 3. Ensure your usage complies with our fetch guidelines
 
-Example README section:
+Example Fetch Domains section:
 
 ```
 ## Fetch Domains
