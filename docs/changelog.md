@@ -12,7 +12,7 @@ To use the latest version of Devvit:
 ## Release 0.13.6:   App Mentions Triggers (Limited Access)
 **Release Date: June 29, 2026**
 
-This release introduces [App Mentions Triggers](./capabilities/server/global-trigger.mdx), a new limited-access Devvit feature that lets apps respond when they’re mentioned in comments anywhere on Reddit using the u/<AppName> syntax. 
+This release introduces [App Mentions Triggers](./capabilities/server/global-triggers.mdx), a new limited-access Devvit feature that lets apps respond when they’re mentioned in comments anywhere on Reddit using the u/<AppName> syntax. 
 
 Because App Mention Triggers can respond to events across Reddit, access is currently limited behind an allowlist. Interested developers can request access [here](http://forms.gle/jVNPNwmUFPCRuEvy8). Priority access will be granted to moderation tools that are part of our [App Migration Program](https://www.reddit.com/r/Devvit/comments/1sgwkm7/bring_your_data_api_apps_to_devvit_and_details/).
 
