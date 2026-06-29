@@ -162,7 +162,24 @@ const sidebars: SidebarsConfig = {
     {
       type: "category",
       label: "Automation & Triggers",
-      items: ["capabilities/server/scheduler", "capabilities/server/triggers"],
+      items: [
+        "capabilities/server/scheduler",
+        {
+          type: "category",
+          label: "Triggers",
+          link: {
+            type: "doc",
+            id: "capabilities/server/triggers",
+          },
+          items: [
+            {
+              type: "doc",
+              id: "capabilities/server/global-triggers",
+              label: "Global Triggers",
+            },
+          ],
+        },
+      ],
     },
     {
       type: "doc",

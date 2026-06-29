@@ -149,7 +149,21 @@
       "label": "Automation & Triggers",
       "items": [
         "capabilities/server/scheduler",
-        "capabilities/server/triggers"
+        {
+          "type": "category",
+          "label": "Triggers",
+          "link": {
+            "type": "doc",
+            "id": "capabilities/server/triggers"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "capabilities/server/global-triggers",
+              "label": "Global Triggers"
+            }
+          ]
+        }
       ]
     },
     {
