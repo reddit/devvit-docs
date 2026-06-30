@@ -29,7 +29,7 @@ If you're porting a Data API app as part of our [App Migration Programs](https:/
 
 Apps may request a domain to be added to the allow-list by specifying domains in the http configuration. This configuration is optional, and apps can still configure http: true as before.
 
-Requested domains will be submitted for review when you playtest or upload your app. Admins may approve or deny domain requests.
+Requested domains will be submitted for review when you playtest or upload your app. Most domain requests are reviewed within **1–2 business days**, though requests with policy ambiguity may take longer. Admins may approve or deny domain requests.
 
 Domain entries must be exact hostnames only, such as nytimes.com or wikipedia.org. These fetch requests are not allowed:
 

@@ -147,7 +147,7 @@ Most app versions are reviewed within **1–2 business days**. New apps or versi
 
 - **Payments**: apps using the payments capability go through additional policy review.
 - **`runAs: 'USER'`**: user action permissions require explicit approval as part of the review.
-- **External fetch domains**: new domain requests are reviewed separately and can add time (see [HTTP Fetch](../capabilities/http-fetch.md)).
+- **External fetch domains**: new domain requests are reviewed separately under the same **1–2 business day** target, though requests with policy ambiguity may take longer (see [HTTP Fetch](../capabilities/http-fetch.md)).
 
 To keep review moving:
 
@@ -411,7 +411,7 @@ If you need data to survive app updates, don't rely on browser `localStorage`. T
 <details>
 <summary>How long does it take to get my domain approved?</summary>
 
-Domain requests are reviewed separately from app publishing and can take **up to 4 business days**. If your app was approved but a requested fetch domain wasn't yet granted, the domain review may still be in progress.
+Domain requests are reviewed separately from app publishing. Most domain requests are reviewed within **1–2 business days**, though requests with policy ambiguity may take longer. If your app was approved but a requested fetch domain wasn't yet granted, the domain review may still be in progress.
 
 To make approval go smoothly:
 
