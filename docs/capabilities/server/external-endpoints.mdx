@@ -1,19 +1,19 @@
 # External Endpoints
 
-External endpoints provide a secure way for external services to communicate with your Devvit app. 
+External endpoints provide a secure way for external services to communicate with your Devvit app.
 
 :::note  
-This is a limited-access feature. Fill out this \[form\](https://docs.google.com/forms/d/e/1FAIpQLScLU2m-IH9xtt4hqFBNy5AlrswY0pvfvoyTiQREbq\_9xDQJkQ/viewform) to request access.   
+This is a limited-access feature. Fill out this [form](https://docs.google.com/forms/d/e/1FAIpQLScLU2m-IH9xtt4hqFBNy5AlrswY0pvfvoyTiQREbq_9xDQJkQ/viewform) to request access.  
 :::
 
 The term **endpoint** refers to externally accessible routes exposed by your app. This consistent terminology makes it easier to identify the relevant APIs, configuration, and code paths.
 
-Devvit supports two types of tokens: 
+Devvit supports two types of tokens:
 
-| Type | Best For | Authentication |
-| :---- | :---- | :---- |
+| Type            | Best For                                                               | Authentication                                               |
+| :-------------- | :--------------------------------------------------------------------- | :----------------------------------------------------------- |
 | Callback tokens | Your app initiates work and an external service returns a result later | Short-lived, one-time callback token generated automatically |
-| Managed tokens | An external service initiates requests to your app | Long-lived token managed in Developer Settings |
+| Managed tokens  | An external service initiates requests to your app                     | Long-lived token managed in Developer Settings               |
 
 All tokens start with `devvit_at_`.
 
@@ -21,7 +21,7 @@ Tokens are secret. Never share a token or a callback URL.
 
 Never call an `/external/` endpoint from a Devvit app’s frontend. All external endpoints require a secret token to access which cannot easily be hidden in a post. Call conventional `/api/` endpoints instead. External endpoints are for trusted services only.
 
-## **Declaring external endpoints**
+## Declaring external endpoints
 
 External endpoints are declared in `devvit.json`.
 
@@ -41,18 +41,18 @@ The key becomes the endpoint name used throughout the codebase, while the value 
 
 External endpoints can receive request bodies up to 10 megabytes, and are limited to 5 requests per second (at time of writing, may change at any time).
 
-## **Callbacks**
+## Callbacks
 
-Callbacks allow your Devvit app to generate authenticated URLs that external services can use to call *back* into the app. 
+Callbacks allow your Devvit app to generate authenticated URLs that external services can use to call _back_ into the app.
 
 These URLs contain short-lived authentication tokens generated at runtime. You can think of Callbacks as similar to passwordless login links ("magic links") used by services such as Slack.
 
 Typical flow:
 
-1. Your app generates a callback URL.  
-2. Your app sends that URL to an external service.  
-3. The external service performs work.  
-4. The external service invokes the callback URL.  
+1. Your app generates a callback URL.
+2. Your app sends that URL to an external service.
+3. The external service performs work.
+4. The external service invokes the callback URL.
 5. Your app is invoked and receives the request.
 
 ### Callback URL format
@@ -65,12 +65,12 @@ https://<app_slug>-<subreddit_id>-external.devvit.net/external/<your_app_defined
 
 Callback tokens are generated automatically when creating a callback URL, and you won’t interact with them directly. Callback tokens:
 
-* Do not have names  
-* Are not visible in Developer Settings  
-* Have a short time-to-live.  
-* Are intended for single use  
-* Are generated at runtime  
-* Currently scoped to an installation
+- Do not have names
+- Are not visible in Developer Settings
+- Have a short time-to-live.
+- Are intended for single use
+- Are generated at runtime
+- Currently scoped to an installation
 
 ### Using callbacks
 
@@ -81,64 +81,63 @@ Callbacks are best suited for workflows where the Devvit app initiates work in a
 Inside your app, generate a callback URL and pass it to an external service.
 
 ```ts
-import { externalEndpoints } from '@devvit/web/server';
+import { externalEndpoints } from "@devvit/web/server";
 
 // Get URL with a secret new token. Looks something like:
 //   https://foobar-abc123-external.devvit.net/external/on/comment-processed?externalToken=devvit_at_def456
-const url = await externalEndpoints.getCallbackUrl('onCommentProcessed');
+const url = await externalEndpoints.getCallbackUrl("onCommentProcessed");
 
 // A normal fetch but include the callback URL in the request body.
-const rsp = await fetch('https://your-service.example.com/process', {
-  method: 'POST',
+const rsp = await fetch("https://your-service.example.com/process", {
+  method: "POST",
   headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
+    "Content-Type": "application/json",
+    Accept: "application/json",
   },
   body: JSON.stringify({
     // You can put any data you want here but you must pass the
     // callback URL somewhere or the external service won't be able
     // to call back.
-    callbackUrl: url
+    callbackUrl: url,
   }),
 });
 if (!rsp.ok) {
-  const text = await msg.text().catch(() => '');
+  const text = await msg.text().catch(() => "");
   throw Error(`HTTP status ${rsp.status}: ${rsp.statusText}; ${text}`);
 }
-
 ```
 
 When called, `getCallbackUrl()`:
 
-* Generates a URL with a callback token; send the URL with whatever data your external service needs  
-* Saves the current request context for restoration on callback including all context fields like `Context.postId`.
+- Generates a URL with a callback token; send the URL with whatever data your external service needs
+- Saves the current request context for restoration on callback including all context fields like `Context.postId`.
 
-
-  
 The generated callback URL:
 
-* Expires after 10 minutes (at time of writing, may change at any point)  
-* Can only be used once
+- Expires after 10 minutes (at time of writing, may change at any point)
+- Can only be used once
 
   #### Step 2: Invoke the Callback from an External Service
 
 Your external service receives the callback URL and calls it when processing is complete.
 
 ```ts
-
 // Invoke the callback URL.
-const rsp = await fetch(`https://${appSlug}-${subredditId}-external.devvit.net/external/on/comment/processed?externalToken=${token}`, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
+const rsp = await fetch(
+  `https://${appSlug}-${subredditId}-external.devvit.net/external/on/comment/processed?externalToken=${token}`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      // Whatever data your app wants from your external service.
+    }),
   },
-  body: JSON.stringify({
-// Whatever data your app wants from your external service.
-  }),
-});
+);
 if (!rsp.ok) {
-  const text = await msg.text().catch(() => '');
+  const text = await msg.text().catch(() => "");
   throw Error(`HTTP status ${rsp.status}: ${rsp.statusText}; ${text}`);
 }
 ```
@@ -148,15 +147,13 @@ if (!rsp.ok) {
 Register a handler inside your app to receive the callback.
 
 ```ts
-app.post('/external/on/comment/processed', async (c) => {
+app.post("/external/on/comment/processed", async (c) => {
   const input = await c.req.json<YourExternalRequest>();
 
-  console.log(
-    `Result: ${JSON.stringify(input)} in ${context.subredditId}`
-  );
+  console.log(`Result: ${JSON.stringify(input)} in ${context.subredditId}`);
 
   return c.json<YourExternalResponse>({
-    status: 'ok',
+    status: "ok",
   });
 });
 ```
@@ -165,23 +162,23 @@ app.post('/external/on/comment/processed', async (c) => {
 
 All `Context` is recorded at `getCallbackUrl()` invocation time and restored when handling an external request.
 
-## **Managed tokens**
+## Managed tokens
 
 Managed tokens are long-lived credentials that allow an external service to invoke endpoints exposed by your Devvit app. Unlike callbacks, managed tokens do not require a request to originate from your app.
 
-Managed tokens are: 
+Managed tokens are:
 
-* Created and managed in Developer Settings of your app  
-* Have a user-defined name  
-* Consist of:  
-  * A public token ID  
-  * A private secret  
-* Long-lived  
-* Currently scoped globally across all installations of an app  
-* All requests execute as the app account  
-* Can be revoked at any time
+- Created and managed in Developer Settings of your app
+- Have a user-defined name
+- Consist of:
+  - A public token ID
+  - A private secret
+- Long-lived
+- Currently scoped globally across all installations of an app
+- All requests execute as the app account
+- Can be revoked at any time
 
-###  Example
+### Example
 
 ```
 Name: my-token-123
@@ -192,10 +189,10 @@ devvit_at_abcdefg1234567890...
 
 ### Security notes
 
-* The secret token is displayed only once, at creation time.  
-* Store the secret securely. If you use the token in a Devvit app, use a [`secret setting`](https://developers.reddit.com/docs/capabilities/server/settings-and-secrets). Many apps won’t need to store the secret as it’s the calling external service that needs to send it.  
-* Never expose tokens to anyone.  
-* The secret token  must be provided in the `Authorization` header for incoming external requests to the app.
+- The secret token is displayed only once, at creation time.
+- Store the secret securely. If you use the token in a Devvit app, use a [`secret setting`](https://developers.reddit.com/docs/capabilities/server/settings-and-secrets). Many apps won’t need to store the secret as it’s the calling external service that needs to send it.
+- Never expose tokens to anyone.
+- The secret token must be provided in the `Authorization` header for incoming external requests to the app.
 
 Example:
 
@@ -221,10 +218,10 @@ if (!rsp.ok) {
 
 ### Creating a managed token
 
-1. Open the Developer Portal.  
-2. Navigate to Developer Settings for your app.  
-3. Create a new App Token.  
-4. Copy and securely store the generated private secret.  
+1. Open the Developer Portal.
+2. Navigate to Developer Settings for your app.
+3. Create a new App Token.
+4. Copy and securely store the generated private secret.
 5. The secret will only be shown once. If you lose it, revoke the token and create a new one.
 
 ### Scope
@@ -239,21 +236,21 @@ https://${appSlug}-bbb456-external.devvit.net/external/on/image/generated // sub
 https://${appSlug}-ccc789-external.devvit.net/external/on/image/generated // sub C
 ```
 
-This is a powerful and potentially  problematic feature because it allows an app to expose endpoints that can be accessed from outside the platform.  Moderators should carefully evaluate apps that have external endpoints capability and ensure they come from trusted sources.   
+This is a powerful and potentially problematic feature because it allows an app to expose endpoints that can be accessed from outside the platform. Moderators should carefully evaluate apps that have external endpoints capability and ensure they come from trusted sources.
 
-To help mods evaluate your app, document each external endpoint clearly, and only expose endpoints that are necessary for your app’s functionality. 
+To help mods evaluate your app, document each external endpoint clearly, and only expose endpoints that are necessary for your app’s functionality.
 
-## **Choosing between callbacks and managed tokens**
+## Choosing between callbacks and managed tokens
 
 Use **callback tokens** when your app initiates a workflow and needs a secure way for an external service to return a result with the same context.
 
 Use **managed tokens** when an external service needs ongoing access to invoke your app's external endpoints.
 
-| Use Case | Callback Token | Managed Tokens |
-| ----- | :---: | :---: |
-| App initiates work in an external service | ✅ | ❌ |
-| External service initiates requests | ❌ | ✅ |
-| Short-lived credentials | ✅ | ❌ |
-| Long-lived credentials | ❌ | ✅ |
-| One-time use URLs | ✅ | ❌ |
-| Centralized external service | ❌ | ✅ |
+| Use Case                                  | Callback Token | Managed Tokens |
+| ----------------------------------------- | :------------: | :------------: |
+| App initiates work in an external service |       ✅       |       ❌       |
+| External service initiates requests       |       ❌       |       ✅       |
+| Short-lived credentials                   |       ✅       |       ❌       |
+| Long-lived credentials                    |       ❌       |       ✅       |
+| One-time use URLs                         |       ✅       |       ❌       |
+| Centralized external service              |       ❌       |       ✅       |
