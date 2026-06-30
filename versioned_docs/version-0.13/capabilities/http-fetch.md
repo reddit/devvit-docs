@@ -76,7 +76,7 @@ console.log('External API response:', data);
 Client-side fetch has different restrictions:
 
 - **Domain limitation**: Can only make requests to your own webview domain
-- **Endpoint requirement**: All requests must target endpoints that start with /api
+- **Endpoint requirement**: All requests must target endpoints that start with /api/
 - **Authentication**: Handled automatically \- no need to manage auth tokens
 - **No external domains**: Cannot make requests to external domains from client-side code  
   client/index.ts
@@ -84,7 +84,7 @@ Client-side fetch has different restrictions:
 ```
 
 const handleFetchData = async () => {
- // Correct: fetching your own webview's API endpoint
+ // ✅ Correct: Fetching your own webview's API endpoint
  const response = await fetch("/api/user-data", {
    method: "GET",
    headers: {
@@ -96,10 +96,10 @@ const handleFetchData = async () => {
  console.log("API response:", data);
 };
 
-// Incorrect: cannot fetch external domains from client-side
+// ❌ Incorrect: Cannot fetch external domains from client-side
 // const response = await fetch('https://external-api.com/data');
 
-// Incorrect: endpoint must start with /api
+// ❌ Incorrect: Endpoint must start with /api/
 // const response = await fetch('/user-data');
 ```
 
