@@ -293,16 +293,14 @@ div.themed-col:hover {
   background: transparent;
   box-shadow: none;
   color: var(--ifm-font-color-base);
+  position: relative;
 }
 
 .faq-page details.alert.alert--info > summary {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   cursor: pointer;
   color: var(--ifm-link-color);
   background: transparent !important;
-  padding: 0.85rem 1rem !important;
+  padding: 0.85rem 6.5rem 0.85rem 1rem !important;
   font-weight: 600;
   list-style: none;
   text-decoration: none !important;
@@ -310,18 +308,21 @@ div.themed-col:hover {
 }
 
 .faq-page .faq-answer-link {
-  width: 1.6rem;
+  width: auto;
   height: 1.6rem;
-  margin-left: auto;
-  padding: 0;
-  flex: 0 0 auto;
+  padding: 0 0.45rem;
   border: 0;
   border-radius: 4px;
   background: transparent;
   color: var(--ifm-color-emphasis-600);
   cursor: pointer;
   font: inherit;
-  line-height: 1;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  z-index: 1;
 }
 
 .faq-page .faq-answer-link:hover,

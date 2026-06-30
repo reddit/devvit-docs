@@ -8,6 +8,8 @@ type RouteUpdateArgs = {
 
 const headingSelector = "h1, h2, h3, h4, h5, h6";
 const faqLinkButtonClass = "faq-answer-link";
+const openRetryDurationMs = 5000;
+const openRetryIntervalMs = 150;
 
 function getHashId(location: HashLocation): string | null {
   if (!location.hash) {
@@ -36,11 +38,26 @@ function getTargetElement(id: string): HTMLElement | null {
   );
 }
 
+function expandDetails(details: HTMLDetailsElement): void {
+  if (details.open && details.dataset.collapsed !== "true") {
+    return;
+  }
+
+  const summary = details.querySelector(":scope > summary");
+
+  if (summary instanceof HTMLElement) {
+    summary.click();
+    return;
+  }
+
+  details.open = true;
+}
+
 function openAncestorDetails(element: HTMLElement): HTMLDetailsElement | null {
   const details = element.closest("details");
 
   if (details instanceof HTMLDetailsElement) {
-    details.open = true;
+    expandDetails(details);
     return details;
   }
 
@@ -52,7 +69,7 @@ function openFollowingDetails(element: HTMLElement): HTMLDetailsElement | null {
 
   while (sibling) {
     if (sibling instanceof HTMLDetailsElement) {
-      sibling.open = true;
+      expandDetails(sibling);
       return sibling;
     }
 
@@ -109,12 +126,7 @@ function addFaqAnswerLinks(): void {
   );
 
   faqDetails.forEach((details) => {
-    const summary = details.querySelector(":scope > summary");
-
-    if (
-      !(summary instanceof HTMLElement) ||
-      summary.querySelector(`.${faqLinkButtonClass}`)
-    ) {
+    if (details.querySelector(`:scope > .${faqLinkButtonClass}`)) {
       return;
     }
 
@@ -127,7 +139,7 @@ function addFaqAnswerLinks(): void {
     const button = document.createElement("button");
     button.type = "button";
     button.className = faqLinkButtonClass;
-    button.textContent = "#";
+    button.textContent = "Copy link";
     button.setAttribute("aria-label", "Copy link to this answer");
     button.title = "Copy link to this answer";
 
@@ -146,41 +158,57 @@ function addFaqAnswerLinks(): void {
       }, 1500);
     });
 
-    summary.appendChild(button);
+    details.appendChild(button);
   });
 }
 
-function openDetailsForCurrentHash(location: HashLocation = window.location): void {
+function openDetailsForCurrentHash(
+  location: HashLocation = window.location,
+  shouldScroll = false
+): HTMLDetailsElement | null {
   const id = getHashId(location);
 
   if (!id) {
-    return;
+    return null;
   }
 
   const target = getTargetElement(id);
 
   if (!target) {
-    return;
+    return null;
   }
 
   const openedDetails =
     openAncestorDetails(target) ?? openFollowingDetails(target);
 
-  if (openedDetails) {
+  if (openedDetails && shouldScroll) {
     requestAnimationFrame(() => {
       target.scrollIntoView({ block: "start" });
     });
   }
+
+  return openedDetails;
 }
 
-function scheduleOpenDetails(location: HashLocation = window.location): void {
-  openDetailsForCurrentHash(location);
-  window.setTimeout(() => openDetailsForCurrentHash(location), 100);
+function ensureOpenDetailsForHash(location: HashLocation = window.location): void {
+  const startedAt = Date.now();
+  openDetailsForCurrentHash(location, true);
+
+  const intervalId = window.setInterval(() => {
+    const details = openDetailsForCurrentHash(location);
+
+    if (
+      (details?.open && details.dataset.collapsed !== "true") ||
+      Date.now() - startedAt > openRetryDurationMs
+    ) {
+      window.clearInterval(intervalId);
+    }
+  }, openRetryIntervalMs);
 }
 
 function initFaqDeepLinks(location: HashLocation = window.location): void {
   addFaqAnswerLinks();
-  scheduleOpenDetails(location);
+  ensureOpenDetailsForHash(location);
 }
 
 if (typeof window !== "undefined") {
