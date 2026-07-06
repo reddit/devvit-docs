@@ -20,7 +20,8 @@ Devvit Journeys provides:
   
 This release also includes our latest experimental feature: [blob storage](./capabilities/server/blob-storage.mdx).  You can store and serve files like images, documents, exports, and other media directly from your app. Blob storage provides a scalable, durable solution for managing large assets while keeping application state in Redis.
 
-**Breaking Change: Filter API Updates**
+**Breaking Change: Filter API Updates**   
+
 The experimental filter APIs have been updated to accept an options object instead of separate parameters, aligning them with the rest of the SDK. This change affects `reddit.filter()`, `post.filter()`, and `comment.filter()`.  
 
 Because these methods were marked as experimental, this breaking change was made to improve API consistency before they reach general availability.
