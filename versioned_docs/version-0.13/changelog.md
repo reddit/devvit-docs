@@ -9,6 +9,22 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.13.7: Devvit Journeys (GA) & Blob Storage (Experimental)
+**Release Date: July 7, 2026**
+
+[Devvit Journeys](./capabilities/analytics/devvit-journeys.md) is now generally available to give you end-to-end visibility into how users move through your app from start to finish!   
+
+Devvit Journeys provides:
+* An [analytics dashboard](./capabilities/analytics/journeys-dashboard.md) to gain insights into session starts, completions, engagement, session frequency, and duration to better understand user progression and evaluate the effectiveness of your app. 
+* [Event receipts](./capabilities/analytics/journeys-receipts.md)  in API responses that indicate how telemetry events were processed, making it easier to validate telemetry behavior and troubleshoot integrations.
+  
+This release also includes our latest experimental feature: [blob storage](./capabilities/server/blob-storage.mdx).  You can store and serve files like images, documents, exports, and other media directly from your app. Blob storage provides a scalable, durable solution for managing large assets while keeping application state in Redis.
+
+**Other fixes:**
+* Added support for Vite 8, which resolves the deprecation warnings that have appeared in projects created over the past few months.
+* Fixed an issue where the `heightPixels` parameter was ignored during post creation and always defaulted to 512. The specified `heightPixels` value is now correctly applied.
+
+
 ## Release 0.13.6:   External Endpoints and App Mentions Triggers (Limited Access)
 **Release Date: June 29, 2026**
 
