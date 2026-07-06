@@ -158,7 +158,6 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Analytics",
       items: [
-        "capabilities/analytics/analytics-overview", 
         "capabilities/analytics/devvit-journeys",
         "capabilities/analytics/journeys-dashboard",
         "capabilities/analytics/journeys-receipts"
