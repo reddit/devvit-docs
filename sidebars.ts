@@ -269,6 +269,7 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Storing Data",
       items: [
+        "capabilities/server/blob-storage",
         "capabilities/server/redis",
         "capabilities/server/cache-helper",
         "capabilities/server/post-data",
