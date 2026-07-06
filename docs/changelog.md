@@ -20,10 +20,16 @@ Devvit Journeys provides:
   
 This release also includes our latest experimental feature: [blob storage](./capabilities/server/blob-storage.mdx).  You can store and serve files like images, documents, exports, and other media directly from your app. Blob storage provides a scalable, durable solution for managing large assets while keeping application state in Redis.
 
-**Other fixes:**
+**Breaking Change: Filter API Updates**   
+
+The experimental filter APIs have been updated to accept an options object instead of separate parameters, aligning them with the rest of the SDK. This change affects `reddit.filter()`, `post.filter()`, and `comment.filter()`.  
+
+Because these methods were marked as experimental, this breaking change was made to improve API consistency before they reach general availability.
+
+**Other Fixes:**
+* Enhanced metadata: methods that return moderation-related users, such as `getModerators()` and `getBannedUsers()`, now include additional metadata. Depending on the method, this includes details such as when a user became a moderator, when a user was banned, and the duration of a ban.
 * Added support for Vite 8, which resolves the deprecation warnings that have appeared in projects created over the past few months.
 * Fixed an issue where the `heightPixels` parameter was ignored during post creation and always defaulted to 512. The specified `heightPixels` value is now correctly applied.
-
 
 ## Release 0.13.6:   External Endpoints and App Mentions Triggers (Limited Access)
 **Release Date: June 29, 2026**
