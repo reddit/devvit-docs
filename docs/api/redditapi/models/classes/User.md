@@ -1,10 +1,19 @@
-[**@devvit/public-api v0.13.7-dev**](../../README.md)
+[**@devvit/public-api v0.13.8-dev**](../../README.md)
 
 ***
 
 # Class: User
 
 A class representing a user.
+
+## Extended by
+
+- [`SubredditBannedUser`](SubredditBannedUser.md)
+- [`SubredditMutedUser`](SubredditMutedUser.md)
+- [`SubredditWikiBannedUser`](SubredditWikiBannedUser.md)
+- [`SubredditContributorUser`](SubredditContributorUser.md)
+- [`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)
+- [`SubredditModeratorUser`](SubredditModeratorUser.md)
 
 ## Accessors
 

@@ -1,7 +1,7 @@
 # Migrating from PRAW to Devvit Web
 
 [Devvit Web](../../capabilities/devvit-web/devvit_web_overview.mdx) is how
-you ship the same kind of automation **on Reddit’s platform**. This guide will outline the basics
+you ship the same kind of automation **on Reddit’s platform**. This guide will outline the basics of migrating from PRAW to Devvit Web.
 
 :::note
 This guide assumes you have basic familiarity with Python and PRAW (e.g., `pip`, `requirements.txt`, and

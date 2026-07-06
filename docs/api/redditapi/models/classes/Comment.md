@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.7-dev**](../../README.md)
+[**@devvit/public-api v0.13.8-dev**](../../README.md)
 
 ***
 
@@ -505,6 +505,33 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 #### Returns
 
 `Promise`\<`Comment`\>
+
+***
+
+<a id="filter"></a>
+
+### filter()
+
+> **filter**(`options`?): `Promise`\<`void`\>
+
+**`Experimental`**
+
+Filters the comment. When a comment is filtered, it is added to the ModQueue for review, and in addition:
+- if
+
+#### Parameters
+
+##### options?
+
+`FilterOptions`
+
+The options for this filter action.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+A Promise that resolves if the comment was filtered successfully.
 
 ***
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.7-dev**](../../README.md)
+[**@devvit/public-api v0.13.8-dev**](../../README.md)
 
 ***
 
@@ -470,7 +470,7 @@ Delete a removal reason from this subreddit.
 
 ### getApprovedUsers()
 
-> **getApprovedUsers**(`options`): [`Listing`](Listing.md)\<[`User`](User.md)\>
+> **getApprovedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditContributorUser`](SubredditContributorUser.md)\>
 
 #### Parameters
 
@@ -480,7 +480,7 @@ Delete a removal reason from this subreddit.
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`User`](User.md)\>
+[`Listing`](Listing.md)\<[`SubredditContributorUser`](SubredditContributorUser.md)\>
 
 ***
 
@@ -488,7 +488,7 @@ Delete a removal reason from this subreddit.
 
 ### getBannedUsers()
 
-> **getBannedUsers**(`options`): [`Listing`](Listing.md)\<[`User`](User.md)\>
+> **getBannedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditBannedUser`](SubredditBannedUser.md)\>
 
 #### Parameters
 
@@ -498,7 +498,7 @@ Delete a removal reason from this subreddit.
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`User`](User.md)\>
+[`Listing`](Listing.md)\<[`SubredditBannedUser`](SubredditBannedUser.md)\>
 
 ***
 
@@ -506,7 +506,7 @@ Delete a removal reason from this subreddit.
 
 ### getBannedWikiContributors()
 
-> **getBannedWikiContributors**(`options`): [`Listing`](Listing.md)\<[`User`](User.md)\>
+> **getBannedWikiContributors**(`options`): [`Listing`](Listing.md)\<[`SubredditWikiBannedUser`](SubredditWikiBannedUser.md)\>
 
 #### Parameters
 
@@ -516,7 +516,7 @@ Delete a removal reason from this subreddit.
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`User`](User.md)\>
+[`Listing`](Listing.md)\<[`SubredditWikiBannedUser`](SubredditWikiBannedUser.md)\>
 
 ***
 
@@ -675,7 +675,7 @@ console.log("Posts: ", await listing.all())
 
 ### getModerators()
 
-> **getModerators**(`options`): [`Listing`](Listing.md)\<[`User`](User.md)\>
+> **getModerators**(`options`): [`Listing`](Listing.md)\<[`SubredditModeratorUser`](SubredditModeratorUser.md)\>
 
 #### Parameters
 
@@ -685,7 +685,7 @@ console.log("Posts: ", await listing.all())
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`User`](User.md)\>
+[`Listing`](Listing.md)\<[`SubredditModeratorUser`](SubredditModeratorUser.md)\>
 
 ***
 
@@ -777,7 +777,7 @@ console.log("Posts: ", await listing.all())
 
 ### getMutedUsers()
 
-> **getMutedUsers**(`options`): [`Listing`](Listing.md)\<[`User`](User.md)\>
+> **getMutedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditMutedUser`](SubredditMutedUser.md)\>
 
 #### Parameters
 
@@ -787,7 +787,7 @@ console.log("Posts: ", await listing.all())
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`User`](User.md)\>
+[`Listing`](Listing.md)\<[`SubredditMutedUser`](SubredditMutedUser.md)\>
 
 ***
 
@@ -1160,7 +1160,7 @@ const userFlairList = response.users
 
 ### getWikiContributors()
 
-> **getWikiContributors**(`options`): [`Listing`](Listing.md)\<[`User`](User.md)\>
+> **getWikiContributors**(`options`): [`Listing`](Listing.md)\<[`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)\>
 
 #### Parameters
 
@@ -1170,7 +1170,7 @@ const userFlairList = response.users
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`User`](User.md)\>
+[`Listing`](Listing.md)\<[`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)\>
 
 ***
 

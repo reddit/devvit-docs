@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.7-dev**](../../README.md)
+[**@devvit/public-api v0.13.8-dev**](../../README.md)
 
 ***
 
@@ -613,11 +613,44 @@ The edited FlairTemplate object.
 
 ***
 
+<a id="filter"></a>
+
+### filter()
+
+> **filter**(`id`, `options`?): `Promise`\<`void`\>
+
+**`Experimental`**
+
+Filters a post or comment. When a post or comment is filtered, it is added to the ModQueue for review, and in addition:
+- if
+
+#### Parameters
+
+##### id
+
+The id of the post (t3_) or comment (t1_) to filter.
+
+`` `t1_${string}` `` | `` `t3_${string}` ``
+
+##### options?
+
+`FilterOptions`
+
+The options for this filter action.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+A Promise that resolves if the post or comment was filtered successfully.
+
+***
+
 <a id="getapprovedusers"></a>
 
 ### getApprovedUsers()
 
-> **getApprovedUsers**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+> **getApprovedUsers**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`SubredditContributorUser`](../../models/classes/SubredditContributorUser.md)\>
 
 Get a list of users who have been approved to post in a subreddit.
 
@@ -631,7 +664,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`SubredditContributorUser`](../../models/classes/SubredditContributorUser.md)\>
 
 A Listing of User objects.
 
@@ -663,7 +696,7 @@ const user = await reddit.getAppUser(metadata);
 
 ### getBannedUsers()
 
-> **getBannedUsers**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+> **getBannedUsers**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`SubredditBannedUser`](../../models/classes/SubredditBannedUser.md)\>
 
 Get a list of users who are banned from a subreddit.
 
@@ -677,7 +710,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`SubredditBannedUser`](../../models/classes/SubredditBannedUser.md)\>
 
 A Listing of User objects.
 
@@ -687,7 +720,7 @@ A Listing of User objects.
 
 ### getBannedWikiContributors()
 
-> **getBannedWikiContributors**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+> **getBannedWikiContributors**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`SubredditWikiBannedUser`](../../models/classes/SubredditWikiBannedUser.md)\>
 
 Get a list of users who are banned from contributing to the wiki on a subreddit.
 
@@ -701,7 +734,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`SubredditWikiBannedUser`](../../models/classes/SubredditWikiBannedUser.md)\>
 
 A Listing of User objects.
 
@@ -1194,7 +1227,7 @@ const modActions = await reddit.getModerationLog({
 
 ### getModerators()
 
-> **getModerators**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+> **getModerators**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`SubredditModeratorUser`](../../models/classes/SubredditModeratorUser.md)\>
 
 Get a list of users who are moderators for a subreddit.
 
@@ -1208,7 +1241,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`SubredditModeratorUser`](../../models/classes/SubredditModeratorUser.md)\>
 
 A Listing of User objects.
 
@@ -1326,7 +1359,7 @@ console.log("Posts: ", await listing.all())
 
 ### getMutedUsers()
 
-> **getMutedUsers**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+> **getMutedUsers**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`SubredditMutedUser`](../../models/classes/SubredditMutedUser.md)\>
 
 Get a list of users who are muted in a subreddit.
 
@@ -1340,7 +1373,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`SubredditMutedUser`](../../models/classes/SubredditMutedUser.md)\>
 
 A listing of User objects.
 
@@ -2230,7 +2263,7 @@ The name of the subreddit to get the widgets for.
 
 ### getWikiContributors()
 
-> **getWikiContributors**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+> **getWikiContributors**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`SubredditWikiContributorUser`](../../models/classes/SubredditWikiContributorUser.md)\>
 
 Get a list of users who are wiki contributors of a subreddit.
 
@@ -2244,7 +2277,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`User`](../../models/classes/User.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`SubredditWikiContributorUser`](../../models/classes/SubredditWikiContributorUser.md)\>
 
 A Listing of User objects.
 

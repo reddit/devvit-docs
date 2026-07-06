@@ -33,6 +33,7 @@ Additional improvements in this release include:
 - **Increased visibility in your app’s installation history**. Now whenever a moderator changes a setting for one of your installed apps, it'll appear in the portal.
 - **Increased app slug length**. App slugs can now be up to 20 characters. 
 
+
 ## Relese 0.13.5: Improved Tracing
 **Release Date: June 23, 2026**
 
