@@ -27,7 +27,7 @@ The experimental filter APIs have been updated to accept an options object inste
 Because these methods were marked as experimental, this breaking change was made to improve API consistency before they reach general availability.
 
 **Other Fixes:**
-* Enhanced metadata: Methods that return moderation-related users, such as `getModerators()` and `getBannedUsers()`, now include additional metadata. Depending on the method, this includes details such as when a user became a moderator, when a user was banned, and the duration of a ban.
+* Enhanced metadata: methods that return moderation-related users, such as `getModerators()` and `getBannedUsers()`, now include additional metadata. Depending on the method, this includes details such as when a user became a moderator, when a user was banned, and the duration of a ban.
 * Added support for Vite 8, which resolves the deprecation warnings that have appeared in projects created over the past few months.
 * Fixed an issue where the `heightPixels` parameter was ignored during post creation and always defaulted to 512. The specified `heightPixels` value is now correctly applied.
 
