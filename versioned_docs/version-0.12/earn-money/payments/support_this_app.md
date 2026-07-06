@@ -2,7 +2,7 @@
 
 You can ask users to contribute to your app’s development by adding the “support this app” feature. This allows users to support your app with Reddit Gold in exchange for some kind of award or recognition.
 
-# Requirements
+## Requirements
 
 The “Support this App” purchase button must meet the Developer Platform’s [design guidelines](./payments_add.mdx#design-guidelines).
 
