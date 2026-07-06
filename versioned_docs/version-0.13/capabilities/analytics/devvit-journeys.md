@@ -8,10 +8,6 @@ Devvit Journeys adds a telemetry stream to your app that tracks the entire lifec
 
 A journey has a defined start and end point. Progress is tracked throughout and ends with a completion status. You can also attach optional game-specific data (like win/loss results or scores) at the end.
 
-:::note
-This is currently an experimental feature, and you'll need to [apply](../analytics/analytics-overview.md#how-to-apply) for a spot in our beta program to implement Devvit Journeys.
-:::
-
 ## Journey map
 
 A journey map is a structured, instrumented flow that tracks a player’s progression through a specific experience in your game. Think of your journey map as a series of checkpoints (events) in your game, with:
@@ -147,7 +143,17 @@ Telemetry is restricted by a server-side allowlist. Only approved apps can emit 
 
 ## Getting started
 
-Follow these steps to implement journey tracking in your app.
+Here's how to implement journey tracking in your app.
+
+### Permissions
+
+Set Journeys permissions to `true` in `devvit.json`. 
+
+```
+ "permissions": {
+    "journeys": true
+  },
+```
 
 ### Server events
 
