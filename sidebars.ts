@@ -89,6 +89,22 @@ const sidebars: SidebarsConfig = {
       ],
     },
     {
+      type: "category",
+      label: "Build a Community Tool",
+      items: [
+        {
+          type: "doc",
+          id: "introduction/intro-community-tools",
+          label: "Introduction to Community Tools",
+        },
+        {
+          type: "doc",
+          id: "quickstart/quickstart-community-tool",
+          label: "Quickstart for Community Tools",
+        },
+      ],
+    },
+    {
       type: "html",
       value: "<hr/>",
       className: "sidebar-divider",
