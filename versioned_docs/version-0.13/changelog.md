@@ -158,7 +158,7 @@ If you use the old `@devvit/public-api`, **Blocks UI is no longer supported** in
 
 - **Push Notifications (experimental)**. [Push notifications](./capabilities/notifications/notifications-overview.md) help drive engagement, increase player retention, and build habit loops for players by bringing players back into your game at the right moments. We’ve also included detailed support for adding streaks to your game to encourage daily play!
 
-- **Devvit Journeys (experimental)**. We’ve added a new telemetry feature that tracks the full lifecycle of a user session. [Devvit Journeys](./capabilities/analytics/analytics-overview.md) gives you a new way to understand how players move through your game session from start to finish, making it easier to see where users engage, where they drop off, and which moments lead to completion.
+- **Devvit Journeys (experimental)**. We’ve added a new telemetry feature that tracks the full lifecycle of a user session. [Devvit Journeys](./capabilities/analytics/devvit-journeys.md) gives you a new way to understand how players move through your game session from start to finish, making it easier to see where users engage, where they drop off, and which moments lead to completion.
 
 :::note
 Experimental features are gated beta programs. Access to Push Notifications and Devvit Journeys is currently limited and requires approval before it can be functional in your app.  
