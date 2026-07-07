@@ -203,4 +203,5 @@ app.post('/api/upload-screenshot', async (c) => {
 
 - Supported image upload formats: PNG, JPEG, WEBP, and GIF.
 - Maximum upload size: 20 MB.
+- Upload timeout: 30 seconds. Files close to 10 MB or larger can fail on slower networks.
 - WEBP uploads may be converted to JPEG in the returned Reddit URL.

@@ -64,7 +64,7 @@ For command-specific behavior and limits, see the [supported Redis commands](htt
 
 ## Storage values
 
-Redis is best for small, frequently accessed app states. Each Redis installation has a 500 MB storage limit and a 5 MB request size limit. 
+Redis is best for small, frequently accessed app states. Each Redis installation has a 5 MB request size limit. On occasion, apps will run into storage limits. Our team will reach out to you if this occurs and work with you to optimize your app.
 
 If your app stores large JSON objects, long text values, or historical records that still belong in Redis, use`redisCompressed`. 
 
@@ -106,9 +106,9 @@ Transactions are limited to 30 concurrent transaction blocks per installation, a
 
 For more details, see [Transactions](https://github.com/reddit/devvit-docs/blob/69f35f2254617e4a1347686235a560a78d94535b/versioned_docs/version-0.12/capabilities/server/redis.mdx#transactions).
 
-## Quota failures
+## Storage limit failures
 
-When an installation reaches the Redis storage limit, write operations can fail. Treat Redis writes as operations that may need a user-facing fallback.
+If an installation runs into storage limits, write operations can fail. Treat Redis writes as operations that may need a user-facing fallback.
 
 A good failure path should:
 
@@ -168,7 +168,6 @@ Design around these limits early so your app stays responsive as more people use
 | :---- | :---- | :---- |
 | Command throughput | 40,000 commands per second per installation | Avoid one Redis call per item in hot loops. Use batch commands such as `mGet`, `mSet`, and `hash` writes where they fit. |
 | Pipelining | Not supported | Reduce round trips by grouping related fields under hashes or compact JSON values. |
-| Storage | 500 MB per installation | Use `redisCompressed` for large values, expire temporary data, and cap unbounded histories. |
 | Request size | 5 MB | Store large datasets as multiple records and process them in batches. |
 | Transactions | 20 concurrent transaction blocks; 5-second execution timeout | Keep transaction logic small and release transactions with `exec`, `discard`, or `unwatch`. |
 

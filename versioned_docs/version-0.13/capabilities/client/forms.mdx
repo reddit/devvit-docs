@@ -459,9 +459,10 @@ const imageField = {
 
 #### Notes
 
-- The formats supported are PNG, JPEG, WEBP, and GIF.
-- The maximum file size allowed is 20 MB.
-- When uploading a WEBP image, it will be converted to JPEG. As such, the Reddit URL returned points to a JPEG image.
+- Supported image formats: PNG, JPEG, WEBP, and GIF.
+- Maximum file size: 20 MB.
+- Upload timeout: 30 seconds. Files close to 10 MB or larger can fail on slower networks.
+- WEBP uploads are converted to JPEG. The returned Reddit URL points to a JPEG image.
 
 ### Group
 

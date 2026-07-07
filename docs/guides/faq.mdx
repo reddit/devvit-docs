@@ -294,6 +294,16 @@ See [Forms](../capabilities/client/forms.mdx) and [Media uploads](../capabilitie
 
 </details>
 
+<span id="why-do-image-uploads-over-10-mb-fail-if-the-limit-is-20-mb"></span>
+<details>
+<summary>Why do image uploads over 10 MB fail if the limit is 20 MB?</summary>
+
+Media uploads have both a 20 MB maximum upload size and a 30-second timeout. Files close to 10 MB or larger can still fail on slower networks if the upload does not finish before the timeout.
+
+Try compressing the image, reducing dimensions, or retrying from a faster connection.
+
+</details>
+
 <span id="what-image-urls-can-i-use-in-a-devvit-app"></span>
 <details>
 <summary>What image URLs can I use in a Devvit app?</summary>
@@ -424,7 +434,7 @@ You can also edit the display name, about description, and mature flag (18+) fie
 
 There's no single limits page today, but these are the most commonly referenced numbers in the docs:
 
-- [Redis](../capabilities/server/redis.mdx): 500 MB max storage per installation, 5 MB max request size, and 40,000 max commands per second.
+- [Redis](../capabilities/server/redis.mdx): 5 MB max request size and 40,000 max commands per second.
 - [Devvit Web](../capabilities/devvit-web/devvit_web_overview.mdx): 30 second max request time, 4 MB max payload size, and 10 MB max response size.
 - [Post data](../capabilities/server/post-data.mdx): 2 KB per post.
 - [Settings and secrets](../capabilities/server/settings-and-secrets.mdx): 2 KB per setting value.
