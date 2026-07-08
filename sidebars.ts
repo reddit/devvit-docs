@@ -184,11 +184,6 @@ const sidebars: SidebarsConfig = {
       id: "capabilities/http-fetch",
     },
     {
-      type: "doc",
-      label: "Settings & Secrets",
-      id: "capabilities/server/settings-and-secrets",
-    },
-    {
       type: "category",
       label: "In-App Purchases",
       items: [
@@ -269,6 +264,11 @@ const sidebars: SidebarsConfig = {
           ],
         },
       ],
+    },
+    {
+      type: "doc",
+      label: "Settings & Secrets",
+      id: "capabilities/server/settings-and-secrets",
     },
     {
       type: "category",
