@@ -1,6 +1,6 @@
 # Migrating from PRAW to Devvit Web
 
-[Devvit Web](../../capabilities/devvit-web/devvit_web_overview.mdx) is how
+[Devvit Web](../../../capabilities/devvit-web/devvit_web_overview.mdx) is how
 you ship the same kind of automation **on Reddit’s platform**. This guide will outline the basics of migrating from PRAW to Devvit Web.
 
 :::note
@@ -9,21 +9,23 @@ This guide assumes you have basic familiarity with Python and PRAW (e.g., `pip`,
 :::
 
 This guide is a **PRAW → Devvit** mapping: same workflows, different runtime. For Devvit setup, start with
-the [app quickstart](../../quickstart/quickstart.md) or [mod tool quickstart](../../quickstart/quickstart-mod-tool.md).
+the [app quickstart](../../../quickstart/quickstart.md) or [mod tool quickstart](../../../quickstart/quickstart-mod-tool.md).
 
 | Topic                   | Devvit                                                                          |
 |-------------------------|---------------------------------------------------------------------------------|
-| Architecture and limits | [Devvit Web overview](../../capabilities/devvit-web/devvit_web_overview.mdx)    |
-| `devvit.json`           | [Configure your app](../../capabilities/devvit-web/devvit_web_configuration.md) |
+| Architecture and limits | [Devvit Web overview](../../../capabilities/devvit-web/devvit_web_overview.mdx)    |
+| `devvit.json`           | [Configure your app](../../../capabilities/devvit-web/devvit_web_configuration.md) |
 
 ---
 
-## 1. Project layout and auth
+## Migration Basics
+
+### 1. Project layout and auth
 
 | PRAW                           | Devvit                                                                                                                                        |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | `pip` / `requirements.txt`     | `npm` / [`package.json`](https://docs.npmjs.com/cli/configuring-npm/package-json)                                                             |
-| `praw.Reddit(...)` + env       | [`devvit.json`](../../capabilities/devvit-web/devvit_web_configuration.md) + [`permissions.reddit`](../../capabilities/server/reddit-api.mdx) |
+| `praw.Reddit(...)` + env       | [`devvit.json`](../../../capabilities/devvit-web/devvit_web_configuration.md) + [`permissions.reddit`](../../../capabilities/server/reddit-api.mdx) |
 | `python bot.py` on your server | `npm run dev` (playtest on Reddit); handlers are HTTP routes, not a forever loop                                                              |
 
 **Devvit (typical new project)**
@@ -62,15 +64,15 @@ export default app;
 
 ---
 
-## 2. `praw.Reddit` → `reddit` and `context`
+### 2. `praw.Reddit` → `reddit` and `context`
 
 | PRAW                                                                     | Devvit                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `reddit.subreddit(...)`, `reddit.comment(...)`, `reddit.submission(...)` | Import **`reddit`** from `@devvit/web/server`. Load: [`getSubredditInfoByName`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getsubredditinfobyname), [`getCurrentSubreddit`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getcurrentsubreddit), [`getCommentById`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getcommentbyid), [`getPostById`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getpostbyid). Submit: [`submitPost`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost), [`submitComment`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment). See [`RedditAPIClient`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md). |
-| Hard-coded subreddit / “current” thing from your script                  | **`context`** from `@devvit/web/server` — [`subredditName`](../../api/public-api/type-aliases/BaseContext.md#subredditname), [`subredditId`](../../api/public-api/type-aliases/BaseContext.md#subredditid), [`postId`](../../api/public-api/type-aliases/BaseContext.md#postid), [`commentId`](../../api/public-api/type-aliases/BaseContext.md#commentid) (menu/form/post surfaces), [`postData`](../../api/public-api/type-aliases/BaseContext.md#postdata). See [`BaseContext`](../../api/public-api/type-aliases/BaseContext.md).                                                                                                                                                                                                                                             |
-| Thing id from a menu or form action                                      | [`context.commentId`](../../api/public-api/type-aliases/BaseContext.md#commentid), [`context.postId`](../../api/public-api/type-aliases/BaseContext.md#postid) — [mod tool quickstart](../../quickstart/quickstart-mod-tool.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Subreddit secrets / config in your script                                | Import [`settings`](../../capabilities/server/settings-and-secrets.mdx) from `@devvit/web/server` (`settings.get(...)`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Event payload from a stream or webhook                                   | `await c.req.json<OnCommentCreateRequest>()` (and similar types from `@devvit/web/shared`) — [Triggers](../../capabilities/server/triggers.mdx) (see [Streams → triggers](#3-streams--triggers) below)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `reddit.subreddit(...)`, `reddit.comment(...)`, `reddit.submission(...)` | Import **`reddit`** from `@devvit/web/server`. Load: [`getSubredditInfoByName`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getsubredditinfobyname), [`getCurrentSubreddit`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getcurrentsubreddit), [`getCommentById`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getcommentbyid), [`getPostById`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getpostbyid). Submit: [`submitPost`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost), [`submitComment`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment). See [`RedditAPIClient`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md). |
+| Hard-coded subreddit / “current” thing from your script                  | **`context`** from `@devvit/web/server` — [`subredditName`](../../../api/public-api/type-aliases/BaseContext.md#subredditname), [`subredditId`](../../../api/public-api/type-aliases/BaseContext.md#subredditid), [`postId`](../../../api/public-api/type-aliases/BaseContext.md#postid), [`commentId`](../../../api/public-api/type-aliases/BaseContext.md#commentid) (menu/form/post surfaces), [`postData`](../../../api/public-api/type-aliases/BaseContext.md#postdata). See [`BaseContext`](../../../api/public-api/type-aliases/BaseContext.md).                                                                                                                                                                                                                                             |
+| Thing id from a menu or form action                                      | [`context.commentId`](../../../api/public-api/type-aliases/BaseContext.md#commentid), [`context.postId`](../../../api/public-api/type-aliases/BaseContext.md#postid) — [mod tool quickstart](../../../quickstart/quickstart-mod-tool.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Subreddit secrets / config in your script                                | Import [`settings`](../../../capabilities/server/settings-and-secrets.mdx) from `@devvit/web/server` (`settings.get(...)`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Event payload from a stream or webhook                                   | `await c.req.json<OnCommentCreateRequest>()` (and similar types from `@devvit/web/shared`) — [Triggers](../../../capabilities/server/triggers.mdx) (see [Streams → triggers](#3-streams--triggers) below)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 **PRAW**
 
@@ -113,11 +115,11 @@ export default app;
 
 ---
 
-## 3. Streams → triggers
+### 3. Streams → triggers
 
 Your [`subreddit.stream`](https://praw.readthedocs.io/en/stable/code_overview/other/subredditstream.html) / [
 `mod.stream`](https://praw.readthedocs.io/en/stable/code_overview/other/subredditmoderationstream.html) loops do not
-have a direct Devvit equivalent. Declare [**triggers**](../../capabilities/server/triggers.mdx) in `devvit.json`; Reddit
+have a direct Devvit equivalent. Declare [**triggers**](../../../capabilities/server/triggers.mdx) in `devvit.json`; Reddit
 POSTs one event per handler invocation (`onCommentSubmit`, `onPostCreate`, `onModAction`, `onModMail`, …).
 
 **PRAW**
@@ -158,19 +160,19 @@ export default app;
 ```
 
 :::note
-Handlers should return quickly ([limitations](../../capabilities/devvit-web/devvit_web_overview.mdx#limitations)). Defer
+Handlers should return quickly ([limitations](../../../capabilities/devvit-web/devvit_web_overview.mdx#limitations)). Defer
 heavy work to the [scheduler](#4-scheduler-redis-and-http) or an allow-listed [
-`fetch`](../../capabilities/server/http-fetch.mdx).
+`fetch`](../../../capabilities/server/http-fetch.mdx).
 :::
 ---
 
-## 4. Scheduler, Redis, and HTTP
+### 4. Scheduler, Redis, and HTTP
 
 | PRAW                                 | Devvit                                                                                                                                                                                                  |
 |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `while True`, `time.sleep`, cron job | [Scheduler](../../capabilities/server/scheduler.mdx) — cron in `devvit.json` and/or `scheduler.runJob` ([recurring scheduler tasks](../../capabilities/server/scheduler.mdx#scheduling-recurring-jobs)) |
-| SQLite / JSON files / pickle on disk | [Redis](../../capabilities/server/redis.mdx) (per subreddit)                                                                                                                                            |
-| `requests.get` to any URL            | Server-side [HTTP fetch](../../capabilities/server/http-fetch.mdx) — `fetch` to domains in `permissions.http.domains`                                                                                   |
+| `while True`, `time.sleep`, cron job | [Scheduler](../../../capabilities/server/scheduler.mdx) — cron in `devvit.json` and/or `scheduler.runJob` ([recurring scheduler tasks](../../../capabilities/server/scheduler.mdx#scheduling-recurring-jobs)) |
+| SQLite / JSON files / pickle on disk | [Redis](../../../capabilities/server/redis.mdx) (per subreddit)                                                                                                                                            |
+| `requests.get` to any URL            | Server-side [HTTP fetch](../../../capabilities/server/http-fetch.mdx) — `fetch` to domains in `permissions.http.domains`                                                                                   |
 
 **Redis** (replaces local SQLite / JSON files):
 
@@ -223,13 +225,13 @@ const data = await res.json();
 
 ---
 
-## 5. Posts, comments, moderation
+### 5. Posts, comments, moderation
 
 Same Reddit actions you already call from PRAW. Devvit’s client is async. PRAW loads comments and posts by base36 id;
 Devvit APIs use fullnames (`t1_`, `t3_`) —
-see [Reddit thing IDs](../../capabilities/server/reddit-api.mdx#reddit-thing-ids).
+see [Reddit thing IDs](../../../capabilities/server/reddit-api.mdx#reddit-thing-ids).
 
-### Posts
+#### Posts
 
 **PRAW** — `subreddit.submit(...)`
 
@@ -240,8 +242,8 @@ reddit.subreddit("learnpython").submit(
 )
 ```
 
-**Devvit** — [`submitPost`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost) / [
-`submitCustomPost`](../../capabilities/server/reddit-api.mdx); prefer `context.subredditName` over hard-coding the sub
+**Devvit** — [`submitPost`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost) / [
+`submitCustomPost`](../../../capabilities/server/reddit-api.mdx); prefer `context.subredditName` over hard-coding the sub
 name.
 
 ```ts title="src/server/index.ts"
@@ -259,9 +261,9 @@ export async function createWeeklyThread() {
 }
 ```
 
-Acting as the **logged-in user** (not the app account): [`runAs: "USER"`](../../capabilities/server/userActions.mdx).
+Acting as the **logged-in user** (not the app account): [`runAs: "USER"`](../../../capabilities/server/userActions.mdx).
 
-### Comments
+#### Comments
 
 Get post and comment fullnames from the current request — do not hard-code `t1_` / `t3_` ids in app code.
 
@@ -280,9 +282,9 @@ comment_reply.distinguish(True)  # to pin comment
 ```
 
 **Devvit** — either pattern works: pass the fullname to [
-`reddit.*`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) (e.g. [
-`submitComment`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment)), or fetch a [
-`Comment`](../../api/redditapi/models/classes/Comment.md) / [`Post`](../../api/redditapi/models/classes/Post.md) and
+`reddit.*`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) (e.g. [
+`submitComment`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment)), or fetch a [
+`Comment`](../../../api/redditapi/models/classes/Comment.md) / [`Post`](../../../api/redditapi/models/classes/Post.md) and
 call methods on it (like PRAW). **Fetching first adds an extra API round trip** — prefer the id-only `reddit.*` path
 when you only need a single action; fetch when you will chain several methods on the same thing.
 
@@ -334,7 +336,7 @@ In a trigger handler, use ids from the event payload (see [Streams → triggers]
 `input.comment?.id`,
 `input.post?.id` — with either approach.
 
-### Moderation
+#### Moderation
 
 **PRAW** — `.mod.lock()`, `.mod.remove()`, `.mod.approve()`, `subreddit.banned.add`, Modmail via `subreddit.modmail`, …
 
@@ -347,11 +349,11 @@ comment.mod.approve()
 ```
 
 **Devvit** — same choice as comments: prefer [
-`reddit.*`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) with fullnames when that covers the
-action ([`remove`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#remove), [
-`approve`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#approve), …). Fetch [
-`Post`](../../api/redditapi/models/classes/Post.md) / [`Comment`](../../api/redditapi/models/classes/Comment.md) when
-you need object-only methods (e.g. [`lock`](../../api/redditapi/models/classes/Post.md#lock)) or several calls on the
+`reddit.*`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) with fullnames when that covers the
+action ([`remove`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#remove), [
+`approve`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#approve), …). Fetch [
+`Post`](../../../api/redditapi/models/classes/Post.md) / [`Comment`](../../../api/redditapi/models/classes/Comment.md) when
+you need object-only methods (e.g. [`lock`](../../../api/redditapi/models/classes/Post.md#lock)) or several calls on the
 same thing — each `getPostById` / `getCommentById` is an extra round trip.
 
 ```ts title="src/server/index.ts — moderate a comment (reddit.* with ids)"
@@ -377,20 +379,20 @@ await comment.remove(false);
 await comment.approve();
 ```
 
-More: [`RedditAPIClient`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md), [
-`ModMailService`](../../api/redditapi/models/classes/ModMailService.md). Mod tools often set `permissions.reddit.scope`
-to `"moderator"` — [permissions](../../capabilities/devvit-web/devvit_web_configuration.md#permissions-configuration).
+More: [`RedditAPIClient`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md), [
+`ModMailService`](../../../api/redditapi/models/classes/ModMailService.md). Mod tools often set `permissions.reddit.scope`
+to `"moderator"` — [permissions](../../../capabilities/devvit-web/devvit_web_configuration.md#permissions-configuration).
 
 ---
 
-## 6. Gaps: what your PRAW bot may do that Devvit does not
+### 6. Gaps: what your PRAW bot may do that Devvit does not
 
 | PRAW                                               | Devvit                                                                                        | Notes                                                                                                        |
 |----------------------------------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `redditor.subreddits`, saved, upvoted, friends, …  | [Private user data](../../capabilities/server/reddit-api.mdx#private-user-data) not available | Public data only                                                                                             |
-| Infinite `stream` / open socket to Reddit          | No in-process stream; short-lived handlers                                                    | Triggers + [scheduler](../../capabilities/server/scheduler.mdx)                                              |
-| `requests` to any host                             | Allow-listed `fetch` only                                                                     | [HTTP fetch](../../capabilities/server/http-fetch.mdx); request domains early                                |
-| Local SQLite / arbitrary files                     | No general `fs` persistence                                                                   | [Redis](../../capabilities/server/redis.mdx); [settings](../../capabilities/server/settings-and-secrets.mdx) |
+| `redditor.subreddits`, saved, upvoted, friends, …  | [Private user data](../../../capabilities/server/reddit-api.mdx#private-user-data) not available | Public data only                                                                                             |
+| Infinite `stream` / open socket to Reddit          | No in-process stream; short-lived handlers                                                    | Triggers + [scheduler](../../../capabilities/server/scheduler.mdx)                                              |
+| `requests` to any host                             | Allow-listed `fetch` only                                                                     | [HTTP fetch](../../../capabilities/server/http-fetch.mdx); request domains early                                |
+| Local SQLite / arbitrary files                     | No general `fs` persistence                                                                   | [Redis](../../../capabilities/server/redis.mdx); [settings](../../../capabilities/server/settings-and-secrets.mdx) |
 | One bot process across all of Reddit from your VPS | Per-installation, hosted app                                                                  | Design for subreddit-scoped installs                                                                         |
 | Your own OAuth app from prefs                      | Platform-managed Reddit access                                                                | `permissions.reddit` in `devvit.json`                                                                        |
 
@@ -399,14 +401,14 @@ hosting and installation scope, not relearning Reddit’s content model.
 
 ---
 
-## References
+### References
 
 **Devvit**
 
-- [App quickstart](../../quickstart/quickstart.md) · [Mod tool quickstart](../../quickstart/quickstart-mod-tool.md)
-- [Triggers](../../capabilities/server/triggers.mdx) · [Scheduler](../../capabilities/server/scheduler.mdx) · [Redis](../../capabilities/server/redis.mdx) · [HTTP fetch](../../capabilities/server/http-fetch.mdx)
-- [Reddit API overview](../../capabilities/server/reddit-api.mdx) · [
-  `RedditAPIClient`](../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) · [User actions](../../capabilities/server/userActions.mdx)
+- [App quickstart](../../../quickstart/quickstart.md) · [Mod tool quickstart](../../../quickstart/quickstart-mod-tool.md)
+- [Triggers](../../../capabilities/server/triggers.mdx) · [Scheduler](../../../capabilities/server/scheduler.mdx) · [Redis](../../../capabilities/server/redis.mdx) · [HTTP fetch](../../../capabilities/server/http-fetch.mdx)
+- [Reddit API overview](../../../capabilities/server/reddit-api.mdx) · [
+  `RedditAPIClient`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) · [User actions](../../../capabilities/server/userActions.mdx)
 
 **PRAW**
 
