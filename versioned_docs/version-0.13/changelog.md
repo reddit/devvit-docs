@@ -57,13 +57,13 @@ Additional improvements in this release include:
 - **Increased app slug length**. App slugs can now be up to 20 characters. 
 
 
-## Relese 0.13.5: Improved Tracing
+## Release 0.13.5: Improved Tracing
 **Release Date: June 23, 2026**
 
 In this release, we've improved trace propagation between web view and plugin calls. Apps running v0.13.5+ will have more complete traces, providing better observability and simplifying debugging and support.
 
 
-## Relese 0.13.4: Updated Redis Docs
+## Release 0.13.4: Updated Redis Docs
 **Release Date: June 15, 2026**
 
 In this release, we’ve updated our [Redis](./capabilities/server/redis.mdx) documentation based on your feedback, adding clearer guidance around key design, data structures, shared states, and scheduled maintenance.
