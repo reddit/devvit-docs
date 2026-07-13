@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.7-dev**](../../README.md)
+[**@devvit/public-api v0.13.8-dev**](../../README.md)
 
 ***
 
@@ -116,8 +116,8 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`WikiPageRevision`, `"id"` \| `"hidden"` \| `"reason"` \| `"page"` \| `"date"`\> & `object`
+> **toJSON**(): `Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"hidden"` \| `"date"` \| `"page"`\> & `object`
 
 #### Returns
 
-`Pick`\<`WikiPageRevision`, `"id"` \| `"hidden"` \| `"reason"` \| `"page"` \| `"date"`\> & `object`
+`Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"hidden"` \| `"date"` \| `"page"`\> & `object`

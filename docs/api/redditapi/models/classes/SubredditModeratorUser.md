@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.8-dev**](../../README.md)
+[**@devvit/public-api v0.13.9-dev**](../../README.md)
 
 ***
 
@@ -591,12 +591,12 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for comments a
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`User`](User.md), `"username"` \| `"id"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object`
+> **toJSON**(): `Pick`\<[`User`](User.md), `"username"` \| `"id"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditModeratorUser`, `"date"` \| `"moderatorInfo"`\>
 
 #### Returns
 
-`Pick`\<[`User`](User.md), `"username"` \| `"id"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object`
+`Pick`\<[`User`](User.md), `"username"` \| `"id"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditModeratorUser`, `"date"` \| `"moderatorInfo"`\>
 
-#### Inherited from
+#### Overrides
 
 [`User`](User.md).[`toJSON`](User.md#tojson)

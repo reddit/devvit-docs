@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.7-dev**](../README.md)
+[**@devvit/public-api v0.13.8-dev**](../README.md)
 
 ***
 
@@ -33,8 +33,14 @@
 - [PrivateMessage](classes/PrivateMessage.md)
 - [Rule](classes/Rule.md)
 - [Subreddit](classes/Subreddit.md)
+- [SubredditBannedUser](classes/SubredditBannedUser.md)
+- [SubredditContributorUser](classes/SubredditContributorUser.md)
 - [SubredditDescription](classes/SubredditDescription.md)
+- [SubredditModeratorUser](classes/SubredditModeratorUser.md)
+- [SubredditMutedUser](classes/SubredditMutedUser.md)
 - [SubredditRulesWidget](classes/SubredditRulesWidget.md)
+- [SubredditWikiBannedUser](classes/SubredditWikiBannedUser.md)
+- [SubredditWikiContributorUser](classes/SubredditWikiContributorUser.md)
 - [SubredditWikiSettings](classes/SubredditWikiSettings.md)
 - [TextAreaWidget](classes/TextAreaWidget.md)
 - [User](classes/User.md)
