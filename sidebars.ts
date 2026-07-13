@@ -330,7 +330,23 @@ const sidebars: SidebarsConfig = {
         "guides/migrate/devvit-singleton",
         "guides/migrate/devvit-web-experimental",
         "guides/migrate/inline-web-view",
-        "guides/migrate/public-api",
+        {
+          type: "category",
+          label: "Migrating from PRAW to Devvit Web",
+          collapsed: false,
+          items: [
+            {
+              type: "doc",
+              label: "Migration Basics",
+              id: "guides/migrate/public-api/basics",
+            },
+            {
+              type: "doc",
+              label: "Migrating with AI",
+              id: "guides/migrate/public-api/ai-migration",
+            },
+          ],
+        },
       ],
     },
     {
