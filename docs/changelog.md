@@ -9,6 +9,13 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.13.8: Maintenance Update
+**Release Date: July 13, 2026**
+
+This release includes a few under-the-hood performance improvements and one dev-facing fix: 
+
+- The `user.toJSON()` method now correctly includes fields specific to each `User` subclass, ensuring subclass-specific data is preserved during serialization.
+
 ## Release 0.13.7: Devvit Journeys (GA) & Blob Storage (Experimental)
 **Release Date: July 7, 2026**
 
