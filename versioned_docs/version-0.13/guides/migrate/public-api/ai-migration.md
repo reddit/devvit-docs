@@ -45,8 +45,11 @@ The prompts in this guide repeat the most important rules, but you should enforc
 
 **You:** Go to [developers.reddit.com/new](https://developers.reddit.com/new) and create a new app.
 
-- Choose **Mod Tool** under **Other templates** for a moderation bot, scheduled automation, or an app primarily driven
-  by Reddit events and moderator actions. This is the best starting point for most PRAW migrations.
+- Choose [**Mod Tool Simple**](https://developers.reddit.com/new/app?template=mod-tool) under **Other templates** for a
+  small moderation bot or a straightforward migration with one primary workflow.
+- Choose [**Mod Tool Full**](https://developers.reddit.com/new/app?template=mod-tool-full) under **Other templates** for
+  a complicated bot, scheduled automation, multiple moderator actions, or an app primarily driven by Reddit events and
+  moderator actions. This is the best starting point for most complex PRAW migrations.
 - Choose **React** if the migrated app needs a custom post with an interactive user interface.
 
 Open the generated project in your AI-powered code editor. The [app quickstart](../../../quickstart/quickstart.md) and
