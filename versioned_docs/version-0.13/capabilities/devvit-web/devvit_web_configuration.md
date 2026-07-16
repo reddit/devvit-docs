@@ -1,4 +1,4 @@
-# Configure your app
+﻿# Configure your app
 
 The `devvit.json` file serves as your app's configuration file. Use it to specify entry points, configure features like [event triggers](../server/triggers) and [scheduled actions](../server/scheduler.mdx), and enable app functionality such as [image uploads](../server/media-uploads.mdx). This page summarizes the schema-supported configuration options; the published JSON Schema remains authoritative. A representative `devvit.json` example is provided [here](#complete-example).
 
@@ -24,7 +24,6 @@ Additionally, you must include at least one of:
 
 - **`post`**: For web view apps
 - **`server`**: For Node.js server apps
-- **`blocks`**: Deprecated migration configuration for legacy Blocks apps
 
 ## Configuration sections
 
@@ -37,11 +36,10 @@ Additionally, you must include at least one of:
 
 ### App components
 
-| Property | Type   | Description                                      | Required                  |
-| -------- | ------ | ------------------------------------------------ | ------------------------- |
-| `post`   | object | Custom post/web view configuration               | One of post/server/blocks |
-| `server` | object | Node.js server configuration                     | One of post/server/blocks |
-| `blocks` | object | Deprecated configuration for migrating Blocks apps | One of post/server/blocks |
+| Property | Type   | Description                        | Required           |
+| -------- | ------ | ---------------------------------- | ------------------ |
+| `post`   | object | Custom post/web view configuration | One of post/server |
+| `server` | object | Node.js server configuration       | One of post/server |
 
 ### Permissions & capabilities
 
@@ -135,7 +133,6 @@ Control what your app can access:
       "domains": ["example.com", "api.github.com"]
     },
     "media": true,
-    "journeys": true,
     "payments": false,
     "realtime": false,
     "redis": true,
@@ -162,7 +159,6 @@ Control what your app can access:
 **Other permissions:**
 
 - `media` (boolean): Enable media uploads (default: `false`)
-- `journeys` (boolean): Enable [Devvit Journeys](../analytics/devvit-journeys.md) telemetry (default: `false`)
 - `payments` (boolean): Enable the payments plugin (default: `false`)
 - `realtime` (boolean): Enable realtime messaging (default: `false`)
 - `redis` (boolean): Enable Redis storage (default: `false`)
@@ -405,7 +401,7 @@ The Devvit CLI validates `devvit.json` against the JSON Schema before playtest, 
 
 - **JSON Syntax:** Adding comments or trailing commas (unsupported by JSON)
 - **Required Properties:** Missing the required `name` property
-- **App Components:** Missing at least one of `post` or `server` (or deprecated `blocks` migration configuration)
+- **App Components:** Missing at least one of `post` or `server`
 - **Dependencies:** Missing `server` when `triggers` is specified
 - **File References:** Missing files referenced in `devvit.json`
 - **Permissions:** Missing required permissions for used features
