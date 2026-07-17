@@ -210,7 +210,6 @@ const sidebars: SidebarsConfig = {
        "capabilities/client/navigation",
         "capabilities/client/toasts",
         "capabilities/client/menu-actions",
-        "capabilities/server/launch_screen_and_entry_points/view_modes_entry_points",
         {
           type: "category",
           label: "Launch Screen",

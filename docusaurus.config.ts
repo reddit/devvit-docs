@@ -4,7 +4,12 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 const baseUrl = process.env.DOCUSAURUS_BASE_URL ?? "/docs/";
 
-const LATEST_DEVVIT_VERSION = '0.13'; // update-versioned-docs.mjs sets this automatically
+// Docusaurus stores published documentation versions newest first.
+const [LATEST_DEVVIT_VERSION] = require("./versions.json") as string[];
+
+if (!LATEST_DEVVIT_VERSION) {
+  throw new Error("versions.json must contain at least one published documentation version");
+}
 
 const config: Config = {
   future: {

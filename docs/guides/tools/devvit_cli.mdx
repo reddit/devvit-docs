@@ -170,11 +170,11 @@ $ npx devvit logs <subreddit> [app-name] [-d <value>] [-j] [-s <value>] [--verbo
 
   The subreddit name. The "r/" prefix is optional.
 
+#### Optional arguments
+
 - `app-name`
 
-  The app name (defaults to working directory app).
-
-#### Optional arguments
+  The app name. Defaults to the app in the working directory.
 
 - `-d <value>, --dateformat <value>`
 
@@ -214,34 +214,40 @@ $ npx devvit logs mySubreddit my-app --since 15s
 $ npx devvit logs mySubreddit my-app --verbose
 ```
 
-### devvit new
+### devvit init
 
-Create a new app.
+Initialize a new app. `devvit new` is retained as an alias.
+
+Without an initialization code, this command opens the app-creation flow in your browser. Outside a Devvit project, the generated project is placed in a directory named after the new app. Inside an uninitialized Devvit project, the command initializes that directory. Use `--force` only to replace an app that has already been initialized.
 
 #### Usage
 
 ```bash
-$ npx devvit new [directory-name] [--here]
+$ npx devvit init [code] [--template <name>] [--force]
 ```
 
 #### Optional arguments
 
-- `directory-name`
+- `code`
 
-  Directory name for your new app project. This creates a new directory for your app code. If no name is entered, you will be prompted to choose one.
+  Initialization code supplied by Reddit. If omitted, the CLI opens the browser flow to create the app and obtain a code.
 
-- `--here`
+- `--template <name>`
 
-  Generate the project here and not in a subdirectory.
+  Select a project template without opening the template-selection prompt.
+
+- `--force`
+
+  Initialize a new app even when the current directory is already a Devvit app.
 
 #### Examples
 
 ```bash
-$ npx devvit new
+$ npx devvit init
 
-$ npx devvit new tic-tac-toe
+$ npx devvit init <code>
 
-$ npx devvit new --here
+$ npx devvit init --template <template-name>
 ```
 
 ### devvit playtest
@@ -251,13 +257,22 @@ Installs your app to your test subreddit and starts a playtest session. A new ve
 #### Usage
 
 ```bash
-$ npx devvit playtest
+$ npx devvit playtest [subreddit] [--debounce <milliseconds>] [logging options]
 ```
 
-#### Optional argument
+#### Optional arguments
 
-- subreddit
+- `subreddit`
+
   Name of a test subreddit with less than 200 subscribers that you moderate. The "r/" prefix is optional.
+
+- `--debounce <milliseconds>`
+
+  Debounce file-change handling by the specified number of milliseconds.
+
+- Logging options
+
+  `playtest` accepts the same public log-formatting and filtering flags as [`devvit logs`](#devvit-logs), including `--dateformat`, `--json`, `--log-runtime`, `--show-timestamps`, `--since`, and `--verbose`.
 
 If no subreddit is specified, the command will use the first available option from:
 
@@ -309,9 +324,11 @@ $ npx devvit uninstall <subreddit> [app-name]
 
   Name of the subreddit. The "r/" prefix is optional. Requires moderator permissions in the subreddit.
 
+#### Optional argument
+
 - `app-name`
 
-  Name of the app (defaults to the working directory app).
+  Name of the app. Defaults to the app in the working directory.
 
 #### Examples
 
@@ -333,6 +350,42 @@ Update @devvit project dependencies to the currently installed CLI's version
 $ npx devvit update app
 ```
 
+### devvit publish
+
+Create a new app version, upload the app and its source for review, and submit a publish request.
+
+#### Usage
+
+```bash
+$ npx devvit publish [--bump major|minor|patch | --version <version>] [--public] [--withdraw] [--copy-paste] [--verbose]
+```
+
+#### Optional arguments
+
+- `--bump <option>`
+
+  Type of version bump: `major`, `minor`, or `patch`. Patch is the default. Cannot be combined with `--version`.
+
+- `--version <version>`
+
+  Explicit non-prerelease version number, such as `1.0.1`. Cannot be combined with `--bump`.
+
+- `--public`
+
+  Submit the app for public review rather than the default unlisted review.
+
+- `--withdraw`
+
+  Withdraw the app's most recent pending publish request. Cannot be combined with `--public`.
+
+- `--copy-paste`
+
+  Copy and paste the authentication code instead of opening a local browser callback.
+
+- `--verbose`
+
+  Enable verbose logging.
+
 ### devvit upload
 
 Upload an app to the App directory. By default the app is private and visible only to you.
@@ -340,18 +393,26 @@ Upload an app to the App directory. By default the app is private and visible on
 #### Usage
 
 ```bash
-$ npx devvit upload [--bump major|minor|patch|prerelease] [--copyPaste]
+$ npx devvit upload [--bump major|minor|patch|prerelease | --version <version>] [--copy-paste] [--verbose]
 ```
 
 #### Optional arguments
 
 - `--bump <option>`
 
-  Type of version bump (major|minor|patch|prerelease)
+  Type of version bump: `major`, `minor`, `patch`, or `prerelease`. Cannot be combined with `--version`.
 
-- `--copyPaste`
+- `--version <version>`
 
-  Copy-paste the auth code instead of opening a browser
+  Explicit version number, such as `1.0.1`. Cannot be combined with `--bump`.
+
+- `--copy-paste`
+
+  Copy and paste the authentication code instead of opening a local browser callback.
+
+- `--verbose`
+
+  Enable verbose logging.
 
 ### devvit version
 
@@ -365,12 +426,30 @@ $ npx devvit version
 
 ### devvit view
 
-Shows you the latest version of your app and some data about uploads. Includes an optional --json flag to get information in JSON format.
+Show details about an app version. The app defaults to the project in the working directory, and the version defaults to `latest`.
 
-#### Usage​
+#### Usage
 
 ```bash
-$ npx devvit view [APPSLUG[@VERSION]] [--json] [version]
+$ npx devvit view [app-name[@version]] [version] [--json]
+```
+
+The optional literal `version` subcommand prints only the resolved version number. To select an app version, append it to the app name with `@`.
+
+#### Examples
+
+```bash
+$ npx devvit view
+
+$ npx devvit view my-app
+
+$ npx devvit view my-app@1.2.3
+
+$ npx devvit view @1.2.3
+
+$ npx devvit view my-app@1.2.3 version
+
+$ npx devvit view --json
 ```
 
 ### devvit whoami

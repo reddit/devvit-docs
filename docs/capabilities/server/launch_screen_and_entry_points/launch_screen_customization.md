@@ -28,9 +28,9 @@ import { requestExpandedMode } from '@devvit/web/client';
 document.addEventListener('DOMContentLoaded', () => {
   const playButton = document.getElementById('play-button');
 
-  playButton.addEventListener('click', async (event) => {
+  playButton.addEventListener('click', (event) => {
     try {
-      await requestExpandedMode(event, 'game');
+      requestExpandedMode(event, 'game');
     } catch (error) {
       console.error('Failed to enter expanded mode:', error);
     }
@@ -47,13 +47,13 @@ Requests expanded mode for the web view. This displays the web view in a larger 
 ```tsx
 import { requestExpandedMode } from '@devvit/web/client';
 
-// Must be called from a trusted event (click, touch, etc.)
-await requestExpandedMode(event, 'game');
+// Must be called synchronously from a trusted click event.
+requestExpandedMode(event, 'game');
 ```
 
 **Parameters**
 
-- `event` (PointerEvent): The gesture that triggered the request, must be a trusted event
+- `event` (MouseEvent): The trusted `click` event that triggered the request
 - `entry` (string): The destination URI name (e.g., `splash` or `game`). Entry names are the `devvit.json post.entrypoints` keys
 
 ### getWebViewMode()
@@ -72,23 +72,21 @@ if (currentMode === 'expanded') {
 }
 ```
 
-### Mode Change Events
+### Returning to inline mode
 
-Listen for mode changes to update your UI.
+The legacy `addWebViewModeListener()` and `removeWebViewModeListener()` APIs are deprecated. Listen for the window `focus` event to detect when an expanded web view returns to inline mode, then read the current mode again.
 
 ```tsx
-import { addWebViewModeListener, removeWebViewModeListener } from '@devvit/web/client';
+import { getWebViewMode } from '@devvit/web/client';
 
 function useWebViewMode() {
   const [mode, setMode] = useState(getWebViewMode());
 
   useEffect(() => {
-    const handleModeChange = (newMode: 'inline' | 'expanded') => {
-      setMode(newMode);
-    };
+    const handleFocus = () => setMode(getWebViewMode());
 
-    addWebViewModeListener(handleModeChange);
-    return () => removeWebViewModeListener(handleModeChange);
+    window.addEventListener('focus', handleFocus);
+    return () => window.removeEventListener('focus', handleFocus);
   }, []);
 
   return mode;
@@ -103,8 +101,6 @@ import {
   getWebViewMode,
   requestExpandedMode,
   exitExpandedMode,
-  addWebViewModeListener,
-  removeWebViewModeListener,
 } from '@devvit/web/client';
 
 export function GameApp() {
@@ -112,33 +108,35 @@ export function GameApp() {
   const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
-    const handleModeChange = (newMode: 'inline' | 'expanded') => {
-      setMode(newMode);
+    const handleFocus = () => {
+      const nextMode = getWebViewMode();
+      setMode(nextMode);
 
-      // Pause game when exiting expanded mode
-      if (newMode === 'inline' && gameStarted) {
+      // Pause game when returning to inline mode.
+      if (nextMode === 'inline' && gameStarted) {
         pauseGame();
       }
     };
 
-    addWebViewModeListener(handleModeChange);
-    return () => removeWebViewModeListener(handleModeChange);
+    window.addEventListener('focus', handleFocus);
+    return () => window.removeEventListener('focus', handleFocus);
   }, [gameStarted]);
 
-  const handlePlayClick = async (event: React.MouseEvent) => {
+  const handlePlayClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
-      await requestExpandedMode(event.nativeEvent, 'game');
+      requestExpandedMode(event.nativeEvent, 'game');
+      setMode('expanded');
       setGameStarted(true);
     } catch (error) {
       console.error('Could not enter expanded mode:', error);
-      // Fallback: start game inline
+      // Fallback: start game inline.
       setGameStarted(true);
     }
   };
 
-  const handleExitClick = async (event: React.MouseEvent) => {
+  const handleExitClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     try {
-      await exitExpandedMode(event.nativeEvent);
+      exitExpandedMode(event.nativeEvent);
     } catch (error) {
       console.error('Could not exit expanded mode:', error);
     }
