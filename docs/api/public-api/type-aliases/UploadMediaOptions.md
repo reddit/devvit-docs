@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.9-dev**](../README.md)
+[**@devvit/public-api v0.13.10-dev**](../README.md)
 
 ***
 
@@ -14,6 +14,8 @@
 
 > **type**: `"image"` \| `"gif"` \| `"video"`
 
+The type of media being uploaded. (Note that GIFs are their own type.)
+
 ***
 
 <a id="url"></a>
@@ -21,3 +23,5 @@
 ### url
 
 > **url**: `string`
+
+The URL of the file to upload. Must be fetch-able.

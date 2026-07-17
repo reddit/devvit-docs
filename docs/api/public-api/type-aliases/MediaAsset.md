@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.9-dev**](../README.md)
+[**@devvit/public-api v0.13.10-dev**](../README.md)
 
 ***
 
@@ -14,6 +14,8 @@
 
 > **mediaId**: `string`
 
+The unique identifier for the media asset.
+
 ***
 
 <a id="mediaurl"></a>
@@ -21,3 +23,5 @@
 ### mediaUrl
 
 > **mediaUrl**: `string`
+
+The Reddit URL where the media asset can be accessed.
