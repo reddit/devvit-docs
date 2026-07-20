@@ -9,6 +9,11 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.13.9: Faster Devvit CLI Uploads
+**Release Date: July 20, 2026**
+
+In this release, we improved Devvit CLI upload performance, with the biggest gains during `playtest`.
+
 ## Release 0.13.8: Maintenance Update
 **Release Date: July 13, 2026**
 
