@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.9-dev**](../../README.md)
+[**@devvit/public-api v0.13.10-dev**](../../README.md)
 
 ***
 
@@ -745,11 +745,11 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"score"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+> **toJSON**(): `Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
 #### Returns
 
-`Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"score"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+`Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
 ***
 

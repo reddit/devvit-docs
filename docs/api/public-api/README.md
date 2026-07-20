@@ -1,8 +1,8 @@
-**@devvit/public-api v0.13.9-dev**
+**@devvit/public-api v0.13.10-dev**
 
 ***
 
-# @devvit/public-api v0.13.9-dev
+# @devvit/public-api v0.13.10-dev
 
 ## Namespaces
 
@@ -19,6 +19,10 @@
 
 - [Devvit](classes/Devvit.md)
 - [RichTextBuilder](classes/RichTextBuilder.md)
+
+## Interfaces
+
+- [TxClientLike](interfaces/TxClientLike.md)
 
 ## Type Aliases
 
@@ -133,7 +137,6 @@
 - [TriggerEvent](type-aliases/TriggerEvent.md)
 - [TriggerEventType](type-aliases/TriggerEventType.md)
 - [TriggerOnEventHandler](type-aliases/TriggerOnEventHandler.md)
-- [TxClientLike](type-aliases/TxClientLike.md)
 - [UIClient](type-aliases/UIClient.md)
 - [UploadMediaOptions](type-aliases/UploadMediaOptions.md)
 - [ValidatedBooleanField](type-aliases/ValidatedBooleanField.md)
