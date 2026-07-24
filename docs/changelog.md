@@ -20,10 +20,12 @@ You can now track push notification delivery and engagement from the App Analyti
 
 Note that push notifications are still an experimental feature, which means that you’ll need to apply to unlock the ability to use push notifications and track analytics for your app. [Learn how to apply](./docs/capabilities/notifications/notifications-overview#how-to-apply).
 
-**Settings Groups**
+**Settings Groups**  
+
 You can now organize global and subreddit settings into labeled groups in `devvit.json`. Groups make it easier to structure related settings and improve navigation for apps with more complex configuration.
 
-**Mod Reports API Update**
+**Mod Reports API Update**  
+
 The `modReportReasons` field on Post and Comment has been deprecated in favor of `modReports`, which includes both the report reason and the report author for more complete moderation data.
 
 
