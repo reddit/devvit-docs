@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.10-dev**](../../README.md)
+[**@devvit/public-api v0.13.11-dev**](../../README.md)
 
 ***
 
@@ -298,9 +298,27 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 > **get** **modReportReasons**(): `string`[]
 
+##### Deprecated
+
+Use [modReports](#modreports) to retain each report's author.
+
 ##### Returns
 
 `string`[]
+
+***
+
+<a id="modreports"></a>
+
+### modReports
+
+#### Get Signature
+
+> **get** **modReports**(): [`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
+
+##### Returns
+
+[`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
 
 ***
 
@@ -1145,11 +1163,11 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
+> **toJSON**(): `Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
 #### Returns
 
-`Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
+`Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
 ***
 

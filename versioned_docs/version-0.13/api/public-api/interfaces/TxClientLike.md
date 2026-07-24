@@ -1,10 +1,12 @@
-[**@devvit/public-api v0.13.9-dev**](../README.md)
+[**@devvit/public-api v0.13.10-dev**](../README.md)
 
 ***
 
-# Type Alias: TxClientLike
+# Interface: TxClientLike
 
-> **TxClientLike** = `object`
+## Extends
+
+- `TxClientLike`
 
 ## Methods
 
@@ -40,6 +42,10 @@ async function delExample(context: Devvit.Context) {
 }
 ```
 
+#### Inherited from
+
+`TxClientLikeBase.del`
+
 ***
 
 <a id="discard"></a>
@@ -64,10 +70,14 @@ async function discardExample(context: Devvit.Context) {
  const txn = await context.redis.watch("price");
 
  await txn.multi();     // Begin a transaction
- await txn.incrBy("price", 5);
+ await txn.incrby("price", 5);
  await txn.discard();   // Discard the commands in the transaction
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.discard`
 
 ***
 
@@ -95,10 +105,14 @@ async function execExample(context: Devvit.Context) {
  const txn = await context.redis.watch("quantity");
 
  await txn.multi();  // Begin a transaction
- await txn.incrBy("karma", 10);
+ await txn.incrby("karma", 10);
  await txn.exec();   // Execute the commands in the transaction
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.exec`
 
 ***
 
@@ -142,6 +156,10 @@ async function expireExample(context: Devvit.Context) {
 }
 ```
 
+#### Inherited from
+
+`TxClientLikeBase.expire`
+
 ***
 
 <a id="expiretime"></a>
@@ -174,10 +192,14 @@ key
 ```ts
 async function expireTimeExample(context: Devvit.Context) {
  await context.redis.set("product", "milk");
- const expireTime : number = await context.redis.expireTime("product");
+ const expireTime : number = await context.redis.expiretime("product");
  console.log("Expire time: " + expireTime);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.expireTime`
 
 ***
 
@@ -215,6 +237,10 @@ async function getExample(context: Devvit.Context) {
  console.log("Quantity: " + quantity);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.get`
 
 ***
 
@@ -265,10 +291,14 @@ end
 ```ts
 async function getRangeExample(context: Devvit.Context) {
  await context.redis.set("word", "tacocat");
- const range : string = await context.redis.getRange("word", 0, 3)
+ const range : string = await context.redis.getrange("word", 0, 3)
  console.log("Range from index 0 to 3: " + range);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.getRange`
 
 ***
 
@@ -277,9 +307,6 @@ async function getRangeExample(context: Devvit.Context) {
 ### ~~hdel()~~
 
 > **hdel**(`key`, `fields`): `Promise`\<`TxClientLike`\>
-
-Removes the specified fields from the hash stored at key.
-https://redis.io/commands/hdel/
 
 #### Parameters
 
@@ -295,19 +322,9 @@ https://redis.io/commands/hdel/
 
 `Promise`\<`TxClientLike`\>
 
-number of fields that were removed from the hash
-
 #### Deprecated
 
 Use [TxClientLike.hDel](#hdel-2) instead.
-
-#### Arg
-
-key
-
-#### Arg
-
-fields
 
 ***
 
@@ -335,6 +352,13 @@ https://redis.io/commands/hdel/
 `Promise`\<`TxClientLike`\>
 
 number of fields that were removed from the hash
+```ts
+async function hDelExample(context: Devvit.Context) {
+ await context.redis.hset("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
+ const numFieldsRemoved = await context.redis.hdel("fruits", ["apple", "kiwi"]);
+ console.log("Number of fields removed: " + numFieldsRemoved);
+}
+```
 
 #### Arg
 
@@ -344,15 +368,9 @@ key
 
 fields
 
-#### Example
+#### Inherited from
 
-```ts
-async function hDelExample(context: Devvit.Context) {
- await context.redis.hSet("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
- const numFieldsRemoved = await context.redis.hDel("fruits", ["apple", "kiwi"]);
- console.log("Number of fields removed: " + numFieldsRemoved);
-}
-```
+`TxClientLikeBase.hDel`
 
 ***
 
@@ -361,9 +379,6 @@ async function hDelExample(context: Devvit.Context) {
 ### ~~hget()~~
 
 > **hget**(`key`, `field`): `Promise`\<`TxClientLike`\>
-
-Returns the value associated with field in the hash stored at key.
-https://redis.io/commands/hget
 
 #### Parameters
 
@@ -379,19 +394,9 @@ https://redis.io/commands/hget
 
 `Promise`\<`TxClientLike`\>
 
-value associated with field
-
 #### Deprecated
 
 Use [TxClientLike.hGet](#hget-2) instead.
-
-#### Arg
-
-key
-
-#### Arg
-
-field
 
 ***
 
@@ -432,11 +437,15 @@ field
 
 ```ts
 async function hGetExample(context: Devvit.Context) {
- await context.redis.hSet("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
- const result : string | undefined = await context.redis.hGet("fruits", "orange");
+ await context.redis.hset("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
+ const result : string | undefined = await context.redis.hget("fruits", "orange");
  console.log("Value of orange: " + result);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.hGet`
 
 ***
 
@@ -445,9 +454,6 @@ async function hGetExample(context: Devvit.Context) {
 ### ~~hgetall()~~
 
 > **hgetall**(`key`): `Promise`\<`TxClientLike`\>
-
-Returns all fields and values of the hash stored at key
-https://redis.io/commands/hgetall
 
 #### Parameters
 
@@ -459,15 +465,9 @@ https://redis.io/commands/hgetall
 
 `Promise`\<`TxClientLike`\>
 
-a map of fields and their values stored in the hash,
-
 #### Deprecated
 
 Use [TxClientLike.hGetAll](#hgetall-2) instead.
-
-#### Arg
-
-key
 
 ***
 
@@ -500,19 +500,23 @@ key
 
 ```
 async function hGetAllExample(context: Devvit.Context) {
- await context.redis.hSet("groceryList", {
+ await context.redis.hset("groceryList", {
   "eggs": "12",
   "apples": "3",
   "milk": "1"
  });
 
- const record : Record<string, string> | undefined = await context.redis.hGetAll("groceryList");
+ const record : Record<string, string> | undefined = await context.redis.hgetall("groceryList");
 
  if (record != undefined) {
   console.log("Eggs: " + record.eggs + ", Apples: " + record.apples + ", Milk: " + record.milk);
  }
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.hGetAll`
 
 ***
 
@@ -521,9 +525,6 @@ async function hGetAllExample(context: Devvit.Context) {
 ### ~~hincrby()~~
 
 > **hincrby**(`key`, `field`, `value`): `Promise`\<`TxClientLike`\>
-
-Increments the number stored at field in the hash stored at key by increment.
-https://redis.io/commands/hincrby/
 
 #### Parameters
 
@@ -543,23 +544,9 @@ https://redis.io/commands/hincrby/
 
 `Promise`\<`TxClientLike`\>
 
-value of key after the increment
-
 #### Deprecated
 
 Use [TxClientLike.hIncrBy](#hincrby-2) instead.
-
-#### Arg
-
-key
-
-#### Arg
-
-field
-
-#### Arg
-
-value
 
 ***
 
@@ -608,10 +595,14 @@ value
 
 ```ts
 async function hIncrByExample(context: Devvit.Context) {
- await context.redis.hSet("user123", { "karma": "100" });
- await context.redis.hIncrBy("user123", "karma", 5);
+ await context.redis.hset("user123", { "karma": "100" });
+ await context.redis.hincrby("user123", "karma", 5);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.hIncrBy`
 
 ***
 
@@ -620,8 +611,6 @@ async function hIncrByExample(context: Devvit.Context) {
 ### ~~hkeys()~~
 
 > **hkeys**(`key`): `Promise`\<`TxClientLike`\>
-
-Returns all field names in the hash stored at key.
 
 #### Parameters
 
@@ -636,10 +625,6 @@ Returns all field names in the hash stored at key.
 #### Deprecated
 
 Use [TxClientLike.hKeys](#hkeys-2) instead.
-
-#### Arg
-
-key
 
 ***
 
@@ -669,15 +654,19 @@ key
 
 ```ts
 async function hKeysExample(context: Devvit.Context) {
- await context.redis.hSet("prices", {
+ await context.redis.hset("prices", {
    "chair": "48",
    "desk": "95",
    "whiteboard": "23"
  });
- const keys : string[] = await context.redis.hKeys("prices");
+ const keys : string[] = await context.redis.hkeys("prices");
  console.log("Keys: " + keys);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.hKeys`
 
 ***
 
@@ -686,8 +675,6 @@ async function hKeysExample(context: Devvit.Context) {
 ### ~~hlen()~~
 
 > **hlen**(`key`): `Promise`\<`TxClientLike`\>
-
-Returns the number of fields contained in the hash stored at key.
 
 #### Parameters
 
@@ -699,15 +686,9 @@ Returns the number of fields contained in the hash stored at key.
 
 `Promise`\<`TxClientLike`\>
 
-the number of fields in the hash, or 0 when the key does not exist.
-
 #### Deprecated
 
 Use [TxClientLike.hLen](#hlen-2) instead.
-
-#### Arg
-
-key
 
 ***
 
@@ -739,16 +720,20 @@ key
 
 ```ts
 async function hLenExample(context: Devvit.Context) {
- await context.redis.hSet("supplies", {
+ await context.redis.hset("supplies", {
    "paperclips": "25",
    "pencils": "10",
    "erasers": "5",
    "pens": "7"
  });
- const numberOfFields : number = await context.redis.hLen("supplies");
+ const numberOfFields : number = await context.redis.hlen("supplies");
  console.log("Number of fields: " + numberOfFields);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.hLen`
 
 ***
 
@@ -789,11 +774,15 @@ fields
 
 ```ts
 async function hMGetExample(context: Devvit.Context) {
- await context.redis.hSet("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
- const result : string[] | undefined = await context.redis.hMGet("fruits", ["orange", "grape", "apple"]);
+ await context.redis.hset("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
+ const result : string[] | undefined = await context.redis.hmget("fruits", ["orange", "grape", "apple"]);
  console.log("Value of fields: " + result); // "Value of fields: ["7", undefined, "5"]
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.hMGet`
 
 ***
 
@@ -802,8 +791,6 @@ async function hMGetExample(context: Devvit.Context) {
 ### ~~hscan()~~
 
 > **hscan**(`key`, `cursor`, `pattern`?, `count`?): `Promise`\<`TxClientLike`\>
-
-Iterates fields of Hash types and their associated values.
 
 #### Parameters
 
@@ -830,22 +817,6 @@ Iterates fields of Hash types and their associated values.
 #### Deprecated
 
 Use [TxClientLike.hScan](#hscan-2) instead.
-
-#### Arg
-
-key
-
-#### Arg
-
-cursor
-
-#### Arg
-
-pattern
-
-#### Arg
-
-count
 
 ***
 
@@ -899,19 +870,23 @@ count
 
 ```ts
 async function hScanExample(context: Devvit.Context) {
- await context.redis.hSet("userInfo", {
+ await context.redis.hset("userInfo", {
    "name": "Bob",
    "startDate": "01-05-20",
    "totalAwards": "12"
  });
 
- const hScanResponse = await context.redis.hScan("userInfo", 0);
+ const hScanResponse = await context.redis.hscan("userInfo", 0);
 
  hScanResponse.fieldValues.forEach(x => {
    console.log("Field: '" + x.field + "', Value: '" + x.value + "'");
  });
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.hScan`
 
 ***
 
@@ -920,9 +895,6 @@ async function hScanExample(context: Devvit.Context) {
 ### ~~hset()~~
 
 > **hset**(`key`, `fieldValues`): `Promise`\<`TxClientLike`\>
-
-Sets the specified fields to their respective values in the hash stored at key.
-https://redis.io/commands/hset
 
 #### Parameters
 
@@ -936,19 +908,9 @@ https://redis.io/commands/hset
 
 `Promise`\<`TxClientLike`\>
 
-number of fields that were added
-
 #### Deprecated
 
 Use [TxClientLike.hSet](#hset-2) instead.
-
-#### Arg
-
-key
-
-#### Arg
-
-fieldValues
 
 ***
 
@@ -987,10 +949,44 @@ fieldValues
 
 ```ts
 async function hSetExample(context: Devvit.Context) {
- const numFieldsAdded = await context.redis.hSet("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
+ const numFieldsAdded = await context.redis.hset("fruits", {"apple": "5", "orange": "7", "kiwi": "9"});
  console.log("Number of fields added: " + numFieldsAdded);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.hSet`
+
+***
+
+<a id="hsetnx"></a>
+
+### hSetNX()
+
+> **hSetNX**(`key`, `field`, `value`): `Promise`\<`TxClientLike`\>
+
+#### Parameters
+
+##### key
+
+`string`
+
+##### field
+
+`string`
+
+##### value
+
+`string`
+
+#### Returns
+
+`Promise`\<`TxClientLike`\>
+
+#### Inherited from
+
+`TxClientLikeBase.hSetNX`
 
 ***
 
@@ -1030,10 +1026,14 @@ value
 ```ts
 async function incrByExample(context: Devvit.Context) {
  await context.redis.set("totalPoints", "53")
- const updatedPoints : number = await context.redis.incrBy("totalPoints", 100);
+ const updatedPoints : number = await context.redis.incrby("totalPoints", 100);
  console.log("Updated points: " + updatedPoints);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.incrBy`
 
 ***
 
@@ -1042,9 +1042,6 @@ async function incrByExample(context: Devvit.Context) {
 ### ~~mget()~~
 
 > **mget**(`keys`): `Promise`\<`TxClientLike`\>
-
-Returns the values of all specified keys.
-https://redis.io/commands/mget/
 
 #### Parameters
 
@@ -1056,15 +1053,9 @@ https://redis.io/commands/mget/
 
 `Promise`\<`TxClientLike`\>
 
-list of values at the specified keys
-
 #### Deprecated
 
 Use [TxClientLike.mGet](#mget-2) instead.
-
-#### Arg
-
-keys
 
 ***
 
@@ -1097,13 +1088,17 @@ keys
 
 ```ts
 async function mGetExample(context: Devvit.Context) {
- await context.redis.mSet({"name": "Zeek", "occupation": "Developer"});
- const result : (string | null)[] = await context.redis.mGet(["name", "occupation"]);
+ await context.redis.mset({"name": "Zeek", "occupation": "Developer"});
+ const result : (string | null)[] = await context.redis.mget(["name", "occupation"]);
  result.forEach(x => {
    console.log(x);
  });
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.mGet`
 
 ***
 
@@ -1112,9 +1107,6 @@ async function mGetExample(context: Devvit.Context) {
 ### ~~mset()~~
 
 > **mset**(`keyValues`): `Promise`\<`TxClientLike`\>
-
-Sets the given keys to their respective values.
-https://redis.io/commands/mset/
 
 #### Parameters
 
@@ -1127,10 +1119,6 @@ https://redis.io/commands/mset/
 #### Deprecated
 
 Use [TxClientLike.mSet](#mset-2) instead.
-
-#### Arg
-
-keyValues
 
 ***
 
@@ -1158,10 +1146,18 @@ keyValues
 #### Example
 
 ```ts
-async function mSetExample(context: Devvit.Context) {
- await context.redis.mSet({"name": "Zeek", "occupation": "Developer"});
+async function mGetExample(context: Devvit.Context) {
+ await context.redis.mset({"name": "Zeek", "occupation": "Developer"});
+ const result : (string | null)[] = await context.redis.mget(["name", "occupation"]);
+ result.forEach(x => {
+   console.log(x);
+ });
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.mSet`
 
 ***
 
@@ -1187,10 +1183,14 @@ async function multiExample(context: Devvit.Context) {
  const txn = await context.redis.watch("quantity");
 
  await txn.multi();  // Begin a transaction
- await txn.incrBy("karma", 10);
+ await txn.incrby("karma", 10);
  await txn.exec();   // Execute the commands in the transaction
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.multi`
 
 ***
 
@@ -1215,7 +1215,7 @@ https://redis.io/commands/set/
 
 ##### options?
 
-[`SetOptions`](SetOptions.md)
+[`SetOptions`](../type-aliases/SetOptions.md)
 
 #### Returns
 
@@ -1240,6 +1240,10 @@ async function setExample(context: Devvit.Context) {
  await context.redis.set("quantity", "5");
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.set`
 
 ***
 
@@ -1281,14 +1285,22 @@ key
 
 offset
 
+#### Arg
+
+value
+
 #### Example
 
 ```ts
 async function setRangeExample(context: Devvit.Context) {
  await context.redis.set("word", "tacocat");
- await context.redis.setRange("word", 0, "blue");
+ await context.redis.setrange("word", 0, "blue");
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.setRange`
 
 ***
 
@@ -1297,10 +1309,6 @@ async function setRangeExample(context: Devvit.Context) {
 ### ~~strlen()~~
 
 > **strlen**(`key`): `Promise`\<`TxClientLike`\>
-
-Returns the length of the string value stored at key.
-An error is returned when key holds a non-string value.
-https://redis.io/commands/strlen/
 
 #### Parameters
 
@@ -1312,15 +1320,9 @@ https://redis.io/commands/strlen/
 
 `Promise`\<`TxClientLike`\>
 
-length of the string stored at key
-
 #### Deprecated
 
 Use [TxClientLike.strLen](#strlen-2) instead.
-
-#### Arg
-
-key
 
 ***
 
@@ -1355,10 +1357,14 @@ key
 ```ts
 async function strLenExample(context: Devvit.Context) {
  await context.redis.set("word", "tacocat");
- const length : number = await context.redis.strLen("word");
+ const length : number = await context.redis.strlen("word");
  console.log("Length of word: " + length);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.strLen`
 
 ***
 
@@ -1397,6 +1403,10 @@ async function typeExample(context: Devvit.Context) {
 }
 ```
 
+#### Inherited from
+
+`TxClientLikeBase.type`
+
 ***
 
 <a id="unwatch"></a>
@@ -1422,18 +1432,22 @@ async function unwatchExample(context: Devvit.Context) {
  const txn = await context.redis.watch("gold");
 
  await txn.multi();     // Begin a transaction
- await txn.incrBy("gold", 30);
+ await txn.incrby("gold", 30);
  await txn.unwatch();   // Unwatch "gold"
 
  // Now that "gold" has been unwatched, we can increment its value
  // outside the transaction without canceling the transaction
- await context.redis.incrBy("gold", -20);
+ await context.redis.incrby("gold", -20);
 
  await txn.exec();   // Execute the commands in the transaction
 
  console.log("Gold value: " + await context.redis.get("gold")); // The value of 'gold' should be 50 + 30 - 20 = 60
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.unwatch`
 
 ***
 
@@ -1469,10 +1483,14 @@ async function watchExample(context: Devvit.Context) {
  const txn = await context.redis.watch("quantity");
 
  await txn.multi();  // Begin a transaction
- await txn.incrBy("karma", 10);
+ await txn.incrby("karma", 10);
  await txn.exec();   // Execute the commands in the transaction
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.watch`
 
 ***
 
@@ -1493,7 +1511,7 @@ https://redis.io/commands/zadd/
 
 ##### members
 
-...[`ZMember`](ZMember.md)[]
+...[`ZMember`](../type-aliases/ZMember.md)[]
 
 #### Returns
 
@@ -1505,11 +1523,15 @@ number of elements added to the sorted set
 
 key
 
+#### Arg
+
+members
+
 #### Example
 
 ```ts
 async function zAddExample(context: Devvit.Context) {
- const numMembersAdded : number = await context.redis.zAdd("leaderboard",
+ const numMembersAdded : number = await context.redis.zadd("leaderboard",
    {member: "louis", score: 37},
    {member: "fernando", score: 10},
    {member: "caesar", score: 20},
@@ -1518,6 +1540,10 @@ async function zAddExample(context: Devvit.Context) {
  console.log("Number of members added: " + numMembersAdded);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zAdd`
 
 ***
 
@@ -1550,16 +1576,20 @@ key
 
 ```ts
 async function zCardExample(context: Devvit.Context) {
- await context.redis.zAdd("leaderboard",
+ await context.redis.zadd("leaderboard",
    {member: "louis", score: 37},
    {member: "fernando", score: 10},
    {member: "caesar", score: 20},
    {member: "alexander", score: 25},
  );
- const cardinality : number = await context.redis.zCard("leaderboard");
+ const cardinality : number = await context.redis.zcard("leaderboard");
  console.log("Cardinality: " + cardinality);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zCard`
 
 ***
 
@@ -1608,16 +1638,20 @@ value
 
 ```ts
 async function zIncrByExample(context: Devvit.Context) {
- await context.redis.zAdd("animals",
+ await context.redis.zadd("animals",
    {member: "zebra", score: 92},
    {member: "cat", score: 100},
    {member: "dog", score: 95},
    {member: "elephant", score: 97}
  );
- const updatedScore : number = await context.redis.zIncrBy("animals", "dog", 10);
+ const updatedScore : number = await context.redis.zincrby("animals", "dog", 10);
  console.log("Dog's updated score: " + updatedScore);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zIncrBy`
 
 ***
 
@@ -1648,7 +1682,7 @@ When using `by: 'lex'`, the start and stop inputs will be prepended with `[` by 
 
 ##### options?
 
-[`ZRangeOptions`](ZRangeOptions.md)
+[`ZRangeOptions`](../type-aliases/ZRangeOptions.md)
 
 #### Returns
 
@@ -1676,7 +1710,7 @@ options
 
 ```ts
 async function zRangeExample(context: Devvit.Context) {
- await context.redis.zAdd("leaderboard",
+ await context.redis.zadd("leaderboard",
    {member: "louis", score: 37},
    {member: "fernando", score: 10},
    {member: "caesar", score: 20},
@@ -1684,13 +1718,17 @@ async function zRangeExample(context: Devvit.Context) {
  );
 
  // View elements with scores between 0 and 30 inclusive, sorted by score
- const scores : {member : string, score : number}[] = await context.redis.zRange("leaderboard", 0, 30, { by: "score" });
+ const scores : {member : string, score : number}[] = await context.redis.zrange("leaderboard", 0, 30, { by: "score" });
 
  scores.forEach(x => {
    console.log("Member: " + x.member, ", Score: " + x.score);
  });
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zRange`
 
 ***
 
@@ -1732,16 +1770,20 @@ member
 
 ```ts
 async function zRankExample(context: Devvit.Context) {
- await context.redis.zAdd("animals",
+ await context.redis.zadd("animals",
    {member: "zebra", score: 92},
    {member: "cat", score: 100},
    {member: "dog", score: 95},
    {member: "elephant", score: 97}
  );
- const rank : number = await context.redis.zRank("animals", "dog");
+ const rank : number = await context.redis.zrank("animals", "dog");
  console.log("Dog's rank: " + rank);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zRank`
 
 ***
 
@@ -1782,16 +1824,20 @@ members
 
 ```ts
 async function zRemExample(context: Devvit.Context) {
- await context.redis.zAdd("leaderboard",
+ await context.redis.zadd("leaderboard",
    {member: "louis", score: 37},
    {member: "fernando", score: 10},
    {member: "caesar", score: 20},
    {member: "alexander", score: 25},
  );
- const numberOfMembersRemoved : number = await context.redis.zRem("leaderboard", ["fernando", "alexander"]);
+ const numberOfMembersRemoved : number = await context.redis.zrem("leaderboard", ["fernando", "alexander"]);
  console.log("Number of members removed: " + numberOfMembersRemoved);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zRem`
 
 ***
 
@@ -1841,7 +1887,7 @@ max
 
 ```ts
 async function zRemRangeByLexExample(context: Devvit.Context) {
- await context.redis.zAdd("fruits",
+ await context.redis.zadd("fruits",
    {member: "kiwi", score: 0},
    {member: "mango", score: 0},
    {member: "banana", score: 0},
@@ -1850,11 +1896,15 @@ async function zRemRangeByLexExample(context: Devvit.Context) {
  );
 
  // Remove fruits alphabetically ordered between 'kiwi' inclusive and 'orange' exclusive
- // Note: The symbols '[' and '(' indicate inclusive or exclusive, respectively. These must be included in the call to zRemRangeByLex().
- const numFieldsRemoved : number = await context.redis.zRemRangeByLex("fruits", "[kiwi", "(orange");
+ // Note: The symbols '[' and '(' indicate inclusive or exclusive, respectively. These must be included in the call to zremrangebylex().
+ const numFieldsRemoved : number = await context.redis.zremrangebylex("fruits", "[kiwi", "(orange");
  console.log("Number of fields removed: " + numFieldsRemoved);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zRemRangeByLex`
 
 ***
 
@@ -1903,19 +1953,23 @@ stop
 
 ```
 async function zRemRangeByRankExample(context: Devvit.Context) {
- await context.redis.zAdd("fruits", 
+ await context.redis.zadd("fruits",
    {member: "kiwi", score: 10},
    {member: "mango", score: 20},
-   {member: "banana", score: 30}, 
+   {member: "banana", score: 30},
    {member: "orange", score: 40},
    {member: "apple", score: 50},
  );
 
  // Remove fruits ranked 1 through 3 inclusive
- const numFieldsRemoved : number = await context.redis.zRemRangeByRank("fruits", 1, 3);
+ const numFieldsRemoved : number = await context.redis.zremrangebyrank("fruits", 1, 3);
  console.log("Number of fields removed: " + numFieldsRemoved);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zRemRangeByRank`
 
 ***
 
@@ -1964,7 +2018,7 @@ max
 
 ```ts
 async function zRemRangeByScoreExample(context: Devvit.Context) {
- await context.redis.zAdd("fruits",
+ await context.redis.zadd("fruits",
    {member: "kiwi", score: 10},
    {member: "mango", score: 20},
    {member: "banana", score: 30},
@@ -1972,10 +2026,14 @@ async function zRemRangeByScoreExample(context: Devvit.Context) {
    {member: "apple", score: 50},
  );
  // Remove fruits scored between 30 and 50 inclusive
- const numFieldsRemoved : number = await context.redis.zRemRangeByScore("fruits", 30, 50);
+ const numFieldsRemoved : number = await context.redis.zremrangebyscore("fruits", 30, 50);
  console.log("Number of fields removed: " + numFieldsRemoved);
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zRemRangeByScore`
 
 ***
 
@@ -2029,17 +2087,21 @@ count
 
 ```ts
 async function zScanExample(context: Devvit.Context) {
- await context.redis.zAdd("fruits",
+ await context.redis.zadd("fruits",
    {member: "kiwi", score: 0},
    {member: "mango", score: 0},
    {member: "banana", score: 0},
    {member: "orange", score: 0},
    {member: "apple", score: 0},
  );
- const zScanResponse = await context.redis.zScan("fruits", 0);
+ const zScanResponse = await context.redis.zscan("fruits", 0);
  console.log("zScanResponse: " + JSON.stringify(zScanResponse));
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zScan`
 
 ***
 
@@ -2080,15 +2142,19 @@ member
 
 ```ts
 async function zScoreExample(context: Devvit.Context) {
- await context.redis.zAdd("leaderboard",
+ await context.redis.zadd("leaderboard",
    {member: "louis", score: 37},
    {member: "fernando", score: 10},
    {member: "caesar", score: 20},
    {member: "alexander", score: 25},
  );
- const score : number | undefined = await context.redis.zScore("leaderboard", "caesar");
+ const score : number | undefined = await context.redis.zscore("leaderboard", "caesar");
  if(score !== undefined) {
    console.log("Caesar's score: " + score);
  }
 }
 ```
+
+#### Inherited from
+
+`TxClientLikeBase.zScore`

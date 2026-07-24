@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.9-dev**](../../../../README.md)
+[**@devvit/public-api v0.13.10-dev**](../../../../README.md)
 
 ***
 
@@ -610,7 +610,7 @@ rename to text?
 
 ##### input
 
-`Uint8Array`\<`ArrayBufferLike`\> | `Reader`
+`Reader` | `Uint8Array`\<`ArrayBufferLike`\>
 
 ##### length?
 
