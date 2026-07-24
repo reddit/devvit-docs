@@ -9,6 +9,26 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.13.10: Push Notifications Analytics (Experimental)
+**Release Date: July 27, 2026**
+
+You can now track push notification delivery and engagement from the App Analytics tab.  New analytics include:
+
+- [Push notification performance](./docs/capabilities/analytics/pn-analytics#push-notification-performance): View daily receives, clicks, and click-through rate across Summary, iOS, Android, and Web.
+- [Daily CTR by notification body](./docs/capabilities/analytics/pn-analytics#daily-ctr-by-notification-body): Compare the click-through rate of individual notification messages over time and identify which content performs best.
+- [CSV export](./docs/capabilities/analytics/pn-analytics#download-performance-data): Download performance data for further analysis and reporting.
+
+Note that push notifications are still an experimental feature, which means that you’ll need to apply to unlock the ability to use push notifications and track analytics for your app. [Learn how to apply](./docs/capabilities/notifications/notifications-overview#how-to-apply).
+
+**Settings Groups**  
+
+You can now organize global and subreddit settings into labeled groups in `devvit.json`. Groups make it easier to structure related settings and improve navigation for apps with more complex configuration.
+
+**Mod Reports API Update**  
+
+The `modReportReasons` field on Post and Comment has been deprecated in favor of `modReports`, which includes both the report reason and the report author for more complete moderation data.
+
+
 ## Release 0.13.9: Faster Devvit CLI Uploads
 **Release Date: July 20, 2026**
 
