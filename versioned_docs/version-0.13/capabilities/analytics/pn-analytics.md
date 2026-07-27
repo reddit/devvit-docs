@@ -15,7 +15,7 @@ Note: Push notifications are currently a **gated beta** feature. which means tha
 
 The push notification performance table shows daily delivery and engagement metrics for notifications sent by your app.
 
-![Performance table](../../assets/analytics/pn-performance.png)
+![Performance table](../../assets/analytics/PN-performance.png)
 
 Each row represents one day and includes the following metrics:
 
@@ -38,7 +38,7 @@ For example, if users received 24,000 notifications and clicked 636 of them, the
 
 Select **Details** for a date to view click-through rates grouped by message body. This helps you determine which messages contributed to that day’s performance.
 
-![Message body details](../../assets/analytics/pn-message-body.png)
+![Message body details](../../assets/analytics/PN-message-body.png)
 
 ### Download performance data
 
@@ -57,7 +57,7 @@ Each colored line represents a distinct notification body:
 * Each point shows the CTR for a notification body on a particular date.  
 * The legend identifies the notification body represented by each line.
 
-![CTA](../../assets/analytics/pn-daily-CTA.png)
+![CTA](../../assets/analytics/PN-daily-CTA.png)
 
 ### Analyze notification body performance
 
