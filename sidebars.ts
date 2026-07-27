@@ -160,7 +160,8 @@ const sidebars: SidebarsConfig = {
       items: [
         "capabilities/analytics/devvit-journeys",
         "capabilities/analytics/journeys-dashboard",
-        "capabilities/analytics/journeys-receipts"
+        "capabilities/analytics/journeys-receipts",
+        "capabilities/analytics/pn-analytics"
        ],
     },
     {

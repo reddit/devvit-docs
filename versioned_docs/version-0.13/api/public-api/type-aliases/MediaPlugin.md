@@ -1,41 +1,7 @@
-[**@devvit/public-api v0.13.9-dev**](../README.md)
+[**@devvit/public-api v0.13.10-dev**](../README.md)
 
 ***
 
 # Type Alias: MediaPlugin
 
-> **MediaPlugin** = `object`
-
-## Methods
-
-<a id="upload"></a>
-
-### upload()
-
-> **upload**(`opts`): `Promise`\<[`MediaAsset`](MediaAsset.md)\>
-
-Uploads media from external URL to Reddit
-
-#### Parameters
-
-##### opts
-
-[`UploadMediaOptions`](UploadMediaOptions.md)
-
-#### Returns
-
-`Promise`\<[`MediaAsset`](MediaAsset.md)\>
-
-A Promise that resolves to a MediaAsset object.
-
-#### Example
-
-```ts
- const response = await context.media.upload({
-   url: "https://media2.giphy.com/media/xTiN0CNHgoRf1Ha7CM/giphy.gif",
-   type: "gif"
- });
- res.json({
-   imageUrl: response.mediaUrl // This reddit hosted URL can be displayed by your client
- });
-```
+> **MediaPlugin** = `MediaClient`
