@@ -1,65 +1,109 @@
-import PlaygroundTile from '@site/src/components/PlaygroundTile';
-import PlaygroundTileMasonryGrid from '@site/src/components/PlaygroundTileMasonryGrid';
+import { ShowcaseAppList, ShowcaseAppListItem } from '@site/src/components/ShowcaseAppList';
 
+import AlignmentChartsImage from '@site/docs/assets/showcase/app-gallery/alignmentcharts.webp';
+import BunnyTrialsImage from '@site/docs/assets/showcase/app-gallery/bunnytrials.webp';
 import BotBouncerImage from '@site/docs/assets/showcase/app-gallery/bot-bouncer.png';
+import BubbleShooterProImage from '@site/docs/assets/showcase/app-gallery/bubbleshooterpro.webp';
 import CommunityHomeImage from '@site/docs/assets/showcase/app-gallery/community-home.png';
-import HonkImage from '@site/docs/assets/showcase/app-gallery/honk.png';
-import HightierImage from '@site/docs/assets/showcase/app-gallery/hightier.png';
-import PixelaryImage from '@site/docs/assets/showcase/app-gallery/pixelary.png';
-import RiddonkulousImage from '@site/docs/assets/showcase/app-gallery/riddonkulous.png';
-import SwordAndSupperImage from '@site/docs/assets/showcase/app-gallery/sword-and-supper.png';
-import WhatTheImage from '@site/docs/assets/showcase/app-gallery/what-the.png';
+import LeftForLootImage from '@site/docs/assets/showcase/app-gallery/leftforloot.webp';
+import LettersetImage from '@site/docs/assets/showcase/app-gallery/letterset.webp';
+import PathOfBaaImage from '@site/docs/assets/showcase/app-gallery/pathofbaa.webp';
+import PieceOfCakeImage from '@site/docs/assets/showcase/app-gallery/pieceofcake.webp';
+import RiddonkulousImage from '@site/docs/assets/showcase/app-gallery/riddonkulous.webp';
+import SlingbladeImage from '@site/docs/assets/showcase/app-gallery/slingblade.webp';
+import SwordAndSupperImage from '@site/docs/assets/showcase/app-gallery/swordandsupper.webp';
 
 # App Showcase
 
-<PlaygroundTileMasonryGrid>
-    <PlaygroundTile
-        name="Pixelary"
-        author="u/Oppdager"
-        image={PixelaryImage}
-        link="https://reddit.com/r/Pixelary"
+## Reddit-y experiences
+
+Simple, Reddity experiences that invite people to jump in from the post.
+
+<ShowcaseAppList>
+    <ShowcaseAppListItem
+        name="Alignment Charts"
+        author="u/Xenuoziem"
+        image={AlignmentChartsImage}
+        link="https://www.reddit.com/r/AlignmentCharts/"
     />
-    <PlaygroundTile
-        name="What The?!"
-        author="Lil Snack Studios"
-        image={WhatTheImage}
-        link="https://reddit.com/r/WhatTheGame"
+    <ShowcaseAppListItem
+        name="Bunny Trials"
+        author="u/Mean-Lavishness-1648"
+        image={BunnyTrialsImage}
+        link="https://www.reddit.com/r/BunnyTrials/"
     />
-    <PlaygroundTile
-        name="Community Home"
-        author="u/xenc"
-        image={CommunityHomeImage}
-        link="https://developers.reddit.com/apps/community-home"
+</ShowcaseAppList>
+
+## Games
+
+Games that show how much can happen inside a Reddit-native experience.
+
+<ShowcaseAppList>
+    <ShowcaseAppListItem
+        name="LETTERSET"
+        author="u/JeffBritches"
+        image={LettersetImage}
+        link="https://www.reddit.com/r/LETTERSET/"
     />
-    <PlaygroundTile
-        name="Honk"
-        author="u/thejohnnyr"
-        image={HonkImage}
-        link="https://reddit.com/r/honk"
-    />    
-    <PlaygroundTile
+    <ShowcaseAppListItem
+        name="BubbleShooterPro"
+        author="Softgames"
+        image={BubbleShooterProImage}
+        link="https://www.reddit.com/r/BubbleShooterPro/"
+    />
+    <ShowcaseAppListItem
+        name="Slingblade"
+        author="Fermenter Games"
+        image={SlingbladeImage}
+        link="https://www.reddit.com/r/SlingbladeGame/"
+    />
+    <ShowcaseAppListItem
+        name="PieceOfCake"
+        author="u/HG_Rusty"
+        image={PieceOfCakeImage}
+        link="https://www.reddit.com/r/PieceOfCakeGame/"
+    />
+    <ShowcaseAppListItem
         name="Riddonkulous"
         author="u/hammertimestudios"
         image={RiddonkulousImage}
         link="https://reddit.com/r/Riddonkulous"
     />
-    <PlaygroundTile
-        name="Bot Bouncer"
-        author="u/fsv"
-        image={BotBouncerImage}
-        link="https://developers.reddit.com/apps/bot-bouncer"
-    />     
-    <PlaygroundTile
+    <ShowcaseAppListItem
         name="Sword and Supper"
         author="Cabbage Studios"
         image={SwordAndSupperImage}
         link="https://reddit.com/r/SwordAndSupperGame"
-    />  
-    <PlaygroundTile
-        name="Hightier"
-        author="u/mutualdisagreement"
-        image={HightierImage}
-        link="https://reddit.com/r/Hightier"
     />
-    
-</PlaygroundTileMasonryGrid>
+    <ShowcaseAppListItem
+        name="PathOfBaa"
+        author="u/hammertimestudios"
+        image={PathOfBaaImage}
+        link="https://www.reddit.com/r/PathOfBaa/"
+    />
+    <ShowcaseAppListItem
+        name="LeftForLoot"
+        author="u/OneGuyMakingGames"
+        image={LeftForLootImage}
+        link="https://www.reddit.com/r/LeftForLoot/"
+    />
+</ShowcaseAppList>
+
+## Community tools
+
+Useful apps that help moderators and communities run better spaces.
+
+<ShowcaseAppList>
+    <ShowcaseAppListItem
+        name="Community Home"
+        author="u/xenc"
+        image={CommunityHomeImage}
+        link="https://developers.reddit.com/apps/community-home"
+    />
+    <ShowcaseAppListItem
+        name="Bot Bouncer"
+        author="u/fsv"
+        image={BotBouncerImage}
+        link="https://developers.reddit.com/apps/bot-bouncer"
+    />
+</ShowcaseAppList>
