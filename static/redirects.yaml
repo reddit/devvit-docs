@@ -10,8 +10,8 @@
 /docs/next/devvit_rules: /docs/devvit_rules
 /docs/next/devvit_rules.md: /docs/devvit_rules
 /docs/0.12/api/public-api/@devvit/namespaces/EventTypes/variables/CommentReport: /docs/next/api/public-api/@devvit/namespaces/EventTypes/variables/CommentReport
-/docs/0.12/api/redditapi/RedditAPIClient/classes/RedditAPIClient: /docs/api/redditapi/RedditAPIClient/classes/RedditAPIClient
-/docs/0.12/api/redditapi/RedditAPIClient/type-aliases/MuteUserOptions: /docs/next/api/redditapi/RedditAPIClient/type-aliases/MuteUserOptions
+/docs/0.12/api/redditapi/RedditAPIClient/classes/RedditAPIClient: /docs/api/redditapi/RedditClient/classes/RedditClient
+/docs/0.12/api/redditapi/RedditAPIClient/type-aliases/MuteUserOptions: /docs/next/api/redditapi/RedditClient/type-aliases/MuteUserOptions
 /docs/capabilities/realtime: /docs/capabilities/realtime/overview
 /docs/next/about_devvit: /docs
 /docs/capabilities/image-uploads: /docs/capabilities/server/media-uploads
@@ -184,7 +184,7 @@
 /docs/experimental/api/redditapi/models/classes/ModNote: /docs/next/api/redditapi/models/classes/ModNote
 /docs/experimental/api/public-api/type-aliases/PartialJSONValue: /docs/api/public-api/type-aliases/PartialJSONValue
 /docs/experimental/api/public-api/type-aliases/ScheduledCronJobOptions: /docs/next/api/public-api/type-aliases/ScheduledCronJobOptions
-/docs/experimental/api/redditapi/RedditAPIClient/classes/RedditAPIClient: /docs/api/redditapi/RedditAPIClient/classes/RedditAPIClient
+/docs/experimental/api/redditapi/RedditAPIClient/classes/RedditAPIClient: /docs/api/redditapi/RedditClient/classes/RedditClient
 /docs/experimental/api/redditapi/models/functions/getVaultByAddress: /docs/api/redditapi/models/functions/getVaultByAddress
 /docs/experimental/api/public-api/type-aliases/PostCreate: /docs/api/public-api/type-aliases/PostCreate
 /docs/experimental/api/redditapi/models/type-aliases/AboutSubredditTypes: /docs/api/redditapi/models/type-aliases/AboutSubredditTypes
@@ -272,7 +272,7 @@
 /docs/experimental/api/public-api/type-aliases/StateSetter: /docs/api/public-api/type-aliases/StateSetter
 /docs/experimental/api/redditapi/models/type-aliases/Visibility: /docs/api/redditapi/models/type-aliases/Visibility
 /docs/experimental/api/redditapi/models/classes/User: /docs/next/api/redditapi/models/classes/User
-/docs/experimental/api/redditapi/RedditAPIClient/: /docs/next/api/redditapi/RedditAPIClient/
+/docs/experimental/api/redditapi/RedditAPIClient/: /docs/next/api/redditapi/RedditClient/
 /docs/experimental/api/public-api/type-aliases/PostFlairUpdateDefinition: /docs/api/public-api/type-aliases/PostFlairUpdateDefinition
 /docs/experimental/api/redditapi/models/type-aliases/BanUserOptions: /docs/next/api/redditapi/models/type-aliases/BanUserOptions
 /docs/experimental/api/public-api/type-aliases/CustomPostType: /docs/api/public-api/type-aliases/CustomPostType
@@ -354,7 +354,7 @@
 /docs/0.12/api/redditapi/models/classes/TextAreaWidget: /docs/next/api/redditapi/models/classes/TextAreaWidget
 /docs/0.12/api/public-api/@devvit/namespaces/EventTypes/variables/PostSubmit: /docs/next/api/public-api/@devvit/namespaces/EventTypes/variables/PostSubmit
 /docs/api/redditapi/interfaces/NewModmail: /docs/api/redditapi/models/classes/ModMailService
-/docs/0.12/api/redditapi/RedditAPIClient/type-aliases/InviteModeratorOptions: /docs/next/api/redditapi/RedditAPIClient/type-aliases/InviteModeratorOptions
+/docs/0.12/api/redditapi/RedditAPIClient/type-aliases/InviteModeratorOptions: /docs/next/api/redditapi/RedditClient/type-aliases/InviteModeratorOptions
 /docs/api/redditapi/interfaces/GetCommentsByUserOptions: /docs/next/api/redditapi/models/type-aliases/GetCommentsByUserOptions
 /docs/api/public-api/interfaces/EventTypes.AutomoderatorFilterPost: /docs/api/public-api/@devvit/namespaces/EventTypes/interfaces/AutomoderatorFilterPost
 /docs/api/redditapi/interfaces/CreateFlairTemplateOptions: /docs/api/redditapi/models/type-aliases/CreateFlairTemplateOptions
@@ -398,7 +398,7 @@
 /docs/0.12/api/public-api/@devvit/namespaces/EventTypes/interfaces/PostApprove: /docs/next/api/public-api/@devvit/namespaces/EventTypes/interfaces/PostApprove
 /docs/0.9/api/redditapi/classes/CustomWidget: /docs/api/redditapi/models/classes/CustomWidget
 /docs/0.12/api/redditapi/models/type-aliases/ModActionType: /docs/next/api/redditapi/models/type-aliases/ModActionType
-/docs/api/redditapi/modules/RedditAPIClient: /docs/next/api/redditapi/RedditAPIClient/
+/docs/api/redditapi/modules/RedditAPIClient: /docs/next/api/redditapi/RedditClient/
 /docs/api/redditapi/interfaces/SetPostFlairOptions: /docs/api/redditapi/models/type-aliases/SetPostFlairOptions
 /docs/0.12/api/public-api/type-aliases/ScheduledJobEvent: /docs/next/api/public-api/type-aliases/ScheduledJobEvent
 /docs/api/redditapi/interfaces/SubredditSettings: /docs/next/api/redditapi/models/type-aliases/SubredditSettings
@@ -423,7 +423,8 @@
 /docs/api/redditapi/classes/models.PostFlairWidget: /docs/next/api/redditapi/models/classes/PostFlairWidget
 /docs/api/redditapi/classes/models.Comment: /docs/next/api/redditapi/models/classes/Comment
 /docs/api/redditapi/classes/models.SubredditDescription: /docs/next/api/redditapi/models/classes/SubredditDescription
-/docs/api/redditapi/classes/RedditAPIClient: /docs/api/redditapi/RedditAPIClient/classes/RedditAPIClient
+/docs/api/redditapi/classes/RedditAPIClient: /docs/api/redditapi/RedditClient/classes/RedditClient
+/docs/api/redditapi/RedditAPIClient/classes/RedditAPIClient: /docs/api/redditapi/RedditClient/classes/RedditClient
 /docs/api/redditapi/interfaces/GetConversationRequest: /docs/next/api/redditapi/models/type-aliases/GetConversationsRequest
 /docs/0.12/publishing: /docs/guides/launch/launch-guide
 /docs/api/redditapi/classes/WikiPageSettings: /docs/next/api/redditapi/models/classes/WikiPageSettings

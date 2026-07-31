@@ -68,7 +68,7 @@ export default app;
 
 | PRAW                                                                     | Devvit                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `reddit.subreddit(...)`, `reddit.comment(...)`, `reddit.submission(...)` | Import **`reddit`** from `@devvit/web/server`. Load: [`getSubredditInfoByName`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getsubredditinfobyname), [`getCurrentSubreddit`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getcurrentsubreddit), [`getCommentById`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getcommentbyid), [`getPostById`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#getpostbyid). Submit: [`submitPost`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost), [`submitComment`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment). See [`RedditAPIClient`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md). |
+| `reddit.subreddit(...)`, `reddit.comment(...)`, `reddit.submission(...)` | Import **`reddit`** from `@devvit/web/server`. Load: [`getSubredditInfoByName`](../../../api/redditapi/RedditClient/classes/RedditClient.md#getsubredditinfobyname), [`getCurrentSubreddit`](../../../api/redditapi/RedditClient/classes/RedditClient.md#getcurrentsubreddit), [`getCommentById`](../../../api/redditapi/RedditClient/classes/RedditClient.md#getcommentbyid), [`getPostById`](../../../api/redditapi/RedditClient/classes/RedditClient.md#getpostbyid). Submit: [`submitPost`](../../../api/redditapi/RedditClient/classes/RedditClient.md#submitpost), [`submitComment`](../../../api/redditapi/RedditClient/classes/RedditClient.md#submitcomment). See [`RedditClient`](../../../api/redditapi/RedditClient/classes/RedditClient.md). |
 | Hard-coded subreddit / “current” thing from your script                  | **`context`** from `@devvit/web/server` — [`subredditName`](../../../api/public-api/type-aliases/BaseContext.md#subredditname), [`subredditId`](../../../api/public-api/type-aliases/BaseContext.md#subredditid), [`postId`](../../../api/public-api/type-aliases/BaseContext.md#postid), [`commentId`](../../../api/public-api/type-aliases/BaseContext.md#commentid) (menu/form/post surfaces), [`postData`](../../../api/public-api/type-aliases/BaseContext.md#postdata). See [`BaseContext`](../../../api/public-api/type-aliases/BaseContext.md).                                                                                                                                                                                                                                             |
 | Thing id from a menu or form action                                      | [`context.commentId`](../../../api/public-api/type-aliases/BaseContext.md#commentid), [`context.postId`](../../../api/public-api/type-aliases/BaseContext.md#postid) — [mod tool quickstart](../../../quickstart/quickstart-mod-tool.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Subreddit secrets / config in your script                                | Import [`settings`](../../../capabilities/server/settings-and-secrets.mdx) from `@devvit/web/server` (`settings.get(...)`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -242,7 +242,7 @@ reddit.subreddit("learnpython").submit(
 )
 ```
 
-**Devvit** — [`submitPost`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitpost) / [
+**Devvit** — [`submitPost`](../../../api/redditapi/RedditClient/classes/RedditClient.md#submitpost) / [
 `submitCustomPost`](../../../capabilities/server/reddit-api.mdx); prefer `context.subredditName` over hard-coding the sub
 name.
 
@@ -282,8 +282,8 @@ comment_reply.distinguish(True)  # to pin comment
 ```
 
 **Devvit** — either pattern works: pass the fullname to [
-`reddit.*`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) (e.g. [
-`submitComment`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#submitcomment)), or fetch a [
+`reddit.*`](../../../api/redditapi/RedditClient/classes/RedditClient.md) (e.g. [
+`submitComment`](../../../api/redditapi/RedditClient/classes/RedditClient.md#submitcomment)), or fetch a [
 `Comment`](../../../api/redditapi/models/classes/Comment.md) / [`Post`](../../../api/redditapi/models/classes/Post.md) and
 call methods on it (like PRAW). **Fetching first adds an extra API round trip** — prefer the id-only `reddit.*` path
 when you only need a single action; fetch when you will chain several methods on the same thing.
@@ -349,9 +349,9 @@ comment.mod.approve()
 ```
 
 **Devvit** — same choice as comments: prefer [
-`reddit.*`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) with fullnames when that covers the
-action ([`remove`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#remove), [
-`approve`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md#approve), …). Fetch [
+`reddit.*`](../../../api/redditapi/RedditClient/classes/RedditClient.md) with fullnames when that covers the
+action ([`remove`](../../../api/redditapi/RedditClient/classes/RedditClient.md#remove), [
+`approve`](../../../api/redditapi/RedditClient/classes/RedditClient.md#approve), …). Fetch [
 `Post`](../../../api/redditapi/models/classes/Post.md) / [`Comment`](../../../api/redditapi/models/classes/Comment.md) when
 you need object-only methods (e.g. [`lock`](../../../api/redditapi/models/classes/Post.md#lock)) or several calls on the
 same thing — each `getPostById` / `getCommentById` is an extra round trip.
@@ -379,7 +379,7 @@ await comment.remove(false);
 await comment.approve();
 ```
 
-More: [`RedditAPIClient`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md), [
+More: [`RedditClient`](../../../api/redditapi/RedditClient/classes/RedditClient.md), [
 `ModMailService`](../../../api/redditapi/models/classes/ModMailService.md). Mod tools often set `permissions.reddit.scope`
 to `"moderator"` — [permissions](../../../capabilities/devvit-web/devvit_web_configuration.md#permissions-configuration).
 
@@ -408,7 +408,7 @@ hosting and installation scope, not relearning Reddit’s content model.
 - [App quickstart](../../../quickstart/quickstart.md) · [Mod tool quickstart](../../../quickstart/quickstart-mod-tool.md)
 - [Triggers](../../../capabilities/server/triggers.mdx) · [Scheduler](../../../capabilities/server/scheduler.mdx) · [Redis](../../../capabilities/server/redis.mdx) · [HTTP fetch](../../../capabilities/server/http-fetch.mdx)
 - [Reddit API overview](../../../capabilities/server/reddit-api.mdx) · [
-  `RedditAPIClient`](../../../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md) · [User actions](../../../capabilities/server/userActions.mdx)
+  `RedditClient`](../../../api/redditapi/RedditClient/classes/RedditClient.md) · [User actions](../../../capabilities/server/userActions.mdx)
 
 **PRAW**
 
