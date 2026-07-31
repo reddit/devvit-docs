@@ -9,6 +9,11 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.13.11: Behind-the-Scenes Improvements
+**Release Date: August 3, 2026***
+
+This release delivers a few behind-the-scenes improvements to make app development smoother and more reliable.
+
 ## Release 0.13.10: Push Notifications Analytics (Experimental)
 **Release Date: July 27, 2026**
 
