@@ -1,20 +1,16 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Function: getVaultByAddress()
 
-> **getVaultByAddress**(`address`, `metadata`): `Promise`\<[`Vault`](../type-aliases/Vault.md)\>
+> **getVaultByAddress**(`address`): `Promise`\<[`Vault`](../type-aliases/Vault.md)\>
 
 ## Parameters
 
 ### address
 
 `string`
-
-### metadata
-
-`undefined` | `Metadata`
 
 ## Returns
 

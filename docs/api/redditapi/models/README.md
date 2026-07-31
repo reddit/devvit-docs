@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../README.md)
+[**@devvit/reddit v0.13.12-dev**](../README.md)
 
 ***
 
@@ -81,6 +81,8 @@
 - [CrosspostOptions](type-aliases/CrosspostOptions.md)
 - [CrowdControlLevel](type-aliases/CrowdControlLevel.md)
 - [CustomizationFlag](type-aliases/CustomizationFlag.md)
+- [CustomPostRichTextFallback](type-aliases/CustomPostRichTextFallback.md)
+- [CustomPostTextFallbackOptions](type-aliases/CustomPostTextFallbackOptions.md)
 - [DeleteNotesOptions](type-aliases/DeleteNotesOptions.md)
 - [EditCommentOptions](type-aliases/EditCommentOptions.md)
 - [EditFlairTemplateOptions](type-aliases/EditFlairTemplateOptions.md)
@@ -107,6 +109,7 @@
 - [GetPrivateMessagesOptions](type-aliases/GetPrivateMessagesOptions.md)
 - [GetSortedPostsOptions](type-aliases/GetSortedPostsOptions.md)
 - [GetSubredditUsersByTypeOptions](type-aliases/GetSubredditUsersByTypeOptions.md)
+- [GetSubscribedSubredditsForCurrentUserOptions](type-aliases/GetSubscribedSubredditsForCurrentUserOptions.md)
 - [GetUserFlairBySubredditOptions](type-aliases/GetUserFlairBySubredditOptions.md)
 - [GetUserFlairBySubredditResponse](type-aliases/GetUserFlairBySubredditResponse.md)
 - [GetUserFlairOptions](type-aliases/GetUserFlairOptions.md)
@@ -126,7 +129,7 @@
 - [ModLogOptions](type-aliases/ModLogOptions.md)
 - [ModNoteType](type-aliases/ModNoteType.md)
 - [MoreObject](type-aliases/MoreObject.md)
-- [OEmbed](type-aliases/OEmbed.md)
+- [Oembed](type-aliases/Oembed.md)
 - [Participant](type-aliases/Participant.md)
 - [PollData](type-aliases/PollData.md)
 - [PollOption](type-aliases/PollOption.md)
@@ -147,6 +150,7 @@
 - [SetPostFlairOptions](type-aliases/SetPostFlairOptions.md)
 - [SetUserFlairBatchConfig](type-aliases/SetUserFlairBatchConfig.md)
 - [SetUserFlairOptions](type-aliases/SetUserFlairOptions.md)
+- [SubmitCustomPostOptions](type-aliases/SubmitCustomPostOptions.md)
 - [SubmitLinkOptions](type-aliases/SubmitLinkOptions.md)
 - [SubmitMediaOptions](type-aliases/SubmitMediaOptions.md)
 - [SubmitPostOptions](type-aliases/SubmitPostOptions.md)
@@ -156,6 +160,7 @@
 - [SubredditLeaderboard](type-aliases/SubredditLeaderboard.md)
 - [SubredditLeaderboardSummary](type-aliases/SubredditLeaderboardSummary.md)
 - [SubredditLeaderboardSummaryRow](type-aliases/SubredditLeaderboardSummaryRow.md)
+- [SubredditOptions](type-aliases/SubredditOptions.md)
 - [SubredditSettings](type-aliases/SubredditSettings.md)
 - [SubredditSettingsOptions](type-aliases/SubredditSettingsOptions.md)
 - [SubredditStyles](type-aliases/SubredditStyles.md)

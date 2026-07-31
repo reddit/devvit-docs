@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@
 
 ### new CalendarWidget()
 
-> **new CalendarWidget**(`widgetData`, `subredditName`, `metadata`): `CalendarWidget`
+> **new CalendarWidget**(`widgetData`, `subredditName`): `CalendarWidget`
 
 #### Parameters
 
@@ -25,10 +25,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -156,11 +152,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CalendarWidget`, `"googleCalendarId"` \| `"configuration"` \| `"styles"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CalendarWidget`, `"styles"` \| `"googleCalendarId"` \| `"configuration"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CalendarWidget`, `"googleCalendarId"` \| `"configuration"` \| `"styles"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CalendarWidget`, `"styles"` \| `"googleCalendarId"` \| `"configuration"`\>
 
 #### Overrides
 

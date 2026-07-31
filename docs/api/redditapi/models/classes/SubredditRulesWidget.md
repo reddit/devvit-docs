@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@
 
 ### new SubredditRulesWidget()
 
-> **new SubredditRulesWidget**(`subredditAboutRulesRsp`, `widgetData`, `subredditName`, `metadata`): `SubredditRulesWidget`
+> **new SubredditRulesWidget**(`subredditAboutRulesRsp`, `widgetData`, `subredditName`): `SubredditRulesWidget`
 
 #### Parameters
 
@@ -29,10 +29,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -132,11 +128,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`SubredditRulesWidget`, `"rules"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`SubredditRulesWidget`, `"rules"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`SubredditRulesWidget`, `"rules"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`SubredditRulesWidget`, `"rules"`\>
 
 #### Overrides
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../README.md)
+[**@devvit/public-api v0.13.12-dev**](../README.md)
 
 ***
 
@@ -68,7 +68,7 @@ A client for media API
 
 ### reddit
 
-> **reddit**: `RedditAPIClient`
+> **reddit**: [`RedditAPIClient`](../classes/RedditAPIClient.md)
 
 A client for the Reddit API
 
@@ -98,7 +98,7 @@ A client for the Scheduler API
 
 ### settings
 
-> **settings**: [`SettingsClient`](SettingsClient.md)
+> **settings**: [`SettingsClient`](../classes/SettingsClient.md)
 
 A client for the Settings API
 

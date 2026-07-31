@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Type Alias: SubmitSelfPostOptions
 
-> **SubmitSelfPostOptions** = [`PostTextOptions`](PostTextOptions.md) & [`CommonSubmitPostOptions`](CommonSubmitPostOptions.md)
+> **SubmitSelfPostOptions** = [`CommonSubmitPostOptions`](CommonSubmitPostOptions.md) & [`PostTextOptions`](PostTextOptions.md)

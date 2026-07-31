@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -622,13 +622,13 @@ who/what removed this object. It will return one of the following:
 
 ### addComment()
 
-> **addComment**(`options`): `Promise`\<[`Comment`](Comment.md)\>
+> **addComment**(`opts`): `Promise`\<[`Comment`](Comment.md)\>
 
 #### Parameters
 
-##### options
+##### opts
 
-[`CommentSubmissionOptions`](../type-aliases/CommentSubmissionOptions.md)
+`Readonly`\<[`CommentSubmissionOptions`](../type-aliases/CommentSubmissionOptions.md)\>
 
 #### Returns
 
@@ -640,25 +640,21 @@ who/what removed this object. It will return one of the following:
 
 ### addRemovalNote()
 
-> **addRemovalNote**(`options`): `Promise`\<`void`\>
+> **addRemovalNote**(`opts`): `Promise`\<`void`\>
 
 Add a mod note for why the post was removed
 
 #### Parameters
 
-##### options
+##### opts
 
 ###### modNote?
 
 `string`
 
-the reason for removal (maximum 100 characters) (optional)
-
 ###### reasonId
 
 `string`
-
-id of a Removal Reason - you can leave this as an empty string if you don't have one
 
 #### Returns
 
@@ -682,13 +678,13 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 ### crosspost()
 
-> **crosspost**(`options`): `Promise`\<`Post`\>
+> **crosspost**(`opts`): `Promise`\<`Post`\>
 
 #### Parameters
 
-##### options
+##### opts
 
-`Omit`\<[`CrosspostOptions`](../type-aliases/CrosspostOptions.md), `"postId"`\>
+`Readonly`\<`Omit`\<[`CrosspostOptions`](../type-aliases/CrosspostOptions.md), `"postId"`\>\>
 
 #### Returns
 
@@ -736,13 +732,13 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 ### edit()
 
-> **edit**(`options`): `Promise`\<`void`\>
+> **edit**(`opts`): `Promise`\<`void`\>
 
 #### Parameters
 
-##### options
+##### opts
 
-[`PostTextOptions`](../type-aliases/PostTextOptions.md)
+`Readonly`\<[`PostTextOptions`](../type-aliases/PostTextOptions.md)\>
 
 #### Returns
 
@@ -807,15 +803,31 @@ To get the poll option for a user, please contact Reddit.
 
 ***
 
+<a id="getcustompoststyles"></a>
+
+### getCustomPostStyles()
+
+> **getCustomPostStyles**(): `Promise`\<`StrictRequired`\<`CustomPostStylesInput`\>\>
+
+**`Experimental`**
+
+Get the custom styles for a custom post.
+
+#### Returns
+
+`Promise`\<`StrictRequired`\<`CustomPostStylesInput`\>\>
+
+***
+
 <a id="getduplicates"></a>
 
 ### getDuplicates()
 
-> **getDuplicates**(`options`): [`Listing`](Listing.md)\<`Post`\>
+> **getDuplicates**(`opts`): [`Listing`](Listing.md)\<`Post`\>
 
 #### Parameters
 
-##### options
+##### opts
 
 `Omit`\<[`GetDuplicatesOptions`](../type-aliases/GetDuplicatesOptions.md), `"postId"`\> = `{}`
 
@@ -849,6 +861,27 @@ Throws an error if the thumbnail could not be fetched
 // from a menu action, form, scheduler, trigger, custom post click event, etc
 const post = await context.reddit.getPostById(context.postId);
 const enrichedThumbnail = await post.getEnrichedThumbnail();
+```
+
+***
+
+<a id="getpostdata"></a>
+
+### getPostData()
+
+> **getPostData**(): `Promise`\<`undefined` \| `JsonObject`\>
+
+Get the postData for the custom post.
+
+#### Returns
+
+`Promise`\<`undefined` \| `JsonObject`\>
+
+#### Example
+
+```ts
+const post = await reddit.getPostById(context.postId);
+const postData = await post.getPostData();
 ```
 
 ***
@@ -1069,6 +1102,43 @@ const enrichedThumbnail = await post.getEnrichedThumbnail();
 
 ***
 
+<a id="mergepostdata"></a>
+
+### mergePostData()
+
+> **mergePostData**(`postData`): `Promise`\<`void`\>
+
+Merge the postData on a custom post with the postData specified in the input. This performs a shallow merge.
+
+#### Parameters
+
+##### postData
+
+`JsonObject`
+
+Represents the postData to be merged with the existing postData.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Throws
+
+Throws an error if the postData could not be merged.
+
+#### Example
+
+```ts
+const post = await reddit.getPostById(context.postId);
+
+// Existing postData: { currentScore: 55, settings: { theme: 'dark', fontSize: 12 } }
+
+await post.mergePostData({ settings: { fontSize: 14 } });
+// Result: { currentScore: 55, settings: { fontSize: 14 } }
+```
+
+***
+
 <a id="remove"></a>
 
 ### remove()
@@ -1084,6 +1154,72 @@ const enrichedThumbnail = await post.getEnrichedThumbnail();
 #### Returns
 
 `Promise`\<`void`\>
+
+***
+
+<a id="setcustompoststyles"></a>
+
+### setCustomPostStyles()
+
+> **setCustomPostStyles**(`styles`): `Promise`\<`void`\>
+
+**`Experimental`**
+
+Set the custom styles for a custom post.
+
+#### Parameters
+
+##### styles
+
+The styles to set for the post. If a value isn't specified, its previous value
+  will be preserved. If `undefined` is passed, all custom styles will be removed.
+
+`undefined` | `CustomPostStylesInput`
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
+<a id="setpostdata"></a>
+
+### setPostData()
+
+> **setPostData**(`postData`): `Promise`\<`void`\>
+
+Set the postData for the custom post. This will replace the existing
+postData with the postData specified in the input.
+
+#### Parameters
+
+##### postData
+
+`JsonObject`
+
+Represents the postData to be set, eg: { currentScore: 55, secretWord: 'barbeque' }
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Throws
+
+Throws an error if the postData could not be set.
+
+#### Example
+
+```ts
+const post = await reddit.getPostById(context.postId);
+
+// Existing postData: { settings: { theme: 'dark', fontSize: 12 } }
+
+await post.setPostData({
+  currentScore: 55,
+  secretWord: 'barbeque',
+});
+// Result: { currentScore: 55, secretWord: 'barbeque' }
+```
 
 ***
 
@@ -1114,6 +1250,41 @@ Throws an error if the suggested sort could not be set.
 ```ts
 const post = await reddit.getPostById(context.postId);
 await post.setSuggestedCommentSort("NEW");
+```
+
+***
+
+<a id="settextfallback"></a>
+
+### setTextFallback()
+
+> **setTextFallback**(`opts`): `Promise`\<`void`\>
+
+Set a text fallback for the custom post.
+
+#### Parameters
+
+##### opts
+
+`Readonly`\<[`CustomPostTextFallbackOptions`](../type-aliases/CustomPostTextFallbackOptions.md)\>
+
+A text or a richtext to render in a fallback
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Throws
+
+Throws an error if the fallback could not be set.
+
+#### Example
+
+```ts
+// from a menu action, form, scheduler, trigger, custom post click event, etc
+const newTextFallback = { text: 'This is an updated text fallback' };
+const post = await context.reddit.getPostById(context.postId);
+await post.setTextFallback(newTextFallback);
 ```
 
 ***
@@ -1163,11 +1334,11 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
+> **toJSON**(): `Pick`\<`Post`, `"flair"` \| `"spoiler"` \| `"id"` \| `"subredditName"` \| `"body"` \| `"permalink"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"url"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
 #### Returns
 
-`Pick`\<`Post`, `"subredditName"` \| `"flair"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
+`Pick`\<`Post`, `"flair"` \| `"spoiler"` \| `"id"` \| `"subredditName"` \| `"body"` \| `"permalink"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"url"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
 ***
 

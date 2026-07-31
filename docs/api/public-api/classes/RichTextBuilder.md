@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../README.md)
+[**@devvit/public-api v0.13.12-dev**](../README.md)
 
 ***
 
@@ -46,16 +46,16 @@ VideoContainer
 
 ## Implements
 
-- `ParagraphContainer`\<`RichTextBuilder`\>
-- `HeadingContainer`\<`RichTextBuilder`\>
-- `HorizontalRuleContainer`\<`RichTextBuilder`\>
-- `BlockQuoteContainer`\<`RichTextBuilder`\>
-- `CodeBlockContainer`\<`RichTextBuilder`\>
-- `EmbedContainer`\<`RichTextBuilder`\>
-- `ListContainer`\<`RichTextBuilder`\>
-- `TableContainer`\<`RichTextBuilder`\>
-- `ImageContainer`\<`RichTextBuilder`\>
-- `VideoContainer`\<`RichTextBuilder`\>
+- [`ParagraphContainer`](../type-aliases/ParagraphContainer.md)\<`RichTextBuilder`\>
+- [`HeadingContainer`](../type-aliases/HeadingContainer.md)\<`RichTextBuilder`\>
+- [`HorizontalRuleContainer`](../type-aliases/HorizontalRuleContainer.md)\<`RichTextBuilder`\>
+- [`BlockQuoteContainer`](../type-aliases/BlockQuoteContainer.md)\<`RichTextBuilder`\>
+- [`CodeBlockContainer`](../type-aliases/CodeBlockContainer.md)\<`RichTextBuilder`\>
+- [`EmbedContainer`](../type-aliases/EmbedContainer.md)\<`RichTextBuilder`\>
+- [`ListContainer`](../type-aliases/ListContainer.md)\<`RichTextBuilder`\>
+- [`TableContainer`](../type-aliases/TableContainer.md)\<`RichTextBuilder`\>
+- [`ImageContainer`](../type-aliases/ImageContainer.md)\<`RichTextBuilder`\>
+- [`VideoContainer`](../type-aliases/VideoContainer.md)\<`RichTextBuilder`\>
 
 ## Constructors
 
@@ -83,7 +83,7 @@ Append an Animated Image
 
 ##### \_opts
 
-`MediaOptions`
+[`MediaOptions`](../type-aliases/MediaOptions.md)
 
 #### Returns
 
@@ -107,7 +107,7 @@ Append a Block Quote element
 
 ##### \_opts
 
-`BlockQuoteOptions`
+[`BlockQuoteOptions`](../type-aliases/BlockQuoteOptions.md)
 
 ##### \_cb
 
@@ -149,7 +149,7 @@ Append a Code Block element
 
 ##### \_opts
 
-`CodeBlockOptions`
+[`CodeBlockOptions`](../type-aliases/CodeBlockOptions.md)
 
 ##### \_cb
 
@@ -177,7 +177,7 @@ Append an embedded iframe
 
 ##### \_opts
 
-`EmbedOptions`
+[`EmbedOptions`](../type-aliases/EmbedOptions.md)
 
 #### Returns
 
@@ -201,7 +201,7 @@ Append a Heading
 
 ##### \_opts
 
-`HeadingOptions`
+[`HeadingOptions`](../type-aliases/HeadingOptions.md)
 
 ##### \_cb
 
@@ -247,7 +247,7 @@ Append an Image
 
 ##### \_opts
 
-`MediaOptions`
+[`MediaOptions`](../type-aliases/MediaOptions.md)
 
 #### Returns
 
@@ -271,7 +271,7 @@ Append a List
 
 ##### \_opts
 
-`ListOptions`
+[`ListOptions`](../type-aliases/ListOptions.md)
 
 ##### \_cb
 
@@ -347,7 +347,7 @@ Append a Video
 
 ##### \_opts
 
-`VideoOptions`
+[`VideoOptions`](../type-aliases/VideoOptions.md)
 
 #### Returns
 

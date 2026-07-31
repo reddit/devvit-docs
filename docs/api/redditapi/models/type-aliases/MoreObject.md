@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### children
 
-> **children**: `T1ID`[]
+> **children**: `T1`[]
 
 ***
 
@@ -28,4 +28,4 @@
 
 ### parentId
 
-> **parentId**: `T1ID` \| `T3ID`
+> **parentId**: `T1` \| `T3`

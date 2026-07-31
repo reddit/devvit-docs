@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -16,7 +16,7 @@ This type is used for both the link and author flairs on Post and Comment object
 
 > `optional` **backgroundColor**: `string`
 
-Flair background color as a hex color string (# prefixed) or transparent
+Flair background color as a hex color string (# prefixed)
 
 #### Example
 

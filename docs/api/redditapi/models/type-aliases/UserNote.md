@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -28,4 +28,4 @@
 
 ### redditId?
 
-> `optional` **redditId**: `T1ID` \| `T3ID` \| `T5ID`
+> `optional` **redditId**: `T1` \| `T3` \| `T5`

@@ -1,20 +1,16 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Function: getSubredditStyles()
 
-> **getSubredditStyles**(`subredditId`, `metadata`): `Promise`\<[`SubredditStyles`](../type-aliases/SubredditStyles.md)\>
+> **getSubredditStyles**(`subredditId`): `Promise`\<[`SubredditStyles`](../type-aliases/SubredditStyles.md)\>
 
 ## Parameters
 
 ### subredditId
 
-`string`
-
-### metadata
-
-`undefined` | `Metadata`
+`` `t5_${string}` ``
 
 ## Returns
 

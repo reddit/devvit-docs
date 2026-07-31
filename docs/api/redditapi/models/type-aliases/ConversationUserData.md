@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -58,7 +58,7 @@ When was created
 
 ### id?
 
-> `optional` **id**: `string`
+> `optional` **id**: `T2`
 
 User ID
 
@@ -124,7 +124,7 @@ Recent comments
 
 #### Index Signature
 
-\[`id`: `string`\]: `object`
+\[`id`: `` `t1_${string}` ``\]: `object`
 
 ***
 
@@ -152,4 +152,4 @@ Recent posts
 
 #### Index Signature
 
-\[`id`: `string`\]: `object`
+\[`id`: `` `t3_${string}` ``\]: `object`

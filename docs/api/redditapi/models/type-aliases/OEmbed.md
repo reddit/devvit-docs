@@ -1,10 +1,10 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
-# Type Alias: OEmbed
+# Type Alias: Oembed
 
-> **OEmbed** = `object`
+> **Oembed** = `object`
 
 oEmbed is a format for allowing an embedded representation of a URL on third party sites.
 The simple API allows a website to display embedded content (such as photos or videos)

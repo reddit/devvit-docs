@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@
 
 ### new CommunityListWidget()
 
-> **new CommunityListWidget**(`widgetData`, `subredditName`, `metadata`): `CommunityListWidget`
+> **new CommunityListWidget**(`widgetData`, `subredditName`): `CommunityListWidget`
 
 #### Parameters
 
@@ -25,10 +25,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -142,11 +138,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CommunityListWidget`, `"styles"` \| `"communities"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CommunityListWidget`, `"styles"` \| `"communities"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CommunityListWidget`, `"styles"` \| `"communities"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CommunityListWidget`, `"styles"` \| `"communities"`\>
 
 #### Overrides
 

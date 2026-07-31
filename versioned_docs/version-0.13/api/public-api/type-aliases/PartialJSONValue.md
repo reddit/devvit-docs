@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.10-dev**](../README.md)
+[**@devvit/public-api v0.13.11-dev**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **PartialJSONValue** = [`PartialJSONPrimitive`](PartialJSONPrimitive.md) \| [`PartialJSONArray`](PartialJSONArray.md) \| [`PartialJSONObject`](PartialJSONObject.md)
 
-Like JSONValue but deeply allow lossy undefined values that are easier to
+Like JsonValue but deeply allow lossy undefined values that are easier to
 type but may de/serialize differently or incorrectly. For example:
 
 - `JSON.stringify({a: 1, b: 2, c: undefined, d: 3})`: `'{"a":1,"b":2,"d":3}'`.
@@ -14,7 +14,7 @@ type but may de/serialize differently or incorrectly. For example:
 - `JSON.stringify(undefined)`: `undefined`.
 
 JSON.stringify() accepts an `any` input so there are no typing guards. Prefer
-plain JSONValue when possible.
+plain JsonValue when possible.
 
 One mostly only cares about stringify since creating a JSON string with
 undefineds in it would require deliberate effort. These all throw errors:

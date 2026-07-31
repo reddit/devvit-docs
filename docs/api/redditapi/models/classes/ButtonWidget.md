@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@
 
 ### new ButtonWidget()
 
-> **new ButtonWidget**(`widgetData`, `subredditName`, `metadata`): `ButtonWidget`
+> **new ButtonWidget**(`widgetData`, `subredditName`): `ButtonWidget`
 
 #### Parameters
 
@@ -25,10 +25,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -156,11 +152,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`ButtonWidget`, `"description"` \| `"styles"` \| `"buttons"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`ButtonWidget`, `"description"` \| `"styles"` \| `"buttons"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`ButtonWidget`, `"description"` \| `"styles"` \| `"buttons"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`ButtonWidget`, `"description"` \| `"styles"` \| `"buttons"`\>
 
 #### Overrides
 

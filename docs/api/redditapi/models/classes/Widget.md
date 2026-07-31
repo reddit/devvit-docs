@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -21,7 +21,7 @@
 
 ### new Widget()
 
-> **new Widget**(`widgetData`, `subredditName`, `metadata`): `Widget`
+> **new Widget**(`widgetData`, `subredditName`): `Widget`
 
 #### Parameters
 
@@ -32,10 +32,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -101,8 +97,8 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Widget`, `"subredditName"` \| `"id"` \| `"name"`\>
+> **toJSON**(): `Pick`\<`Widget`, `"name"` \| `"id"` \| `"subredditName"`\>
 
 #### Returns
 
-`Pick`\<`Widget`, `"subredditName"` \| `"id"` \| `"name"`\>
+`Pick`\<`Widget`, `"name"` \| `"id"` \| `"subredditName"`\>

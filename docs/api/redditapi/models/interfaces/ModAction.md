@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -58,9 +58,7 @@ identifying the ModAction.
 
 ### moderatorId
 
-> **moderatorId**: `string`
-
-The t2_ id of the moderator.
+> **moderatorId**: `` `t2_${string}` ``
 
 ***
 
@@ -78,7 +76,7 @@ The username of the moderator.
 
 ### subredditId
 
-> **subredditId**: `string`
+> **subredditId**: `` `t5_${string}` ``
 
 The ID of the subreddit the action took place.
 

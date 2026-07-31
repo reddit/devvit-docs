@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -215,4 +215,4 @@ Subreddit owning the modmail conversation
 
 #### id?
 
-> `optional` **id**: `string`
+> `optional` **id**: `T5`

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -10,4 +10,4 @@
 
 ### postId
 
-> **postId**: `T3ID`
+> **postId**: `T3`

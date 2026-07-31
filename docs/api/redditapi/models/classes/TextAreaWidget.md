@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@
 
 ### new TextAreaWidget()
 
-> **new TextAreaWidget**(`widgetData`, `subredditName`, `metadata`): `TextAreaWidget`
+> **new TextAreaWidget**(`widgetData`, `subredditName`): `TextAreaWidget`
 
 #### Parameters
 
@@ -25,10 +25,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -142,11 +138,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`TextAreaWidget`, `"text"` \| `"styles"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`TextAreaWidget`, `"text"` \| `"styles"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`TextAreaWidget`, `"text"` \| `"styles"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`TextAreaWidget`, `"text"` \| `"styles"`\>
 
 #### Overrides
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@
 
 ### new CustomWidget()
 
-> **new CustomWidget**(`widgetData`, `subredditName`, `metadata`): `CustomWidget`
+> **new CustomWidget**(`widgetData`, `subredditName`): `CustomWidget`
 
 #### Parameters
 
@@ -25,10 +25,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -184,11 +180,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"images"` \| `"stylesheetUrl"` \| `"css"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"images"` \| `"stylesheetUrl"` \| `"css"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"images"` \| `"stylesheetUrl"` \| `"css"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"images"` \| `"stylesheetUrl"` \| `"css"`\>
 
 #### Overrides
 

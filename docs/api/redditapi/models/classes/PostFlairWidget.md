@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@
 
 ### new PostFlairWidget()
 
-> **new PostFlairWidget**(`widgetData`, `subredditName`, `metadata`): `PostFlairWidget`
+> **new PostFlairWidget**(`widgetData`, `subredditName`): `PostFlairWidget`
 
 #### Parameters
 
@@ -25,10 +25,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -156,11 +152,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`PostFlairWidget`, `"styles"` \| `"templates"` \| `"display"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`PostFlairWidget`, `"styles"` \| `"templates"` \| `"display"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`PostFlairWidget`, `"styles"` \| `"templates"` \| `"display"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`PostFlairWidget`, `"styles"` \| `"templates"` \| `"display"`\>
 
 #### Overrides
 

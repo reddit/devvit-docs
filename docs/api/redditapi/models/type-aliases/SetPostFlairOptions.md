@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -10,6 +10,6 @@
 
 ### postId
 
-> **postId**: `string`
+> **postId**: `T3`
 
 The ID of the post to set the flair on

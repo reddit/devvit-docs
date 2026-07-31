@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,8 +14,6 @@
 
 > `optional` **context**: `string`
 
-The id of the post or comment you want to cite as rule breaking.
-
 ***
 
 <a id="duration"></a>
@@ -23,8 +21,6 @@ The id of the post or comment you want to cite as rule breaking.
 ### duration?
 
 > `optional` **duration**: `number`
-
-The duration of the ban, in days. Use 0 for permanent; otherwise, it must be in the range of 1 to 999.
 
 ***
 
@@ -34,8 +30,6 @@ The duration of the ban, in days. Use 0 for permanent; otherwise, it must be in 
 
 > `optional` **message**: `string`
 
-The message to display to the user. (The "Note from the moderators:" in the ban message modmail.)
-
 ***
 
 <a id="note"></a>
@@ -43,8 +37,6 @@ The message to display to the user. (The "Note from the moderators:" in the ban 
 ### note?
 
 > `optional` **note**: `string`
-
-The reason to show in the modlog, and the UI's user notes. This isn't show to the user, just other moderators.
 
 ***
 
@@ -54,8 +46,6 @@ The reason to show in the modlog, and the UI's user notes. This isn't show to th
 
 > `optional` **reason**: `string`
 
-The reason for the ban. This shows up in the Banned Users Menu.
-
 ***
 
 <a id="subredditname"></a>
@@ -64,8 +54,6 @@ The reason for the ban. This shows up in the Banned Users Menu.
 
 > **subredditName**: `string`
 
-The name of the subreddit you want to ban the user from.
-
 ***
 
 <a id="username"></a>
@@ -73,5 +61,3 @@ The name of the subreddit you want to ban the user from.
 ### username
 
 > **username**: `string`
-
-The username of the user you want to ban.

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -66,7 +66,7 @@ The provider of the Vault address.
 
 ### userId
 
-> **userId**: `T2ID`
+> **userId**: `T2`
 
 The ID (starting with t2_) of the user owning the Vault.
 
