@@ -3,8 +3,8 @@
 Use an AI coding assistant to port a PRAW or Async PRAW app to Devvit Web. You do not need to know TypeScript or
 Devvit before you begin, but you remain responsible for reviewing and testing the generated app.
 
-This guide gives you copyable prompts and review checkpoints. It does not replace the
-[PRAW-to-Devvit API mappings](./basics.md#migration-basics), the [PRAW documentation](https://praw.readthedocs.io/),
+This guide gives you copyable prompts and review checkpoints. Use this in conjunction
+with [PRAW-to-Devvit API mappings](./basics.md#migration-basics), the [PRAW documentation](https://praw.readthedocs.io/),
 or the [Async PRAW documentation](https://asyncpraw.readthedocs.io/).
 
 :::tip[Already set up?]
@@ -55,14 +55,13 @@ The prompts in this guide repeat the most important rules, but you should enforc
 Open the generated project in your AI-powered code editor. The [app quickstart](../../../quickstart/quickstart.md) and
 [mod tool quickstart](../../../quickstart/quickstart-mod-tool.md) cover the required local tools and first run.
 
-If you want to keep the old app name, use a placeholder Devvit app name during migration. Test the new app first, then
-ask the Devvit team in [Discord](https://developers.reddit.com/discord) about app-name migration.
+If you want to keep the old app name, use a placeholder Devvit app name during migration. Once you submit your port to Reddit, you will have the opportunity to move your Data API app username to your new Devvit account.
 
 **Check:** The project root contains `devvit.json` and `package.json`, and the untouched starter app runs.
 
 ## 2. Give the AI access to the docs
 
-An assistant should look up APIs rather than guess from its training data. Install the experimental skills from the
+An assistant should look up APIs rather than guess from its training data. Install the skills from the
 [Devvit Skills repository](https://github.com/reddit/devvit-skills):
 
 ```bash
@@ -306,6 +305,8 @@ The AI should add tests with each slice. Before the final review, make sure the 
 
 Use [@devvit/test](../../tools/devvit_test.mdx) for backend behavior. Mock third-party fetch calls and Reddit API methods
 that are unavailable in the test harness.
+
+See [Playtest](../../tools/playtest.md) for guidance on testing your app in a subreddit.
 
 **Ask the AI:**
 

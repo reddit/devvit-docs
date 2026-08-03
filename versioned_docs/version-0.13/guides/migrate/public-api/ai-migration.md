@@ -4,7 +4,7 @@ Use an AI coding assistant to port a PRAW or Async PRAW app to Devvit Web. You d
 Devvit before you begin, but you remain responsible for reviewing and testing the generated app.
 
 This guide gives you copyable prompts and review checkpoints. Use this in conjunction
-with [PRAW-to-Devvit API mappings](./basics.md#migration-basics), the [PRAW documentation](https://praw.readthedocs.io/), 
+with [PRAW-to-Devvit API mappings](./basics.md#migration-basics), the [PRAW documentation](https://praw.readthedocs.io/),
 or the [Async PRAW documentation](https://asyncpraw.readthedocs.io/).
 
 :::tip[Already set up?]

@@ -2,7 +2,7 @@
 
 Reddit’s Developer Platform is the most modern way to build apps for Reddit. Devvit is now the primary way to develop Reddit extensions and ensures automations are more supported, secure, policy-compliant, and deeply integrated with Reddit. The platform includes many new features not available with the Public Data API, such as new custom [menu actions](../../capabilities/client/menu-actions.mdx), [interactive posts](../../capabilities/interactive-posts/interactive_posts_overview.mdx), [event-based triggers](../../capabilities/server/triggers.mdx), Reddit-hosted [storage](../../capabilities/server/redis.mdx), [app settings](../../capabilities/server/settings-and-secrets.mdx) for one-to-many configurations, and more.
 
-The long-term goal is for third-party app functionality to run through the Developer Platform instead of older legacy systems like the Public Data API.
+We would like to see more third-party app functionality to run through the Developer Platform instead of older legacy systems like the Public Data API.
 
 ## Join the App Migration Program
 
