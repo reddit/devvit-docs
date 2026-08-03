@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -10,17 +10,13 @@
 
 ### new WikiPageRevision()
 
-> **new WikiPageRevision**(`data`, `metadata`): `WikiPageRevision`
+> **new WikiPageRevision**(`data`): `WikiPageRevision`
 
 #### Parameters
 
 ##### data
 
 `WikiPageRevision`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -76,11 +72,11 @@
 
 #### Get Signature
 
-> **get** **id**(): `` `${string}-${string}-${string}-${string}-${string}` ``
+> **get** **id**(): `string`
 
 ##### Returns
 
-`` `${string}-${string}-${string}-${string}-${string}` ``
+`string`
 
 ***
 
@@ -116,8 +112,8 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"hidden"` \| `"date"` \| `"page"`\> & `object`
+> **toJSON**(): `Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"date"` \| `"hidden"` \| `"page"`\> & `object`
 
 #### Returns
 
-`Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"hidden"` \| `"date"` \| `"page"`\> & `object`
+`Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"date"` \| `"hidden"` \| `"page"`\> & `object`

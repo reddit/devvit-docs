@@ -1,20 +1,16 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Function: getVaultByUserId()
 
-> **getVaultByUserId**(`userId`, `metadata`): `Promise`\<[`Vault`](../type-aliases/Vault.md)\>
+> **getVaultByUserId**(`userId`): `Promise`\<[`Vault`](../type-aliases/Vault.md)\>
 
 ## Parameters
 
 ### userId
 
 `` `t2_${string}` ``
-
-### metadata
-
-`undefined` | `Metadata`
 
 ## Returns
 

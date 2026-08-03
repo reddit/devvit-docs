@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ Conversation participant
 
 ### id?
 
-> `optional` **id**: `number`
+> `optional` **id**: `T2`
 
 ***
 

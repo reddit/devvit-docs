@@ -240,7 +240,7 @@ const sidebars: SidebarsConfig = {
         {
           type: "doc",
           label: "Reddit API Client",
-          id: "api/redditapi/RedditAPIClient/classes/RedditAPIClient",
+          id: "api/redditapi/RedditClient/classes/RedditClient",
         },
         {
           type: "category",

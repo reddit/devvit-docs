@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -205,13 +205,19 @@ Note: The app must be installed in the subreddit in order to create a conversati
 
 `string`
 
+The body of the message in Markdown format, e.g. `Hello world \n\n **Have a great day**`.
+
 ###### subject
 
 `string`
 
+The subject of the message.
+
 ###### subredditId
 
-`string`
+`` `t5_${string}` ``
+
+The ID (starting with `t5_`) of the subreddit to which to send the message, e.g. `t5_2qjpg`.
 
 #### Returns
 
@@ -247,13 +253,19 @@ Creates a conversation in the Modmail Inbox with the moderators of the given sub
 
 `string`
 
+The body of the message in Markdown format, e.g. `Hello world \n\n **Have a great day**`.
+
 ###### subject
 
 `string`
 
+The subject of the message.
+
 ###### subredditId
 
-`string`
+`` `t5_${string}` ``
+
+The ID (starting with `t5_`) of the subreddit to which to send the message, e.g. `t5_2qjpg`.
 
 #### Returns
 
@@ -290,13 +302,19 @@ This function is different from [ModMailService.createModInboxConversation](#cre
 
 `string`
 
+The body of the message in Markdown format, e.g. `Hello world \n\n **Have a great day**`.
+
 ###### subject
 
 `string`
 
+The subject of the message.
+
 ###### subredditId
 
-`string`
+`` `t5_${string}` ``
+
+The ID (starting with `t5_`) of the subreddit to which to send the message, e.g. `t5_2qjpg`.
 
 #### Returns
 

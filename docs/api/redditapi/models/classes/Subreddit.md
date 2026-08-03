@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -32,7 +32,7 @@ The creation date of the subreddit.
 
 > **get** **description**(): `undefined` \| `string`
 
-The description of the subreddit.
+The description of the subreddit. Appears in the sidebar of the subreddit.
 
 ##### Returns
 
@@ -446,6 +446,24 @@ Options for creating a new subreddit rule.
 
 ***
 
+<a id="crosspost"></a>
+
+### crosspost()
+
+> **crosspost**(`opts`): `Promise`\<[`Post`](Post.md)\>
+
+#### Parameters
+
+##### opts
+
+`Readonly`\<[`CrosspostOptions`](../type-aliases/CrosspostOptions.md)\>
+
+#### Returns
+
+`Promise`\<[`Post`](Post.md)\>
+
+***
+
 <a id="deleteremovalreason"></a>
 
 ### deleteRemovalReason()
@@ -524,7 +542,7 @@ Delete a removal reason from this subreddit.
 
 ### getCommentsAndPostsByIds()
 
-> **getCommentsAndPostsByIds**(`ids`): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getCommentsAndPostsByIds**(`ids`): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things specified by their fullnames.
 
@@ -538,7 +556,7 @@ Array of thing full ids (e.g. t3_abc123)
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 #### Example
 
@@ -627,7 +645,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getEdited**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getEdited**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things that have been edited recently.
 
@@ -639,7 +657,7 @@ Return a listing of things that have been edited recently.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -747,7 +765,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getModQueue**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getModQueue**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things requiring moderator review, such as reported things and items.
 
@@ -759,7 +777,7 @@ Return a listing of things requiring moderator review, such as reported things a
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -875,7 +893,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getReports**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getReports**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things that have been reported.
 
@@ -887,7 +905,7 @@ Return a listing of things that have been reported.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -971,7 +989,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getSpam**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getSpam**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things that have been marked as spam or otherwise removed.
 
@@ -983,7 +1001,7 @@ Return a listing of things that have been marked as spam or otherwise removed.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -1073,7 +1091,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getUnmoderated**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getUnmoderated**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things that have yet to be approved/removed by a mod.
 
@@ -1085,7 +1103,7 @@ Return a listing of things that have yet to be approved/removed by a mod.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -1330,17 +1348,35 @@ const userFlairList = response.users
 
 ***
 
+<a id="submitcustompost"></a>
+
+### submitCustomPost()
+
+> **submitCustomPost**(`opts`): `Promise`\<[`Post`](Post.md)\>
+
+#### Parameters
+
+##### opts
+
+`Readonly`\<[`SubmitCustomPostOptions`](../type-aliases/SubmitCustomPostOptions.md)\>
+
+#### Returns
+
+`Promise`\<[`Post`](Post.md)\>
+
+***
+
 <a id="submitpost"></a>
 
 ### submitPost()
 
-> **submitPost**(`options`): `Promise`\<[`Post`](Post.md)\>
+> **submitPost**(`opts`): `Promise`\<[`Post`](Post.md)\>
 
 #### Parameters
 
-##### options
+##### opts
 
-[`SubmitLinkOptions`](../type-aliases/SubmitLinkOptions.md) | [`SubmitSelfPostOptions`](../type-aliases/SubmitSelfPostOptions.md)
+`Readonly`\<[`SubmitPostOptions`](../type-aliases/SubmitPostOptions.md)\>
 
 #### Returns
 
@@ -1352,11 +1388,11 @@ const userFlairList = response.users
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Subreddit`, `"type"` \| `"description"` \| `"id"` \| `"settings"` \| `"name"` \| `"createdAt"` \| `"title"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
+> **toJSON**(): `Pick`\<`Subreddit`, `"name"` \| `"id"` \| `"type"` \| `"description"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"settings"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"`\>
 
 #### Returns
 
-`Pick`\<`Subreddit`, `"type"` \| `"description"` \| `"id"` \| `"settings"` \| `"name"` \| `"createdAt"` \| `"title"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"nsfw"`\>
+`Pick`\<`Subreddit`, `"name"` \| `"id"` \| `"type"` \| `"description"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"settings"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"`\>
 
 ***
 
@@ -1451,7 +1487,7 @@ Update a removal reason's title and message in this subreddit.
 > **updateSettings**(`options`): `Promise`\<`void`\>
 
 Updates subreddit settings via the SiteAdmin API. Current settings are used as the base;
-only provided options are applied. In order to reset a field to its default value,
+only fields specified in `options` are changed. In order to reset a field to its default value,
 pass the default value as the option value.
 
 #### Parameters
@@ -1470,6 +1506,24 @@ Optional settings to apply. Omitted fields are left unchanged.
 
 ```ts
 const subreddit = await reddit.getSubredditByName('mysubreddit');
-await subreddit.updateSettings({ restrictPosting: true, allowImages: false });
-await subreddit.updateSettings({ type: 'restricted', title: 'New Title', description: 'Sidebar text' });
+await subreddit.setSettings({ restrictPosting: true, allowImages: false });
+await subreddit.setSettings({ type: 'restricted', title: 'New Title', description: 'Sidebar text' });
 ```
+
+***
+
+<a id="getsubscribedsubredditsforcurrentuser"></a>
+
+### getSubscribedSubredditsForCurrentUser()
+
+> `static` **getSubscribedSubredditsForCurrentUser**(`options`): [`Listing`](Listing.md)\<`Subreddit`\>
+
+#### Parameters
+
+##### options
+
+[`GetSubscribedSubredditsForCurrentUserOptions`](../type-aliases/GetSubscribedSubredditsForCurrentUserOptions.md) = `{}`
+
+#### Returns
+
+[`Listing`](Listing.md)\<`Subreddit`\>

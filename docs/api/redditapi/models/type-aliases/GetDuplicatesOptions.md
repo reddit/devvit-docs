@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -16,7 +16,7 @@ Only return duplicates that are crossposting this post.
 
 ### postId
 
-> **postId**: `T3ID`
+> **postId**: `T3`
 
 Post ID with t3_ prefix (e.g. `t3_abc123`). The prefix is stripped internally.
 

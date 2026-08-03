@@ -1,10 +1,10 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Function: getSubredditInfoById()
 
-> **getSubredditInfoById**(`subredditId`, `metadata`): `Promise`\<[`SubredditInfo`](../type-aliases/SubredditInfo.md)\>
+> **getSubredditInfoById**(`subredditId`): `Promise`\<[`SubredditInfo`](../type-aliases/SubredditInfo.md)\>
 
 Gets a [SubredditInfo](../type-aliases/SubredditInfo.md) object by ID
 
@@ -12,13 +12,9 @@ Gets a [SubredditInfo](../type-aliases/SubredditInfo.md) object by ID
 
 ### subredditId
 
-`string`
+`` `t5_${string}` ``
 
-### metadata
-
-Optional RPC metadata passed with every request.
-
-`undefined` | `Metadata`
+The ID (starting with t5_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 ## Returns
 

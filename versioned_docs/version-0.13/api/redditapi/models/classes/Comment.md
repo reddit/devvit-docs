@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.10-dev**](../../README.md)
+[**@devvit/public-api v0.13.11-dev**](../../README.md)
 
 ***
 
@@ -212,9 +212,27 @@ A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 > **get** **modReportReasons**(): `string`[]
 
+##### Deprecated
+
+Use [modReports](#modreports) to retain each report's author.
+
 ##### Returns
 
 `string`[]
+
+***
+
+<a id="modreports"></a>
+
+### modReports
+
+#### Get Signature
+
+> **get** **modReports**(): [`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
+
+##### Returns
+
+[`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
 
 ***
 
@@ -745,11 +763,11 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+> **toJSON**(): `Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
 #### Returns
 
-`Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+`Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
 ***
 

@@ -1,20 +1,16 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Function: getModerationLog()
 
-> **getModerationLog**(`options`, `metadata`): [`Listing`](../classes/Listing.md)\<[`ModAction`](../interfaces/ModAction.md)\>
+> **getModerationLog**(`options`): [`Listing`](../classes/Listing.md)\<[`ModAction`](../interfaces/ModAction.md)\>
 
 ## Parameters
 
 ### options
 
 [`GetModerationLogOptions`](../type-aliases/GetModerationLogOptions.md)
-
-### metadata
-
-`undefined` | `Metadata`
 
 ## Returns
 

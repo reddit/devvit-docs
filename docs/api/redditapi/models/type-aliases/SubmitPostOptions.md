@@ -1,13 +1,9 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Type Alias: SubmitPostOptions
 
-> **SubmitPostOptions** = [`SubmitLinkOptions`](SubmitLinkOptions.md) \| [`SubmitSelfPostOptions`](SubmitSelfPostOptions.md) \| [`SubmitMediaOptions`](SubmitMediaOptions.md) & `object`
+> **SubmitPostOptions** = [`SubmitLinkOptions`](SubmitLinkOptions.md) & `object` \| [`SubmitSelfPostOptions`](SubmitSelfPostOptions.md) & `object` \| [`SubmitMediaOptions`](SubmitMediaOptions.md) & `object`
 
-## Type declaration
-
-### subredditName
-
-> **subredditName**: `string`
+Link, self, or media post options exclusively.

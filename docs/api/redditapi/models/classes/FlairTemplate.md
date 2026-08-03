@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -160,7 +160,7 @@ Edit this flair template
 
 ##### options
 
-`Partial`\<`Omit`\<[`EditFlairTemplateOptions`](../type-aliases/EditFlairTemplateOptions.md), `"subredditName"` \| `"id"`\>\>
+`Partial`\<`Omit`\<[`EditFlairTemplateOptions`](../type-aliases/EditFlairTemplateOptions.md), `"id"` \| `"subredditName"`\>\>
 
 #### Returns
 

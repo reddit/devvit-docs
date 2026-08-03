@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -24,7 +24,7 @@ The subject of the message.
 
 > **text**: `string`
 
-The body of the message in markdown text format.
+The body of the message in Markdown text format.
 
 ***
 

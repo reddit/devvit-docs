@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### oembed?
 
-> `optional` **oembed**: [`OEmbed`](OEmbed.md)
+> `optional` **oembed**: [`Oembed`](Oembed.md)
 
 ***
 
@@ -30,4 +30,4 @@
 
 > `optional` **type**: `string`
 
-The type of the OEmbed media, if present (e.g. "youtube.com")
+The type of the oEmbed media, if present (e.g. "youtube.com")

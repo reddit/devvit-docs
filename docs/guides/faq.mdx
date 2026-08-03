@@ -377,7 +377,7 @@ Before the app version is approved, user actions aren't enabled for everyone. Du
 Devvit supports both user flair and post flair through the Reddit API client.
 
 - For a new post, use the submit options documented in [CommonSubmitPostOptions](../api/redditapi/models/type-aliases/CommonSubmitPostOptions.md), including `flairId` or `flairText`.
-- For an existing post, use the flair methods on [RedditAPIClient](../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md), such as `setPostFlair()` and `removePostFlair()`.
+- For an existing post, use the flair methods on [RedditClient](../api/redditapi/RedditClient/classes/RedditClient.md), such as `setPostFlair()` and `removePostFlair()`.
 - For a user, use `setUserFlair()`, `removeUserFlair()`, or `setUserFlairBatch()` on the same client.
 
 If you're reading flair back from a post, note that post flair and author flair are different fields. The [Post](../api/redditapi/models/classes/Post.md) model exposes `flair` for the post and `authorFlair` for the post author.
@@ -392,7 +392,7 @@ If you need to react to flair changes, Devvit documents an [`onPostFlairUpdate`]
 
 If you only need the current user's name, prefer `getCurrentUsername()` over fetching the full user object.
 
-If you need more profile information, use `getCurrentUser()` from the [Reddit API client](../api/redditapi/RedditAPIClient/classes/RedditAPIClient.md). To get a snoovatar URL, use `reddit.getSnoovatarUrl(username)` or `user.getSnoovatarUrl()` on the [User](../api/redditapi/models/classes/User.md) model.
+If you need more profile information, use `getCurrentUser()` from the [Reddit API client](../api/redditapi/RedditClient/classes/RedditClient.md). To get a snoovatar URL, use `reddit.getSnoovatarUrl(username)` or `user.getSnoovatarUrl()` on the [User](../api/redditapi/models/classes/User.md) model.
 
 Some handlers also expose experimental identity fields like `username` and `snoovatar` on [BaseContext](../api/public-api/type-aliases/BaseContext.md), but the Reddit client methods are the clearest documented path.
 

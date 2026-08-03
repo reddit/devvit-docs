@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../README.md)
+[**@devvit/public-api v0.13.12-dev**](../README.md)
 
 ***
 
@@ -41,7 +41,7 @@ Navigate to a URL
 
 ###### subreddit
 
-`Pick`\<`Subreddit`, `"permalink"` \| `"url"`\>
+`Pick`\<[`Subreddit`](../classes/Subreddit.md), `"permalink"` \| `"url"`\>
 
 ##### Returns
 
@@ -55,7 +55,7 @@ Navigate to a URL
 
 ###### post
 
-`Pick`\<`Post`, `"permalink"` \| `"url"`\>
+`Pick`\<[`Post`](../classes/Post.md), `"permalink"` \| `"url"`\>
 
 ##### Returns
 
@@ -69,7 +69,7 @@ Navigate to a URL
 
 ###### comment
 
-`Pick`\<`Comment`, `"permalink"` \| `"url"`\>
+`Pick`\<[`Comment`](../classes/Comment.md), `"permalink"` \| `"url"`\>
 
 ##### Returns
 
@@ -83,7 +83,7 @@ Navigate to a URL
 
 ###### user
 
-`Pick`\<`User`, `"permalink"` \| `"url"`\>
+`Pick`\<[`User`](../classes/User.md), `"permalink"` \| `"url"`\>
 
 ##### Returns
 

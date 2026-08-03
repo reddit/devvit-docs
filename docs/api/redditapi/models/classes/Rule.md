@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### new Rule()
 
-> **new Rule**(`ruleData`, `subredditName`, `metadata`): `Rule`
+> **new Rule**(`ruleData`, `subredditName`): `Rule`
 
 #### Parameters
 
@@ -21,10 +21,6 @@
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -84,13 +80,13 @@ The full description of the rule. This appears on your subreddit's sidebar.
 
 #### Get Signature
 
-> **get** **kind**(): `"all"` \| `"link"` \| `"comment"`
+> **get** **kind**(): `"comment"` \| `"all"` \| `"link"`
 
 Which Reddit objects this rule applies to. One of "all", "link" (AKA posts), "comment".
 
 ##### Returns
 
-`"all"` \| `"link"` \| `"comment"`
+`"comment"` \| `"all"` \| `"link"`
 
 ***
 
@@ -174,11 +170,11 @@ Text to show users when reporting content due to this rule. Defaults to the shor
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Rule`, `"subredditName"` \| `"kind"` \| `"violationReason"` \| `"shortName"` \| `"description"` \| `"createdUtc"` \| `"priority"`\> & `object`
+> **toJSON**(): `Pick`\<`Rule`, `"subredditName"` \| `"createdUtc"` \| `"description"` \| `"kind"` \| `"violationReason"` \| `"shortName"` \| `"priority"`\> & `object`
 
 #### Returns
 
-`Pick`\<`Rule`, `"subredditName"` \| `"kind"` \| `"violationReason"` \| `"shortName"` \| `"description"` \| `"createdUtc"` \| `"priority"`\> & `object`
+`Pick`\<`Rule`, `"subredditName"` \| `"createdUtc"` \| `"description"` \| `"kind"` \| `"violationReason"` \| `"shortName"` \| `"priority"`\> & `object`
 
 ***
 
@@ -208,7 +204,7 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 ### createRule()
 
-> `static` **createRule**(`subredditName`, `options`, `metadata`): `Promise`\<`void`\>
+> `static` **createRule**(`subredditName`, `options`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -220,10 +216,6 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 `Readonly`\<[`CreateRuleOptions`](../type-aliases/CreateRuleOptions.md)\>
 
-##### metadata
-
-`undefined` | `Metadata`
-
 #### Returns
 
 `Promise`\<`void`\>
@@ -234,7 +226,7 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 ### delete()
 
-> `static` **delete**(`subredditName`, `shortName`, `metadata`): `Promise`\<`void`\>
+> `static` **delete**(`subredditName`, `shortName`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -246,10 +238,6 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 `string`
 
-##### metadata
-
-`undefined` | `Metadata`
-
 #### Returns
 
 `Promise`\<`void`\>
@@ -260,17 +248,13 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 ### getRules()
 
-> `static` **getRules**(`subredditName`, `metadata`): `Promise`\<`Rule`[]\>
+> `static` **getRules**(`subredditName`): `Promise`\<`Rule`[]\>
 
 #### Parameters
 
 ##### subredditName
 
 `string`
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 
@@ -282,7 +266,7 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 ### reorderRules()
 
-> `static` **reorderRules**(`subredditName`, `rules`, `metadata`): `Promise`\<`void`\>
+> `static` **reorderRules**(`subredditName`, `rules`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -293,10 +277,6 @@ New values for an existing rule. All fields are optional. If a field is not prov
 ##### rules
 
 `Rule`[]
-
-##### metadata
-
-`undefined` | `Metadata`
 
 #### Returns
 

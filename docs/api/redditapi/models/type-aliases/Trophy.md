@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -7,6 +7,7 @@
 > **Trophy** = `object`
 
 A trophy displayed on a user's profile.
+All fields are optional; the API may return null or omit any of them.
 
 ## Properties
 
@@ -14,7 +15,7 @@ A trophy displayed on a user's profile.
 
 ### awardId
 
-> **awardId**: `T6ID` \| `undefined`
+> **awardId**: `T6` \| `undefined`
 
 Award ID.
 
@@ -64,7 +65,7 @@ URL of the trophy icon. Currently 70x70.
 
 ### id
 
-> **id**: `T6ID` \| `undefined`
+> **id**: `T6` \| `undefined`
 
 Trophy ID.
 

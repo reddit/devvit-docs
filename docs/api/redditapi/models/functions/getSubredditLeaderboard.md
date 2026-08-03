@@ -1,20 +1,16 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Function: getSubredditLeaderboard()
 
-> **getSubredditLeaderboard**(`subredditId`, `metadata`): `Promise`\<[`SubredditLeaderboard`](../type-aliases/SubredditLeaderboard.md)\>
+> **getSubredditLeaderboard**(`subredditId`): `Promise`\<[`SubredditLeaderboard`](../type-aliases/SubredditLeaderboard.md)\>
 
 ## Parameters
 
 ### subredditId
 
-`string`
-
-### metadata
-
-`undefined` | `Metadata`
+`` `t5_${string}` ``
 
 ## Returns
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -27,8 +27,6 @@
 #### Get Signature
 
 > **get** **approvedAtUtc**(): `number`
-
-A number representing the UTC timestamp in seconds, or 0 if its not approved.
 
 ##### Returns
 
@@ -422,25 +420,21 @@ Use [modReports](#modreports) to retain each report's author.
 
 ### addRemovalNote()
 
-> **addRemovalNote**(`options`): `Promise`\<`void`\>
+> **addRemovalNote**(`opts`): `Promise`\<`void`\>
 
 Add a mod note for why the comment was removed
 
 #### Parameters
 
-##### options
+##### opts
 
 ###### modNote?
 
 `string`
 
-the reason for removal (maximum 100 characters) (optional)
-
 ###### reasonId
 
 `string`
-
-id of a Removal Reason - you can leave this as an empty string if you don't have one
 
 #### Returns
 
@@ -512,13 +506,13 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 ### edit()
 
-> **edit**(`options`): `Promise`\<`Comment`\>
+> **edit**(`opts`): `Promise`\<`Comment`\>
 
 #### Parameters
 
-##### options
+##### opts
 
-[`CommentSubmissionOptions`](../type-aliases/CommentSubmissionOptions.md)
+`Readonly`\<[`CommentSubmissionOptions`](../type-aliases/CommentSubmissionOptions.md)\>
 
 #### Returns
 
@@ -707,13 +701,13 @@ A Promise that resolves if the comment was filtered successfully.
 
 ### reply()
 
-> **reply**(`options`): `Promise`\<`Comment`\>
+> **reply**(`opts`): `Promise`\<`Comment`\>
 
 #### Parameters
 
-##### options
+##### opts
 
-[`CommentSubmissionOptions`](../type-aliases/CommentSubmissionOptions.md)
+`Readonly`\<[`CommentSubmissionOptions`](../type-aliases/CommentSubmissionOptions.md)\>
 
 #### Returns
 
@@ -763,11 +757,11 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+> **toJSON**(): `Pick`\<`Comment`, `"id"` \| `"subredditName"` \| `"postId"` \| `"body"` \| `"permalink"` \| `"createdAt"` \| `"url"` \| `"authorName"` \| `"subredditId"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
 #### Returns
 
-`Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"subredditId"` \| `"postId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+`Pick`\<`Comment`, `"id"` \| `"subredditName"` \| `"postId"` \| `"body"` \| `"permalink"` \| `"createdAt"` \| `"url"` \| `"authorName"` \| `"subredditId"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
 ***
 

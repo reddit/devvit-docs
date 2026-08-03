@@ -1,10 +1,10 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
 # Function: getSubredditInfoByName()
 
-> **getSubredditInfoByName**(`subredditName`, `metadata`): `Promise`\<[`SubredditInfo`](../type-aliases/SubredditInfo.md)\>
+> **getSubredditInfoByName**(`subredditName`): `Promise`\<[`SubredditInfo`](../type-aliases/SubredditInfo.md)\>
 
 Gets a [SubredditInfo](../type-aliases/SubredditInfo.md) object by name
 
@@ -14,11 +14,7 @@ Gets a [SubredditInfo](../type-aliases/SubredditInfo.md) object by name
 
 `string`
 
-### metadata
-
-Optional RPC metadata passed with every request.
-
-`undefined` | `Metadata`
+The name of a subreddit omitting the r/. This is case-insensitive.
 
 ## Returns
 

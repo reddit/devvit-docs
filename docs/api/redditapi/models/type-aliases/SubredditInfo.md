@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -78,7 +78,7 @@ A class representing information about a Subreddit.
 
 ### id?
 
-> `optional` **id**: `T5ID`
+> `optional` **id**: `T5`
 
 ***
 

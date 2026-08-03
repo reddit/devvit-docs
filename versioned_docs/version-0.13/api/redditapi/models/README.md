@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.10-dev**](../README.md)
+[**@devvit/public-api v0.13.11-dev**](../README.md)
 
 ***
 
@@ -122,6 +122,7 @@
 - [ModActionTarget](type-aliases/ModActionTarget.md)
 - [ModActionType](type-aliases/ModActionType.md)
 - [ModeratorPermission](type-aliases/ModeratorPermission.md)
+- [ModeratorReport](type-aliases/ModeratorReport.md)
 - [ModLogOptions](type-aliases/ModLogOptions.md)
 - [ModNoteType](type-aliases/ModNoteType.md)
 - [MoreObject](type-aliases/MoreObject.md)

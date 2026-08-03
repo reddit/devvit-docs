@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.11-dev**](../../README.md)
+[**@devvit/reddit v0.13.12-dev**](../../README.md)
 
 ***
 
@@ -7,8 +7,8 @@
 > **RemovalReason** = `object`
 
 Plain data for a subreddit removal reason. Use [Subreddit.updateRemovalReason](../classes/Subreddit.md#updateremovalreason),
-[Subreddit.deleteRemovalReason](../classes/Subreddit.md#deleteremovalreason), or the matching [RedditAPIClient](../../RedditAPIClient/README.md) methods to change
-or remove it.
+[Subreddit.deleteRemovalReason](../classes/Subreddit.md#deleteremovalreason), or the matching [RedditClient](../../RedditClient/README.md) methods to change or
+remove it.
 
 ## Properties
 
