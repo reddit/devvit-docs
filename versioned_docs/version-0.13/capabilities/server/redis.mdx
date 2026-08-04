@@ -64,7 +64,7 @@ For command-specific behavior and limits, see the [supported Redis commands](#su
 
 ## Storage values
 
-Redis is best for small, frequently accessed app states. Each Redis installation has a 5 MB request size limit, and each app has a 5 GB overall Redis storage usage limit across all installations. On occasion, apps will run into storage limits. Our team will reach out to you if this occurs and work with you to optimize your app.
+Redis is best for small, frequently accessed app states. Each Redis installation has a 5 MB request size limit, and each app has an overall Redis storage limit of 5GB. On occasion, apps will run into storage limits. Our team will reach out to you if this occurs and work with you to optimize your app.
 
 If your app stores large JSON objects, long text values, or historical records that still belong in Redis, use`redisCompressed`. 
 
