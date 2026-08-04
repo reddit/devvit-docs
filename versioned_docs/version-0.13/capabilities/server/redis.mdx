@@ -64,7 +64,7 @@ For command-specific behavior and limits, see the [supported Redis commands](#su
 
 ## Storage values
 
-Redis is best for small, frequently accessed app states. Each Redis installation has a 5 MB request size limit. On occasion, apps will run into storage limits. Our team will reach out to you if this occurs and work with you to optimize your app.
+Redis is best for small, frequently accessed app states. Each Redis installation has a 5 MB request size limit, and each app has an overall Redis storage limit of 5GB. On occasion, apps will run into storage limits. Our team will reach out to you if this occurs and work with you to optimize your app.
 
 If your app stores large JSON objects, long text values, or historical records that still belong in Redis, use`redisCompressed`. 
 
@@ -178,6 +178,7 @@ Design around these limits early so your app stays responsive as more people use
 | :---- | :---- | :---- |
 | Command throughput | 40,000 commands per second per installation | Avoid one Redis call per item in hot loops. Use batch commands such as `mGet`, `mSet`, and `hash` writes where they fit. |
 | Pipelining | Not supported | Reduce round trips by grouping related fields under hashes or compact JSON values. |
+| Overall app storage usage | 5 GB across all installations | Keep long-lived data compact, expire temporary keys, and archive large historical data outside Redis when needed. |
 | Request size | 5 MB | Store large datasets as multiple records and process them in batches. |
 | Transactions | 20 concurrent transaction blocks; 5-second execution timeout | Keep transaction logic small and release transactions with `exec`, `discard`, or `unwatch`. |
 
