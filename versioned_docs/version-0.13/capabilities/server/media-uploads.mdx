@@ -19,7 +19,7 @@ Enable the `media` permission in your `devvit.json` file.
 ```
 
 ## Media uploads
-On the server, pass a remote URL or data URL to `media.upload()` to upload an image, GIF, or video and get a Reddit-hosted asset you can safely render in posts, comments, and rich text.
+On the server, pass a remote URL or data URL to `media.upload()` to upload an image or GIF and get a Reddit-hosted asset you can safely render in posts, comments, and rich text.
 
 ### Response type
 `media.upload()` returns:
@@ -38,12 +38,12 @@ type MediaAsset = {
 `media.upload()` expects an object with:
 
 - `url`: The media URL (remote URL or data URL).
-- `type`: The media kind (`'image'`, `'gif'`, or `'video'`).
+- `type`: The media kind (`'image'` or `'gif'`).
 
 ```ts
 type UploadMediaOptions = {
   url: string; // remote URL or data URL
-  type: 'image' | 'gif' | 'video';
+  type: 'image' | 'gif';
 };
 ```
 
@@ -69,7 +69,7 @@ import { media } from '@devvit/web/server';
 app.post('/api/upload', async (c) => {
   const { url, type } = await c.req.json<{
     url: string;
-    type: 'image' | 'gif' | 'video';
+    type: 'image' | 'gif';
   }>();
 
   const uploaded = await media.upload({ url, type });
