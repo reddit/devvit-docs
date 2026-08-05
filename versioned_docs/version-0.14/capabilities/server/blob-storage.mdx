@@ -1,0 +1,217 @@
+# Blob Storage
+
+Binary Large Object Storage (aka “Blob”) is a way for your app to store data—like images, videos, and logs—in a scalable, cloud-based system. You can treat it like a cloud file system. Objects are similar to files and are stored at unique **keys** (for example, `path/to/my-object.json`).
+
+:::note  
+This is an experimental feature, which means you’ll need to request access to this capability. Use modmail at [r/devvit](https://www.reddit.com/r/Devvit/) to apply.  
+:::
+
+## How it works
+
+Since this is a beta program, you’ll need to send us a couple of things before you can get started:
+
+* The app identifier you want to use in the beta test.  
+* An overview that describes your use case.   
+* An estimate of how much storage you will need.
+
+Devvit blob manages an [AWS S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) for you to use. Under the hood, Devvit blob creates a dedicated namespace for your app’s installation. This means that separate installations cannot share blob storage.
+
+Public-facing file serving is not supported through blob storage at this time. Access to your namespace is restricted to just your app.
+
+## When to use blob storage
+
+Blob storage is best suited for data that is either bulky or infrequently accessed, like:
+
+* User generated content (screenshots, replays, save files, etc.)  
+* Backups and archives
+
+You can store up to 50 GB in blob storage. If your redis storage is filling up, you can migrate your most bulky data to blob storage to free up capacity.
+
+## Limits and quotas
+
+* Max requests per second: 100 
+* Max request size:  30 MB
+* Max object path length: 900 bytes
+* Max storage: 50 GB  
+
+## Adding blob storage to your app
+
+The @devvit/blob package provides a preconfigured client to use in your app’s server-side code. 
+
+### Supported commands
+
+The client can only perform commands within your installation’s namespace in the S3 bucket. If you pass in a “Bucket” parameter to an S3 command, it will be overridden.  The following commands are supported: 
+
+* `PutObject`  
+* `GetObject`  
+* `DeleteObject`  
+* `ListObjects`  
+* `ListObjectsV2`  
+* `CreateMultipartUpload`  
+* `UploadPart`  
+* `ListParts`  
+* `AbortMultipartUpload`  
+* `CompleteMultipartUpload`  
+* `HeadObject`  
+* `SelectObjectContent`
+
+
+See the [AWS SDK documentation](https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-s3#client-commands-operations-list) for the available input parameters for each command. Note that some [S3 commands are unsupported](#unsupported-commands) and will not work with blob storage. 
+
+### Steps
+
+1. In the root directory of your app, run npm install @devvit/blob to install the package. 
+
+2. Make sure all @devvit dependencies in your app’s `package.json` are using the same version as the blob package you just installed. 
+
+3. Install the latest version of the AWS SDK for S3: npm install @aws-sdk/client-s3 
+
+4. Set up the following APIs in your app server, which you can then call to use the supported commands in your client code:
+
+```ts
+import { newS3Client } from '@devvit/blob';
+import {
+  PutObjectCommand,
+  type PutObjectCommandInput,
+  GetObjectCommand,
+  type GetObjectCommandInput,
+  DeleteObjectCommand,
+  type DeleteObjectCommandInput,
+  ListObjectsV2Command,
+  type ListObjectsV2CommandInput,
+} from '@aws-sdk/client-s3';
+
+// -- Server side of webbit app --
+
+// Uploading content to S3.
+router.post<
+  Record<string, never>,
+  { ok: boolean } | { status: string; message: string },
+  { key: string; body: string },
+  Record<string, never>
+>("/api/s3-put", async (req, res): Promise<void> => {
+  const input: PutObjectCommandInput = {
+    Bucket: '',
+    Key: req.body.key,
+    Body: req.body.body,
+    ContentType: "text/plain",
+  };
+  const client = await newS3Client();
+  await client.send(new PutObjectCommand(input));
+  res.json({ ok: true });
+});
+
+// Getting content from S3.
+router.get<
+  Record<string, never>,
+  string | { status: string; message: string },
+  unknown,
+  { path?: string }
+>("/api/s3-get", async (req, res): Promise<void> => {
+  const client = await newS3Client();
+  const input: GetObjectCommandInput = {
+    Bucket: '', Key: req.query.path,
+  };
+  const response = await client.send(new GetObjectCommand(input));
+  const text = (await response.Body?.transformToString?.()) ?? "";
+  res.type("text/plain").send(text);
+});
+
+// Deleting content from S3.
+router.delete<
+  Record<string, never>,
+  { deleted: boolean } | { status: string; message: string },
+  { key?: string },
+  { key?: string }
+>("/api/s3-delete", async (req, res): Promise<void> => {
+  const key = (req.query.key as string | undefined) ?? req.body?.key;
+  const input: DeleteObjectCommandInput = {
+    Bucket: '', Key: key,
+  };
+  const client = await newS3Client();
+  await client.send(new DeleteObjectCommand(input));
+  res.json({ deleted: true });
+});
+
+// List the objects, or "keys", that exist at a path prefix in S3.
+router.get<
+  Record<string, never>,
+  { keys: string[] } | { status: string; message: string },
+  unknown,
+  { prefix?: string }
+>("/api/s3-list", async (req, res): Promise<void> => {
+  const prefix = (req.query.prefix as string) ?? "";
+  const input: ListObjectsV2CommandInput = {
+    Bucket: '', Prefix: prefix,
+  };
+  const client = await newS3Client();
+  const listResp = await client.send(new ListObjectsV2Command(input));
+  const keys: string[] = listResp.Contents?.map((c) => c.Key).filter(Boolean) as string[];
+  res.json({ keys });
+});
+```
+
+## FAQs
+
+* **What is a bucket?**    
+  A bucket is the top-level container for storing data in S3. Buckets contain objects.
+
+* **What is an object?**   
+  An object is the basic unit of storage in S3. It’s similar to a file in a traditional file system.
+
+* **What is a prefix?**    
+  A prefix is used to organize objects within a bucket. It works like a file path, for example: `this/is/a/prefix/`.
+
+* **Can I create a new bucket?**   
+  No. Bucket creation isn’t supported. Your installation’s namespace acts as its own bucket.
+
+* **Can I have multiple buckets?**   
+  No. Multiple buckets aren’t supported. Your installation’s namespace functions as a single bucket.
+
+* **Why do some S3 commands not work with the blob client?**  
+  The blob client uses restricted credentials and a custom middleware layer, so some S3 operations aren’t available.
+
+* **Why did my remote build fail?**  
+  If you added `"permissions": { "blob": true }` to your devvit.json, that could cause build issues. The blob package should work without it.
+
+##  Unsupported commands
+
+The following commands are **not** supported for blob storage:
+
+* `UploadPartCopy`  
+* `ListMultipartUploads`  
+* `CopyObject`  
+* `DeleteObjects`  
+* `DeleteObjectTagging`  
+* `CreateBucket`  
+* `CreateBucketMetadataTableConfiguration`  
+* `CreateSession`  
+* all commands starting with `DeleteBucket`  
+* `DeletePublicAccessBlock`  
+* all commands starting with `GetBucket`  
+* `GetObjectAcl`  
+* `GetObjectAttributes`  
+* `GetObjectLegalHold`  
+* `GetObjectLockConfiguration`  
+* `GetObjectRetention`  
+* `GetObjectTagging`  
+* `GetObjectTorrent`  
+* `GetPublicAccessBlock`  
+* `HeadBucket`  
+* all commands starting with `ListBucket`  
+* `ListDirectoryBuckets`  
+* `ListObjectVersions`  
+* all commands starting with `PutBucket`  
+* `PutObjectAcl`  
+* `PutObjectLegalHold`  
+* `PutObjectLockConfiguration`  
+* `PutObjectRetention`  
+* `PutObjectTagging`  
+* `PutPublicAccessBlock`  
+* `RenameObject`  
+* `RestoreObject`  
+* all commands starting with `UpdateBucket`  
+* `UpdateObjectEncryption`  
+* `WriteGetObjectResponsePutObject`
+
+  

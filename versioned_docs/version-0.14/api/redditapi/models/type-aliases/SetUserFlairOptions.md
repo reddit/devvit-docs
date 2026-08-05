@@ -1,0 +1,15 @@
+[**@devvit/reddit v0.14.0-dev**](../../README.md)
+
+***
+
+# Type Alias: SetUserFlairOptions
+
+> **SetUserFlairOptions** = [`SetFlairOptions`](SetFlairOptions.md) & `object`
+
+## Type declaration
+
+### username
+
+> **username**: `string`
+
+The username of the user to set the flair on
