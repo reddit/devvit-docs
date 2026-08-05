@@ -61,7 +61,7 @@ const response = await fetch('https://example.com/api/data', {
 
 const data = await response.json();
 console.log('External API response:', data);
-````
+```
 
 ### Client-side fetch
 
@@ -106,7 +106,7 @@ If you see the following error, it means HTTP Fetch requests are hitting the int
 - Use a queue or kick off an async request in your back end. You can use [Scheduler](./scheduler.mdx) to monitor the result.
 - Optimize the overall HTTP request latency if you have a self-hosted server.
 
-```ts
+```text
 HTTP request to domain: <domain> timed out with error: context deadline exceeded.
 ```
 
