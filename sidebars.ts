@@ -337,6 +337,11 @@ const sidebars: SidebarsConfig = {
           items: [
             {
               type: "doc",
+              label: "Overview",
+              id: "guides/migrate/public-api",
+            },
+            {
+              type: "doc",
               label: "Migration Basics",
               id: "guides/migrate/public-api/basics",
             },
