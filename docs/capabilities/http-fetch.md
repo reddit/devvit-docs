@@ -6,18 +6,15 @@ Your Devvit app can make network requests to access allow-listed external domain
 
 ## Enabling HTTP fetch calls
 
-devvit.json
-
-```
-
+```json title="devvit.json"
 {
- ...
- "permissions": {
-   "http": {
-     "enable": true,
-     "domains": ["my-site.com", "another-domain.net"]
-   }
- }
+  ...
+  "permissions": {
+    "http": {
+      "enable": true,
+      "domains": ["my-site.com", "another-domain.net"]
+    }
+  }
 }
 ```
 
@@ -56,15 +53,12 @@ Devvit Web applications have two different contexts for using fetch:
 
 Server-side fetch allows your app to make HTTP requests to allowlisted external domains from your server-side code (e.g., API routes, server actions):
 
-server/index.ts
-
-```
-
+```ts title="server/index.ts"
 const response = await fetch('https://example.com/api/data', {
- method: 'GET',
- headers: {
-   'Content-Type': 'application/json',
- },
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 const data = await response.json();
@@ -78,22 +72,20 @@ Client-side fetch has different restrictions:
 - **Domain limitation**: Can only make requests to your own webview domain
 - **Endpoint requirement**: All requests must target endpoints that start with /api/
 - **Authentication**: Handled automatically \- no need to manage auth tokens
-- **No external domains**: Cannot make requests to external domains from client-side code  
-  client/index.ts
+- **No external domains**: Cannot make requests to external domains from client-side code
 
-```
-
+```ts title="client/index.ts"
 const handleFetchData = async () => {
- // ✅ Correct: Fetching your own webview's API endpoint
- const response = await fetch("/api/user-data", {
-   method: "GET",
-   headers: {
-     "Content-Type": "application/json",
-   },
- });
+  // ✅ Correct: Fetching your own webview's API endpoint
+  const response = await fetch("/api/user-data", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
- const data = await response.json();
- console.log("API response:", data);
+  const data = await response.json();
+  console.log("API response:", data);
 };
 
 // ❌ Incorrect: Cannot fetch external domains from client-side
@@ -107,7 +99,7 @@ const handleFetchData = async () => {
 
 The following error means HTTP Fetch requests are hitting the internal timeout limits.
 
-```
+```text
 HTTP request to domain: <domain> timed out with error: context deadline exceeded.
 ```
 
@@ -191,8 +183,7 @@ If your app uses fetch domains, add this context to your app's [README](../devvi
 
 Example Fetch Domains section:
 
-```
-
+```md title="README.md"
 ## Fetch Domains
 
 The following domains are requested for this app:

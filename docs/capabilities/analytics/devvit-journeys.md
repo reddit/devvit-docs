@@ -1,3 +1,6 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Devvit Journeys
 
 Devvit Journeys adds a telemetry stream to your app that tracks the entire lifecycle of a user session. With journeys, you can:
@@ -85,7 +88,7 @@ By instrumenting these moments, you can track session boundaries, understand pla
 | :---: | ------------------------------------- | ----------------------- | ----------------------------- |
 | **1** | Game loads                            | **App.Ready**           | Game is fully interactive     |
 | **2** | Player clicks “Start Game”            | **Journey.Start**       | Begins a new session          |
-| **3** | Player completes Level 1(of 5 levels) | **Journey.Progress**    | `progress: 0.2`               |
+| **3** | Player completes Level 1 (of 5 levels) | **Journey.Progress**    | `progress: 0.2`               |
 | **4** | Player opens inventory                | **Journey.Interaction** | `action: "menu_opened"`       |
 | **5** | Player completes Level 2              | **Journey.Progress**    | `progress: 0.4`               |
 | **6** | Player reaches final level            | **Journey.Progress**    | `progress: 0.9`               |
@@ -98,7 +101,7 @@ By instrumenting these moments, you can track session boundaries, understand pla
 | **1** | Game loads                   | **App.Ready**        | Game is fully interactive       |
 | **2** | Player clicks “Start Game”   | **Journey.Start**    | Begins a new session            |
 | **3** | Player completes early level | **Journey.Progress** | `progress: 0.3`                 |
-| **4** | Player dies                  | **Journey.End**      | `complete: false`, `win: false` |
+| **4** | Player dies                  | **Journey.End**      | `complete: false`, `win: false` |
 
 ### Scenario 3: early exit / abandonment
 
@@ -149,7 +152,7 @@ Here's how to implement journey tracking in your app.
 
 Set Journeys permissions to `true` in `devvit.json`. 
 
-```
+```json title="devvit.json"
  "permissions": {
     "journeys": true
   },
@@ -159,7 +162,7 @@ Set Journeys permissions to `true` in `devvit.json`.
 
 You can send events solely on the backend and use the front‑end only to establish and pass along the journeyId. To do this, thread the active `journey ID` from your front‑end to your backend routes.
 
-```
+```ts title="client/index.ts"
 import { telemetry } from '@devvit/analytics/client/reddit';
 
 export async function submitScore(score: number): Promise<void> {
@@ -184,7 +187,50 @@ export async function submitScore(score: number): Promise<void> {
 
 On the server, read the incoming `journeyId` and use it for correlation in your own route.
 
+<Tabs
+  variant="pill"
+  groupId="http-server-framework"
+  defaultValue="hono"
+  values={[
+    { label: 'Hono', value: 'hono' },
+    { label: 'Express', value: 'express' },
+  ]}>
+<TabItem value="hono">
+
+```ts title="server/index.ts"
+import { telemetry } from '@devvit/analytics/server/reddit';
+import { Hono } from 'hono';
+
+const app = new Hono();
+
+app.post('/api/score', async (c) => {
+  const journeyId = c.req.header('x-devvit-journey-id') ?? '';
+  const { score } = await c.req.json<{ score: number }>();
+
+  console.log('score event', {
+    journeyId,
+    score,
+  });
+
+  await telemetry.endJourney({
+    journeyId,
+    complete: true,
+    game: {
+      win: true,
+      score,
+    },
+  });
+
+  return c.json({ ok: true });
+});
+
+export default app;
 ```
+
+</TabItem>
+<TabItem value="express">
+
+```ts title="server/index.ts"
 import express from 'express';
 import { telemetry } from '@devvit/analytics/server/reddit';
 
@@ -209,8 +255,10 @@ app.post('/api/score', async (req, res) => {
 
   res.json({ ok: true });
 });
-
 ```
+
+</TabItem>
+</Tabs>
 
 ### Client events
 
@@ -218,7 +266,7 @@ If you don’t want to manually send server-events, you can use the generic clie
 
 Note: This also requires using the route adapters provided in `@devvit/analytics/server/reddit`
 
-```
+```ts title="client/index.ts"
 // client
 import { telemetry } from '@devvit/analytics/client/reddit';
 
@@ -231,7 +279,7 @@ await telemetry.progress({
 
 ```
 
-```
+```ts title="server/index.ts"
 // server
 import { createTelemetryRouter } from '@devvit/analytics/server/reddit';
 app.use(createTelemetryRouter());
