@@ -33,7 +33,7 @@ Event triggers let your app automatically respond to a user's or moderator's act
 - `onAutomoderatorFilterPost`
 - `onAutomoderatorFilterComment`
 
-A full list of events and their payloads can be found in the [EventTypes documentation](../../api/public-api/@devvit/namespaces/EventTypes/). For more details on Mod specific actions, see [ModActions](../../api/redditapi/models/interfaces/ModAction) and [ModMail](../../api/public-api/type-aliases/ModMailDefinition).
+See the [Trigger Event Catalog](./trigger-events) for when each event fires, its delivery and safety behavior, and its top-level payload. For exhaustive generated type definitions, see the [EventTypes API reference](../../api/public-api/@devvit/namespaces/EventTypes/).
 
 ## Setting up triggers
 
@@ -155,7 +155,7 @@ router.post<string, never, TriggerResponse, OnPostSubmitRequest>(
 
 - Avoid creating recursive triggers that could cause infinite loops or crashes (for example, a comment trigger that creates a comment).
 - Always check the event payload to ensure your app is not the source of the event before taking action.
-- Review the [EventTypes documentation](../../api/public-api/@devvit/namespaces/EventTypes/) for details on event payloads.
+- Review the [Trigger Event Catalog](./trigger-events) for event behavior and payload details.
 
 :::caution
 Triggers are not guaranteed to deliver only once for a single event. Ensure your app logic is able to handle this case, e.g. checking if content has been recently actioned before taking action again.
