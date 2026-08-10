@@ -9,7 +9,7 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
-# Release 0.14.0: Node.js v24, Wiki Integration, Devvit Skills (Experimental)
+## Release 0.14.0: Node.js v24, Wiki Integration, Devvit Skills (Experimental)
 **Release Date: August 10, 2026**
 
 **Node.js Upgrade**
@@ -43,6 +43,8 @@ The first available skill, `devvit-docs`, helps agents answer Devvit questions u
 **Devvit Test Redis Changes**
 
 We’ve migrated to a JS only implementation of Redis inside of [Devvit test](https://developers.reddit.com/docs/guides/tools/devvit_test). This should make it easier to install and work with. While not a breaking change, it's possible the new Redis mock behaves differently compared to the previous version. If you run into any issues, please [let us know on Github](https://github.com/reddit/devvit)!
+
+
 ## Release 0.13.11: Behind-the-Scenes Improvements
 **Release Date: August 3, 2026***
 
