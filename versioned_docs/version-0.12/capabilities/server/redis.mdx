@@ -18,14 +18,13 @@ Each installation of an app is uniquely name-spaced, which means Redis data is s
 
 - Max commands per second: 40000
 - Max request size: 5 MB
-- Max storage: 500 MB
-- Overall app storage usage: 5 GB
+- Max storage: 5 GB
 - [Pipelining](https://redis.io/docs/latest/develop/using-commands/pipelining/) is not supported
 - [Sets](https://redis.io/docs/latest/commands/set/) - only sorted sets are supported
 - No support for listing keys
 - No support for lua scripts to execute custom logic on redis server
 
-All limits are applied at a per-installation granularity except for the overall app storage usage limit, which applies across all installations.
+All limits are applied per installation.
 
 ## Examples
 
