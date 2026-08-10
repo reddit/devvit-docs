@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.13.12-dev**](../README.md)
+[**@devvit/public-api v0.14.1-dev**](../README.md)
 
 ***
 
@@ -10,13 +10,17 @@
 
 ### new WikiPageRevision()
 
-> **new WikiPageRevision**(`data`): `WikiPageRevision`
+> **new WikiPageRevision**(`data`, `wikiVersion`?): `WikiPageRevision`
 
 #### Parameters
 
 ##### data
 
 `WikiPageRevision`
+
+##### wikiVersion?
+
+[`WikiVersion`](../type-aliases/WikiVersion.md)
 
 #### Returns
 
@@ -32,9 +36,31 @@
 
 > **get** **author**(): [`User`](User.md)
 
+The author of this revision.
+
+##### Deprecated
+
+Use authorId instead.
+
 ##### Returns
 
 [`User`](User.md)
+
+***
+
+<a id="authorid"></a>
+
+### authorId
+
+#### Get Signature
+
+> **get** **authorId**(): `undefined` \| `` `t2_${string}` ``
+
+The ID of the author of this revision.
+
+##### Returns
+
+`undefined` \| `` `t2_${string}` ``
 
 ***
 

@@ -1,8 +1,8 @@
-**@devvit/public-api v0.13.12-dev**
+**@devvit/public-api v0.14.1-dev**
 
 ***
 
-# @devvit/public-api v0.13.12-dev
+# @devvit/public-api v0.14.1-dev
 
 ## Namespaces
 
@@ -197,6 +197,7 @@
 - [GetUserFlairBySubredditResponse](type-aliases/GetUserFlairBySubredditResponse.md)
 - [GetUserFlairOptions](type-aliases/GetUserFlairOptions.md)
 - [GetUserOverviewOptions](type-aliases/GetUserOverviewOptions.md)
+- [GetWikiPageOptions](type-aliases/GetWikiPageOptions.md)
 - [Heading](type-aliases/Heading.md)
 - [HeadingContainer](type-aliases/HeadingContainer.md)
 - [HeadingLevel](type-aliases/HeadingLevel.md)
@@ -409,6 +410,8 @@
 - [Visibility](type-aliases/Visibility.md)
 - [WikiEditMode](type-aliases/WikiEditMode.md)
 - [WikiPageRevisionId](type-aliases/WikiPageRevisionId.md)
+- [WikiVersion](type-aliases/WikiVersion.md)
+- [WikiVersionOptions](type-aliases/WikiVersionOptions.md)
 - [WithUserData](type-aliases/WithUserData.md)
 - [ZMember](type-aliases/ZMember.md)
 - [ZRangeByScoreOptions](type-aliases/ZRangeByScoreOptions.md)
