@@ -40,7 +40,9 @@ We’re announcing the [devvit-skills](https://github.com/reddit/devvit-skills) 
 
 The first available skill, `devvit-docs`, helps agents answer Devvit questions using the official [reddit/devvit-docs](https://github.com/reddit/devvit-docs) repository as the source of truth. It detects the Devvit version in your project, searches the matching docs when available, and cites the files and sections used in its answer.
 
+**Devvit Test Redis Changes**
 
+We’ve migrated to a JS only implementation of Redis inside of [Devvit test](https://developers.reddit.com/docs/guides/tools/devvit_test). This should make it easier to install and work with. While not a breaking change, it's possible the new Redis mock behaves differently compared to the previous version. If you run into any issues, please [let us know on Github](https://github.com/reddit/devvit)!
 ## Release 0.13.11: Behind-the-Scenes Improvements
 **Release Date: August 3, 2026***
 
