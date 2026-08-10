@@ -1,14 +1,12 @@
-[**@devvit/public-api v0.13.12-dev**](../README.md)
+[**@devvit/public-api v0.14.1-dev**](../README.md)
 
 ***
 
 # Type Alias: CreateWikiPageOptions
 
-> **CreateWikiPageOptions** = `object`
+> **CreateWikiPageOptions** = [`WikiVersionOptions`](WikiVersionOptions.md) & `object`
 
-## Properties
-
-<a id="content"></a>
+## Type declaration
 
 ### content
 
@@ -16,29 +14,17 @@
 
 The content of the page.
 
-***
-
-<a id="page"></a>
-
 ### page
 
 > **page**: `string`
 
 The name of the page to create.
 
-***
-
-<a id="reason"></a>
-
 ### reason?
 
 > `optional` **reason**: `string`
 
 The reason for creating the page.
-
-***
-
-<a id="subredditname"></a>
 
 ### subredditName
 

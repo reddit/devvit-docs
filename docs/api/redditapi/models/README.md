@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.13.12-dev**](../README.md)
+[**@devvit/reddit v0.14.1-dev**](../README.md)
 
 ***
 
@@ -114,6 +114,7 @@
 - [GetUserFlairBySubredditResponse](type-aliases/GetUserFlairBySubredditResponse.md)
 - [GetUserFlairOptions](type-aliases/GetUserFlairOptions.md)
 - [GetUserOverviewOptions](type-aliases/GetUserOverviewOptions.md)
+- [GetWikiPageOptions](type-aliases/GetWikiPageOptions.md)
 - [ImagePosition](type-aliases/ImagePosition.md)
 - [InternalSetPostFlairOptions](type-aliases/InternalSetPostFlairOptions.md)
 - [~~LinkFlair~~](type-aliases/LinkFlair.md)
@@ -180,6 +181,8 @@
 - [Visibility](type-aliases/Visibility.md)
 - [WikiEditMode](type-aliases/WikiEditMode.md)
 - [WikiPageRevisionId](type-aliases/WikiPageRevisionId.md)
+- [WikiVersion](type-aliases/WikiVersion.md)
+- [WikiVersionOptions](type-aliases/WikiVersionOptions.md)
 - [WithUserData](type-aliases/WithUserData.md)
 
 ## Variables

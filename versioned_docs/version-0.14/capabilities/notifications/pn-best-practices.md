@@ -127,13 +127,13 @@ To learn more about creating deeper engagement loops, check out the best practic
 
 In your terminal, navigate to your project directory and run this command to update the push notification to the latest release.
 
-```
+```bash
 npm install @devvit/notifications
 ```
 
 ### Step 2: Import the push notification module
 
-```
+```ts
 import { notifications } from '@devvit/notifications';
 ```
 
@@ -144,7 +144,7 @@ import { notifications } from '@devvit/notifications';
 
 To send a push notification to a group of users, you can use the double curly brackets ( { { } } ) to reference variables in a Mustache template.
 
-```
+```ts
 await notifications.enqueue({
   title: 'Hello {{name}}!',
   body: 'You have {{score}} new points.',
@@ -179,7 +179,7 @@ await notifications.enqueue({
 
 **Note:** Mustache templating is optional. Here's a simplified example without it:
 
-```
+```ts
 await notifications.enqueue({
   title: 'Winner!',
   body: 'Congrats on your win',
@@ -189,6 +189,7 @@ await notifications.enqueue({
       link: 't3_xyz987',
     },
   ],
+});
 ```
 
 **Note**: If the app hasn’t been published, you can only send push notifications to yourself for testing. **Pre-release apps in testing are not subject to the rate-limits below**.
@@ -204,14 +205,14 @@ If you need higher limits, let us know.
 
 Users will be able to opt in or out of receiving notifications triggered by a button in your UI:
 
-```
+```ts
 await notifications.optInCurrentUser();
 await notifications.optOutCurrentUser();
 ```
 
 You will also be able to retrieve a list of users who have opted in (if not managing it manually):
 
-```
+```ts
 //This will just return the first 1000 users
 const recipients = await notifications.listOptedInUsers();
 

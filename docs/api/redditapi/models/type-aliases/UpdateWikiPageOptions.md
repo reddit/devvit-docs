@@ -1,14 +1,12 @@
-[**@devvit/reddit v0.13.12-dev**](../../README.md)
+[**@devvit/reddit v0.14.1-dev**](../../README.md)
 
 ***
 
 # Type Alias: UpdateWikiPageOptions
 
-> **UpdateWikiPageOptions** = `object`
+> **UpdateWikiPageOptions** = [`WikiVersionOptions`](WikiVersionOptions.md) & `object`
 
-## Properties
-
-<a id="content"></a>
+## Type declaration
 
 ### content
 
@@ -16,29 +14,17 @@
 
 The new content of the page.
 
-***
-
-<a id="page"></a>
-
 ### page
 
 > **page**: `string`
 
 The name of the page to update.
 
-***
-
-<a id="reason"></a>
-
 ### reason?
 
 > `optional` **reason**: `string`
 
 The reason for updating the page.
-
-***
-
-<a id="subredditname"></a>
 
 ### subredditName
 
