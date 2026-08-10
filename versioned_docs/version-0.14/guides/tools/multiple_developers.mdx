@@ -1,0 +1,25 @@
+---
+title: Multiple Developers
+---
+
+Multiple developers working on a single app can clash with each other's uploads during playtesting. This is due to the same playtest subreddit and app name being used.
+
+Local environment variables allow multiple developers to share a single codebase while each having separate playtest subreddits and app names.
+
+## Setup
+
+- Keep `devvit.json` in git
+- Use local environment variables per developer to override the local targets used by the Devvit CLI:
+  - `DEVVIT_SUBREDDIT` (where you playtest)
+  - `DEVVIT_APP_NAME` (the app name the CLI uses)
+- Alternatively, use a local `.env` file and ensure it's not committed by adding it to `.gitignore`
+
+This gives each developer an isolated development lane without forking the repository or repeatedly editing `devvit.json`.
+
+:::warning
+Local environment variables and `.env` files are read during playtesting only. For API keys and other sensitive values, use [Settings and Secrets](/capabilities/server/settings-and-secrets).
+:::
+
+## Why not remove `devvit.json` from git?
+
+`devvit.json` is part of the app's core configuration, including capabilities, entry points, and permissions. If it isn't versioned, teammates can drift out-of-sync due to mismatched configurations. Instead, keep `devvit.json` stable and use local environment overrides.
