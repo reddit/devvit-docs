@@ -165,6 +165,21 @@ await reddit.submitComment({
 });
 ```
 
+## Deleting uploaded media
+
+Devvit does not currently provide an API to delete a media asset after it has been uploaded with `media.upload()`.
+
+This limitation applies to runtime Reddit-hosted uploads from `media.upload()`, not static assets bundled with your app through `media.dir` in `devvit.json`.
+
+The `mediaId` and `mediaUrl` returned by `media.upload()` identify a Reddit-hosted asset, but the current media API only supports upload. If your app needs to stop showing uploaded media, remove your app's references to the asset and update or delete the Reddit content that embeds it.
+
+For example:
+
+- If you store uploaded media in Redis, delete the Redis key or remove the item from your app's list of visible assets.
+- If the media is embedded in a post or comment, edit or delete that post or comment when your app has permission to do so.
+- Store both `mediaId` and `mediaUrl` with your app data so you can migrate to a deletion API if one becomes available later.
+
+If your use case requires guaranteed removal of the underlying uploaded file, media uploads may not be the right storage mechanism until deletion support exists.
 
 ## Canvas screenshots
 
