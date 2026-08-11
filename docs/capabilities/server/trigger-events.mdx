@@ -56,8 +56,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A post being submitted to a subreddit.
 
-**Use it when:** Your app needs to react as quickly as possible, such as assigning initial metadata or starting a latency-sensitive workflow.
-
 **Delivery and safety:** This event favors faster delivery and does not wait for outstanding [media safety checks](#what-safety-processing-means). A known high-severity illegal-content match can still suppress the event. The post can later be edited, removed, or deleted.
 
 **Payload:** `OnPostSubmitRequest`
@@ -77,8 +75,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A newly created post after Reddit has allowed time for applicable media safety checks.
 
-**Use it when:** Your workflow benefits from allowing applicable media safety checks more time than the lowest-latency notification permits.
-
 **Delivery and safety:** Delivery is intentionally later than `onPostSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or a result is unavailable, the event can still be delivered. Receiving it does not certify the post as safe, approved, or permanently available.
 
 **Payload:** `OnPostCreateRequest`
@@ -97,8 +93,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onPostUpdate
 
 **Represents:** A change to a post's body.
-
-**Use it when:** Your app needs to reprocess text, update derived data, or respond to an edited post.
 
 **Delivery and safety:** Applicable [media safety checks](#what-safety-processing-means) can delay this event, and a known match can suppress it. The `post` object is a snapshot containing the updated body.
 
@@ -120,8 +114,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A report being added to a post.
 
-**Use it when:** Your app assists with report triage, moderation queues, or report-based automation.
-
 **Delivery and safety:** This is a state-change event. The reported post can already be removed, changed, or unavailable when your handler runs.
 
 **Payload:** `OnPostReportRequest`
@@ -140,8 +132,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onPostDelete
 
 **Represents:** A post being deleted or removed by a user, moderator, or administrator.
-
-**Use it when:** Your app needs to clean up derived data, revoke access, or synchronize deletion state.
 
 **Delivery and safety:** This event describes a deletion action. It carries identifiers and metadata instead of the deleted post body.
 
@@ -166,8 +156,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A post's flair being added, changed, or cleared.
 
-**Use it when:** Your app mirrors flair state or starts automation based on the current post flair.
-
 **Delivery and safety:** This is a state-change event. It is separate from edits to the post body.
 
 **Payload:** `OnPostFlairUpdateRequest`
@@ -186,8 +174,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onPostNsfwUpdate
 
 **Represents:** A post being marked or unmarked as NSFW.
-
-**Use it when:** Your app needs to synchronize access, labels, or presentation with the post's current NSFW state.
 
 **Delivery and safety:** This is a state-change event and can contain NSFW content. The boolean field is the new state.
 
@@ -208,8 +194,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onPostSpoilerUpdate
 
 **Represents:** A post being marked or unmarked as a spoiler.
-
-**Use it when:** Your app needs to synchronize labels or presentation with the post's current spoiler state.
 
 **Delivery and safety:** This is a state-change event. The boolean field is the new state.
 
@@ -233,8 +217,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A comment being submitted.
 
-**Use it when:** Your app needs to react as quickly as possible to a new comment.
-
 **Delivery and safety:** This event favors faster delivery and does not wait for outstanding [media safety checks](#what-safety-processing-means). A known high-severity illegal-content match can still suppress the event. The comment can later be edited, removed, or deleted.
 
 **Payload:** `OnCommentSubmitRequest`
@@ -255,8 +237,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A newly created comment after Reddit has allowed time for applicable media safety checks.
 
-**Use it when:** Your workflow benefits from allowing applicable media safety checks more time than the lowest-latency notification permits.
-
 **Delivery and safety:** Delivery is intentionally later than `onCommentSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or a result is unavailable, the event can still be delivered. Receiving it does not certify the comment or its parent post as safe, approved, or permanently available.
 
 **Payload:** `OnCommentCreateRequest`
@@ -276,8 +256,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onCommentUpdate
 
 **Represents:** A change to a comment's body.
-
-**Use it when:** Your app needs to reprocess text, update derived data, or respond to an edited comment.
 
 **Delivery and safety:** Applicable [media safety checks](#what-safety-processing-means) can delay this event, and a known match can suppress it. The `comment` object is a snapshot containing the updated body.
 
@@ -300,8 +278,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A report being added to a comment.
 
-**Use it when:** Your app assists with report triage, moderation queues, or report-based automation.
-
 **Delivery and safety:** This is a state-change event. The reported comment can already be removed, changed, or unavailable when your handler runs.
 
 **Payload:** `OnCommentReportRequest`
@@ -320,8 +296,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onCommentDelete
 
 **Represents:** A comment being deleted or removed by a user, moderator, or administrator.
-
-**Use it when:** Your app needs to clean up derived data, revoke access, or synchronize deletion state.
 
 **Delivery and safety:** This event describes a deletion action. It carries identifiers and metadata instead of the deleted comment body.
 
@@ -350,8 +324,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A moderator action recorded in a subreddit's moderation log, such as approving, removing, locking, distinguishing, stickying, or changing flair.
 
-**Use it when:** Your app needs to respond to moderation activity rather than only to the resulting content state.
-
 **Delivery and safety:** This is a moderation event. Its target content can already be unavailable or sanitized when your handler runs.
 
 **Payload:** `OnModActionRequest`
@@ -375,8 +347,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onModMail
 
 **Represents:** A message being sent or received in a modmail conversation associated with the installation.
-
-**Use it when:** Your app routes, classifies, or synchronizes modmail activity.
 
 **Delivery and safety:** This is a messaging event. It contains message and conversation metadata, not the message body.
 
@@ -404,8 +374,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** AutoModerator filtering a post.
 
-**Use it when:** Your app supplements AutoModerator workflows or records why AutoModerator filtered a post.
-
 **Delivery and safety:** This event intentionally represents filtered content. Treat the post and reason as sensitive, untrusted input.
 
 **Payload:** `OnAutomoderatorFilterPostRequest`
@@ -426,8 +394,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onAutomoderatorFilterComment
 
 **Represents:** AutoModerator filtering a comment.
-
-**Use it when:** Your app supplements AutoModerator workflows or records why AutoModerator filtered a comment.
 
 **Delivery and safety:** This event intentionally represents filtered content. Treat the comment and reason as sensitive, untrusted input.
 
@@ -452,8 +418,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** The app being installed in a subreddit.
 
-**Use it when:** Your app needs to initialize installation-scoped data or resources.
-
 **Delivery and safety:** This lifecycle event is produced by an installation change, not by an ordinary app upload.
 
 **Payload:** `OnAppInstallRequest`
@@ -471,8 +435,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onAppUpgrade
 
 **Represents:** A subreddit installation moving to a different version of the app.
-
-**Use it when:** Your app needs to migrate installation-scoped data or enable behavior associated with the newly installed version.
 
 **Delivery and safety:** This lifecycle event is produced when an installation changes version. Uploading or publishing a version does not by itself invoke every installation.
 
@@ -493,8 +455,6 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 ### onMentionInCommentCreate
 
 **Represents:** A newly created comment that mentions the app's username.
-
-**Use it when:** An approved app needs to respond to explicit mentions outside the subreddits where it is ordinarily installed.
 
 **Delivery and safety:** This limited-access global event allows time for applicable [media safety checks](#what-safety-processing-means) on the comment and its parent post. A known match can suppress the event, but ordinary NSFW content can still be present.
 
