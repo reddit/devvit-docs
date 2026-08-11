@@ -8,7 +8,7 @@ This starter template will [create an app like this for you](https://www.reddit.
 
 ## What you'll need
 
-- Node.JS (version 22.2.0+)
+- Node.JS (version 24.18.0+)
 - A code editor
 
 ## Environment setup

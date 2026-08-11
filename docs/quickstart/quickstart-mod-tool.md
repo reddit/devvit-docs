@@ -6,7 +6,7 @@ This tutorial should take about 10 minutes to complete. Once complete, you'll be
 
 ## What you'll need
 
-- Node.JS (version 22.2.0+)
+- Node.JS (version 24.18.0+)
 - A code editor
 
 ## Environment setup
