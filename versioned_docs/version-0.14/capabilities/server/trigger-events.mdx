@@ -10,26 +10,36 @@ The payload types in this page are exported by `@devvit/web/shared`. The tables 
 - **An event can be delivered more than once.** Make writes and other side effects idempotent. Do not rely on strict ordering between separate trigger requests.
 - **Payload objects are snapshots.** Nested `post`, `comment`, `author`, and `subreddit` objects can be absent when Reddit cannot provide them. Check optional fields before using them.
 - **Payloads can be sanitized.** Deleted or removed content can use redacted text and placeholder identities. Moderator and administrator identities can also be masked.
-- **Safety processing varies by event.** Submit events favor faster delivery. Create events allow more time for safety processing. An event can be delayed or suppressed, but receiving an event is not a guarantee that its content is safe or will remain available.
+- **Safety processing is a narrow delivery gate.** For eligible content with uploaded images or video, Reddit can allow time for signals that detect certain high-severity illegal sexual content. See [What safety processing means](#what-safety-processing-means).
 - **User-generated content is untrusted.** Escape content before rendering it, and validate it before passing it to another system.
 
 Every Devvit Web trigger request also contains a `type` discriminator such as `"PostCreate"`. This is useful when multiple trigger keys share one endpoint.
+
+### What safety processing means
+
+Safety processing for Devvit trigger delivery is not a general moderation review. For eligible posts and comments that contain uploaded images or video, Reddit may allow time for signals that detect certain high-severity illegal sexual content, including child sexual abuse material (CSAM) and non-consensual intimate media (NCIM). If a matching signal is known, the trigger event can be suppressed.
+
+These checks do not certify that content is free of ordinary NSFW material, spam, harassment, or every other policy or community-rule violation. Reddit, AutoModerator, and community moderators can independently remove or change content before or after your handler runs.
+
+Not every event has an applicable media check; most text-only posts and comments do not. Submit events do not wait for an outstanding check, while create events allow time for applicable checks to complete. A create event can still be delivered when no check applies or when a result is unavailable, so delivery is never proof that content is safe or approved.
+
+Safety checking determines whether an event is delivered. Payload sanitization and identity redaction are separate protections that determine what data the event contains.
 
 ## Quick reference
 
 | Trigger key                    | Represents                                          | Primary payload                                 | Delivery and safety                  | Details                               |
 | ------------------------------ | --------------------------------------------------- | ----------------------------------------------- | ------------------------------------ | ------------------------------------- |
-| `onPostSubmit`                 | A newly submitted post                              | Post, author, subreddit                         | Faster delivery                      | [View](#onpostsubmit)                 |
-| `onPostCreate`                 | A newly created post after additional processing    | Post, author, subreddit                         | Safety-processed                     | [View](#onpostcreate)                 |
-| `onPostUpdate`                 | An edit to a post's body                            | Post, author, previous body, subreddit          | Safety processing can delay delivery | [View](#onpostupdate)                 |
+| `onPostSubmit`                 | A newly submitted post                              | Post, author, subreddit                         | Does not wait for media checks       | [View](#onpostsubmit)                 |
+| `onPostCreate`                 | A newly created post after additional processing    | Post, author, subreddit                         | Allows time for media checks         | [View](#onpostcreate)                 |
+| `onPostUpdate`                 | An edit to a post's body                            | Post, author, previous body, subreddit          | Allows applicable media checks       | [View](#onpostupdate)                 |
 | `onPostReport`                 | A report on a post                                  | Post, reason, subreddit                         | State-change event                   | [View](#onpostreport)                 |
 | `onPostDelete`                 | A post deletion or removal                          | Post ID, deletion metadata, author, subreddit   | State-change event                   | [View](#onpostdelete)                 |
 | `onPostFlairUpdate`            | A post flair change                                 | Post, updater, subreddit                        | State-change event                   | [View](#onpostflairupdate)            |
 | `onPostNsfwUpdate`             | A post's NSFW status changing                       | Post, updater, new state, subreddit             | State-change event                   | [View](#onpostnsfwupdate)             |
 | `onPostSpoilerUpdate`          | A post's spoiler status changing                    | Post, updater, new state, subreddit             | State-change event                   | [View](#onpostspoilerupdate)          |
-| `onCommentSubmit`              | A newly submitted comment                           | Comment, author, post, subreddit                | Faster delivery                      | [View](#oncommentsubmit)              |
-| `onCommentCreate`              | A newly created comment after additional processing | Comment, author, post, subreddit                | Safety-processed                     | [View](#oncommentcreate)              |
-| `onCommentUpdate`              | An edit to a comment's body                         | Comment, author, post, previous body, subreddit | Safety processing can delay delivery | [View](#oncommentupdate)              |
+| `onCommentSubmit`              | A newly submitted comment                           | Comment, author, post, subreddit                | Does not wait for media checks       | [View](#oncommentsubmit)              |
+| `onCommentCreate`              | A newly created comment after additional processing | Comment, author, post, subreddit                | Allows time for media checks         | [View](#oncommentcreate)              |
+| `onCommentUpdate`              | An edit to a comment's body                         | Comment, author, post, previous body, subreddit | Allows applicable media checks       | [View](#oncommentupdate)              |
 | `onCommentReport`              | A report on a comment                               | Comment, reason, subreddit                      | State-change event                   | [View](#oncommentreport)              |
 | `onCommentDelete`              | A comment deletion or removal                       | Comment, post and parent IDs; deletion metadata | State-change event                   | [View](#oncommentdelete)              |
 | `onModAction`                  | An entry in a community's moderation log            | Action, moderator, target, subreddit            | Moderation event                     | [View](#onmodaction)                  |
@@ -38,7 +48,7 @@ Every Devvit Web trigger request also contains a `type` discriminator such as `"
 | `onAutomoderatorFilterComment` | AutoModerator filtering a comment                   | Comment, author ID, reason, subreddit           | Filtered-content event               | [View](#onautomoderatorfiltercomment) |
 | `onAppInstall`                 | An app installation in a subreddit                  | Subreddit, installer                            | Lifecycle event                      | [View](#onappinstall)                 |
 | `onAppUpgrade`                 | An installation moving to a different app version   | Subreddit, installer                            | Lifecycle event                      | [View](#onappupgrade)                 |
-| `onMentionInCommentCreate`     | A new comment that mentions the app username        | Comment, author, post, subreddit, mentions      | Global, safety-processed event       | [View](#onmentionincommentcreate)     |
+| `onMentionInCommentCreate`     | A new comment that mentions the app username        | Comment, author, post, subreddit, mentions      | Global; allows time for media checks | [View](#onmentionincommentcreate)     |
 
 ## Post events
 
@@ -48,7 +58,7 @@ Every Devvit Web trigger request also contains a `type` discriminator such as `"
 
 **Use it when:** Your app needs to react as quickly as possible, such as assigning initial metadata or starting a latency-sensitive workflow.
 
-**Delivery and safety:** This event favors faster delivery and can arrive before all safety processing is complete. Known disallowed content can still be suppressed. The post can later be edited, removed, or deleted.
+**Delivery and safety:** This event favors faster delivery and does not wait for outstanding [media safety checks](#what-safety-processing-means). A known high-severity illegal-content match can still suppress the event. The post can later be edited, removed, or deleted.
 
 **Payload:** `OnPostSubmitRequest`
 
@@ -65,11 +75,11 @@ Every Devvit Web trigger request also contains a `type` discriminator such as `"
 
 ### onPostCreate
 
-**Represents:** A newly created post after Reddit has allowed additional time for safety processing.
+**Represents:** A newly created post after Reddit has allowed time for applicable media safety checks.
 
-**Use it when:** Your workflow benefits from additional safety processing more than the lowest possible latency.
+**Use it when:** Your workflow benefits from allowing applicable media safety checks more time than the lowest-latency notification permits.
 
-**Delivery and safety:** Delivery is intentionally later than `onPostSubmit` and can be delayed or suppressed. Receiving the event does not certify the post as safe, approved, or permanently available.
+**Delivery and safety:** Delivery is intentionally later than `onPostSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or a result is unavailable, the event can still be delivered. Receiving it does not certify the post as safe, approved, or permanently available.
 
 **Payload:** `OnPostCreateRequest`
 
@@ -90,7 +100,7 @@ Every Devvit Web trigger request also contains a `type` discriminator such as `"
 
 **Use it when:** Your app needs to reprocess text, update derived data, or respond to an edited post.
 
-**Delivery and safety:** Safety processing can delay or suppress this event. The `post` object is a snapshot containing the updated body.
+**Delivery and safety:** Applicable [media safety checks](#what-safety-processing-means) can delay this event, and a known match can suppress it. The `post` object is a snapshot containing the updated body.
 
 **Payload:** `OnPostUpdateRequest`
 
@@ -225,7 +235,7 @@ Every Devvit Web trigger request also contains a `type` discriminator such as `"
 
 **Use it when:** Your app needs to react as quickly as possible to a new comment.
 
-**Delivery and safety:** This event favors faster delivery and can arrive before all safety processing is complete. Known disallowed content can still be suppressed. The comment can later be edited, removed, or deleted.
+**Delivery and safety:** This event favors faster delivery and does not wait for outstanding [media safety checks](#what-safety-processing-means). A known high-severity illegal-content match can still suppress the event. The comment can later be edited, removed, or deleted.
 
 **Payload:** `OnCommentSubmitRequest`
 
@@ -243,11 +253,11 @@ Every Devvit Web trigger request also contains a `type` discriminator such as `"
 
 ### onCommentCreate
 
-**Represents:** A newly created comment after Reddit has allowed additional time for safety processing.
+**Represents:** A newly created comment after Reddit has allowed time for applicable media safety checks.
 
-**Use it when:** Your workflow benefits from additional safety processing more than the lowest possible latency.
+**Use it when:** Your workflow benefits from allowing applicable media safety checks more time than the lowest-latency notification permits.
 
-**Delivery and safety:** Delivery is intentionally later than `onCommentSubmit` and can be delayed or suppressed. Receiving the event does not certify the comment or its parent post as safe, approved, or permanently available.
+**Delivery and safety:** Delivery is intentionally later than `onCommentSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or a result is unavailable, the event can still be delivered. Receiving it does not certify the comment or its parent post as safe, approved, or permanently available.
 
 **Payload:** `OnCommentCreateRequest`
 
@@ -269,7 +279,7 @@ Every Devvit Web trigger request also contains a `type` discriminator such as `"
 
 **Use it when:** Your app needs to reprocess text, update derived data, or respond to an edited comment.
 
-**Delivery and safety:** Safety processing can delay or suppress this event. The `comment` object is a snapshot containing the updated body.
+**Delivery and safety:** Applicable [media safety checks](#what-safety-processing-means) can delay this event, and a known match can suppress it. The `comment` object is a snapshot containing the updated body.
 
 **Payload:** `OnCommentUpdateRequest`
 
@@ -486,7 +496,7 @@ Every Devvit Web trigger request also contains a `type` discriminator such as `"
 
 **Use it when:** An approved app needs to respond to explicit mentions outside the subreddits where it is ordinarily installed.
 
-**Delivery and safety:** This limited-access global event allows additional safety processing. Events can be delayed or suppressed for safety reasons. NSFW content can still be present.
+**Delivery and safety:** This limited-access global event allows time for applicable [media safety checks](#what-safety-processing-means) on the comment and its parent post. A known match can suppress the event, but ordinary NSFW content can still be present.
 
 **Payload:** `OnMentionInCommentCreateRequest`
 
