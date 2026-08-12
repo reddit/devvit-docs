@@ -21,7 +21,7 @@ Safety processing for Devvit trigger delivery is not a general moderation review
 
 These checks do not certify that content is free of ordinary NSFW material, spam, harassment, or every other policy or community-rule violation. Reddit, AutoModerator, and community moderators can independently remove or change content before or after your handler runs.
 
-Not every event has an applicable media check; most text-only posts and comments do not. Submit events do not wait for an outstanding check, while create events allow time for applicable checks to complete. A create event can still be delivered when no check applies or when a result is unavailable, so delivery is never proof that content is safe or approved.
+Not every event has an applicable media check; most text-only posts and comments do not. Submit events do not wait for an outstanding check, while create events allow time for applicable checks to complete. A create event can still be delivered when no check applies or when an applicable check has not completed by the delivery deadline. If a check completes after that deadline and identifies matching content, a corresponding delete event usually follows for apps registered for that delete trigger. Treat the create and delete as separate asynchronous events; the follow-up and its ordering are not guaranteed. Delivery is never proof that content is safe or approved.
 
 Safety checking determines whether an event is delivered. Payload sanitization and identity redaction are separate protections that determine what data the event contains.
 
@@ -75,7 +75,7 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A newly created post after Reddit has allowed time for applicable media safety checks.
 
-**Delivery and safety:** Delivery is intentionally later than `onPostSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or a result is unavailable, the event can still be delivered. Receiving it does not certify the post as safe, approved, or permanently available.
+**Delivery and safety:** Delivery is intentionally later than `onPostSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or an applicable check has not completed by the delivery deadline, the event can still be delivered. Receiving it does not certify the post as safe, approved, or permanently available.
 
 **Payload:** `OnPostCreateRequest`
 
@@ -86,7 +86,7 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 | `author`    | `UserV2`       | No       | Post author.                          |
 | `subreddit` | `SubredditV2`  | No       | Subreddit where the post was created. |
 
-**Important behavior:** A single post can produce both `onPostSubmit` and `onPostCreate`. Do not register both unless your app has a distinct, idempotent use for each stage.
+**Important behavior:** A single post can produce both `onPostSubmit` and `onPostCreate`. Do not register both unless your app has a distinct, idempotent use for each stage. If `onPostCreate` is delivered at the safety deadline and a later check identifies matching content, [`onPostDelete`](#onpostdelete) usually follows when registered. Do not rely on that follow-up or on strict ordering.
 
 **API reference:** [PostCreate](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostCreate)
 
@@ -237,7 +237,7 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 
 **Represents:** A newly created comment after Reddit has allowed time for applicable media safety checks.
 
-**Delivery and safety:** Delivery is intentionally later than `onCommentSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or a result is unavailable, the event can still be delivered. Receiving it does not certify the comment or its parent post as safe, approved, or permanently available.
+**Delivery and safety:** Delivery is intentionally later than `onCommentSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or an applicable check has not completed by the delivery deadline, the event can still be delivered. Receiving it does not certify the comment or its parent post as safe, approved, or permanently available.
 
 **Payload:** `OnCommentCreateRequest`
 
@@ -249,7 +249,7 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 | `post`      | `PostV2`          | No       | Post containing the comment.             |
 | `subreddit` | `SubredditV2`     | No       | Subreddit where the comment was created. |
 
-**Important behavior:** A single comment can produce both `onCommentSubmit` and `onCommentCreate`. Do not register both unless your app has a distinct, idempotent use for each stage.
+**Important behavior:** A single comment can produce both `onCommentSubmit` and `onCommentCreate`. Do not register both unless your app has a distinct, idempotent use for each stage. If `onCommentCreate` is delivered at the safety deadline and a later check identifies matching content, [`onCommentDelete`](#oncommentdelete) usually follows when registered. Do not rely on that follow-up or on strict ordering.
 
 **API reference:** [CommentCreate](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentCreate)
 
