@@ -4,6 +4,12 @@ Use this catalog to choose a trigger and understand the request sent to your end
 
 The request types on this page are exported by `@devvit/web/shared`. Select a linked request type to open its generated schema, or expand **View payload fields** for its top-level fields and optionality. Use your installed package's TypeScript definitions as the source of truth for nested objects.
 
+[post-v2-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/postv2.d.ts
+[comment-v2-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/commentv2.d.ts
+[user-v2-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/userv2.d.ts
+[subreddit-v2-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/subredditv2.d.ts
+[mentions-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/mention.d.ts
+
 ## Delivery and payload expectations
 
 - **Delivery is asynchronous.** Reddit state can change between the action and your handler. Fetch the current object when your decision depends on its latest state.
@@ -63,12 +69,12 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type           | Required | Meaning                                 |
-| ----------- | -------------- | -------- | --------------------------------------- |
-| `type`      | `"PostSubmit"` | Yes      | Event discriminator.                    |
-| `post`      | `PostV2`       | No       | Snapshot of the submitted post.         |
-| `author`    | `UserV2`       | No       | Post author.                            |
-| `subreddit` | `SubredditV2`  | No       | Subreddit where the post was submitted. |
+| Field       | Type                               | Required | Meaning                                 |
+| ----------- | ---------------------------------- | -------- | --------------------------------------- |
+| `type`      | `"PostSubmit"`                     | Yes      | Event discriminator.                    |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the submitted post.         |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Post author.                            |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the post was submitted. |
 
 </details>
 
@@ -85,12 +91,12 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type           | Required | Meaning                               |
-| ----------- | -------------- | -------- | ------------------------------------- |
-| `type`      | `"PostCreate"` | Yes      | Event discriminator.                  |
-| `post`      | `PostV2`       | No       | Snapshot of the created post.         |
-| `author`    | `UserV2`       | No       | Post author.                          |
-| `subreddit` | `SubredditV2`  | No       | Subreddit where the post was created. |
+| Field       | Type                               | Required | Meaning                               |
+| ----------- | ---------------------------------- | -------- | ------------------------------------- |
+| `type`      | `"PostCreate"`                     | Yes      | Event discriminator.                  |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the created post.         |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Post author.                          |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the post was created. |
 
 </details>
 
@@ -107,13 +113,13 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field          | Type           | Required | Meaning                                                                   |
-| -------------- | -------------- | -------- | ------------------------------------------------------------------------- |
-| `type`         | `"PostUpdate"` | Yes      | Event discriminator.                                                      |
-| `post`         | `PostV2`       | No       | Snapshot of the post after the edit.                                      |
-| `author`       | `UserV2`       | No       | Post author. This is not necessarily the user who performed every update. |
-| `previousBody` | `string`       | Yes      | Previous body when available; otherwise an empty string.                  |
-| `subreddit`    | `SubredditV2`  | No       | Subreddit containing the post.                                            |
+| Field          | Type                               | Required | Meaning                                                                   |
+| -------------- | ---------------------------------- | -------- | ------------------------------------------------------------------------- |
+| `type`         | `"PostUpdate"`                     | Yes      | Event discriminator.                                                      |
+| `post`         | [`PostV2`][post-v2-type]           | No       | Snapshot of the post after the edit.                                      |
+| `author`       | [`UserV2`][user-v2-type]           | No       | Post author. This is not necessarily the user who performed every update. |
+| `previousBody` | `string`                           | Yes      | Previous body when available; otherwise an empty string.                  |
+| `subreddit`    | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                                            |
 
 </details>
 
@@ -130,12 +136,12 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type           | Required | Meaning                                                    |
-| ----------- | -------------- | -------- | ---------------------------------------------------------- |
-| `type`      | `"PostReport"` | Yes      | Event discriminator.                                       |
-| `post`      | `PostV2`       | No       | Snapshot of the reported post.                             |
-| `subreddit` | `SubredditV2`  | No       | Subreddit containing the post.                             |
-| `reason`    | `string`       | Yes      | Report reason associated with this event. It can be empty. |
+| Field       | Type                               | Required | Meaning                                                    |
+| ----------- | ---------------------------------- | -------- | ---------------------------------------------------------- |
+| `type`      | `"PostReport"`                     | Yes      | Event discriminator.                                       |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the reported post.                             |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                             |
+| `reason`    | `string`                           | Yes      | Report reason associated with this event. It can be empty. |
 
 </details>
 
@@ -157,11 +163,11 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 | `type`      | `"PostDelete"`                                                                                     | Yes      | Event discriminator.                                            |
 | `postId`    | `string`                                                                                           | Yes      | Full post ID, such as `t3_...`.                                 |
 | `deletedAt` | `string`                                                                                           | No       | Deletion time as an ISO 8601 string.                            |
-| `author`    | `UserV2`                                                                                           | No       | Post author when available; deleted identities can be redacted. |
+| `author`    | [`UserV2`][user-v2-type]                                                                           | No       | Post author when available; deleted identities can be redacted. |
 | `createdAt` | `string`                                                                                           | No       | Original creation time as an ISO 8601 string.                   |
 | `source`    | [`EventSource`](../../api/public-api/@devvit/namespaces/EventTypes/enumerations/EventSource)       | Yes      | Actor category associated with the deletion. It can be unknown. |
 | `reason`    | [`DeletionReason`](../../api/public-api/@devvit/namespaces/EventTypes/enumerations/DeletionReason) | Yes      | Normalized deletion reason. It can be unspecified or unknown.   |
-| `subreddit` | `SubredditV2`                                                                                      | No       | Subreddit that contained the post.                              |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type]                                                                 | No       | Subreddit that contained the post.                              |
 
 </details>
 
@@ -178,12 +184,12 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type                | Required | Meaning                                    |
-| ----------- | ------------------- | -------- | ------------------------------------------ |
-| `type`      | `"PostFlairUpdate"` | Yes      | Event discriminator.                       |
-| `post`      | `PostV2`            | No       | Snapshot containing the updated flair.     |
-| `author`    | `UserV2`            | No       | User who updated the flair when available. |
-| `subreddit` | `SubredditV2`       | No       | Subreddit containing the post.             |
+| Field       | Type                               | Required | Meaning                                    |
+| ----------- | ---------------------------------- | -------- | ------------------------------------------ |
+| `type`      | `"PostFlairUpdate"`                | Yes      | Event discriminator.                       |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot containing the updated flair.     |
+| `author`    | [`UserV2`][user-v2-type]           | No       | User who updated the flair when available. |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.             |
 
 </details>
 
@@ -200,13 +206,13 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type               | Required | Meaning                                         |
-| ----------- | ------------------ | -------- | ----------------------------------------------- |
-| `type`      | `"PostNsfwUpdate"` | Yes      | Event discriminator.                            |
-| `post`      | `PostV2`           | No       | Snapshot of the updated post.                   |
-| `author`    | `UserV2`           | No       | User who changed the NSFW state when available. |
-| `isNsfw`    | `boolean`          | Yes      | New NSFW state.                                 |
-| `subreddit` | `SubredditV2`      | No       | Subreddit containing the post.                  |
+| Field       | Type                               | Required | Meaning                                         |
+| ----------- | ---------------------------------- | -------- | ----------------------------------------------- |
+| `type`      | `"PostNsfwUpdate"`                 | Yes      | Event discriminator.                            |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the updated post.                   |
+| `author`    | [`UserV2`][user-v2-type]           | No       | User who changed the NSFW state when available. |
+| `isNsfw`    | `boolean`                          | Yes      | New NSFW state.                                 |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                  |
 
 </details>
 
@@ -223,13 +229,13 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type                  | Required | Meaning                                            |
-| ----------- | --------------------- | -------- | -------------------------------------------------- |
-| `type`      | `"PostSpoilerUpdate"` | Yes      | Event discriminator.                               |
-| `post`      | `PostV2`              | No       | Snapshot of the updated post.                      |
-| `author`    | `UserV2`              | No       | User who changed the spoiler state when available. |
-| `isSpoiler` | `boolean`             | Yes      | New spoiler state.                                 |
-| `subreddit` | `SubredditV2`         | No       | Subreddit containing the post.                     |
+| Field       | Type                               | Required | Meaning                                            |
+| ----------- | ---------------------------------- | -------- | -------------------------------------------------- |
+| `type`      | `"PostSpoilerUpdate"`              | Yes      | Event discriminator.                               |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the updated post.                      |
+| `author`    | [`UserV2`][user-v2-type]           | No       | User who changed the spoiler state when available. |
+| `isSpoiler` | `boolean`                          | Yes      | New spoiler state.                                 |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                     |
 
 </details>
 
@@ -248,13 +254,13 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type              | Required | Meaning                                    |
-| ----------- | ----------------- | -------- | ------------------------------------------ |
-| `type`      | `"CommentSubmit"` | Yes      | Event discriminator.                       |
-| `comment`   | `CommentV2`       | No       | Snapshot of the submitted comment.         |
-| `author`    | `UserV2`          | No       | Comment author.                            |
-| `post`      | `PostV2`          | No       | Post containing the comment.               |
-| `subreddit` | `SubredditV2`     | No       | Subreddit where the comment was submitted. |
+| Field       | Type                               | Required | Meaning                                    |
+| ----------- | ---------------------------------- | -------- | ------------------------------------------ |
+| `type`      | `"CommentSubmit"`                  | Yes      | Event discriminator.                       |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the submitted comment.         |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Comment author.                            |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Post containing the comment.               |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the comment was submitted. |
 
 </details>
 
@@ -271,13 +277,13 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type              | Required | Meaning                                  |
-| ----------- | ----------------- | -------- | ---------------------------------------- |
-| `type`      | `"CommentCreate"` | Yes      | Event discriminator.                     |
-| `comment`   | `CommentV2`       | No       | Snapshot of the created comment.         |
-| `author`    | `UserV2`          | No       | Comment author.                          |
-| `post`      | `PostV2`          | No       | Post containing the comment.             |
-| `subreddit` | `SubredditV2`     | No       | Subreddit where the comment was created. |
+| Field       | Type                               | Required | Meaning                                  |
+| ----------- | ---------------------------------- | -------- | ---------------------------------------- |
+| `type`      | `"CommentCreate"`                  | Yes      | Event discriminator.                     |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the created comment.         |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Comment author.                          |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Post containing the comment.             |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the comment was created. |
 
 </details>
 
@@ -294,14 +300,14 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field          | Type              | Required | Meaning                                                  |
-| -------------- | ----------------- | -------- | -------------------------------------------------------- |
-| `type`         | `"CommentUpdate"` | Yes      | Event discriminator.                                     |
-| `comment`      | `CommentV2`       | No       | Snapshot of the comment after the edit.                  |
-| `author`       | `UserV2`          | No       | Comment author.                                          |
-| `post`         | `PostV2`          | No       | Post containing the comment.                             |
-| `previousBody` | `string`          | Yes      | Previous body when available; otherwise an empty string. |
-| `subreddit`    | `SubredditV2`     | No       | Subreddit containing the comment.                        |
+| Field          | Type                               | Required | Meaning                                                  |
+| -------------- | ---------------------------------- | -------- | -------------------------------------------------------- |
+| `type`         | `"CommentUpdate"`                  | Yes      | Event discriminator.                                     |
+| `comment`      | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the comment after the edit.                  |
+| `author`       | [`UserV2`][user-v2-type]           | No       | Comment author.                                          |
+| `post`         | [`PostV2`][post-v2-type]           | No       | Post containing the comment.                             |
+| `previousBody` | `string`                           | Yes      | Previous body when available; otherwise an empty string. |
+| `subreddit`    | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the comment.                        |
 
 </details>
 
@@ -318,12 +324,12 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type              | Required | Meaning                                                    |
-| ----------- | ----------------- | -------- | ---------------------------------------------------------- |
-| `type`      | `"CommentReport"` | Yes      | Event discriminator.                                       |
-| `comment`   | `CommentV2`       | No       | Snapshot of the reported comment.                          |
-| `subreddit` | `SubredditV2`     | No       | Subreddit containing the comment.                          |
-| `reason`    | `string`          | Yes      | Report reason associated with this event. It can be empty. |
+| Field       | Type                               | Required | Meaning                                                    |
+| ----------- | ---------------------------------- | -------- | ---------------------------------------------------------- |
+| `type`      | `"CommentReport"`                  | Yes      | Event discriminator.                                       |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the reported comment.                          |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the comment.                          |
+| `reason`    | `string`                           | Yes      | Report reason associated with this event. It can be empty. |
 
 </details>
 
@@ -347,11 +353,11 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 | `postId`    | `string`                                                                                           | Yes      | Full ID of the post containing the comment.                            |
 | `parentId`  | `string`                                                                                           | Yes      | Full ID of the parent comment, or the post ID for a top-level comment. |
 | `deletedAt` | `string`                                                                                           | No       | Deletion time as an ISO 8601 string.                                   |
-| `author`    | `UserV2`                                                                                           | No       | Comment author when available; deleted identities can be redacted.     |
+| `author`    | [`UserV2`][user-v2-type]                                                                           | No       | Comment author when available; deleted identities can be redacted.     |
 | `createdAt` | `string`                                                                                           | No       | Original creation time as an ISO 8601 string.                          |
 | `source`    | [`EventSource`](../../api/public-api/@devvit/namespaces/EventTypes/enumerations/EventSource)       | Yes      | Actor category associated with the deletion. It can be unknown.        |
 | `reason`    | [`DeletionReason`](../../api/public-api/@devvit/namespaces/EventTypes/enumerations/DeletionReason) | Yes      | Normalized deletion reason. It can be unspecified or unknown.          |
-| `subreddit` | `SubredditV2`                                                                                      | No       | Subreddit that contained the comment.                                  |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type]                                                                 | No       | Subreddit that contained the comment.                                  |
 
 </details>
 
@@ -370,17 +376,17 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field           | Type          | Required | Meaning                                               |
-| --------------- | ------------- | -------- | ----------------------------------------------------- |
-| `type`          | `"ModAction"` | Yes      | Event discriminator.                                  |
-| `action`        | `string`      | No       | Moderation action name.                               |
-| `actionedAt`    | `string`      | No       | Action time as an ISO 8601 string.                    |
-| `subreddit`     | `SubredditV2` | No       | Subreddit where the action occurred.                  |
-| `moderator`     | `UserV2`      | No       | Moderator when available; the identity can be masked. |
-| `targetUser`    | `UserV2`      | No       | Target user for user-related actions.                 |
-| `targetComment` | `CommentV2`   | No       | Target comment for comment-related actions.           |
-| `targetPost`    | `PostV2`      | No       | Target post for post-related actions.                 |
-| `id`            | `string`      | No       | Identifier for the moderation action.                 |
+| Field           | Type                               | Required | Meaning                                               |
+| --------------- | ---------------------------------- | -------- | ----------------------------------------------------- |
+| `type`          | `"ModAction"`                      | Yes      | Event discriminator.                                  |
+| `action`        | `string`                           | No       | Moderation action name.                               |
+| `actionedAt`    | `string`                           | No       | Action time as an ISO 8601 string.                    |
+| `subreddit`     | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the action occurred.                  |
+| `moderator`     | [`UserV2`][user-v2-type]           | No       | Moderator when available; the identity can be masked. |
+| `targetUser`    | [`UserV2`][user-v2-type]           | No       | Target user for user-related actions.                 |
+| `targetComment` | [`CommentV2`][comment-v2-type]     | No       | Target comment for comment-related actions.           |
+| `targetPost`    | [`PostV2`][post-v2-type]           | No       | Target post for post-related actions.                 |
+| `id`            | `string`                           | No       | Identifier for the moderation action.                 |
 
 </details>
 
@@ -397,19 +403,19 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field                   | Type          | Required | Meaning                                                         |
-| ----------------------- | ------------- | -------- | --------------------------------------------------------------- |
-| `type`                  | `"ModMail"`   | Yes      | Event discriminator.                                            |
-| `messageAuthor`         | `UserV2`      | No       | Message author when available.                                  |
-| `createdAt`             | `string`      | No       | Message creation time as an ISO 8601 string.                    |
-| `messageAuthorType`     | `string`      | Yes      | Role used by the author, such as moderator or participant.      |
-| `conversationState`     | `string`      | Yes      | Current state, such as new, in progress, or archived.           |
-| `conversationType`      | `string`      | Yes      | Conversation category, such as subreddit-to-user or internal.   |
-| `isAutoGenerated`       | `boolean`     | Yes      | Whether Reddit or an automated system generated the message.    |
-| `conversationSubreddit` | `SubredditV2` | No       | Subreddit that owns the conversation.                           |
-| `destinationSubreddit`  | `SubredditV2` | No       | Destination subreddit for subreddit-to-subreddit conversations. |
-| `conversationId`        | `string`      | Yes      | Base36 conversation ID without a thing prefix.                  |
-| `messageId`             | `string`      | Yes      | Base36 message ID without a thing prefix.                       |
+| Field                   | Type                               | Required | Meaning                                                         |
+| ----------------------- | ---------------------------------- | -------- | --------------------------------------------------------------- |
+| `type`                  | `"ModMail"`                        | Yes      | Event discriminator.                                            |
+| `messageAuthor`         | [`UserV2`][user-v2-type]           | No       | Message author when available.                                  |
+| `createdAt`             | `string`                           | No       | Message creation time as an ISO 8601 string.                    |
+| `messageAuthorType`     | `string`                           | Yes      | Role used by the author, such as moderator or participant.      |
+| `conversationState`     | `string`                           | Yes      | Current state, such as new, in progress, or archived.           |
+| `conversationType`      | `string`                           | Yes      | Conversation category, such as subreddit-to-user or internal.   |
+| `isAutoGenerated`       | `boolean`                          | Yes      | Whether Reddit or an automated system generated the message.    |
+| `conversationSubreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit that owns the conversation.                           |
+| `destinationSubreddit`  | [`SubredditV2`][subreddit-v2-type] | No       | Destination subreddit for subreddit-to-subreddit conversations. |
+| `conversationId`        | `string`                           | Yes      | Base36 conversation ID without a thing prefix.                  |
+| `messageId`             | `string`                           | Yes      | Base36 message ID without a thing prefix.                       |
 
 </details>
 
@@ -426,14 +432,14 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type                        | Required | Meaning                                               |
-| ----------- | --------------------------- | -------- | ----------------------------------------------------- |
-| `type`      | `"AutomoderatorFilterPost"` | Yes      | Event discriminator.                                  |
-| `post`      | `PostV2`                    | No       | Snapshot of the filtered post.                        |
-| `removedAt` | `string`                    | No       | Filtering time as an ISO 8601 string.                 |
-| `reason`    | `string`                    | Yes      | AutoModerator reason when available; it can be empty. |
-| `author`    | `string`                    | Yes      | Author's user ID as a string, not a `UserV2` object.  |
-| `subreddit` | `SubredditV2`               | No       | Subreddit containing the post.                        |
+| Field       | Type                               | Required | Meaning                                                              |
+| ----------- | ---------------------------------- | -------- | -------------------------------------------------------------------- |
+| `type`      | `"AutomoderatorFilterPost"`        | Yes      | Event discriminator.                                                 |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the filtered post.                                       |
+| `removedAt` | `string`                           | No       | Filtering time as an ISO 8601 string.                                |
+| `reason`    | `string`                           | Yes      | AutoModerator reason when available; it can be empty.                |
+| `author`    | `string`                           | Yes      | Author's user ID as a string, not a [`UserV2`][user-v2-type] object. |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                                       |
 
 </details>
 
@@ -450,14 +456,14 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type                           | Required | Meaning                                               |
-| ----------- | ------------------------------ | -------- | ----------------------------------------------------- |
-| `type`      | `"AutomoderatorFilterComment"` | Yes      | Event discriminator.                                  |
-| `comment`   | `CommentV2`                    | No       | Snapshot of the filtered comment.                     |
-| `removedAt` | `string`                       | No       | Filtering time as an ISO 8601 string.                 |
-| `reason`    | `string`                       | Yes      | AutoModerator reason when available; it can be empty. |
-| `author`    | `string`                       | Yes      | Author's user ID as a string, not a `UserV2` object.  |
-| `subreddit` | `SubredditV2`                  | No       | Subreddit containing the comment.                     |
+| Field       | Type                               | Required | Meaning                                                              |
+| ----------- | ---------------------------------- | -------- | -------------------------------------------------------------------- |
+| `type`      | `"AutomoderatorFilterComment"`     | Yes      | Event discriminator.                                                 |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the filtered comment.                                    |
+| `removedAt` | `string`                           | No       | Filtering time as an ISO 8601 string.                                |
+| `reason`    | `string`                           | Yes      | AutoModerator reason when available; it can be empty.                |
+| `author`    | `string`                           | Yes      | Author's user ID as a string, not a [`UserV2`][user-v2-type] object. |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the comment.                                    |
 
 </details>
 
@@ -476,11 +482,11 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type           | Required | Meaning                                             |
-| ----------- | -------------- | -------- | --------------------------------------------------- |
-| `type`      | `"AppInstall"` | Yes      | Event discriminator.                                |
-| `subreddit` | `SubredditV2`  | No       | Subreddit where the app was installed.              |
-| `installer` | `UserV2`       | No       | User who initiated the installation when available. |
+| Field       | Type                               | Required | Meaning                                             |
+| ----------- | ---------------------------------- | -------- | --------------------------------------------------- |
+| `type`      | `"AppInstall"`                     | Yes      | Event discriminator.                                |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the app was installed.              |
+| `installer` | [`UserV2`][user-v2-type]           | No       | User who initiated the installation when available. |
 
 </details>
 
@@ -497,11 +503,11 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type           | Required | Meaning                                        |
-| ----------- | -------------- | -------- | ---------------------------------------------- |
-| `type`      | `"AppUpgrade"` | Yes      | Event discriminator.                           |
-| `subreddit` | `SubredditV2`  | No       | Subreddit whose installation was upgraded.     |
-| `installer` | `UserV2`       | No       | User who initiated the upgrade when available. |
+| Field       | Type                               | Required | Meaning                                        |
+| ----------- | ---------------------------------- | -------- | ---------------------------------------------- |
+| `type`      | `"AppUpgrade"`                     | Yes      | Event discriminator.                           |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit whose installation was upgraded.     |
+| `installer` | [`UserV2`][user-v2-type]           | No       | User who initiated the upgrade when available. |
 
 </details>
 
@@ -520,14 +526,14 @@ Safety checking determines whether an event is delivered. Payload sanitization a
 <details>
 <summary>View payload fields</summary>
 
-| Field       | Type                       | Required | Meaning                                         |
-| ----------- | -------------------------- | -------- | ----------------------------------------------- |
-| `type`      | `"MentionInCommentCreate"` | Yes      | Event discriminator.                            |
-| `comment`   | `CommentV2`                | No       | Snapshot of the comment containing the mention. |
-| `author`    | `UserV2`                   | No       | Comment author.                                 |
-| `post`      | `PostV2`                   | No       | Post containing the comment.                    |
-| `subreddit` | `SubredditV2`              | No       | Subreddit containing the comment.               |
-| `mentions`  | `Mentions`                 | No       | Parsed username mentions found in the comment.  |
+| Field       | Type                               | Required | Meaning                                         |
+| ----------- | ---------------------------------- | -------- | ----------------------------------------------- |
+| `type`      | `"MentionInCommentCreate"`         | Yes      | Event discriminator.                            |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the comment containing the mention. |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Comment author.                                 |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Post containing the comment.                    |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the comment.               |
+| `mentions`  | [`Mentions`][mentions-type]        | No       | Parsed username mentions found in the comment.  |
 
 </details>
 
