@@ -177,9 +177,6 @@ For example:
 
 - If you store uploaded media in Redis, delete the Redis key or remove the item from your app's list of visible assets.
 - If the media is embedded in a post or comment, edit or delete that post or comment when your app has permission to do so.
-- Store both `mediaId` and `mediaUrl` with your app data so you can migrate to a deletion API if one becomes available later.
-
-If your app requires guaranteed deletion of uploaded files, avoid using `media.upload()` for that workflow until deletion support is available.
 
 ## Canvas screenshots
 
