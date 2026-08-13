@@ -3,8 +3,6 @@ import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const baseUrl = process.env.DOCUSAURUS_BASE_URL ?? "/docs/";
-const gtagTrackingID = "G-GWE79J8M6R";
-const enableGtag = process.env.NODE_ENV === "production";
 
 // Docusaurus stores published documentation versions newest first.
 const [LATEST_DEVVIT_VERSION] = require("./versions.json") as string[];
@@ -48,43 +46,6 @@ const config: Config = {
               fbq('track', 'PageView');`,
     },
     // End meta tag for Facebook Pixel
-    ...(enableGtag
-      ? [
-          {
-            tagName: "link",
-            attributes: {
-              rel: "preconnect",
-              href: "https://www.google-analytics.com",
-            },
-          },
-          {
-            tagName: "link",
-            attributes: {
-              rel: "preconnect",
-              href: "https://www.googletagmanager.com",
-            },
-          },
-          {
-            tagName: "script",
-            attributes: {
-              async: "true",
-              src: `https://www.googletagmanager.com/gtag/js?id=${gtagTrackingID}`,
-            },
-          },
-          {
-            tagName: "script",
-            attributes: {},
-            innerHTML: `
-              window.dataLayer = window.dataLayer || [];
-              window.gtag = typeof window.gtag === 'function'
-                ? window.gtag
-                : function gtag(){window.dataLayer.push(arguments);};
-              window.gtag('js', new Date());
-              window.gtag('config', '${gtagTrackingID}', { 'anonymize_ip': true });
-              `,
-          },
-        ]
-      : []),
   ],
   scripts: [
     {
@@ -104,10 +65,7 @@ const config: Config = {
       src: `${baseUrl}events.js`,
     },
   ],
-  clientModules: [
-    "./src/client/safeGtag.ts",
-    "./src/client/openDetailsForHash.ts",
-  ],
+  clientModules: ["./src/client/openDetailsForHash.ts"],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -173,6 +131,10 @@ const config: Config = {
         },
         theme: {
           customCss: "./src/css/custom.css",
+        },
+        gtag: {
+          trackingID: "G-GWE79J8M6R",
+          anonymizeIP: true,
         },
       },
     ],
