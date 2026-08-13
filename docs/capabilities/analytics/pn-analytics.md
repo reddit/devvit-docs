@@ -9,7 +9,7 @@ You can use these analytics to:
 * Identify notification messages that generate higher click-through rates.  
 * Evaluate changes to notification content and strategy.
 
-Note: Push notifications are currently a **gated beta** feature. which means that you’ll need to apply to unlock the ability to use push notifications and track analytics for your app. [Learn how to apply](./docs/capabilities/notifications/notifications-overview#how-to-apply).
+Note: Push notifications are currently a **gated beta** feature. which means that you’ll need to apply to unlock the ability to use push notifications and track analytics for your app. [Learn how to apply](../notifications/notifications-overview#how-to-apply).
 
 ## **Push notification performance**
 
