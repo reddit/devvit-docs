@@ -1,10 +1,10 @@
-[**@devvit/reddit v0.14.0-dev**](../../README.md)
+[**@devvit/reddit v0.14.1-dev**](../../README.md)
 
 ***
 
 # Type Alias: GetPageRevisionsOptions
 
-> **GetPageRevisionsOptions** = `Omit`\<[`ListingFetchOptions`](ListingFetchOptions.md), `"more"`\> & `object`
+> **GetPageRevisionsOptions** = `Omit`\<[`ListingFetchOptions`](ListingFetchOptions.md), `"more"`\> & [`WikiVersionOptions`](WikiVersionOptions.md) & `object`
 
 ## Type declaration
 

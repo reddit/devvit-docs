@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.14.0-dev**](../README.md)
+[**@devvit/public-api v0.14.1-dev**](../README.md)
 
 ***
 
@@ -84,7 +84,7 @@ await reddit.modMail.reply({
 
 ### addEditorToWikiPage()
 
-> **addEditorToWikiPage**(`subredditName`, `page`, `username`): `Promise`\<`void`\>
+> **addEditorToWikiPage**(`subredditName`, `page`, `username`, `options`?): `Promise`\<`void`\>
 
 Add an editor to a wiki page.
 
@@ -107,6 +107,12 @@ The name of the wiki page to add the editor to.
 `string`
 
 The username of the user to add as an editor.
+
+##### options?
+
+[`WikiVersionOptions`](../type-aliases/WikiVersionOptions.md)
+
+Options for the request.
 
 #### Returns
 
@@ -2734,38 +2740,79 @@ A Listing of SubredditWikiContributorUser objects.
 
 ### getWikiPage()
 
+#### Call Signature
+
 > **getWikiPage**(`subredditName`, `page`, `revisionId`?): `Promise`\<[`WikiPage`](WikiPage.md)\>
 
-Get a wiki page from a subreddit.
+Get a specific revision of a wiki page from a subreddit.
 
-#### Parameters
+##### Parameters
 
-##### subredditName
+###### subredditName
 
 `string`
 
 The name of the subreddit to get the wiki page from.
 
-##### page
+###### page
 
 `string`
 
 The name of the wiki page to get.
 
-##### revisionId?
+###### revisionId?
 
 `` `${string}-${string}-${string}-${string}-${string}` ``
 
-The revision ID of the wiki page version to get. Setting this value will return the wiki page
-version at that revision, and leaving it empty will return the latest version.
+The revision ID of the wiki page version to get. Leaving it empty returns the latest version.
 
-#### Returns
+##### Returns
 
 `Promise`\<[`WikiPage`](WikiPage.md)\>
 
 The requested WikiPage object.
 
-#### Inherited from
+##### Deprecated
+
+Pass a [GetWikiPageOptions](../type-aliases/GetWikiPageOptions.md) object as the third argument instead.
+
+##### Inherited from
+
+[`RedditClient`](RedditClient.md).[`getWikiPage`](RedditClient.md#getwikipage)
+
+#### Call Signature
+
+> **getWikiPage**(`subredditName`, `page`, `options`?): `Promise`\<[`WikiPage`](WikiPage.md)\>
+
+Get a wiki page from a subreddit.
+
+##### Parameters
+
+###### subredditName
+
+`string`
+
+The name of the subreddit to get the wiki page from.
+
+###### page
+
+`string`
+
+The name of the wiki page to get.
+
+###### options?
+
+[`GetWikiPageOptions`](../type-aliases/GetWikiPageOptions.md)
+
+Options for the request.
+
+##### Returns
+
+`Promise`\<[`WikiPage`](WikiPage.md)\>
+
+The requested WikiPage object.
+
+##### Inherited from
 
 [`RedditClient`](RedditClient.md).[`getWikiPage`](RedditClient.md#getwikipage)
 
@@ -2803,7 +2850,7 @@ A Listing of WikiPageRevision objects.
 
 ### getWikiPages()
 
-> **getWikiPages**(`subredditName`): `Promise`\<`string`[]\>
+> **getWikiPages**(`subredditName`, `options`?): `Promise`\<`string`[]\>
 
 Get the wiki pages for a subreddit.
 
@@ -2814,6 +2861,12 @@ Get the wiki pages for a subreddit.
 `string`
 
 The name of the subreddit to get the wiki pages from.
+
+##### options?
+
+[`WikiVersionOptions`](../type-aliases/WikiVersionOptions.md)
+
+Options for the request.
 
 #### Returns
 
@@ -2831,7 +2884,7 @@ A list of the wiki page names for the subreddit.
 
 ### getWikiPageSettings()
 
-> **getWikiPageSettings**(`subredditName`, `page`): `Promise`\<[`WikiPageSettings`](WikiPageSettings.md)\>
+> **getWikiPageSettings**(`subredditName`, `page`, `options`?): `Promise`\<[`WikiPageSettings`](WikiPageSettings.md)\>
 
 Get the settings for a wiki page.
 
@@ -2848,6 +2901,12 @@ The name of the subreddit the wiki is in.
 `string`
 
 The name of the wiki page to get the settings for.
+
+##### options?
+
+[`WikiVersionOptions`](../type-aliases/WikiVersionOptions.md)
+
+Options for the request.
 
 #### Returns
 
@@ -2884,6 +2943,34 @@ Options for the request
 #### Inherited from
 
 [`RedditClient`](RedditClient.md).[`inviteModerator`](RedditClient.md#invitemoderator)
+
+***
+
+<a id="iswikiv2enabled"></a>
+
+### isWikiV2Enabled()
+
+> **isWikiV2Enabled**(`subredditName`): `Promise`\<`boolean`\>
+
+Check whether Wiki V2 is enabled for a subreddit.
+
+#### Parameters
+
+##### subredditName
+
+`string`
+
+The name of the subreddit to check.
+
+#### Returns
+
+`Promise`\<`boolean`\>
+
+Whether Wiki V2 is enabled for the subreddit.
+
+#### Inherited from
+
+[`RedditClient`](RedditClient.md).[`isWikiV2Enabled`](RedditClient.md#iswikiv2enabled)
 
 ***
 
@@ -3019,7 +3106,7 @@ await reddit.remove('t1_123456', true);
 
 ### removeEditorFromWikiPage()
 
-> **removeEditorFromWikiPage**(`subredditName`, `page`, `username`): `Promise`\<`void`\>
+> **removeEditorFromWikiPage**(`subredditName`, `page`, `username`, `options`?): `Promise`\<`void`\>
 
 Remove an editor from a wiki page.
 
@@ -3042,6 +3129,12 @@ The name of the wiki page to remove the editor from.
 `string`
 
 The username of the user to remove as an editor.
+
+##### options?
+
+[`WikiVersionOptions`](../type-aliases/WikiVersionOptions.md)
+
+Options for the request.
 
 #### Returns
 
@@ -3327,7 +3420,7 @@ await reddit.report(post, {
 
 ### revertWikiPage()
 
-> **revertWikiPage**(`subredditName`, `page`, `revisionId`): `Promise`\<`void`\>
+> **revertWikiPage**(`subredditName`, `page`, `revisionId`, `options`?): `Promise`\<`void`\>
 
 Revert a wiki page to a previous revision.
 
@@ -3350,6 +3443,12 @@ The name of the wiki page to revert.
 `string`
 
 The ID of the revision to revert to.
+
+##### options?
+
+[`WikiVersionOptions`](../type-aliases/WikiVersionOptions.md)
+
+Options for the request.
 
 #### Returns
 
