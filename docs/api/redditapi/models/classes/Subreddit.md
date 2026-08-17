@@ -1326,6 +1326,26 @@ const userFlairList = response.users
 
 ***
 
+<a id="searchposts"></a>
+
+### searchPosts()
+
+> **searchPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+
+Search for posts in this subreddit.
+
+#### Parameters
+
+##### options
+
+`Omit`\<[`SearchPostsOptions`](../type-aliases/SearchPostsOptions.md), `"subredditName"`\>
+
+#### Returns
+
+[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+
+***
+
 <a id="setmoderatorpermissions"></a>
 
 ### setModeratorPermissions()

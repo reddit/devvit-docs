@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.14.0-dev**](../README.md)
+[**@devvit/public-api v0.14.1-dev**](../README.md)
 
 ***
 
@@ -76,9 +76,29 @@ The name of the page.
 
 The author of this revision.
 
+##### Deprecated
+
+Use revisionAuthorId instead.
+
 ##### Returns
 
 `undefined` \| [`User`](User.md)
+
+***
+
+<a id="revisionauthorid"></a>
+
+### revisionAuthorId
+
+#### Get Signature
+
+> **get** **revisionAuthorId**(): `undefined` \| `` `t2_${string}` ``
+
+The ID of the author of this revision.
+
+##### Returns
+
+`undefined` \| `` `t2_${string}` ``
 
 ***
 
@@ -144,6 +164,22 @@ The name of the subreddit the page is in.
 
 `string`
 
+***
+
+<a id="wikiversion"></a>
+
+### wikiVersion
+
+#### Get Signature
+
+> **get** **wikiVersion**(): [`WikiVersion`](../type-aliases/WikiVersion.md)
+
+The wiki version this page belongs to.
+
+##### Returns
+
+[`WikiVersion`](../type-aliases/WikiVersion.md)
+
 ## Methods
 
 <a id="addeditor"></a>
@@ -178,7 +214,7 @@ Get the revisions for this page.
 
 ##### options
 
-`Omit`\<[`GetPageRevisionsOptions`](../type-aliases/GetPageRevisionsOptions.md), `"subredditName"` \| `"page"`\>
+`Omit`\<[`GetPageRevisionsOptions`](../type-aliases/GetPageRevisionsOptions.md), `"subredditName"` \| `"page"` \| `"wikiVersion"`\>
 
 #### Returns
 
@@ -288,7 +324,7 @@ Update the settings for this page.
 
 ##### options
 
-`Omit`\<[`UpdatePageSettingsOptions`](../type-aliases/UpdatePageSettingsOptions.md), `"subredditName"` \| `"page"`\>
+`Omit`\<[`UpdatePageSettingsOptions`](../type-aliases/UpdatePageSettingsOptions.md), `"subredditName"` \| `"page"` \| `"wikiVersion"`\>
 
 #### Returns
 

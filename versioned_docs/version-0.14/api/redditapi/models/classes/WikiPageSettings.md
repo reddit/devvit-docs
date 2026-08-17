@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.0-dev**](../../README.md)
+[**@devvit/reddit v0.14.1-dev**](../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### new WikiPageSettings()
 
-> **new WikiPageSettings**(`data`): `WikiPageSettings`
+> **new WikiPageSettings**(`data`, `wikiVersion`): `WikiPageSettings`
 
 #### Parameters
 
@@ -18,11 +18,31 @@
 
 `WikiPageSettings_Data`
 
+##### wikiVersion
+
+[`WikiVersion`](../type-aliases/WikiVersion.md) = `'v1'`
+
 #### Returns
 
 `WikiPageSettings`
 
 ## Accessors
+
+<a id="editorids"></a>
+
+### editorIds
+
+#### Get Signature
+
+> **get** **editorIds**(): `` `t2_${string}` ``[]
+
+The IDs of users who may edit this page.
+
+##### Returns
+
+`` `t2_${string}` ``[]
+
+***
 
 <a id="editors"></a>
 
@@ -31,6 +51,10 @@
 #### Get Signature
 
 > **get** **editors**(): [`User`](User.md)[]
+
+##### Deprecated
+
+Use editorIds instead.
 
 ##### Returns
 

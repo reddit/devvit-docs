@@ -9,6 +9,32 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.14.1: Additional Source Roots and Post Search
+**Release Date: August 17, 2026**
+
+**Additional Source Roots**
+
+Add `additionalSourceRoots` to `devvit.json` to include source files outside your project directory in source packages submitted for review. This helps apps with unconventional builds, such as external source folders that compile into `dist/`.
+
+`additionalSourceRoots` works with existing source ignore behavior, so you can include the extra root paths reviewers need while still excluding files covered by your ignore rules.
+
+**Post Search**
+
+Use `reddit.searchPosts()` and `subreddit.searchPosts()` to search for posts with a query and other search parameters.
+
+**Form Context Fix**
+
+`context.postId` is now defined in form submission handlers when a form is opened from a post menu item, matching the existing `context.commentId` behavior for comment menu items.
+
+**Wiki Deprecation Correction**
+
+Corrected the 0.14.0 wiki deprecation notice: `reddit.getWikiPage(subredditName, pageName)` remains supported. Only `reddit.getWikiPage(subredditName, pageName, revisionId)` is deprecated.
+
+**CLI Node.js Warning**
+
+The Devvit CLI now warns once during `playtest`, `upload`, and `publish` if your local Node.js version is older than the supported version. The warning is informational and does not block the command.
+
+
 ## Release 0.14.0: Node.js v24, Wiki Integration, Devvit Skills (Experimental)
 **Release Date: August 10, 2026**
 

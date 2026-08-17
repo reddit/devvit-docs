@@ -144,6 +144,7 @@
 - [RemovalReason](type-aliases/RemovalReason.md)
 - [RemoveRelationshipOptions](type-aliases/RemoveRelationshipOptions.md)
 - [ReplyToCommentOptions](type-aliases/ReplyToCommentOptions.md)
+- [SearchPostsOptions](type-aliases/SearchPostsOptions.md)
 - [SecureMedia](type-aliases/SecureMedia.md)
 - [SendPrivateMessageAsSubredditOptions](type-aliases/SendPrivateMessageAsSubredditOptions.md)
 - [SendPrivateMessageOptions](type-aliases/SendPrivateMessageOptions.md)

@@ -1,14 +1,12 @@
-[**@devvit/reddit v0.14.0-dev**](../../README.md)
+[**@devvit/reddit v0.14.1-dev**](../../README.md)
 
 ***
 
 # Type Alias: UpdatePageSettingsOptions
 
-> **UpdatePageSettingsOptions** = `object`
+> **UpdatePageSettingsOptions** = [`WikiVersionOptions`](WikiVersionOptions.md) & `object`
 
-## Properties
-
-<a id="listed"></a>
+## Type declaration
 
 ### listed
 
@@ -16,29 +14,17 @@
 
 Whether the page should be listed in the wiki index.
 
-***
-
-<a id="page"></a>
-
 ### page
 
 > **page**: `string`
 
 The name of the page to update settings for.
 
-***
-
-<a id="permlevel"></a>
-
 ### permLevel
 
 > **permLevel**: [`WikiPagePermissionLevel`](../enumerations/WikiPagePermissionLevel.md)
 
 The permission level for the page.
-
-***
-
-<a id="subredditname"></a>
 
 ### subredditName
 
