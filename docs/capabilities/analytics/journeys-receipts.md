@@ -33,10 +33,10 @@ Other Journey calls return:
 
 Covered calls:
 
-- Start Journey  
-- Journey Progress  
-- Journey Interaction  
-- End Journey  
+- Start Journey
+- Journey Progress
+- Journey Interaction
+- End Journey
 - App Ready
 
 ## Receipt fields
@@ -44,6 +44,8 @@ Covered calls:
 `status` is the machine-readable outcome. Use this for branching, tests, or tooling.
 
 `message` is the human-readable diagnostic. You can log it or display it during implementation/debugging.
+
+Devvit Journeys is generally available, so apps do not need to request individual allowlist enrollment as part of normal setup. The server may still return a denied receipt when a server-side rollout or exclusion control applies.
 
 ## Upgrade note for existing devs
 
@@ -63,14 +65,14 @@ For example, code that only typed the response as `{ journeyId: string }` should
 
 ## Possible receipt outcomes
 
-| Status | Meaning | Current Message |
-| :---- | :---- | :---- |
-| `JOURNEY_RECEIPT_VALID` | Event was accepted and recorded. | `Success: Event was recorded.` |
-| `JOURNEY_RECEIPT_DENIED_NOT_ALLOWLISTED` | Event was valid, but the app is not enabled for Journey telemetry yet. | `Denied: Your app is not allowlisted for Journey telemetry yet.` |
-| `JOURNEY_RECEIPT_DENIED_RATE_LIMITED` | Event was valid, but skipped because the app sent too many events. | `Denied: Event was rate limited.` |
-| `JOURNEY_RECEIPT_DENIED_DUPLICATE` | Event was valid, but skipped because it was already recorded. | `Denied: Event was already recorded.` |
-| `JOURNEY_RECEIPT_INVALID` | Event payload was invalid and was not recorded. | `Invalid: Event payload was not recorded.` |
-| `JOURNEY_RECEIPT_UNSPECIFIED` | Recording status could not be confirmed. | `Unknown: Telemetry recording status could not be confirmed.` |
+| Status                                   | Meaning                                                                                      | Current Message                                                  |
+| :--------------------------------------- | :------------------------------------------------------------------------------------------- | :--------------------------------------------------------------- |
+| `JOURNEY_RECEIPT_VALID`                  | Event was accepted and recorded.                                                             | `Success: Event was recorded.`                                   |
+| `JOURNEY_RECEIPT_DENIED_NOT_ALLOWLISTED` | Event was valid, but Journey telemetry was not enabled for the app by a server-side control. | `Denied: Your app is not allowlisted for Journey telemetry yet.` |
+| `JOURNEY_RECEIPT_DENIED_RATE_LIMITED`    | Event was valid, but skipped because the app sent too many events.                           | `Denied: Event was rate limited.`                                |
+| `JOURNEY_RECEIPT_DENIED_DUPLICATE`       | Event was valid, but skipped because it was already recorded.                                | `Denied: Event was already recorded.`                            |
+| `JOURNEY_RECEIPT_INVALID`                | Event payload was invalid and was not recorded.                                              | `Invalid: Event payload was not recorded.`                       |
+| `JOURNEY_RECEIPT_UNSPECIFIED`            | Recording status could not be confirmed.                                                     | `Unknown: Telemetry recording status could not be confirmed.`    |
 
 Example:
 
@@ -84,7 +86,7 @@ Example:
 }
 ```
 
-That receipt is an indicator to reach out to the Devvit team for allowlisting. After allowlist, the dev sees:
+This receipt indicates that a server-side control prevented the event from being recorded. If you receive it unexpectedly, contact the Devvit team. After the control is removed, the dev sees:
 
 ```javascript
 {

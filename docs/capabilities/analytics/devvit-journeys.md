@@ -134,7 +134,7 @@ Events must reflect **intentional, committed user actions**.
 
 ### App allowlist
 
-Telemetry is restricted by a server-side allowlist. Only approved apps can emit journey events. Requests from non-allowlisted apps will get a message that the event was dropped.
+Devvit Journeys is generally available, and apps do not need to be individually added to an allowlist to emit journey events. The telemetry service may still apply server-side controls, such as disabling telemetry or excluding an app. Check the receipt returned by each telemetry call: `JOURNEY_RECEIPT_VALID` means the event was accepted and recorded. See [Journeys Receipts](./journeys-receipts.md) for other outcomes.
 
 ### Platform constraints
 
@@ -147,7 +147,7 @@ Here's how to implement journey tracking in your app.
 
 ### Permissions
 
-Set Journeys permissions to `true` in `devvit.json`. 
+Set Journeys permissions to `true` in `devvit.json`.
 
 ```
  "permissions": {
