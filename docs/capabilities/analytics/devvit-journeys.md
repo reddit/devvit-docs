@@ -84,15 +84,15 @@ By instrumenting these moments, you can track session boundaries, understand pla
 
 ### Scenario 1: standard level-based game
 
-| Step  | Player Action                         | Event Fired             | Notes                         |
-| :---: | ------------------------------------- | ----------------------- | ----------------------------- |
-| **1** | Game loads                            | **App.Ready**           | Game is fully interactive     |
-| **2** | Player clicks “Start Game”            | **Journey.Start**       | Begins a new session          |
+| Step  | Player Action                          | Event Fired             | Notes                         |
+| :---: | -------------------------------------- | ----------------------- | ----------------------------- |
+| **1** | Game loads                             | **App.Ready**           | Game is fully interactive     |
+| **2** | Player clicks “Start Game”             | **Journey.Start**       | Begins a new session          |
 | **3** | Player completes Level 1 (of 5 levels) | **Journey.Progress**    | `progress: 0.2`               |
-| **4** | Player opens inventory                | **Journey.Interaction** | `action: "menu_opened"`       |
-| **5** | Player completes Level 2              | **Journey.Progress**    | `progress: 0.4`               |
-| **6** | Player reaches final level            | **Journey.Progress**    | `progress: 0.9`               |
-| **7** | Player defeats final boss             | **Journey.End**         | `complete: true`, `win: true` |
+| **4** | Player opens inventory                 | **Journey.Interaction** | `action: "menu_opened"`       |
+| **5** | Player completes Level 2               | **Journey.Progress**    | `progress: 0.4`               |
+| **6** | Player reaches final level             | **Journey.Progress**    | `progress: 0.9`               |
+| **7** | Player defeats final boss              | **Journey.End**         | `complete: true`, `win: true` |
 
 ### Scenario 2: player fails mid-game
 
@@ -137,7 +137,7 @@ Events must reflect **intentional, committed user actions**.
 
 ### App allowlist
 
-Telemetry is restricted by a server-side allowlist. Only approved apps can emit journey events. Requests from non-allowlisted apps will get a message that the event was dropped.
+Telemetry is restricted by a server-side allowlist. Your app will only emit journey events after it has been approved in the review process. Requests from non-allowlisted apps will get a message that the event was dropped.
 
 ### Platform constraints
 
@@ -150,7 +150,7 @@ Here's how to implement journey tracking in your app.
 
 ### Permissions
 
-Set Journeys permissions to `true` in `devvit.json`. 
+Set Journeys permissions to `true` in `devvit.json`.
 
 ```json title="devvit.json"
  "permissions": {
@@ -163,16 +163,16 @@ Set Journeys permissions to `true` in `devvit.json`.
 You can send events solely on the backend and use the front‑end only to establish and pass along the journeyId. To do this, thread the active `journey ID` from your front‑end to your backend routes.
 
 ```ts title="client/index.ts"
-import { telemetry } from '@devvit/analytics/client/reddit';
+import { telemetry } from "@devvit/analytics/client/reddit";
 
 export async function submitScore(score: number): Promise<void> {
   const journeyId = telemetry.getActiveJourneyId();
 
-  const response = await fetch('/api/score', {
-    method: 'POST',
+  const response = await fetch("/api/score", {
+    method: "POST",
     headers: {
-      'content-type': 'application/json',
-      ...(journeyId ? { 'x-devvit-journey-id': journeyId } : {}),
+      "content-type": "application/json",
+      ...(journeyId ? { "x-devvit-journey-id": journeyId } : {}),
     },
     body: JSON.stringify({ score }),
   });
@@ -188,26 +188,26 @@ export async function submitScore(score: number): Promise<void> {
 On the server, read the incoming `journeyId` and use it for correlation in your own route.
 
 <Tabs
-  variant="pill"
-  groupId="http-server-framework"
-  defaultValue="hono"
-  values={[
-    { label: 'Hono', value: 'hono' },
-    { label: 'Express', value: 'express' },
-  ]}>
+variant="pill"
+groupId="http-server-framework"
+defaultValue="hono"
+values={[
+{ label: 'Hono', value: 'hono' },
+{ label: 'Express', value: 'express' },
+]}>
 <TabItem value="hono">
 
 ```ts title="server/index.ts"
-import { telemetry } from '@devvit/analytics/server/reddit';
-import { Hono } from 'hono';
+import { telemetry } from "@devvit/analytics/server/reddit";
+import { Hono } from "hono";
 
 const app = new Hono();
 
-app.post('/api/score', async (c) => {
-  const journeyId = c.req.header('x-devvit-journey-id') ?? '';
+app.post("/api/score", async (c) => {
+  const journeyId = c.req.header("x-devvit-journey-id") ?? "";
   const { score } = await c.req.json<{ score: number }>();
 
-  console.log('score event', {
+  console.log("score event", {
     journeyId,
     score,
   });
@@ -231,18 +231,18 @@ export default app;
 <TabItem value="express">
 
 ```ts title="server/index.ts"
-import express from 'express';
-import { telemetry } from '@devvit/analytics/server/reddit';
+import express from "express";
+import { telemetry } from "@devvit/analytics/server/reddit";
 
 const app = express();
 
 app.use(express.json());
 
-app.post('/api/score', async (req, res) => {
-  const journeyIdHeader = req.header('x-devvit-journey-id');
-  const journeyId = typeof journeyIdHeader === 'string' ? journeyIdHeader : '';
+app.post("/api/score", async (req, res) => {
+  const journeyIdHeader = req.header("x-devvit-journey-id");
+  const journeyId = typeof journeyIdHeader === "string" ? journeyIdHeader : "";
 
-  console.log('score event', {
+  console.log("score event", {
     journeyId,
     score: req.body.score,
   });
@@ -268,20 +268,18 @@ Note: This also requires using the route adapters provided in `@devvit/analytics
 
 ```ts title="client/index.ts"
 // client
-import { telemetry } from '@devvit/analytics/client/reddit';
+import { telemetry } from "@devvit/analytics/client/reddit";
 
 const activeJourneyId = telemetry.getActiveJourneyId();
 
 await telemetry.progress({
   progress: 0.5,
-  action: 'level_progress',
+  action: "level_progress",
 });
-
 ```
 
 ```ts title="server/index.ts"
 // server
-import { createTelemetryRouter } from '@devvit/analytics/server/reddit';
+import { createTelemetryRouter } from "@devvit/analytics/server/reddit";
 app.use(createTelemetryRouter());
-
 ```
