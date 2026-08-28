@@ -3044,6 +3044,42 @@ The name of the subreddit to revoke the invite for. e.g. 'memes'
 
 ***
 
+<a id="searchposts"></a>
+
+### searchPosts()
+
+> **searchPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+
+Search for posts in a subreddit.
+
+#### Parameters
+
+##### options
+
+[`SearchPostsOptions`](../type-aliases/SearchPostsOptions.md)
+
+Options for the search
+
+#### Returns
+
+[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+
+A Listing of Post objects.
+
+#### Example
+
+```ts
+const posts = await reddit.searchPosts({
+  query: 'developer platform',
+  subredditName: 'devvit',
+  sort: 'new',
+  timeframe: 'month',
+  limit: 100,
+}).all();
+```
+
+***
+
 <a id="sendprivatemessage"></a>
 
 ### sendPrivateMessage()
