@@ -306,6 +306,7 @@ const sidebars: SidebarsConfig = {
       label: "Best Practices",
       items: [
         "guides/best-practices/community_games",
+        "guides/best-practices/seo-and-sharing",
         "guides/best-practices/mod_resources",
         "capabilities/server/text_fallback",
       ],
