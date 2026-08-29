@@ -1,0 +1,540 @@
+# Trigger Event Catalog
+
+Use this catalog to choose a trigger and understand the request sent to your endpoint. For configuration and handler examples, see [Triggers](./triggers).
+
+The request types on this page are exported by `@devvit/web/shared`. Select a linked request type to open its generated schema, or expand **View payload fields** for its top-level fields and optionality. Use your installed package's TypeScript definitions as the source of truth for nested objects.
+
+[post-v2-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/postv2.d.ts
+[comment-v2-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/commentv2.d.ts
+[user-v2-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/userv2.d.ts
+[subreddit-v2-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/subredditv2.d.ts
+[mentions-type]: https://unpkg.com/browse/@devvit/protos@0.14.0/json/devvit/reddit/v2alpha/mention.d.ts
+
+## Delivery and payload expectations
+
+- **Delivery is asynchronous.** Reddit state can change between the action and your handler. Fetch the current object when your decision depends on its latest state.
+- **An event can be delivered more than once.** Make writes and other side effects idempotent. Do not rely on strict ordering between separate trigger requests.
+- **Payload objects are snapshots.** Nested `post`, `comment`, `author`, and `subreddit` objects can be absent when Reddit cannot provide them. Check optional fields before using them.
+- **Payloads can be sanitized.** Deleted or removed content can use redacted text and placeholder identities. Moderator and administrator identities can also be masked.
+- **Safety processing is a narrow delivery gate.** For eligible content with uploaded images or video, Reddit can allow time for signals that detect certain high-severity illegal sexual content. See [What safety processing means](#what-safety-processing-means).
+- **User-generated content is untrusted.** Escape content before rendering it, and validate it before passing it to another system.
+
+Every Devvit Web trigger request also contains a `type` discriminator such as `"PostCreate"`. This is useful when multiple trigger keys share one endpoint.
+
+### What safety processing means
+
+Safety processing for Devvit trigger delivery is not a general moderation review. For eligible posts and comments that contain uploaded images or video, Reddit may allow time for signals that detect certain high-severity illegal sexual content, including child sexual abuse material (CSAM) and non-consensual intimate media (NCIM). If a matching signal is known, the trigger event can be suppressed.
+
+These checks do not certify that content is free of ordinary NSFW material, spam, harassment, or every other policy or community-rule violation. Reddit, AutoModerator, and community moderators can independently remove or change content before or after your handler runs.
+
+Not every event has an applicable media check; most text-only posts and comments do not. Submit events do not wait for an outstanding check, while create events allow time for applicable checks to complete. A create event can still be delivered when no check applies or when an applicable check has not completed by the delivery deadline. If a check completes after that deadline and identifies matching content, a corresponding delete event usually follows for apps registered for that delete trigger. Treat the create and delete as separate asynchronous events; the follow-up and its ordering are not guaranteed. Delivery is never proof that content is safe or approved.
+
+Safety checking determines whether an event is delivered. Payload sanitization and identity redaction are separate protections that determine what data the event contains.
+
+## Quick reference
+
+| Trigger key                    | Represents                                          | Payload type                                                                                                                      | Delivery and safety                  | Details                               |
+| ------------------------------ | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ------------------------------------- |
+| `onPostSubmit`                 | A newly submitted post                              | [`OnPostSubmitRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostSubmit)                                 | Does not wait for media checks       | [View](#onpostsubmit)                 |
+| `onPostCreate`                 | A newly created post after additional processing    | [`OnPostCreateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostCreate)                                 | Allows time for media checks         | [View](#onpostcreate)                 |
+| `onPostUpdate`                 | An edit to a post's body                            | [`OnPostUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostUpdate)                                 | Allows applicable media checks       | [View](#onpostupdate)                 |
+| `onPostReport`                 | A report on a post                                  | [`OnPostReportRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostReport)                                 | State-change event                   | [View](#onpostreport)                 |
+| `onPostDelete`                 | A post deletion or removal                          | [`OnPostDeleteRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostDelete)                                 | State-change event                   | [View](#onpostdelete)                 |
+| `onPostFlairUpdate`            | A post flair change                                 | [`OnPostFlairUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostFlairUpdate)                       | State-change event                   | [View](#onpostflairupdate)            |
+| `onPostNsfwUpdate`             | A post's NSFW status changing                       | [`OnPostNsfwUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostNsfwUpdate)                         | State-change event                   | [View](#onpostnsfwupdate)             |
+| `onPostSpoilerUpdate`          | A post's spoiler status changing                    | [`OnPostSpoilerUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostSpoilerUpdate)                   | State-change event                   | [View](#onpostspoilerupdate)          |
+| `onCommentSubmit`              | A newly submitted comment                           | [`OnCommentSubmitRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentSubmit)                           | Does not wait for media checks       | [View](#oncommentsubmit)              |
+| `onCommentCreate`              | A newly created comment after additional processing | [`OnCommentCreateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentCreate)                           | Allows time for media checks         | [View](#oncommentcreate)              |
+| `onCommentUpdate`              | An edit to a comment's body                         | [`OnCommentUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentUpdate)                           | Allows applicable media checks       | [View](#oncommentupdate)              |
+| `onCommentReport`              | A report on a comment                               | [`OnCommentReportRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentReport)                           | State-change event                   | [View](#oncommentreport)              |
+| `onCommentDelete`              | A comment deletion or removal                       | [`OnCommentDeleteRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentDelete)                           | State-change event                   | [View](#oncommentdelete)              |
+| `onModAction`                  | An entry in a community's moderation log            | [`OnModActionRequest`](../../api/public-api/type-aliases/ModActionDefinition)                                                     | Moderation event                     | [View](#onmodaction)                  |
+| `onModMail`                    | A new modmail message                               | [`OnModMailRequest`](../../api/public-api/type-aliases/ModMailDefinition)                                                         | Messaging event                      | [View](#onmodmail)                    |
+| `onAutomoderatorFilterPost`    | AutoModerator filtering a post                      | [`OnAutomoderatorFilterPostRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/AutomoderatorFilterPost)       | Filtered-content event               | [View](#onautomoderatorfilterpost)    |
+| `onAutomoderatorFilterComment` | AutoModerator filtering a comment                   | [`OnAutomoderatorFilterCommentRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/AutomoderatorFilterComment) | Filtered-content event               | [View](#onautomoderatorfiltercomment) |
+| `onAppInstall`                 | An app installation in a subreddit                  | [`OnAppInstallRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/AppInstall)                                 | Lifecycle event                      | [View](#onappinstall)                 |
+| `onAppUpgrade`                 | An installation moving to a different app version   | [`OnAppUpgradeRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/AppUpgrade)                                 | Lifecycle event                      | [View](#onappupgrade)                 |
+| `onMentionInCommentCreate`     | A new comment that mentions the app username        | [`OnMentionInCommentCreateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/MentionInCommentCreate)         | Global; allows time for media checks | [View](#onmentionincommentcreate)     |
+
+## Post events
+
+### onPostSubmit
+
+**Represents:** A post being submitted to a subreddit.
+
+**Delivery and safety:** This event favors faster delivery and does not wait for outstanding [media safety checks](#what-safety-processing-means). A known high-severity illegal-content match can still suppress the event. The post can later be edited, removed, or deleted.
+
+**Payload:** [`OnPostSubmitRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostSubmit)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                 |
+| ----------- | ---------------------------------- | -------- | --------------------------------------- |
+| `type`      | `"PostSubmit"`                     | Yes      | Event discriminator.                    |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the submitted post.         |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Post author.                            |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the post was submitted. |
+
+</details>
+
+**Important behavior:** Do not treat this event as confirmation that the post passed moderation or safety review. If the workflow can wait, prefer [`onPostCreate`](#onpostcreate).
+
+### onPostCreate
+
+**Represents:** A newly created post after Reddit has allowed time for applicable media safety checks.
+
+**Delivery and safety:** Delivery is intentionally later than `onPostSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or an applicable check has not completed by the delivery deadline, the event can still be delivered. Receiving it does not certify the post as safe, approved, or permanently available.
+
+**Payload:** [`OnPostCreateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostCreate)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                               |
+| ----------- | ---------------------------------- | -------- | ------------------------------------- |
+| `type`      | `"PostCreate"`                     | Yes      | Event discriminator.                  |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the created post.         |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Post author.                          |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the post was created. |
+
+</details>
+
+**Important behavior:** A single post can produce both `onPostSubmit` and `onPostCreate`. Do not register both unless your app has a distinct, idempotent use for each stage. If `onPostCreate` is delivered at the safety deadline and a later check identifies matching content, [`onPostDelete`](#onpostdelete) usually follows when registered. Do not rely on that follow-up or on strict ordering.
+
+### onPostUpdate
+
+**Represents:** A change to a post's body.
+
+**Delivery and safety:** Applicable [media safety checks](#what-safety-processing-means) can delay this event, and a known match can suppress it. The `post` object is a snapshot containing the updated body.
+
+**Payload:** [`OnPostUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostUpdate)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field          | Type                               | Required | Meaning                                                                   |
+| -------------- | ---------------------------------- | -------- | ------------------------------------------------------------------------- |
+| `type`         | `"PostUpdate"`                     | Yes      | Event discriminator.                                                      |
+| `post`         | [`PostV2`][post-v2-type]           | No       | Snapshot of the post after the edit.                                      |
+| `author`       | [`UserV2`][user-v2-type]           | No       | Post author. This is not necessarily the user who performed every update. |
+| `previousBody` | `string`                           | Yes      | Previous body when available; otherwise an empty string.                  |
+| `subreddit`    | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                                            |
+
+</details>
+
+**Important behavior:** Do not use `previousBody` as an audit log or assume it is always populated. Store your own prior value if your app needs a reliable comparison.
+
+### onPostReport
+
+**Represents:** A report being added to a post.
+
+**Delivery and safety:** This is a state-change event. The reported post can already be removed, changed, or unavailable when your handler runs.
+
+**Payload:** [`OnPostReportRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostReport)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                                    |
+| ----------- | ---------------------------------- | -------- | ---------------------------------------------------------- |
+| `type`      | `"PostReport"`                     | Yes      | Event discriminator.                                       |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the reported post.                             |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                             |
+| `reason`    | `string`                           | Yes      | Report reason associated with this event. It can be empty. |
+
+</details>
+
+**Important behavior:** Reporter identity is intentionally not included. A report event is not a report-count update; fetch current moderation data when counts or current queue state matter.
+
+### onPostDelete
+
+**Represents:** A post being deleted or removed by a user, moderator, or administrator.
+
+**Delivery and safety:** This event describes a deletion action. It carries identifiers and metadata instead of the deleted post body.
+
+**Payload:** [`OnPostDeleteRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostDelete)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                                                                                               | Required | Meaning                                                         |
+| ----------- | -------------------------------------------------------------------------------------------------- | -------- | --------------------------------------------------------------- |
+| `type`      | `"PostDelete"`                                                                                     | Yes      | Event discriminator.                                            |
+| `postId`    | `string`                                                                                           | Yes      | Full post ID, such as `t3_...`.                                 |
+| `deletedAt` | `string`                                                                                           | No       | Deletion time as an ISO 8601 string.                            |
+| `author`    | [`UserV2`][user-v2-type]                                                                           | No       | Post author when available; deleted identities can be redacted. |
+| `createdAt` | `string`                                                                                           | No       | Original creation time as an ISO 8601 string.                   |
+| `source`    | [`EventSource`](../../api/public-api/@devvit/namespaces/EventTypes/enumerations/EventSource)       | Yes      | Actor category associated with the deletion. It can be unknown. |
+| `reason`    | [`DeletionReason`](../../api/public-api/@devvit/namespaces/EventTypes/enumerations/DeletionReason) | Yes      | Normalized deletion reason. It can be unspecified or unknown.   |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type]                                                                 | No       | Subreddit that contained the post.                              |
+
+</details>
+
+**Important behavior:** Do not expect the deleted body in this payload. A moderator removal can also produce [`onModAction`](#onmodaction); make cleanup idempotent if you subscribe to both.
+
+### onPostFlairUpdate
+
+**Represents:** A post's flair being added, changed, or cleared.
+
+**Delivery and safety:** This is a state-change event. It is separate from edits to the post body.
+
+**Payload:** [`OnPostFlairUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostFlairUpdate)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                    |
+| ----------- | ---------------------------------- | -------- | ------------------------------------------ |
+| `type`      | `"PostFlairUpdate"`                | Yes      | Event discriminator.                       |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot containing the updated flair.     |
+| `author`    | [`UserV2`][user-v2-type]           | No       | User who updated the flair when available. |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.             |
+
+</details>
+
+**Important behavior:** `author` is the updater, not necessarily the post author. Inspect the flair on `post`; a missing flair can represent a cleared flair.
+
+### onPostNsfwUpdate
+
+**Represents:** A post being marked or unmarked as NSFW.
+
+**Delivery and safety:** This is a state-change event and can contain NSFW content. The boolean field is the new state.
+
+**Payload:** [`OnPostNsfwUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostNsfwUpdate)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                         |
+| ----------- | ---------------------------------- | -------- | ----------------------------------------------- |
+| `type`      | `"PostNsfwUpdate"`                 | Yes      | Event discriminator.                            |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the updated post.                   |
+| `author`    | [`UserV2`][user-v2-type]           | No       | User who changed the NSFW state when available. |
+| `isNsfw`    | `boolean`                          | Yes      | New NSFW state.                                 |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                  |
+
+</details>
+
+**Important behavior:** `author` is the updater, not necessarily the post author. Use `isNsfw` instead of inferring the new state from the event name.
+
+### onPostSpoilerUpdate
+
+**Represents:** A post being marked or unmarked as a spoiler.
+
+**Delivery and safety:** This is a state-change event. The boolean field is the new state.
+
+**Payload:** [`OnPostSpoilerUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/PostSpoilerUpdate)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                            |
+| ----------- | ---------------------------------- | -------- | -------------------------------------------------- |
+| `type`      | `"PostSpoilerUpdate"`              | Yes      | Event discriminator.                               |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the updated post.                      |
+| `author`    | [`UserV2`][user-v2-type]           | No       | User who changed the spoiler state when available. |
+| `isSpoiler` | `boolean`                          | Yes      | New spoiler state.                                 |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                     |
+
+</details>
+
+**Important behavior:** `author` is the updater, not necessarily the post author. Use `isSpoiler` instead of assuming the event only represents enabling the flag.
+
+## Comment events
+
+### onCommentSubmit
+
+**Represents:** A comment being submitted.
+
+**Delivery and safety:** This event favors faster delivery and does not wait for outstanding [media safety checks](#what-safety-processing-means). A known high-severity illegal-content match can still suppress the event. The comment can later be edited, removed, or deleted.
+
+**Payload:** [`OnCommentSubmitRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentSubmit)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                    |
+| ----------- | ---------------------------------- | -------- | ------------------------------------------ |
+| `type`      | `"CommentSubmit"`                  | Yes      | Event discriminator.                       |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the submitted comment.         |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Comment author.                            |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Post containing the comment.               |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the comment was submitted. |
+
+</details>
+
+**Important behavior:** Do not treat this event as confirmation that the comment passed moderation or safety review. If the workflow can wait, prefer [`onCommentCreate`](#oncommentcreate).
+
+### onCommentCreate
+
+**Represents:** A newly created comment after Reddit has allowed time for applicable media safety checks.
+
+**Delivery and safety:** Delivery is intentionally later than `onCommentSubmit` to allow relevant [media safety checks](#what-safety-processing-means) to complete. A known match can suppress the event. If no check applies or an applicable check has not completed by the delivery deadline, the event can still be delivered. Receiving it does not certify the comment or its parent post as safe, approved, or permanently available.
+
+**Payload:** [`OnCommentCreateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentCreate)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                  |
+| ----------- | ---------------------------------- | -------- | ---------------------------------------- |
+| `type`      | `"CommentCreate"`                  | Yes      | Event discriminator.                     |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the created comment.         |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Comment author.                          |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Post containing the comment.             |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the comment was created. |
+
+</details>
+
+**Important behavior:** A single comment can produce both `onCommentSubmit` and `onCommentCreate`. Do not register both unless your app has a distinct, idempotent use for each stage. If `onCommentCreate` is delivered at the safety deadline and a later check identifies matching content, [`onCommentDelete`](#oncommentdelete) usually follows when registered. Do not rely on that follow-up or on strict ordering.
+
+### onCommentUpdate
+
+**Represents:** A change to a comment's body.
+
+**Delivery and safety:** Applicable [media safety checks](#what-safety-processing-means) can delay this event, and a known match can suppress it. The `comment` object is a snapshot containing the updated body.
+
+**Payload:** [`OnCommentUpdateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentUpdate)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field          | Type                               | Required | Meaning                                                  |
+| -------------- | ---------------------------------- | -------- | -------------------------------------------------------- |
+| `type`         | `"CommentUpdate"`                  | Yes      | Event discriminator.                                     |
+| `comment`      | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the comment after the edit.                  |
+| `author`       | [`UserV2`][user-v2-type]           | No       | Comment author.                                          |
+| `post`         | [`PostV2`][post-v2-type]           | No       | Post containing the comment.                             |
+| `previousBody` | `string`                           | Yes      | Previous body when available; otherwise an empty string. |
+| `subreddit`    | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the comment.                        |
+
+</details>
+
+**Important behavior:** Do not use `previousBody` as an audit log or assume it is always populated. Store your own prior value if your app needs a reliable comparison.
+
+### onCommentReport
+
+**Represents:** A report being added to a comment.
+
+**Delivery and safety:** This is a state-change event. The reported comment can already be removed, changed, or unavailable when your handler runs.
+
+**Payload:** [`OnCommentReportRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentReport)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                                    |
+| ----------- | ---------------------------------- | -------- | ---------------------------------------------------------- |
+| `type`      | `"CommentReport"`                  | Yes      | Event discriminator.                                       |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the reported comment.                          |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the comment.                          |
+| `reason`    | `string`                           | Yes      | Report reason associated with this event. It can be empty. |
+
+</details>
+
+**Important behavior:** Reporter identity is intentionally not included. A report event is not a report-count update; fetch current moderation data when counts or current queue state matter.
+
+### onCommentDelete
+
+**Represents:** A comment being deleted or removed by a user, moderator, or administrator.
+
+**Delivery and safety:** This event describes a deletion action. It carries identifiers and metadata instead of the deleted comment body.
+
+**Payload:** [`OnCommentDeleteRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/CommentDelete)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                                                                                               | Required | Meaning                                                                |
+| ----------- | -------------------------------------------------------------------------------------------------- | -------- | ---------------------------------------------------------------------- |
+| `type`      | `"CommentDelete"`                                                                                  | Yes      | Event discriminator.                                                   |
+| `commentId` | `string`                                                                                           | Yes      | Full comment ID, such as `t1_...`.                                     |
+| `postId`    | `string`                                                                                           | Yes      | Full ID of the post containing the comment.                            |
+| `parentId`  | `string`                                                                                           | Yes      | Full ID of the parent comment, or the post ID for a top-level comment. |
+| `deletedAt` | `string`                                                                                           | No       | Deletion time as an ISO 8601 string.                                   |
+| `author`    | [`UserV2`][user-v2-type]                                                                           | No       | Comment author when available; deleted identities can be redacted.     |
+| `createdAt` | `string`                                                                                           | No       | Original creation time as an ISO 8601 string.                          |
+| `source`    | [`EventSource`](../../api/public-api/@devvit/namespaces/EventTypes/enumerations/EventSource)       | Yes      | Actor category associated with the deletion. It can be unknown.        |
+| `reason`    | [`DeletionReason`](../../api/public-api/@devvit/namespaces/EventTypes/enumerations/DeletionReason) | Yes      | Normalized deletion reason. It can be unspecified or unknown.          |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type]                                                                 | No       | Subreddit that contained the comment.                                  |
+
+</details>
+
+**Important behavior:** Do not expect the deleted body in this payload. A moderator removal can also produce [`onModAction`](#onmodaction); make cleanup idempotent if you subscribe to both.
+
+## Moderation and community events
+
+### onModAction
+
+**Represents:** A moderator action recorded in a subreddit's moderation log, such as approving, removing, locking, distinguishing, stickying, or changing flair.
+
+**Delivery and safety:** This is a moderation event. Its target content can already be unavailable or sanitized when your handler runs.
+
+**Payload:** [`OnModActionRequest`](../../api/public-api/type-aliases/ModActionDefinition)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field           | Type                               | Required | Meaning                                               |
+| --------------- | ---------------------------------- | -------- | ----------------------------------------------------- |
+| `type`          | `"ModAction"`                      | Yes      | Event discriminator.                                  |
+| `action`        | `string`                           | No       | Moderation action name.                               |
+| `actionedAt`    | `string`                           | No       | Action time as an ISO 8601 string.                    |
+| `subreddit`     | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the action occurred.                  |
+| `moderator`     | [`UserV2`][user-v2-type]           | No       | Moderator when available; the identity can be masked. |
+| `targetUser`    | [`UserV2`][user-v2-type]           | No       | Target user for user-related actions.                 |
+| `targetComment` | [`CommentV2`][comment-v2-type]     | No       | Target comment for comment-related actions.           |
+| `targetPost`    | [`PostV2`][post-v2-type]           | No       | Target post for post-related actions.                 |
+| `id`            | `string`                           | No       | Identifier for the moderation action.                 |
+
+</details>
+
+**Important behavior:** Target fields depend on `action`; never assume a particular target is present. Treat action names as an evolving string set and handle unknown values safely. Moderator and administrator identities can be replaced with masked identities.
+
+### onModMail
+
+**Represents:** A message being sent or received in a modmail conversation associated with the installation.
+
+**Delivery and safety:** This is a messaging event. It contains message and conversation metadata, not the message body.
+
+**Payload:** [`OnModMailRequest`](../../api/public-api/type-aliases/ModMailDefinition)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field                   | Type                               | Required | Meaning                                                         |
+| ----------------------- | ---------------------------------- | -------- | --------------------------------------------------------------- |
+| `type`                  | `"ModMail"`                        | Yes      | Event discriminator.                                            |
+| `messageAuthor`         | [`UserV2`][user-v2-type]           | No       | Message author when available.                                  |
+| `createdAt`             | `string`                           | No       | Message creation time as an ISO 8601 string.                    |
+| `messageAuthorType`     | `string`                           | Yes      | Role used by the author, such as moderator or participant.      |
+| `conversationState`     | `string`                           | Yes      | Current state, such as new, in progress, or archived.           |
+| `conversationType`      | `string`                           | Yes      | Conversation category, such as subreddit-to-user or internal.   |
+| `isAutoGenerated`       | `boolean`                          | Yes      | Whether Reddit or an automated system generated the message.    |
+| `conversationSubreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit that owns the conversation.                           |
+| `destinationSubreddit`  | [`SubredditV2`][subreddit-v2-type] | No       | Destination subreddit for subreddit-to-subreddit conversations. |
+| `conversationId`        | `string`                           | Yes      | Base36 conversation ID without a thing prefix.                  |
+| `messageId`             | `string`                           | Yes      | Base36 message ID without a thing prefix.                       |
+
+</details>
+
+**Important behavior:** Fetch the conversation through the Reddit API when your app needs message contents or current conversation state. `destinationSubreddit` is only relevant to conversation types that have one.
+
+### onAutomoderatorFilterPost
+
+**Represents:** AutoModerator filtering a post.
+
+**Delivery and safety:** This event intentionally represents filtered content. Treat the post and reason as sensitive, untrusted input.
+
+**Payload:** [`OnAutomoderatorFilterPostRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/AutomoderatorFilterPost)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                                              |
+| ----------- | ---------------------------------- | -------- | -------------------------------------------------------------------- |
+| `type`      | `"AutomoderatorFilterPost"`        | Yes      | Event discriminator.                                                 |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Snapshot of the filtered post.                                       |
+| `removedAt` | `string`                           | No       | Filtering time as an ISO 8601 string.                                |
+| `reason`    | `string`                           | Yes      | AutoModerator reason when available; it can be empty.                |
+| `author`    | `string`                           | Yes      | Author's user ID as a string, not a [`UserV2`][user-v2-type] object. |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the post.                                       |
+
+</details>
+
+**Important behavior:** This trigger is specific to AutoModerator filtering. Use `onModAction` for broader moderator actions and `onPostDelete` for deletion or removal state.
+
+### onAutomoderatorFilterComment
+
+**Represents:** AutoModerator filtering a comment.
+
+**Delivery and safety:** This event intentionally represents filtered content. Treat the comment and reason as sensitive, untrusted input.
+
+**Payload:** [`OnAutomoderatorFilterCommentRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/AutomoderatorFilterComment)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                                              |
+| ----------- | ---------------------------------- | -------- | -------------------------------------------------------------------- |
+| `type`      | `"AutomoderatorFilterComment"`     | Yes      | Event discriminator.                                                 |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the filtered comment.                                    |
+| `removedAt` | `string`                           | No       | Filtering time as an ISO 8601 string.                                |
+| `reason`    | `string`                           | Yes      | AutoModerator reason when available; it can be empty.                |
+| `author`    | `string`                           | Yes      | Author's user ID as a string, not a [`UserV2`][user-v2-type] object. |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the comment.                                    |
+
+</details>
+
+**Important behavior:** This trigger is specific to AutoModerator filtering. Use `onModAction` for broader moderator actions and `onCommentDelete` for deletion or removal state.
+
+## App lifecycle events
+
+### onAppInstall
+
+**Represents:** The app being installed in a subreddit.
+
+**Delivery and safety:** This lifecycle event is produced by an installation change, not by an ordinary app upload.
+
+**Payload:** [`OnAppInstallRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/AppInstall)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                             |
+| ----------- | ---------------------------------- | -------- | --------------------------------------------------- |
+| `type`      | `"AppInstall"`                     | Yes      | Event discriminator.                                |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit where the app was installed.              |
+| `installer` | [`UserV2`][user-v2-type]           | No       | User who initiated the installation when available. |
+
+</details>
+
+**Important behavior:** Make initialization safe to retry because the event can be delivered more than once. Do not require `installer` to be present.
+
+### onAppUpgrade
+
+**Represents:** A subreddit installation moving to a different version of the app.
+
+**Delivery and safety:** This lifecycle event is produced when an installation changes version. Uploading or publishing a version does not by itself invoke every installation.
+
+**Payload:** [`OnAppUpgradeRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/AppUpgrade)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                        |
+| ----------- | ---------------------------------- | -------- | ---------------------------------------------- |
+| `type`      | `"AppUpgrade"`                     | Yes      | Event discriminator.                           |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit whose installation was upgraded.     |
+| `installer` | [`UserV2`][user-v2-type]           | No       | User who initiated the upgrade when available. |
+
+</details>
+
+**Important behavior:** Make migrations idempotent and track your own schema or migration version. The payload does not contain the previous and new app version numbers.
+
+## Global events
+
+### onMentionInCommentCreate
+
+**Represents:** A newly created comment that mentions the app's username.
+
+**Delivery and safety:** This limited-access global event allows time for applicable [media safety checks](#what-safety-processing-means) on the comment and its parent post. A known match can suppress the event, but ordinary NSFW content can still be present.
+
+**Payload:** [`OnMentionInCommentCreateRequest`](../../api/public-api/@devvit/namespaces/EventTypes/interfaces/MentionInCommentCreate)
+
+<details>
+<summary>View payload fields</summary>
+
+| Field       | Type                               | Required | Meaning                                         |
+| ----------- | ---------------------------------- | -------- | ----------------------------------------------- |
+| `type`      | `"MentionInCommentCreate"`         | Yes      | Event discriminator.                            |
+| `comment`   | [`CommentV2`][comment-v2-type]     | No       | Snapshot of the comment containing the mention. |
+| `author`    | [`UserV2`][user-v2-type]           | No       | Comment author.                                 |
+| `post`      | [`PostV2`][post-v2-type]           | No       | Post containing the comment.                    |
+| `subreddit` | [`SubredditV2`][subreddit-v2-type] | No       | Subreddit containing the comment.               |
+| `mentions`  | [`Mentions`][mentions-type]        | No       | Parsed username mentions found in the comment.  |
+
+</details>
+
+**Important behavior:** The event has additional access, profile-installation, subreddit, and playtest requirements. Review [App Mention Triggers](./global-triggers) before using it.

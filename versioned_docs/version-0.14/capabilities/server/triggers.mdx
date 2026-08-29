@@ -13,27 +13,27 @@ A trigger is an action you can build into your app that will occur automatically
 
 Event triggers let your app automatically respond to a user's or moderator's action. The following trigger types are supported:
 
-- `onPostSubmit`
-- `onPostCreate`
-- `onPostUpdate`
-- `onPostReport`
-- `onPostDelete`
-- `onPostFlairUpdate`
-- `onCommentCreate`
-- `onCommentDelete`
-- `onCommentReport`
-- `onCommentSubmit`
-- `onCommentUpdate`
-- `onPostNsfwUpdate`
-- `onPostSpoilerUpdate`
-- `onAppInstall`
-- `onAppUpgrade`
-- `onModAction`
-- `onModMail`
-- `onAutomoderatorFilterPost`
-- `onAutomoderatorFilterComment`
+- [`onPostSubmit`](./trigger-events#onpostsubmit)
+- [`onPostCreate`](./trigger-events#onpostcreate)
+- [`onPostUpdate`](./trigger-events#onpostupdate)
+- [`onPostReport`](./trigger-events#onpostreport)
+- [`onPostDelete`](./trigger-events#onpostdelete)
+- [`onPostFlairUpdate`](./trigger-events#onpostflairupdate)
+- [`onCommentCreate`](./trigger-events#oncommentcreate)
+- [`onCommentDelete`](./trigger-events#oncommentdelete)
+- [`onCommentReport`](./trigger-events#oncommentreport)
+- [`onCommentSubmit`](./trigger-events#oncommentsubmit)
+- [`onCommentUpdate`](./trigger-events#oncommentupdate)
+- [`onPostNsfwUpdate`](./trigger-events#onpostnsfwupdate)
+- [`onPostSpoilerUpdate`](./trigger-events#onpostspoilerupdate)
+- [`onAppInstall`](./trigger-events#onappinstall)
+- [`onAppUpgrade`](./trigger-events#onappupgrade)
+- [`onModAction`](./trigger-events#onmodaction)
+- [`onModMail`](./trigger-events#onmodmail)
+- [`onAutomoderatorFilterPost`](./trigger-events#onautomoderatorfilterpost)
+- [`onAutomoderatorFilterComment`](./trigger-events#onautomoderatorfiltercomment)
 
-A full list of events and their payloads can be found in the [EventTypes documentation](../../api/public-api/@devvit/namespaces/EventTypes/). For more details on Mod specific actions, see [ModActions](../../api/redditapi/models/interfaces/ModAction) and [ModMail](../../api/public-api/type-aliases/ModMailDefinition).
+See the [Trigger Event Catalog](./trigger-events) for when each event fires, its delivery and safety behavior, and its top-level payload. For exhaustive generated type definitions, see the [EventTypes API reference](../../api/public-api/@devvit/namespaces/EventTypes/).
 
 ## Setting up triggers
 
@@ -155,7 +155,7 @@ router.post<string, never, TriggerResponse, OnPostSubmitRequest>(
 
 - Avoid creating recursive triggers that could cause infinite loops or crashes (for example, a comment trigger that creates a comment).
 - Always check the event payload to ensure your app is not the source of the event before taking action.
-- Review the [EventTypes documentation](../../api/public-api/@devvit/namespaces/EventTypes/) for details on event payloads.
+- Review the [Trigger Event Catalog](./trigger-events) for event behavior and payload details.
 
 :::caution
 Triggers are not guaranteed to deliver only once for a single event. Ensure your app logic is able to handle this case, e.g. checking if content has been recently actioned before taking action again.
