@@ -9,11 +9,11 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
-## Release 0.14.2: Maintenance Update
+## Release 0.14.2: Improved Comment and Mod Note API Documentation
 
 **Release Date: August 31, 2026**
 
-No dev-facing changes today! This release just includes a few under-the-hood performance improvements.
+In this release, we improved API reference documentation based on developer feedback, clarifying Markdown support for comment text and documenting character limits for post notes and removal notes.
 
 
 ## Release 0.14.1: Additional Source Roots and Post Search
