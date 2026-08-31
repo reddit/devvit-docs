@@ -1,8 +1,8 @@
-**@devvit/public-api v0.14.1-dev**
+**@devvit/public-api v0.14.3-dev**
 
 ***
 
-# @devvit/public-api v0.14.1-dev
+# @devvit/public-api v0.14.3-dev
 
 ## Namespaces
 
@@ -156,6 +156,7 @@
 - [EmbedContainer](type-aliases/EmbedContainer.md)
 - [EmbedOptions](type-aliases/EmbedOptions.md)
 - [EnrichedThumbnail](type-aliases/EnrichedThumbnail.md)
+- [FilterOptions](type-aliases/FilterOptions.md)
 - [FlairBackgroundColor](type-aliases/FlairBackgroundColor.md)
 - [FlairSettings](type-aliases/FlairSettings.md)
 - [FlairTextColor](type-aliases/FlairTextColor.md)

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.14.1-dev**](../README.md)
+[**@devvit/public-api v0.14.3-dev**](../README.md)
 
 ***
 
@@ -26,6 +26,8 @@
 
 > **get** **approved**(): `boolean`
 
+Whether the post has been approved by a moderator.
+
 ##### Returns
 
 `boolean`
@@ -39,6 +41,11 @@
 #### Get Signature
 
 > **get** **approvedAtUtc**(): `number`
+
+The moderation approval time as Unix seconds, or `0` when unavailable.
+
+Use [approved](#approved) to check the current approval state. Convert a nonzero
+value to a `Date` with `new Date(post.approvedAtUtc * 1000)`.
 
 ##### Returns
 
@@ -54,6 +61,8 @@
 
 > **get** **archived**(): `boolean`
 
+Whether the post is archived.
+
 ##### Returns
 
 `boolean`
@@ -67,6 +76,8 @@
 #### Get Signature
 
 > **get** **authorFlair**(): `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+
+The author's subreddit flair, or `undefined` when unavailable.
 
 ##### Returns
 
@@ -82,6 +93,8 @@
 
 > **get** **authorId**(): `undefined` \| `` `t2_${string}` ``
 
+The creator's account identifier, or `undefined` when unavailable.
+
 ##### Returns
 
 `undefined` \| `` `t2_${string}` ``
@@ -95,6 +108,8 @@
 #### Get Signature
 
 > **get** **authorName**(): `string`
+
+The creator's username without the leading `u/`.
 
 ##### Returns
 
@@ -110,6 +125,11 @@
 
 > **get** **bannedAtUtc**(): `number`
 
+The ban time as Unix seconds, or `0` when unavailable.
+
+Convert a nonzero value to a `Date` with
+`new Date(post.bannedAtUtc * 1000)`.
+
 ##### Returns
 
 `number`
@@ -123,6 +143,8 @@
 #### Get Signature
 
 > **get** **body**(): `undefined` \| `string`
+
+The post body in Markdown. `undefined` if absent.
 
 ##### Returns
 
@@ -138,6 +160,8 @@
 
 > **get** **bodyHtml**(): `undefined` \| `string`
 
+The post body rendered as HTML, or `undefined` when unavailable.
+
 ##### Returns
 
 `undefined` \| `string`
@@ -151,6 +175,15 @@
 #### Get Signature
 
 > **get** **comments**(): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+
+A listing of the post's top-level comments. Each comment exposes its
+replies separately.
+
+##### Example
+
+```ts
+const comments = await post.comments.get(25);
+```
 
 ##### Returns
 
@@ -166,6 +199,8 @@
 
 > **get** **createdAt**(): `Date`
 
+The date when the post was created.
+
 ##### Returns
 
 `Date`
@@ -180,7 +215,8 @@
 
 > **get** **crosspostParentId**(): `undefined` \| `` `t3_${string}` ``
 
-The ID of the original post this was crossposted from. Undefined if this post is not a crosspost.
+The original post's identifier when this post is a crosspost. `undefined`
+if not a crosspost or parent is unavailable.
 
 ##### Returns
 
@@ -196,6 +232,11 @@ The ID of the original post this was crossposted from. Undefined if this post is
 
 > **get** **distinguishedBy**(): `undefined` \| `string`
 
+The post's distinction category.
+
+For example, a post distinguished by a moderator or employee returns
+`"moderator"` or `"admin"`. `undefined` means no distinction is available.
+
 ##### Returns
 
 `undefined` \| `string`
@@ -209,6 +250,8 @@ The ID of the original post this was crossposted from. Undefined if this post is
 #### Get Signature
 
 > **get** **edited**(): `boolean`
+
+Whether the post body has been edited since it was created.
 
 ##### Returns
 
@@ -224,6 +267,8 @@ The ID of the original post this was crossposted from. Undefined if this post is
 
 > **get** **flair**(): `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
 
+The post flair, or `undefined` when unavailable.
+
 ##### Returns
 
 `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
@@ -238,7 +283,11 @@ The ID of the original post this was crossposted from. Undefined if this post is
 
 > **get** **gallery**(): [`GalleryMedia`](../type-aliases/GalleryMedia.md)[]
 
-Get the media in the post. Empty if the post doesn't have any media.
+Get the image or GIF metadata in the post. Empty if the post doesn't have
+any media.
+
+Gallery posts can contain multiple entries. For other posts, one entry from
+the first preview image or GIF variant.
 
 ##### Returns
 
@@ -253,6 +302,8 @@ Get the media in the post. Empty if the post doesn't have any media.
 #### Get Signature
 
 > **get** **hidden**(): `boolean`
+
+Whether the post is hidden from listings.
 
 ##### Returns
 
@@ -282,6 +333,8 @@ Get the media in the post. Empty if the post doesn't have any media.
 
 > **get** **ignoringReports**(): `boolean`
 
+Whether reports on the post are being ignored.
+
 ##### Returns
 
 `boolean`
@@ -295,6 +348,8 @@ Get the media in the post. Empty if the post doesn't have any media.
 #### Get Signature
 
 > **get** **locked**(): `boolean`
+
+Whether the post is locked and new comments are disabled.
 
 ##### Returns
 
@@ -328,6 +383,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **modReports**(): [`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
 
+Moderator reports and authors, or an empty array when unavailable.
+
 ##### Returns
 
 [`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
@@ -341,6 +398,8 @@ Use [modReports](#modreports) to retain each report's author.
 #### Get Signature
 
 > **get** **nsfw**(): `boolean`
+
+Whether the post is marked not safe for work (NSFW).
 
 ##### Returns
 
@@ -356,6 +415,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **numberOfComments**(): `number`
 
+The number of comments, or `0` when none are available.
+
 ##### Returns
 
 `number`
@@ -369,6 +430,8 @@ Use [modReports](#modreports) to retain each report's author.
 #### Get Signature
 
 > **get** **numberOfReports**(): `number`
+
+The number of reports, or `0` when none are available.
 
 ##### Returns
 
@@ -384,6 +447,14 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **permalink**(): `string`
 
+The post's path relative to `https://www.reddit.com`.
+
+##### Example
+
+```ts
+"/r/wallstreetbets/comments/abc123/post/"
+```
+
 ##### Returns
 
 `string`
@@ -398,7 +469,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **pollData**(): `undefined` \| [`PollData`](../type-aliases/PollData.md)
 
-Poll data for the post, if the post is a poll. Undefined otherwise.
+The post's poll options, vote totals, and voting end time. `undefined` if
+the post is not a poll.
 
 ##### Returns
 
@@ -414,6 +486,8 @@ Poll data for the post, if the post is a poll. Undefined otherwise.
 
 > **get** **quarantined**(): `boolean`
 
+Whether the post is quarantined.
+
 ##### Returns
 
 `boolean`
@@ -427,6 +501,8 @@ Poll data for the post, if the post is a poll. Undefined otherwise.
 #### Get Signature
 
 > **get** **removed**(): `boolean`
+
+Whether the post has been removed by a moderator.
 
 ##### Returns
 
@@ -442,7 +518,8 @@ Poll data for the post, if the post is a poll. Undefined otherwise.
 
 > **get** **removedBy**(): `undefined` \| `string`
 
-Who removed this object (username)
+The username of the account that removed the post, without the leading
+`u/`, or `undefined` when unavailable.
 
 ##### Returns
 
@@ -458,17 +535,18 @@ Who removed this object (username)
 
 > **get** **removedByCategory**(): `undefined` \| `string`
 
-who/what removed this object. It will return one of the following:
-- "anti_evil_ops": object is removed by a aeops member
-- "author": object is removed by author of the post
-- "automod_filtered": object is filtered by automod
-- "community_ops": object is removed by a community team member
-- "content_takedown": object is removed due to content violation
-- "copyright_takedown": object is removed due to copyright violation
-- "deleted": object is deleted
-- "moderator": object is removed by a mod of the sub
-- "reddit": object is removed by anyone else
-- undefined: object is not removed
+Identifies who or what removed the post:
+
+- `"anti_evil_ops"`: Reddit Anti-Evil Operations.
+- `"author"`: The post's author.
+- `"automod_filtered"`: AutoModerator filtering.
+- `"community_ops"`: Reddit Community Operations.
+- `"content_takedown"`: A content-policy takedown.
+- `"copyright_takedown"`: A copyright takedown.
+- `"deleted"`: The post was deleted.
+- `"moderator"`: A subreddit moderator.
+- `"reddit"`: Any other remover.
+- `undefined`: No removal category is available.
 
 ##### Returns
 
@@ -484,6 +562,8 @@ who/what removed this object. It will return one of the following:
 
 > **get** **score**(): `number`
 
+The post's upvotes minus downvotes, or `0` when unavailable.
+
 ##### Returns
 
 `number`
@@ -497,6 +577,11 @@ who/what removed this object. It will return one of the following:
 #### Get Signature
 
 > **get** **secureMedia**(): `undefined` \| [`SecureMedia`](../type-aliases/SecureMedia.md)
+
+Metadata for embedded or Reddit-hosted media, including oEmbed or Reddit
+video data.
+
+Returns `undefined` when the post has no secure media metadata.
 
 ##### Returns
 
@@ -512,6 +597,8 @@ who/what removed this object. It will return one of the following:
 
 > **get** **spam**(): `boolean`
 
+Whether the post has been marked as spam by a moderator.
+
 ##### Returns
 
 `boolean`
@@ -525,6 +612,8 @@ who/what removed this object. It will return one of the following:
 #### Get Signature
 
 > **get** **spoiler**(): `boolean`
+
+Whether the post's content is hidden until the user explicitly opens it.
 
 ##### Returns
 
@@ -540,6 +629,8 @@ who/what removed this object. It will return one of the following:
 
 > **get** **stickied**(): `boolean`
 
+Whether the post is presented before other posts in its subreddit.
+
 ##### Returns
 
 `boolean`
@@ -553,6 +644,8 @@ who/what removed this object. It will return one of the following:
 #### Get Signature
 
 > **get** **subredditId**(): `` `t5_${string}` ``
+
+The subreddit identifier where the post was created.
 
 ##### Returns
 
@@ -568,6 +661,8 @@ who/what removed this object. It will return one of the following:
 
 > **get** **subredditName**(): `string`
 
+The owning subreddit's name without the leading `r/`.
+
 ##### Returns
 
 `string`
@@ -581,6 +676,11 @@ who/what removed this object. It will return one of the following:
 #### Get Signature
 
 > **get** **thumbnail**(): `undefined` \| \{ `height`: `number`; `url`: `string`; `width`: `number`; \}
+
+The post's preview thumbnail URL and dimensions in pixels.
+
+`undefined` means no thumbnail is available or the source field contains a
+placeholder such as `"self"` or `"nsfw"`.
 
 ##### Returns
 
@@ -596,6 +696,8 @@ who/what removed this object. It will return one of the following:
 
 > **get** **title**(): `string`
 
+The title displayed for the post.
+
 ##### Returns
 
 `string`
@@ -609,6 +711,17 @@ who/what removed this object. It will return one of the following:
 #### Get Signature
 
 > **get** **url**(): `string`
+
+The post URL.
+
+This is the submitted URL for a link post or the full-size media URL for an
+image or video post. Use [permalink](#permalink) for the relative path.
+
+##### Example
+
+```ts
+"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/"
+```
 
 ##### Returns
 
@@ -624,6 +737,8 @@ who/what removed this object. It will return one of the following:
 
 > **get** **userReportReasons**(): `string`[]
 
+User report reasons, or an empty array when none are available.
+
 ##### Returns
 
 `string`[]
@@ -635,6 +750,8 @@ who/what removed this object. It will return one of the following:
 ### addComment()
 
 > **addComment**(`opts`): `Promise`\<[`Comment`](Comment.md)\>
+
+Creates a top-level comment on the post.
 
 #### Parameters
 
@@ -654,19 +771,13 @@ who/what removed this object. It will return one of the following:
 
 > **addRemovalNote**(`opts`): `Promise`\<`void`\>
 
-Add a mod note for why the post was removed
+Adds a moderator note explaining why the post was removed.
 
 #### Parameters
 
 ##### opts
 
-###### modNote?
-
-`string`
-
-###### reasonId
-
-`string`
+`Readonly`\<`Omit`\<[`AddRemovalNoteOptions`](../type-aliases/AddRemovalNoteOptions.md), `"itemIds"`\>\>
 
 #### Returns
 
@@ -680,6 +791,8 @@ Add a mod note for why the post was removed
 
 > **approve**(): `Promise`\<`void`\>
 
+Approves the post and updates this instance's moderation state.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -691,6 +804,8 @@ Add a mod note for why the post was removed
 ### crosspost()
 
 > **crosspost**(`opts`): `Promise`\<`Post`\>
+
+Creates a crosspost of this post in another subreddit.
 
 #### Parameters
 
@@ -710,6 +825,8 @@ Add a mod note for why the post was removed
 
 > **delete**(): `Promise`\<`void`\>
 
+Deletes the post as the app account.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -721,6 +838,8 @@ Add a mod note for why the post was removed
 ### distinguish()
 
 > **distinguish**(): `Promise`\<`void`\>
+
+Distinguishes the post as a moderator and updates this instance.
 
 #### Returns
 
@@ -734,6 +853,8 @@ Add a mod note for why the post was removed
 
 > **distinguishAsAdmin**(): `Promise`\<`void`\>
 
+Distinguishes the post as an administrator and updates this instance.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -745,6 +866,9 @@ Add a mod note for why the post was removed
 ### edit()
 
 > **edit**(`opts`): `Promise`\<`void`\>
+
+Replaces the post body as the app account, then updates the cached body and
+edited state from the response.
 
 #### Parameters
 
@@ -773,15 +897,11 @@ Filters a post. When a post is filtered, it is added to the ModQueue for review,
 
 ##### options?
 
-`FilterOptions`
-
-The options for this filter action.
+[`FilterOptions`](../type-aliases/FilterOptions.md)
 
 #### Returns
 
 `Promise`\<`void`\>
-
-A Promise that resolves if the post was filtered successfully.
 
 ***
 
@@ -790,6 +910,8 @@ A Promise that resolves if the post was filtered successfully.
 ### getAuthor()
 
 > **getAuthor**(): `Promise`\<`undefined` \| [`User`](User.md)\>
+
+Fetches the creator's account, or `undefined` if it is unavailable.
 
 #### Returns
 
@@ -837,6 +959,8 @@ Get the custom styles for a custom post.
 
 > **getDuplicates**(`opts`?): [`Listing`](Listing.md)\<`Post`\>
 
+A listing of other posts that reference the same URL.
+
 #### Parameters
 
 ##### opts?
@@ -846,6 +970,12 @@ Get the custom styles for a custom post.
 #### Returns
 
 [`Listing`](Listing.md)\<`Post`\>
+
+#### Example
+
+```ts
+const duplicates = await post.getDuplicates().get(25);
+```
 
 ***
 
@@ -883,7 +1013,7 @@ const enrichedThumbnail = await post.getEnrichedThumbnail();
 
 > **getPostData**(): `Promise`\<`undefined` \| [`JSONObject`](../type-aliases/JSONObject.md)\>
 
-Get the postData for the custom post.
+Get the post data for the custom post.
 
 #### Returns
 
@@ -904,6 +1034,8 @@ const postData = await post.getPostData();
 
 > **hide**(): `Promise`\<`void`\>
 
+Hides the post from the app account and updates this instance.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -915,6 +1047,8 @@ const postData = await post.getPostData();
 ### ignoreReports()
 
 > **ignoreReports**(): `Promise`\<`void`\>
+
+Ignores reports and updates this instance's report-ignore state.
 
 #### Returns
 
@@ -928,6 +1062,8 @@ const postData = await post.getPostData();
 
 > **isApproved**(): `boolean`
 
+The post's approval state.
+
 #### Returns
 
 `boolean`
@@ -939,6 +1075,8 @@ const postData = await post.getPostData();
 ### isArchived()
 
 > **isArchived**(): `boolean`
+
+The post's archived state.
 
 #### Returns
 
@@ -952,6 +1090,8 @@ const postData = await post.getPostData();
 
 > **isDistinguishedBy**(): `undefined` \| `string`
 
+The post's distinction category.
+
 #### Returns
 
 `undefined` \| `string`
@@ -963,6 +1103,8 @@ const postData = await post.getPostData();
 ### isEdited()
 
 > **isEdited**(): `boolean`
+
+The post's edited state.
 
 #### Returns
 
@@ -976,6 +1118,8 @@ const postData = await post.getPostData();
 
 > **isHidden**(): `boolean`
 
+The post's hidden state.
+
 #### Returns
 
 `boolean`
@@ -987,6 +1131,8 @@ const postData = await post.getPostData();
 ### isIgnoringReports()
 
 > **isIgnoringReports**(): `boolean`
+
+The post's report-ignore state.
 
 #### Returns
 
@@ -1000,6 +1146,8 @@ const postData = await post.getPostData();
 
 > **isLocked**(): `boolean`
 
+The post's locked state.
+
 #### Returns
 
 `boolean`
@@ -1011,6 +1159,8 @@ const postData = await post.getPostData();
 ### isNsfw()
 
 > **isNsfw**(): `boolean`
+
+The post's NSFW state.
 
 #### Returns
 
@@ -1024,6 +1174,8 @@ const postData = await post.getPostData();
 
 > **isQuarantined**(): `boolean`
 
+The post's quarantine state.
+
 #### Returns
 
 `boolean`
@@ -1035,6 +1187,8 @@ const postData = await post.getPostData();
 ### isRemoved()
 
 > **isRemoved**(): `boolean`
+
+The post's removal state.
 
 #### Returns
 
@@ -1048,6 +1202,8 @@ const postData = await post.getPostData();
 
 > **isSpam**(): `boolean`
 
+The post's spam state.
+
 #### Returns
 
 `boolean`
@@ -1059,6 +1215,8 @@ const postData = await post.getPostData();
 ### isSpoiler()
 
 > **isSpoiler**(): `boolean`
+
+The post's spoiler state.
 
 #### Returns
 
@@ -1072,6 +1230,8 @@ const postData = await post.getPostData();
 
 > **isStickied**(): `boolean`
 
+The post's stickied state.
+
 #### Returns
 
 `boolean`
@@ -1083,6 +1243,8 @@ const postData = await post.getPostData();
 ### lock()
 
 > **lock**(): `Promise`\<`void`\>
+
+Disables new comments and updates this instance's locked state.
 
 #### Returns
 
@@ -1096,6 +1258,8 @@ const postData = await post.getPostData();
 
 > **markAsNsfw**(): `Promise`\<`void`\>
 
+Marks the post as NSFW and updates this instance.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -1107,6 +1271,8 @@ const postData = await post.getPostData();
 ### markAsSpoiler()
 
 > **markAsSpoiler**(): `Promise`\<`void`\>
+
+Marks the post as a spoiler and updates this instance.
 
 #### Returns
 
@@ -1120,7 +1286,10 @@ const postData = await post.getPostData();
 
 > **mergePostData**(`postData`): `Promise`\<`void`\>
 
-Merge the postData on a custom post with the postData specified in the input. This performs a shallow merge.
+Shallow-merge `postData` with any existing post data.
+
+Existing top-level properties are preserved unless the input replaces
+them. Nested objects are replaced rather than deeply merged.
 
 #### Parameters
 
@@ -1128,22 +1297,21 @@ Merge the postData on a custom post with the postData specified in the input. Th
 
 [`JSONObject`](../type-aliases/JSONObject.md)
 
-Represents the postData to be merged with the existing postData.
-
 #### Returns
 
 `Promise`\<`void`\>
 
 #### Throws
 
-Throws an error if the postData could not be merged.
+If the post data could not be updated.
 
 #### Example
 
 ```ts
 const post = await reddit.getPostById(context.postId);
 
-// Existing postData: { currentScore: 55, settings: { theme: 'dark', fontSize: 12 } }
+// Existing data:
+// { currentScore: 55, settings: { theme: 'dark', fontSize: 12 } }
 
 await post.mergePostData({ settings: { fontSize: 14 } });
 // Result: { currentScore: 55, settings: { fontSize: 14 } }
@@ -1157,11 +1325,15 @@ await post.mergePostData({ settings: { fontSize: 14 } });
 
 > **remove**(`isSpam`?): `Promise`\<`void`\>
 
+Removes the post and updates this instance's moderation state.
+
 #### Parameters
 
 ##### isSpam?
 
 `boolean`
+
+Whether to classify the removed post as spam.
 
 #### Returns
 
@@ -1177,14 +1349,14 @@ await post.mergePostData({ settings: { fontSize: 14 } });
 
 **`Experimental`**
 
-Set the custom styles for a custom post.
+Updates a custom post's styles.
+
+Unspecified properties retain their existing values. Passing `undefined`
+removes all custom styles.
 
 #### Parameters
 
 ##### styles
-
-The styles to set for the post. If a value isn't specified, its previous value
-  will be preserved. If `undefined` is passed, all custom styles will be removed.
 
 `undefined` | `CustomPostStylesInput`
 
@@ -1200,8 +1372,7 @@ The styles to set for the post. If a value isn't specified, its previous value
 
 > **setPostData**(`postData`): `Promise`\<`void`\>
 
-Set the postData for the custom post. This will replace the existing
-postData with the postData specified in the input.
+Replace the post data stored on a custom post.
 
 #### Parameters
 
@@ -1241,7 +1412,7 @@ await post.setPostData({
 
 > **setSuggestedCommentSort**(`suggestedSort`): `Promise`\<`void`\>
 
-Set the suggested sort for comments on a Post.
+Sets the suggested default sort for the post's comments.
 
 #### Parameters
 
@@ -1255,13 +1426,13 @@ Set the suggested sort for comments on a Post.
 
 #### Throws
 
-Throws an error if the suggested sort could not be set.
+If the suggested sort is rejected.
 
 #### Example
 
 ```ts
 const post = await reddit.getPostById(context.postId);
-await post.setSuggestedCommentSort("NEW");
+await post.setSuggestedCommentSort('NEW');
 ```
 
 ***
@@ -1272,7 +1443,11 @@ await post.setSuggestedCommentSort("NEW");
 
 > **setTextFallback**(`opts`): `Promise`\<`void`\>
 
-Set a text fallback for the custom post.
+Replaces the content shown when a custom post cannot be rendered. Eg, on
+`old.reddit.com`.
+
+The fallback may be plain text, Markdown, or rich text. This instance's
+body and edited state are updated from the response.
 
 #### Parameters
 
@@ -1280,20 +1455,17 @@ Set a text fallback for the custom post.
 
 `Readonly`\<[`CustomPostTextFallbackOptions`](../type-aliases/CustomPostTextFallbackOptions.md)\>
 
-A text or a richtext to render in a fallback
-
 #### Returns
 
 `Promise`\<`void`\>
 
 #### Throws
 
-Throws an error if the fallback could not be set.
+If the fallback could not be updated.
 
 #### Example
 
 ```ts
-// from a menu action, form, scheduler, trigger, custom post click event, etc
 const newTextFallback = { text: 'This is an updated text fallback' };
 const post = await context.reddit.getPostById(context.postId);
 await post.setTextFallback(newTextFallback);
@@ -1307,8 +1479,8 @@ await post.setTextFallback(newTextFallback);
 
 > **snoozeReports**(`reason`): `Promise`\<`void`\>
 
-Snooze subsequent reports with the given reason from the same users for the next 7 days.
-Only works for free-form reports.
+Snoozes subsequent reports with the same reason from the same users for
+seven days. This only works for free-form reports.
 
 #### Parameters
 
@@ -1330,9 +1502,15 @@ The report reason to snooze.
 
 > **sticky**(`position`?): `Promise`\<`void`\>
 
+Pins the post in a sticky slot.
+
 #### Parameters
 
 ##### position?
+
+The sticky slot. If omitted, the bottom-most available
+slot is used. Use 1 or 2 for subreddit posts. 3 and 4 are reserved for
+profile pins.
 
 `1` | `2` | `3` | `4`
 
@@ -1348,6 +1526,8 @@ The report reason to snooze.
 
 > **toJSON**(): `Pick`\<`Post`, `"subredditName"` \| `"title"` \| `"nsfw"` \| `"spoiler"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"flair"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
+JSON representation of public fields.
+
 #### Returns
 
 `Pick`\<`Post`, `"subredditName"` \| `"title"` \| `"nsfw"` \| `"spoiler"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorId"` \| `"authorName"` \| `"body"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"flair"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
@@ -1359,6 +1539,8 @@ The report reason to snooze.
 ### undistinguish()
 
 > **undistinguish**(): `Promise`\<`void`\>
+
+Removes the post's distinction and updates this instance.
 
 #### Returns
 
@@ -1372,6 +1554,8 @@ The report reason to snooze.
 
 > **unhide**(): `Promise`\<`void`\>
 
+Unhides the post for the app account and updates this instance.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -1383,6 +1567,8 @@ The report reason to snooze.
 ### unignoreReports()
 
 > **unignoreReports**(): `Promise`\<`void`\>
+
+Stops ignoring reports and updates this instance's cached state.
 
 #### Returns
 
@@ -1396,6 +1582,8 @@ The report reason to snooze.
 
 > **unlock**(): `Promise`\<`void`\>
 
+Enables new comments and updates this instance's locked state.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -1407,6 +1595,8 @@ The report reason to snooze.
 ### unmarkAsNsfw()
 
 > **unmarkAsNsfw**(): `Promise`\<`void`\>
+
+Removes the NSFW designation and updates this instance.
 
 #### Returns
 
@@ -1420,6 +1610,8 @@ The report reason to snooze.
 
 > **unmarkAsSpoiler**(): `Promise`\<`void`\>
 
+Removes the spoiler designation and updates this instance.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -1432,8 +1624,8 @@ The report reason to snooze.
 
 > **unsnoozeReports**(`reason`): `Promise`\<`void`\>
 
-Unsnooze reports with the given reason.
-Only works for free-form reports.
+Unsnoozes reports with the given reason. This only works for free-form
+reports.
 
 #### Parameters
 
@@ -1455,6 +1647,9 @@ The report reason to unsnooze.
 
 > **unsticky**(): `Promise`\<`void`\>
 
+Unpins the post without updating this instance's cached [stickied](#stickied)
+value.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -1467,7 +1662,7 @@ The report reason to unsnooze.
 
 > **updateCrowdControlLevel**(`level`): `Promise`\<`void`\>
 
-Updates the crowd control level of the post to hide comments accordingly.
+Sets which comments Crowd Control collapses on this post.
 
 #### Parameters
 
@@ -1475,7 +1670,7 @@ Updates the crowd control level of the post to hide comments accordingly.
 
 [`CrowdControlLevel`](../type-aliases/CrowdControlLevel.md)
 
-The crowd control level to set. See [CrowdControlLevel](../type-aliases/CrowdControlLevel.md) for more information.
+See [CrowdControlLevel](../type-aliases/CrowdControlLevel.md) for the available levels.
 
 #### Returns
 

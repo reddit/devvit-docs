@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -24,7 +24,7 @@ Represents media that the post may contain.
 
 > **status**: [`GalleryMediaStatus`](GalleryMediaStatus.md)
 
-Status of the media. Media that were successfully uplaoded will have GalleryMediaStatus.VALID status
+The media processing status. Successful uploads have `VALID` status.
 
 ***
 

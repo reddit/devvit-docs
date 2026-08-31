@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -26,7 +26,13 @@ The bitrate of the video in kilobits per second. E.g. 450
 
 > `optional` **dashUrl**: `string`
 
-The URL to the DASH playlist file. E.g. "https://v.redd.it/abc123/DASHPlaylist.mpd"
+The URL to the DASH playlist file.
+
+#### Example
+
+```ts
+"https://v.redd.it/abc123/DASHPlaylist.mpd"
+```
 
 ***
 
@@ -46,7 +52,13 @@ The duration of the video in seconds. E.g. 30
 
 > `optional` **fallbackUrl**: `string`
 
-The direct URL to the video. E.g. "https://v.redd.it/abc123/DASH_1080.mp4?source=fallback"
+The direct URL to the video.
+
+#### Example
+
+```ts
+"https://v.redd.it/abc123/DASH_1080.mp4?source=fallback"
+```
 
 ***
 
@@ -66,7 +78,13 @@ The height of the video in pixels. E.g. 1080
 
 > `optional` **hlsUrl**: `string`
 
-The URL to the HLS playlist file. E.g. "https://v.redd.it/abc123/HLSPlaylist.m3u8"
+The URL to the HLS playlist file.
+
+#### Example
+
+```ts
+"https://v.redd.it/abc123/HLSPlaylist.m3u8"
+```
 
 ***
 
@@ -86,7 +104,13 @@ If `true`, the video is a GIF
 
 > `optional` **scrubberMediaUrl**: `string`
 
-The URL to the scrubber media file. E.g. "https://v.redd.it/abc123/DASH_96.mp4"
+The URL to the scrubber media file.
+
+#### Example
+
+```ts
+"https://v.redd.it/abc123/DASH_96.mp4"
+```
 
 ***
 

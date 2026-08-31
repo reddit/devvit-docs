@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -6,8 +6,11 @@
 
 > **CrowdControlLevel** = `"OFF"` \| `"LENIENT"` \| `"MEDIUM"` \| `"STRICT"`
 
-Crowd control level for posts. Determines which comments should be collapsed due to crowd control.
-OFF: Anyone with a Reddit account can comment freely.
-LENIENT: Collapse comments from people who have negative karma in your community.
-MEDIUM: Collapse comments from new Reddit users and people with negative karma in your community.
-STRICT: Collapse comments from people who haven’t joined your community, new Reddit users, and people with negative karma in your community
+Crowd Control threshold for comments on a post. Determines which comments
+should be collapsed by default.
+
+OFF: Do not collapse or filter comments through Crowd Control.
+LENIENT: Collapse or filter comments from accounts with negative community
+         karma.
+MEDIUM: LENIENT but also applies to new accounts.
+STRICT: MEDIUM but applies to accounts that have not joined the community.

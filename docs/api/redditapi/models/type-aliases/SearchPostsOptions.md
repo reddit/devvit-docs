@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -24,7 +24,8 @@ How to sort the search results. Defaults to `relevance`.
 
 > `optional` **subredditName**: `string`
 
-The subreddit to search without 'r/' prefix. If specified, will restrict the search to posts in this subreddit
+The subreddit to search without the `r/` prefix. If specified, restricts
+the search to posts in this subreddit.
 
 ### timeframe?
 
