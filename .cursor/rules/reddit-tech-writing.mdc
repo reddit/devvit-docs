@@ -1,0 +1,441 @@
+---
+description: Reddit technical writing standards for developer and product documentation
+globs:
+  - "**/*.md"
+  - "**/*.mdx"
+alwaysApply: false
+---
+
+# Reddit Technical Writing Standards
+
+When creating, editing, reviewing, or suggesting documentation changes, follow these standards.
+
+## Primary Goal
+
+Documentation should be:
+
+- Clear
+- Concise
+- Actionable
+- Searchable
+- Easy to scan
+
+Prioritize clarity over cleverness.
+
+## Capitalization
+
+### Article titles
+
+Use title case.
+
+Good:
+
+- Manage Your Account Settings
+- Set Up Conversion Events
+- Remove Your Phone Number
+
+Bad:
+
+- Manage your account settings
+- Set up conversion events
+
+### Headings (H2 and below)
+
+Use sentence case.
+
+Good:
+
+## Set up conversion events
+
+## Manage user permissions
+
+## Remove a phone number
+
+Bad:
+
+## Set Up Conversion Events
+
+## Managing User Permissions
+
+### UI references
+
+Match the capitalization used in the product interface exactly.
+
+Examples:
+
+- Select **Dashboard**
+- Open **Account Settings**
+
+## Headings and titles
+
+Use headings that reflect real user intent.
+
+Prefer:
+
+- Set up conversion events
+- Create a community app
+- Configure authentication
+
+Avoid:
+
+- More information
+- Additional resources
+- Useful things to know
+- Setup guide stuff
+
+### Section heading style
+
+Prefer imperative or noun-based headings.
+
+Good:
+
+- Set up conversion events
+- Configure permissions
+- Community settings
+
+Avoid gerunds.
+
+Bad:
+
+- Setting up conversion events
+- Configuring permissions
+
+Use gerunds only when describing an ongoing process at lower heading levels where necessary.
+
+## Formatting
+
+### Italics
+
+Use italics for:
+
+- UI elements
+- Menu paths
+
+Example:
+
+*Settings > Security > Two-factor authentication*
+
+### Bold
+
+Use bold sparingly.
+
+Appropriate uses:
+
+- Important actions
+- Key terms
+- Label-definition patterns
+
+Example:
+
+- **Caching:** A technique for storing data temporarily
+
+Do not overuse bold styling.
+
+## Lists
+
+Maintain parallel structure.
+
+Good:
+
+- Select the Dashboard tab
+- Choose a report type
+- Set a time zone
+
+Bad:
+
+- Select the Dashboard tab
+- Choosing a report type
+- Time zone settings
+
+Use punctuation only when list items are complete sentences.
+
+## Numbers and mechanics
+
+### Numbers
+
+Use numerals for:
+
+- Dates
+- Times
+- Percentages
+- Numbers greater than nine
+
+Examples:
+
+- 5 minutes
+- June 5
+- 20%
+- 12 users
+
+Spell out numbers one through nine unless used in:
+
+- UI labels
+- Code
+- Inputs
+- Technical identifiers
+
+### General style
+
+Use:
+
+- Active voice
+- Oxford comma
+
+Avoid:
+
+- Semicolons
+- "whom" unless legally required
+- ALL CAPS unless required by branding or UI
+
+Avoid exclamation points except for genuine celebration and use no more than one.
+
+## Action verbs
+
+Use verbs consistently.
+
+### Select
+
+Use when interacting with a specific UI element.
+
+Good:
+
+- Select the Dashboard tab
+- Select Save
+
+Bad:
+
+- Select a campaign objective
+
+### Choose
+
+Use when making a decision among options.
+
+Good:
+
+- Choose a campaign objective
+- Choose the ads to review
+
+Bad:
+
+- Choose the Dashboard tab
+
+### Assign
+
+Use when granting roles, permissions, or responsibilities.
+
+Good:
+
+- Assign the billing role
+
+Bad:
+
+- Assign a report name
+
+### Set
+
+Use when applying a value or property.
+
+Good:
+
+- Set your time zone
+- Set the currency
+
+Bad:
+
+- Set a teammate's name
+
+### Name
+
+Use when creating a custom label.
+
+Good:
+
+- Name your report
+- Name your app
+
+Bad:
+
+- Name a time zone
+
+### Avoid "click"
+
+Prefer:
+
+- Select
+- Open
+- Choose
+
+Instead of:
+
+- Click the button
+
+## Voice and tone
+
+Documentation should be:
+
+- Helpful
+- Respectful
+- Direct
+- Practical
+
+Write like a knowledgeable peer.
+
+Maintain:
+
+- Clarity
+- Honesty
+- Familiarity
+
+Avoid:
+
+- Excessive humor
+- Clever phrasing
+- Marketing language
+- Unnecessary personality
+
+Adapt tone appropriately for:
+
+- Troubleshooting
+- Onboarding
+- User frustration
+- Configuration tasks
+
+## Technical clarity
+
+### Define terms
+
+Define acronyms on first use.
+
+Example:
+
+Two-factor authentication (2FA)
+
+### Code formatting
+
+Use monospace formatting for:
+
+- Code snippets
+- Commands
+- File paths
+- API endpoints
+- Inline syntax
+
+Examples:
+
+`POST /v1/users`
+
+`/src/components/Button.tsx`
+
+### Examples
+
+Prefer showing over telling.
+
+Include when useful:
+
+- Examples
+- Sample outputs
+- Screenshots
+- Diagrams
+
+Explain assumptions, dependencies, and prerequisites.
+
+Do not assume prior knowledge.
+
+## Links
+
+Link text must be descriptive.
+
+Good:
+
+- Learn how to set up conversion events
+- Change your email address
+- See how roles and permissions work
+
+Bad:
+
+- Click here
+- Learn more
+- Read more
+
+Evaluate link text as though it were shown without surrounding context.
+
+## Learn more sections
+
+When useful, add a Learn more section at the end of an article.
+
+Requirements:
+
+- Group links by topic
+- Use bold category headings
+- Use bulleted lists
+- Limit categories to relevant items
+- Use descriptive link text
+
+Example:
+
+## Learn more
+
+**Authentication**
+
+- Set up two-factor authentication
+- Manage security settings
+
+**Permissions**
+
+- Assign user roles
+- Review billing permissions
+
+## SEO
+
+### Slugs
+
+Use:
+
+/manage-account-settings
+
+/reset-password
+
+/create-community-app
+
+Avoid:
+
+/doc/1234
+
+/manageAccountSettings
+
+/manage_account_settings
+
+Use:
+
+- Lowercase
+- Hyphens
+- Descriptive language
+
+### Metadata
+
+Meta descriptions should:
+
+- Be 150–160 characters
+- Summarize the value of the page
+- Be unique
+
+Avoid duplicate descriptions.
+
+## Documentation review checklist
+
+When reviewing content, verify:
+
+1. Title follows title case.
+2. Headings use sentence case.
+3. UI references match product capitalization.
+4. Action verbs are used correctly.
+5. Active voice is preferred.
+6. Acronyms are defined on first use.
+7. Code and commands use monospace formatting.
+8. Links are descriptive.
+9. Lists use parallel structure.
+10. Slugs are lowercase and hyphenated.
+11. Metadata is concise and unique.
+12. Tone is clear, practical, and helpful.
+
+When reviewing documentation, provide specific corrections rather than general feedback.
