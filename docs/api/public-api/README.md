@@ -1,8 +1,8 @@
-**@devvit/public-api v0.14.3-dev**
+**@devvit/public-api v0.14.4-dev**
 
 ***
 
-# @devvit/public-api v0.14.3-dev
+# @devvit/public-api v0.14.4-dev
 
 ## Namespaces
 
@@ -329,6 +329,7 @@
 - [SelectField](type-aliases/SelectField.md)
 - [SendPrivateMessageAsSubredditOptions](type-aliases/SendPrivateMessageAsSubredditOptions.md)
 - [SendPrivateMessageOptions](type-aliases/SendPrivateMessageOptions.md)
+- [SetCustomPostTextFallbackOptions](type-aliases/SetCustomPostTextFallbackOptions.md)
 - [SetFlairOptions](type-aliases/SetFlairOptions.md)
 - [SetOptions](type-aliases/SetOptions.md)
 - [SetPostFlairOptions](type-aliases/SetPostFlairOptions.md)

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.14.1-dev**](../README.md)
+[**@devvit/public-api v0.14.3-dev**](../README.md)
 
 ***
 
@@ -6,9 +6,9 @@
 
 > **Oembed** = `object`
 
-oEmbed is a format for allowing an embedded representation of a URL on third party sites.
-The simple API allows a website to display embedded content (such as photos or videos)
-when a user posts a link to that resource, without having to parse the resource directly.
+oEmbed is a format for allowing an embedded representation of a URL on
+third-party sites. The API lets a website display embedded content, such as
+photos or videos, without parsing the resource directly.
 See: https://oembed.com/
 
 ## Properties
@@ -29,7 +29,13 @@ The name of the author/owner of the resource. E.g. "Reddit"
 
 > `optional` **authorUrl**: `string`
 
-A URL for the author/owner of the resource. E.g. "https://www.youtube.com/@Reddit"
+A URL for the resource's author or owner.
+
+#### Example
+
+```ts
+"https://www.youtube.com/@Reddit"
+```
 
 ***
 
@@ -39,7 +45,7 @@ A URL for the author/owner of the resource. E.g. "https://www.youtube.com/@Reddi
 
 > `optional` **height**: `number`
 
-The width in pixels required to display the HTML.
+The height in pixels required to display the HTML.
 
 ***
 
@@ -49,7 +55,9 @@ The width in pixels required to display the HTML.
 
 > **html**: `string`
 
-The HTML required to embed a video player. The HTML should have no padding or margins. Consumers may wish to load the HTML in an off-domain iframe to avoid XSS vulnerabilities.
+The HTML required to embed a video player. It should have no padding or
+margins. Consider loading it in a separate-origin iframe to avoid XSS
+vulnerabilities.
 
 ***
 
@@ -119,7 +127,7 @@ A text title, describing the resource.
 
 > **type**: `string`
 
-The resource type. Valid values, along with value-specific parameters, are described below. E.g. "video"
+The resource type and its type-specific parameters, such as `"video"`.
 
 ***
 
@@ -139,4 +147,4 @@ The oEmbed version number. This must be 1.0.
 
 > `optional` **width**: `number`
 
-The height in pixels required to display the HTML.
+The width in pixels required to display the HTML.

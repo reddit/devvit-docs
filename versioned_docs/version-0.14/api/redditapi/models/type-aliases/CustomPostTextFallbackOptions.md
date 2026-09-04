@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -14,10 +14,13 @@
 
 > **text**: `string`
 
-May also include markdown. See https://www.reddit.com/r/reddit.com/wiki/markdown/
+The fallback content as plaintext or Markdown. See
+https://www.reddit.com/r/reddit.com/wiki/markdown/.
 
 \{ `richtext`: [`CustomPostRichTextFallback`](CustomPostRichTextFallback.md); \}
 
 ### richtext
 
 > **richtext**: [`CustomPostRichTextFallback`](CustomPostRichTextFallback.md)
+
+The fallback content as richtext.
