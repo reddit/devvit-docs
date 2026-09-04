@@ -10,8 +10,9 @@ app. This can happen even when the inline app has no visible scrollbar. Common
 causes include internal scroll panels, full-surface canvases, games, maps,
 carousels, and broad gesture handlers.
 
-Use inline mode for quick, bounded interactions. Move scrolling content, drag
-gestures, zooming, maps, drawing canvases, and long flows into expanded mode.
+Use inline mode for quick, bounded interactions. Move vertical scrolling,
+full-surface drag gestures, zooming, maps, drawing canvases, and long flows into
+expanded mode.
 
 <ScrollTrapDemo />
 
@@ -31,16 +32,17 @@ An inline app will be rejected when it:
   user to scroll inside the post.
 - Captures trackpad or mouse-wheel input for game controls while the app is
   inline in the feed.
-- Creates a tall inline experience where important content is only reachable by
+- Places important content outside the visible inline area and requires vertical
   scrolling inside the webview.
 
-The test is user-visible behavior, not CSS alone. `overflow: hidden` does not
-fix the issue if JavaScript or CSS still blocks scroll gestures.
+Review the user-visible behavior. If JavaScript or CSS blocks scroll gestures,
+the inline app will fail even with `overflow: hidden`.
 
 CSS can cause the same issue without a JavaScript wheel handler:
 
+#### Don't
+
 ```css
-/* Avoid this in inline mode. */
 html,
 body {
   height: 100%;
@@ -62,21 +64,25 @@ Inline apps should:
 
 - Fit their important content inside the inline viewport.
 - Let normal wheel and touch scrolling pass through to Reddit.
-- Use taps, buttons, keyboard controls, or small bounded interactions instead of
-  page-like scrolling.
+- Use taps, buttons, or small bounded interactions for inline controls.
 - Provide a clear path to open expanded mode when the experience needs more
   space or richer gestures.
 
-Expanded mode can support deeper interaction because the user has intentionally
-opened your app. That is the better home for large boards, galleries, maps,
-editors, drawing surfaces, long settings panels, or content feeds.
+Scroll trap restrictions apply to inline apps in the feed. Expanded mode is the
+better home for large boards, galleries, maps, editors, drawing surfaces,
+settings panels, and content feeds.
+
+Test on web, Android, and iOS. Vertical feed scrolling must work on every
+platform. Horizontal gestures can behave differently by platform, so keep them
+bounded and verify that they do not block vertical feed scrolling.
 
 ## How to fix it
 
 Remove broad scroll interception from the inline entry point:
 
+#### Don't
+
 ```ts
-// Avoid this in inline mode.
 window.addEventListener(
   "wheel",
   (event) => {
@@ -89,8 +95,9 @@ window.addEventListener(
 
 Do not block wheel events on fixed surfaces:
 
+#### Don't
+
 ```ts
-// Also avoid this in inline mode.
 canvas.addEventListener(
   "wheel",
   (event) => {
@@ -103,6 +110,8 @@ canvas.addEventListener(
 
 Use explicit controls instead:
 
+#### Do
+
 ```tsx
 export function InlineControls() {
   return (
@@ -113,15 +122,14 @@ export function InlineControls() {
       <button type="button" onClick={() => move("down")}>
         Down
       </button>
-      <button type="button" onClick={openExpanded}>
-        Open full app
-      </button>
     </div>
   );
 }
 ```
 
-Allow vertical pan gestures in inline mode:
+If you set gesture CSS in inline mode, allow vertical pan gestures:
+
+#### Do
 
 ```css
 .inlineApp {
@@ -154,18 +162,7 @@ Put internal scrollers and full gesture controls in expanded mode:
 }
 ```
 
-Reserve full gesture locking for expanded mode:
-
-```css
-html.is-expanded,
-html.is-expanded body,
-html.is-expanded canvas {
-  overscroll-behavior: none;
-  touch-action: none;
-}
-```
-
-Apply that class only in expanded mode.
+Reserve full gesture locking for expanded routes.
 
 ## Review checklist
 
@@ -176,6 +173,6 @@ Before submitting, test your post in a real feed:
 - Swipe over the inline app on mobile and confirm the feed moves naturally.
 - Inspect inline CSS for `touch-action: none` and `overscroll-behavior: none`
   on `html`, `body`, the root app node, and full-surface canvases.
-- Confirm the inline app still works when gestures are replaced by buttons,
-  taps, or keyboard controls.
-- Move any experience that needs its own scroll position to expanded mode.
+- Confirm the inline app does not prevent default behavior for arrow keys,
+  space, Page Up, or Page Down.
+- Move any experience that needs vertical scrolling to expanded mode.
