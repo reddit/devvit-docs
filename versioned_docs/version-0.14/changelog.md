@@ -15,6 +15,7 @@ To use the latest version of Devvit:
 
 In this release, we improved API reference documentation based on developer feedback, clarifying Markdown support for comment text and documenting character limits for post notes and removal notes.
 
+
 ## Release 0.14.1: Additional Source Roots and Post Search
 
 **Release Date: August 17, 2026**

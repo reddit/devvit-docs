@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **EnrichedThumbnail** = `object`
 
-Contains data about a post's thumbnail. Also contains a blurred version if the thumbnail is NSFW.
+Contains a post's thumbnail and, for NSFW content, its blurred version.
 
 ## Properties
 
@@ -26,7 +26,7 @@ Attribution text for the thumbnail
 
 > **image**: `object`
 
-The image used for the thumbnail. May have different resolution from Post.thumbnail
+The thumbnail image. Its resolution can differ from [Post.thumbnail](../classes/Post.md#thumbnail).
 
 #### height
 

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.3-dev**](../../README.md)
+[**@devvit/reddit v0.14.4-dev**](../../README.md)
 
 ***
 
@@ -681,7 +681,8 @@ The edited FlairTemplate object.
 
 **`Experimental`**
 
-Filters a post or comment. When a post or comment is filtered, it is added to the ModQueue for review. By default, filtered content is hidden while in the queue. Set `keep` to `true` to keep the content visible. Set `reason` to show moderators a reason; when `keep` is `true`, the reason is also shown on the content.
+Filters a post or comment. When a post or comment is filtered, it is added to the ModQueue for review, and in addition:
+- if
 
 #### Parameters
 

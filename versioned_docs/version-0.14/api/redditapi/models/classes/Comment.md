@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -14,6 +14,8 @@
 
 > **get** **approved**(): `boolean`
 
+Whether the comment has been approved by a moderator.
+
 ##### Returns
 
 `boolean`
@@ -27,6 +29,11 @@
 #### Get Signature
 
 > **get** **approvedAtUtc**(): `number`
+
+The moderation approval time as Unix seconds, or `0` when unavailable.
+
+Use [approved](#approved) to check the current approval state. Convert a
+nonzero value to a `Date` with `new Date(comment.approvedAtUtc * 1000)`.
 
 ##### Returns
 
@@ -42,6 +49,8 @@
 
 > **get** **authorFlair**(): `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
 
+The author's subreddit flair, or `undefined` when unavailable.
+
 ##### Returns
 
 `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
@@ -55,6 +64,8 @@
 #### Get Signature
 
 > **get** **authorId**(): `undefined` \| `` `t2_${string}` ``
+
+The creator's account identifier or `undefined` when unavailable.
 
 ##### Returns
 
@@ -70,6 +81,15 @@
 
 > **get** **authorName**(): `string`
 
+The creator's username without the leading `u/`. May be `"[deleted]"` when
+the author is unavailable.
+
+##### Example
+
+```ts
+"Example_User"
+```
+
 ##### Returns
 
 `string`
@@ -83,6 +103,11 @@
 #### Get Signature
 
 > **get** **bannedAtUtc**(): `number`
+
+The ban time as Unix seconds, or `0` when unavailable.
+
+Convert a nonzero value to a `Date` with
+`new Date(comment.bannedAtUtc * 1000)`.
 
 ##### Returns
 
@@ -98,6 +123,8 @@
 
 > **get** **body**(): `string`
 
+The comment body in Markdown.
+
 ##### Returns
 
 `string`
@@ -111,6 +138,8 @@
 #### Get Signature
 
 > **get** **collapsedBecauseCrowdControl**(): `boolean`
+
+Whether Crowd Control caused the comment to be collapsed.
 
 ##### Returns
 
@@ -126,6 +155,8 @@
 
 > **get** **createdAt**(): `Date`
 
+The date when the comment was created.
+
 ##### Returns
 
 `Date`
@@ -140,6 +171,12 @@
 
 > **get** **distinguishedBy**(): `undefined` \| `string`
 
+The comment's distinction category.
+
+For example, a comment distinguished by a moderator or administrator
+returns `"moderator"` or `"admin"`. `undefined` means no distinction is
+available.
+
 ##### Returns
 
 `undefined` \| `string`
@@ -153,6 +190,8 @@
 #### Get Signature
 
 > **get** **edited**(): `boolean`
+
+Whether the comment body has been edited since it was created.
 
 ##### Returns
 
@@ -182,6 +221,8 @@
 
 > **get** **ignoringReports**(): `boolean`
 
+Whether reports on the comment are being ignored.
+
 ##### Returns
 
 `boolean`
@@ -195,6 +236,8 @@
 #### Get Signature
 
 > **get** **locked**(): `boolean`
+
+Whether the comment is locked and new replies are disabled.
 
 ##### Returns
 
@@ -228,6 +271,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **modReports**(): [`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
 
+Moderator reports and authors, or an empty array when unavailable.
+
 ##### Returns
 
 [`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
@@ -241,6 +286,8 @@ Use [modReports](#modreports) to retain each report's author.
 #### Get Signature
 
 > **get** **numReports**(): `number`
+
+The number of reports, or `0` when none are available.
 
 ##### Returns
 
@@ -256,6 +303,11 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **parentId**(): `` `t1_${string}` `` \| `` `t3_${string}` ``
 
+The identifier of the comment's parent.
+
+A top-level comment returns the containing post's `T3`. A reply returns its
+parent comment's `T1`.
+
 ##### Returns
 
 `` `t1_${string}` `` \| `` `t3_${string}` ``
@@ -269,6 +321,14 @@ Use [modReports](#modreports) to retain each report's author.
 #### Get Signature
 
 > **get** **permalink**(): `string`
+
+The comment's path relative to `https://www.reddit.com`.
+
+##### Example
+
+```ts
+"/r/wallstreetbets/comments/abc123/example_post/def456/"
+```
 
 ##### Returns
 
@@ -284,6 +344,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **postId**(): `` `t3_${string}` ``
 
+The identifier of the post containing the comment.
+
 ##### Returns
 
 `` `t3_${string}` ``
@@ -297,6 +359,8 @@ Use [modReports](#modreports) to retain each report's author.
 #### Get Signature
 
 > **get** **removed**(): `boolean`
+
+Whether the comment has been removed by a moderator.
 
 ##### Returns
 
@@ -312,6 +376,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **replies**(): [`Listing`](Listing.md)\<`Comment`\>
 
+The comment's direct replies.
+
 ##### Returns
 
 [`Listing`](Listing.md)\<`Comment`\>
@@ -325,6 +391,8 @@ Use [modReports](#modreports) to retain each report's author.
 #### Get Signature
 
 > **get** **score**(): `number`
+
+The comment's upvotes minus downvotes, or `0` when unavailable.
 
 ##### Returns
 
@@ -340,6 +408,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **spam**(): `boolean`
 
+Whether the comment has been marked as spam by a moderator.
+
 ##### Returns
 
 `boolean`
@@ -353,6 +423,8 @@ Use [modReports](#modreports) to retain each report's author.
 #### Get Signature
 
 > **get** **stickied**(): `boolean`
+
+Whether the comment is pinned to the top of its comment thread.
 
 ##### Returns
 
@@ -368,6 +440,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **subredditId**(): `` `t5_${string}` ``
 
+The subreddit identifier where the comment was created.
+
 ##### Returns
 
 `` `t5_${string}` ``
@@ -381,6 +455,15 @@ Use [modReports](#modreports) to retain each report's author.
 #### Get Signature
 
 > **get** **subredditName**(): `string`
+
+The name of the subreddit that contains the comment, without the leading
+`r/`.
+
+##### Example
+
+```ts
+"AskReddit"
+```
 
 ##### Returns
 
@@ -396,6 +479,14 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **url**(): `string`
 
+The absolute `https://www.reddit.com` URL for the comment.
+
+##### Example
+
+```ts
+"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/def456/"
+```
+
 ##### Returns
 
 `string`
@@ -410,6 +501,8 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **get** **userReportReasons**(): `string`[]
 
+User report reasons, or an empty array when none are available.
+
 ##### Returns
 
 `string`[]
@@ -422,19 +515,13 @@ Use [modReports](#modreports) to retain each report's author.
 
 > **addRemovalNote**(`opts`): `Promise`\<`void`\>
 
-Add a mod note for why the comment was removed
+Adds a moderator note explaining why the comment was removed.
 
 #### Parameters
 
 ##### opts
 
-###### modNote?
-
-`string`
-
-###### reasonId
-
-`string`
+`Readonly`\<`Omit`\<[`AddRemovalNoteOptions`](../type-aliases/AddRemovalNoteOptions.md), `"itemIds"`\>\>
 
 #### Returns
 
@@ -448,6 +535,8 @@ Add a mod note for why the comment was removed
 
 > **approve**(): `Promise`\<`void`\>
 
+Approves the comment and updates this instance's moderation state.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -459,6 +548,10 @@ Add a mod note for why the comment was removed
 ### delete()
 
 > **delete**(): `Promise`\<`void`\>
+
+Deletes the comment as the app account.
+
+The `runAs` option is ignored when editing a comment.
 
 #### Returns
 
@@ -472,11 +565,15 @@ Add a mod note for why the comment was removed
 
 > **distinguish**(`makeSticky`): `Promise`\<`void`\>
 
+Distinguishes the comment as a moderator and updates this instance.
+
 #### Parameters
 
 ##### makeSticky
 
 `boolean` = `false`
+
+Whether to pin the comment to the top of its thread.
 
 #### Returns
 
@@ -490,11 +587,15 @@ Add a mod note for why the comment was removed
 
 > **distinguishAsAdmin**(`makeSticky`): `Promise`\<`void`\>
 
+Distinguishes the comment as an employee and updates this instance.
+
 #### Parameters
 
 ##### makeSticky
 
 `boolean` = `false`
+
+Whether to pin the comment to the top of its thread.
 
 #### Returns
 
@@ -507,6 +608,11 @@ Add a mod note for why the comment was removed
 ### edit()
 
 > **edit**(`opts`): `Promise`\<`Comment`\>
+
+Replaces the comment body as the app account, then updates the cached body
+and edited state from the response.
+
+The `runAs` option is ignored when editing a comment.
 
 #### Parameters
 
@@ -536,13 +642,9 @@ Filters the comment. When a comment is filtered, it is added to the ModQueue for
 
 `FilterOptions`
 
-The options for this filter action.
-
 #### Returns
 
 `Promise`\<`void`\>
-
-A Promise that resolves if the comment was filtered successfully.
 
 ***
 
@@ -551,6 +653,8 @@ A Promise that resolves if the comment was filtered successfully.
 ### getAuthor()
 
 > **getAuthor**(): `Promise`\<`undefined` \| [`User`](User.md)\>
+
+Fetches the author's account, or `undefined` if it is unavailable.
 
 #### Returns
 
@@ -564,6 +668,8 @@ A Promise that resolves if the comment was filtered successfully.
 
 > **ignoreReports**(): `Promise`\<`void`\>
 
+Ignores reports and updates this instance's report-ignore state.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -575,6 +681,8 @@ A Promise that resolves if the comment was filtered successfully.
 ### isApproved()
 
 > **isApproved**(): `boolean`
+
+The comment's approval state.
 
 #### Returns
 
@@ -588,6 +696,8 @@ A Promise that resolves if the comment was filtered successfully.
 
 > **isDistinguished**(): `boolean`
 
+The comment's distinguished category state.
+
 #### Returns
 
 `boolean`
@@ -599,6 +709,8 @@ A Promise that resolves if the comment was filtered successfully.
 ### isEdited()
 
 > **isEdited**(): `boolean`
+
+The comment's edited state.
 
 #### Returns
 
@@ -612,6 +724,8 @@ A Promise that resolves if the comment was filtered successfully.
 
 > **isIgnoringReports**(): `boolean`
 
+The comment's report-ignore state.
+
 #### Returns
 
 `boolean`
@@ -623,6 +737,8 @@ A Promise that resolves if the comment was filtered successfully.
 ### isLocked()
 
 > **isLocked**(): `boolean`
+
+The comment's locked state.
 
 #### Returns
 
@@ -636,6 +752,8 @@ A Promise that resolves if the comment was filtered successfully.
 
 > **isRemoved**(): `boolean`
 
+The comment's removal state.
+
 #### Returns
 
 `boolean`
@@ -647,6 +765,8 @@ A Promise that resolves if the comment was filtered successfully.
 ### isSpam()
 
 > **isSpam**(): `boolean`
+
+The comment's spam state.
 
 #### Returns
 
@@ -660,6 +780,8 @@ A Promise that resolves if the comment was filtered successfully.
 
 > **isStickied**(): `boolean`
 
+The comment's stickied state.
+
 #### Returns
 
 `boolean`
@@ -671,6 +793,8 @@ A Promise that resolves if the comment was filtered successfully.
 ### lock()
 
 > **lock**(): `Promise`\<`void`\>
+
+Disables new replies and updates this instance's locked state.
 
 #### Returns
 
@@ -684,11 +808,15 @@ A Promise that resolves if the comment was filtered successfully.
 
 > **remove**(`isSpam`): `Promise`\<`void`\>
 
+Removes the comment and updates this instance's moderation state.
+
 #### Parameters
 
 ##### isSpam
 
 `boolean` = `false`
+
+Whether to classify the removed comment as spam.
 
 #### Returns
 
@@ -701,6 +829,8 @@ A Promise that resolves if the comment was filtered successfully.
 ### reply()
 
 > **reply**(`opts`): `Promise`\<`Comment`\>
+
+Creates a direct reply to the comment.
 
 #### Parameters
 
@@ -720,8 +850,8 @@ A Promise that resolves if the comment was filtered successfully.
 
 > **showComment**(): `Promise`\<`void`\>
 
-Marks that this comment should not be collapsed by the crowd control system.
-It can still be collapsed for other reasons.
+Prevents Crowd Control from collapsing the comment. Other rules can still
+collapse it.
 
 #### Returns
 
@@ -735,8 +865,8 @@ It can still be collapsed for other reasons.
 
 > **snoozeReports**(`reason`): `Promise`\<`void`\>
 
-Snooze subsequent reports with the given reason from the same users for the next 7 days.
-Only works for free-form reports.
+Snoozes subsequent reports with the same reason from the same users for
+seven days. This only works for free-form reports.
 
 #### Parameters
 
@@ -758,6 +888,8 @@ The report reason to snooze.
 
 > **toJSON**(): `Pick`\<`Comment`, `"id"` \| `"subredditName"` \| `"postId"` \| `"body"` \| `"permalink"` \| `"createdAt"` \| `"url"` \| `"authorName"` \| `"subredditId"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
+Returns the public fields included when the comment is serialized.
+
 #### Returns
 
 `Pick`\<`Comment`, `"id"` \| `"subredditName"` \| `"postId"` \| `"body"` \| `"permalink"` \| `"createdAt"` \| `"url"` \| `"authorName"` \| `"subredditId"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
@@ -769,6 +901,9 @@ The report reason to snooze.
 ### undistinguish()
 
 > **undistinguish**(): `Promise`\<`void`\>
+
+Removes the distinction category and sticky status and updates this
+instance.
 
 #### Returns
 
@@ -782,6 +917,8 @@ The report reason to snooze.
 
 > **unignoreReports**(): `Promise`\<`void`\>
 
+Stops ignoring reports and updates this instance's cached state.
+
 #### Returns
 
 `Promise`\<`void`\>
@@ -793,6 +930,8 @@ The report reason to snooze.
 ### unlock()
 
 > **unlock**(): `Promise`\<`void`\>
+
+Enables new replies and updates this instance's locked state.
 
 #### Returns
 
@@ -806,8 +945,8 @@ The report reason to snooze.
 
 > **unsnoozeReports**(`reason`): `Promise`\<`void`\>
 
-Unsnooze reports with the given reason.
-Only works for free-form reports.
+Unsnoozes reports with the given reason. This only works for free-form
+reports.
 
 #### Parameters
 
