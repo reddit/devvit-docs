@@ -534,8 +534,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 **`Experimental`**
 
-Filters the comment. When a comment is filtered, it is added to the ModQueue for review, and in addition:
-- if
+Filters the comment. When a comment is filtered, it is added to the ModQueue for review. By default, filtered comments are hidden while in the queue. Set `keep` to `true` to keep the comment visible. Set `reason` to show moderators a reason; when `keep` is `true`, the reason is also shown on the comment.
 
 #### Parameters
 

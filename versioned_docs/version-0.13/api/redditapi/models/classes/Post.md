@@ -758,8 +758,7 @@ id of a Removal Reason - you can leave this as an empty string if you don't have
 
 **`Experimental`**
 
-Filters a post. When a post is filtered, it is added to the ModQueue for review, and in addition:
-- if
+Filters a post. When a post is filtered, it is added to the ModQueue for review. By default, filtered posts are hidden while in the queue. Set `keep` to `true` to keep the post visible. Set `reason` to show moderators a reason; when `keep` is `true`, the reason is also shown on the post.
 
 #### Parameters
 
