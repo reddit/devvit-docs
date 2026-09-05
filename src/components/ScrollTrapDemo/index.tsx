@@ -5,20 +5,27 @@ import styles from "./styles.module.css";
 type Example = "internalScroll" | "gestureLock" | "fixed";
 
 const examples: Array<{
+  description: string;
   id: Example;
   label: string;
 }> = [
   {
+    description:
+      "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll, and the Reddit feed stops moving.",
     id: "internalScroll",
-    label: "Internal scroll",
+    label: "Internal scroll trap",
   },
   {
+    description:
+      "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll even though no scrollbar is visible, and the Reddit feed stops moving.",
     id: "gestureLock",
     label: "No scrollbar trap",
   },
   {
+    description:
+      "Start scrolling until you hit the app, then hover over it and scroll. The app does not capture the scroll, and the Reddit feed continues moving normally.",
     id: "fixed",
-    label: "Fixed",
+    label: "Feed stays scrollable",
   },
 ];
 
@@ -26,6 +33,9 @@ export default function ScrollTrapDemo(): React.ReactElement {
   const [activeExample, setActiveExample] = useState<Example>("internalScroll");
   const internalScrollRef = useRef<HTMLDivElement>(null);
   const gestureTrapRef = useRef<HTMLDivElement>(null);
+  const selectedExample = examples.find(
+    (example) => example.id === activeExample,
+  );
 
   useEffect(() => {
     if (activeExample === "internalScroll") {
@@ -81,15 +91,12 @@ export default function ScrollTrapDemo(): React.ReactElement {
         role="tabpanel"
         aria-labelledby={`scroll-trap-tab-${activeExample}`}
       >
-        <p className={styles.instructions}>
-          Hover over the mock app and scroll. Rejected examples stop the mock
-          feed. The fixed example lets the feed move.
-        </p>
+        <p className={styles.instructions}>{selectedExample?.description}</p>
 
         <div className={styles.feedViewport}>
           <div className={styles.feedCanvas}>
             <PlainMockPost
-              label="Mock app before"
+              label="Mock app"
               title="Community Check-in"
               votes="18"
               comments="4"
@@ -106,7 +113,7 @@ export default function ScrollTrapDemo(): React.ReactElement {
               {activeExample === "fixed" ? <FixedApp /> : null}
             </MockPost>
             <PlainMockPost
-              label="Mock app after"
+              label="Mock app"
               title="Weekly Scoreboard"
               votes="31"
               comments="9"
@@ -131,7 +138,7 @@ function PlainMockPost({
 }) {
   return (
     <article className={`${styles.post} ${styles.plainPost}`}>
-      <PostMeta name="sample-widget" time="8 hr. ago" avatar="W" />
+      <PostMeta name="sample-app" time="8 hr. ago" avatar="W" />
       <h3 className={styles.postTitle}>{title}</h3>
       <span className={styles.flair}>Community App</span>
       <div className={styles.plainAppSurface}>
@@ -154,8 +161,8 @@ function PlainMockPost({
 function MockPost({ children }: { children: React.ReactNode }) {
   return (
     <article className={styles.post}>
-      <PostMeta name="sample-app" time="11 hr. ago" avatar="S" />
-      <h3 className={styles.postTitle}>Daily Puzzle #116</h3>
+      <PostMeta name="sample-scroll-trap-app" time="11 hr. ago" avatar="S" />
+      <h3 className={styles.postTitle}>Daily Game #116</h3>
       <span className={styles.flair}>Daily Game</span>
       {children}
       <PostFooter votes="42" comments="18" />

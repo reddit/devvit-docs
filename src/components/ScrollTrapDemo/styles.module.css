@@ -7,7 +7,7 @@
 }
 
 .tabs {
-  background: #050b0d;
+  background: transparent;
   border-bottom: 1px solid #263438;
   display: flex;
   gap: 0.75rem;
