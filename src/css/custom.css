@@ -134,6 +134,15 @@
   box-shadow: var(--ifm-global-shadow-lw);
 }
 
+.theme-doc-markdown :is(h2, h3, h4, h5, h6) .hash-link {
+  opacity: 0.6;
+}
+
+.theme-doc-markdown :is(h2, h3, h4, h5, h6) .hash-link:focus,
+.theme-doc-markdown :is(h2, h3, h4, h5, h6):hover .hash-link {
+  opacity: 1;
+}
+
 /* Table styling */
 
 table {

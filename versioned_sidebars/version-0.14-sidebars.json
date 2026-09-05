@@ -293,6 +293,7 @@
       "label": "Best Practices",
       "items": [
         "guides/best-practices/community_games",
+        "guides/best-practices/scroll-traps",
         "guides/best-practices/mod_resources",
         "capabilities/server/text_fallback"
       ]

@@ -1,0 +1,184 @@
+import ScrollTrapDemo from "@site/src/components/ScrollTrapDemo";
+
+# Avoid scroll traps in inline apps
+
+Inline apps appear inside the Reddit feed. Users must be able to scroll past
+them with a mouse wheel, trackpad, or touch gesture.
+
+A scroll trap happens when the feed stops moving while the pointer is over the
+app. This can happen even when the inline app has no visible scrollbar. Common
+causes include internal scroll panels, full-surface canvases, games, maps,
+carousels, and broad gesture handlers.
+
+Use inline mode for quick, bounded interactions. Move vertical scrolling,
+full-surface drag gestures, zooming, maps, drawing canvases, and long flows into
+expanded mode.
+
+## Inline scroll trap demo
+
+Below is an example feed with three tabs: an internal scroll trap, a
+no-scrollbar trap, and a fixed version. Switch tabs, then scroll through the
+feed to compare how each inline app handles scroll input.
+
+<ScrollTrapDemo />
+
+The demo shows two rejected patterns and one acceptable pattern.
+
+## What gets rejected
+
+An inline app will be rejected when it:
+
+- Uses `preventDefault()` on `wheel`, `touchmove`, or pointer gestures across
+  the full app surface.
+- Blocks feed scrolling from a canvas, game board, map, carousel, or gesture
+  area even when the app itself has no internal scroll position.
+- Sets `touch-action: none` or `overscroll-behavior: none` on `html`, `body`,
+  the root app container, or a full-surface canvas in inline mode.
+- Sets `overflow: auto` or `overflow: scroll` on the inline app and requires the
+  user to scroll inside the post.
+- Captures trackpad or mouse-wheel input for game controls while the app is
+  inline in the feed.
+- Places important content outside the visible inline area and requires vertical
+  scrolling inside the webview.
+
+Review the user-visible behavior. If JavaScript or CSS blocks scroll gestures,
+the inline app will fail even with `overflow: hidden`.
+
+CSS can cause the same issue without a JavaScript wheel handler:
+
+#### Don't
+
+```css
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+canvas {
+  touch-action: none;
+}
+```
+
+This can block native page scrolling even if the app itself does not scroll.
+
+## What is acceptable
+
+Inline apps should:
+
+- Fit their important content inside the inline viewport.
+- Let normal wheel and touch scrolling pass through to Reddit.
+- Use taps, buttons, or small bounded interactions for inline controls.
+- Provide a clear path to open expanded mode when the experience needs more
+  space or richer gestures.
+
+Scroll trap restrictions apply to inline apps in the feed. Expanded mode is the
+better home for large boards, galleries, maps, editors, drawing surfaces,
+settings panels, and content feeds.
+
+Test on web, Android, and iOS. Vertical feed scrolling must work on every
+platform. Horizontal gestures can behave differently by platform, so keep them
+bounded and verify that they do not block vertical feed scrolling.
+
+## How to fix it
+
+Remove broad scroll interception from the inline entry point:
+
+#### Don't
+
+```ts
+window.addEventListener(
+  "wheel",
+  (event) => {
+    event.preventDefault();
+    updateGameFromWheel(event.deltaY);
+  },
+  { passive: false },
+);
+```
+
+Do not block wheel events on fixed surfaces:
+
+#### Don't
+
+```ts
+canvas.addEventListener(
+  "wheel",
+  (event) => {
+    event.preventDefault();
+    zoomBoard(event.deltaY);
+  },
+  { passive: false },
+);
+```
+
+Use explicit controls instead:
+
+#### Do
+
+```tsx
+export function InlineControls() {
+  return (
+    <div className="inline-controls">
+      <button type="button" onClick={() => move("up")}>
+        Up
+      </button>
+      <button type="button" onClick={() => move("down")}>
+        Down
+      </button>
+    </div>
+  );
+}
+```
+
+If you set gesture CSS in inline mode, allow vertical pan gestures:
+
+#### Do
+
+```css
+.inlineApp {
+  block-size: 100%;
+  overflow: hidden;
+  overscroll-behavior: auto;
+  touch-action: pan-y;
+}
+
+.inlineAppCanvas {
+  aspect-ratio: 16 / 9;
+  max-block-size: 100%;
+  touch-action: pan-y;
+}
+```
+
+`touch-action: pan-y` keeps vertical feed scrolling available while still
+allowing taps and clicks inside the inline app.
+
+Put internal scrollers and full gesture controls in expanded mode:
+
+```json
+{
+  "post": {
+    "entrypoints": {
+      "inline": "dist/inline.html",
+      "expanded": "dist/expanded.html"
+    }
+  }
+}
+```
+
+Reserve full gesture locking for expanded routes.
+
+## Review checklist
+
+Before submitting, test your post in a real feed:
+
+- Hover over every part of the inline app and scroll with a mouse wheel or
+  trackpad.
+- Swipe over the inline app on mobile and confirm the feed moves naturally.
+- Inspect inline CSS for `touch-action: none` and `overscroll-behavior: none`
+  on `html`, `body`, the root app node, and full-surface canvases.
+- Confirm the inline app does not prevent default behavior for arrow keys,
+  space, Page Up, or Page Down.
+- Move any experience that needs vertical scrolling to expanded mode.

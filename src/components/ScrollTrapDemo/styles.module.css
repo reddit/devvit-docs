@@ -1,0 +1,474 @@
+.wrapper {
+  background: #071012;
+  border: 1px solid #263438;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.tabs {
+  background: transparent;
+  border-bottom: 1px solid #263438;
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.tab,
+.activeTab {
+  background: #071012;
+  border: 1px solid #405056;
+  border-radius: 8px;
+  color: #f2f5f6;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font: inherit;
+  font-weight: 700;
+  min-height: 2.6rem;
+  padding: 0.45rem 1rem;
+}
+
+.tab:hover {
+  border-color: #ff4500;
+  color: #ff4500;
+}
+
+.activeTab {
+  border-color: #ff4500;
+  box-shadow: inset 0 0 0 1px #ff4500;
+  color: #ff4500;
+}
+
+.tab:focus-visible,
+.activeTab:focus-visible {
+  outline: 2px solid #ff4500;
+  outline-offset: 2px;
+}
+
+.panel {
+  background: #071012;
+  padding: 1rem;
+}
+
+.instructions {
+  color: #c7d0d4;
+  font-size: 0.9rem;
+  margin: 0 auto 0.75rem;
+  max-width: 740px;
+}
+
+.feedViewport {
+  background: #071012;
+  border: 1px solid #263438;
+  border-radius: 8px;
+  height: 760px;
+  margin: 0 auto;
+  max-width: 740px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.feedCanvas {
+  transform: scale(0.76);
+  transform-origin: top left;
+  width: 131.6%;
+}
+
+.post {
+  background: #0b1416;
+  border-top: 1px solid #253136;
+  color: #f2f5f6;
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.65rem 0.9rem;
+}
+
+.postMeta {
+  align-items: center;
+  color: #9aa7ad;
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.avatar {
+  align-items: center;
+  background: #ff4500;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 700;
+  height: 1.75rem;
+  justify-content: center;
+  width: 1.75rem;
+}
+
+.postMeta strong {
+  color: #d5dcdf;
+}
+
+.appBadge {
+  border: 1px solid #526167;
+  border-radius: 999px;
+  color: #c7d0d4;
+  padding: 0 0.45rem;
+}
+
+.moreButton {
+  margin-left: auto;
+}
+
+.postTitle {
+  color: #f2f5f6;
+  font-size: 1.35rem;
+  margin: 0 0 0.65rem;
+}
+
+.flair {
+  background: #ffd635;
+  border-radius: 999px;
+  color: #111111;
+  display: inline-block;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  padding: 0.15rem 0.6rem;
+}
+
+.appSurface {
+  background: #ffffff;
+  border-radius: 16px;
+  color: #111111;
+  display: flex;
+  flex-direction: column;
+  min-height: 657px;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.plainPost {
+  opacity: 0.92;
+}
+
+.plainPost .postTitle {
+  font-size: 1.15rem;
+}
+
+.plainPost .flair {
+  margin-bottom: 0.65rem;
+}
+
+.plainPost .postFooter {
+  padding-top: 0.65rem;
+}
+
+.plainAppSurface {
+  background: #f6f7f8;
+  border: 1px solid #d7dde1;
+  border-radius: 16px;
+  color: #1a1a1b;
+  display: flex;
+  flex-direction: column;
+  min-height: 657px;
+  overflow: hidden;
+  padding: 0.8rem;
+}
+
+.plainAppHeader {
+  align-items: center;
+  border-bottom: 1px solid #d7dde1;
+  display: flex;
+  justify-content: space-between;
+  margin: -0.8rem -0.8rem 0.8rem;
+  padding: 0.8rem;
+}
+
+.plainAppHeader strong {
+  font-size: 1rem;
+}
+
+.plainAppHeader span {
+  color: #667178;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.plainAppGrid {
+  display: grid;
+  flex: 1;
+  gap: 0.6rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plainAppGrid span {
+  background: #ffffff;
+  border: 1px solid #d7dde1;
+  border-radius: 8px;
+  min-height: 10rem;
+}
+
+.rejectedSurface {
+  outline: 3px solid #ff4500;
+}
+
+.acceptableSurface {
+  outline: 3px solid #168a5b;
+  overscroll-behavior: auto;
+  touch-action: pan-y;
+}
+
+.appToolbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.appBody {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  padding: 2rem 1rem 1rem;
+}
+
+.iconButton {
+  align-items: center;
+  background: #ffffff;
+  border: 3px solid #111111;
+  border-radius: 999px;
+  display: inline-flex;
+  font-weight: 800;
+  height: 2.3rem;
+  justify-content: center;
+  margin-right: 0.45rem;
+  width: 2.3rem;
+}
+
+.rejectedPill,
+.acceptablePill {
+  border: 2px solid #111111;
+  border-radius: 999px;
+  color: #111111;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.2rem 0.65rem;
+  text-transform: uppercase;
+}
+
+.rejectedPill {
+  background: #ffd1c2;
+}
+
+.acceptablePill {
+  background: #caf4d0;
+}
+
+.centerPanel {
+  background: #ffffff;
+  border: 3px dashed #8f8f8f;
+  border-radius: 12px;
+  margin: 0;
+  padding: 1.2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.centerPanel h4 {
+  font-size: 1.35rem;
+  margin: 0 0 0.5rem;
+}
+
+.centerPanel p {
+  color: #343a3d;
+  margin: 0 0 1rem;
+}
+
+.centerPanel code {
+  display: block;
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+  padding: 0.45rem 0.55rem;
+  text-align: left;
+}
+
+.innerScroller {
+  border: 2px solid #111111;
+  border-radius: 8px;
+  margin-bottom: 0.9rem;
+  max-height: 19rem;
+  overscroll-behavior: contain;
+  overflow-y: auto;
+  text-align: left;
+  width: 100%;
+}
+
+.innerScroller div {
+  border-bottom: 1px solid #c8ced2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.85rem 1rem;
+}
+
+.innerScroller button {
+  align-items: center;
+  background: #ff4500;
+  border: 2px solid #111111;
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 #111111;
+  color: #111111;
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-weight: 800;
+  justify-content: center;
+  margin: 0.85rem 1rem;
+  min-height: 5rem;
+  padding: 1rem;
+  text-align: center;
+  width: calc(100% - 2rem);
+}
+
+.innerScroller button:hover {
+  background: #ff6a33;
+}
+
+.innerScroller strong {
+  font-size: 1rem;
+}
+
+.innerScroller span {
+  color: #4f5960;
+  font-size: 0.88rem;
+}
+
+.previewBoard {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 19rem;
+  touch-action: none;
+}
+
+.previewCard {
+  align-items: center;
+  background: #ff4500;
+  border: 2px solid #111111;
+  border-radius: 12px;
+  color: #111111;
+  display: flex;
+  font-weight: 800;
+  justify-content: center;
+  min-height: 6rem;
+  padding: 1rem;
+  width: min(100%, 24rem);
+}
+
+.postFooter {
+  align-items: flex-end;
+  color: #d5dcdf;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.9rem;
+}
+
+.privacyLink {
+  align-items: center;
+  display: inline-flex;
+  font-weight: 700;
+  gap: 0.35rem;
+}
+
+.footerActions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  width: 100%;
+}
+
+.votePill,
+.actionPill {
+  align-items: center;
+  background: #16231b;
+  border-radius: 999px;
+  color: #f2f5f6;
+  display: inline-flex;
+  font-weight: 700;
+  gap: 0.45rem;
+  min-height: 2.35rem;
+  padding: 0.35rem 0.75rem;
+}
+
+.icon {
+  background: currentColor;
+  display: inline-block;
+  height: 1.25rem;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  width: 1.25rem;
+}
+
+.upvoteIcon {
+  mask-image: url("../../../docs/assets/icons/icon-upvote-outline.svg");
+  -webkit-mask-image: url("../../../docs/assets/icons/icon-upvote-outline.svg");
+}
+
+.downvoteIcon {
+  mask-image: url("../../../docs/assets/icons/icon-downvote-outline.svg");
+  -webkit-mask-image: url("../../../docs/assets/icons/icon-downvote-outline.svg");
+}
+
+.commentIcon {
+  mask-image: url("../../../docs/assets/icons/icon-comment-outline.svg");
+  -webkit-mask-image: url("../../../docs/assets/icons/icon-comment-outline.svg");
+}
+
+.refreshIcon {
+  mask-image: url("../../../docs/assets/icons/icon-refresh-outline.svg");
+  -webkit-mask-image: url("../../../docs/assets/icons/icon-refresh-outline.svg");
+}
+
+.shareIcon {
+  mask-image: url("../../../docs/assets/icons/icon-share-new-outline.svg");
+  -webkit-mask-image: url("../../../docs/assets/icons/icon-share-new-outline.svg");
+}
+
+.infoIcon {
+  height: 1rem;
+  mask-image: url("../../../docs/assets/icons/icon-info-outline.svg");
+  -webkit-mask-image: url("../../../docs/assets/icons/icon-info-outline.svg");
+  width: 1rem;
+}
+
+@media (max-width: 640px) {
+  .feedViewport {
+    height: 38rem;
+    max-height: 76vh;
+  }
+
+  .feedCanvas {
+    transform: scale(0.8);
+    width: 125%;
+  }
+
+  .appSurface {
+    min-height: 36rem;
+  }
+
+  .plainAppSurface {
+    min-height: 36rem;
+  }
+
+  .centerPanel {
+    margin-top: 0;
+  }
+}
