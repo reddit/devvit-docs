@@ -15,7 +15,7 @@ To use the latest version of Devvit:
 
 This release includes a few improvements to enhance the developer experience: 
 
-- Added a runAs option to `post.setTextFallback()`, allowing apps to update the fallback text of custom posts submitted on behalf of a user.
+- Added a `runAs` option to `post.setTextFallback()`, allowing apps to update the fallback text of custom posts submitted on behalf of a user.
 - Fixed issues with Devvit CLI logging flags. The `-v` and `--verbose` flags no longer cause parsing errors, and `--show-timestamps` now correctly displays timestamps in CLI logs
 - App settings `helpText` now supports line breaks, making it easier to provide clear, well-formatted guidance for more complex settings.
 
