@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.3-dev**](../README.md)
+[**@devvit/reddit v0.14.4-dev**](../README.md)
 
 ***
 
@@ -148,6 +148,7 @@
 - [SecureMedia](type-aliases/SecureMedia.md)
 - [SendPrivateMessageAsSubredditOptions](type-aliases/SendPrivateMessageAsSubredditOptions.md)
 - [SendPrivateMessageOptions](type-aliases/SendPrivateMessageOptions.md)
+- [SetCustomPostTextFallbackOptions](type-aliases/SetCustomPostTextFallbackOptions.md)
 - [SetFlairOptions](type-aliases/SetFlairOptions.md)
 - [SetPostFlairOptions](type-aliases/SetPostFlairOptions.md)
 - [SetUserFlairBatchConfig](type-aliases/SetUserFlairBatchConfig.md)

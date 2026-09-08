@@ -9,11 +9,23 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.14.3: Quality-of-Life Improvements 
+
+**Release Date: September 8, 2026**
+
+This release includes a few improvements to enhance the developer experience: 
+
+- Added a `runAs` option to `post.setTextFallback()`, allowing apps to update the fallback text of custom posts submitted on behalf of a user.
+- Fixed issues with Devvit CLI logging flags. The `-v` and `--verbose` flags no longer cause parsing errors, and `--show-timestamps` now correctly displays timestamps in CLI logs
+- App settings `helpText` now supports line breaks, making it easier to provide clear, well-formatted guidance for more complex settings.
+
+
 ## Release 0.14.2: Improved Comment and Mod Note API Documentation
 
 **Release Date: August 31, 2026**
 
 In this release, we improved API reference documentation based on developer feedback, clarifying Markdown support for comment text and documenting character limits for post notes and removal notes.
+
 
 ## Release 0.14.1: Additional Source Roots and Post Search
 

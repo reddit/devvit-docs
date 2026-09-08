@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -114,21 +114,28 @@ Options for the request.
 
 > **addModNote**(`options`): `Promise`\<[`ModNote`](../../models/classes/ModNote.md)\>
 
-Add a mod note.
+Adds a moderation note to a user and returns the created note.
 
 #### Parameters
 
 ##### options
 
-`Prettify`
-
-Options for the request
+[`CreateModNoteOptions`](../../models/type-aliases/CreateModNoteOptions.md)
 
 #### Returns
 
 `Promise`\<[`ModNote`](../../models/classes/ModNote.md)\>
 
-A Promise that resolves if the mod note was successfully added.
+#### Example
+
+```ts
+const modNote = await reddit.addModNote({
+  subreddit: 'wallstreetbets',
+  user: 'spez',
+  note: 'Repeated rule 1 violations',
+  label: 'ABUSE_WARNING',
+});
+```
 
 ***
 
@@ -138,17 +145,27 @@ A Promise that resolves if the mod note was successfully added.
 
 > **addRemovalNote**(`options`): `Promise`\<`void`\>
 
-Add a mod note for why a post or comment was removed
+Adds a removal note to each specified post or comment.
 
 #### Parameters
 
 ##### options
 
-`Prettify`
+[`AddRemovalNoteOptions`](../../models/type-aliases/AddRemovalNoteOptions.md)
 
 #### Returns
 
 `Promise`\<`void`\>
+
+#### Example
+
+```ts
+await reddit.addRemovalNote({
+  itemIds: ['t1_abc123', 't3_def456'],
+  reasonId: '',
+  modNote: 'Removed for breaking rule 1',
+});
+```
 
 ***
 
@@ -555,21 +572,17 @@ The ID of the flair template to delete.
 
 > **deleteModNote**(`options`): `Promise`\<`boolean`\>
 
-Delete a mod note.
+Deletes a moderation note. Returns true if successful.
 
 #### Parameters
 
 ##### options
 
-`Prettify`
-
-Options for the request
+[`DeleteNotesOptions`](../../models/type-aliases/DeleteNotesOptions.md)
 
 #### Returns
 
 `Promise`\<`boolean`\>
-
-True if it was deleted successfully; false otherwise.
 
 ***
 
@@ -1277,21 +1290,29 @@ A Listing of SubredditModeratorUser objects.
 
 > **getModNotes**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`ModNote`](../../models/classes/ModNote.md)\>
 
-Get a list of mod notes related to a user in a subreddit.
+Get a user's moderation notes within a subreddit.
 
 #### Parameters
 
 ##### options
 
-`Prettify`
-
-Options for the request
+[`GetModNotesOptions`](../../models/type-aliases/GetModNotesOptions.md)
 
 #### Returns
 
 [`Listing`](../../models/classes/Listing.md)\<[`ModNote`](../../models/classes/ModNote.md)\>
 
-A listing of ModNote objects.
+#### Example
+
+```ts
+const notes = await reddit
+  .getModNotes({
+    subreddit: 'wallstreetbets',
+    user: 'spez',
+    filter: 'NOTE',
+  })
+  .get(25);
+```
 
 ***
 
@@ -2377,7 +2398,7 @@ A Listing of SubredditWikiContributorUser objects.
 
 #### Call Signature
 
-> **getWikiPage**(`subredditName`, `page`, `revisionId`?): `Promise`\<[`WikiPage`](../../models/classes/WikiPage.md)\>
+> **getWikiPage**(`subredditName`, `page`, `revisionId`): `Promise`\<[`WikiPage`](../../models/classes/WikiPage.md)\>
 
 Get a specific revision of a wiki page from a subreddit.
 
@@ -2395,11 +2416,11 @@ The name of the subreddit to get the wiki page from.
 
 The name of the wiki page to get.
 
-###### revisionId?
-
-`` `${string}-${string}-${string}-${string}-${string}` ``
+###### revisionId
 
 The revision ID of the wiki page version to get. Leaving it empty returns the latest version.
+
+`undefined` | `` `${string}-${string}-${string}-${string}-${string}` ``
 
 ##### Returns
 

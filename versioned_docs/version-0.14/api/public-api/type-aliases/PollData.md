@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.14.1-dev**](../README.md)
+[**@devvit/public-api v0.14.3-dev**](../README.md)
 
 ***
 
@@ -26,7 +26,7 @@ Options in the poll.
 
 > **totalVoteCount**: `number`
 
-Total number of votes cast in the poll. Aggregated across all PollOption objects.
+Total votes cast across all of the poll's options.
 
 ***
 

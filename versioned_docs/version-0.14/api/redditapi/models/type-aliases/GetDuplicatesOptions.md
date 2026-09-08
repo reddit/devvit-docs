@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.1-dev**](../../README.md)
+[**@devvit/reddit v0.14.3-dev**](../../README.md)
 
 ***
 
@@ -18,13 +18,13 @@ Only return duplicates that are crossposting this post.
 
 > **postId**: `T3`
 
-Post ID with t3_ prefix (e.g. `t3_abc123`). The prefix is stripped internally.
+The post identifier.
 
 ### show?
 
 > `optional` **show**: `string`
 
-Adding the string "all" will show all results regardless of user preferences.
+Use `"all"` to include results hidden by the account's preferences.
 
 ### sort?
 
