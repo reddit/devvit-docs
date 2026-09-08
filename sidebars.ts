@@ -106,9 +106,20 @@ const sidebars: SidebarsConfig = {
       label: "Launch Guide",
     },
     {
-      type: "doc",
-      id: "guides/launch/feature-guide",
+      type: "category",
       label: "Feature Guide",
+      collapsed: false,
+      link: {
+        type: "doc",
+        id: "guides/launch/feature-guide",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "guides/launch/in-app-catalog-assets",
+          label: "In-app Catalog Assets",
+        },
+      ],
     },
     {
       type: "link",
