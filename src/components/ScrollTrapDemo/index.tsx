@@ -4,26 +4,57 @@ import styles from "./styles.module.css";
 
 type Example = "internalScroll" | "gestureLock" | "fixed";
 
+const desktopInstructions: Record<Example, string> = {
+  fixed:
+    "Hover over the inline app and scroll. The page keeps moving normally.",
+  gestureLock:
+    "Hover over the fixed app surface and scroll. The page stops even though there is no scrollbar.",
+  internalScroll:
+    "Hover over the nested list and scroll. The app captures the scroll inside the post.",
+};
+
+const mobileExamples: Record<
+  Example,
+  {
+    code: string;
+    details: string;
+    outcome: string;
+    title: string;
+  }
+> = {
+  fixed: {
+    code: "touch-action: pan-y;",
+    details: "Swipe the green surface. The page should keep moving.",
+    outcome: "Acceptable: vertical swipes stay with the feed.",
+    title: "Feed stays scrollable",
+  },
+  gestureLock: {
+    code: "touch-action: none;",
+    details: "Swipe the orange surface. It captures the gesture.",
+    outcome: "Rejected: no scrollbar, but still trapped.",
+    title: "No scrollbar can still trap swipes",
+  },
+  internalScroll: {
+    code: "overflow-y: auto;",
+    details: "Swipe the mini list. It scrolls inside the post.",
+    outcome: "Rejected: nested scrolling competes with the feed.",
+    title: "Internal scrolling competes with the feed",
+  },
+};
+
 const examples: Array<{
-  description: string;
   id: Example;
   label: string;
 }> = [
   {
-    description:
-      "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll, and the Reddit feed stops moving.",
     id: "internalScroll",
     label: "Internal scroll trap",
   },
   {
-    description:
-      "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll even though no scrollbar is visible, and the Reddit feed stops moving.",
     id: "gestureLock",
     label: "No scrollbar trap",
   },
   {
-    description:
-      "Start scrolling until you hit the app, then hover over it and scroll. The app does not capture the scroll, and the Reddit feed continues moving normally.",
     id: "fixed",
     label: "Feed stays scrollable",
   },
@@ -31,17 +62,9 @@ const examples: Array<{
 
 export default function ScrollTrapDemo(): React.ReactElement {
   const [activeExample, setActiveExample] = useState<Example>("internalScroll");
+  const isTouchDemo = useTouchDemo();
   const internalScrollRef = useRef<HTMLDivElement>(null);
   const gestureTrapRef = useRef<HTMLDivElement>(null);
-  const selectedExample = examples.find(
-    (example) => example.id === activeExample,
-  );
-
-  useEffect(() => {
-    if (activeExample === "internalScroll") {
-      internalScrollRef.current?.focus({ preventScroll: true });
-    }
-  }, [activeExample]);
 
   useEffect(() => {
     const addWheelTrap = (element: HTMLDivElement | null) => {
@@ -57,12 +80,14 @@ export default function ScrollTrapDemo(): React.ReactElement {
       return () => element.removeEventListener("wheel", onWheel);
     };
 
-    const removeGestureTrap = addWheelTrap(gestureTrapRef.current);
+    const removeGestureTrap = isTouchDemo
+      ? undefined
+      : addWheelTrap(gestureTrapRef.current);
 
     return () => {
       removeGestureTrap?.();
     };
-  }, [activeExample]);
+  }, [activeExample, isTouchDemo]);
 
   return (
     <section className={styles.wrapper} aria-label="Scroll trap examples">
@@ -91,69 +116,126 @@ export default function ScrollTrapDemo(): React.ReactElement {
         role="tabpanel"
         aria-labelledby={`scroll-trap-tab-${activeExample}`}
       >
-        <p className={styles.instructions}>{selectedExample?.description}</p>
+        {!isTouchDemo ? (
+          <p className={styles.instructions}>
+            {desktopInstructions[activeExample]}
+          </p>
+        ) : null}
 
-        <div className={styles.feedViewport}>
-          <div className={styles.feedCanvas}>
-            <PlainMockPost
-              label="Mock app"
-              title="Community Check-in"
-              votes="18"
-              comments="4"
-            />
-            <MockPost>
-              {activeExample === "internalScroll" ? (
-                <InternalScrollApp scrollerRef={internalScrollRef} />
-              ) : null}
+        {isTouchDemo ? (
+          <MobileExample activeExample={activeExample} />
+        ) : (
+          <div className={styles.feedViewport}>
+            <div className={styles.feedCanvas}>
+              <MockPost>
+                {activeExample === "internalScroll" ? (
+                  <InternalScrollApp scrollerRef={internalScrollRef} />
+                ) : null}
 
-              {activeExample === "gestureLock" ? (
-                <GestureLockApp ref={gestureTrapRef} />
-              ) : null}
+                {activeExample === "gestureLock" ? (
+                  <GestureLockApp ref={gestureTrapRef} />
+                ) : null}
 
-              {activeExample === "fixed" ? <FixedApp /> : null}
-            </MockPost>
-            <PlainMockPost
-              label="Mock app"
-              title="Weekly Scoreboard"
-              votes="31"
-              comments="9"
-            />
+                {activeExample === "fixed" ? <FixedApp /> : null}
+              </MockPost>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
 }
 
-function PlainMockPost({
-  comments,
-  label,
-  title,
-  votes,
-}: {
-  comments: string;
-  label: string;
-  title: string;
-  votes: string;
-}) {
+function useTouchDemo(): boolean {
+  const [isTouchDemo, setIsTouchDemo] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: none), (pointer: coarse)");
+
+    const syncInputMode = () => setIsTouchDemo(mediaQuery.matches);
+    syncInputMode();
+
+    mediaQuery.addEventListener("change", syncInputMode);
+    return () => mediaQuery.removeEventListener("change", syncInputMode);
+  }, []);
+
+  return isTouchDemo;
+}
+
+function MobileExample({ activeExample }: { activeExample: Example }) {
+  const example = mobileExamples[activeExample];
+  const isAccepted = activeExample === "fixed";
+  const gestureTrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (activeExample !== "gestureLock") {
+      return undefined;
+    }
+
+    const element = gestureTrapRef.current;
+    if (!element) {
+      return undefined;
+    }
+
+    const stopScroll = (event: TouchEvent | WheelEvent) => {
+      event.preventDefault();
+    };
+
+    element.addEventListener("touchmove", stopScroll, { passive: false });
+    element.addEventListener("wheel", stopScroll, { passive: false });
+
+    return () => {
+      element.removeEventListener("touchmove", stopScroll);
+      element.removeEventListener("wheel", stopScroll);
+    };
+  }, [activeExample]);
+
   return (
-    <article className={`${styles.post} ${styles.plainPost}`}>
-      <PostMeta name="sample-app" time="8 hr. ago" avatar="W" />
-      <h3 className={styles.postTitle}>{title}</h3>
-      <span className={styles.flair}>Community App</span>
-      <div className={styles.plainAppSurface}>
-        <div className={styles.plainAppHeader}>
-          <strong>{label}</strong>
-          <span>Preview</span>
+    <article className={`${styles.post} ${styles.mobilePost}`}>
+      <PostMeta name="sample-scroll-trap-app" time="11 hr. ago" avatar="S" />
+      <h3 className={styles.postTitle}>Daily Game #116</h3>
+      <span className={styles.flair}>Daily Game</span>
+
+      <div
+        className={`${styles.mobileAppSurface} ${
+          isAccepted
+            ? styles.mobileAcceptedSurface
+            : styles.mobileRejectedSurface
+        }`}
+      >
+        <AppToolbar status={isAccepted ? "Acceptable" : "Rejected"} />
+        <div className={styles.mobileExampleHeader}>
+          <h4>{example.title}</h4>
         </div>
-        <div className={styles.plainAppGrid}>
-          <span />
-          <span />
-          <span />
-          <span />
+        <p>{example.details}</p>
+        <strong>{example.outcome}</strong>
+        <div className={styles.mobileSwipeDemo}>
+          {activeExample === "internalScroll" ? (
+            <div className={styles.mobileNestedScroller}>
+              <span>Swipe this nested list</span>
+              <button type="button">Share score</button>
+              <button type="button">View leaderboard</button>
+              <button type="button">Claim streak bonus</button>
+              <button type="button">Play again tomorrow</button>
+            </div>
+          ) : null}
+
+          {activeExample === "gestureLock" ? (
+            <div className={styles.mobileGestureSurface} ref={gestureTrapRef}>
+              Swipe this fixed surface
+            </div>
+          ) : null}
+
+          {activeExample === "fixed" ? (
+            <div className={styles.mobilePassThroughSurface}>
+              Swipe here; the page should keep moving
+            </div>
+          ) : null}
         </div>
+        <code>{example.code}</code>
       </div>
-      <PostFooter votes={votes} comments={comments} />
+
+      <PostFooter votes="42" comments="18" />
     </article>
   );
 }
@@ -280,7 +362,9 @@ const GestureLockApp = React.forwardRef<HTMLDivElement>(
               The surface is fixed, but it locks gestures across the whole
               inline app. The feed cannot use the wheel or touch input.
             </p>
-            <div className={styles.previewBoard}>
+            <div
+              className={`${styles.previewBoard} ${styles.gestureTrapBoard}`}
+            >
               <div className={styles.previewCard}>
                 Fixed canvas or game area
               </div>
