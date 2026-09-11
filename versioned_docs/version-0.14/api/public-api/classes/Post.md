@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.14.3-dev**](../README.md)
+[**@devvit/public-api v0.14.4-dev**](../README.md)
 
 ***
 
@@ -890,7 +890,8 @@ edited state from the response.
 
 **`Experimental`**
 
-Filters a post. When a post is filtered, it is added to the ModQueue for review. By default, filtered posts are hidden while in the queue. Set `keep` to `true` to keep the post visible. Set `reason` to show moderators a reason; when `keep` is `true`, the reason is also shown on the post.
+Filters a post. When a post is filtered, it is added to the ModQueue for review, and in addition:
+- if
 
 #### Parameters
 
@@ -1452,7 +1453,7 @@ body and edited state are updated from the response.
 
 ##### opts
 
-`Readonly`\<[`CustomPostTextFallbackOptions`](../type-aliases/CustomPostTextFallbackOptions.md)\>
+`Readonly`\<[`SetCustomPostTextFallbackOptions`](../type-aliases/SetCustomPostTextFallbackOptions.md)\>
 
 #### Returns
 
