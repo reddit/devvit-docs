@@ -73,13 +73,6 @@
   padding: 1rem;
 }
 
-.instructions {
-  color: var(--demo-muted-text);
-  font-size: 0.9rem;
-  margin: 0 auto 0.75rem;
-  max-width: 740px;
-}
-
 .feedViewport {
   background: var(--demo-surface-bg);
   border: 1px solid var(--demo-border);

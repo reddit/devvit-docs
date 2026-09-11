@@ -15,62 +15,37 @@ const mobileExamples: Record<
 > = {
   fixed: {
     code: "touch-action: pan-y;",
-    details:
-      "Use taps, buttons, and bounded controls in inline mode. Save full-screen drag, zoom, and long flows for expanded mode.",
-    outcome: "Allowed: vertical swipes continue scrolling the feed.",
+    details: "Swipe the green surface. The page should keep moving.",
+    outcome: "Acceptable: vertical swipes stay with the feed.",
     title: "Feed stays scrollable",
   },
   gestureLock: {
     code: "touch-action: none;",
-    details:
-      "A fixed canvas, game board, map, or gesture layer can still capture vertical swipes even when the app has no visible scrollbar.",
-    outcome: "Rejected: the app owns the gesture instead of the feed.",
+    details: "Swipe the orange surface. It captures the gesture.",
+    outcome: "Rejected: no scrollbar, but still trapped.",
     title: "No scrollbar can still trap swipes",
   },
   internalScroll: {
     code: "overflow-y: auto;",
-    details:
-      "Inline apps should not contain their own vertical scrolling areas. Users can get stuck moving the app panel instead of the feed.",
-    outcome: "Rejected: nested vertical scroll competes with the feed.",
+    details: "Swipe the mini list. It scrolls inside the post.",
+    outcome: "Rejected: nested scrolling competes with the feed.",
     title: "Internal scrolling competes with the feed",
   },
 };
 
 const examples: Array<{
-  descriptions: {
-    desktop: string;
-    touch: string;
-  };
   id: Example;
   label: string;
 }> = [
   {
-    descriptions: {
-      desktop:
-        "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll, and the Reddit feed stops moving.",
-      touch:
-        "Swipe inside the app panel. The app creates a nested scroll area, so the surrounding feed can feel stuck until the gesture leaves the panel.",
-    },
     id: "internalScroll",
     label: "Internal scroll trap",
   },
   {
-    descriptions: {
-      desktop:
-        "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll even though no scrollbar is visible, and the Reddit feed stops moving.",
-      touch:
-        "On touch screens, this example shows the rejected pattern without blocking this docs page. Full-surface gesture locks can capture vertical swipes even when no scrollbar is visible.",
-    },
     id: "gestureLock",
     label: "No scrollbar trap",
   },
   {
-    descriptions: {
-      desktop:
-        "Start scrolling until you hit the app, then hover over it and scroll. The app does not capture the scroll, and the Reddit feed continues moving normally.",
-      touch:
-        "Swipe over the app. The app keeps vertical gestures available, so the feed continues moving normally.",
-    },
     id: "fixed",
     label: "Feed stays scrollable",
   },
@@ -81,11 +56,6 @@ export default function ScrollTrapDemo(): React.ReactElement {
   const isTouchDemo = useTouchDemo();
   const internalScrollRef = useRef<HTMLDivElement>(null);
   const gestureTrapRef = useRef<HTMLDivElement>(null);
-  const selectedExample = examples.find(
-    (example) => example.id === activeExample,
-  );
-  const selectedDescription =
-    selectedExample?.descriptions[isTouchDemo ? "touch" : "desktop"];
 
   useEffect(() => {
     const addWheelTrap = (element: HTMLDivElement | null) => {
@@ -137,8 +107,6 @@ export default function ScrollTrapDemo(): React.ReactElement {
         role="tabpanel"
         aria-labelledby={`scroll-trap-tab-${activeExample}`}
       >
-        <p className={styles.instructions}>{selectedDescription}</p>
-
         {isTouchDemo ? (
           <MobileExample activeExample={activeExample} />
         ) : (
@@ -379,8 +347,8 @@ function InternalScrollApp({
         <div className={styles.centerPanel}>
           <h4>Internal app scroll blocks the feed</h4>
           <p>
-            The app contains its own scrolling panel. When that panel reaches an
-            edge, the Reddit feed still cannot continue scrolling.
+            Try it: hover over this nested list and scroll. The app captures the
+            scroll instead of letting the feed keep moving.
           </p>
           <div
             className={styles.innerScroller}
@@ -421,8 +389,8 @@ const GestureLockApp = React.forwardRef<HTMLDivElement>(
           <div className={styles.centerPanel}>
             <h4>No scrollbar, still trapped</h4>
             <p>
-              The surface is fixed, but it locks gestures across the whole
-              inline app. The feed cannot use the wheel or touch input.
+              Try it: hover over this fixed surface and scroll. No scrollbar
+              appears, but the app still blocks the feed.
             </p>
             <div
               className={`${styles.previewBoard} ${styles.gestureTrapBoard}`}
@@ -451,8 +419,8 @@ function FixedApp() {
         <div className={styles.centerPanel}>
           <h4>Inline lets the feed scroll</h4>
           <p>
-            The inline view fits in the post. It uses taps or buttons for
-            interaction and allows vertical feed scrolling.
+            Try it: hover over this preview and scroll. The app leaves vertical
+            scrolling with the feed.
           </p>
           <div className={styles.previewBoard}>
             <div className={styles.previewCard}>
