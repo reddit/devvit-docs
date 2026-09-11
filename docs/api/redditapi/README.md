@@ -1,8 +1,8 @@
-**@devvit/reddit v0.14.4-dev**
+**@devvit/reddit v0.14.5-dev**
 
 ***
 
-# @devvit/reddit v0.14.4-dev
+# @devvit/reddit v0.14.5-dev
 
 ## Modules
 
