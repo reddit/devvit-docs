@@ -194,23 +194,78 @@ function useTouchDemo(): boolean {
 function MobileExample({ activeExample }: { activeExample: Example }) {
   const example = mobileExamples[activeExample];
   const isAccepted = activeExample === "fixed";
+  const gestureTrapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (activeExample !== "gestureLock") {
+      return undefined;
+    }
+
+    const element = gestureTrapRef.current;
+    if (!element) {
+      return undefined;
+    }
+
+    const stopScroll = (event: TouchEvent | WheelEvent) => {
+      event.preventDefault();
+    };
+
+    element.addEventListener("touchmove", stopScroll, { passive: false });
+    element.addEventListener("wheel", stopScroll, { passive: false });
+
+    return () => {
+      element.removeEventListener("touchmove", stopScroll);
+      element.removeEventListener("wheel", stopScroll);
+    };
+  }, [activeExample]);
 
   return (
-    <div className={styles.mobileExample}>
-      <div className={styles.mobileExampleHeader}>
-        <span
-          className={
-            isAccepted ? styles.mobileAcceptedBadge : styles.mobileRejectedBadge
-          }
-        >
-          {isAccepted ? "Acceptable" : "Rejected"}
-        </span>
-        <h4>{example.title}</h4>
+    <article className={`${styles.post} ${styles.mobilePost}`}>
+      <PostMeta name="sample-scroll-trap-app" time="11 hr. ago" avatar="S" />
+      <h3 className={styles.postTitle}>Daily Game #116</h3>
+      <span className={styles.flair}>Daily Game</span>
+
+      <div
+        className={`${styles.mobileAppSurface} ${
+          isAccepted
+            ? styles.mobileAcceptedSurface
+            : styles.mobileRejectedSurface
+        }`}
+      >
+        <AppToolbar status={isAccepted ? "Acceptable" : "Rejected"} />
+        <div className={styles.mobileExampleHeader}>
+          <h4>{example.title}</h4>
+        </div>
+        <p>{example.details}</p>
+        <strong>{example.outcome}</strong>
+        <div className={styles.mobileSwipeDemo}>
+          {activeExample === "internalScroll" ? (
+            <div className={styles.mobileNestedScroller}>
+              <span>Swipe this nested list</span>
+              <button type="button">Share score</button>
+              <button type="button">View leaderboard</button>
+              <button type="button">Claim streak bonus</button>
+              <button type="button">Play again tomorrow</button>
+            </div>
+          ) : null}
+
+          {activeExample === "gestureLock" ? (
+            <div className={styles.mobileGestureSurface} ref={gestureTrapRef}>
+              Swipe this fixed surface
+            </div>
+          ) : null}
+
+          {activeExample === "fixed" ? (
+            <div className={styles.mobilePassThroughSurface}>
+              Swipe here; the page should keep moving
+            </div>
+          ) : null}
+        </div>
+        <code>{example.code}</code>
       </div>
-      <p>{example.details}</p>
-      <strong>{example.outcome}</strong>
-      <code>{example.code}</code>
-    </div>
+
+      <PostFooter votes="42" comments="18" />
+    </article>
   );
 }
 
