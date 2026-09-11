@@ -73,23 +73,25 @@
   padding: 1rem;
 }
 
+.instructions {
+  color: var(--demo-muted-text);
+  font-size: 0.9rem;
+  margin: 0 auto 0.75rem;
+  max-width: 740px;
+}
+
 .feedViewport {
   background: var(--demo-surface-bg);
   border: 1px solid var(--demo-border);
   border-radius: 8px;
-  height: 760px;
   margin: 0 auto;
   max-width: 740px;
-  overflow-x: hidden;
-  overflow-y: auto;
   padding: 0.75rem;
   width: 100%;
 }
 
 .feedCanvas {
-  transform: scale(0.76);
-  transform-origin: top left;
-  width: 131.6%;
+  width: 100%;
 }
 
 .post {
@@ -162,68 +164,6 @@
   min-height: 657px;
   overflow: hidden;
   padding: 1rem;
-}
-
-.plainPost {
-  opacity: 0.92;
-}
-
-.plainPost .postTitle {
-  font-size: 1.15rem;
-}
-
-.plainPost .flair {
-  margin-bottom: 0.65rem;
-}
-
-.plainPost .postFooter {
-  padding-top: 0.65rem;
-}
-
-.plainAppSurface {
-  background: #f6f7f8;
-  border: 1px solid #d7dde1;
-  border-radius: 16px;
-  color: #1a1a1b;
-  display: flex;
-  flex-direction: column;
-  min-height: 657px;
-  overflow: hidden;
-  padding: 0.8rem;
-}
-
-.plainAppHeader {
-  align-items: center;
-  border-bottom: 1px solid #d7dde1;
-  display: flex;
-  justify-content: space-between;
-  margin: -0.8rem -0.8rem 0.8rem;
-  padding: 0.8rem;
-}
-
-.plainAppHeader strong {
-  font-size: 1rem;
-}
-
-.plainAppHeader span {
-  color: #667178;
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.plainAppGrid {
-  display: grid;
-  flex: 1;
-  gap: 0.6rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.plainAppGrid span {
-  background: #ffffff;
-  border: 1px solid #d7dde1;
-  border-radius: 8px;
-  min-height: 10rem;
 }
 
 .rejectedSurface {
@@ -596,24 +536,49 @@
     padding: 0.85rem;
   }
 
-  .feedViewport {
-    height: auto;
-    max-height: none;
-    overflow-y: visible;
+  .mobilePost .postMeta {
+    align-items: center;
+    column-gap: 0.55rem;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    row-gap: 0.2rem;
   }
 
-  .feedCanvas {
-    transform: none;
-    width: 100%;
+  .mobilePost .avatar {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .mobilePost .postMeta strong {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mobilePost .appBadge {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .mobilePost .postMeta > span:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 2;
+    margin-left: 3.2rem;
+  }
+
+  .mobilePost .moreButton {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    margin-left: 0;
   }
 
   .appSurface {
     min-height: auto;
     padding: 0.75rem;
-  }
-
-  .plainAppSurface {
-    min-height: 15rem;
   }
 
   .centerPanel {
@@ -639,10 +604,6 @@
 
   .previewCard {
     min-height: 4.5rem;
-  }
-
-  .plainAppGrid span {
-    min-height: 5rem;
   }
 
   .gestureTrapBoard {

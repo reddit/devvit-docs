@@ -4,6 +4,15 @@ import styles from "./styles.module.css";
 
 type Example = "internalScroll" | "gestureLock" | "fixed";
 
+const desktopInstructions: Record<Example, string> = {
+  fixed:
+    "Hover over the inline app and scroll. The page keeps moving normally.",
+  gestureLock:
+    "Hover over the fixed app surface and scroll. The page stops even though there is no scrollbar.",
+  internalScroll:
+    "Hover over the nested list and scroll. The app captures the scroll inside the post.",
+};
+
 const mobileExamples: Record<
   Example,
   {
@@ -107,17 +116,17 @@ export default function ScrollTrapDemo(): React.ReactElement {
         role="tabpanel"
         aria-labelledby={`scroll-trap-tab-${activeExample}`}
       >
+        {!isTouchDemo ? (
+          <p className={styles.instructions}>
+            {desktopInstructions[activeExample]}
+          </p>
+        ) : null}
+
         {isTouchDemo ? (
           <MobileExample activeExample={activeExample} />
         ) : (
           <div className={styles.feedViewport}>
             <div className={styles.feedCanvas}>
-              <PlainMockPost
-                label="Mock app"
-                title="Community Check-in"
-                votes="18"
-                comments="4"
-              />
               <MockPost>
                 {activeExample === "internalScroll" ? (
                   <InternalScrollApp scrollerRef={internalScrollRef} />
@@ -129,12 +138,6 @@ export default function ScrollTrapDemo(): React.ReactElement {
 
                 {activeExample === "fixed" ? <FixedApp /> : null}
               </MockPost>
-              <PlainMockPost
-                label="Mock app"
-                title="Weekly Scoreboard"
-                votes="31"
-                comments="9"
-              />
             </div>
           </div>
         )}
@@ -237,39 +240,6 @@ function MobileExample({ activeExample }: { activeExample: Example }) {
   );
 }
 
-function PlainMockPost({
-  comments,
-  label,
-  title,
-  votes,
-}: {
-  comments: string;
-  label: string;
-  title: string;
-  votes: string;
-}) {
-  return (
-    <article className={`${styles.post} ${styles.plainPost}`}>
-      <PostMeta name="sample-app" time="8 hr. ago" avatar="W" />
-      <h3 className={styles.postTitle}>{title}</h3>
-      <span className={styles.flair}>Community App</span>
-      <div className={styles.plainAppSurface}>
-        <div className={styles.plainAppHeader}>
-          <strong>{label}</strong>
-          <span>Preview</span>
-        </div>
-        <div className={styles.plainAppGrid}>
-          <span />
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-      <PostFooter votes={votes} comments={comments} />
-    </article>
-  );
-}
-
 function MockPost({ children }: { children: React.ReactNode }) {
   return (
     <article className={styles.post}>
@@ -347,8 +317,8 @@ function InternalScrollApp({
         <div className={styles.centerPanel}>
           <h4>Internal app scroll blocks the feed</h4>
           <p>
-            Try it: hover over this nested list and scroll. The app captures the
-            scroll instead of letting the feed keep moving.
+            The app contains its own scrolling panel. When that panel reaches an
+            edge, the Reddit feed still cannot continue scrolling.
           </p>
           <div
             className={styles.innerScroller}
@@ -389,8 +359,8 @@ const GestureLockApp = React.forwardRef<HTMLDivElement>(
           <div className={styles.centerPanel}>
             <h4>No scrollbar, still trapped</h4>
             <p>
-              Try it: hover over this fixed surface and scroll. No scrollbar
-              appears, but the app still blocks the feed.
+              The surface is fixed, but it locks gestures across the whole
+              inline app. The feed cannot use the wheel or touch input.
             </p>
             <div
               className={`${styles.previewBoard} ${styles.gestureTrapBoard}`}
@@ -419,8 +389,8 @@ function FixedApp() {
         <div className={styles.centerPanel}>
           <h4>Inline lets the feed scroll</h4>
           <p>
-            Try it: hover over this preview and scroll. The app leaves vertical
-            scrolling with the feed.
+            The inline view fits in the post. It uses taps or buttons for
+            interaction and allows vertical feed scrolling.
           </p>
           <div className={styles.previewBoard}>
             <div className={styles.previewCard}>
