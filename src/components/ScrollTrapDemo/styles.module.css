@@ -379,18 +379,6 @@
   touch-action: none;
 }
 
-.mobileDemoNote {
-  background: #f6f7f8;
-  border: 1px solid #c8ced2;
-  border-radius: 8px;
-  color: #343a3d;
-  font-size: 0.9rem;
-  font-weight: 700;
-  margin: 0 0 1rem;
-  padding: 0.75rem;
-  text-align: left;
-}
-
 .previewCard {
   align-items: center;
   background: #ff4500;
@@ -487,7 +475,86 @@
   width: 1rem;
 }
 
+.mobileExample {
+  background: var(--demo-post-bg);
+  border: 1px solid var(--demo-border);
+  border-left: 4px solid #ff4500;
+  border-radius: 8px;
+  color: var(--demo-text);
+  display: none;
+  margin: 0 auto;
+  max-width: 740px;
+  padding: 1rem;
+}
+
+.mobileExampleHeader {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.mobileExample h4 {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.mobileExample p {
+  color: var(--demo-muted-text);
+  line-height: 1.5;
+  margin: 0 0 0.85rem;
+}
+
+.mobileExample strong {
+  display: block;
+  line-height: 1.35;
+  margin-bottom: 0.85rem;
+}
+
+.mobileExample code {
+  display: block;
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+  padding: 0.55rem 0.65rem;
+}
+
+.mobileAcceptedBadge,
+.mobileRejectedBadge {
+  border-radius: 999px;
+  color: #111111;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.25rem 0.6rem;
+  text-transform: uppercase;
+}
+
+.mobileAcceptedBadge {
+  background: #caf4d0;
+}
+
+.mobileRejectedBadge {
+  background: #ffd1c2;
+}
+
 @media (max-width: 640px) {
+  .tabs {
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .tab,
+  .activeTab {
+    font-size: 0.88rem;
+    min-height: 2.35rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .panel {
+    padding: 0.85rem;
+  }
+
   .feedViewport {
     height: auto;
     max-height: none;
@@ -544,5 +611,9 @@
 
   .gestureTrapBoard {
     touch-action: pan-y;
+  }
+
+  .mobileExample {
+    display: block;
   }
 }

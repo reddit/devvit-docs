@@ -4,6 +4,38 @@ import styles from "./styles.module.css";
 
 type Example = "internalScroll" | "gestureLock" | "fixed";
 
+const mobileExamples: Record<
+  Example,
+  {
+    code: string;
+    details: string;
+    outcome: string;
+    title: string;
+  }
+> = {
+  fixed: {
+    code: "touch-action: pan-y;",
+    details:
+      "Use taps, buttons, and bounded controls in inline mode. Save full-screen drag, zoom, and long flows for expanded mode.",
+    outcome: "Allowed: vertical swipes continue scrolling the feed.",
+    title: "Feed stays scrollable",
+  },
+  gestureLock: {
+    code: "touch-action: none;",
+    details:
+      "A fixed canvas, game board, map, or gesture layer can still capture vertical swipes even when the app has no visible scrollbar.",
+    outcome: "Rejected: the app owns the gesture instead of the feed.",
+    title: "No scrollbar can still trap swipes",
+  },
+  internalScroll: {
+    code: "overflow-y: auto;",
+    details:
+      "Inline apps should not contain their own vertical scrolling areas. Users can get stuck moving the app panel instead of the feed.",
+    outcome: "Rejected: nested vertical scroll competes with the feed.",
+    title: "Internal scrolling competes with the feed",
+  },
+};
+
 const examples: Array<{
   descriptions: {
     desktop: string;
@@ -107,36 +139,37 @@ export default function ScrollTrapDemo(): React.ReactElement {
       >
         <p className={styles.instructions}>{selectedDescription}</p>
 
-        <div className={styles.feedViewport}>
-          <div className={styles.feedCanvas}>
-            <PlainMockPost
-              label="Mock app"
-              title="Community Check-in"
-              votes="18"
-              comments="4"
-            />
-            <MockPost>
-              {activeExample === "internalScroll" ? (
-                <InternalScrollApp scrollerRef={internalScrollRef} />
-              ) : null}
+        {isTouchDemo ? (
+          <MobileExample activeExample={activeExample} />
+        ) : (
+          <div className={styles.feedViewport}>
+            <div className={styles.feedCanvas}>
+              <PlainMockPost
+                label="Mock app"
+                title="Community Check-in"
+                votes="18"
+                comments="4"
+              />
+              <MockPost>
+                {activeExample === "internalScroll" ? (
+                  <InternalScrollApp scrollerRef={internalScrollRef} />
+                ) : null}
 
-              {activeExample === "gestureLock" ? (
-                <GestureLockApp
-                  isTouchDemo={isTouchDemo}
-                  ref={isTouchDemo ? undefined : gestureTrapRef}
-                />
-              ) : null}
+                {activeExample === "gestureLock" ? (
+                  <GestureLockApp ref={gestureTrapRef} />
+                ) : null}
 
-              {activeExample === "fixed" ? <FixedApp /> : null}
-            </MockPost>
-            <PlainMockPost
-              label="Mock app"
-              title="Weekly Scoreboard"
-              votes="31"
-              comments="9"
-            />
+                {activeExample === "fixed" ? <FixedApp /> : null}
+              </MockPost>
+              <PlainMockPost
+                label="Mock app"
+                title="Weekly Scoreboard"
+                votes="31"
+                comments="9"
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
@@ -156,6 +189,29 @@ function useTouchDemo(): boolean {
   }, []);
 
   return isTouchDemo;
+}
+
+function MobileExample({ activeExample }: { activeExample: Example }) {
+  const example = mobileExamples[activeExample];
+  const isAccepted = activeExample === "fixed";
+
+  return (
+    <div className={styles.mobileExample}>
+      <div className={styles.mobileExampleHeader}>
+        <span
+          className={
+            isAccepted ? styles.mobileAcceptedBadge : styles.mobileRejectedBadge
+          }
+        >
+          {isAccepted ? "Acceptable" : "Rejected"}
+        </span>
+        <h4>{example.title}</h4>
+      </div>
+      <p>{example.details}</p>
+      <strong>{example.outcome}</strong>
+      <code>{example.code}</code>
+    </div>
+  );
 }
 
 function PlainMockPost({
@@ -296,44 +352,37 @@ function InternalScrollApp({
   );
 }
 
-const GestureLockApp = React.forwardRef<
-  HTMLDivElement,
-  { isTouchDemo: boolean }
->(function GestureLockApp({ isTouchDemo }, ref) {
-  return (
-    <div
-      className={`${styles.appSurface} ${styles.rejectedSurface}`}
-      ref={ref}
-      role="region"
-      aria-label="Rejected inline app that traps gestures without internal scrolling"
-    >
-      <AppToolbar status="Rejected" />
-      <div className={styles.appBody}>
-        <div className={styles.centerPanel}>
-          <h4>No scrollbar, still trapped</h4>
-          <p>
-            The surface is fixed, but it locks gestures across the whole inline
-            app. The feed cannot use the wheel or touch input.
-          </p>
-          {isTouchDemo ? (
-            <p className={styles.mobileDemoNote}>
-              Mobile preview: rejected gesture lock shown without capturing this
-              page's swipe.
+const GestureLockApp = React.forwardRef<HTMLDivElement>(
+  function GestureLockApp(_props, ref) {
+    return (
+      <div
+        className={`${styles.appSurface} ${styles.rejectedSurface}`}
+        ref={ref}
+        role="region"
+        aria-label="Rejected inline app that traps gestures without internal scrolling"
+      >
+        <AppToolbar status="Rejected" />
+        <div className={styles.appBody}>
+          <div className={styles.centerPanel}>
+            <h4>No scrollbar, still trapped</h4>
+            <p>
+              The surface is fixed, but it locks gestures across the whole
+              inline app. The feed cannot use the wheel or touch input.
             </p>
-          ) : null}
-          <div
-            className={`${styles.previewBoard} ${
-              isTouchDemo ? "" : styles.gestureTrapBoard
-            }`}
-          >
-            <div className={styles.previewCard}>Fixed canvas or game area</div>
+            <div
+              className={`${styles.previewBoard} ${styles.gestureTrapBoard}`}
+            >
+              <div className={styles.previewCard}>
+                Fixed canvas or game area
+              </div>
+            </div>
+            <code>touch-action: none; overscroll-behavior: none;</code>
           </div>
-          <code>touch-action: none; overscroll-behavior: none;</code>
         </div>
       </div>
-    </div>
-  );
-});
+    );
+  },
+);
 
 function FixedApp() {
   return (
