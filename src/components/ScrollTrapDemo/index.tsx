@@ -56,12 +56,6 @@ export default function ScrollTrapDemo(): React.ReactElement {
     selectedExample?.descriptions[isTouchDemo ? "touch" : "desktop"];
 
   useEffect(() => {
-    if (activeExample === "internalScroll") {
-      internalScrollRef.current?.focus({ preventScroll: true });
-    }
-  }, [activeExample]);
-
-  useEffect(() => {
     const addWheelTrap = (element: HTMLDivElement | null) => {
       if (!element) {
         return undefined;

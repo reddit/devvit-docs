@@ -489,25 +489,57 @@
 
 @media (max-width: 640px) {
   .feedViewport {
-    height: 38rem;
-    max-height: 76vh;
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
   }
 
   .feedCanvas {
-    transform: scale(0.8);
-    width: 125%;
+    transform: none;
+    width: 100%;
   }
 
   .appSurface {
-    min-height: 36rem;
+    min-height: auto;
+    padding: 0.75rem;
   }
 
   .plainAppSurface {
-    min-height: 36rem;
+    min-height: 15rem;
   }
 
   .centerPanel {
     margin-top: 0;
+    padding: 0.85rem;
+  }
+
+  .centerPanel h4 {
+    font-size: 1.1rem;
+  }
+
+  .centerPanel p {
+    font-size: 0.9rem;
+  }
+
+  .appBody {
+    padding: 1rem 0 0;
+  }
+
+  .previewBoard {
+    min-height: 8.5rem;
+  }
+
+  .previewCard {
+    min-height: 4.5rem;
+  }
+
+  .mobileDemoNote {
+    font-size: 0.85rem;
+    padding: 0.65rem;
+  }
+
+  .plainAppGrid span {
+    min-height: 5rem;
   }
 
   .gestureTrapBoard {
