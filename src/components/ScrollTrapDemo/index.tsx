@@ -5,25 +5,40 @@ import styles from "./styles.module.css";
 type Example = "internalScroll" | "gestureLock" | "fixed";
 
 const examples: Array<{
-  description: string;
+  descriptions: {
+    desktop: string;
+    touch: string;
+  };
   id: Example;
   label: string;
 }> = [
   {
-    description:
-      "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll, and the Reddit feed stops moving.",
+    descriptions: {
+      desktop:
+        "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll, and the Reddit feed stops moving.",
+      touch:
+        "Swipe inside the app panel. The app creates a nested scroll area, so the surrounding feed can feel stuck until the gesture leaves the panel.",
+    },
     id: "internalScroll",
     label: "Internal scroll trap",
   },
   {
-    description:
-      "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll even though no scrollbar is visible, and the Reddit feed stops moving.",
+    descriptions: {
+      desktop:
+        "Start scrolling until you hit the trap, then hover over the app and scroll. The app captures the scroll even though no scrollbar is visible, and the Reddit feed stops moving.",
+      touch:
+        "On touch screens, this example shows the rejected pattern without blocking this docs page. Full-surface gesture locks can capture vertical swipes even when no scrollbar is visible.",
+    },
     id: "gestureLock",
     label: "No scrollbar trap",
   },
   {
-    description:
-      "Start scrolling until you hit the app, then hover over it and scroll. The app does not capture the scroll, and the Reddit feed continues moving normally.",
+    descriptions: {
+      desktop:
+        "Start scrolling until you hit the app, then hover over it and scroll. The app does not capture the scroll, and the Reddit feed continues moving normally.",
+      touch:
+        "Swipe over the app. The app keeps vertical gestures available, so the feed continues moving normally.",
+    },
     id: "fixed",
     label: "Feed stays scrollable",
   },
@@ -31,11 +46,14 @@ const examples: Array<{
 
 export default function ScrollTrapDemo(): React.ReactElement {
   const [activeExample, setActiveExample] = useState<Example>("internalScroll");
+  const isTouchDemo = useTouchDemo();
   const internalScrollRef = useRef<HTMLDivElement>(null);
   const gestureTrapRef = useRef<HTMLDivElement>(null);
   const selectedExample = examples.find(
     (example) => example.id === activeExample,
   );
+  const selectedDescription =
+    selectedExample?.descriptions[isTouchDemo ? "touch" : "desktop"];
 
   useEffect(() => {
     if (activeExample === "internalScroll") {
@@ -57,12 +75,14 @@ export default function ScrollTrapDemo(): React.ReactElement {
       return () => element.removeEventListener("wheel", onWheel);
     };
 
-    const removeGestureTrap = addWheelTrap(gestureTrapRef.current);
+    const removeGestureTrap = isTouchDemo
+      ? undefined
+      : addWheelTrap(gestureTrapRef.current);
 
     return () => {
       removeGestureTrap?.();
     };
-  }, [activeExample]);
+  }, [activeExample, isTouchDemo]);
 
   return (
     <section className={styles.wrapper} aria-label="Scroll trap examples">
@@ -91,7 +111,7 @@ export default function ScrollTrapDemo(): React.ReactElement {
         role="tabpanel"
         aria-labelledby={`scroll-trap-tab-${activeExample}`}
       >
-        <p className={styles.instructions}>{selectedExample?.description}</p>
+        <p className={styles.instructions}>{selectedDescription}</p>
 
         <div className={styles.feedViewport}>
           <div className={styles.feedCanvas}>
@@ -107,7 +127,10 @@ export default function ScrollTrapDemo(): React.ReactElement {
               ) : null}
 
               {activeExample === "gestureLock" ? (
-                <GestureLockApp ref={gestureTrapRef} />
+                <GestureLockApp
+                  isTouchDemo={isTouchDemo}
+                  ref={isTouchDemo ? undefined : gestureTrapRef}
+                />
               ) : null}
 
               {activeExample === "fixed" ? <FixedApp /> : null}
@@ -123,6 +146,22 @@ export default function ScrollTrapDemo(): React.ReactElement {
       </div>
     </section>
   );
+}
+
+function useTouchDemo(): boolean {
+  const [isTouchDemo, setIsTouchDemo] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: none), (pointer: coarse)");
+
+    const syncInputMode = () => setIsTouchDemo(mediaQuery.matches);
+    syncInputMode();
+
+    mediaQuery.addEventListener("change", syncInputMode);
+    return () => mediaQuery.removeEventListener("change", syncInputMode);
+  }, []);
+
+  return isTouchDemo;
 }
 
 function PlainMockPost({
@@ -263,35 +302,44 @@ function InternalScrollApp({
   );
 }
 
-const GestureLockApp = React.forwardRef<HTMLDivElement>(
-  function GestureLockApp(_props, ref) {
-    return (
-      <div
-        className={`${styles.appSurface} ${styles.rejectedSurface}`}
-        ref={ref}
-        role="region"
-        aria-label="Rejected inline app that traps gestures without internal scrolling"
-      >
-        <AppToolbar status="Rejected" />
-        <div className={styles.appBody}>
-          <div className={styles.centerPanel}>
-            <h4>No scrollbar, still trapped</h4>
-            <p>
-              The surface is fixed, but it locks gestures across the whole
-              inline app. The feed cannot use the wheel or touch input.
+const GestureLockApp = React.forwardRef<
+  HTMLDivElement,
+  { isTouchDemo: boolean }
+>(function GestureLockApp({ isTouchDemo }, ref) {
+  return (
+    <div
+      className={`${styles.appSurface} ${styles.rejectedSurface}`}
+      ref={ref}
+      role="region"
+      aria-label="Rejected inline app that traps gestures without internal scrolling"
+    >
+      <AppToolbar status="Rejected" />
+      <div className={styles.appBody}>
+        <div className={styles.centerPanel}>
+          <h4>No scrollbar, still trapped</h4>
+          <p>
+            The surface is fixed, but it locks gestures across the whole inline
+            app. The feed cannot use the wheel or touch input.
+          </p>
+          {isTouchDemo ? (
+            <p className={styles.mobileDemoNote}>
+              Mobile preview: rejected gesture lock shown without capturing this
+              page's swipe.
             </p>
-            <div className={styles.previewBoard}>
-              <div className={styles.previewCard}>
-                Fixed canvas or game area
-              </div>
-            </div>
-            <code>touch-action: none; overscroll-behavior: none;</code>
+          ) : null}
+          <div
+            className={`${styles.previewBoard} ${
+              isTouchDemo ? "" : styles.gestureTrapBoard
+            }`}
+          >
+            <div className={styles.previewCard}>Fixed canvas or game area</div>
           </div>
+          <code>touch-action: none; overscroll-behavior: none;</code>
         </div>
       </div>
-    );
-  },
-);
+    </div>
+  );
+});
 
 function FixedApp() {
   return (

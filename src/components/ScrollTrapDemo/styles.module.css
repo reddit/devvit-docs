@@ -372,7 +372,23 @@
   display: flex;
   justify-content: center;
   min-height: 19rem;
+  touch-action: pan-y;
+}
+
+.gestureTrapBoard {
   touch-action: none;
+}
+
+.mobileDemoNote {
+  background: #f6f7f8;
+  border: 1px solid #c8ced2;
+  border-radius: 8px;
+  color: #343a3d;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  padding: 0.75rem;
+  text-align: left;
 }
 
 .previewCard {
@@ -492,5 +508,9 @@
 
   .centerPanel {
     margin-top: 0;
+  }
+
+  .gestureTrapBoard {
+    touch-action: pan-y;
   }
 }
