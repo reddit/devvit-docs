@@ -9,6 +9,13 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.14.4: Avoiding Scroll Traps
+
+**Release Date: September 14, 2026** 
+
+We’ve added a new best practices guide for [avoiding scroll traps in inline apps](https://developers.reddit.com/docs/guides/best-practices/scroll-traps). Learn how to keep Reddit’s feed scrollable while users interact with your app, when to move interactions into expanded mode, and which common CSS and gesture patterns can cause an app to be rejected during review. The guide also includes examples, fixes, and a pre-submission testing checklist.
+
+
 ## Release 0.14.3: Quality-of-Life Improvements 
 
 **Release Date: September 8, 2026**
