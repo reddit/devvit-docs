@@ -453,6 +453,39 @@ app.get<string, never, ListJobsResponse, never>(
 </TabItem>
 </Tabs>
 
+## Retries and duplicate execution
+
+:::warning
+The scheduler may invoke the same job more than once. Make scheduled handlers idempotent.
+:::
+
+When the scheduler receives a successful response or an application error, it marks the job complete. If an infrastructure failure or the 30-second execution timeout prevents the scheduler from receiving a reliable response, it leaves the job incomplete and retries it for up to four hours.
+
+This can create duplicate execution even when your handler worked. For example, your handler might send a notification, but an infrastructure failure might prevent the scheduler from recording that the job completed. The scheduler then runs the job again.
+
+Use a stable identifier from the job data to deduplicate side effects. This example sends one notification per post, so it uses the post ID. Store the identifier atomically in Redis before performing the side effect, and always set an expiration of at least four hours on the key.
+
+```ts title="/server/index.ts"
+import { redis, type TaskRequest, type TaskResponse } from "@devvit/web/server";
+
+app.post("/internal/scheduler/send-notification", async (c) => {
+  const { data } = await c.req.json<TaskRequest<{ postId: string }>>();
+  const { postId } = data!;
+
+  const claimed = await redis.set(`scheduled:notifications:${postId}`, "1", {
+    nx: true,
+    expiration: new Date(Date.now() + 24 * 60 * 60 * 1000),
+  });
+
+  if (claimed !== "OK") {
+    return c.json<TaskResponse>({ status: "ok" }, 200);
+  }
+
+  await sendNotification(postId);
+  return c.json<TaskResponse>({ status: "ok" }, 200);
+});
+```
+
 ## Faster scheduler
 
 :::note
@@ -480,3 +513,4 @@ _Limits are per installation of an app:_
 2. The `runJob()` method enforces two rate limits when creating actions:
    - **Creation rate:** Up to 60 calls to `runJob()` per minute
    - **Delivery rate:** Up to 60 deliveries per minute
+3. A scheduled job has a **30-second execution timeout**.
