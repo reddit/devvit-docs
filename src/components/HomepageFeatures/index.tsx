@@ -28,7 +28,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Manage mod workflows and tap into powerful automod configurations. Leverage custom actions
-        and events-driven bots.
+        and event-driven community tools.
       </>
     ),
   },
