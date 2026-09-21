@@ -9,6 +9,12 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.14.5: Nothing to See Here
+
+**Release Date: September 21, 2026** 
+
+This release focuses on behind-the-scenes maintenance and improvements to keep things running smoothly. 
+
 ## Release 0.14.4: Avoiding Scroll Traps
 
 **Release Date: September 14, 2026** 
