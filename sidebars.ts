@@ -170,6 +170,7 @@ const sidebars: SidebarsConfig = {
       items: [
         "capabilities/server/scheduler",
         "capabilities/server/triggers",
+        "capabilities/server/trigger-events",
         "capabilities/server/global-triggers"
       ],
     },
