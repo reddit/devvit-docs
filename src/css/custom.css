@@ -134,6 +134,34 @@
   box-shadow: var(--ifm-global-shadow-lw);
 }
 
+.gold-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 256px));
+  gap: 2rem;
+  margin: 1rem 0 2rem;
+}
+
+.gold-icon-option > strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.gold-icon-option img {
+  display: block;
+  width: 256px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.75rem;
+  border-radius: var(--ifm-code-border-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+@media (max-width: 576px) {
+  .gold-icon-grid {
+    grid-template-columns: minmax(0, 256px);
+  }
+}
+
 .theme-doc-markdown :is(h2, h3, h4, h5, h6) .hash-link {
   opacity: 0.6;
 }
