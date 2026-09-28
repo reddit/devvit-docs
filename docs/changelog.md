@@ -9,6 +9,17 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.14.6: Triggers, Schedulers, and Receipts
+
+**Release Date: September 28, 2026** 
+
+This release includes:
+
+- A new [Trigger Event Catalog](https://developers.reddit.com/docs/capabilities/server/trigger-events) to make it easier to build with Devvit triggers. Use it to quickly find the right event for your app, understand the payload data available to your handler, and account for important delivery behaviors like asynchronous delivery, duplicate events, optional fields, and event-specific behavior.
+- Improved support for user-managed dynamic cron jobs. Cron jobs created in your app code are now preserved across deployments, while jobs configured in `devvit.json` continue to be automatically rescheduled.
+- Fixed Devvit Journeys receipt handling. Apps in playtest mode now receive the expected receipt.
+
+
 ## Release 0.14.5: Nothing to See Here
 
 **Release Date: September 21, 2026** 
