@@ -1,8 +1,10 @@
+import FetchDomainChecker from "@site/src/components/FetchDomainChecker";
+
 # HTTP Fetch
 
 Make requests to allow-listed external domains.
 
-Your Devvit app can make network requests to access allow-listed external domains using HTTP Fetch. This enables your app to leverage webhooks, personal servers, and other third-party integrations asynchronously across the network.
+Your Devvit app can make network requests to access allow-listed external domains using HTTP Fetch. This enables your app to use approved APIs, webhooks, and other third-party integrations asynchronously across the network.
 
 ## Enabling HTTP fetch calls
 
@@ -27,6 +29,8 @@ If you're porting a Data API app as part of our [App Migration Programs](https:/
 Apps may request a domain to be added to the allow-list by specifying domains in the http configuration. This configuration is optional, and apps can still configure http: true as before.
 
 Requested domains will be submitted for review when you playtest or upload your app. Most domain requests are reviewed within **1–2 business days**, though requests with policy ambiguity may take longer. Admins may approve or deny domain requests.
+
+<FetchDomainChecker />
 
 Domain entries must be exact hostnames only, such as nytimes.com or wikipedia.org. These fetch requests are not allowed:
 
@@ -54,15 +58,15 @@ Devvit Web applications have two different contexts for using fetch:
 Server-side fetch allows your app to make HTTP requests to allowlisted external domains from your server-side code (e.g., API routes, server actions):
 
 ```ts title="server/index.ts"
-const response = await fetch('https://example.com/api/data', {
-  method: 'GET',
+const response = await fetch("https://example.com/api/data", {
+  method: "GET",
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
 const data = await response.json();
-console.log('External API response:', data);
+console.log("External API response:", data);
 ```
 
 ### Client-side fetch
