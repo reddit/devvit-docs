@@ -9,6 +9,21 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.14.7: Community Highlights & a Wiki Fix
+
+**Release Date: October 5, 2026** 
+
+This release adds support for managing Community Highlights in Devvit. You can now check whether a post is highlighted, highlight or unhighlight posts, retrieve a subreddit’s highlighted posts, and reorder them using new methods in the reddit package:
+
+- `post.isHighlighted()`
+- `post.highlight()`
+- `post.unhighlight()`
+- `subreddit.getHighlightedPosts()`
+- `subreddit.reorderHighlightedPosts()`
+
+**Other Fixes**
+Resolved an issue where retrieving a WikiPage could throw an error when the page was last edited by a Reddit Premium user.
+
 ## Release 0.14.6: Triggers, Schedulers, and Receipts
 
 **Release Date: September 28, 2026** 
