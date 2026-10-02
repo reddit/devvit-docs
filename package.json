@@ -36,7 +36,7 @@
     "redocusaurus": "2.5.0"
   },
   "resolutions": {
-    "baseline-browser-mapping": "2.9.19"
+    "baseline-browser-mapping": "2.11.0"
   },
   "devDependencies": {
     "@algolia/client-search": "^5.17.0",
@@ -44,7 +44,7 @@
     "@docusaurus/theme-common": "^3.9.2",
     "@docusaurus/utils": "^3.9.2",
     "@types/react": "^19.0.0",
-    "baseline-browser-mapping": "2.9.19",
+    "baseline-browser-mapping": "2.11.0",
     "core-js": "^3.39.0",
     "mobx": "^6.13.5",
     "prettier": "3.3.3",
