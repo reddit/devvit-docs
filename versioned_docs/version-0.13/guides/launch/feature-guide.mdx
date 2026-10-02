@@ -72,7 +72,7 @@ In order to promote a game, we need to ensure the experience for redditors meets
 - **A compelling first screen.** Your game must have a custom first screen.
 - **Cross platform support.** Your game's viewport must be accessible and clean on both mobile and desktop platforms.
 - **Self-explanatory design.** Anyone should be able to click into your post and have the context needed to learn, play, or participate.
-- **Responsive design.** All screens should be visible within fullscreen, mobile, and desktop. Avoid unnecessary scrolls. Scrolling within inline webviews is prohibited.
+- **Responsive design.** All screens should be visible within fullscreen, mobile, and desktop. Avoid unnecessary scrolls. Scrolling within inline webviews is prohibited. When content does not fit, paginate it or collapse it behind a toggle instead of adding a scroll container.
 
 ---
 
@@ -86,6 +86,21 @@ Our goal is to feature games that feel great to play and reflect Reddit's creati
 - **Innovation.** Fresh mechanics or concepts that make Reddit play unique.
 - **Performance and retention.** Stable technical performance and meaningful player return rates.
 - **Iteration.** Regular updates and responsiveness to player feedback.
+
+---
+
+## Design and polish checklist
+
+The requirements above are the floor. The items below are what separates a game that clears review from one that holds a top featuring slot.
+
+- **Make it recognizable.** A player scrolling the feed should identify your game at a glance. A distinct visual identity is what converts a scroll into a stop, and it is a different goal from simply looking clean.
+- **Animate the launch screen, tastefully.** [Launch screens are HTML](../../capabilities/server/launch_screen_and_entry_points/launch_overview.mdx), so motion is fully under your control. Keep it subtle and looping rather than a flashing attention grab.
+- **Stay visually consistent.** Treat UI, illustration, imagery, icons, and type as one product. Mismatched asset styles are the fastest way to look assembled rather than designed.
+- **Do not use emoji as UI.** Emoji in automated post text is usually fine. Emoji standing in for icons, buttons, or state indicators is not.
+- **Avoid generic AI-generated styling.** Purple-to-blue gradients, stock hero imagery, and default-looking illustration read as low effort, and a Reddit audience says so quickly. If you generate assets, art-direct them into a style of your own.
+- **Handle overflow without scrolling.** Scrolling inside inline webviews is prohibited and is worth avoiding in expanded mode too. Paginate, or collapse secondary content behind a toggle.
+- **Check that you are not capturing the scroll gesture.** Drag-and-drop interactions are the usual cause of scrolljacking in inline posts. Confirm a user can flick past your post without your game swallowing the gesture.
+- **Validate user-generated content at submission.** If players create content for other players, add a validation layer at submission time and back it with AutoMod rules in your subreddit. Devvit exposes `onAutomoderatorFilterPost` and `onAutomoderatorFilterComment` [triggers](../../capabilities/server/triggers.mdx) so your app can react when AutoMod catches something. Without this, your content supply becomes a liability the moment the game gets traction.
 
 ---
 
