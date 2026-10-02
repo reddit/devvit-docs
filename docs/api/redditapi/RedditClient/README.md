@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.7-dev**](../README.md)
+[**@devvit/reddit v0.14.8-dev**](../README.md)
 
 ***
 

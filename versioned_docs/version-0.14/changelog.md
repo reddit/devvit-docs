@@ -19,6 +19,7 @@ This release includes:
 - Improved support for user-managed dynamic cron jobs. Cron jobs created in your app code are now preserved across deployments, while jobs configured in `devvit.json` continue to be automatically rescheduled.
 - Fixed Devvit Journeys receipt handling. Apps in playtest mode now receive the expected receipt.
 
+
 ## Release 0.14.5: Nothing to See Here
 
 **Release Date: September 21, 2026** 
