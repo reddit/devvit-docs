@@ -10,11 +10,7 @@ This is a **gated beta**, which means that you’ll need to apply to unlock the 
 
 ## How to apply
 
-If you meet the requirements and want to apply for a spot in our beta program:
-
-1. Download the [Devvit Push Notifications Beta: Copy Submission Template](https://docs.google.com/spreadsheets/d/1QSAyf68QJo6ZtQ7ovr3EDTkz1p428tfea1XyR4fFk2Q/edit?gid=266062773#gid=266062773).
-2. Make a copy, and fill out the template with your app’s details.
-3. Submit an [application form](https://docs.google.com/forms/d/1KG3uUuN6SCN4eo8QQ8adsip6PAPEDppVItfWPO5T7bI/edit) with a link to your template.
+If you meet the requirements and want to be considered for a spot in our beta program, submit an [application form](https://docs.google.com/forms/d/1KG3uUuN6SCN4eo8QQ8adsip6PAPEDppVItfWPO5T7bI/edit) to apply.
 
 :::note
 Spaces are limited, and not all apps that meet the criteria will be accepted.
