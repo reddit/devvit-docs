@@ -1,11 +1,24 @@
 import React, { useEffect, useMemo, useState } from "react";
+import Admonition from "@theme/Admonition";
 import Heading from "@theme/Heading";
 
 import styles from "./styles.module.css";
 
 type CheckStatus = "empty" | "question" | "yes" | "no" | "exception";
-type DomainKind = "public-api" | "ai-provider" | "personal";
-type RejectionReason = "invalid" | "ai-provider" | "personal";
+type PolicyAnswer = "yes" | "no" | null;
+type PolicyAnswers = {
+  aiProvider: PolicyAnswer;
+  personalOrPrivate: PolicyAnswer;
+  publiclyDocumented: PolicyAnswer;
+  publiclyAccessible: PolicyAnswer;
+  rulesCompliant: PolicyAnswer;
+};
+type RejectionReason =
+  | "invalid"
+  | "ai-provider"
+  | "personal"
+  | "not-public"
+  | "policy-conflict";
 type HelperMode = "check" | "find";
 type AlternativeUseCase =
   | "ai"
@@ -24,6 +37,8 @@ type CheckResult = {
   description: string;
   normalizedDomain?: string;
   rejectionReason?: RejectionReason;
+  showPolicyQuestions?: boolean;
+  requirements?: string[];
 };
 
 type AlternativeRecommendation = {
@@ -77,6 +92,7 @@ const LIMITED_SCOPE_CLOUD_PROVIDERS = [
 ];
 
 const NON_APPROVED_AI_PROVIDER_DOMAINS = [
+  "openrouter.ai",
   "anthropic.com",
   "mistral.ai",
   "cohere.com",
@@ -84,27 +100,13 @@ const NON_APPROVED_AI_PROVIDER_DOMAINS = [
   "groq.com",
 ];
 
-const DOMAIN_KINDS: Array<{
-  value: DomainKind;
-  label: string;
-  detail: string;
-}> = [
-  {
-    value: "public-api",
-    label: "Public API",
-    detail: "Publicly documented and publicly accessible",
-  },
-  {
-    value: "ai-provider",
-    label: "AI provider",
-    detail: "Models, inference, or other AI services",
-  },
-  {
-    value: "personal",
-    label: "Personal or private",
-    detail: "Your own server or a non-public API",
-  },
-];
+const EMPTY_POLICY_ANSWERS: PolicyAnswers = {
+  aiProvider: null,
+  personalOrPrivate: null,
+  publiclyDocumented: null,
+  publiclyAccessible: null,
+  rulesCompliant: null,
+};
 
 const ALTERNATIVE_USE_CASES: Record<
   AlternativeUseCase,
@@ -261,10 +263,7 @@ function isValidHostname(domain: string): boolean {
   });
 }
 
-function checkDomain(
-  input: string,
-  domainKind: DomainKind | null,
-): CheckResult {
+function checkDomain(input: string, policyAnswers: PolicyAnswers): CheckResult {
   const { domain, formatError } = normalizeDomain(input);
 
   if (!domain) {
@@ -290,7 +289,7 @@ function checkDomain(
   if (GLOBAL_ALLOWLIST.has(domain)) {
     return {
       status: "yes",
-      title: "Yes",
+      title: "Globally allowed",
       description:
         "This hostname is on the global fetch allowlist. Add the exact hostname to your app's HTTP permissions.",
       normalizedDomain: domain,
@@ -304,7 +303,7 @@ function checkDomain(
   ) {
     return {
       status: "no",
-      title: "No",
+      title: "Not allowed",
       description:
         "OpenAI and Google Gemini are currently the only allowed AI providers.",
       normalizedDomain: domain,
@@ -319,89 +318,170 @@ function checkDomain(
   ) {
     return {
       status: "exception",
-      title: "Request exception",
+      title: "Exception review required",
       description:
-        "This limited-scope cloud provider may be approved with justification. Request the most granular hostname possible and explain which Devvit server capability does not meet your needs.",
+        "Limited-scope cloud providers are not approved through the standard public API path. Approval is possible only when the exception requirements are met.",
       normalizedDomain: domain,
+      requirements: [
+        "Request the most granular hostname possible.",
+        "Follow user privacy and data governance requirements.",
+        "Demonstrate a capability that @devvit/server does not support.",
+        "Use it only for a valid exception use case, such as a relational database.",
+        "Provide a detailed justification for the exception.",
+      ],
     };
   }
 
-  if (domainKind === "public-api") {
-    return {
-      status: "yes",
-      title: "Yes",
-      description:
-        "Publicly documented and publicly accessible APIs are eligible for approval. Include the API documentation and your use case with the request.",
-      normalizedDomain: domain,
-    };
-  }
-
-  if (domainKind === "ai-provider") {
+  if (policyAnswers.aiProvider === "yes") {
     return {
       status: "no",
-      title: "No",
+      title: "Not allowed",
       description:
-        "OpenAI and Google Gemini are currently the only allowed AI providers.",
+        "OpenAI and Google Gemini are currently the only allowed AI providers. This applies to AI gateways and public AI APIs too.",
       normalizedDomain: domain,
       rejectionReason: "ai-provider",
+      showPolicyQuestions: true,
     };
   }
 
-  if (domainKind === "personal") {
+  if (policyAnswers.personalOrPrivate === "yes") {
     return {
       status: "no",
-      title: "No",
+      title: "Normally not eligible",
       description:
-        "Personal domains and non-public APIs are not approved by default. A detailed exception request may be considered when Devvit server capabilities cannot support the use case.",
+        "Personal domains and private services are not approved by default, even if their API is documented. A detailed exception request may be considered when Devvit server capabilities cannot support the use case.",
       normalizedDomain: domain,
       rejectionReason: "personal",
+      showPolicyQuestions: true,
+    };
+  }
+
+  if (
+    policyAnswers.publiclyDocumented === "no" ||
+    policyAnswers.publiclyAccessible === "no"
+  ) {
+    return {
+      status: "no",
+      title: "Does not meet standard requirements",
+      description:
+        "The standard approval path requires both public documentation and public accessibility. Without both, the request would need an exceptional justification.",
+      normalizedDomain: domain,
+      rejectionReason: "not-public",
+      showPolicyQuestions: true,
+    };
+  }
+
+  if (policyAnswers.rulesCompliant === "no") {
+    return {
+      status: "no",
+      title: "Not eligible",
+      description:
+        "Domain requests must support a valid use case and follow the Devvit rules, including applicable AI-provider and account-linking policies.",
+      normalizedDomain: domain,
+      rejectionReason: "policy-conflict",
+      showPolicyQuestions: true,
+    };
+  }
+
+  if (Object.values(policyAnswers).some((answer) => answer === null)) {
+    return {
+      status: "question",
+      title: "Check the service details",
+      description:
+        "Answer each question independently. Restricted service types take precedence over public API eligibility.",
+      normalizedDomain: domain,
+      showPolicyQuestions: true,
     };
   }
 
   return {
-    status: "question",
-    title: "One more detail",
+    status: "yes",
+    title: "Eligible for review",
     description:
-      "Select the option that describes how this domain will be used.",
+      "This domain appears to meet the baseline requirements, however, approval is not guaranteed and will be determined during app review.",
     normalizedDomain: domain,
+    showPolicyQuestions: true,
+    requirements: [
+      "Link to the public API documentation.",
+      "Explain the valid use case and why the domain is needed.",
+      "Follow the Devvit rules and applicable account-linking policies.",
+      "Document the fetch domain and its purpose in your app README.",
+    ],
   };
 }
 
-function SuggestedDomainResults({
+function PolicyQuestion({
+  id,
+  question,
+  detail,
+  value,
+  onChange,
+}: {
+  id: string;
+  question: string;
+  detail: string;
+  value: PolicyAnswer;
+  onChange: (value: Exclude<PolicyAnswer, null>) => void;
+}): React.ReactElement {
+  const labelId = `${id}-label`;
+
+  return (
+    <div
+      className={styles.policyQuestion}
+      role="group"
+      aria-labelledby={labelId}
+    >
+      <div id={labelId} className={styles.policyQuestionText}>
+        <strong>{question}</strong>
+        <small>{detail}</small>
+      </div>
+      <div className={styles.answerOptions}>
+        {(["yes", "no"] as const).map((answer) => (
+          <label key={answer} className={styles.answerOption}>
+            <input
+              type="radio"
+              name={id}
+              value={answer}
+              checked={value === answer}
+              onChange={() => onChange(answer)}
+            />
+            <span>{answer === "yes" ? "Yes" : "No"}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function DomainRecommendationResults({
   recommendation,
   copiedDomain,
   onCopyDomain,
 }: {
   recommendation: AlternativeRecommendation;
-  copiedDomain?: string | null;
-  onCopyDomain?: (domain: string) => void;
+  copiedDomain: string | null;
+  onCopyDomain: (domain: string) => void;
 }): React.ReactElement {
   return (
     <div className={styles.alternativeResults} aria-live="polite">
       <strong>{recommendation.label}</strong>
       <p>{recommendation.description}</p>
-      <ul
-        className={
-          onCopyDomain ? styles.finderDomainList : styles.suggestedDomains
-        }
-      >
+      <ul className={styles.finderDomainList}>
         {recommendation.domains.map((suggestedDomain) => (
           <li key={suggestedDomain}>
             <code>{suggestedDomain}</code>
-            {onCopyDomain ? (
-              <button
-                type="button"
-                className={styles.copyDomainButton}
-                onClick={() => onCopyDomain(suggestedDomain)}
-                aria-label={
-                  copiedDomain === suggestedDomain
-                    ? `${suggestedDomain} copied`
-                    : `Copy ${suggestedDomain}`
-                }
-              >
-                {copiedDomain === suggestedDomain ? "Copied" : "Copy"}
-              </button>
-            ) : null}
+            <button
+              type="button"
+              className={styles.copyDomainButton}
+              onClick={() => onCopyDomain(suggestedDomain)}
+              aria-label={
+                copiedDomain === suggestedDomain
+                  ? `${suggestedDomain} copied`
+                  : `Copy ${suggestedDomain}`
+              }
+            >
+              {copiedDomain === suggestedDomain ? "Copied" : "Copy"}
+            </button>
           </li>
         ))}
       </ul>
@@ -412,30 +492,28 @@ function SuggestedDomainResults({
 export default function FetchDomainChecker(): React.ReactElement {
   const [mode, setMode] = useState<HelperMode>("check");
   const [domain, setDomain] = useState("");
-  const [domainKind, setDomainKind] = useState<DomainKind | null>(null);
+  const [policyAnswers, setPolicyAnswers] = useState<PolicyAnswers>({
+    ...EMPTY_POLICY_ANSWERS,
+  });
   const [alternativeUseCase, setAlternativeUseCase] =
     useState<AlternativeUseCase | null>(null);
   const [copiedDomain, setCopiedDomain] = useState<string | null>(null);
   const result = useMemo(
-    () => checkDomain(domain, domainKind),
-    [domain, domainKind],
+    () => checkDomain(domain, policyAnswers),
+    [domain, policyAnswers],
   );
-  const shouldAskDomainKind =
-    result.status === "question" || domainKind !== null;
-  const suggestedUseCase =
-    result.rejectionReason === "ai-provider" ? "ai" : alternativeUseCase;
-  const suggestedAlternatives = suggestedUseCase
-    ? ALTERNATIVE_USE_CASES[suggestedUseCase]
-    : null;
   const finderRecommendation = alternativeUseCase
     ? ALTERNATIVE_USE_CASES[alternativeUseCase]
     : null;
-  const shouldShowAlternatives =
-    result.status === "no" && result.rejectionReason !== "invalid";
+  const shouldShowFinderLink =
+    result.status === "no" &&
+    ["ai-provider", "personal", "not-public"].includes(
+      result.rejectionReason ?? "",
+    );
 
   useEffect(() => {
     const getModeFromHash = (): HelperMode | null => {
-      return window.location.hash === "#find-an-api"
+      return ["#find-a-domain", "#find-an-api"].includes(window.location.hash)
         ? "find"
         : window.location.hash === "#fetch-domain-checker"
           ? "check"
@@ -456,7 +534,7 @@ export default function FetchDomainChecker(): React.ReactElement {
       window.requestAnimationFrame(() => {
         document
           .getElementById(
-            initialMode === "find" ? "find-an-api" : "fetch-domain-checker",
+            initialMode === "find" ? "find-a-domain" : "fetch-domain-checker",
           )
           ?.scrollIntoView({ block: "start" });
       });
@@ -473,13 +551,17 @@ export default function FetchDomainChecker(): React.ReactElement {
   const selectMode = (
     event: React.MouseEvent<HTMLAnchorElement>,
     nextMode: HelperMode,
+    useCase?: AlternativeUseCase | null,
   ) => {
     event.preventDefault();
     setMode(nextMode);
+    if (useCase !== undefined) {
+      updateAlternativeUseCase(useCase);
+    }
     window.history.pushState(
       null,
       "",
-      nextMode === "find" ? "#find-an-api" : "#fetch-domain-checker",
+      nextMode === "find" ? "#find-a-domain" : "#fetch-domain-checker",
     );
   };
 
@@ -490,13 +572,36 @@ export default function FetchDomainChecker(): React.ReactElement {
 
   const updateDomain = (value: string) => {
     setDomain(value);
-    setDomainKind(null);
+    setPolicyAnswers({ ...EMPTY_POLICY_ANSWERS });
     setAlternativeUseCase(null);
     setCopiedDomain(null);
   };
 
-  const updateDomainKind = (value: DomainKind) => {
-    setDomainKind(value);
+  const updatePolicyAnswer = (
+    key: keyof PolicyAnswers,
+    value: Exclude<PolicyAnswer, null>,
+  ) => {
+    setPolicyAnswers((currentAnswers) => {
+      const nextAnswers = { ...currentAnswers, [key]: value };
+
+      if (key === "aiProvider") {
+        nextAnswers.personalOrPrivate = null;
+        nextAnswers.publiclyDocumented = null;
+        nextAnswers.publiclyAccessible = null;
+        nextAnswers.rulesCompliant = null;
+      } else if (key === "personalOrPrivate") {
+        nextAnswers.publiclyDocumented = null;
+        nextAnswers.publiclyAccessible = null;
+        nextAnswers.rulesCompliant = null;
+      } else if (key === "publiclyDocumented") {
+        nextAnswers.publiclyAccessible = null;
+        nextAnswers.rulesCompliant = null;
+      } else if (key === "publiclyAccessible") {
+        nextAnswers.rulesCompliant = null;
+      }
+
+      return nextAnswers;
+    });
     setAlternativeUseCase(null);
     setCopiedDomain(null);
   };
@@ -514,21 +619,21 @@ export default function FetchDomainChecker(): React.ReactElement {
     <section
       className={styles.checker}
       aria-labelledby={
-        mode === "check" ? "fetch-domain-checker" : "find-an-api"
+        mode === "check" ? "fetch-domain-checker" : "find-a-domain"
       }
     >
       <div className={styles.header}>
         <div hidden={mode !== "check"}>
           <Heading as="h2" id="fetch-domain-checker" className={styles.title}>
-            Check a fetch domain
+            Check a Fetch Domain
           </Heading>
           <p className={styles.description}>
             Get a policy check before adding a hostname to your app.
           </p>
         </div>
         <div hidden={mode !== "find"}>
-          <Heading as="h2" id="find-an-api" className={styles.title}>
-            Find an API
+          <Heading as="h2" id="find-a-domain" className={styles.title}>
+            Find a Domain
           </Heading>
           <p className={styles.description}>
             Start with a use case and explore relevant globally allowed domains.
@@ -543,15 +648,15 @@ export default function FetchDomainChecker(): React.ReactElement {
           aria-current={mode === "check" ? "location" : undefined}
           onClick={(event) => selectMode(event, "check")}
         >
-          Check a domain
+          Check a Domain
         </a>
         <a
           className={mode === "find" ? styles.activeModeTab : styles.modeTab}
-          href="#find-an-api"
+          href="#find-a-domain"
           aria-current={mode === "find" ? "location" : undefined}
           onClick={(event) => selectMode(event, "find")}
         >
-          Find an API
+          Find a Domain
         </a>
       </nav>
 
@@ -583,31 +688,75 @@ export default function FetchDomainChecker(): React.ReactElement {
             </span>
           </div>
 
-          {shouldAskDomainKind &&
-          result.status !== "no" &&
-          result.status !== "exception" ? (
-            <fieldset className={styles.kindFieldset}>
-              <legend className={styles.label}>
-                What kind of domain is it?
-              </legend>
-              <div className={styles.kindOptions}>
-                {DOMAIN_KINDS.map((option) => (
-                  <label key={option.value} className={styles.kindOption}>
-                    <input
-                      type="radio"
-                      name="fetch-domain-kind"
-                      value={option.value}
-                      checked={domainKind === option.value}
-                      onChange={() => updateDomainKind(option.value)}
-                    />
-                    <span>
-                      <strong>{option.label}</strong>
-                      <small>{option.detail}</small>
-                    </span>
-                  </label>
-                ))}
+          {result.showPolicyQuestions ? (
+            <div
+              className={styles.policyQuestions}
+              aria-labelledby="fetch-domain-policy-questions"
+            >
+              <div>
+                <strong
+                  id="fetch-domain-policy-questions"
+                  className={styles.label}
+                >
+                  Tell us about the service
+                </strong>
+                <p className={styles.policyHint}>
+                  Answer in order. Restricted service types take precedence.
+                </p>
               </div>
-            </fieldset>
+              <PolicyQuestion
+                id="fetch-domain-ai-provider"
+                question="Does it provide AI models, inference, or AI routing?"
+                detail="Public AI APIs and gateways still count."
+                value={policyAnswers.aiProvider}
+                onChange={(value) => updatePolicyAnswer("aiProvider", value)}
+              />
+              {policyAnswers.aiProvider === "no" ? (
+                <PolicyQuestion
+                  id="fetch-domain-personal"
+                  question="Is this a personal domain or private service you control?"
+                  detail="Includes personal servers and non-public APIs."
+                  value={policyAnswers.personalOrPrivate}
+                  onChange={(value) =>
+                    updatePolicyAnswer("personalOrPrivate", value)
+                  }
+                />
+              ) : null}
+              {policyAnswers.aiProvider === "no" &&
+              policyAnswers.personalOrPrivate === "no" ? (
+                <PolicyQuestion
+                  id="fetch-domain-public-documentation"
+                  question="Is the API documentation publicly available?"
+                  detail="Reviewers must be able to verify how the API works."
+                  value={policyAnswers.publiclyDocumented}
+                  onChange={(value) =>
+                    updatePolicyAnswer("publiclyDocumented", value)
+                  }
+                />
+              ) : null}
+              {policyAnswers.publiclyDocumented === "yes" ? (
+                <PolicyQuestion
+                  id="fetch-domain-public-access"
+                  question="Can the public obtain access to the API?"
+                  detail="Authentication is okay when access is not limited to private or internal users."
+                  value={policyAnswers.publiclyAccessible}
+                  onChange={(value) =>
+                    updatePolicyAnswer("publiclyAccessible", value)
+                  }
+                />
+              ) : null}
+              {policyAnswers.publiclyAccessible === "yes" ? (
+                <PolicyQuestion
+                  id="fetch-domain-rules-compliance"
+                  question="Does the intended use follow the Devvit rules and applicable policies?"
+                  detail="This includes AI-provider and account-linking restrictions."
+                  value={policyAnswers.rulesCompliant}
+                  onChange={(value) =>
+                    updatePolicyAnswer("rulesCompliant", value)
+                  }
+                />
+              ) : null}
+            </div>
           ) : null}
 
           <div
@@ -623,71 +772,52 @@ export default function FetchDomainChecker(): React.ReactElement {
               <code className={styles.domain}>{result.normalizedDomain}</code>
             ) : null}
             <p className={styles.resultDescription}>{result.description}</p>
+            {result.requirements ? (
+              <div className={styles.resultRequirements}>
+                <strong>Requirements</strong>
+                <ul>
+                  {result.requirements.map((requirement) => (
+                    <li key={requirement}>{requirement}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
 
-          {shouldShowAlternatives ? (
-            <aside
-              className={styles.alternatives}
-              aria-labelledby="fetch-domain-alternatives"
-            >
-              <h3
-                id="fetch-domain-alternatives"
-                className={styles.alternativesTitle}
+          {shouldShowFinderLink ? (
+            <p className={styles.finderLinkPrompt}>
+              Need another option?{" "}
+              <a
+                href="#find-a-domain"
+                onClick={(event) =>
+                  selectMode(
+                    event,
+                    "find",
+                    result.rejectionReason === "ai-provider" ? "ai" : null,
+                  )
+                }
               >
-                Suggested alternatives
-              </h3>
-              {result.rejectionReason === "personal" ? (
-                <label className={styles.alternativePicker}>
-                  <span className={styles.label}>
-                    What are you trying to do?
-                  </span>
-                  <select
-                    className={styles.select}
-                    value={alternativeUseCase ?? ""}
-                    onChange={(event) =>
-                      updateAlternativeUseCase(
-                        (event.target.value ||
-                          null) as AlternativeUseCase | null,
-                      )
-                    }
-                  >
-                    <option value="">Select a use case</option>
-                    {ALTERNATIVE_USE_CASE_OPTIONS.map(([value, option]) => (
-                      <option key={value} value={value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-              ) : null}
-
-              {suggestedAlternatives ? (
-                <SuggestedDomainResults
-                  recommendation={suggestedAlternatives}
-                />
-              ) : (
-                <p className={styles.alternativePrompt}>
-                  Choose a use case to see relevant globally allowed domains.
-                </p>
-              )}
-
-              <AlternativeDisclaimer />
-            </aside>
+                {result.rejectionReason === "ai-provider"
+                  ? "View allowed AI domains"
+                  : "Find a globally allowed domain"}
+              </a>
+              .
+            </p>
           ) : null}
         </div>
 
         <div
-          id="find-api-panel"
+          id="find-domain-panel"
           className={styles.modePanel}
           hidden={mode !== "find"}
         >
           <label
             className={styles.alternativePicker}
-            htmlFor="find-api-use-case"
+            htmlFor="find-domain-use-case"
           >
             <span className={styles.label}>What does your app need?</span>
             <select
-              id="find-api-use-case"
+              id="find-domain-use-case"
               className={styles.select}
               value={alternativeUseCase ?? ""}
               onChange={(event) =>
@@ -706,7 +836,7 @@ export default function FetchDomainChecker(): React.ReactElement {
           </label>
 
           {finderRecommendation ? (
-            <SuggestedDomainResults
+            <DomainRecommendationResults
               recommendation={finderRecommendation}
               copiedDomain={copiedDomain}
               onCopyDomain={copyDomain}
@@ -721,10 +851,10 @@ export default function FetchDomainChecker(): React.ReactElement {
           <AlternativeDisclaimer />
         </div>
 
-        <p className={styles.disclaimer}>
+        <Admonition type="note">
           This helper provides policy guidance, not approval. Domain requests
           are reviewed when you playtest or upload your app.
-        </p>
+        </Admonition>
       </div>
     </section>
   );
@@ -734,7 +864,7 @@ function AlternativeDisclaimer(): React.ReactElement {
   return (
     <p className={styles.alternativeNote}>
       These are potential alternatives, not guaranteed replacements. Confirm
-      that the API supports your requirements, authentication method, and
+      that the service supports your requirements, authentication method, and
       permitted usage.{" "}
       <a href="#global-fetch-allowlist">View the full allowlist</a>.
     </p>
