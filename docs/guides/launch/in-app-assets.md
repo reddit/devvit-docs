@@ -69,4 +69,4 @@ Choose a destination that gives players a useful next step after discovering you
 
 Your assets must be [submitted](https://developers.reddit.com/docs/guides/launch/launch-guide#how-to-launch-an-app) and approved in [app review](https://developers.reddit.com/docs/devvit_rules#reddit-app-review) before your app can appear in the Games catalog or use the updated assets in eligible featured placements. Only the most recently approved set of assets is used.
 
-To learn more about featuring opportunities and requirements, check out the [Feature Guide](https://chatgpt.com/c/feature-guide.mdx).
+To learn more about featuring opportunities and requirements, check out the [Feature Guide](https://developers.reddit.com/docs/guides/launch/feature-guide).
