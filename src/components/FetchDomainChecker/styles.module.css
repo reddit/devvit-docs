@@ -2,7 +2,6 @@
   --checker-border: var(--ifm-toc-border-color);
   --checker-muted: var(--ifm-color-emphasis-700);
   --checker-success: #168a5b;
-  --checker-warning: #b05a00;
   --checker-danger: #c13b19;
 
   margin: 1.5rem 0 2rem;
@@ -14,7 +13,6 @@
 
 :global([data-theme="dark"]) .checker {
   --checker-success: #55c493;
-  --checker-warning: #f2a44f;
   --checker-danger: #ff815f;
 }
 
@@ -260,10 +258,6 @@
   border-left-color: var(--checker-danger);
 }
 
-.result[data-status="exception"] {
-  border-left-color: var(--checker-warning);
-}
-
 .resultHeading {
   display: flex;
   align-items: center;
@@ -284,10 +278,6 @@
 
 .result[data-status="no"] .statusMark {
   background: var(--checker-danger);
-}
-
-.result[data-status="exception"] .statusMark {
-  background: var(--checker-warning);
 }
 
 .resultTitle {

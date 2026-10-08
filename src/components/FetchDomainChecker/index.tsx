@@ -4,11 +4,12 @@ import Heading from "@theme/Heading";
 
 import styles from "./styles.module.css";
 
-type CheckStatus = "empty" | "question" | "yes" | "no" | "exception";
+type CheckStatus = "empty" | "question" | "yes" | "no";
 type PolicyAnswer = "yes" | "no" | null;
 type PolicyAnswers = {
   aiProvider: PolicyAnswer;
-  personalOrPrivate: PolicyAnswer;
+  restrictedInfrastructure: PolicyAnswer;
+  staticContent: PolicyAnswer;
   publiclyDocumented: PolicyAnswer;
   publiclyAccessible: PolicyAnswer;
   rulesCompliant: PolicyAnswer;
@@ -16,7 +17,7 @@ type PolicyAnswers = {
 type RejectionReason =
   | "invalid"
   | "ai-provider"
-  | "personal"
+  | "infrastructure"
   | "not-public"
   | "policy-conflict";
 type HelperMode = "check" | "find";
@@ -83,12 +84,14 @@ const GLOBAL_ALLOWLIST = new Set([
   "chessboardjs.com",
 ]);
 
-const LIMITED_SCOPE_CLOUD_PROVIDERS = [
+const NON_APPROVED_COMPUTE_DOMAINS = [
   "supabase.com",
-  "firebase.com",
+  "supabase.co",
   "spacetimedb.com",
-  "s3.amazonaws.com",
-  "storage.googleapis.com",
+  "cloudfunctions.net",
+  "run.app",
+  "workers.dev",
+  "vercel.app",
 ];
 
 const NON_APPROVED_AI_PROVIDER_DOMAINS = [
@@ -102,7 +105,8 @@ const NON_APPROVED_AI_PROVIDER_DOMAINS = [
 
 const EMPTY_POLICY_ANSWERS: PolicyAnswers = {
   aiProvider: null,
-  personalOrPrivate: null,
+  restrictedInfrastructure: null,
+  staticContent: null,
   publiclyDocumented: null,
   publiclyAccessible: null,
   rulesCompliant: null,
@@ -312,23 +316,17 @@ function checkDomain(input: string, policyAnswers: PolicyAnswers): CheckResult {
   }
 
   if (
-    LIMITED_SCOPE_CLOUD_PROVIDERS.some((baseDomain) =>
+    NON_APPROVED_COMPUTE_DOMAINS.some((baseDomain) =>
       isSameDomainOrSubdomain(domain, baseDomain),
     )
   ) {
     return {
-      status: "exception",
-      title: "Exception review required",
+      status: "no",
+      title: "Not eligible",
       description:
-        "Limited-scope cloud providers are not approved through the standard public API path. Approval is possible only when the exception requirements are met.",
+        "Developer-controlled compute, including Supabase projects, serverless functions, and edge workers, is not eligible for domain approval.",
       normalizedDomain: domain,
-      requirements: [
-        "Request the most granular hostname possible.",
-        "Follow user privacy and data governance requirements.",
-        "Demonstrate a capability that @devvit/server does not support.",
-        "Use it only for a valid exception use case, such as a relational database.",
-        "Provide a detailed justification for the exception.",
-      ],
+      rejectionReason: "infrastructure",
     };
   }
 
@@ -344,27 +342,28 @@ function checkDomain(input: string, policyAnswers: PolicyAnswers): CheckResult {
     };
   }
 
-  if (policyAnswers.personalOrPrivate === "yes") {
+  if (policyAnswers.restrictedInfrastructure === "yes") {
     return {
       status: "no",
-      title: "Normally not eligible",
+      title: "Not eligible",
       description:
-        "Personal domains and private services are not approved by default, even if their API is documented. A detailed exception request may be considered when Devvit server capabilities cannot support the use case.",
+        "Domains that execute developer-controlled server-side code or route requests to that code are not eligible for approval. This includes Supabase projects, self-hosted backends, serverless functions, and edge workers.",
       normalizedDomain: domain,
-      rejectionReason: "personal",
+      rejectionReason: "infrastructure",
       showPolicyQuestions: true,
     };
   }
 
   if (
-    policyAnswers.publiclyDocumented === "no" ||
+    (policyAnswers.staticContent !== "yes" &&
+      policyAnswers.publiclyDocumented === "no") ||
     policyAnswers.publiclyAccessible === "no"
   ) {
     return {
       status: "no",
       title: "Does not meet standard requirements",
       description:
-        "The standard approval path requires both public documentation and public accessibility. Without both, the request would need an exceptional justification.",
+        "New domain requests must provide a publicly documented and publicly accessible API, or publicly accessible static content without developer-controlled compute.",
       normalizedDomain: domain,
       rejectionReason: "not-public",
       showPolicyQuestions: true,
@@ -383,12 +382,23 @@ function checkDomain(input: string, policyAnswers: PolicyAnswers): CheckResult {
     };
   }
 
-  if (Object.values(policyAnswers).some((answer) => answer === null)) {
+  const requiredAnswers = [
+    policyAnswers.aiProvider,
+    policyAnswers.restrictedInfrastructure,
+    policyAnswers.staticContent,
+    policyAnswers.publiclyAccessible,
+    policyAnswers.rulesCompliant,
+    ...(policyAnswers.staticContent === "yes"
+      ? []
+      : [policyAnswers.publiclyDocumented]),
+  ];
+
+  if (requiredAnswers.some((answer) => answer === null)) {
     return {
       status: "question",
       title: "Check the service details",
       description:
-        "Answer each question independently. Restricted service types take precedence over public API eligibility.",
+        "Answer each question independently. Developer-controlled compute is not eligible, even when the endpoint is publicly accessible.",
       normalizedDomain: domain,
       showPolicyQuestions: true,
     };
@@ -402,7 +412,12 @@ function checkDomain(input: string, policyAnswers: PolicyAnswers): CheckResult {
     normalizedDomain: domain,
     showPolicyQuestions: true,
     requirements: [
-      "Link to the public API documentation.",
+      ...(policyAnswers.staticContent === "yes"
+        ? [
+            "Link to the publicly accessible files or assets.",
+            "Describe the hosting configuration and confirm the domain serves only static content, with no rewrites or proxies to developer-controlled compute.",
+          ]
+        : ["Link to the public API documentation."]),
       "Explain the valid use case and why the domain is needed.",
       "Follow the Devvit rules and applicable account-linking policies.",
       "Document the fetch domain and its purpose in your app README.",
@@ -507,7 +522,7 @@ export default function FetchDomainChecker(): React.ReactElement {
     : null;
   const shouldShowFinderLink =
     result.status === "no" &&
-    ["ai-provider", "personal", "not-public"].includes(
+    ["ai-provider", "infrastructure", "not-public"].includes(
       result.rejectionReason ?? "",
     );
 
@@ -585,11 +600,17 @@ export default function FetchDomainChecker(): React.ReactElement {
       const nextAnswers = { ...currentAnswers, [key]: value };
 
       if (key === "aiProvider") {
-        nextAnswers.personalOrPrivate = null;
+        nextAnswers.restrictedInfrastructure = null;
+        nextAnswers.staticContent = null;
         nextAnswers.publiclyDocumented = null;
         nextAnswers.publiclyAccessible = null;
         nextAnswers.rulesCompliant = null;
-      } else if (key === "personalOrPrivate") {
+      } else if (key === "restrictedInfrastructure") {
+        nextAnswers.staticContent = null;
+        nextAnswers.publiclyDocumented = null;
+        nextAnswers.publiclyAccessible = null;
+        nextAnswers.rulesCompliant = null;
+      } else if (key === "staticContent") {
         nextAnswers.publiclyDocumented = null;
         nextAnswers.publiclyAccessible = null;
         nextAnswers.rulesCompliant = null;
@@ -713,17 +734,28 @@ export default function FetchDomainChecker(): React.ReactElement {
               />
               {policyAnswers.aiProvider === "no" ? (
                 <PolicyQuestion
-                  id="fetch-domain-personal"
-                  question="Is this a personal domain or private service you control?"
-                  detail="Includes personal servers and non-public APIs."
-                  value={policyAnswers.personalOrPrivate}
+                  id="fetch-domain-infrastructure"
+                  question="Does the domain execute or route requests to developer-controlled server-side code?"
+                  detail="Includes Supabase projects, self-hosted backends, serverless or edge functions, and Firebase Hosting rewrites to Cloud Functions or Cloud Run. Static files and assets alone do not count."
+                  value={policyAnswers.restrictedInfrastructure}
                   onChange={(value) =>
-                    updatePolicyAnswer("personalOrPrivate", value)
+                    updatePolicyAnswer("restrictedInfrastructure", value)
                   }
                 />
               ) : null}
               {policyAnswers.aiProvider === "no" &&
-              policyAnswers.personalOrPrivate === "no" ? (
+              policyAnswers.restrictedInfrastructure === "no" ? (
+                <PolicyQuestion
+                  id="fetch-domain-static-content"
+                  question="Does the domain serve only static files or assets?"
+                  detail="Includes public static hosting, CDNs, and storage buckets. Personal or custom domains can qualify when used only for static content."
+                  value={policyAnswers.staticContent}
+                  onChange={(value) =>
+                    updatePolicyAnswer("staticContent", value)
+                  }
+                />
+              ) : null}
+              {policyAnswers.staticContent === "no" ? (
                 <PolicyQuestion
                   id="fetch-domain-public-documentation"
                   question="Is the API documentation publicly available?"
@@ -734,11 +766,20 @@ export default function FetchDomainChecker(): React.ReactElement {
                   }
                 />
               ) : null}
-              {policyAnswers.publiclyDocumented === "yes" ? (
+              {policyAnswers.staticContent === "yes" ||
+              policyAnswers.publiclyDocumented === "yes" ? (
                 <PolicyQuestion
                   id="fetch-domain-public-access"
-                  question="Can the public obtain access to the API?"
-                  detail="Authentication is okay when access is not limited to private or internal users."
+                  question={
+                    policyAnswers.staticContent === "yes"
+                      ? "Are the static files or assets publicly accessible?"
+                      : "Can the public obtain access to the API?"
+                  }
+                  detail={
+                    policyAnswers.staticContent === "yes"
+                      ? "Reviewers must be able to access the content at the URLs included in your request."
+                      : "Authentication is okay when access is not limited to private or internal users."
+                  }
                   value={policyAnswers.publiclyAccessible}
                   onChange={(value) =>
                     updatePolicyAnswer("publiclyAccessible", value)
