@@ -175,7 +175,7 @@ Most app versions are reviewed within **1–2 business days**. New apps or versi
 
 - **Payments**: apps using the payments capability go through additional policy review.
 - **`runAs: 'USER'`**: user action permissions require explicit approval as part of the review.
-- **External fetch domains**: new domain requests are reviewed separately under the same **1–2 business day** target, though requests with policy ambiguity may take longer (see [HTTP Fetch](../capabilities/http-fetch.md)).
+- **External fetch domains**: new domain requests are reviewed separately under the same **1–2 business day** target, though requests with policy ambiguity may take longer (see [HTTP Fetch](../capabilities/http-fetch.mdx)).
 
 To keep review moving:
 
@@ -454,10 +454,10 @@ Domain requests are reviewed separately from app publishing. Most domain request
 To make approval go smoothly:
 
 - Use exact hostnames only — no wildcards (`*.example.com`), no protocols (`https://`), and no paths (`api.example.com/webhooks`).
-- Add a "Fetch Domains" section to your app [`README.md`](../devvit_rules.md#app-readme-requirements) listing each domain and explaining why you need it. The expected format is documented in [HTTP Fetch](../capabilities/http-fetch.md).
+- Add a "Fetch Domains" section to your app [`README.md`](../devvit_rules.md#app-readme-requirements) listing each domain and explaining why you need it. The expected format is documented in [HTTP Fetch](../capabilities/http-fetch.mdx).
 - Include links to your Terms and Conditions and Privacy Policy in your app details form.
 
-Before submitting, check the [global fetch allowlist](../capabilities/http-fetch.md#global-fetch-allowlist) — if your domain is already listed there, no separate request is needed. Personal domains (e.g., `personaldomain.com`) aren't approved.
+Before submitting, check the [global fetch allowlist](../capabilities/http-fetch.mdx#global-fetch-allowlist) — if your domain is already listed there, no separate request is needed. Personal domains (e.g., `personaldomain.com`) aren't approved.
 
 </details>
 
