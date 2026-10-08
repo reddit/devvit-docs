@@ -638,7 +638,7 @@ export default function FetchDomainChecker(): React.ReactElement {
 
   return (
     <section
-      className={styles.checker}
+      className={styles.helper}
       aria-labelledby={
         mode === "check" ? "fetch-domain-checker" : "find-a-domain"
       }
@@ -649,7 +649,7 @@ export default function FetchDomainChecker(): React.ReactElement {
             Check a Fetch Domain
           </Heading>
           <p className={styles.description}>
-            Get a policy check before adding a hostname to your app.
+            Get a policy check before adding a domain to your app.
           </p>
         </div>
         <div hidden={mode !== "find"}>
@@ -662,240 +662,244 @@ export default function FetchDomainChecker(): React.ReactElement {
         </div>
       </div>
 
-      <nav className={styles.modeTabs} aria-label="Domain helper mode">
-        <a
-          className={mode === "check" ? styles.activeModeTab : styles.modeTab}
-          href="#fetch-domain-checker"
-          aria-current={mode === "check" ? "location" : undefined}
-          onClick={(event) => selectMode(event, "check")}
-        >
-          Check a Domain
-        </a>
-        <a
-          className={mode === "find" ? styles.activeModeTab : styles.modeTab}
-          href="#find-a-domain"
-          aria-current={mode === "find" ? "location" : undefined}
-          onClick={(event) => selectMode(event, "find")}
-        >
-          Find a Domain
-        </a>
-      </nav>
+      <div className={styles.checker}>
+        <nav className={styles.modeTabs} aria-label="Domain helper mode">
+          <a
+            className={mode === "check" ? styles.activeModeTab : styles.modeTab}
+            href="#fetch-domain-checker"
+            aria-current={mode === "check" ? "location" : undefined}
+            onClick={(event) => selectMode(event, "check")}
+          >
+            Check a Domain
+          </a>
+          <a
+            className={mode === "find" ? styles.activeModeTab : styles.modeTab}
+            href="#find-a-domain"
+            aria-current={mode === "find" ? "location" : undefined}
+            onClick={(event) => selectMode(event, "find")}
+          >
+            Find a Domain
+          </a>
+        </nav>
 
-      <div className={styles.body}>
-        <div
-          id="check-domain-panel"
-          className={styles.modePanel}
-          hidden={mode !== "check"}
-        >
-          <div className={styles.formRow}>
-            <label className={styles.label} htmlFor="fetch-domain-input">
-              Exact hostname
-            </label>
-            <input
-              id="fetch-domain-input"
-              className={styles.input}
-              type="text"
-              inputMode="url"
-              autoCapitalize="none"
-              autoCorrect="off"
-              spellCheck={false}
-              placeholder="api.example.com"
-              value={domain}
-              onChange={(event) => updateDomain(event.target.value)}
-              aria-describedby="fetch-domain-hint"
-            />
-            <span id="fetch-domain-hint" className={styles.hint}>
-              No protocol, path, port, or wildcard.
-            </span>
-          </div>
-
-          {result.showPolicyQuestions ? (
-            <div
-              className={styles.policyQuestions}
-              aria-labelledby="fetch-domain-policy-questions"
-            >
-              <div>
-                <strong
-                  id="fetch-domain-policy-questions"
-                  className={styles.label}
-                >
-                  Tell us about the service
-                </strong>
-                <p className={styles.policyHint}>
-                  Answer in order. Restricted service types take precedence.
-                </p>
-              </div>
-              <PolicyQuestion
-                id="fetch-domain-ai-provider"
-                question="Does it provide AI models, inference, or AI routing?"
-                detail="Public AI APIs and gateways still count."
-                value={policyAnswers.aiProvider}
-                onChange={(value) => updatePolicyAnswer("aiProvider", value)}
+        <div className={styles.body}>
+          <div
+            id="check-domain-panel"
+            className={styles.modePanel}
+            hidden={mode !== "check"}
+          >
+            <div className={styles.formRow}>
+              <label className={styles.inputLabel} htmlFor="fetch-domain-input">
+                <strong>Enter a domain</strong>
+              </label>
+              <input
+                id="fetch-domain-input"
+                className={styles.input}
+                type="text"
+                inputMode="url"
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
+                placeholder="api.example.com"
+                value={domain}
+                onChange={(event) => updateDomain(event.target.value)}
+                aria-describedby="fetch-domain-hint"
               />
-              {policyAnswers.aiProvider === "no" ? (
+              <span id="fetch-domain-hint" className={styles.hint}>
+                Use the exact hostname you plan to add to devvit.json, with no
+                protocol, path, port, or wildcard.
+              </span>
+            </div>
+
+            {result.showPolicyQuestions ? (
+              <div
+                className={styles.policyQuestions}
+                aria-labelledby="fetch-domain-policy-questions"
+              >
+                <div>
+                  <strong
+                    id="fetch-domain-policy-questions"
+                    className={styles.label}
+                  >
+                    Tell us about the service
+                  </strong>
+                  <p className={styles.policyHint}>
+                    Answer in order. Restricted service types take precedence.
+                  </p>
+                </div>
                 <PolicyQuestion
-                  id="fetch-domain-infrastructure"
-                  question="Does the domain execute or route requests to developer-controlled server-side code?"
-                  detail="Includes Supabase projects, self-hosted backends, serverless or edge functions, and Firebase Hosting rewrites to Cloud Functions or Cloud Run. Static files and assets alone do not count."
-                  value={policyAnswers.restrictedInfrastructure}
-                  onChange={(value) =>
-                    updatePolicyAnswer("restrictedInfrastructure", value)
-                  }
+                  id="fetch-domain-ai-provider"
+                  question="Does it provide AI models, inference, or AI routing?"
+                  detail="Public AI APIs and gateways still count."
+                  value={policyAnswers.aiProvider}
+                  onChange={(value) => updatePolicyAnswer("aiProvider", value)}
                 />
+                {policyAnswers.aiProvider === "no" ? (
+                  <PolicyQuestion
+                    id="fetch-domain-infrastructure"
+                    question="Does the domain execute or route requests to developer-controlled server-side code?"
+                    detail="Includes Supabase projects, self-hosted backends, serverless or edge functions, and Firebase Hosting rewrites to Cloud Functions or Cloud Run. Static files and assets alone do not count."
+                    value={policyAnswers.restrictedInfrastructure}
+                    onChange={(value) =>
+                      updatePolicyAnswer("restrictedInfrastructure", value)
+                    }
+                  />
+                ) : null}
+                {policyAnswers.aiProvider === "no" &&
+                policyAnswers.restrictedInfrastructure === "no" ? (
+                  <PolicyQuestion
+                    id="fetch-domain-static-content"
+                    question="Does the domain serve only static files or assets?"
+                    detail="Includes public static hosting, CDNs, and storage buckets. Personal or custom domains can qualify when used only for static content."
+                    value={policyAnswers.staticContent}
+                    onChange={(value) =>
+                      updatePolicyAnswer("staticContent", value)
+                    }
+                  />
+                ) : null}
+                {policyAnswers.staticContent === "no" ? (
+                  <PolicyQuestion
+                    id="fetch-domain-public-documentation"
+                    question="Is the API documentation publicly available?"
+                    detail="Reviewers must be able to verify how the API works."
+                    value={policyAnswers.publiclyDocumented}
+                    onChange={(value) =>
+                      updatePolicyAnswer("publiclyDocumented", value)
+                    }
+                  />
+                ) : null}
+                {policyAnswers.staticContent === "yes" ||
+                policyAnswers.publiclyDocumented === "yes" ? (
+                  <PolicyQuestion
+                    id="fetch-domain-public-access"
+                    question={
+                      policyAnswers.staticContent === "yes"
+                        ? "Are the static files or assets publicly accessible?"
+                        : "Can the public obtain access to the API?"
+                    }
+                    detail={
+                      policyAnswers.staticContent === "yes"
+                        ? "Reviewers must be able to access the content at the URLs included in your request."
+                        : "Authentication is okay when access is not limited to private or internal users."
+                    }
+                    value={policyAnswers.publiclyAccessible}
+                    onChange={(value) =>
+                      updatePolicyAnswer("publiclyAccessible", value)
+                    }
+                  />
+                ) : null}
+                {policyAnswers.publiclyAccessible === "yes" ? (
+                  <PolicyQuestion
+                    id="fetch-domain-rules-compliance"
+                    question="Does the intended use follow the Devvit rules and applicable policies?"
+                    detail="This includes AI-provider and account-linking restrictions."
+                    value={policyAnswers.rulesCompliant}
+                    onChange={(value) =>
+                      updatePolicyAnswer("rulesCompliant", value)
+                    }
+                  />
+                ) : null}
+              </div>
+            ) : null}
+
+            <div
+              className={styles.result}
+              data-status={result.status}
+              hidden={result.status === "empty"}
+              aria-live="polite"
+            >
+              <div className={styles.resultHeading}>
+                <span className={styles.statusMark} aria-hidden="true" />
+                <strong className={styles.resultTitle}>{result.title}</strong>
+              </div>
+              {result.normalizedDomain ? (
+                <code className={styles.domain}>{result.normalizedDomain}</code>
               ) : null}
-              {policyAnswers.aiProvider === "no" &&
-              policyAnswers.restrictedInfrastructure === "no" ? (
-                <PolicyQuestion
-                  id="fetch-domain-static-content"
-                  question="Does the domain serve only static files or assets?"
-                  detail="Includes public static hosting, CDNs, and storage buckets. Personal or custom domains can qualify when used only for static content."
-                  value={policyAnswers.staticContent}
-                  onChange={(value) =>
-                    updatePolicyAnswer("staticContent", value)
-                  }
-                />
-              ) : null}
-              {policyAnswers.staticContent === "no" ? (
-                <PolicyQuestion
-                  id="fetch-domain-public-documentation"
-                  question="Is the API documentation publicly available?"
-                  detail="Reviewers must be able to verify how the API works."
-                  value={policyAnswers.publiclyDocumented}
-                  onChange={(value) =>
-                    updatePolicyAnswer("publiclyDocumented", value)
-                  }
-                />
-              ) : null}
-              {policyAnswers.staticContent === "yes" ||
-              policyAnswers.publiclyDocumented === "yes" ? (
-                <PolicyQuestion
-                  id="fetch-domain-public-access"
-                  question={
-                    policyAnswers.staticContent === "yes"
-                      ? "Are the static files or assets publicly accessible?"
-                      : "Can the public obtain access to the API?"
-                  }
-                  detail={
-                    policyAnswers.staticContent === "yes"
-                      ? "Reviewers must be able to access the content at the URLs included in your request."
-                      : "Authentication is okay when access is not limited to private or internal users."
-                  }
-                  value={policyAnswers.publiclyAccessible}
-                  onChange={(value) =>
-                    updatePolicyAnswer("publiclyAccessible", value)
-                  }
-                />
-              ) : null}
-              {policyAnswers.publiclyAccessible === "yes" ? (
-                <PolicyQuestion
-                  id="fetch-domain-rules-compliance"
-                  question="Does the intended use follow the Devvit rules and applicable policies?"
-                  detail="This includes AI-provider and account-linking restrictions."
-                  value={policyAnswers.rulesCompliant}
-                  onChange={(value) =>
-                    updatePolicyAnswer("rulesCompliant", value)
-                  }
-                />
+              <p className={styles.resultDescription}>{result.description}</p>
+              {result.requirements ? (
+                <div className={styles.resultRequirements}>
+                  <strong>Requirements</strong>
+                  <ul>
+                    {result.requirements.map((requirement) => (
+                      <li key={requirement}>{requirement}</li>
+                    ))}
+                  </ul>
+                </div>
               ) : null}
             </div>
-          ) : null}
+
+            {shouldShowFinderLink ? (
+              <p className={styles.finderLinkPrompt}>
+                Need another option?{" "}
+                <a
+                  href="#find-a-domain"
+                  onClick={(event) =>
+                    selectMode(
+                      event,
+                      "find",
+                      result.rejectionReason === "ai-provider" ? "ai" : null,
+                    )
+                  }
+                >
+                  {result.rejectionReason === "ai-provider"
+                    ? "View allowed AI domains"
+                    : "Find a globally allowed domain"}
+                </a>
+                .
+              </p>
+            ) : null}
+          </div>
 
           <div
-            className={styles.result}
-            data-status={result.status}
-            aria-live="polite"
+            id="find-domain-panel"
+            className={styles.modePanel}
+            hidden={mode !== "find"}
           >
-            <div className={styles.resultHeading}>
-              <span className={styles.statusMark} aria-hidden="true" />
-              <strong className={styles.resultTitle}>{result.title}</strong>
-            </div>
-            {result.normalizedDomain ? (
-              <code className={styles.domain}>{result.normalizedDomain}</code>
-            ) : null}
-            <p className={styles.resultDescription}>{result.description}</p>
-            {result.requirements ? (
-              <div className={styles.resultRequirements}>
-                <strong>Requirements</strong>
-                <ul>
-                  {result.requirements.map((requirement) => (
-                    <li key={requirement}>{requirement}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-
-          {shouldShowFinderLink ? (
-            <p className={styles.finderLinkPrompt}>
-              Need another option?{" "}
-              <a
-                href="#find-a-domain"
-                onClick={(event) =>
-                  selectMode(
-                    event,
-                    "find",
-                    result.rejectionReason === "ai-provider" ? "ai" : null,
+            <label
+              className={styles.alternativePicker}
+              htmlFor="find-domain-use-case"
+            >
+              <span className={styles.label}>What does your app need?</span>
+              <select
+                id="find-domain-use-case"
+                className={styles.select}
+                value={alternativeUseCase ?? ""}
+                onChange={(event) =>
+                  updateAlternativeUseCase(
+                    (event.target.value || null) as AlternativeUseCase | null,
                   )
                 }
               >
-                {result.rejectionReason === "ai-provider"
-                  ? "View allowed AI domains"
-                  : "Find a globally allowed domain"}
-              </a>
-              .
-            </p>
-          ) : null}
+                <option value="">Select a use case</option>
+                {ALTERNATIVE_USE_CASE_OPTIONS.map(([value, option]) => (
+                  <option key={value} value={value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+
+            {finderRecommendation ? (
+              <DomainRecommendationResults
+                recommendation={finderRecommendation}
+                copiedDomain={copiedDomain}
+                onCopyDomain={copyDomain}
+              />
+            ) : (
+              <p className={styles.finderPrompt}>
+                Choose the closest use case to see relevant globally allowed
+                domains.
+              </p>
+            )}
+
+            <AlternativeDisclaimer />
+          </div>
+
+          <Admonition type="note">
+            This helper provides policy guidance, not approval. Domain requests
+            are reviewed when you playtest or upload your app.
+          </Admonition>
         </div>
-
-        <div
-          id="find-domain-panel"
-          className={styles.modePanel}
-          hidden={mode !== "find"}
-        >
-          <label
-            className={styles.alternativePicker}
-            htmlFor="find-domain-use-case"
-          >
-            <span className={styles.label}>What does your app need?</span>
-            <select
-              id="find-domain-use-case"
-              className={styles.select}
-              value={alternativeUseCase ?? ""}
-              onChange={(event) =>
-                updateAlternativeUseCase(
-                  (event.target.value || null) as AlternativeUseCase | null,
-                )
-              }
-            >
-              <option value="">Select a use case</option>
-              {ALTERNATIVE_USE_CASE_OPTIONS.map(([value, option]) => (
-                <option key={value} value={value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
-
-          {finderRecommendation ? (
-            <DomainRecommendationResults
-              recommendation={finderRecommendation}
-              copiedDomain={copiedDomain}
-              onCopyDomain={copyDomain}
-            />
-          ) : (
-            <p className={styles.finderPrompt}>
-              Choose the closest use case to see relevant globally allowed
-              domains.
-            </p>
-          )}
-
-          <AlternativeDisclaimer />
-        </div>
-
-        <Admonition type="note">
-          This helper provides policy guidance, not approval. Domain requests
-          are reviewed when you playtest or upload your app.
-        </Admonition>
       </div>
     </section>
   );
