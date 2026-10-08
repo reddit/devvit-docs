@@ -1,31 +1,30 @@
-.checker {
+.helper {
   --checker-border: var(--ifm-toc-border-color);
   --checker-muted: var(--ifm-color-emphasis-700);
   --checker-success: #168a5b;
   --checker-danger: #c13b19;
 
   margin: 1.5rem 0 2rem;
+}
+
+.checker {
   overflow: hidden;
   border: 1px solid var(--checker-border);
   border-radius: 8px;
   background: transparent;
 }
 
-:global([data-theme="dark"]) .checker {
+:global([data-theme="dark"]) .helper {
   --checker-success: #55c493;
   --checker-danger: #ff815f;
 }
 
 .header {
-  padding: 1rem;
-  border-bottom: 1px solid var(--checker-border);
-  background: var(--ifm-color-emphasis-100);
+  margin-bottom: 1rem;
 }
 
 .title {
   margin: 0;
-  font-size: 1.1rem;
-  line-height: 1.35;
 }
 
 .description,
@@ -117,6 +116,14 @@
   font-weight: 600;
 }
 
+.inputLabel {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
 .input {
   width: 100%;
   min-height: 42px;
@@ -140,6 +147,7 @@
 }
 
 .hint {
+  margin: 0;
   color: var(--checker-muted);
   font-size: 0.8rem;
 }
@@ -262,6 +270,10 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.result[hidden] {
+  display: none;
 }
 
 .statusMark {
