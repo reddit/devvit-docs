@@ -24,6 +24,7 @@ This release adds support for managing Community Highlights in Devvit. You can n
 **Other Fixes**
 Resolved an issue where retrieving a WikiPage could throw an error when the page was last edited by a Reddit Premium user.
 
+
 ## Release 0.14.6: Triggers, Schedulers, and Receipts
 
 **Release Date: September 28, 2026** 

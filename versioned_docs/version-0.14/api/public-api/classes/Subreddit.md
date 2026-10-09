@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.14.7-dev**](../README.md)
+[**@devvit/public-api v0.14.8-dev**](../README.md)
 
 ***
 
@@ -683,6 +683,26 @@ console.log("Posts: ", await listing.all())
 
 ***
 
+<a id="gethighlightedposts"></a>
+
+### getHighlightedPosts()
+
+> **getHighlightedPosts**(): `Promise`\<[`HighlightedPostInfo`](../type-aliases/HighlightedPostInfo.md)[]\>
+
+Returns this subreddit's community highlights in display order.
+
+#### Returns
+
+`Promise`\<[`HighlightedPostInfo`](../type-aliases/HighlightedPostInfo.md)[]\>
+
+#### Example
+
+```ts
+const highlightedPosts = await subreddit.getHighlightedPosts();
+```
+
+***
+
 <a id="getmoderationlog"></a>
 
 ### getModerationLog()
@@ -1299,6 +1319,35 @@ const userFlairList = response.users
 #### Returns
 
 `Promise`\<`void`\>
+
+***
+
+<a id="reorderhighlightedposts"></a>
+
+### reorderHighlightedPosts()
+
+> **reorderHighlightedPosts**(`postIds`): `Promise`\<`void`\>
+
+Reorders this subreddit's community highlights.
+
+#### Parameters
+
+##### postIds
+
+readonly `` `t3_${string}` ``[]
+
+Highlighted post IDs in their new display order.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Example
+
+```ts
+const highlights = await subreddit.getHighlightedPosts();
+await subreddit.reorderHighlightedPosts(highlights.map(({ postId }) => postId).reverse());
+```
 
 ***
 
