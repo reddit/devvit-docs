@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.7-dev**](../README.md)
+[**@devvit/reddit v0.14.8-dev**](../README.md)
 
 ***
 
@@ -115,6 +115,9 @@
 - [GetUserFlairOptions](type-aliases/GetUserFlairOptions.md)
 - [GetUserOverviewOptions](type-aliases/GetUserOverviewOptions.md)
 - [GetWikiPageOptions](type-aliases/GetWikiPageOptions.md)
+- [HighlightedPostInfo](type-aliases/HighlightedPostInfo.md)
+- [HighlightLabelType](type-aliases/HighlightLabelType.md)
+- [HighlightPostOptions](type-aliases/HighlightPostOptions.md)
 - [ImagePosition](type-aliases/ImagePosition.md)
 - [InternalSetPostFlairOptions](type-aliases/InternalSetPostFlairOptions.md)
 - [~~LinkFlair~~](type-aliases/LinkFlair.md)
