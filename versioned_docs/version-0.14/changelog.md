@@ -9,6 +9,18 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.14.8: New Fetch Domain Checker and Other Fixes
+
+**Release Date: October 12, 2026** 
+
+You can save time and avoid potential review delays with the new [Fetch Domain Checker](https://developers.reddit.com/docs/capabilities/http-fetch#fetch-domain-checker). Check whether an HTTP fetch domain is likely to be approved before adding it to devvit.json, so you can identify potential policy issues earlier in development. **The checker provides guidance only**; domains must still be reviewed and approved when you playtest or upload your app.
+
+**Other Fixes**
+
+- Removing the `menu` field from `devvit.json` correctly removes the corresponding menu items from the UI.
+- The `dev.subreddit` field in `devvit.json` now supports subreddit names that begin with a number.
+
+
 ## Release 0.14.7: Community Highlights & a Wiki Fix
 
 **Release Date: October 5, 2026** 
