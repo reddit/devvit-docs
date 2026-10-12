@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.14.7-dev**](../../README.md)
+[**@devvit/reddit v0.14.8-dev**](../../README.md)
 
 ***
 
@@ -1030,6 +1030,41 @@ Hides the post from the app account and updates this instance.
 
 ***
 
+<a id="highlight"></a>
+
+### highlight()
+
+> **highlight**(`options`?): `Promise`\<`void`\>
+
+Adds this post to its subreddit's community highlights, or updates its
+highlight settings if it is already highlighted.
+
+Note: a subreddit can have up to six highlights at a time. Highlighting a seventh post
+will remove the last post in Subreddit.getHighlightedPosts() from the highlights.
+
+#### Parameters
+
+##### options?
+
+`Readonly`\<[`HighlightPostOptions`](../type-aliases/HighlightPostOptions.md)\>
+
+Optional expiration and label settings.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Example
+
+```ts
+await post.highlight({
+  highlightUntil: new Date('2030-01-01T00:00:00Z'),
+  highlightLabelType: 'ANNOUNCEMENT',
+});
+```
+
+***
+
 <a id="ignorereports"></a>
 
 ### ignoreReports()
@@ -1111,6 +1146,27 @@ The post's hidden state.
 #### Returns
 
 `boolean`
+
+***
+
+<a id="ishighlighted"></a>
+
+### isHighlighted()
+
+> **isHighlighted**(): `Promise`\<`boolean`\>
+
+Returns whether this post is in its subreddit's community highlights.
+
+#### Returns
+
+`Promise`\<`boolean`\>
+
+#### Example
+
+```ts
+const post = await reddit.getPostById('t3_123');
+const isHighlighted = await post.isHighlighted();
+```
 
 ***
 
@@ -1543,6 +1599,21 @@ Removes the post's distinction and updates this instance.
 > **unhide**(): `Promise`\<`void`\>
 
 Unhides the post for the app account and updates this instance.
+
+#### Returns
+
+`Promise`\<`void`\>
+
+***
+
+<a id="unhighlight"></a>
+
+### unhighlight()
+
+> **unhighlight**(): `Promise`\<`void`\>
+
+Removes this post from its subreddit's community highlights. If this post is
+not highlighted, this is a no-op.
 
 #### Returns
 

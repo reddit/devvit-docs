@@ -1,8 +1,8 @@
-**@devvit/public-api v0.14.7-dev**
+**@devvit/public-api v0.14.8-dev**
 
 ***
 
-# @devvit/public-api v0.14.7-dev
+# @devvit/public-api v0.14.8-dev
 
 ## Namespaces
 
@@ -203,6 +203,9 @@
 - [HeadingLevel](type-aliases/HeadingLevel.md)
 - [HeadingOptions](type-aliases/HeadingOptions.md)
 - [HeadingText](type-aliases/HeadingText.md)
+- [HighlightedPostInfo](type-aliases/HighlightedPostInfo.md)
+- [HighlightLabelType](type-aliases/HighlightLabelType.md)
+- [HighlightPostOptions](type-aliases/HighlightPostOptions.md)
 - [HorizontalRule](type-aliases/HorizontalRule.md)
 - [HorizontalRuleContainer](type-aliases/HorizontalRuleContainer.md)
 - [Image](type-aliases/Image.md)
