@@ -58,6 +58,57 @@ const comment = await reddit.getCommentById('t1_xyz789');
 const parentId = comment.parentId; // 't3_abc123' or 't1_def456'
 ```
 
+## Search posts
+
+Use `reddit.searchPosts()` to search across Reddit or restrict a query to a subreddit. Use `subreddit.searchPosts()` to search within an existing subreddit object.
+
+Both methods return a lazy `Listing<Post>`. Iterate with `for await`, or use `.get(count)` or `.all()` to fetch results. Set a practical `limit` to bound the number of results your app requests.
+
+```ts title="server/index.ts"
+import { reddit } from "@devvit/web/server";
+
+export async function searchAnnouncements() {
+  const subreddit = await reddit.getCurrentSubreddit();
+  const posts = subreddit.searchPosts({
+    query: "announcement",
+    sort: "new",
+    timeframe: "month",
+    limit: 20,
+  });
+
+  for await (const post of posts) {
+    console.log(post.id, post.title);
+  }
+}
+```
+
+To use the client with the same subreddit scope, pass `subredditName` explicitly:
+
+```ts
+const posts = reddit.searchPosts({
+  query: "announcement",
+  subredditName: subreddit.name,
+  sort: "new",
+  timeframe: "month",
+  limit: 20,
+});
+```
+
+Omitting `subredditName` searches `all`, even when your code runs in an installed-subreddit context. The subreddit object's `searchPosts()` method always uses that subreddit and does not accept a `subredditName` option.
+
+| Option            | Description                                      | Default                          |
+| ----------------- | ------------------------------------------------ | -------------------------------- |
+| `query`           | Search query                                     | Required                         |
+| `sort`            | `relevance`, `hot`, `top`, `new`, or `comments`  | `relevance`                      |
+| `timeframe`       | `hour`, `day`, `week`, `month`, `year`, or `all` | `all`                            |
+| `limit`           | Maximum number of results to fetch               | No total limit set by the client |
+| `pageSize`        | Number of results requested per page             | `100`                            |
+| `after`, `before` | Listing cursors for pagination                   | Omitted                          |
+
+The search methods return a listing immediately; the network requests happen as you consume it. Search ranking and availability of newly indexed content depend on Reddit's search service.
+
+See [`reddit.searchPosts()`](../../api/redditapi/RedditClient/classes/RedditClient.md#searchposts), [`subreddit.searchPosts()`](../../api/redditapi/models/classes/Subreddit.md#searchposts), and [SearchPostsOptions](../../api/redditapi/models/type-aliases/SearchPostsOptions.md) for the API references.
+
 ## Example usage
 
 ### Submitting a post
