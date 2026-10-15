@@ -240,6 +240,11 @@ const sidebars: SidebarsConfig = {
         },
         {
           type: "doc",
+          label: "Wiki Pages",
+          id: "capabilities/server/wiki",
+        },
+        {
+          type: "doc",
           label: "Reddit API Client",
           id: "api/redditapi/RedditClient/classes/RedditClient",
         },
