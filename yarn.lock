@@ -5494,12 +5494,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"baseline-browser-mapping@npm:2.9.19":
-  version: 2.9.19
-  resolution: "baseline-browser-mapping@npm:2.9.19"
+"baseline-browser-mapping@npm:2.11.0":
+  version: 2.11.0
+  resolution: "baseline-browser-mapping@npm:2.11.0"
   bin:
-    baseline-browser-mapping: dist/cli.js
-  checksum: 10c0/569928db78bcd081953d7db79e4243a59a579a34b4ae1806b9b42d3b7f84e5bc40e6e82ae4fa06e7bef8291bf747b33b3f9ef5d3c6e1e420cb129d9295536129
+    baseline-browser-mapping: dist/cli.cjs
+  checksum: 10c0/03176d4d1c85a156971ae328241e9216288d59f46a5195acc95c41f1477b2e791185d0f68128788c311fd0fb0b93b321170d65c1ef7d9bcab096677c844365de
   languageName: node
   linkType: hard
 
@@ -6802,7 +6802,7 @@ __metadata:
     "@easyops-cn/docusaurus-search-local": "npm:0.52.1"
     "@mdx-js/react": "npm:^3.0.0"
     "@types/react": "npm:^19.0.0"
-    baseline-browser-mapping: "npm:2.9.19"
+    baseline-browser-mapping: "npm:2.11.0"
     clsx: "npm:^2.0.0"
     core-js: "npm:^3.39.0"
     glob: "npm:10.5.0"
