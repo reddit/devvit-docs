@@ -1,0 +1,145 @@
+[**@devvit/reddit v0.15.0-dev**](../../README.md)
+
+***
+
+# Class: WikiPageRevision
+
+## Constructors
+
+<a id="constructor"></a>
+
+### new WikiPageRevision()
+
+> **new WikiPageRevision**(`data`, `wikiVersion`): `WikiPageRevision`
+
+#### Parameters
+
+##### data
+
+`WikiPageRevision`
+
+##### wikiVersion
+
+[`WikiVersion`](../type-aliases/WikiVersion.md) = `'v1'`
+
+#### Returns
+
+`WikiPageRevision`
+
+## Accessors
+
+<a id="author"></a>
+
+### author
+
+#### Get Signature
+
+> **get** **author**(): [`User`](User.md)
+
+The author of this revision.
+
+##### Deprecated
+
+Use authorId instead.
+
+##### Returns
+
+[`User`](User.md)
+
+***
+
+<a id="authorid"></a>
+
+### authorId
+
+#### Get Signature
+
+> **get** **authorId**(): `undefined` \| `` `t2_${string}` ``
+
+The ID of the author of this revision.
+
+##### Returns
+
+`undefined` \| `` `t2_${string}` ``
+
+***
+
+<a id="date"></a>
+
+### date
+
+#### Get Signature
+
+> **get** **date**(): `Date`
+
+##### Returns
+
+`Date`
+
+***
+
+<a id="hidden"></a>
+
+### hidden
+
+#### Get Signature
+
+> **get** **hidden**(): `boolean`
+
+##### Returns
+
+`boolean`
+
+***
+
+<a id="id"></a>
+
+### id
+
+#### Get Signature
+
+> **get** **id**(): `string`
+
+##### Returns
+
+`string`
+
+***
+
+<a id="page"></a>
+
+### page
+
+#### Get Signature
+
+> **get** **page**(): `string`
+
+##### Returns
+
+`string`
+
+***
+
+<a id="reason"></a>
+
+### reason
+
+#### Get Signature
+
+> **get** **reason**(): `string`
+
+##### Returns
+
+`string`
+
+## Methods
+
+<a id="tojson"></a>
+
+### toJSON()
+
+> **toJSON**(): `Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"date"` \| `"hidden"` \| `"page"`\> & `object`
+
+#### Returns
+
+`Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"date"` \| `"hidden"` \| `"page"`\> & `object`
