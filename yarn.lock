@@ -6806,7 +6806,7 @@ __metadata:
     clsx: "npm:^2.0.0"
     core-js: "npm:^3.39.0"
     glob: "npm:10.5.0"
-    js-yaml: "npm:4.2.0"
+    js-yaml: "npm:4.3.2"
     mobx: "npm:^6.13.5"
     prettier: "npm:3.3.3"
     prism-react-renderer: "npm:^2.3.0"
@@ -8874,17 +8874,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:4.2.0":
-  version: 4.2.0
-  resolution: "js-yaml@npm:4.2.0"
-  dependencies:
-    argparse: "npm:^2.0.1"
-  bin:
-    js-yaml: bin/js-yaml.js
-  checksum: 10c0/1916456c118746603b067d74bbcbb0445d9a1d5e474ad4ae775e7b20525bed902e01d9d97dd0c81fcd8d4f596162309d0eb057f4aa38f3e9647f14075e9dea45
-  languageName: node
-  linkType: hard
-
 "js-yaml@npm:4.3.1":
   version: 4.3.1
   resolution: "js-yaml@npm:4.3.1"
@@ -8896,7 +8885,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^4.1.0":
+"js-yaml@npm:4.3.2, js-yaml@npm:^4.1.0":
   version: 4.3.2
   resolution: "js-yaml@npm:4.3.2"
   dependencies:
