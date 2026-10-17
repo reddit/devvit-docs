@@ -133,6 +133,69 @@ export const createPost = async () => {
 };
 ```
 
+### Managing Community Highlights
+
+Community Highlights display selected posts at the top of a subreddit. Use `post.isHighlighted()`, `post.highlight()`, and `post.unhighlight()` to inspect or change a post's highlight. Use the subreddit methods to retrieve the highlighted posts and change their display order.
+
+These operations use the app's Reddit access. If you expose them through an app endpoint, check that the current user has permission to manage the subreddit's posts.
+
+This example checks the caller's moderator permissions, highlights the current post for seven days, and moves it to the first position:
+
+```ts title="server/index.ts"
+import { context, reddit } from "@devvit/web/server";
+
+export async function highlightCurrentPost() {
+  if (!context.userId || !context.postId) {
+    throw new Error("Signed-in post interaction required.");
+  }
+
+  const subreddit = await reddit.getCurrentSubreddit();
+  const user = await reddit.getUserById(context.userId);
+  const permissions = await user?.getModPermissionsForSubreddit(subreddit.name);
+  if (
+    !permissions?.some(
+      (permission) => permission === "all" || permission === "posts",
+    )
+  ) {
+    throw new Error("Moderator post permissions required.");
+  }
+
+  const post = await reddit.getPostById(context.postId);
+  if (post.subredditId !== subreddit.id) {
+    throw new Error("Post must belong to this subreddit.");
+  }
+
+  const wasHighlighted = await post.isHighlighted();
+  await post.highlight({
+    highlightLabelType: "ANNOUNCEMENT",
+    highlightUntil: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+  });
+
+  const highlights = await subreddit.getHighlightedPosts();
+  await subreddit.reorderHighlightedPosts([
+    post.id,
+    ...highlights
+      .filter((item) => item.postId !== post.id)
+      .map((item) => item.postId),
+  ]);
+
+  return {
+    wasHighlighted,
+    highlights: await subreddit.getHighlightedPosts(),
+  };
+}
+```
+
+`post.highlight()` updates the settings if the post is already highlighted. Omit `highlightUntil` to keep a highlight until it is removed. A subreddit can have six highlights; highlighting a seventh post removes the last highlight in display order.
+
+To remove a highlight, call `await post.unhighlight()` from an authorized action. Removing a highlight from a post that is not highlighted has no effect. These methods do not accept `runAs`.
+
+`subreddit.getHighlightedPosts()` returns an ordered array of [HighlightedPostInfo](../../api/redditapi/models/type-aliases/HighlightedPostInfo.md), rather than `Post` objects. Each item has a `postId` and optional `highlightedUntil` and `highlightLabel` fields. Use `reddit.getPostById(postId)` when you need the post's content. Note the different names for the input options: `highlightUntil` and `highlightLabelType`.
+
+Fetch the current highlights before reordering and pass the complete intended order. Another moderator can change the list between requests, so handle failures and refresh the list before trying again.
+
+See the [Post highlight methods](../../api/redditapi/models/classes/Post.md#highlight), [HighlightPostOptions](../../api/redditapi/models/type-aliases/HighlightPostOptions.md), and [Subreddit reorder method](../../api/redditapi/models/classes/Subreddit.md#reorderhighlightedposts) for the API references.
+
 ### Submitting a comment
 
 :::note
