@@ -23,9 +23,9 @@ This release includes two breaking changes and a reminder about deprecated funct
   
 - **`reddit.getWikiPage()` signature updated:** The `reddit.getWikiPage(subredditName, page, revisionId)` signature has been removed. Use `reddit.getWikiPage(subredditName, page, options)` instead.
 
-**Deprecated functionality reminder:** 
+**Deprecated Functionality** 
 
-The `blocks` property in `devvit.json` and the `@devvit/public-api` package remain supported but deprecated. We recommend migrating to `@devvit/web` when possible.
+This is your reminder that `blocks` property in `devvit.json` and the `@devvit/public-api` package remain supported but deprecated. We recommend migrating to `@devvit/web` when possible.
 
 ### Other Improvements
 
