@@ -685,8 +685,10 @@ The edited FlairTemplate object.
 
 **`Experimental`**
 
-Filters a post or comment. When a post or comment is filtered, it is added to the ModQueue for review, and in addition:
-- if
+Filters a post or comment. When a post or comment is filtered, it is added to the ModQueue for
+review. By default, filtered content is hidden while in the queue. Set `keep` to `true` to keep
+the content visible. Set `reason` to show moderators a reason; when `keep` is `true`, the
+reason is also shown on the content.
 
 #### Parameters
 
@@ -2401,69 +2403,31 @@ A Listing of SubredditWikiContributorUser objects.
 
 ### getWikiPage()
 
-#### Call Signature
-
-> **getWikiPage**(`subredditName`, `page`, `revisionId`): `Promise`\<[`WikiPage`](WikiPage.md)\>
-
-Get a specific revision of a wiki page from a subreddit.
-
-##### Parameters
-
-###### subredditName
-
-`string`
-
-The name of the subreddit to get the wiki page from.
-
-###### page
-
-`string`
-
-The name of the wiki page to get.
-
-###### revisionId
-
-The revision ID of the wiki page version to get. Leaving it empty returns the latest version.
-
-`undefined` | `` `${string}-${string}-${string}-${string}-${string}` ``
-
-##### Returns
-
-`Promise`\<[`WikiPage`](WikiPage.md)\>
-
-The requested WikiPage object.
-
-##### Deprecated
-
-Pass a [GetWikiPageOptions](../type-aliases/GetWikiPageOptions.md) object as the third argument instead.
-
-#### Call Signature
-
 > **getWikiPage**(`subredditName`, `page`, `options`?): `Promise`\<[`WikiPage`](WikiPage.md)\>
 
 Get a wiki page from a subreddit.
 
-##### Parameters
+#### Parameters
 
-###### subredditName
+##### subredditName
 
 `string`
 
 The name of the subreddit to get the wiki page from.
 
-###### page
+##### page
 
 `string`
 
 The name of the wiki page to get.
 
-###### options?
+##### options?
 
 [`GetWikiPageOptions`](../type-aliases/GetWikiPageOptions.md)
 
 Options for the request.
 
-##### Returns
+#### Returns
 
 `Promise`\<[`WikiPage`](WikiPage.md)\>
 
