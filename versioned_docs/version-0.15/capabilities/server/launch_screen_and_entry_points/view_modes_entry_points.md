@@ -120,7 +120,7 @@ async function createGamePost(context: any) {
 
 ### Switching between view modes
 
-You can transition from inline mode to expanded mode with a different entry point, like this:
+You can transition from inline mode to expanded mode with a different entry point. Pass the optional third argument to customize the expanded web view's title:
 
 ```tsx
 import { requestExpandedMode } from "@devvit/web/client";
@@ -128,7 +128,9 @@ import { requestExpandedMode } from "@devvit/web/client";
 // Switch to the 'game' entrypoint in expanded mode
 const handleStartGame = async (event: React.MouseEvent) => {
   try {
-    await requestExpandedMode(event.nativeEvent, "game");
+    await requestExpandedMode(event.nativeEvent, "game", {
+      title: "Adventure Game",
+    });
   } catch (error) {
     console.error("Failed to enter expanded mode:", error);
   }
