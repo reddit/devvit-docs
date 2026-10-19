@@ -646,7 +646,10 @@ The `runAs` option is ignored when editing a comment.
 
 **`Experimental`**
 
-Filters the comment. When a comment is filtered, it is added to the ModQueue for review. By default, filtered comments are hidden while in the queue. Set `keep` to `true` to keep the comment visible. Set `reason` to show moderators a reason; when `keep` is `true`, the reason is also shown on the comment.
+Filters the comment. When a comment is filtered, it is added to the ModQueue for review. By
+default, filtered comments are hidden while in the queue. Set `keep` to `true` to keep the
+comment visible. Set `reason` to show moderators a reason; when `keep` is `true`, the reason
+is also shown on the comment.
 
 #### Parameters
 
