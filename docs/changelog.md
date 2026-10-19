@@ -27,7 +27,7 @@ This release includes two breaking changes and a reminder about deprecated funct
 
 This is your reminder that `blocks` property in `devvit.json` and the `@devvit/public-api` package remain supported but deprecated. We recommend migrating to `@devvit/web` when possible.
 
-### Other Improvements
+**Other Improvements**
 
 - **Custom expanded mode titles:** You can now specify a custom title when calling `requestExpandedMode()`, giving you more control over how your app appears in expanded mode.
 - **Expanded mode navigation:** You can now call `requestExpandedMode()` while already in expanded mode, enabling more flexible navigation within your app.
