@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.0**](../../README.md)
 
 ***
 
@@ -10,13 +10,33 @@
 
 `T`
 
+## Constructors
+
+<a id="constructor"></a>
+
+### new Listing()
+
+> **new Listing**\<`T`\>(): `Listing`\<`T`\>
+
+#### Returns
+
+`Listing`\<`T`\>
+
 ## Properties
+
+<a id="children"></a>
+
+### children
+
+> **children**: `T`[]
+
+***
 
 <a id="limit"></a>
 
 ### limit
 
-> **limit**: `number` = `DEFAULT_LIMIT`
+> **limit**: `number`
 
 ***
 
@@ -24,7 +44,7 @@
 
 ### pageSize
 
-> **pageSize**: `number` = `DEFAULT_PAGE_SIZE`
+> **pageSize**: `number`
 
 ## Accessors
 

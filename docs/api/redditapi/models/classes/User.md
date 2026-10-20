@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.0**](../../README.md)
 
 ***
 
@@ -14,6 +14,18 @@ A class representing a user.
 - [`SubredditContributorUser`](SubredditContributorUser.md)
 - [`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)
 - [`SubredditModeratorUser`](SubredditModeratorUser.md)
+
+## Constructors
+
+<a id="constructor"></a>
+
+### new User()
+
+> **new User**(): `User`
+
+#### Returns
+
+`User`
 
 ## Accessors
 
@@ -460,8 +472,8 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for comments a
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`User`, `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object`
+> **toJSON**(): `Pick`\<`User`, `"id"` \| `"username"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object`
 
 #### Returns
 
-`Pick`\<`User`, `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object`
+`Pick`\<`User`, `"id"` \| `"username"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object`

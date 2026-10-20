@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.0**](../../README.md)
 
 ***
 
@@ -10,6 +10,22 @@ Use `getMutedUsers()` or `subreddit.getMutedUsers()` to receive a listing of the
 ## Extends
 
 - [`User`](User.md)
+
+## Constructors
+
+<a id="constructor"></a>
+
+### new SubredditMutedUser()
+
+> **new SubredditMutedUser**(): `SubredditMutedUser`
+
+#### Returns
+
+`SubredditMutedUser`
+
+#### Inherited from
+
+[`User`](User.md).[`constructor`](User.md#constructor)
 
 ## Properties
 
@@ -562,11 +578,11 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for comments a
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object` & `Pick`\<`SubredditMutedUser`, `"date"`\>
+> **toJSON**(): `Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditMutedUser`, `"date"`\>
 
 #### Returns
 
-`Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object` & `Pick`\<`SubredditMutedUser`, `"date"`\>
+`Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditMutedUser`, `"date"`\>
 
 #### Overrides
 

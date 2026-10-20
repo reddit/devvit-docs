@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.0**](../../README.md)
 
 ***
 
@@ -97,8 +97,8 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Widget`, `"name"` \| `"id"` \| `"subredditName"`\>
+> **toJSON**(): `Pick`\<`Widget`, `"subredditName"` \| `"id"` \| `"name"`\>
 
 #### Returns
 
-`Pick`\<`Widget`, `"name"` \| `"id"` \| `"subredditName"`\>
+`Pick`\<`Widget`, `"subredditName"` \| `"id"` \| `"name"`\>

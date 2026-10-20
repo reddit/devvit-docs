@@ -24,6 +24,9 @@ Additionally, you must include at least one of:
 
 - **`post`**: For web view apps
 - **`server`**: For Node.js server apps
+- **`blocks`**: For legacy `@devvit/public-api` handlers
+
+In Devvit 0.15, `blocks` and `@devvit/public-api` remain supported but deprecated. We recommend migrating to `@devvit/web` where possible. If your app uses `devvit.yaml`, [migrate to `devvit.json`](../../guides/migrate/devvit-singleton.md) before upgrading to 0.15.0.
 
 ## Configuration sections
 
@@ -36,10 +39,11 @@ Additionally, you must include at least one of:
 
 ### App components
 
-| Property | Type   | Description                        | Required           |
-| -------- | ------ | ---------------------------------- | ------------------ |
-| `post`   | object | Custom post/web view configuration | One of post/server |
-| `server` | object | Node.js server configuration       | One of post/server |
+| Property | Type   | Description                                  | Required                      |
+| -------- | ------ | -------------------------------------------- | ----------------------------- |
+| `post`   | object | Custom post/web view configuration           | One of post/server/blocks     |
+| `server` | object | Node.js server configuration                 | One of post/server/blocks     |
+| `blocks` | object | Legacy public-api entry (deprecated in 0.15) | One of post/server/blocks     |
 
 ### Permissions & capabilities
 

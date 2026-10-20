@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.0**](../../README.md)
 
 ***
 
@@ -152,11 +152,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CalendarWidget`, `"styles"` \| `"googleCalendarId"` \| `"configuration"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CalendarWidget`, `"googleCalendarId"` \| `"configuration"` \| `"styles"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CalendarWidget`, `"styles"` \| `"googleCalendarId"` \| `"configuration"`\>
+`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CalendarWidget`, `"googleCalendarId"` \| `"configuration"` \| `"styles"`\>
 
 #### Overrides
 
