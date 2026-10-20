@@ -1,8 +1,20 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.0**](../../README.md)
 
 ***
 
 # Class: PrivateMessage
+
+## Constructors
+
+<a id="constructor"></a>
+
+### new PrivateMessage()
+
+> **new PrivateMessage**(): `PrivateMessage`
+
+#### Returns
+
+`PrivateMessage`
 
 ## Accessors
 

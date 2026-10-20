@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.0**](../../README.md)
 
 ***
 
@@ -6,13 +6,25 @@
 
 Class providing the methods for working with Mod Mail
 
+## Constructors
+
+<a id="constructor"></a>
+
+### new ModMailService()
+
+> **new ModMailService**(): `ModMailService`
+
+#### Returns
+
+`ModMailService`
+
 ## Properties
 
 <a id="notificationsubjectprefix"></a>
 
 ### notificationSubjectPrefix
 
-> `readonly` **notificationSubjectPrefix**: `"[notification]"` = `'[notification]'`
+> `readonly` **notificationSubjectPrefix**: `"[notification]"` = `"[notification]"`
 
 ## Methods
 

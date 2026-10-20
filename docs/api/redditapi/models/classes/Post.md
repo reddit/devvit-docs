@@ -1,8 +1,20 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.0**](../../README.md)
 
 ***
 
 # Class: Post
+
+## Constructors
+
+<a id="constructor"></a>
+
+### new Post()
+
+> **new Post**(): `Post`
+
+#### Returns
+
+`Post`
 
 ## Accessors
 
@@ -947,15 +959,15 @@ Get the custom styles for a custom post.
 
 ### getDuplicates()
 
-> **getDuplicates**(`opts`): [`Listing`](Listing.md)\<`Post`\>
+> **getDuplicates**(`opts`?): [`Listing`](Listing.md)\<`Post`\>
 
 A listing of other posts that reference the same URL.
 
 #### Parameters
 
-##### opts
+##### opts?
 
-`Omit`\<[`GetDuplicatesOptions`](../type-aliases/GetDuplicatesOptions.md), `"postId"`\> = `{}`
+`Omit`\<[`GetDuplicatesOptions`](../type-aliases/GetDuplicatesOptions.md), `"postId"`\>
 
 #### Returns
 
@@ -1369,15 +1381,15 @@ await post.mergePostData({ settings: { fontSize: 14 } });
 
 ### remove()
 
-> **remove**(`isSpam`): `Promise`\<`void`\>
+> **remove**(`isSpam`?): `Promise`\<`void`\>
 
 Removes the post and updates this instance's moderation state.
 
 #### Parameters
 
-##### isSpam
+##### isSpam?
 
-`boolean` = `false`
+`boolean`
 
 Whether to classify the removed post as spam.
 
@@ -1570,13 +1582,13 @@ profile pins.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Post`, `"flair"` \| `"spoiler"` \| `"id"` \| `"subredditName"` \| `"body"` \| `"permalink"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"url"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
+> **toJSON**(): `Pick`\<`Post`, `"flair"` \| `"subredditName"` \| `"id"` \| `"authorName"` \| `"subredditId"` \| `"body"` \| `"createdAt"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"` \| `"spoiler"` \| `"archived"` \| `"thumbnail"` \| `"authorId"` \| `"title"` \| `"bodyHtml"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"removedBy"` \| `"removedByCategory"` \| `"nsfw"` \| `"quarantined"` \| `"hidden"` \| `"secureMedia"` \| `"crosspostParentId"`\>
 
 JSON representation of public fields.
 
 #### Returns
 
-`Pick`\<`Post`, `"flair"` \| `"spoiler"` \| `"id"` \| `"subredditName"` \| `"body"` \| `"permalink"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"url"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
+`Pick`\<`Post`, `"flair"` \| `"subredditName"` \| `"id"` \| `"authorName"` \| `"subredditId"` \| `"body"` \| `"createdAt"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"` \| `"spoiler"` \| `"archived"` \| `"thumbnail"` \| `"authorId"` \| `"title"` \| `"bodyHtml"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"removedBy"` \| `"removedByCategory"` \| `"nsfw"` \| `"quarantined"` \| `"hidden"` \| `"secureMedia"` \| `"crosspostParentId"`\>
 
 ***
 

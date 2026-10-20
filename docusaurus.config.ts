@@ -162,7 +162,6 @@ const config: Config = {
         ignore: [
           "**/api/**",
           "**/blocks/**",
-          "**/changelog.md",
           "**/icon.mdx",
           "**/devvit_rules.md",
           "**/migration_guide.md",

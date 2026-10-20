@@ -109,12 +109,14 @@ See [WikiPage](../../api/redditapi/models/classes/WikiPage.md) for page settings
 
 ## Migrate existing wiki calls
 
-The two-argument call `reddit.getWikiPage(subredditName, pageName)` remains supported and reads v1. Only the overload that takes a revision ID as its third argument is deprecated. Replace that argument with an options object:
+In Devvit 0.15, pass an options object as the third argument to `reddit.getWikiPage()`. The overload that accepted a revision ID string was removed. The two-argument call remains supported and reads the latest v1 page.
 
 ```ts
-await reddit.getWikiPage(subredditName, pageName, {
+const latestV1Page = await reddit.getWikiPage(subredditName, pageName);
+
+const revision = await reddit.getWikiPage(subredditName, pageName, {
   revisionId,
-  wikiVersion: "v1",
+  wikiVersion: "v2",
 });
 ```
 

@@ -37,6 +37,9 @@ Multiple entry points let the user start the game from different contexts or sta
       },
       "leaderboard": {
         "entry": "src/client/leaderboard.html"
+      },
+      "settings": {
+        "entry": "src/client/settings.html"
       }
     }
   }
@@ -67,12 +70,14 @@ your-app/
 │       ├── preview.html
 │       ├── game.html
 │       ├── leaderboard.html
+│       ├── settings.html
 │       └── styles.css
 └── dist/                  // Built files after compilation
     └── client/            // This is what "dir" points to
         ├── preview.html
         ├── game.html
         ├── leaderboard.html
+        ├── settings.html
         └── styles.css
 ```
 
@@ -120,20 +125,23 @@ async function createGamePost(context: any) {
 
 ### Switching between view modes
 
-You can transition from inline mode to expanded mode with a different entry point, like this:
+Use `requestExpandedMode()` to open an entry in expanded mode. In Devvit 0.15, you can also set a custom title and call it while already expanded to navigate to another entry.
+
+For example, connect this handler to a Settings button in your preview or game view. It opens the `settings` entry configured above:
 
 ```tsx
 import { requestExpandedMode } from "@devvit/web/client";
 
-// Switch to the 'game' entrypoint in expanded mode
-const handleStartGame = async (event: React.MouseEvent) => {
+const handleSettingsClick = (event: React.MouseEvent<HTMLButtonElement>) => {
   try {
-    await requestExpandedMode(event.nativeEvent, "game");
+    requestExpandedMode(event.nativeEvent, "settings", { title: "Settings" });
   } catch (error) {
-    console.error("Failed to enter expanded mode:", error);
+    console.error("Failed to open settings:", error);
   }
 };
 ```
+
+Call it synchronously from a trusted user click in either mode. From an expanded game view, this opens settings without returning to inline mode first.
 
 ## Inline mode requirements
 

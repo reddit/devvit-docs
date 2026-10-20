@@ -44,17 +44,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 Requests expanded mode for the web view. This displays the web view in a larger modal presentation on web and full screen on mobile.
 
-```tsx
+In Devvit 0.15, pass an optional title to customize the expanded view. This example uses the `settings` entry configured in [View Modes & Entry Points](./view_modes_entry_points.md#multiple-entry-points):
+
+```html
+<button id="settings-button">Settings</button>
+```
+
+```js
 import { requestExpandedMode } from '@devvit/web/client';
 
 // Must be called synchronously from a trusted click event.
-requestExpandedMode(event, 'game');
+document.getElementById('settings-button').addEventListener('click', (event) => {
+  requestExpandedMode(event, 'settings', { title: 'Settings' });
+});
 ```
+
+You can use the same button in an expanded game view to open settings without returning to inline mode. Call `requestExpandedMode()` synchronously from a trusted user click in either mode.
 
 **Parameters**
 
 - `event` (MouseEvent): The trusted `click` event that triggered the request
 - `entry` (string): The destination URI name (e.g., `splash` or `game`). Entry names are the `devvit.json post.entrypoints` keys
+- `options` (WebViewOptions, optional): Settings for the expanded view. Set `title` to a string such as `"Settings"` to customize its title
 
 ### getWebViewMode()
 

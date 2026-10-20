@@ -19,7 +19,9 @@ Devvit apps cannot access certain private user data. This data is private to the
 
 ## The Reddit client
 
-Here's how to obtain a reference to the Reddit client
+### Devvit Web (recommended)
+
+Enable the Reddit permission in `devvit.json`, then import the client in your server code:
 
 ```json title="devvit.json"
 {
@@ -30,8 +32,20 @@ Here's how to obtain a reference to the Reddit client
 ```
 
 ```ts title="server/index.ts"
-import { reddit } from '@devvit/reddit';
+import { reddit } from '@devvit/web/server';
 ```
+
+### Legacy public-api (deprecated)
+
+In Devvit 0.15, `blocks` and `@devvit/public-api` remain supported but deprecated. We recommend migrating to `@devvit/web` where possible.
+
+In an existing public-api handler, use the Reddit client passed through `context`:
+
+```ts
+const subreddit = await context.reddit.getCurrentSubreddit();
+```
+
+Keep public-api handlers in the file configured by `blocks.entry`. The examples below use Devvit Web. If your app uses `devvit.yaml`, [migrate to `devvit.json`](../../guides/migrate/devvit-singleton.md) before upgrading to 0.15.
 
 ## Reddit Thing IDs
 
@@ -112,8 +126,10 @@ See [`reddit.searchPosts()`](../../api/redditapi/RedditClient/classes/RedditClie
 ## Example usage
 
 ### Submitting a post
-```ts
-import { Devvit } from '@devvit/public-api';
+
+This Devvit Web example creates a custom post using the `default` entry configured in `devvit.json`:
+
+```ts title="server/index.ts"
 import { context, reddit } from '@devvit/web/server';
 
 export const createPost = async () => {
