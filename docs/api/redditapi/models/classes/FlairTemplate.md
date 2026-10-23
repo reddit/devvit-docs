@@ -1,20 +1,8 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
 # Class: FlairTemplate
-
-## Constructors
-
-<a id="constructor"></a>
-
-### new FlairTemplate()
-
-> **new FlairTemplate**(): `FlairTemplate`
-
-#### Returns
-
-`FlairTemplate`
 
 ## Accessors
 
@@ -172,7 +160,7 @@ Edit this flair template
 
 ##### options
 
-`Partial`\<`Omit`\<[`EditFlairTemplateOptions`](../type-aliases/EditFlairTemplateOptions.md), `"subredditName"` \| `"id"`\>\>
+`Partial`\<`Omit`\<[`EditFlairTemplateOptions`](../type-aliases/EditFlairTemplateOptions.md), `"id"` \| `"subredditName"`\>\>
 
 #### Returns
 
