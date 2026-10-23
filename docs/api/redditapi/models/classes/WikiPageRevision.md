@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### new WikiPageRevision()
 
-> **new WikiPageRevision**(`data`, `wikiVersion`?): `WikiPageRevision`
+> **new WikiPageRevision**(`data`, `wikiVersion`): `WikiPageRevision`
 
 #### Parameters
 
@@ -18,9 +18,9 @@
 
 `WikiPageRevision`
 
-##### wikiVersion?
+##### wikiVersion
 
-[`WikiVersion`](../type-aliases/WikiVersion.md)
+[`WikiVersion`](../type-aliases/WikiVersion.md) = `'v1'`
 
 #### Returns
 
@@ -138,8 +138,8 @@ The ID of the author of this revision.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`WikiPageRevision`, `"id"` \| `"hidden"` \| `"reason"` \| `"date"` \| `"page"`\> & `object`
+> **toJSON**(): `Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"date"` \| `"hidden"` \| `"page"`\> & `object`
 
 #### Returns
 
-`Pick`\<`WikiPageRevision`, `"id"` \| `"hidden"` \| `"reason"` \| `"date"` \| `"page"`\> & `object`
+`Pick`\<`WikiPageRevision`, `"reason"` \| `"id"` \| `"date"` \| `"hidden"` \| `"page"`\> & `object`
