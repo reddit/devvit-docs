@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
@@ -80,13 +80,13 @@ The full description of the rule. This appears on your subreddit's sidebar.
 
 #### Get Signature
 
-> **get** **kind**(): `"all"` \| `"comment"` \| `"link"`
+> **get** **kind**(): `"comment"` \| `"all"` \| `"link"`
 
 Which Reddit objects this rule applies to. One of "all", "link" (AKA posts), "comment".
 
 ##### Returns
 
-`"all"` \| `"comment"` \| `"link"`
+`"comment"` \| `"all"` \| `"link"`
 
 ***
 
@@ -170,11 +170,11 @@ Text to show users when reporting content due to this rule. Defaults to the shor
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Rule`, `"kind"` \| `"violationReason"` \| `"shortName"` \| `"description"` \| `"subredditName"` \| `"priority"` \| `"createdUtc"`\> & `object`
+> **toJSON**(): `Pick`\<`Rule`, `"subredditName"` \| `"createdUtc"` \| `"description"` \| `"kind"` \| `"violationReason"` \| `"shortName"` \| `"priority"`\> & `object`
 
 #### Returns
 
-`Pick`\<`Rule`, `"kind"` \| `"violationReason"` \| `"shortName"` \| `"description"` \| `"subredditName"` \| `"priority"` \| `"createdUtc"`\> & `object`
+`Pick`\<`Rule`, `"subredditName"` \| `"createdUtc"` \| `"description"` \| `"kind"` \| `"violationReason"` \| `"shortName"` \| `"priority"`\> & `object`
 
 ***
 
