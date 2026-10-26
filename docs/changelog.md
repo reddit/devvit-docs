@@ -9,6 +9,12 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Devvit 0.15.1: Steady State
+
+**Release Date: October 26, 2026** 
+
+No user-facing changes this time around. This release focuses on behind-the-scenes maintenance to keep Devvit running smoothly.
+
 ## Release 0.15.0: API Updates & Expanded Mode Improvements
 
 **Release Date: October 19, 2026** 
