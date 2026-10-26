@@ -5,18 +5,11 @@ on:
     types:
       - created
 
-permissions:
-  contents: read
-  issues: write
-  pull-requests: write
-
-concurrency:
-  group: preview-pr-${{ github.event.issue.number }}
-  cancel-in-progress: true
+permissions: {}
 
 jobs:
-  preview:
-    name: Build and serve preview
+  authorize:
+    name: Authorize and acknowledge preview
     if: >-
       github.event.issue.pull_request &&
       (
@@ -25,107 +18,96 @@ jobs:
       ) &&
       contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: read
+    outputs:
+      head_repo: ${{ steps.request.outputs.head_repo }}
+      head_sha: ${{ steps.request.outputs.head_sha }}
+    steps:
+      # issue_comment uses the default branch SHA. This job never checks out PR code.
+      - name: Checkout trusted authorization code
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Authorize preview request
+        id: request
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const authorize = require('./.github/scripts/authorize-preview.cjs');
+            await authorize({ github, context, core });
+
+  preview:
+    name: Build and serve preview
+    needs: authorize
+    runs-on: ubuntu-latest
     timeout-minutes: 360
+    permissions:
+      contents: read
+    # Only authorized requests reach this job and can replace an existing preview.
+    concurrency:
+      group: preview-pr-${{ github.event.issue.number }}
+      cancel-in-progress: true
+    env:
+      CLOUDFLARED_VERSION: "2026.10.4"
+      CLOUDFLARED_SHA256: "ae5e8add7884b0531d66bbca4570d1de491ff6da51e4ebe7eb160cdf241d9e42"
 
     steps:
-      - name: Authorize preview request
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const actor = context.payload.comment.user.login;
-            const { owner, repo } = context.repo;
-            let permission = 'none';
-
-            try {
-              const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
-                owner,
-                repo,
-                username: actor,
-              });
-              permission = data.permission;
-            } catch (error) {
-              if (error.status !== 404) {
-                throw error;
-              }
-            }
-
-            const allowed = new Set(['admin', 'maintain', 'write']);
-            if (!allowed.has(permission)) {
-              core.setFailed(
-                `Preview builds are limited to repository members with write access. ` +
-                `${actor} has ${permission} access.`
-              );
-            }
-
-      - name: Get pull request
-        id: pr
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const { owner, repo } = context.repo;
-            const pull_number = context.payload.issue.number;
-            const { data: pull } = await github.rest.pulls.get({
-              owner,
-              repo,
-              pull_number,
-            });
-
-            core.setOutput('head_repo', pull.head.repo.full_name);
-            core.setOutput('head_ref', pull.head.ref);
-            core.setOutput('head_sha', pull.head.sha);
-
-      - name: React to preview request
-        uses: actions/github-script@v7
-        continue-on-error: true
-        with:
-          script: |
-            await github.rest.reactions.createForIssueComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: context.payload.comment.id,
-              content: 'rocket',
-            });
+      - name: Install verified cloudflared
+        run: |
+          curl --fail --location --retry 3 \
+            "https://github.com/cloudflare/cloudflared/releases/download/${CLOUDFLARED_VERSION}/cloudflared-linux-amd64" \
+            --output "$RUNNER_TEMP/cloudflared"
+          echo "$CLOUDFLARED_SHA256  $RUNNER_TEMP/cloudflared" | sha256sum --check --strict
+          chmod +x "$RUNNER_TEMP/cloudflared"
 
       - name: Checkout pull request
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
-          repository: ${{ steps.pr.outputs.head_repo }}
-          ref: ${{ steps.pr.outputs.head_sha }}
+          repository: ${{ needs.authorize.outputs.head_repo }}
+          ref: ${{ needs.authorize.outputs.head_sha }}
           persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
-          node-version: "20"
-          cache: "yarn"
+          node-version-file: ".nvmrc"
+          # Preview code does not need the default branch's dependency cache.
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
       - name: Build documentation
         run: yarn build
-
-      - name: Install cloudflared
-        run: |
-          curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb -o cloudflared.deb
-          sudo dpkg -i cloudflared.deb
 
       - name: Start Docusaurus server
         run: |
           nohup yarn serve --host 0.0.0.0 --port 3000 > docusaurus-preview.log 2>&1 &
 
       - name: Start preview tunnel
-        id: tunnel
+        env:
+          PREVIEW_SHA: ${{ needs.authorize.outputs.head_sha }}
         run: |
-          nohup cloudflared tunnel --url http://localhost:3000 --no-autoupdate > cloudflared-preview.log 2>&1 &
+          nohup "$RUNNER_TEMP/cloudflared" tunnel --url http://localhost:3000 --no-autoupdate > cloudflared-preview.log 2>&1 &
 
           for attempt in {1..30}; do
-            preview_url="$(grep -o 'https://[^ ]*trycloudflare.com' cloudflared-preview.log | head -n 1 || true)"
+            preview_url="$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' cloudflared-preview.log | head -n 1 || true)"
             if [ -n "$preview_url" ]; then
-              echo "url=$preview_url" >> "$GITHUB_OUTPUT"
+              # Job summaries appear after the job ends. Keep the live URL in its log.
+              echo "Preview URL: $preview_url"
+              {
+                echo "## Documentation preview"
+                printf '\n[Open preview](%s)\n\n' "$preview_url"
+                printf 'Commit: `%s`\n\n' "$PREVIEW_SHA"
+                echo "Available for up to six hours. Comment preview on the PR again to replace it."
+              } >> "$GITHUB_STEP_SUMMARY"
               exit 0
             fi
-
             sleep 2
           done
 
@@ -133,22 +115,6 @@ jobs:
           cat cloudflared-preview.log
           exit 1
 
-      - name: Comment preview URL
-        uses: actions/github-script@v7
-        env:
-          PREVIEW_URL: ${{ steps.tunnel.outputs.url }}
-        with:
-          script: |
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.payload.issue.number,
-              body: [
-                `Preview: ${process.env.PREVIEW_URL}`,
-                '',
-                'This preview will stay live for up to 6 hours. Comment `preview` again to replace it with a fresh build.',
-              ].join('\n'),
-            });
-
+      # No GitHub write token or privileged action is introduced after PR code runs.
       - name: Keep preview live for up to six hours
         run: sleep 21600
