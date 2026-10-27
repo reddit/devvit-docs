@@ -65,7 +65,10 @@ const config: Config = {
       src: `${baseUrl}events.js`,
     },
   ],
-  clientModules: ["./src/client/openDetailsForHash.ts"],
+  clientModules: [
+    "./src/client/openDetailsForHash.ts",
+    "./src/client/openKapaForUrl.ts",
+  ],
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
