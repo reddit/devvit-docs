@@ -12,7 +12,7 @@ Use **Devvit** to build apps that run on Reddit, including games, interactive po
 
 If you're building an **external script, bot, website, or integration** with tools like Python, PRAW, or n8n, follow the [Reddit Data API guidance](https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki). A Devvit login doesn't issue a client ID or client secret for an external application. For a use case that Devvit doesn't support, [request access through Reddit Help](https://support.reddithelp.com/hc/en-us/requests/new?tf_42139884615700=api_request_type_developer_clone&ticket_form_id=14868593862164). Access requires approval under the [Responsible Builder Policy](https://support.reddithelp.com/hc/en-us/articles/42728983564564-Responsible-Builder-Policy).
 
-Devvit's free hosting, compute, and storage don't establish pricing or access eligibility for the external Data API. For commercial data access, use the [commercial request route](https://support.reddithelp.com/hc/en-us/requests/new?tf_42139884615700=api_request_type_enterprise_clone&ticket_form_id=14868593862164) linked from the policy.
+External Data API access has its own approval process and terms. For commercial data access, use the [commercial access request form](https://support.reddithelp.com/hc/en-us/requests/new?tf_42139884615700=api_request_type_enterprise_clone&ticket_form_id=14868593862164).
 
 </details>
 
@@ -20,14 +20,14 @@ Devvit's free hosting, compute, and storage don't establish pricing or access el
 <details>
 <summary>Do I need a Reddit API key, client ID, or client secret to build with Devvit?</summary>
 
-No. If you're building a Devvit app, you don't need to create a traditional Reddit app at [`reddit.com/prefs/apps`](https://www.reddit.com/prefs/apps) or manage API keys yourself.
+No. Devvit handles authentication for your app, so you don't need to create an app at [`reddit.com/prefs/apps`](https://www.reddit.com/prefs/apps) or manage API keys yourself.
 
-Instead, start from the [App quickstart](../quickstart/quickstart.md) or create a project at [developers.reddit.com/new](https://developers.reddit.com/new). During setup, you sign in with your Reddit account and connect it to Reddit developers. Devvit handles authentication for your app.
+Start with the [App quickstart](../quickstart/quickstart.md) or create a project at [developers.reddit.com/new](https://developers.reddit.com/new). During setup, sign in with your Reddit account.
 
 To read or write Reddit content from a Devvit app, enable the Reddit capability described in the [Reddit API Overview](../capabilities/server/reddit-api.mdx).
 
 :::note
-If you need a client ID or client secret for an external script or integration, follow the [Reddit Data API guidance](https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki) and its access-request process. Creating a Devvit app or signing in with the CLI doesn't provide external API credentials.
+For an external script or integration, follow the [Reddit Data API guidance](https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki) to request access. Signing in with Devvit doesn't provide external API credentials.
 :::
 
 </details>
@@ -36,9 +36,9 @@ If you need a client ID or client secret for an external script or integration, 
 <details>
 <summary>Where do I start building a Devvit app?</summary>
 
-The fastest path is the [App quickstart](../quickstart/quickstart.md), which walks you through creating a project, connecting your Reddit account, and starting a playtest environment.
+Start with the [App quickstart](../quickstart/quickstart.md) to create a project, connect your Reddit account, and run your first playtest.
 
-If you already know what you want to build, you can also start with:
+You can also choose a guide for your app or game engine:
 
 - [Quickstart for Games](../quickstart/quickstart.md)
 - [Quickstart for Mod Tools](../quickstart/quickstart-mod-tool.md)
@@ -49,7 +49,7 @@ If you already know what you want to build, you can also start with:
 
 <span id="how-do-i-log-in-and-how-do-i-know-i-am-authenticated"></span>
 <details>
-<summary>How do I log in, and how do I know I am authenticated?</summary>
+<summary>How do I log in and check which account I'm using?</summary>
 
 Use the CLI to sign in with your Reddit account:
 
@@ -57,7 +57,7 @@ Use the CLI to sign in with your Reddit account:
 npx devvit login
 ```
 
-To confirm which account is currently authenticated, run:
+To check which account you're signed in with, run:
 
 ```bash
 npx devvit whoami
@@ -75,11 +75,9 @@ For command details, see the [`devvit login`](./tools/devvit_cli.mdx#devvit-logi
 <details>
 <summary>Can I test locally without uploading to Reddit?</summary>
 
-Not completely. Devvit apps run against Reddit, so the normal development flow uses a playtest subreddit rather than a purely local setup.
+Not completely. Backend calls require Reddit, so use a playtest subreddit to test the full app.
 
-The quickstart uses `npm run dev`, which starts a Devvit playtest session for you. If you need more control over that flow, see [Playtest](./tools/playtest.md).
-
-If you're wondering why a purely local setup isn't enough, the quickstart calls this out directly: backend calls don't work when you test the app only locally.
+Run `npm run dev` from a quickstart project to start a playtest session. See [Playtest](./tools/playtest.md) for more options.
 
 </details>
 
@@ -87,15 +85,15 @@ If you're wondering why a purely local setup isn't enough, the quickstart calls 
 <details>
 <summary>Why does <code>npm run dev</code>, playtest, upload, or install fail?</summary>
 
-Most development errors fall into a few buckets:
+Check the error message, then try the matching steps:
 
-- Authentication: make sure you're logged in with `npx devvit login`, then verify the current account with `npx devvit whoami`.
-- Build output mismatch: if Devvit can't find `config.server.entry`, check that your built server file matches the path in `devvit.json`, and that your server build outputs a CommonJS bundle. The best references are [Devvit configuration](../capabilities/devvit-web/devvit_web_configuration.md) and [Vite](./tools/vite.mdx).
-- Config validation: if `devvit.json` complains about invalid fields, extra properties, or settings shapes, validate it against the schema and configuration rules in [Devvit configuration](../capabilities/devvit-web/devvit_web_configuration.md).
-- Fetch or domain errors: if fetch is disabled or a domain is rejected, configure `permissions.http` correctly and review the rules in [HTTP fetch](../capabilities/server/http-fetch.mdx).
-- Runtime failures during playtest or install: use [Playtest](./tools/playtest.md) and [Logs and Debugging](./tools/logs.md) together so you can see the failing endpoint or trigger.
+- **Authentication:** sign in with `npx devvit login`, then check the account with `npx devvit whoami`.
+- **Build output:** if Devvit can't find `config.server.entry`, check that the built server file matches the path in `devvit.json` and that your build outputs a CommonJS bundle. See [Devvit configuration](../capabilities/devvit-web/devvit_web_configuration.md) and [Vite](./tools/vite.mdx).
+- **Configuration:** for invalid fields or extra properties in `devvit.json`, check the schema and rules in [Devvit configuration](../capabilities/devvit-web/devvit_web_configuration.md).
+- **Fetch or domain access:** check `permissions.http` and the requirements in [HTTP fetch](../capabilities/server/http-fetch.mdx).
+- **Runtime errors:** inspect the logs to find the failing endpoint or trigger. See [Playtest](./tools/playtest.md) and [Logs and Debugging](./tools/logs.md).
 
-One other common gotcha: Devvit projects use `vite build --watch` rather than a normal `vite dev` server. The [Vite guide](./tools/vite.mdx) explains the expected setup.
+For Vite projects, use `vite build --watch` for playtesting. See the [Vite guide](./tools/vite.mdx) for the setup.
 
 </details>
 
@@ -103,30 +101,22 @@ One other common gotcha: Devvit projects use `vite build --watch` rather than a 
 <details>
 <summary>How do I update the Devvit CLI?</summary>
 
-Prefer updating the project-local CLI dependency instead of relying on a global install. Update `devvit` in your project, then run `npx devvit update app` so your `@devvit` packages match the CLI.
+Update the `devvit` dependency in your project, then run `npx devvit update app` to update your `@devvit` packages to match the CLI.
 
-For the current commands and workflow, see [Devvit CLI](./tools/devvit_cli.mdx) and the update notes in [Changelog](../changelog.md).
+See [Devvit CLI](./tools/devvit_cli.mdx) for commands and the [Changelog](../changelog.md) for release notes.
 
 </details>
 
 <span id="how-do-i-update-my-app-version"></span>
 <span id="how-do-i-install-a-specific-app-version-or-roll-back"></span>
 <details>
-<summary>How do I update my app version, install a specific version, or roll back?</summary>
+<summary>How do I update my app version?</summary>
 
-Updating the CLI and publishing a new app version are separate steps. Your app version changes when you publish: `npx devvit publish` creates the next launch version, and you can control that with `--bump` or `--version` as described in [Launch your app](./launch/launch-guide.md).
+Run `npx devvit publish` to submit a new app version for review. Use `--bump` or `--version` to control the version number. See [Launch your app](./launch/launch-guide.md) for the publishing steps.
 
-After that, the subreddit still needs to be on the version you want installed. Publishing a new version doesn't automatically update every subreddit. Use [`devvit install`](./tools/devvit_cli.mdx#devvit-install) or open your app in the [App Directory](https://developers.reddit.com/apps/) and, under **Installed in communities**, use the blue **Update** button for the subreddit that's out of date.
+Publishing doesn't automatically update every subreddit. Once the version is approved, use [`devvit install`](./tools/devvit_cli.mdx#devvit-install) to update a community you moderate. You can also open your app in the [App Directory](https://developers.reddit.com/apps/), find the subreddit under **Installed in communities**, and select **Update**.
 
-To install a specific version, including a previous approved version, run:
-
-```bash
-npx devvit install r/mySubreddit my-app@1.2.3
-```
-
-Replace the subreddit, app name, and version with your own. From the app's project directory, you can omit the app name and use `npx devvit install r/mySubreddit @1.2.3`. You must moderate the destination subreddit and have access to the selected version. For testing before review, use [Playtest](./tools/playtest.md).
-
-Installing an earlier version changes the running code; it doesn't undo Redis writes or data migrations. Check that the earlier version can read the installation's current data before rolling back.
+Your app version is separate from the Devvit CLI and SDK versions. Updating your development tools doesn't publish or install a new version of your app.
 
 </details>
 
@@ -134,11 +124,11 @@ Installing an earlier version changes the running code; it doesn't undo Redis wr
 <details>
 <summary>I published and it says a new Devvit version is available. Do I need to upgrade?</summary>
 
-The version notice tells you that a newer Devvit release is available. Check the [Changelog](../changelog.md) for breaking changes, migration steps, and requirements that apply to your project's version before deciding when to upgrade.
+Check the [Changelog](../changelog.md) for breaking changes, migration steps, and upgrade requirements for your project's version. The notice means a newer Devvit release is available.
 
-To upgrade, update the project-local CLI dependency, then run `npx devvit update app` to bring your project's `@devvit` packages in line with the CLI. Test in playtest before publishing the update.
+To upgrade, update the `devvit` dependency in your project, then run `npx devvit update app` to update your `@devvit` packages to match. Test in playtest before publishing.
 
-For upgrade steps, see [Devvit CLI](./tools/devvit_cli.mdx) and the [Changelog](../changelog.md).
+See [Devvit CLI](./tools/devvit_cli.mdx) for upgrade commands.
 
 </details>
 
@@ -146,7 +136,7 @@ For upgrade steps, see [Devvit CLI](./tools/devvit_cli.mdx) and the [Changelog](
 <details>
 <summary>What is the difference between <code>npx devvit upload</code> and <code>npx devvit publish</code>?</summary>
 
-Use `npx devvit upload` when you want a private uploaded build for yourself, and use `npx devvit publish` when you're ready to submit a version for launch review. In practice, playtest is still the normal dev loop, `upload` is useful for a private installable build, and `publish` is the launch step documented in [Launch your app](./launch/launch-guide.md).
+Use `npx devvit upload` to create a private build you can install. Use `npx devvit publish` to submit a version for launch review. For day-to-day development, use [Playtest](./tools/playtest.md).
 
 For command syntax, see [Devvit CLI](./tools/devvit_cli.mdx). For the review and launch flow, see [Launch your app](./launch/launch-guide.md).
 
@@ -156,7 +146,7 @@ For command syntax, see [Devvit CLI](./tools/devvit_cli.mdx). For the review and
 <details>
 <summary>Why does <code>npx devvit upload</code> say assets uploaded, then fail with "You must be logged in to upload a new app version"?</summary>
 
-The asset upload and creation of the app version are separate steps, so uploaded assets don't confirm that your CLI session is authenticated for the remaining operation.
+Assets upload separately from the app version, so that step can succeed even when app version creation fails.
 
 First, refresh your CLI session and check that you're using the expected Reddit account:
 
@@ -166,7 +156,7 @@ npx devvit login
 npx devvit whoami
 ```
 
-Then retry the upload or playtest. If it still fails, capture the error with `--verbose` and include your CLI version and operating system when asking for help in the [Devvit Discord](https://developers.reddit.com/discord) or [r/Devvit](https://www.reddit.com/r/Devvit). Don't share the token stored in `~/.devvit/token`.
+Then retry the upload or playtest. If it still fails, capture the error with `--verbose` and share it with your CLI version and operating system in the [Devvit Discord](https://developers.reddit.com/discord) or [r/Devvit](https://www.reddit.com/r/Devvit). Keep the token stored in `~/.devvit/token` private.
 
 See [Devvit CLI](./tools/devvit_cli.mdx) for authentication and upload options.
 
@@ -192,11 +182,11 @@ See [Logs and Debugging](./tools/logs.md) and the [CLI logs reference](./tools/d
 
 <span id="what-should-i-do-after-playtest-when-i-am-ready-to-launch"></span>
 <details>
-<summary>What should I do after playtest when I am ready to launch?</summary>
+<summary>How do I launch my app after playtesting?</summary>
 
-Before launch, make sure the app is stable across mobile and web, test with multiple accounts, and add the required app [`README.md`](../devvit_rules.md#app-readme-requirements). Then follow the publish flow in [Launch your app](./launch/launch-guide.md).
+Test your app on mobile and web with multiple accounts, and add the required app [`README.md`](../devvit_rules.md#app-readme-requirements). Then follow [Launch your app](./launch/launch-guide.md) to publish.
 
-If you're just ending a playtest session, remember that the latest playtest install remains in place until you change installs. [Playtest](./tools/playtest.md) and [`devvit install`](./tools/devvit_cli.mdx#devvit-install) cover that handoff.
+Ending a playtest leaves the last playtest build installed in the test subreddit. See [Playtest](./tools/playtest.md) and [`devvit install`](./tools/devvit_cli.mdx#devvit-install) to manage that installation.
 
 </details>
 
@@ -204,11 +194,11 @@ If you're just ending a playtest session, remember that the latest playtest inst
 <details>
 <summary>How long does it take to get my app published?</summary>
 
-Most app versions are reviewed within **1–2 business days**. New apps or versions that include higher-risk features may take longer. Features that commonly extend review time:
+Most app versions are reviewed within **1–2 business days**. New apps and versions that need additional review may take longer, including those with:
 
 - **Payments**: apps using the payments capability go through additional policy review.
 - **`runAs: 'USER'`**: user action permissions require explicit approval as part of the review.
-- **External fetch domains**: new domain requests are reviewed separately under the same **1–2 business day** target, though requests with policy ambiguity may take longer (see [HTTP Fetch](../capabilities/http-fetch.mdx)).
+- **External fetch domains**: domain requests are reviewed separately, usually within **1–2 business days**. Requests that need policy clarification may take longer. See [HTTP Fetch](../capabilities/http-fetch.mdx).
 
 To keep review moving:
 
@@ -216,7 +206,7 @@ To keep review moving:
 - Ensure your app complies with the [Devvit Rules](../devvit_rules.md).
 - If your app uses fetch domains, document them in a "Fetch Domains" section of your [README](../devvit_rules.md#app-readme-requirements).
 
-If you haven't heard back after a week, reach out in the [Devvit Discord](https://developers.reddit.com/discord) or via [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit). For the full publish flow, see [Launch your app](./launch/launch-guide.md).
+If you haven't heard back after a week, ask in the [Devvit Discord](https://developers.reddit.com/discord) or contact [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit). See [Launch your app](./launch/launch-guide.md) for the full process.
 
 </details>
 
@@ -224,9 +214,9 @@ If you haven't heard back after a week, reach out in the [Devvit Discord](https:
 <details>
 <summary>How do I install my app on another subreddit?</summary>
 
-If you moderate the destination subreddit, use [`devvit install`](./tools/devvit_cli.mdx#devvit-install) to install a specific app or version on that community. That's the direct CLI path when you want to move beyond the playtest subreddit or test on another subreddit you control.
+Use [`devvit install`](./tools/devvit_cli.mdx#devvit-install) to install your app in a subreddit you moderate.
 
-If the goal is broader distribution, follow [Launch your app](./launch/launch-guide.md) so moderators can install the approved app in the appropriate way for its visibility level.
+To make your app available to other moderators, follow [Launch your app](./launch/launch-guide.md) and choose the visibility level that fits your app.
 
 </details>
 
@@ -234,9 +224,11 @@ If the goal is broader distribution, follow [Launch your app](./launch/launch-gu
 <details>
 <summary>What is the difference between unlisted and public apps?</summary>
 
-Published apps are unlisted by default. That's usually the right fit for games and single-community tools. If you want your app to appear in the App Directory so any moderator can install it, use `npx devvit publish --public` and follow the listing guidance in [Launch your app](./launch/launch-guide.md).
+Published apps are unlisted by default. Unlisted apps don't appear in the App Directory and work well for games and tools built for a specific community.
 
-All apps submitted for review should look launch-ready: the launch docs require an app [`README.md`](../devvit_rules.md#app-readme-requirements), and game launch guidance expects a custom launch or first screen rather than a rough default experience.
+To list your app in the App Directory so other moderators can find and install it, use `npx devvit publish --public`. See [Launch your app](./launch/launch-guide.md) for listing requirements.
+
+Before submitting either type for review, add the required app [`README.md`](../devvit_rules.md#app-readme-requirements). Games also need a custom first screen.
 
 </details>
 
@@ -246,7 +238,7 @@ All apps submitted for review should look launch-ready: the launch docs require 
 <details>
 <summary>What is an interactive post in Devvit?</summary>
 
-An interactive post is a Reddit post created for an app experience rather than a plain text-only post. That means creating the post with `reddit.submitCustomPost()` and defining how it launches through entry points, launch screens, and optional `postData`. See [Interactive posts overview](../capabilities/interactive-posts/interactive_posts_overview.mdx) and [Creating a custom post](../capabilities/creating_custom_post.md).
+An interactive post runs an app experience inside a Reddit post. Create one with `reddit.submitCustomPost()` and configure its views through entry points and launch screens. You can attach data with `postData`. See [Interactive posts overview](../capabilities/interactive-posts/interactive_posts_overview.mdx) and [Creating a custom post](../capabilities/creating_custom_post.md).
 
 </details>
 
@@ -254,7 +246,7 @@ An interactive post is a Reddit post created for an app experience rather than a
 <details>
 <summary>Why is my post just text instead of an interactive app post?</summary>
 
-If you call `submitPost()` with normal `text`, you're creating a regular Reddit post. To create an interactive app post, use `submitCustomPost()` and point it at your configured entry point instead. The [Interactive posts overview](../capabilities/interactive-posts/interactive_posts_overview.mdx) is the clearest starting point for that distinction.
+`submitPost()` with `text` creates a regular text post. To create an interactive app post, use `submitCustomPost()` with your configured entry point. See [Interactive posts overview](../capabilities/interactive-posts/interactive_posts_overview.mdx).
 
 </details>
 
@@ -262,24 +254,24 @@ If you call `submitPost()` with normal `text`, you're creating a regular Reddit 
 <details>
 <summary>What is Devvit Web?</summary>
 
-Devvit Web is the current client/server app model for building Devvit apps with standard web tools like React, Phaser, or Three.js. It's a normal web app plus server endpoints plus `devvit.json` configuration, with Reddit capabilities split between client APIs, server APIs, and config. See [Devvit Web overview](../capabilities/devvit-web/devvit_web_overview.mdx).
+Devvit Web lets you build apps for Reddit with web tools such as React, Phaser, and Three.js. Your app includes a web client, server endpoints, and a `devvit.json` configuration file. Client and server APIs give your app access to Reddit features. See [Devvit Web overview](../capabilities/devvit-web/devvit_web_overview.mdx).
 
 </details>
 
 <span id="i-got-a-notice-that-blocks-is-deprecated-what-do-i-need-to-do"></span>
 <span id="should-i-use-the-legacy-splash-field-or-html-launch-entry-points"></span>
 <details>
-<summary>I got a notice that Blocks is deprecated. What do I need to do?</summary>
+<summary>How do I migrate a Blocks app to Devvit Web?</summary>
 
-Blocks is being replaced by [Devvit Web](../capabilities/devvit-web/devvit_web_overview.mdx). The path depends on how your app is built, but here's what to check first:
+Migrate your app to [Devvit Web](../capabilities/devvit-web/devvit_web_overview.mdx). Start with the parts your app uses:
 
 - **`devvit.yaml`**: If your project still has a `devvit.yaml`, replace it with a `devvit.json`. See [Migrating Blocks/Mod Tools to Devvit Web](./migrate/devvit-singleton.md) for the updated config format and steps.
-- **`Devvit.addCustomPostType()`**: This is the core Blocks API and is deprecated. Move your post rendering to a `client` entry in `devvit.json`, backed by a standard HTML, React, or other web app.
-- **`submitCustomPost()` with `preview`**: The `preview` field (used to render a Blocks component as the post preview) is no longer the right pattern. Use `post.entrypoints` in `devvit.json` to define your inline and expanded views as HTML entry points instead.
+- **`Devvit.addCustomPostType()`**: Replace this deprecated Blocks API with a `client` entry in `devvit.json`, backed by an HTML, React, or other web app.
+- **`submitCustomPost()` with `preview`**: Replace the Blocks preview with HTML entry points. Use `post.entrypoints` in `devvit.json` to define your inline and expanded views.
 - **`useWebView`**: If your app launched a web view from inside Blocks, migrate to Devvit Web. See [Migrating from useWebView to Devvit Web](./migrate/inline-web-view.md).
 - **`splash`**: Replace the legacy `submitCustomPost()` splash parameter with HTML entry points and select one using `entry`. See [Migrating from Splash Screens](../capabilities/server/launch_screen_and_entry_points/splash_migration.mdx).
 
-If your app uses only Blocks without a web view, [Migrating Blocks/Mod Tools to Devvit Web](./migrate/devvit-singleton.md) is the quickest path. If your app has a web view, start with [Migrating from useWebView to Devvit Web](./migrate/inline-web-view.md).
+For a Blocks app without a web view, follow [Migrating Blocks/Mod Tools to Devvit Web](./migrate/devvit-singleton.md). For an app with a web view, follow [Migrating from useWebView to Devvit Web](./migrate/inline-web-view.md).
 
 </details>
 
@@ -287,14 +279,16 @@ If your app uses only Blocks without a web view, [Migrating Blocks/Mod Tools to 
 <details>
 <summary>Where do I customize the first screen or launch screen?</summary>
 
-For current Devvit Web apps, customize the first screen through your `post.entrypoints` in `devvit.json` and the HTML, CSS, and client code for those entry files. The main references are [Launch overview](../capabilities/server/launch_screen_and_entry_points/launch_overview.mdx), [View modes and entry points](../capabilities/server/launch_screen_and_entry_points/view_modes_entry_points.md), and [Launch screen customization](../capabilities/server/launch_screen_and_entry_points/launch_screen_customization.md).
+Configure `post.entrypoints` in `devvit.json`, then edit the HTML, CSS, and client code for the entry point shown when the post opens.
+
+See [Launch overview](../capabilities/server/launch_screen_and_entry_points/launch_overview.mdx), [View modes and entry points](../capabilities/server/launch_screen_and_entry_points/view_modes_entry_points.md), and [Launch screen customization](../capabilities/server/launch_screen_and_entry_points/launch_screen_customization.md).
 
 </details>
 
 <span id="how-do-i-handle-scrolling-and-touch-gestures-in-inline-vs-expanded-mode"></span>
 <span id="how-do-i-configure-inline-and-expanded-mode-or-switch-entry-points"></span>
 <details>
-<summary>How do I configure inline and expanded mode, switch entry points, and handle gestures?</summary>
+<summary>How do I configure inline and expanded views?</summary>
 
 Define the views under `post.entrypoints` in `devvit.json`. For example:
 
@@ -334,7 +328,7 @@ See [View modes and entry points](../capabilities/server/launch_screen_and_entry
 <details>
 <summary>How do I add images that ship with my app?</summary>
 
-Put static images in your client `dist/` directory when they should ship with the app version, such as logos, backgrounds, or other bundled art. Reference them directly from your web client (for example via `<img src="/logo.png" />`).
+Include static images, such as logos and backgrounds, in your client build output (`dist/`). Reference them from your web client, for example with `<img src="/logo.png" />`.
 
 </details>
 
@@ -342,7 +336,7 @@ Put static images in your client `dist/` directory when they should ship with th
 <details>
 <summary>How do user image uploads work in Devvit?</summary>
 
-The simplest path is a form field with `type: 'image'`, which returns a Reddit-hosted image URL when the user submits it. For custom flows like screenshots or generated images, send the data to your server and upload it with [Media uploads](../capabilities/server/media-uploads.mdx).
+Use a form field with `type: 'image'` to get a Reddit-hosted image URL when the user submits the form. For screenshots or generated images, send the data to your server and upload it with [Media uploads](../capabilities/server/media-uploads.mdx).
 
 See [Forms](../capabilities/client/forms.mdx) and [Media uploads](../capabilities/server/media-uploads.mdx) for the supported formats and size limits.
 
@@ -362,18 +356,18 @@ Try compressing the image, reducing dimensions, or retrying from a faster connec
 <details>
 <summary>What image URLs can I use in a Devvit app?</summary>
 
-The documented display paths are bundled client assets, Reddit-hosted URLs, and SVG data URLs, depending on the UI surface. If your source image lives somewhere else on the web, don't assume you can hotlink it directly into the UI. Upload it first so Reddit hosts the image, then use the returned URL. See [Media uploads](../capabilities/server/media-uploads.mdx).
+Use bundled client assets, Reddit-hosted URLs, or SVG data URLs, depending on the UI surface. For an image hosted elsewhere, upload it to Reddit first and use the returned URL. See [Media uploads](../capabilities/server/media-uploads.mdx).
 
 </details>
 
 <span id="what-is-postdata-and-when-should-i-use-it-instead-of-redis"></span>
 <span id="how-do-i-access-or-update-postdata"></span>
 <details>
-<summary>What is <code>postData</code>, how do I read or update it, and when should I use Redis?</summary>
+<summary>How do I use <code>postData</code>, and when should I use Redis?</summary>
 
-Use `postData` for small shared JSON attached to a single post, like lightweight game state or configuration that all viewers need to read. The docs cap it at 2 KB per post and recommend [Redis](../capabilities/server/redis.mdx) for larger or more persistent data patterns.
+Use `postData` for small JSON objects shared by everyone viewing a post, such as game configuration. It's limited to 2 KB per post. Use [Redis](../capabilities/server/redis.mdx) for larger datasets or data shared across posts.
 
-Set `postData` when creating the post, then read it from `context.postData` on either the client or server side. To update it later, fetch the post and call `setPostData()`. The important gotcha is that `setPostData()` replaces the whole object, so merge existing fields first. See [Post data](../capabilities/server/post-data.mdx).
+Set `postData` when creating the post, then read it from `context.postData` on the client or server. To update it, fetch the post and call `setPostData()`. This replaces the whole object, so merge any fields you want to keep before saving. See [Post data](../capabilities/server/post-data.mdx).
 
 </details>
 
@@ -381,9 +375,7 @@ Set `postData` when creating the post, then read it from `context.postData` on e
 <details>
 <summary>How do I build a leaderboard with Redis?</summary>
 
-The standard Devvit pattern is to build leaderboards with Redis sorted sets. Use [Redis](../capabilities/server/redis.mdx) for score storage and ranking, use [Scheduler](../capabilities/server/scheduler.mdx) for daily or periodic resets, and prefer realtime updates over constant polling when you need a live leaderboard.
-
-Redis is the right storage layer, but the exact schema depends on whether you need daily, weekly, or all-time rankings. [Redis](../capabilities/server/redis.mdx) is the best starting point.
+Use [Redis sorted sets](../capabilities/server/redis.mdx) to store scores and rank players, and [Scheduler](../capabilities/server/scheduler.mdx) for daily or periodic resets. For a live leaderboard, use realtime updates to send score changes to connected clients.
 
 </details>
 
@@ -391,7 +383,7 @@ Redis is the right storage layer, but the exact schema depends on whether you ne
 <details>
 <summary>Can a menu action create a new post?</summary>
 
-Yes. Define the menu item in `devvit.json`, implement the server endpoint it calls, and create the post from that route. The pattern is documented across [Menu actions](../capabilities/client/menu-actions.mdx) and [Interactive posts overview](../capabilities/interactive-posts/interactive_posts_overview.mdx).
+Yes. Define the menu item in `devvit.json`, implement its server endpoint, and create the post from that endpoint. See [Menu actions](../capabilities/client/menu-actions.mdx) and [Interactive posts overview](../capabilities/interactive-posts/interactive_posts_overview.mdx).
 
 </details>
 
@@ -399,7 +391,7 @@ Yes. Define the menu item in `devvit.json`, implement the server endpoint it cal
 <details>
 <summary>How do I automate daily or scheduled game posts?</summary>
 
-Use [Scheduler](../capabilities/server/scheduler.mdx) for cron-style recurring jobs or one-off jobs declared in `devvit.json`, then handle the matching `/internal/...` endpoint in your server code. The scheduler docs explain the plumbing; the post creation step still uses the normal Reddit APIs like `submitCustomPost()`.
+Define a recurring or one-time job with [Scheduler](../capabilities/server/scheduler.mdx) in `devvit.json`. In the matching `/internal/...` server endpoint, call `reddit.submitCustomPost()` to create the post.
 
 </details>
 
@@ -407,7 +399,7 @@ Use [Scheduler](../capabilities/server/scheduler.mdx) for cron-style recurring j
 <details>
 <summary>How do I post or comment as the user instead of the app?</summary>
 
-Add the required `permissions.reddit.asUser` entries in `devvit.json`, then call the supported Reddit APIs with `runAs: 'USER'`. The main doc for this is [User Actions](../capabilities/server/userActions.mdx), which also explains the review requirements, explicit opt-in rules, and `userGeneratedContent` expectations.
+Add the required `permissions.reddit.asUser` entries in `devvit.json`, then call the supported Reddit APIs with `runAs: 'USER'`. Follow [User Actions](../capabilities/server/userActions.mdx) for review requirements, user opt-in, and `userGeneratedContent` requirements.
 
 </details>
 
@@ -415,7 +407,7 @@ Add the required `permissions.reddit.asUser` entries in `devvit.json`, then call
 <details>
 <summary>Why does <code>runAs: 'USER'</code> still post as the app during playtest?</summary>
 
-Before the app version is approved, user actions aren't enabled for everyone. During playtest or other unapproved versions, `runAs: 'USER'` falls back to the app account for most users, while actions taken by the app owner are attributed to the owner's username. After publishing and approval, it operates on behalf of the user for all users. See [User Actions](../capabilities/server/userActions.mdx).
+During playtest or with an unapproved app version, `runAs: 'USER'` uses the app account for most users. Actions taken by the app owner use the owner's username. Once the app version is published and approved, user actions run on behalf of each user. See [User Actions](../capabilities/server/userActions.mdx).
 
 </details>
 
@@ -425,7 +417,7 @@ Before the app version is approved, user actions aren't enabled for everyone. Du
 
 Devvit supports both user flair and post flair through the Reddit API client.
 
-- For a new post, use the submit options documented in [CommonSubmitPostOptions](../api/redditapi/models/type-aliases/CommonSubmitPostOptions.md), including `flairId` or `flairText`.
+- For a new post, use `flairId` or `flairText` in [CommonSubmitPostOptions](../api/redditapi/models/type-aliases/CommonSubmitPostOptions.md).
 - For an existing post, use the flair methods on [RedditClient](../api/redditapi/RedditClient/classes/RedditClient.md), such as `setPostFlair()` and `removePostFlair()`.
 - For a user, use `setUserFlair()`, `removeUserFlair()`, or `setUserFlairBatch()` on the same client.
 
@@ -442,24 +434,24 @@ const post = await reddit.submitCustomPost({
 });
 ```
 
-To read a user's current flair before changing it, fetch the subreddit and call `subreddit.getUserFlair({ usernames: ['username'] })`. Its `users` array includes the existing `flairText` and `flairCssClass`. Decide which existing text and formatting to preserve before calling `setUserFlair()`; setting a new flair isn't an append operation. See [getUserFlair](../api/redditapi/models/classes/Subreddit.md#getuserflair).
+To preserve existing flair, fetch the subreddit and call `subreddit.getUserFlair({ usernames: ['username'] })` first. Its `users` array includes `flairText` and `flairCssClass`. Combine the values you want to keep with your changes before calling `setUserFlair()`, which replaces the flair. See [getUserFlair](../api/redditapi/models/classes/Subreddit.md#getuserflair).
 
-If you're reading flair back from a post, note that post flair and author flair are different fields. The [Post](../api/redditapi/models/classes/Post.md) model exposes `flair` for the post and `authorFlair` for the post author.
+On the [Post](../api/redditapi/models/classes/Post.md) model, `flair` contains the post's flair and `authorFlair` contains the author's flair.
 
-If you need to react to flair changes, Devvit documents an [`onPostFlairUpdate`](../capabilities/server/triggers.mdx) trigger for post flair changes. Also note that the [Devvit test tool](./tools/devvit_test.mdx) doesn't yet support the Flair service.
+Use the [`onPostFlairUpdate`](../capabilities/server/triggers.mdx) trigger to react to post flair changes. The [Devvit test tool](./tools/devvit_test.mdx) doesn't yet support the Flair service.
 
 </details>
 
 <span id="how-do-i-get-a-users-username-or-snoovatar"></span>
 <span id="how-do-i-get-user-avatars-snoovatars-or-subreddit-icons"></span>
 <details>
-<summary>How do I get a user's username, avatar or snoovatar, or a subreddit's icon?</summary>
+<summary>How do I get usernames, user avatars, and subreddit icons?</summary>
 
-If you only need the current user's name, prefer `getCurrentUsername()` over fetching the full user object.
+Use `getCurrentUsername()` when you only need the current user's name.
 
-If you need more profile information, use `getCurrentUser()` from the [Reddit API client](../api/redditapi/RedditClient/classes/RedditClient.md). To get a snoovatar URL, use `reddit.getSnoovatarUrl(username)` or `user.getSnoovatarUrl()` on the [User](../api/redditapi/models/classes/User.md) model.
+For more profile information, use `getCurrentUser()` from the [Reddit API client](../api/redditapi/RedditClient/classes/RedditClient.md). To get a snoovatar URL, use `reddit.getSnoovatarUrl(username)` or `user.getSnoovatarUrl()` on the [User](../api/redditapi/models/classes/User.md) model.
 
-Some handlers also expose experimental identity fields like `username` and `snoovatar` on [BaseContext](../api/public-api/type-aliases/BaseContext.md), but the Reddit client methods are the clearest documented path.
+Some handlers also expose experimental `username` and `snoovatar` fields on [BaseContext](../api/public-api/type-aliases/BaseContext.md).
 
 For a subreddit icon, fetch its styles by subreddit ID in your server code:
 
@@ -471,7 +463,9 @@ const styles = await reddit.getSubredditStyles(subreddit.id);
 const iconUrl = styles.icon;
 ```
 
-To look up another community, obtain its ID with `reddit.getSubredditInfoByName(name)` first. See [getSubredditStyles](../api/redditapi/RedditClient/classes/RedditClient.md#getsubredditstyles) and [SubredditStyles](../api/redditapi/models/type-aliases/SubredditStyles.md#icon). Icon and snoovatar URLs can be absent, so provide a fallback image or initials. A community icon is separate from a user's avatar and from your app's profile icon.
+To look up another community, get its ID with `reddit.getSubredditInfoByName(name)` first. See [getSubredditStyles](../api/redditapi/RedditClient/classes/RedditClient.md#getsubredditstyles) and [SubredditStyles](../api/redditapi/models/type-aliases/SubredditStyles.md#icon).
+
+Icon and snoovatar URLs can be absent, so provide a fallback image or initials.
 
 </details>
 
@@ -479,9 +473,9 @@ To look up another community, obtain its ID with `reddit.getSubredditInfoByName(
 <details>
 <summary>How do I handle external links in Devvit?</summary>
 
-Use Devvit navigation APIs to open links rather than treating this like external fetch. For app navigation, see [Navigation](../capabilities/client/navigation.mdx), which covers `navigateTo` and the confirmation flow for external URLs.
+Use `navigateTo` to open a link. External URLs require user confirmation. See [Navigation](../capabilities/client/navigation.mdx).
 
-If you actually need remote data or remote media, that's a different path: use [HTTP fetch](../capabilities/server/http-fetch.mdx) for approved server-side fetches, and [Media uploads](../capabilities/server/media-uploads.mdx) when you need a Reddit-hosted media URL.
+To retrieve external data, use [HTTP fetch](../capabilities/server/http-fetch.mdx) from your server. To host an image or video on Reddit, use [Media uploads](../capabilities/server/media-uploads.mdx).
 
 </details>
 
@@ -489,12 +483,9 @@ If you actually need remote data or remote media, that's a different path: use [
 <span id="how-do-i-update-my-app-profile-settings"></span>
 <span id="how-do-i-set-or-change-my-app-icon-profile-picture-or-logo"></span>
 <details>
-<summary>How do I set or change my app icon, profile picture, logo, or profile settings?</summary>
+<summary>How do I update my app's icon and profile settings?</summary>
 
-App profile settings let you control how your app appears on Reddit via a combination of configuration in `devvit.json` and fields in the Developer Portal.
-
-**Avatar (profile icon)**
-Use a **1024 × 1024 PNG** and set its path relative to the project root:
+Set your app's profile icon with `marketingAssets.icon` in `devvit.json`. Use a **1024 × 1024 PNG** and a path relative to the project root:
 
 ```json title="devvit.json"
 {
@@ -504,16 +495,11 @@ Use a **1024 × 1024 PNG** and set its path relative to the project root:
 }
 ```
 
-To update your avatar:
-
-1. In your `devvit.json`, set the `marketingAssets.icon` field to the path to your icon from the project root.
-2. When you publish your app and it is approved, this icon is uploaded to your app’s Reddit profile.
-3. To change the icon later, update `marketingAssets.icon` in `devvit.json` and submit the app for a new review.
-4. Only image avatars are supported at this time. Snoovatars are not supported for apps.
+Publish your app and submit it for review. Once approved, the icon appears on your app's Reddit profile. To change it, update the image and submit a new app version for review. Apps support image avatars only; Snoovatars aren't supported.
 
 If the profile still shows the old image, check that the version containing the new icon has been approved. See [Marketing assets configuration](../capabilities/devvit-web/devvit_web_configuration.md#marketing-assets).
 
-You can also edit the display name, about description, and mature flag (18+) fields in the Developer Portal under Developer Settings. Updates will appear in the Developer Portal and on the app's Reddit profile.
+For the display name, about description, and mature flag (18+), open **Developer Settings** in the Developer Portal. These changes appear in the portal and on the app's Reddit profile.
 
 </details>
 
@@ -523,18 +509,18 @@ You can also edit the display name, about description, and mature flag (18+) fie
 <details>
 <summary>What are the main storage, payload, and rate limits?</summary>
 
-There's no single limits page today, but these are the most commonly referenced numbers in the docs:
+The main limits are:
 
-- [Redis](../capabilities/server/redis.mdx): 5 GB max storage per installation, 5 MB max request size, and 40,000 max commands per second.
-- [Devvit Web](../capabilities/devvit-web/devvit_web_overview.mdx): 30 second max request time, 4 MB max payload size, and 10 MB max response size.
+- [Redis](../capabilities/server/redis.mdx): 5 GB of storage per installation, 5 MB per request, and 40,000 commands per second.
+- [Devvit Web](../capabilities/devvit-web/devvit_web_overview.mdx): 30 seconds per request, a 4 MB request payload, and a 10 MB response.
 - [Post data](../capabilities/server/post-data.mdx): 2 KB per post.
 - [Settings and secrets](../capabilities/server/settings-and-secrets.mdx): 2 KB per setting value.
 - [Realtime](../capabilities/realtime/overview.md): 1 MB maximum message payload and 100 messages per second per installation.
 - [Scheduler](../capabilities/server/scheduler.mdx): up to 10 live recurring actions per installation, plus `runJob()` limits documented on that page.
 
-**Redis limits apply to each installation of your app in a subreddit.** Posts and users within that installation share its storage allowance; it isn't a separate allowance per post or user. The same app installed in another subreddit has a separate Redis namespace and can't read the first installation's keys. Plan cross-community data sharing explicitly. See [Redis data storage](../capabilities/server/redis.mdx#data-storage).
+**Redis limits apply to each installation of your app in a subreddit.** Posts and users in that installation share its storage allowance. Each subreddit installation has a separate Redis namespace and can't read another installation's keys. See [Redis data storage](../capabilities/server/redis.mdx#data-storage).
 
-If you need data to survive app updates, don't rely on browser `localStorage`. The [Devvit Web overview](../capabilities/devvit-web/devvit_web_overview.mdx) recommends Redis for persistent storage across versions.
+Use Redis for data that needs to survive app updates. See the [Devvit Web overview](../capabilities/devvit-web/devvit_web_overview.mdx) for persistence guidance.
 
 </details>
 
@@ -542,15 +528,15 @@ If you need data to survive app updates, don't rely on browser `localStorage`. T
 <details>
 <summary>How long does it take to get my domain approved?</summary>
 
-Domain requests are reviewed separately from app publishing. Most domain requests are reviewed within **1–2 business days**, though requests with policy ambiguity may take longer. If your app was approved but a requested fetch domain wasn't yet granted, the domain review may still be in progress.
+Most domain requests are reviewed within **1–2 business days**. Requests that need policy clarification may take longer. Domain review is separate from app review, so your app can be approved while a domain request is still in progress.
 
-To make approval go smoothly:
+When requesting a domain:
 
-- Use exact hostnames only — no wildcards (`*.example.com`), no protocols (`https://`), and no paths (`api.example.com/webhooks`).
+- Use exact hostnames, such as `api.example.com`. Omit wildcards, protocols, and paths.
 - Add a "Fetch Domains" section to your app [`README.md`](../devvit_rules.md#app-readme-requirements) listing each domain and explaining why you need it. The expected format is documented in [HTTP Fetch](../capabilities/http-fetch.mdx).
 - Include links to your Terms and Conditions and Privacy Policy in your app details form.
 
-Before submitting, check the [global fetch allowlist](../capabilities/http-fetch.mdx#global-fetch-allowlist) — if your domain is already listed there, no separate request is needed. Personal domains (e.g., `personaldomain.com`) aren't approved.
+Check the [global fetch allowlist](../capabilities/http-fetch.mdx#global-fetch-allowlist) first. Domains on that list don't need a separate request. Personal domains, such as `personaldomain.com`, aren't approved.
 
 </details>
 
@@ -561,7 +547,7 @@ Before submitting, check the [global fetch allowlist](../capabilities/http-fetch
 
 Set the inline height per entry point in `devvit.json`, for example `"height": "regular"`. The [configuration schema](https://developers.reddit.com/schema/config-file.v1.json) accepts the named heights `short`, `regular`, and `tall`. Config values use lowercase; the custom-post `styles.height` API uses enum values such as `REGULAR` and `TALL`.
 
-The documented [custom post style presets](../capabilities/creating_custom_post.md#custom-post-styles) are:
+The [custom post style presets](../capabilities/creating_custom_post.md#custom-post-styles) are:
 
 | Preset | Height |
 | --- | --- |
@@ -570,7 +556,7 @@ The documented [custom post style presets](../capabilities/creating_custom_post.
 
 Width varies with the viewport, approximately 288–880 px. Expanded mode uses a larger modal on web or fullscreen on mobile, so build responsive layouts and test mobile, desktop, and fullscreen in the [UI Simulator](./tools/ui_simulator.mdx).
 
-For an exact pixel height, the current schema also defines **experimental** entry-point styles: `post.entrypoints.<name>.styles.height` accepts an integer from 72 to 512. For example:
+For an exact pixel height, use the **experimental** `post.entrypoints.<name>.styles.height` setting. It accepts an integer from 72 to 512. For example:
 
 ```json title="devvit.json"
 {
@@ -595,13 +581,11 @@ Use an SDK version that supports this experimental setting and validate your con
 <details>
 <summary>Can my app use NSFW content, and why are NSFW listings empty or <code>showNsfw</code> false?</summary>
 
-App labeling, a user's viewing preference, and API access are separate concerns. The [User model](../api/redditapi/models/classes/User.md#shownsfw) exposes `showNsfw` as a read-only getter for whether that user is over 18 and wants to see NSFW content. Its `nsfw` property describes whether the profile is marked NSFW. There is no documented Devvit setter for `showNsfw`.
+For mature content, follow the [Devvit Rules](../devvit_rules.md), including labeling and age-gating requirements. Uploaded media also goes through the safety checks described in [Media uploads](../capabilities/server/media-uploads.mdx).
 
-A mature profile label isn't a documented content-access permission, and your personal account preferences aren't a documented way to change the app account's `showNsfw` value. The API reference doesn't establish a general fix for empty NSFW listings.
+The [User model](../api/redditapi/models/classes/User.md#shownsfw) has two separate fields: `showNsfw` indicates whether the user is over 18 and wants to see NSFW content, while `nsfw` indicates whether the profile is marked NSFW. `showNsfw` is read-only. Don't rely on a mature profile label or your personal account's viewing preferences to grant the app access to NSFW content.
 
-If a listing unexpectedly returns no posts, compare the same API call against a public SFW community, then share your app/version, SDK version, target community, API method, and a minimal reproduction with the Devvit team through [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit). The team can confirm the access available to your app.
-
-For mature content in an app, follow [Devvit Rules](../devvit_rules.md), including labeling and age-gating requirements. Uploaded media also goes through the safety checks described in [Media uploads](../capabilities/server/media-uploads.mdx).
+If a listing unexpectedly returns no posts, try the same API call in a public SFW community. Then contact [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit) with your app name and version, SDK version, target community, API method, and a small example that reproduces the issue. The team can check the access available to your app.
 
 </details>
 
@@ -632,11 +616,11 @@ npx devvit uninstall r/mySubreddit my-app
 
 You can also open the app in the [App Directory](https://developers.reddit.com/apps/), select the subreddit under **Installed in communities**, and choose **Remove from community**. See the [CLI reference](./tools/devvit_cli.mdx#devvit-uninstall).
 
-Be careful: uninstalling from a subreddit can remove that installation's stored data and settings. See [Mod resources](./best-practices/mod_resources.md) for the current warning about uninstall data loss.
+Uninstalling can remove the installation's stored data and settings. See [Mod resources](./best-practices/mod_resources.md) before removing an installation.
 
-**Archive the app itself:** open its App Directory page and use **Archive** at the bottom. Archiving the app is a separate operation from uninstalling an individual community's copy; inspect existing installations when shutting an app down.
+**Archive the app:** open its App Directory page and select **Archive** at the bottom. Review existing installations as part of shutting down your app; archiving and uninstalling are separate actions.
 
-**Permanently delete an app or unregister an account:** the documented CLI doesn't provide a delete-app or unregister-account command. If you registered the wrong Reddit account as an app, contact the team through [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit) for guidance. Uninstalling an app doesn't unregister the account.
+**Delete an app or unregister an account:** contact [r/Devvit Modmail](https://www.reddit.com/message/compose/?to=r/Devvit) for help, including if you registered the wrong Reddit account as an app. Uninstalling doesn't unregister the account.
 
 </details>
 
@@ -644,11 +628,11 @@ Be careful: uninstalling from a subreddit can remove that installation's stored 
 <details>
 <summary>How do I get my game featured on Reddit or the Games on Reddit launchpad?</summary>
 
-Publish your game and get it approved, then apply through the [Featuring Request Form](https://forms.gle/BeKcqQy8yZEqEmtR6). Games with organic growth may also be scouted by the Reddit team.
+After your game is published and approved, apply through the [Featuring Request Form](https://forms.gle/BeKcqQy8yZEqEmtR6). The Reddit team also scouts games with organic growth.
 
-Before applying, make sure your game has a custom first screen, works on mobile and desktop, is easy for new players to understand, avoids inline scrolling, and has updated in-app catalog assets. Featuring is curated; approval or an application doesn't guarantee a particular placement.
+Before applying, make sure your game has a custom first screen, works on mobile and desktop, is easy for new players to understand, avoids inline scrolling, and has updated in-app catalog assets. Placements are selected by the Reddit team and aren't guaranteed.
 
-The program includes surfaces such as the Games Feed, Community Drawer, Home Feed, and r/GamesOnReddit. See [Get featured](./launch/feature-guide.mdx) for current requirements and distribution tiers.
+Featured games can appear in the Games Feed, Community Drawer, Home Feed, and r/GamesOnReddit. See [Get featured](./launch/feature-guide.mdx) for requirements and distribution tiers.
 
 </details>
 
@@ -656,9 +640,7 @@ The program includes surfaces such as the Games Feed, Community Drawer, Home Fee
 <details>
 <summary>What is Devvit MCP and how do I set it up?</summary>
 
-Devvit MCP is the bridge used by supported coding tools and agents to search Devvit docs and, in some setups, work with Devvit workflows from your editor. The setup docs live in [Using AI Tools](./ai/ai.md).
-
-If you're configuring Cursor, VS Code Copilot, Claude Code, or Claude Desktop, start there instead of duplicating the JSON in this FAQ. Use the AI tools guide for the exact MCP config and supported tools.
+Devvit MCP connects coding tools and AI assistants to Devvit documentation and development tools. Follow [Using AI Tools](./ai/ai.md) for supported tools and setup instructions, including Cursor, VS Code Copilot, Claude Code, and Claude Desktop.
 
 </details>
 
