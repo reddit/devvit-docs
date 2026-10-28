@@ -44,3 +44,15 @@ $ yarn start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+### Share the Devvit AI Helper
+
+Use [https://developers.reddit.com/docs/?ask=1](https://developers.reddit.com/docs/?ask=1) to open the Kapa widget directly. Visitors can also open the helper with the **Ask AI** widget in the bottom-right corner of any docs page.
+
+To prefill a question, add a URL-encoded `question` parameter, for example:
+
+```text
+https://developers.reddit.com/docs/?ask=1&question=How%20do%20I%20get%20started%3F
+```
+
+The question is prefilled for the visitor to review and submit. The `ask=1` parameter also works on individual documentation pages, allowing a shared link to keep that page as context. Kapa's knowledge sources are configured separately in the Kapa platform.
