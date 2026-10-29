@@ -1,87 +1,137 @@
-# Building Community Games
+# Community Engagement Playbook
 
-Community games are multiplayer experiences that tap into Reddit’s unique social dynamics.
+Help the right community discover, play, and shape your game.
 
-This guide provides practical tips to help you create engaging community games that thrive in Reddit's ecosystem. Read on to learn about the kinds of mechanics that help drive long-term engagement and unlock a shot at [featuring placements](../launch/feature-guide.mdx) for your app.
+When it comes to games, people come to Reddit to share strategies, ask questions, report bugs, post fan art, debate mechanics, and discover new games through recommendations from other players. Those conversations happen naturally and developers who participate thoughtfully can become part of them.
 
-## Player retention
+This guide covers how to find the right communities, work with moderators, and create experiences that players actually want to participate in.
 
-Retention is the art of giving players a reason to come back tomorrow. Most successful games create simple, repeatable patterns that become part of the player’s daily routine.
+:::note
+Here's one rule to keep: ask yourself one question before every outreach message, post, or reply: What is the active value to this specific community? If the answer is not clear, keep listening.
+:::
 
-### Add a subscribe option
+## Develop: Listen before you ask
 
-One of the simplest ways to drive repeat play is to encourage users to subscribe to your subreddit. Subscribers will see new app posts and community discussions in their home feed, which organically brings them back to your game.
+Every subreddit has its own rules, rhythms, and sense of what belongs. Some communities welcome developers in the comments, while others prefer AMAs, megathreads, or mod-approved posts. Some may not be a fit at all.
 
-You can add a “Join” button in your app using the [user actions](../../capabilities/server/userActions.mdx) plugin. This creates a lightweight, opt-in way for players to stay connected and engaged.
+### Find the communities that fit your game
 
-### Habits and feedback loops
+Look for relevance, not just reach. A puzzle game may fit a logic-focused community; a cozy game may fit a creative or relaxing-play community; a Reddit-native social game may fit communities that already enjoy collaborative experiences.  
+Before you engage, take time to understand:
 
-Build loops in your game that reward daily habits. **Streaks** and **milestone rewards** encourage consistency: players come back to maintain progress and reach the next goal. You’ll see streaks in games like [r/syllo](https://www.reddit.com/r/syllo/), and [r/honk](https://www.reddit.com/r/honk/) lets players earn loot by completing game levels. You can also add streaks to player flairs.
+- Relevance: Does this game, feature, update, or play session genuinely belong here?
+- Sentiment: Are people excited, skeptical, frustrated, or asking for something your team can help with?
+- Rules: Are developer posts, self-promotion, spoilers, AMAs, giveaways, support threads, or community events allowed?
+- Precedent: How have other developers, creators, or experts participated?
+- Format: Would a comment, feedback thread, mod-approved post, AMA, community play session, or no post at all be most useful?
 
-**Tip**: Consider adding grace mechanics like streak freezes to reduce churn.
+If you use Reddit Pro, use its insights to find the public conversations, communities, and themes that are most relevant to your game. Then read the room before joining it.
 
-**Push notifications** are another way to reinforce a daily habit, and they work best when paired with other retention features like streaks, leagues, and leaderboards. Push notifications are currently a limited beta feature, but you can reach out via [r/Devvit](https://www.reddit.com/r/Devvit/) modmail to apply for a spot in our beta program.
+### Start with the players you already have
 
-### Progress and recognition
+Your existing players are often your best source of feedback and your strongest advocates. Notice what they are excited about, where they get stuck, and which guides, jokes, and traditions are forming around the game.  
+Useful ways to show you are listening include:
 
-Short-term and long-term goals give players something to work toward, and you’ll want to make progress visible and meaningful:
+- asking for feedback on a mechanic, feature, or build
+- sharing what changed because of player feedback
+- recognizing guides, fan art, clips, mods, builds, and helpful answers
+- posting known issues and practical workarounds
+- following up on a feedback thread with what you heard and what happens next
 
-- Tie daily play to larger systems like **leagues** or **ranks** so that small actions contribute to bigger goals.
-- Use visible status indicators like **flair** and **badges** to increase emotional investment in your game.
+### Set up a community home
 
-For short-term goals, [r/HotandCold](https://www.reddit.com/r/HotAndCold/) uses the fire emoji to let players know they’re on the right track, and keeps a progress bar with player avatars to see gameplay progress.
+If you run your own community, make it easy for people to understand the game and take part. Pin a community highlight that explains what the game is, where people can share feedback, and where to find the latest updates. Work with your mod team on clear post flair for things like feedback, bugs, guides, user-generated content, events, and announcements. Helpful flair makes a busy community easier to scan and can help the right posts find the right readers.
 
-![HotandCold progress bar](../../assets/community-games/hotandcold.jpg)
+## Launch: Make a relevant, low-pressure offer
 
-For long-term goals, [r/BubbleShooterPro](https://www.reddit.com/r/BubbleShooterPro/) sets up weekly tournaments to establish leagues and encourages players to return to try to get promoted to the next level.
+The first outreach should be deliberate and personal. As a practical starting limit, contact no more than three to five communities in a day. Do not mass-message moderators or reuse the same pitch across dozens of communities. If an outreach message starts to feel generic, stop and make it more specific—or do not send it.
 
-![BubbleShooterPro](../../assets/community-games/bubbleshooterpro.png)
+### Message moderators before a first game post
 
-### Competition and social pull
+Before making a first post about your game in a community, message the moderators unless the rules clearly welcome that kind of post without prior approval. Treat this as a request for guidance, not a request for promotion.  
+A good outreach note makes four things clear:
 
-Reddit is inherently social, and it’s a natural fit for **leaderboards**. The daily leaderboard on [r/syllo](https://www.reddit.com/r/syllo/) gives everyone a fresh chance to compete each day.
+- who you are and your connection to the game
+- why you think the game or idea is a fit for that specific community
+- what you are offering players or moderators
+- that you are open to the format, timing, and boundaries they recommend
 
-![Syllo leaderboard](../../assets/community-games/syllo_leaderboard.jpg)
+Avoid a copy-and-paste template. Give moderators enough context to make a decision, and show that you have read their rules and recent conversations.
 
-Leverage the community to **highlight top contributors** or celebrate a “**player of the week**” in a way that's visible in the feed. Social visibility turns participation into status.
+### Offer a play opportunity, not an obligation
 
-### Challenges and missions
+If you would like moderators to play your game with their community, frame it as an optional opportunity they can shape. A game key, preview build, or community play session should never come with an expectation that moderators promote the game or make exceptions to their rules.  
+Make the offer easy to evaluate. Include:
 
-Give players clear goals on a cadence to drive engagement:
+- what players will get to do, such as a demo, playtest, game night, challenge, or early look
+- who can participate and how access will work
+- when it will happen and how long it will last
+- what support your team will provide during the session
+- what feedback you are looking for, if any
+- what happens after the session, including where players can continue the conversation
 
-- **Daily or weekly missions**. Short, achievable tasks create regular reasons to return, like:
-- Solve today’s puzzle of [r/pocketgrids](https://www.reddit.com/r/pocketgrids/)
-- Submit a drawing in [r/Pixelary](https://www.reddit.com/r/Pixelary/)
-- Complete a mission in [r/PlaySpies](https://www.reddit.com/r/PlaySpies/)
+The best outcome may be a community play session. It may also be a smaller test, a feedback thread, or a polite no. Respect each answer.
 
-- **Rotating or seasonal events**. Create limited-time themes and special events to keep content fresh and give players urgency.
+### What communities tend to value
 
-### Reward systems
+- access to developers, designers, writers, artists, and other people who can speak honestly about the game
+- a real chance to influence a feature, playtest, or feedback conversation
+- behind-the-scenes context, patch notes, roadmaps, balance explanations, and known-issue updates
+- early looks, community challenges, or play opportunities with a clear benefit to participants
+- recognition for fan art, guides, clips, mods, builds, theories, and other community work
+- assets or ideas that moderators can choose to use for banners, sidebars, posts, polls, or events
 
-Use rewards to reinforce meaningful participation. Allow players to accumulate **points** they can **redeem** for perks or other in-game advantages. In [r/FarmMergeValley](https://www.reddit.com/r/FarmMergeValley/), players earn diamonds they can use toward things like purchasing land for their farm.
+## Grow: show up, follow through, and make players feel seen
 
-![FMV diamonds](../../assets/community-games/farmmergevalley.png)
+### Be a real human in the comments
 
-**Tip**: Align incentives with community values. High-quality contributions should earn more than low-effort ones.
+The most credible developer participation usually comes from the person who knows the answer and is allowed to be candid. Developers from across the team can add value—not only community managers.  
+Helpful replies sound like:
 
-## Why retention matters for featuring
+- “I’m one of the combat designers. We changed this because…”
+- “That criticism is fair. Here’s what we are looking at…”
+- “I can’t promise timing, but I can explain what is happening.”
+- “This is a known issue. Here is the current workaround.”
 
-Reddit prioritizes sustained engagement over short spikes.
+Do not dodge hard questions, over-promise, or write like a press release in a room full of players.
 
-Games that consistently bring players back through progression, competition, and repeatable loops build strong retention curves. That ongoing engagement demonstrates lasting community value, which is a key factor in featuring decisions.
+### Create posts that belong in the community
 
-## Core design principles
+A community-native post is specific, useful, and shaped for the subreddit, not a trailer drop with a new caption. Good reasons to post include:
 
-Use these principles to build for return visits, not just first plays.
+- explaining what changed in a patch and why
+- asking for feedback on a question the community can genuinely help answer
+- sharing a known-issues update or an honest progress report
+- inviting players to share builds, screenshots, strategies, or moments from a community event
+- spotlighting community-created work with permission and credit
 
-| Principle                 | Execution                                                                                                                                                                                                                                                                                                                                                                               | Example                                                                                                                                                                                        |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Keep it bite-sized        | · Focus on quick gameplay loops.<br>· Reduce time to fun — players should be engaged within seconds.<br>· Smaller scope means faster development and easier maintenance.                                                                                                                                                                                                                | [r/chessquiz](https://www.reddit.com/r/chessquiz/) delivers daily puzzles instead of full matches.                                                                                             |
-| Design for the feed       | · Make the first screen eye-catching<br>· Include a clear, immediate call to action<br>· Remember you’re competing with everything else in the feed                                                                                                                                                                                                                                     | [r/Pixelary](https://www.reddit.com/r/Pixelary/) shows the canvas immediately.                                                                                                                 |
-| Build Content Flywheels   | Reddit posts decay quickly. Your game needs a strategy to stay relevant.<br><br>**Option A: Scheduled content**<br>· Daily or weekly challenges<br>· Automated post creation<br>· Recurring tournaments<br><br>**Option B: Player-generated content**<br>· Gameplay creates new posts or comments<br>· Players generate the content<br>· Include moderation systems for quality control | [r/Sections](https://www.reddit.com/r/Sections/) schedules a new puzzle every day.<br><br>[r/captioncontest](https://www.reddit.com/r/captioncontest/) turns submissions into ongoing content. |
-| Embrace asynchronous play | · Players can participate anytime<br>· Lower commitment per session<br>· Works across time zones<br>· Scales more easily                                                                                                                                                                                                                                                                | [r/BlinkWords](https://www.reddit.com/r/BlinkWords/) is available for players any time.                                                                                                        |
-| Scale from one to many    | Your game should be fun at any player count:<br>· A strong single-player baseline<br>· Smooth scaling as more players join<br>· Leaderboards or shared goals to add competition                                                                                                                                                                                                         | [r/DarkDungeonGame](https://www.reddit.com/r/DarkDungeonGame/) works solo but improves with collaboration.                                                                                     |
+When you ask for feedback, come back with a summary. Explain what you heard, what your team will explore, and where you cannot make a commitment. Follow-through builds more trust than a perfect first post.
 
-## Getting featured
+### Know what moderators can and cannot help with
 
-Check out the [Feature Guide](../launch/feature-guide.mdx) to learn more about how Reddit helps your game get discovered.
+Moderators can help you understand whether a topic belongs, which format may work, what rules or disclosures apply, what timing makes sense, and whether players are likely to find the idea useful.
+
+Moderators should not be expected to promote your game, remove criticism that does not break community rules, make an exception for your launch, or run the relationship for you. Your team owns the idea, the preparation, the support, the follow-through, and the active value to that community.
+
+## Measure: Look for trust, not just traffic
+
+Views and clicks can be useful signals, but community engagement is stronger when people choose to keep participating. Track what works across Develop, Launch, and Grow:
+
+- Did the community welcome the format and continue the conversation?
+- Did players join a play session, return to later discussions, or recommend the game to others?
+- Did moderators invite your team back or suggest another useful format?
+- Did players create guides, art, clips, theories, mods, or other community work?
+- Did feedback produce a clear next step, and did your team communicate it back?
+
+Use what you learn to expand slowly. A small group of invested players who share the game with others is often more valuable than a broad, one-time announcement.
+
+## Before you engage
+
+- We understand the community’s rules, culture, and current sentiment.
+- We can explain why this game or idea is useful to this specific community.
+- We have checked with moderators before a first game post, unless the rules clearly say otherwise.
+- Our outreach is personal, limited, and not a mass send.
+- The offer is clear: what participants get, how they join, and what happens next.
+- The right person is ready to answer questions honestly.
+- We have a plan for support, escalation, and follow-up.
+- We know how we will listen, report back, and measure trust over time.
