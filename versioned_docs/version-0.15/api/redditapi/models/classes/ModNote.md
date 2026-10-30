@@ -1,20 +1,8 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
 # Class: ModNote
-
-## Constructors
-
-<a id="constructor"></a>
-
-### new ModNote()
-
-> **new ModNote**(): `ModNote`
-
-#### Returns
-
-`ModNote`
 
 ## Properties
 
