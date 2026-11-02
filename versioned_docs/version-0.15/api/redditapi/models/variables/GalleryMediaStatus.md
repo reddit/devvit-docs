@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
@@ -12,16 +12,16 @@
 
 ### FAILED
 
-> `readonly` **FAILED**: `2`
+> `readonly` **FAILED**: `2` = `2`
 
 <a id="unknown"></a>
 
 ### UNKNOWN
 
-> `readonly` **UNKNOWN**: `0`
+> `readonly` **UNKNOWN**: `0` = `0`
 
 <a id="valid"></a>
 
 ### VALID
 
-> `readonly` **VALID**: `1`
+> `readonly` **VALID**: `1` = `1`

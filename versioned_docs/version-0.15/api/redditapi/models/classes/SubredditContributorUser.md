@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
@@ -10,22 +10,6 @@ Use `getApprovedUsers()` or `subreddit.getApprovedUsers()` to receive a listing 
 ## Extends
 
 - [`User`](User.md)
-
-## Constructors
-
-<a id="constructor"></a>
-
-### new SubredditContributorUser()
-
-> **new SubredditContributorUser**(): `SubredditContributorUser`
-
-#### Returns
-
-`SubredditContributorUser`
-
-#### Inherited from
-
-[`User`](User.md).[`constructor`](User.md#constructor)
 
 ## Properties
 
@@ -578,11 +562,11 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for comments a
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditContributorUser`, `"date"`\>
+> **toJSON**(): `Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object` & `Pick`\<`SubredditContributorUser`, `"date"`\>
 
 #### Returns
 
-`Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"nsfw"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditContributorUser`, `"date"`\>
+`Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object` & `Pick`\<`SubredditContributorUser`, `"date"`\>
 
 #### Overrides
 

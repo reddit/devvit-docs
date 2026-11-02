@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
@@ -180,11 +180,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"images"` \| `"stylesheetUrl"` \| `"height"` \| `"css"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"images"` \| `"stylesheetUrl"` \| `"css"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"images"` \| `"stylesheetUrl"` \| `"height"` \| `"css"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"images"` \| `"stylesheetUrl"` \| `"css"`\>
 
 #### Overrides
 

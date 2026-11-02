@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
@@ -138,11 +138,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CommunityListWidget`, `"styles"` \| `"communities"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CommunityListWidget`, `"styles"` \| `"communities"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CommunityListWidget`, `"styles"` \| `"communities"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CommunityListWidget`, `"styles"` \| `"communities"`\>
 
 #### Overrides
 

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
@@ -288,7 +288,7 @@ Approve a post or comment.
 
 The id of the post (t3_) or comment (t1_) to approve.
 
-`` `t3_${string}` `` | `` `t1_${string}` ``
+`` `t1_${string}` `` | `` `t3_${string}` ``
 
 #### Returns
 
@@ -692,7 +692,7 @@ reason is also shown on the content.
 
 The id of the post (t3_) or comment (t1_) to filter.
 
-`` `t3_${string}` `` | `` `t1_${string}` ``
+`` `t1_${string}` `` | `` `t3_${string}` ``
 
 ##### options?
 
@@ -905,7 +905,7 @@ const comments = await reddit.getComments({
 
 ### getCommentsAndPostsByUser()
 
-> **getCommentsAndPostsByUser**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+> **getCommentsAndPostsByUser**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 Get a list of posts and comments from a specific user.
 
@@ -919,7 +919,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 A Listing of `Post` and `Comment` objects.
 
@@ -1144,7 +1144,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getEdited**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+> **getEdited**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 Return a listing of things that have been edited recently.
 
@@ -1156,7 +1156,7 @@ Return a listing of things that have been edited recently.
 
 ##### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 ##### Example
 
@@ -1377,7 +1377,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getModQueue**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+> **getModQueue**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 Return a listing of things requiring moderator review, such as reported things and items.
 
@@ -1389,7 +1389,7 @@ Return a listing of things requiring moderator review, such as reported things a
 
 ##### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 ##### Example
 
@@ -1633,7 +1633,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getReports**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+> **getReports**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 Return a listing of things that have been reported.
 
@@ -1645,7 +1645,7 @@ Return a listing of things that have been reported.
 
 ##### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 ##### Example
 
@@ -1800,7 +1800,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getSpam**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+> **getSpam**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 Return a listing of things that have been marked as spam or otherwise removed.
 
@@ -1812,7 +1812,7 @@ Return a listing of things that have been marked as spam or otherwise removed.
 
 ##### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 ##### Example
 
@@ -1850,7 +1850,7 @@ A Promise that resolves a Subreddit object.
 
 #### Deprecated
 
-Use [getSubredditInfoById](#getsubredditinfobyid) instead.
+Use [getSubredditInfoById](../../models/functions/getSubredditInfoById.md) instead.
 
 #### Example
 
@@ -1884,7 +1884,7 @@ A Promise that resolves a Subreddit object.
 
 #### Deprecated
 
-Use [getSubredditInfoByName](#getsubredditinfobyname) instead.
+Use [getSubredditInfoByName](../../models/functions/getSubredditInfoByName.md) instead.
 
 #### Example
 
@@ -2151,7 +2151,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getUnmoderated**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+> **getUnmoderated**(`options`): [`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 Return a listing of things that have yet to be approved/removed by a mod.
 
@@ -2163,7 +2163,7 @@ Return a listing of things that have yet to be approved/removed by a mod.
 
 ##### Returns
 
-[`Listing`](../../models/classes/Listing.md)\<[`Post`](../../models/classes/Post.md) \| [`Comment`](../../models/classes/Comment.md)\>
+[`Listing`](../../models/classes/Listing.md)\<[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)\>
 
 ##### Example
 
@@ -2658,7 +2658,7 @@ Remove a post or comment.
 
 The id of the post (t3_) or comment (t1_) to remove.
 
-`` `t3_${string}` `` | `` `t1_${string}` ``
+`` `t1_${string}` `` | `` `t3_${string}` ``
 
 ##### isSpam
 
@@ -2931,7 +2931,7 @@ The report is sent to the moderators of the subreddit for review.
 
 Post or Comment
 
-[`Post`](../../models/classes/Post.md) | [`Comment`](../../models/classes/Comment.md)
+[`Comment`](../../models/classes/Comment.md) | [`Post`](../../models/classes/Post.md)
 
 ##### options
 
@@ -3368,7 +3368,7 @@ const post = await reddit.submitCustomPost({
  title: 'My Devvit Post',
  runAs: 'USER',
  userGeneratedContent: {
-   text: "hello there",
+   text: "hello there", 
    imageUrls: ["https://styles.redditmedia.com/t5_5wa5ww/styles/communityIcon_wyopomb2xb0a1.png", "https://styles.redditmedia.com/t5_49fkib/styles/bannerBackgroundImage_5a4axis7cku61.png"]
    },
  subredditName: context.subredditName,

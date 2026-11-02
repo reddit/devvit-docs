@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### new WikiPageSettings()
 
-> **new WikiPageSettings**(`data`, `wikiVersion`?): `WikiPageSettings`
+> **new WikiPageSettings**(`data`, `wikiVersion`): `WikiPageSettings`
 
 #### Parameters
 
@@ -18,9 +18,9 @@
 
 `WikiPageSettings_Data`
 
-##### wikiVersion?
+##### wikiVersion
 
-[`WikiVersion`](../type-aliases/WikiVersion.md)
+[`WikiVersion`](../type-aliases/WikiVersion.md) = `'v1'`
 
 #### Returns
 
