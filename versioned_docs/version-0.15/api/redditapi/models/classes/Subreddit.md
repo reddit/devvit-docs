@@ -1,22 +1,10 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
 # Class: Subreddit
 
 A class representing a subreddit.
-
-## Constructors
-
-<a id="constructor"></a>
-
-### new Subreddit()
-
-> **new Subreddit**(): `Subreddit`
-
-#### Returns
-
-`Subreddit`
 
 ## Accessors
 
@@ -500,13 +488,13 @@ Delete a removal reason from this subreddit.
 
 ### getApprovedUsers()
 
-> **getApprovedUsers**(`options`?): [`Listing`](Listing.md)\<[`SubredditContributorUser`](SubredditContributorUser.md)\>
+> **getApprovedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditContributorUser`](SubredditContributorUser.md)\>
 
 #### Parameters
 
-##### options?
+##### options
 
-`GetUsersOptions`
+`GetUsersOptions` = `{}`
 
 #### Returns
 
@@ -518,13 +506,13 @@ Delete a removal reason from this subreddit.
 
 ### getBannedUsers()
 
-> **getBannedUsers**(`options`?): [`Listing`](Listing.md)\<[`SubredditBannedUser`](SubredditBannedUser.md)\>
+> **getBannedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditBannedUser`](SubredditBannedUser.md)\>
 
 #### Parameters
 
-##### options?
+##### options
 
-`GetUsersOptions`
+`GetUsersOptions` = `{}`
 
 #### Returns
 
@@ -536,13 +524,13 @@ Delete a removal reason from this subreddit.
 
 ### getBannedWikiContributors()
 
-> **getBannedWikiContributors**(`options`?): [`Listing`](Listing.md)\<[`SubredditWikiBannedUser`](SubredditWikiBannedUser.md)\>
+> **getBannedWikiContributors**(`options`): [`Listing`](Listing.md)\<[`SubredditWikiBannedUser`](SubredditWikiBannedUser.md)\>
 
 #### Parameters
 
-##### options?
+##### options
 
-`GetUsersOptions`
+`GetUsersOptions` = `{}`
 
 #### Returns
 
@@ -554,7 +542,7 @@ Delete a removal reason from this subreddit.
 
 ### getCommentsAndPostsByIds()
 
-> **getCommentsAndPostsByIds**(`ids`): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getCommentsAndPostsByIds**(`ids`): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things specified by their fullnames.
 
@@ -568,7 +556,7 @@ Array of thing full ids (e.g. t3_abc123)
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 #### Example
 
@@ -585,13 +573,13 @@ console.log(items) // [Post, Comment]
 
 ### getControversialPosts()
 
-> **getControversialPosts**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getControversialPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
 
 #### Parameters
 
-##### options?
+##### options
 
-`Omit`\<[`GetPostsOptionsWithTimeframe`](../type-aliases/GetPostsOptionsWithTimeframe.md), `"subredditName"`\>
+`Omit`\<[`GetPostsOptionsWithTimeframe`](../type-aliases/GetPostsOptionsWithTimeframe.md), `"subredditName"`\> = `{}`
 
 #### Returns
 
@@ -657,7 +645,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getEdited**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getEdited**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things that have been edited recently.
 
@@ -669,7 +657,7 @@ Return a listing of things that have been edited recently.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -725,13 +713,13 @@ const highlightedPosts = await subreddit.getHighlightedPosts();
 
 ### getModerators()
 
-> **getModerators**(`options`?): [`Listing`](Listing.md)\<[`SubredditModeratorUser`](SubredditModeratorUser.md)\>
+> **getModerators**(`options`): [`Listing`](Listing.md)\<[`SubredditModeratorUser`](SubredditModeratorUser.md)\>
 
 #### Parameters
 
-##### options?
+##### options
 
-`GetUsersOptions`
+`GetUsersOptions` = `{}`
 
 #### Returns
 
@@ -797,7 +785,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getModQueue**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getModQueue**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things requiring moderator review, such as reported things and items.
 
@@ -809,7 +797,7 @@ Return a listing of things requiring moderator review, such as reported things a
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -827,13 +815,13 @@ console.log("Posts: ", await listing.all())
 
 ### getMutedUsers()
 
-> **getMutedUsers**(`options`?): [`Listing`](Listing.md)\<[`SubredditMutedUser`](SubredditMutedUser.md)\>
+> **getMutedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditMutedUser`](SubredditMutedUser.md)\>
 
 #### Parameters
 
-##### options?
+##### options
 
-`GetUsersOptions`
+`GetUsersOptions` = `{}`
 
 #### Returns
 
@@ -925,7 +913,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getReports**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getReports**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things that have been reported.
 
@@ -937,7 +925,7 @@ Return a listing of things that have been reported.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -1021,7 +1009,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getSpam**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getSpam**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things that have been marked as spam or otherwise removed.
 
@@ -1033,7 +1021,7 @@ Return a listing of things that have been marked as spam or otherwise removed.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -1051,13 +1039,13 @@ console.log("Posts: ", await listing.all())
 
 ### getTopPosts()
 
-> **getTopPosts**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getTopPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
 
 #### Parameters
 
-##### options?
+##### options
 
-`Omit`\<[`GetPostsOptionsWithTimeframe`](../type-aliases/GetPostsOptionsWithTimeframe.md), `"subredditName"`\>
+`Omit`\<[`GetPostsOptionsWithTimeframe`](../type-aliases/GetPostsOptionsWithTimeframe.md), `"subredditName"`\> = `{}`
 
 #### Returns
 
@@ -1123,7 +1111,7 @@ console.log("Posts: ", await listing.all())
 
 #### Call Signature
 
-> **getUnmoderated**(`options`?): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getUnmoderated**(`options`?): [`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 Return a listing of things that have yet to be approved/removed by a mod.
 
@@ -1135,7 +1123,7 @@ Return a listing of things that have yet to be approved/removed by a mod.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](Listing.md)\<[`Comment`](Comment.md) \| [`Post`](Post.md)\>
 
 ##### Example
 
@@ -1210,13 +1198,13 @@ const userFlairList = response.users
 
 ### getWikiContributors()
 
-> **getWikiContributors**(`options`?): [`Listing`](Listing.md)\<[`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)\>
+> **getWikiContributors**(`options`): [`Listing`](Listing.md)\<[`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)\>
 
 #### Parameters
 
-##### options?
+##### options
 
-`GetUsersOptions`
+`GetUsersOptions` = `{}`
 
 #### Returns
 
@@ -1469,11 +1457,11 @@ Search for posts in this subreddit.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Subreddit`, `"description"` \| `"id"` \| `"type"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"name"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"settings"`\>
+> **toJSON**(): `Pick`\<`Subreddit`, `"name"` \| `"id"` \| `"type"` \| `"description"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"settings"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"`\>
 
 #### Returns
 
-`Pick`\<`Subreddit`, `"description"` \| `"id"` \| `"type"` \| `"createdAt"` \| `"title"` \| `"nsfw"` \| `"name"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"settings"`\>
+`Pick`\<`Subreddit`, `"name"` \| `"id"` \| `"type"` \| `"description"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"settings"` \| `"language"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"`\>
 
 ***
 
@@ -1597,13 +1585,13 @@ await subreddit.setSettings({ type: 'restricted', title: 'New Title', descriptio
 
 ### getSubscribedSubredditsForCurrentUser()
 
-> `static` **getSubscribedSubredditsForCurrentUser**(`options`?): [`Listing`](Listing.md)\<`Subreddit`\>
+> `static` **getSubscribedSubredditsForCurrentUser**(`options`): [`Listing`](Listing.md)\<`Subreddit`\>
 
 #### Parameters
 
-##### options?
+##### options
 
-[`GetSubscribedSubredditsForCurrentUserOptions`](../type-aliases/GetSubscribedSubredditsForCurrentUserOptions.md)
+[`GetSubscribedSubredditsForCurrentUserOptions`](../type-aliases/GetSubscribedSubredditsForCurrentUserOptions.md) = `{}`
 
 #### Returns
 

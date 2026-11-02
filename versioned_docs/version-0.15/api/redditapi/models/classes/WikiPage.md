@@ -1,20 +1,8 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
 # Class: WikiPage
-
-## Constructors
-
-<a id="constructor"></a>
-
-### new WikiPage()
-
-> **new WikiPage**(): `WikiPage`
-
-#### Returns
-
-`WikiPage`
 
 ## Accessors
 
@@ -214,7 +202,7 @@ Get the revisions for this page.
 
 ##### options
 
-`Omit`\<[`GetPageRevisionsOptions`](../type-aliases/GetPageRevisionsOptions.md), `"subredditName"` \| `"page"` \| `"wikiVersion"`\>
+`Omit`\<[`GetPageRevisionsOptions`](../type-aliases/GetPageRevisionsOptions.md), `"subredditName"` \| `"wikiVersion"` \| `"page"`\>
 
 #### Returns
 
@@ -280,11 +268,11 @@ Revert this page to a previous revision.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`WikiPage`, `"subredditName"` \| `"name"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
+> **toJSON**(): `Pick`\<`WikiPage`, `"name"` \| `"subredditName"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
 
 #### Returns
 
-`Pick`\<`WikiPage`, `"subredditName"` \| `"name"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
+`Pick`\<`WikiPage`, `"name"` \| `"subredditName"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
 
 ***
 
@@ -324,7 +312,7 @@ Update the settings for this page.
 
 ##### options
 
-`Omit`\<[`UpdatePageSettingsOptions`](../type-aliases/UpdatePageSettingsOptions.md), `"subredditName"` \| `"page"` \| `"wikiVersion"`\>
+`Omit`\<[`UpdatePageSettingsOptions`](../type-aliases/UpdatePageSettingsOptions.md), `"subredditName"` \| `"wikiVersion"` \| `"page"`\>
 
 #### Returns
 

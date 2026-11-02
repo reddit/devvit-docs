@@ -1,20 +1,8 @@
-[**@devvit/reddit v0.15.0**](../../README.md)
+[**@devvit/reddit v0.15.2-dev**](../../README.md)
 
 ***
 
 # Class: Comment
-
-## Constructors
-
-<a id="constructor"></a>
-
-### new Comment()
-
-> **new Comment**(): `Comment`
-
-#### Returns
-
-`Comment`
 
 ## Accessors
 
@@ -313,7 +301,7 @@ The number of reports, or `0` when none are available.
 
 #### Get Signature
 
-> **get** **parentId**(): `` `t3_${string}` `` \| `` `t1_${string}` ``
+> **get** **parentId**(): `` `t1_${string}` `` \| `` `t3_${string}` ``
 
 The identifier of the comment's parent.
 
@@ -322,7 +310,7 @@ parent comment's `T1`.
 
 ##### Returns
 
-`` `t3_${string}` `` \| `` `t1_${string}` ``
+`` `t1_${string}` `` \| `` `t3_${string}` ``
 
 ***
 
@@ -575,15 +563,15 @@ The `runAs` option is ignored when editing a comment.
 
 ### distinguish()
 
-> **distinguish**(`makeSticky`?): `Promise`\<`void`\>
+> **distinguish**(`makeSticky`): `Promise`\<`void`\>
 
 Distinguishes the comment as a moderator and updates this instance.
 
 #### Parameters
 
-##### makeSticky?
+##### makeSticky
 
-`boolean`
+`boolean` = `false`
 
 Whether to pin the comment to the top of its thread.
 
@@ -597,15 +585,15 @@ Whether to pin the comment to the top of its thread.
 
 ### distinguishAsAdmin()
 
-> **distinguishAsAdmin**(`makeSticky`?): `Promise`\<`void`\>
+> **distinguishAsAdmin**(`makeSticky`): `Promise`\<`void`\>
 
 Distinguishes the comment as an employee and updates this instance.
 
 #### Parameters
 
-##### makeSticky?
+##### makeSticky
 
-`boolean`
+`boolean` = `false`
 
 Whether to pin the comment to the top of its thread.
 
@@ -821,15 +809,15 @@ Disables new replies and updates this instance's locked state.
 
 ### remove()
 
-> **remove**(`isSpam`?): `Promise`\<`void`\>
+> **remove**(`isSpam`): `Promise`\<`void`\>
 
 Removes the comment and updates this instance's moderation state.
 
 #### Parameters
 
-##### isSpam?
+##### isSpam
 
-`boolean`
+`boolean` = `false`
 
 Whether to classify the removed comment as spam.
 
@@ -901,13 +889,13 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"authorName"` \| `"subredditId"` \| `"body"` \| `"createdAt"` \| `"parentId"` \| `"postId"` \| `"replies"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"`\>
+> **toJSON**(): `Pick`\<`Comment`, `"id"` \| `"subredditName"` \| `"postId"` \| `"body"` \| `"permalink"` \| `"createdAt"` \| `"url"` \| `"authorName"` \| `"subredditId"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
 Returns the public fields included when the comment is serialized.
 
 #### Returns
 
-`Pick`\<`Comment`, `"subredditName"` \| `"id"` \| `"authorName"` \| `"subredditId"` \| `"body"` \| `"createdAt"` \| `"parentId"` \| `"postId"` \| `"replies"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"`\>
+`Pick`\<`Comment`, `"id"` \| `"subredditName"` \| `"postId"` \| `"body"` \| `"permalink"` \| `"createdAt"` \| `"url"` \| `"authorName"` \| `"subredditId"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
 
 ***
 
