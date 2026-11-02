@@ -15,7 +15,7 @@ In this release, we've added a new [Community Engagement Playbook](https://devel
 
 **Other Improvements**
 
-Images uploaded through `media.upload` are now attributed to the uploading user by default, providing more accurate attribution for content safety and moderation.
+Images uploaded through `media.upload` are now attributed to the uploading user when possible, providing more accurate attribution for content safety and moderation.
 
 ## Devvit 0.15.1: Steady State
 
