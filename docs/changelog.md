@@ -9,7 +9,7 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
-## Devvit 0.15.3: Community Engagement & Media Attribution
+## Release 0.15.2: Community Engagement & Media Attribution
 
 In this release, we've added a new [Community Engagement Playbook](https://developers.reddit.com/docs/guides/best-practices/community_games) to help game devs connect with the right communities and grow an engaged player base. The guide covers how to find relevant subreddits, work with moderators, create meaningful opportunities for players to participate, and build lasting relationships through feedback and community engagement.
 
