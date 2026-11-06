@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ Information about a post in a subreddit's community highlights.
 
 ### highlightedUntil?
 
-> `optional` **highlightedUntil**: `Date`
+> `optional` **highlightedUntil?**: `Date`
 
 When the highlight expires. Undefined means it does not expire automatically.
 
@@ -24,7 +24,7 @@ When the highlight expires. Undefined means it does not expire automatically.
 
 ### highlightLabel?
 
-> `optional` **highlightLabel**: [`HighlightLabelType`](HighlightLabelType.md)
+> `optional` **highlightLabel?**: [`HighlightLabelType`](HighlightLabelType.md)
 
 Label displayed alongside the highlighted post.
 

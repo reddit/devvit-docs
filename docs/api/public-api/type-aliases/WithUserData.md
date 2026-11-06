@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,4 +12,4 @@
 
 ### user?
 
-> `optional` **user**: [`ConversationUserData`](ConversationUserData.md)
+> `optional` **user?**: [`ConversationUserData`](ConversationUserData.md)

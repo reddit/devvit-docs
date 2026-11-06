@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -443,11 +443,11 @@ A Listing of Post objects.
 
 ### getSnoovatarUrl()
 
-> **getSnoovatarUrl**(): `Promise`\<`undefined` \| `string`\>
+> **getSnoovatarUrl**(): `Promise`\<`string` \| `undefined`\>
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
 
 #### Inherited from
 
@@ -505,7 +505,7 @@ A Promise that resolves to an array of Trophy objects.
 
 ### getUserFlairBySubreddit()
 
-> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<[`UserFlair`](../type-aliases/UserFlair.md) \| `undefined`\>
 
 Retrieve the user's flair for the subreddit.
 
@@ -519,7 +519,7 @@ The name of the subreddit associated with the user's flair.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+`Promise`\<[`UserFlair`](../type-aliases/UserFlair.md) \| `undefined`\>
 
 #### Example
 
@@ -562,11 +562,11 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for comments a
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object` & `Pick`\<`SubredditMutedUser`, `"date"`\>
+> **toJSON**(): `Pick`\<[`User`](User.md), `"id"` \| `"nsfw"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditMutedUser`, `"date"`\>
 
 #### Returns
 
-`Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object` & `Pick`\<`SubredditMutedUser`, `"date"`\>
+`Pick`\<[`User`](User.md), `"id"` \| `"nsfw"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditMutedUser`, `"date"`\>
 
 #### Overrides
 

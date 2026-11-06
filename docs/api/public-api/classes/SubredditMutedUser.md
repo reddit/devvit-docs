@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -15,7 +15,7 @@ Use `getMutedUsers()` or `subreddit.getMutedUsers()` to receive a listing of the
 
 <a id="constructor"></a>
 
-### new SubredditMutedUser()
+### Constructor
 
 > **new SubredditMutedUser**(): `SubredditMutedUser`
 
@@ -459,11 +459,11 @@ A Listing of Post objects.
 
 ### getSnoovatarUrl()
 
-> **getSnoovatarUrl**(): `Promise`\<`undefined` \| `string`\>
+> **getSnoovatarUrl**(): `Promise`\<`string` \| `undefined`\>
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
 
 #### Inherited from
 
@@ -521,7 +521,7 @@ A Promise that resolves to an array of Trophy objects.
 
 ### getUserFlairBySubreddit()
 
-> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<[`UserFlair`](../type-aliases/UserFlair.md) \| `undefined`\>
 
 Retrieve the user's flair for the subreddit.
 
@@ -535,7 +535,7 @@ The name of the subreddit associated with the user's flair.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+`Promise`\<[`UserFlair`](../type-aliases/UserFlair.md) \| `undefined`\>
 
 #### Example
 

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **InternalSetPostFlairOptions** = [`SetFlairOptions`](SetFlairOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### postId
 
