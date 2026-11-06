@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -60,7 +60,7 @@ The version of the app that is running
 
 ### commentId?
 
-> `optional` **commentId**: `string`
+> `optional` **commentId?**: `string`
 
 The ID of the current comment
 
@@ -80,7 +80,7 @@ More useful things, but probably not for the average developer
 
 ### loid?
 
-> `optional` **loid**: `string`
+> `optional` **loid?**: `string`
 
 **`Experimental`**
 
@@ -111,7 +111,7 @@ Request headers.
 
 ### postId?
 
-> `optional` **postId**: `string`
+> `optional` **postId?**: `string`
 
 The ID of the current post
 
@@ -121,7 +121,7 @@ The ID of the current post
 
 ### snoovatar?
 
-> `optional` **snoovatar**: `string`
+> `optional` **snoovatar?**: `string`
 
 **`Experimental`**
 
@@ -143,7 +143,7 @@ The ID of the current subreddit
 
 ### subredditName?
 
-> `optional` **subredditName**: `string`
+> `optional` **subredditName?**: `string`
 
 The name of the current subreddit
 
@@ -153,7 +153,7 @@ The name of the current subreddit
 
 ### userId?
 
-> `optional` **userId**: `string`
+> `optional` **userId?**: `string`
 
 The current user's ID if this event was triggered by a logged in user
 
@@ -163,7 +163,7 @@ The current user's ID if this event was triggered by a logged in user
 
 ### username?
 
-> `optional` **username**: `string`
+> `optional` **username?**: `string`
 
 **`Experimental`**
 

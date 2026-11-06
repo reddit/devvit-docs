@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -9,22 +9,22 @@
 Optional overrides for subreddit settings. Only provided fields are applied;
 the rest remain unchanged when calling [Subreddit.updateSettings](../classes/Subreddit.md#updatesettings).
 
-## Type declaration
+## Type Declaration
 
 ### description?
 
-> `optional` **description**: `string`
+> `optional` **description?**: `string`
 
 Subreddit description (raw markdown). Appears in the sidebar of the subreddit.
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
 Subreddit title.
 
 ### type?
 
-> `optional` **type**: [`SubredditType`](SubredditType.md)
+> `optional` **type?**: [`SubredditType`](SubredditType.md)
 
 Subreddit type (e.g. public, private, restricted).

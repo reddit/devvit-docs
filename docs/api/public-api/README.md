@@ -1,8 +1,8 @@
-**@devvit/public-api v0.15.3-dev**
+**@devvit/public-api v0.15.4-dev**
 
 ***
 
-# @devvit/public-api v0.15.3-dev
+# @devvit/public-api v0.15.4-dev
 
 ## Namespaces
 
@@ -42,11 +42,9 @@
 - [PostFlairSettings](classes/PostFlairSettings.md)
 - [PostFlairWidget](classes/PostFlairWidget.md)
 - [PrivateMessage](classes/PrivateMessage.md)
-- [RedditAPIClient](classes/RedditAPIClient.md)
 - [RedditClient](classes/RedditClient.md)
 - [RichTextBuilder](classes/RichTextBuilder.md)
 - [Rule](classes/Rule.md)
-- [SettingsClient](classes/SettingsClient.md)
 - [Subreddit](classes/Subreddit.md)
 - [SubredditBannedUser](classes/SubredditBannedUser.md)
 - [SubredditContributorUser](classes/SubredditContributorUser.md)
@@ -73,6 +71,8 @@
 - [ListItemContext](interfaces/ListItemContext.md)
 - [ModAction](interfaces/ModAction.md)
 - [ParagraphContext](interfaces/ParagraphContext.md)
+- [RedditAPIClient](interfaces/RedditAPIClient.md)
+- [SettingsClient](interfaces/SettingsClient.md)
 - [SpoilerContext](interfaces/SpoilerContext.md)
 - [TableCellContext](interfaces/TableCellContext.md)
 - [TableContext](interfaces/TableContext.md)

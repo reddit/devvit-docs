@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 <a id="constructor"></a>
 
-### new PostFlairWidget()
+### Constructor
 
 > **new PostFlairWidget**(`widgetData`, `subredditName`): `PostFlairWidget`
 
@@ -152,11 +152,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`PostFlairWidget`, `"styles"` \| `"templates"` \| `"display"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`PostFlairWidget`, `"styles"` \| `"display"` \| `"templates"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`PostFlairWidget`, `"styles"` \| `"templates"` \| `"display"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`PostFlairWidget`, `"styles"` \| `"display"` \| `"templates"`\>
 
 #### Overrides
 

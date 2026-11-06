@@ -1,14 +1,20 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
 # Type Alias: CreateRuleOptions
 
-> **CreateRuleOptions** = `Omit`\<`AddSubredditRuleRequest`, `"r"` \| `"kind"` \| `"violationReason"`\> & `object`
+> **CreateRuleOptions** = `Omit`\<`AddSubredditRuleRequest`, `"r"` \| `"kind"` \| `"violationReason"` \| `"description"`\> & `object`
 
 Options for creating a new subreddit rule.
 
-## Type declaration
+## Type Declaration
+
+### description?
+
+> `optional` **description?**: `string`
+
+The description of the rule. Defaults to an empty string.
 
 ### kind
 
@@ -16,4 +22,4 @@ Options for creating a new subreddit rule.
 
 ### violationReason?
 
-> `optional` **violationReason**: `string`
+> `optional` **violationReason?**: `string`

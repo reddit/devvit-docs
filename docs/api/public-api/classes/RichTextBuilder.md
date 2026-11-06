@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -61,7 +61,7 @@ VideoContainer
 
 <a id="constructor"></a>
 
-### new RichTextBuilder()
+### Constructor
 
 > **new RichTextBuilder**(): `RichTextBuilder`
 
