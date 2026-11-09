@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,8 +6,8 @@
 
 > **GetPostsOptions** = [`ListingFetchOptions`](ListingFetchOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### subredditName?
 
-> `optional` **subredditName**: `string`
+> `optional` **subredditName?**: `string`

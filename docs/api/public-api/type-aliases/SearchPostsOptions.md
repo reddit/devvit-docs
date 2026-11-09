@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **SearchPostsOptions** = [`ListingFetchOptions`](ListingFetchOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### query
 
@@ -16,19 +16,19 @@ Search query.
 
 ### sort?
 
-> `optional` **sort**: `"relevance"` \| `"hot"` \| `"top"` \| `"new"` \| `"comments"`
+> `optional` **sort?**: `"relevance"` \| `"hot"` \| `"top"` \| `"new"` \| `"comments"`
 
 How to sort the search results. Defaults to `relevance`.
 
 ### subredditName?
 
-> `optional` **subredditName**: `string`
+> `optional` **subredditName?**: `string`
 
 The subreddit to search without the `r/` prefix. If specified, restricts
 the search to posts in this subreddit.
 
 ### timeframe?
 
-> `optional` **timeframe**: `"hour"` \| `"day"` \| `"week"` \| `"month"` \| `"year"` \| `"all"`
+> `optional` **timeframe?**: `"hour"` \| `"day"` \| `"week"` \| `"month"` \| `"year"` \| `"all"`
 
 Limit search results to a timeframe. Defaults to `all`.

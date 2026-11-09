@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### cssClass?
 
-> `optional` **cssClass**: `string`
+> `optional` **cssClass?**: `string`
 
 The flair CSS class
 
@@ -22,7 +22,7 @@ The flair CSS class
 
 ### text?
 
-> `optional` **text**: `string`
+> `optional` **text?**: `string`
 
 The flair text. Can't contain the comma character (",")
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -14,7 +14,8 @@ LinkContainer
 
 ## Extends
 
-- [`RawTextContainer`](../type-aliases/RawTextContainer.md)\<`HeadingContext`\>.[`LinkContainer`](../type-aliases/LinkContainer.md)\<`HeadingContext`\>
+- [`RawTextContainer`](../type-aliases/RawTextContainer.md)\<`HeadingContext`\>
+- [`LinkContainer`](../type-aliases/LinkContainer.md)\<`HeadingContext`\>
 
 ## Methods
 
@@ -116,7 +117,7 @@ Append unstyled text
 
 #### Inherited from
 
-[`RawTextContainer`](../type-aliases/RawTextContainer.md).[`rawText`](../type-aliases/RawTextContainer.md#rawtext)
+`RawTextContainer.rawText`
 
 ***
 

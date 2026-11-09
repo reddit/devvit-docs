@@ -9,6 +9,21 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.15.3: TypeScript Compatibility & API Fixes
+
+This release includes several API fixes, a performance improvement, and expanded TypeScript compatibility.
+
+**Improvements**
+
+- **TypeScript 7 compatibility:** Added initial support for TypeScript 7. The bare template is the first to incorporate compatibility updates, while remaining compatible with TypeScript 6 APIs.
+- **Faster username retrieval:** Optimized `getCurrentUsername()` to retrieve the current username without an additional RPC lookup.
+
+**Bug Fixes**
+
+- **Custom post properties:** Fixed an issue where `flairId`, `flairText`, and `spoiler` were not correctly applied to posts created with `submitCustomPost()`.
+- **Modmail conversations:** Fixed an issue where `modmail.getUserConversations()` always returned a 404 error.
+- **Subreddit rules:** Fixed an issue where `subreddit.getRules()` threw an error when a rule had an empty description.
+
 ## Release 0.15.2: Community Engagement & Media Attribution
 
 In this release, we've added a new [Community Engagement Playbook](https://developers.reddit.com/docs/guides/best-practices/community_games) to help game devs connect with the right communities and grow an engaged player base. The guide covers how to find relevant subreddits, work with moderators, create meaningful opportunities for players to participate, and build lasting relationships through feedback and community engagement.

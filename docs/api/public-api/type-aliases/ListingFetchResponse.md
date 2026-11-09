@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 > **ListingFetchResponse**\<`T`\> = `object`
 
 ## Type Parameters
+
+<a id="t"></a>
 
 ### T
 
@@ -18,7 +20,7 @@
 
 ### after?
 
-> `optional` **after**: `string`
+> `optional` **after?**: `string`
 
 ***
 
@@ -26,7 +28,7 @@
 
 ### before?
 
-> `optional` **before**: `string`
+> `optional` **before?**: `string`
 
 ***
 
@@ -42,4 +44,4 @@
 
 ### more?
 
-> `optional` **more**: [`MoreObject`](MoreObject.md)
+> `optional` **more?**: [`MoreObject`](MoreObject.md)

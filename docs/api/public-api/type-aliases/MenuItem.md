@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### description?
 
-> `optional` **description**: `string`
+> `optional` **description?**: `string`
 
 An optional description for the menu item
 
@@ -22,7 +22,7 @@ An optional description for the menu item
 
 ### forUserType?
 
-> `optional` **forUserType**: [`MenuItemUserType`](MenuItemUserType.md) \| [`MenuItemUserType`](MenuItemUserType.md)[]
+> `optional` **forUserType?**: [`MenuItemUserType`](MenuItemUserType.md) \| [`MenuItemUserType`](MenuItemUserType.md)[]
 
 The user type(s) that the menu item should be displayed for
 
@@ -50,7 +50,7 @@ The location(s) where the menu item should be displayed
 
 <a id="onpress"></a>
 
-### onPress()
+### onPress
 
 > **onPress**: (`event`, `context`) => `void` \| `Promise`\<`void`\>
 
@@ -76,7 +76,7 @@ A function that is called when the menu item is pressed
 
 ### postFilter?
 
-> `optional` **postFilter**: [`MenuItemPostFilter`](MenuItemPostFilter.md)
+> `optional` **postFilter?**: [`MenuItemPostFilter`](MenuItemPostFilter.md)
 
 **`Experimental`**
 

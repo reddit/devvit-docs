@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../../../../README.md)
+[**@devvit/public-api v0.15.4-dev**](../../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **AppInstall**: `object`
 
-## Type declaration
+## Type Declaration
 
 <a id="type"></a>
 
@@ -18,13 +18,15 @@
 
 ### create()
 
+> **create**(`base?`): [`AppInstall`](../interfaces/AppInstall.md)
+
 #### Parameters
 
 ##### base?
 
 ###### installer?
 
-\{ `accountType`: `AccountTypeV2`; `banned`: `boolean`; `description`: `string`; `flair`: \{ `backgroundColor`: `string`; `cssClass`: `string`; `enabled`: `boolean`; `subredditId`: `string`; `templateId`: `string`; `text`: `string`; `textColor`: `string`; `userId`: `string`; \}; `iconImage`: `string`; `id`: `string`; `isGold`: `boolean`; `karma`: `number`; `name`: `string`; `snoovatarImage`: `string`; `spam`: `boolean`; `suspended`: `boolean`; `url`: `string`; \}
+\{ `accountType?`: `AccountTypeV2`; `banned?`: `boolean`; `description?`: `string`; `flair?`: \{ `backgroundColor?`: `string`; `cssClass?`: `string`; `enabled?`: `boolean`; `subredditId?`: `string`; `templateId?`: `string`; `text?`: `string`; `textColor?`: `string`; `userId?`: `string`; \}; `iconImage?`: `string`; `id?`: `string`; `isGold?`: `boolean`; `karma?`: `number`; `name?`: `string`; `snoovatarImage?`: `string`; `spam?`: `boolean`; `suspended?`: `boolean`; `url?`: `string`; \}
 
 ###### installer.accountType?
 
@@ -40,7 +42,7 @@
 
 ###### installer.flair?
 
-\{ `backgroundColor`: `string`; `cssClass`: `string`; `enabled`: `boolean`; `subredditId`: `string`; `templateId`: `string`; `text`: `string`; `textColor`: `string`; `userId`: `string`; \}
+\{ `backgroundColor?`: `string`; `cssClass?`: `string`; `enabled?`: `boolean`; `subredditId?`: `string`; `templateId?`: `string`; `text?`: `string`; `textColor?`: `string`; `userId?`: `string`; \}
 
 ###### installer.flair.backgroundColor?
 
@@ -112,7 +114,7 @@
 
 ###### subreddit?
 
-\{ `description`: `string`; `id`: `string`; `name`: `string`; `nsfw`: `boolean`; `permalink`: `string`; `quarantined`: `boolean`; `rating`: `SubredditRating`; `spam`: `boolean`; `subscribersCount`: `number`; `title`: `string`; `topics`: `string`[]; `type`: `SubredditType`; \}
+\{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `nsfw?`: `boolean`; `permalink?`: `string`; `quarantined?`: `boolean`; `rating?`: `SubredditRating`; `spam?`: `boolean`; `subscribersCount?`: `number`; `title?`: `string`; `topics?`: `string`[]; `type?`: `SubredditType`; \}
 
 ###### subreddit.description?
 
@@ -170,11 +172,13 @@
 
 ### decode()
 
+> **decode**(`input`, `length?`): [`AppInstall`](../interfaces/AppInstall.md)
+
 #### Parameters
 
 ##### input
 
-`Reader` | `Uint8Array`\<`ArrayBufferLike`\>
+`Reader` \| `Uint8Array`\<`ArrayBufferLike`\>
 
 ##### length?
 
@@ -187,6 +191,8 @@
 <a id="encode"></a>
 
 ### encode()
+
+> **encode**(`message`, `writer?`): `Writer`
 
 #### Parameters
 
@@ -206,6 +212,8 @@
 
 ### fromJSON()
 
+> **fromJSON**(`object`): [`AppInstall`](../interfaces/AppInstall.md)
+
 #### Parameters
 
 ##### object
@@ -220,13 +228,15 @@
 
 ### fromPartial()
 
+> **fromPartial**(`object`): [`AppInstall`](../interfaces/AppInstall.md)
+
 #### Parameters
 
 ##### object
 
 ###### installer?
 
-\{ `accountType`: `AccountTypeV2`; `banned`: `boolean`; `description`: `string`; `flair`: \{ `backgroundColor`: `string`; `cssClass`: `string`; `enabled`: `boolean`; `subredditId`: `string`; `templateId`: `string`; `text`: `string`; `textColor`: `string`; `userId`: `string`; \}; `iconImage`: `string`; `id`: `string`; `isGold`: `boolean`; `karma`: `number`; `name`: `string`; `snoovatarImage`: `string`; `spam`: `boolean`; `suspended`: `boolean`; `url`: `string`; \}
+\{ `accountType?`: `AccountTypeV2`; `banned?`: `boolean`; `description?`: `string`; `flair?`: \{ `backgroundColor?`: `string`; `cssClass?`: `string`; `enabled?`: `boolean`; `subredditId?`: `string`; `templateId?`: `string`; `text?`: `string`; `textColor?`: `string`; `userId?`: `string`; \}; `iconImage?`: `string`; `id?`: `string`; `isGold?`: `boolean`; `karma?`: `number`; `name?`: `string`; `snoovatarImage?`: `string`; `spam?`: `boolean`; `suspended?`: `boolean`; `url?`: `string`; \}
 
 ###### installer.accountType?
 
@@ -242,7 +252,7 @@
 
 ###### installer.flair?
 
-\{ `backgroundColor`: `string`; `cssClass`: `string`; `enabled`: `boolean`; `subredditId`: `string`; `templateId`: `string`; `text`: `string`; `textColor`: `string`; `userId`: `string`; \}
+\{ `backgroundColor?`: `string`; `cssClass?`: `string`; `enabled?`: `boolean`; `subredditId?`: `string`; `templateId?`: `string`; `text?`: `string`; `textColor?`: `string`; `userId?`: `string`; \}
 
 ###### installer.flair.backgroundColor?
 
@@ -314,7 +324,7 @@
 
 ###### subreddit?
 
-\{ `description`: `string`; `id`: `string`; `name`: `string`; `nsfw`: `boolean`; `permalink`: `string`; `quarantined`: `boolean`; `rating`: `SubredditRating`; `spam`: `boolean`; `subscribersCount`: `number`; `title`: `string`; `topics`: `string`[]; `type`: `SubredditType`; \}
+\{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `nsfw?`: `boolean`; `permalink?`: `string`; `quarantined?`: `boolean`; `rating?`: `SubredditRating`; `spam?`: `boolean`; `subscribersCount?`: `number`; `title?`: `string`; `topics?`: `string`[]; `type?`: `SubredditType`; \}
 
 ###### subreddit.description?
 
@@ -371,6 +381,8 @@
 <a id="tojson"></a>
 
 ### toJSON()
+
+> **toJSON**(`message`): `unknown`
 
 #### Parameters
 

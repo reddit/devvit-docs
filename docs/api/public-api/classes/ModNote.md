@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 <a id="constructor"></a>
 
-### new ModNote()
+### Constructor
 
 > **new ModNote**(): `ModNote`
 
@@ -38,7 +38,7 @@
 
 ### modAction?
 
-> `optional` **modAction**: [`ModAction`](../interfaces/ModAction.md)
+> `optional` **modAction?**: [`ModAction`](../interfaces/ModAction.md)
 
 ***
 
@@ -50,11 +50,11 @@
 
 #### id?
 
-> `optional` **id**: `` `t2_${string}` ``
+> `optional` **id?**: `` `t2_${string}` ``
 
 #### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 ***
 
@@ -66,11 +66,11 @@
 
 #### id?
 
-> `optional` **id**: `` `t5_${string}` ``
+> `optional` **id?**: `` `t5_${string}` ``
 
 #### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 ***
 
@@ -90,11 +90,11 @@
 
 #### id?
 
-> `optional` **id**: `` `t2_${string}` ``
+> `optional` **id?**: `` `t2_${string}` ``
 
 #### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 ***
 
@@ -102,4 +102,4 @@
 
 ### userNote?
 
-> `optional` **userNote**: [`UserNote`](../type-aliases/UserNote.md)
+> `optional` **userNote?**: [`UserNote`](../type-aliases/UserNote.md)

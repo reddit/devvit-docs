@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **SubmitMediaOptions** = [`CommonSubmitPostOptions`](CommonSubmitPostOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### imageUrls?
 
-> `optional` **imageUrls**: \[`string`\]
+> `optional` **imageUrls?**: \[`string`\]
 
 ### kind
 
@@ -18,4 +18,4 @@
 
 ### videoPosterUrl?
 
-> `optional` **videoPosterUrl**: `string`
+> `optional` **videoPosterUrl?**: `string`

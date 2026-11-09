@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 <a id="constructor"></a>
 
-### new CalendarWidget()
+### Constructor
 
 > **new CalendarWidget**(`widgetData`, `subredditName`): `CalendarWidget`
 
@@ -152,11 +152,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CalendarWidget`, `"googleCalendarId"` \| `"configuration"` \| `"styles"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CalendarWidget`, `"styles"` \| `"configuration"` \| `"googleCalendarId"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CalendarWidget`, `"googleCalendarId"` \| `"configuration"` \| `"styles"`\>
+`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`CalendarWidget`, `"styles"` \| `"configuration"` \| `"googleCalendarId"`\>
 
 #### Overrides
 
