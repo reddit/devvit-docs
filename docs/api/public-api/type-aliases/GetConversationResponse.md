@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,14 +6,14 @@
 
 > **GetConversationResponse** = `object` & [`WithUserData`](WithUserData.md)
 
-## Type declaration
+## Type Declaration
 
 ### conversation?
 
-> `optional` **conversation**: [`ConversationData`](ConversationData.md)
+> `optional` **conversation?**: [`ConversationData`](ConversationData.md)
 
 ### participantSubreddit?
 
-> `optional` **participantSubreddit**: `ParticipantSubreddit`
+> `optional` **participantSubreddit?**: `ParticipantSubreddit`
 
 If the conversation is with another subreddit, what subreddit we are communicating with.

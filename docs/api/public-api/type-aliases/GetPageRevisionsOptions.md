@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **GetPageRevisionsOptions** = `Omit`\<[`ListingFetchOptions`](ListingFetchOptions.md), `"more"`\> & [`WikiVersionOptions`](WikiVersionOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### page?
 
-> `optional` **page**: `string`
+> `optional` **page?**: `string`
 
 The name of the page to get revisions for.
 

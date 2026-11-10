@@ -2,6 +2,8 @@
 
 This guide will help you migrate from the experimental version of Devvit Web to the official Devvit Web setup. You must complete this migration to publish and grow your app.
 
+In Devvit 0.15, `blocks` and `@devvit/public-api` remain supported but deprecated. Keep legacy handlers in their own entry file and migrate to `@devvit/web` where possible.
+
 > **Note**: Apps can be partially migrated, you don't need to re-write everything!
 
 ## How to identify if you're using the experimental version
@@ -95,23 +97,27 @@ import { navigateTo } from '@devvit/web/client';
 
 ### 5. Remove defineConfig from main.tsx
 
-In your `src/devvit/main.tsx`, remove the `defineConfig` function and any configuration it contained. This configuration now lives in `devvit.json`.
+In your `src/devvit/main.tsx`, remove the experimental `defineConfig` function and move its configuration to `devvit.json`.
 
 ```typescript
-// Before in src/devvit/main.tsx
+// Before: experimental configuration to replace
 import { defineConfig } from '@devvit/server';
 
 export default defineConfig({
   // ... configuration
 });
+```
 
-// After
-// Simply export your Devvit instance or any Devvit.addX functions
-import { Devvit } from '@devvit/web';
+If you're keeping public-api menu actions or triggers, export `Devvit` from the file configured by `blocks.entry`:
 
-// Your Devvit setup code here
+```typescript title="src/devvit/main.tsx (legacy)"
+import { Devvit } from '@devvit/public-api';
+
+// Your existing menu actions and triggers go here.
 export default Devvit;
 ```
+
+Put Web server code in `src/server/index.ts` and client code in `src/client`. Import from `@devvit/web/server` or `@devvit/web/client` in those files. Once you've moved all public-api handlers, remove `blocks` and the legacy entry file.
 
 ### 6. Reorganize your project structure
 

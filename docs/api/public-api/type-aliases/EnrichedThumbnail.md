@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ Contains a post's thumbnail and, for NSFW content, its blurred version.
 
 ### attribution?
 
-> `optional` **attribution**: `string`
+> `optional` **attribution?**: `string`
 
 Attribution text for the thumbnail
 
@@ -56,7 +56,7 @@ Whether this thumbnail appears blurred by default
 
 ### obfuscatedImage?
 
-> `optional` **obfuscatedImage**: `object`
+> `optional` **obfuscatedImage?**: `object`
 
 The blurred image for NSFW thumbnails
 

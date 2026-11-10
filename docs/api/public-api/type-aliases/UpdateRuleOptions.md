@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,8 +8,8 @@
 
 New values for an existing rule. All fields are optional. If a field is not provided, the existing value will not be changed.
 
-## Type declaration
+## Type Declaration
 
 ### kind?
 
-> `optional` **kind**: `"all"` \| `"link"` \| `"comment"`
+> `optional` **kind?**: `"all"` \| `"link"` \| `"comment"`

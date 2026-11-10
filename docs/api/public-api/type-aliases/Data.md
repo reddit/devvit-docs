@@ -1,8 +1,8 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
-# Type Alias: ~~Data~~
+# ~~Type Alias: Data~~
 
 > **Data** = [`JSONObject`](JSONObject.md)
 

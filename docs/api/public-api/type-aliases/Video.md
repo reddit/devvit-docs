@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### c?
 
-> `optional` **c**: `string`
+> `optional` **c?**: `string`
 
 ***
 
@@ -28,7 +28,7 @@
 
 ### gifify?
 
-> `optional` **gifify**: `boolean`
+> `optional` **gifify?**: `boolean`
 
 ***
 
@@ -36,7 +36,7 @@
 
 ### id?
 
-> `optional` **id**: [`MediaAssetId`](MediaAssetId.md)
+> `optional` **id?**: [`MediaAssetId`](MediaAssetId.md)
 
 ***
 
@@ -44,7 +44,7 @@
 
 ### mediaUrl?
 
-> `optional` **mediaUrl**: `string`
+> `optional` **mediaUrl?**: `string`
 
 URL of the media when building; backend may replace with id in processed JSON
 
@@ -54,7 +54,7 @@ URL of the media when building; backend may replace with id in processed JSON
 
 ### o?
 
-> `optional` **o**: [`ObfuscationReason`](ObfuscationReason.md)
+> `optional` **o?**: [`ObfuscationReason`](ObfuscationReason.md)
 
 ***
 
@@ -62,4 +62,4 @@ URL of the media when building; backend may replace with id in processed JSON
 
 ### p?
 
-> `optional` **p**: [`Image`](Image.md)
+> `optional` **p?**: [`Image`](Image.md)

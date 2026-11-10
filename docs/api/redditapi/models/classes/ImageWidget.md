@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 <a id="constructor"></a>
 
-### new ImageWidget()
+### Constructor
 
 > **new ImageWidget**(`widgetData`, `subredditName`): `ImageWidget`
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### userFlairBackgroundColor?
 
-> `optional` **userFlairBackgroundColor**: `string`
+> `optional` **userFlairBackgroundColor?**: `string`
 
 ***
 
@@ -28,7 +28,7 @@
 
 ### userFlairTextColor?
 
-> `optional` **userFlairTextColor**: `string`
+> `optional` **userFlairTextColor?**: `string`
 
 ***
 

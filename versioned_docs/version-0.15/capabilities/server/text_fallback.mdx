@@ -1,0 +1,142 @@
+
+# Text Fallback
+
+Text fallback lets you specify alternative text content for your interactive post, enabling:
+
+- **Old Reddit and third-party app support** - These platforms cannot render interactive posts
+- **Google (SEO) and Reddit Answers indexing** - Critical for discoverability and growth
+- **AutoModerator rule compatibility** - Allows mod rules to process your post content
+- **Reddit safety checks and filters** - Enables content moderation systems to work properly
+- **Custom post thumbnail** - Link to an image to generate a thumbnail
+
+Text fallback uses Markdown formatting and allows for up to 40,000 characters.
+
+## [Reddit API](./reddit-api.mdx)
+The text fallback is only available when using the Reddit API to create a post. 
+
+
+
+  ```json title="devvit.json"
+  {
+    "permissions": {
+      "reddit": true
+    }
+  }
+  ```
+
+## Use a text string
+
+```tsx
+import { reddit } from '@devvit/web/server';
+
+const post = await reddit.submitCustomPost({
+  title: 'Text String',
+  subredditName: subreddit.name,
+  textFallback: { text: 'You can read this text string on oldreddit because you used textFallback' },
+  entry: 'default',
+});
+```
+
+**Result**
+
+![text string fallback](../../assets/fallback_text_string.png)
+
+## Use a text string with markdown
+
+```tsx
+import { reddit } from '@devvit/web/server';
+
+const post = await reddit.submitCustomPost({
+  title: 'Text string with markdown',
+  subredditName: subreddit.name,
+  textFallback: {
+    text: 'You can read this _text string with markdown_ on oldreddit because you used **textFallback**',
+  },
+  entry: 'default',
+});
+```
+
+**Result**
+
+![text string fallback](../../assets/fallback_markdown.png)
+
+## Use rich text
+
+```tsx
+import { reddit } from '@devvit/web/server';
+
+const textFallbackRichtext = new RichTextBuilder()
+  .heading({ level: 1 }, (h) => {
+    h.rawText('Yay for text fallbacks!');
+  })
+  .codeBlock({}, (cb) => cb.rawText('You can read this rich text on old.reddit because you used textFallback'));
+
+const post = await reddit.submitCustomPost({
+  title: 'Rich Text',
+  subredditName: subreddit.name,
+  textFallback: { richtext: textFallbackRichtext },
+  entry: 'default',
+});
+```
+
+**Result**
+
+![text string fallback](../../assets/fallback_richtext.png)
+
+## Update a post’s text fallback
+
+Call `post.setTextFallback()` to update the fallback content of an existing custom post. The method uses the app identity by default. For an app-authored post, omit `runAs` or set it to `"APP"`:
+
+```tsx
+import { context, reddit } from "@devvit/web/server";
+
+export async function updateAppFallback() {
+  if (!context.postId) {
+    throw new Error("Post context required.");
+  }
+
+  const post = await reddit.getPostById(context.postId);
+  await post.setTextFallback({ text: "Updated instructions for this post." });
+}
+```
+
+### Update a user-authored post
+
+Starting with Devvit 0.14.3, you can pass `runAs: "USER"` to update fallback content on behalf of the current user. Enable the `SUBMIT_POST` scope:
+
+```json title="devvit.json"
+{
+  "permissions": {
+    "reddit": {
+      "enable": true,
+      "asUser": ["SUBMIT_POST"]
+    }
+  }
+}
+```
+
+Call this function from a signed-in post interaction. This example checks that the current user is the post author before requesting an update:
+
+```tsx
+import { context, reddit } from "@devvit/web/server";
+
+export async function updateUserFallback() {
+  if (!context.userId || !context.postId) {
+    throw new Error("Signed-in post interaction required.");
+  }
+
+  const post = await reddit.getPostById(context.postId);
+  if (post.authorId !== context.userId) {
+    throw new Error("Post author required.");
+  }
+
+  await post.setTextFallback({
+    text: "Updated instructions for this interactive post.",
+    runAs: "USER",
+  });
+}
+```
+
+`"USER"` uses the current request's user. It cannot select an arbitrary user or bypass Reddit's edit permissions. User grants and authorization still apply, and a scheduler or trigger handler may not have a suitable acting-user context.
+
+The method returns `Promise<void>` and rejects if the update fails. Await it before reporting success. See [SetCustomPostTextFallbackOptions](../../api/redditapi/models/type-aliases/SetCustomPostTextFallbackOptions.md) for the content options and `runAs` type.

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -33,7 +33,7 @@ async (event, context) => {
 
 <a id="constructor"></a>
 
-### new RedditClient()
+### Constructor
 
 > **new RedditClient**(): `RedditClient`
 
@@ -72,7 +72,7 @@ await reddit.modMail.reply({
 
 ### addEditorToWikiPage()
 
-> **addEditorToWikiPage**(`subredditName`, `page`, `username`, `options`?): `Promise`\<`void`\>
+> **addEditorToWikiPage**(`subredditName`, `page`, `username`, `options?`): `Promise`\<`void`\>
 
 Add an editor to a wiki page.
 
@@ -286,9 +286,9 @@ Approve a post or comment.
 
 ##### id
 
-The id of the post (t3_) or comment (t1_) to approve.
+`` `t1_${string}` `` \| `` `t3_${string}` ``
 
-`` `t1_${string}` `` | `` `t3_${string}` ``
+The id of the post (t3_) or comment (t1_) to approve.
 
 #### Returns
 
@@ -521,7 +521,7 @@ Crossposts a post to a subreddit.
 
 ##### opts
 
-`Readonly`\<[`SubredditOptions`](../../models/type-aliases/SubredditOptions.md) & [`CommonSubmitPostOptions`](../../models/type-aliases/CommonSubmitPostOptions.md) & `Required`\<[`SubredditOptions`](../../models/type-aliases/SubredditOptions.md)\> & `object`\>
+`Readonly`\<[`SubredditOptions`](../../models/type-aliases/SubredditOptions.md) & [`CrosspostOptions`](../../models/type-aliases/CrosspostOptions.md)\>
 
 Options for crossposting a post
 
@@ -677,20 +677,22 @@ The edited FlairTemplate object.
 
 ### filter()
 
-> **filter**(`id`, `options`?): `Promise`\<`void`\>
+> **filter**(`id`, `options?`): `Promise`\<`void`\>
 
 **`Experimental`**
 
-Filters a post or comment. When a post or comment is filtered, it is added to the ModQueue for review, and in addition:
-- if
+Filters a post or comment. When a post or comment is filtered, it is added to the ModQueue for
+review. By default, filtered content is hidden while in the queue. Set `keep` to `true` to keep
+the content visible. Set `reason` to show moderators a reason; when `keep` is `true`, the
+reason is also shown on the content.
 
 #### Parameters
 
 ##### id
 
-The id of the post (t3_) or comment (t1_) to filter.
+`` `t1_${string}` `` \| `` `t3_${string}` ``
 
-`` `t1_${string}` `` | `` `t3_${string}` ``
+The id of the post (t3_) or comment (t1_) to filter.
 
 ##### options?
 
@@ -734,13 +736,13 @@ A Listing of SubredditContributorUser objects.
 
 ### getAppUser()
 
-> **getAppUser**(): `Promise`\<`undefined` \| [`User`](../../models/classes/User.md)\>
+> **getAppUser**(): `Promise`\<[`User`](../../models/classes/User.md) \| `undefined`\>
 
 Get the user that the app runs as on the provided metadata.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](../../models/classes/User.md)\>
+`Promise`\<[`User`](../../models/classes/User.md) \| `undefined`\>
 
 A Promise that resolves to a User object.
 
@@ -1008,14 +1010,14 @@ const currentSubreddit = await reddit.getCurrentSubreddit();
 
 ### getCurrentUser()
 
-> **getCurrentUser**(): `Promise`\<`undefined` \| [`User`](../../models/classes/User.md)\>
+> **getCurrentUser**(): `Promise`\<[`User`](../../models/classes/User.md) \| `undefined`\>
 
 Get the current calling user.
 Resolves to undefined for logged-out custom post renders.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](../../models/classes/User.md)\>
+`Promise`\<[`User`](../../models/classes/User.md) \| `undefined`\>
 
 A Promise that resolves to a User object or undefined
 
@@ -1031,14 +1033,14 @@ const user = await reddit.getCurrentUser();
 
 ### getCurrentUsername()
 
-> **getCurrentUsername**(): `Promise`\<`undefined` \| `string`\>
+> **getCurrentUsername**(): `Promise`\<`string` \| `undefined`\>
 
 Get the current calling user's username.
 Resolves to undefined for logged-out custom post renders.
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
 
 A Promise that resolves to a string representing the username or undefined
 
@@ -1215,7 +1217,7 @@ Get private messages sent to the currently authenticated user.
 
 ##### options
 
-`Prettify`
+[`GetPrivateMessagesOptions`](../../models/type-aliases/GetPrivateMessagesOptions.md)
 
 Options for the request
 
@@ -1485,7 +1487,7 @@ A Promise that resolves to a Post object.
 
 ### getPostData()
 
-> **getPostData**(`id`): `Promise`\<`undefined` \| `JsonObject`\>
+> **getPostData**(`id`): `Promise`\<`JsonObject` \| `undefined`\>
 
 Returns PostData, if any, for the post specified by ID.
 
@@ -1497,7 +1499,7 @@ Returns PostData, if any, for the post specified by ID.
 
 #### Returns
 
-`Promise`\<`undefined` \| `JsonObject`\>
+`Promise`\<`JsonObject` \| `undefined`\>
 
 ***
 
@@ -1720,7 +1722,7 @@ An array of Rule objects.
 
 ### getSnoovatarUrl()
 
-> **getSnoovatarUrl**(`username`): `Promise`\<`undefined` \| `string`\>
+> **getSnoovatarUrl**(`username`): `Promise`\<`string` \| `undefined`\>
 
 Get the snoovatar URL for a given username.
 
@@ -1734,7 +1736,7 @@ The username of the snoovatar to retrieve
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
 
 A Promise that resolves to a URL of the snoovatar image if it exists.
 
@@ -1828,7 +1830,7 @@ console.log("Posts: ", await listing.all())
 
 ### ~~getSubredditById()~~
 
-> **getSubredditById**(`id`): `Promise`\<`undefined` \| [`Subreddit`](../../models/classes/Subreddit.md)\>
+> **getSubredditById**(`id`): `Promise`\<[`Subreddit`](../../models/classes/Subreddit.md) \| `undefined`\>
 
 Gets a [Subreddit](../../models/classes/Subreddit.md) object by ID
 
@@ -1842,7 +1844,7 @@ The ID (starting with t5_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 #### Returns
 
-`Promise`\<`undefined` \| [`Subreddit`](../../models/classes/Subreddit.md)\>
+`Promise`\<[`Subreddit`](../../models/classes/Subreddit.md) \| `undefined`\>
 
 A Promise that resolves a Subreddit object.
 
@@ -2179,7 +2181,7 @@ console.log("Posts: ", await listing.all())
 
 ### getUserById()
 
-> **getUserById**(`id`): `Promise`\<`undefined` \| [`User`](../../models/classes/User.md)\>
+> **getUserById**(`id`): `Promise`\<[`User`](../../models/classes/User.md) \| `undefined`\>
 
 Gets a [User](../../models/classes/User.md) object by ID
 
@@ -2193,7 +2195,7 @@ The ID (starting with t2_) of the user to retrieve. e.g. t2_1qjpg
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](../../models/classes/User.md)\>
+`Promise`\<[`User`](../../models/classes/User.md) \| `undefined`\>
 
 A Promise that resolves to a User object.
 
@@ -2209,7 +2211,7 @@ const user = await reddit.getUserById('t2_1qjpg');
 
 ### getUserByUsername()
 
-> **getUserByUsername**(`username`): `Promise`\<`undefined` \| [`User`](../../models/classes/User.md)\>
+> **getUserByUsername**(`username`): `Promise`\<[`User`](../../models/classes/User.md) \| `undefined`\>
 
 Gets a [User](../../models/classes/User.md) object by username
 
@@ -2223,7 +2225,7 @@ The username of the user omitting the u/. e.g. 'devvit'
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](../../models/classes/User.md)\>
+`Promise`\<[`User`](../../models/classes/User.md) \| `undefined`\>
 
 A Promise that resolves to a User object or undefined if user is
          not found (user doesn't exist, account suspended, etc).
@@ -2397,69 +2399,31 @@ A Listing of SubredditWikiContributorUser objects.
 
 ### getWikiPage()
 
-#### Call Signature
-
-> **getWikiPage**(`subredditName`, `page`, `revisionId`): `Promise`\<[`WikiPage`](../../models/classes/WikiPage.md)\>
-
-Get a specific revision of a wiki page from a subreddit.
-
-##### Parameters
-
-###### subredditName
-
-`string`
-
-The name of the subreddit to get the wiki page from.
-
-###### page
-
-`string`
-
-The name of the wiki page to get.
-
-###### revisionId
-
-The revision ID of the wiki page version to get. Leaving it empty returns the latest version.
-
-`undefined` | `` `${string}-${string}-${string}-${string}-${string}` ``
-
-##### Returns
-
-`Promise`\<[`WikiPage`](../../models/classes/WikiPage.md)\>
-
-The requested WikiPage object.
-
-##### Deprecated
-
-Pass a [GetWikiPageOptions](../../models/type-aliases/GetWikiPageOptions.md) object as the third argument instead.
-
-#### Call Signature
-
-> **getWikiPage**(`subredditName`, `page`, `options`?): `Promise`\<[`WikiPage`](../../models/classes/WikiPage.md)\>
+> **getWikiPage**(`subredditName`, `page`, `options?`): `Promise`\<[`WikiPage`](../../models/classes/WikiPage.md)\>
 
 Get a wiki page from a subreddit.
 
-##### Parameters
+#### Parameters
 
-###### subredditName
+##### subredditName
 
 `string`
 
 The name of the subreddit to get the wiki page from.
 
-###### page
+##### page
 
 `string`
 
 The name of the wiki page to get.
 
-###### options?
+##### options?
 
 [`GetWikiPageOptions`](../../models/type-aliases/GetWikiPageOptions.md)
 
 Options for the request.
 
-##### Returns
+#### Returns
 
 `Promise`\<[`WikiPage`](../../models/classes/WikiPage.md)\>
 
@@ -2495,7 +2459,7 @@ A Listing of WikiPageRevision objects.
 
 ### getWikiPages()
 
-> **getWikiPages**(`subredditName`, `options`?): `Promise`\<`string`[]\>
+> **getWikiPages**(`subredditName`, `options?`): `Promise`\<`string`[]\>
 
 Get the wiki pages for a subreddit.
 
@@ -2525,7 +2489,7 @@ A list of the wiki page names for the subreddit.
 
 ### getWikiPageSettings()
 
-> **getWikiPageSettings**(`subredditName`, `page`, `options`?): `Promise`\<[`WikiPageSettings`](../../models/classes/WikiPageSettings.md)\>
+> **getWikiPageSettings**(`subredditName`, `page`, `options?`): `Promise`\<[`WikiPageSettings`](../../models/classes/WikiPageSettings.md)\>
 
 Get the settings for a wiki page.
 
@@ -2692,9 +2656,9 @@ Remove a post or comment.
 
 ##### id
 
-The id of the post (t3_) or comment (t1_) to remove.
+`` `t1_${string}` `` \| `` `t3_${string}` ``
 
-`` `t1_${string}` `` | `` `t3_${string}` ``
+The id of the post (t3_) or comment (t1_) to remove.
 
 ##### isSpam
 
@@ -2719,7 +2683,7 @@ await reddit.remove('t1_123456', true);
 
 ### removeEditorFromWikiPage()
 
-> **removeEditorFromWikiPage**(`subredditName`, `page`, `username`, `options`?): `Promise`\<`void`\>
+> **removeEditorFromWikiPage**(`subredditName`, `page`, `username`, `options?`): `Promise`\<`void`\>
 
 Remove an editor from a wiki page.
 
@@ -2965,9 +2929,9 @@ The report is sent to the moderators of the subreddit for review.
 
 ##### thing
 
-Post or Comment
+[`Comment`](../../models/classes/Comment.md) \| [`Post`](../../models/classes/Post.md)
 
-[`Comment`](../../models/classes/Comment.md) | [`Post`](../../models/classes/Post.md)
+Post or Comment
 
 ##### options
 
@@ -2997,7 +2961,7 @@ await reddit.report(post, {
 
 ### revertWikiPage()
 
-> **revertWikiPage**(`subredditName`, `page`, `revisionId`, `options`?): `Promise`\<`void`\>
+> **revertWikiPage**(`subredditName`, `page`, `revisionId`, `options?`): `Promise`\<`void`\>
 
 Revert a wiki page to a previous revision.
 
@@ -3271,10 +3235,10 @@ The ID of the post to set styles for.
 
 ##### styles
 
+`CustomPostStylesInput` \| `undefined`
+
 The styles to set for the post. If a value isn't specified, its previous value
   will be preserved. If `undefined` is passed, all styles will be removed and reset to defaults.
-
-`undefined` | `CustomPostStylesInput`
 
 #### Returns
 
@@ -3381,7 +3345,7 @@ Submits a new custom post to a subreddit.
 
 ##### opts
 
-`Readonly`\<[`SubredditOptions`](../../models/type-aliases/SubredditOptions.md) & [`CommonSubmitPostOptions`](../../models/type-aliases/CommonSubmitPostOptions.md) & `object`\>
+`Readonly`\<[`SubredditOptions`](../../models/type-aliases/SubredditOptions.md) & [`SubmitCustomPostOptions`](../../models/type-aliases/SubmitCustomPostOptions.md)\>
 
 #### Returns
 

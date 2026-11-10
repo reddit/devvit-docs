@@ -1,0 +1,11 @@
+[**@devvit/public-api v0.15.3-dev**](../README.md)
+
+***
+
+# Type Alias: JSONObject
+
+> **JSONObject** = `object`
+
+## Index Signature
+
+\[`key`: `string`\]: [`JSONValue`](JSONValue.md)

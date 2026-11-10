@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 <a id="constructor"></a>
 
-### new AuthorFlairSettings()
+### Constructor
 
 > **new AuthorFlairSettings**(): `AuthorFlairSettings`
 
@@ -22,7 +22,7 @@
 
 ### isEnabled?
 
-> `optional` **isEnabled**: `boolean`
+> `optional` **isEnabled?**: `boolean`
 
 ***
 
@@ -30,4 +30,4 @@
 
 ### isSelfAssignabled?
 
-> `optional` **isSelfAssignabled**: `boolean`
+> `optional` **isSelfAssignabled?**: `boolean`

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### oembed?
 
-> `optional` **oembed**: [`Oembed`](Oembed.md)
+> `optional` **oembed?**: [`Oembed`](Oembed.md)
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### redditVideo?
 
-> `optional` **redditVideo**: [`RedditVideo`](RedditVideo.md)
+> `optional` **redditVideo?**: [`RedditVideo`](RedditVideo.md)
 
 ***
 
@@ -28,6 +28,6 @@
 
 ### type?
 
-> `optional` **type**: `string`
+> `optional` **type?**: `string`
 
 The type of the oEmbed media, if present (e.g. "youtube.com")

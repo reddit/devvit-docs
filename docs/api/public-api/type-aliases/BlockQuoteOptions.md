@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### author?
 
-> `optional` **author**: [`TextNode`](TextNode.md)
+> `optional` **author?**: [`TextNode`](TextNode.md)
 
 Element for author attribution
 

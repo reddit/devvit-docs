@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -17,7 +17,7 @@ See: https://oembed.com/
 
 ### authorName?
 
-> `optional` **authorName**: `string`
+> `optional` **authorName?**: `string`
 
 The name of the author/owner of the resource. E.g. "Reddit"
 
@@ -27,7 +27,7 @@ The name of the author/owner of the resource. E.g. "Reddit"
 
 ### authorUrl?
 
-> `optional` **authorUrl**: `string`
+> `optional` **authorUrl?**: `string`
 
 A URL for the resource's author or owner.
 
@@ -43,7 +43,7 @@ A URL for the resource's author or owner.
 
 ### height?
 
-> `optional` **height**: `number`
+> `optional` **height?**: `number`
 
 The height in pixels required to display the HTML.
 
@@ -65,7 +65,7 @@ vulnerabilities.
 
 ### providerName?
 
-> `optional` **providerName**: `string`
+> `optional` **providerName?**: `string`
 
 A URL for the author/owner of the resource. E.g. "YouTube"
 
@@ -75,7 +75,7 @@ A URL for the author/owner of the resource. E.g. "YouTube"
 
 ### providerUrl?
 
-> `optional` **providerUrl**: `string`
+> `optional` **providerUrl?**: `string`
 
 The name of the resource provider. E.g "https://www.youtube.com/"
 
@@ -85,7 +85,7 @@ The name of the resource provider. E.g "https://www.youtube.com/"
 
 ### thumbnailHeight?
 
-> `optional` **thumbnailHeight**: `number`
+> `optional` **thumbnailHeight?**: `number`
 
 The height of the optional thumbnail in pixels
 
@@ -95,7 +95,7 @@ The height of the optional thumbnail in pixels
 
 ### thumbnailUrl?
 
-> `optional` **thumbnailUrl**: `string`
+> `optional` **thumbnailUrl?**: `string`
 
 A URL to a thumbnail image representing the resource.
 
@@ -105,7 +105,7 @@ A URL to a thumbnail image representing the resource.
 
 ### thumbnailWidth?
 
-> `optional` **thumbnailWidth**: `number`
+> `optional` **thumbnailWidth?**: `number`
 
 The width of the optional thumbnail in pixels
 
@@ -115,7 +115,7 @@ The width of the optional thumbnail in pixels
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
 A text title, describing the resource.
 
@@ -145,6 +145,6 @@ The oEmbed version number. This must be 1.0.
 
 ### width?
 
-> `optional` **width**: `number`
+> `optional` **width?**: `number`
 
 The width in pixels required to display the HTML.

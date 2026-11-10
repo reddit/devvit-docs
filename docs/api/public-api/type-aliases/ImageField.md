@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -11,7 +11,7 @@
 Allows a user to upload an image as part of submitting the form. The string value that's
 given back is the URL of the image.
 
-## Type declaration
+## Type Declaration
 
 ### type
 

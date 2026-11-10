@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ Options for adding a moderation note to a user.
 
 ### label?
 
-> `optional` **label**: [`UserNoteLabel`](UserNoteLabel.md)
+> `optional` **label?**: [`UserNoteLabel`](UserNoteLabel.md)
 
 A label that categorizes the moderation note.
 
@@ -34,7 +34,7 @@ The text of the moderation note. The maximum length is 250 characters.
 
 ### redditId?
 
-> `optional` **redditId**: `T1` \| `T3`
+> `optional` **redditId?**: `T1` \| `T3`
 
 The comment or post associated with the moderation note.
 

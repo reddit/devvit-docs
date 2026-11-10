@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### communityIcon?
 
-> `optional` **communityIcon**: `string`
+> `optional` **communityIcon?**: `string`
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### displayName?
 
-> `optional` **displayName**: `string`
+> `optional` **displayName?**: `string`
 
 ***
 
@@ -28,7 +28,7 @@
 
 ### icon?
 
-> `optional` **icon**: `string`
+> `optional` **icon?**: `string`
 
 ***
 
@@ -36,7 +36,7 @@
 
 ### id?
 
-> `optional` **id**: `T5`
+> `optional` **id?**: `T5`
 
 ***
 
@@ -44,7 +44,7 @@
 
 ### keyColor?
 
-> `optional` **keyColor**: `string`
+> `optional` **keyColor?**: `string`
 
 ***
 
@@ -52,7 +52,7 @@
 
 ### lastUpdated?
 
-> `optional` **lastUpdated**: `string`
+> `optional` **lastUpdated?**: `string`
 
 ***
 
@@ -60,7 +60,7 @@
 
 ### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 ***
 
@@ -68,7 +68,7 @@
 
 ### primaryColor?
 
-> `optional` **primaryColor**: `string`
+> `optional` **primaryColor?**: `string`
 
 ***
 
@@ -76,4 +76,4 @@
 
 ### subscribers?
 
-> `optional` **subscribers**: `number`
+> `optional` **subscribers?**: `number`

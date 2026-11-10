@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -22,7 +22,7 @@ The authors of each message in the modmail conversation.
 
 ### conversationType?
 
-> `optional` **conversationType**: `string`
+> `optional` **conversationType?**: `string`
 
 A ConversationType specifies whether a conversation is with a subreddit
 itself, with another user, or with another subreddit entirely.
@@ -39,7 +39,7 @@ itself, with another user, or with another subreddit entirely.
 
 ### id?
 
-> `optional` **id**: `string`
+> `optional` **id?**: `string`
 
 Conversation ID
 
@@ -49,7 +49,7 @@ Conversation ID
 
 ### isAuto?
 
-> `optional` **isAuto**: `boolean`
+> `optional` **isAuto?**: `boolean`
 
 Is the conversation automatically generated e.g. from automod, u/reddit
 
@@ -59,7 +59,7 @@ Is the conversation automatically generated e.g. from automod, u/reddit
 
 ### isHighlighted?
 
-> `optional` **isHighlighted**: `boolean`
+> `optional` **isHighlighted?**: `boolean`
 
 Is the conversation highlighted
 
@@ -69,7 +69,7 @@ Is the conversation highlighted
 
 ### isInternal?
 
-> `optional` **isInternal**: `boolean`
+> `optional` **isInternal?**: `boolean`
 
 Is the conversation internal (i.e. mod only)
 
@@ -79,7 +79,7 @@ Is the conversation internal (i.e. mod only)
 
 ### lastModUpdate?
 
-> `optional` **lastModUpdate**: `string`
+> `optional` **lastModUpdate?**: `string`
 
 The last datetime a mod from the owning subreddit made any interaction
 with the conversation.
@@ -93,7 +93,7 @@ the participant subreddit are irrelevant and do not affect this field.)
 
 ### lastUnread?
 
-> `optional` **lastUnread**: `string`
+> `optional` **lastUnread?**: `string`
 
 The datetime of the last unread message within this conversation for the current viewer.
 
@@ -103,7 +103,7 @@ The datetime of the last unread message within this conversation for the current
 
 ### lastUpdated?
 
-> `optional` **lastUpdated**: `string`
+> `optional` **lastUpdated?**: `string`
 
 The datetime of the last time the conversation was update.
 
@@ -113,7 +113,7 @@ The datetime of the last time the conversation was update.
 
 ### lastUserUpdate?
 
-> `optional` **lastUserUpdate**: `string`
+> `optional` **lastUserUpdate?**: `string`
 
 The last datetime a user made any interaction with the conversation
 
@@ -165,7 +165,7 @@ const modActionById = conversation.modActions[modActionId];
 
 ### numMessages?
 
-> `optional` **numMessages**: `number`
+> `optional` **numMessages?**: `number`
 
 Number of messages (not actions) in the conversation
 
@@ -175,7 +175,7 @@ Number of messages (not actions) in the conversation
 
 ### participant?
 
-> `optional` **participant**: [`Participant`](Participant.md)
+> `optional` **participant?**: [`Participant`](Participant.md)
 
 Participant. Is absent for mod discussions
 
@@ -185,7 +185,7 @@ Participant. Is absent for mod discussions
 
 ### state?
 
-> `optional` **state**: [`ModMailConversationState`](../enumerations/ModMailConversationState.md)
+> `optional` **state?**: [`ModMailConversationState`](../enumerations/ModMailConversationState.md)
 
 State of the conversation
 
@@ -195,7 +195,7 @@ State of the conversation
 
 ### subject?
 
-> `optional` **subject**: `string`
+> `optional` **subject?**: `string`
 
 Suject of the conversation
 
@@ -205,14 +205,14 @@ Suject of the conversation
 
 ### subreddit?
 
-> `optional` **subreddit**: `object`
+> `optional` **subreddit?**: `object`
 
 Subreddit owning the modmail conversation
 
 #### displayName?
 
-> `optional` **displayName**: `string`
+> `optional` **displayName?**: `string`
 
 #### id?
 
-> `optional` **id**: `T5`
+> `optional` **id?**: `T5`

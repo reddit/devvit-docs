@@ -1,12 +1,14 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
-# Type Alias: OnValidateHandler()\<ValueType\>
+# Type Alias: OnValidateHandler\<ValueType\>
 
 > **OnValidateHandler**\<`ValueType`\> = (`event`, `context`) => `void` \| `string` \| `Promise`\<`void` \| `string`\>
 
 ## Type Parameters
+
+<a id="valuetype"></a>
 
 ### ValueType
 

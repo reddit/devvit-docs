@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -16,7 +16,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **AppInstall**: `object` & [`AppInstall`](../@devvit/namespaces/EventTypes/interfaces/AppInstall.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -30,7 +30,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **AppUpgrade**: `object` & [`AppUpgrade`](../@devvit/namespaces/EventTypes/interfaces/AppUpgrade.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -44,7 +44,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **AutomoderatorFilterComment**: `object` & [`AutomoderatorFilterComment`](../@devvit/namespaces/EventTypes/interfaces/AutomoderatorFilterComment.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -58,7 +58,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **AutomoderatorFilterPost**: `object` & [`AutomoderatorFilterPost`](../@devvit/namespaces/EventTypes/interfaces/AutomoderatorFilterPost.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -72,7 +72,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **CommentCreate**: `object` & [`CommentCreate`](../@devvit/namespaces/EventTypes/interfaces/CommentCreate.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -86,7 +86,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **CommentDelete**: `object` & [`CommentDelete`](../@devvit/namespaces/EventTypes/interfaces/CommentDelete.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -100,7 +100,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **CommentReport**: `object` & [`CommentReport`](../@devvit/namespaces/EventTypes/interfaces/CommentReport.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -114,7 +114,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **CommentSubmit**: `object` & [`CommentSubmit`](../@devvit/namespaces/EventTypes/interfaces/CommentSubmit.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -128,7 +128,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **CommentUpdate**: `object` & [`CommentUpdate`](../@devvit/namespaces/EventTypes/interfaces/CommentUpdate.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -142,7 +142,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **MentionInCommentCreate**: `object` & [`MentionInCommentCreate`](../@devvit/namespaces/EventTypes/interfaces/MentionInCommentCreate.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -156,7 +156,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **ModAction**: `object` & `ModAction`
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -170,7 +170,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **ModMail**: `object` & `ModMail`
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -184,7 +184,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **PostCreate**: `object` & [`PostCreate`](../@devvit/namespaces/EventTypes/interfaces/PostCreate.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -198,7 +198,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **PostDelete**: `object` & [`PostDelete`](../@devvit/namespaces/EventTypes/interfaces/PostDelete.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -212,7 +212,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **PostFlairUpdate**: `object` & [`PostFlairUpdate`](../@devvit/namespaces/EventTypes/interfaces/PostFlairUpdate.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -226,7 +226,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **PostNsfwUpdate**: `object` & [`PostNsfwUpdate`](../@devvit/namespaces/EventTypes/interfaces/PostNsfwUpdate.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -240,7 +240,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **PostReport**: `object` & [`PostReport`](../@devvit/namespaces/EventTypes/interfaces/PostReport.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -254,7 +254,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **PostSpoilerUpdate**: `object` & [`PostSpoilerUpdate`](../@devvit/namespaces/EventTypes/interfaces/PostSpoilerUpdate.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -268,7 +268,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **PostSubmit**: `object` & [`PostSubmit`](../@devvit/namespaces/EventTypes/interfaces/PostSubmit.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 
@@ -282,7 +282,7 @@ Maps a TriggerEvent to a Protobuf message and type.
 
 > **PostUpdate**: `object` & [`PostUpdate`](../@devvit/namespaces/EventTypes/interfaces/PostUpdate.md)
 
-#### Type declaration
+#### Type Declaration
 
 ##### type
 

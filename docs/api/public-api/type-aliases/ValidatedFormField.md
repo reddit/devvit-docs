@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,18 +6,22 @@
 
 > **ValidatedFormField**\<`Field`, `ValueType`\> = `Omit`\<`Field`, `"required"`\> & `object`
 
-## Type declaration
-
-### onValidate?
-
-> `optional` **onValidate**: [`OnValidateHandler`](OnValidateHandler.md)\<`ValueType`\>
-
 ## Type Parameters
+
+<a id="field"></a>
 
 ### Field
 
 `Field`
 
+<a id="valuetype"></a>
+
 ### ValueType
 
 `ValueType`
+
+## Type Declaration
+
+### onValidate?
+
+> `optional` **onValidate?**: [`OnValidateHandler`](OnValidateHandler.md)\<`ValueType`\>

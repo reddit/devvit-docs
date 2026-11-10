@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **TextOptions** = [`RawTextOptions`](RawTextOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### formatting?
 
-> `optional` **formatting**: [`FormatRange`](FormatRange.md)[]
+> `optional` **formatting?**: [`FormatRange`](FormatRange.md)[]
 
 A list of FormatRange specifications which defines text style for an
 arbitrary substring within the text

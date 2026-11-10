@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### allowableContent?
 
-> `optional` **allowableContent**: [`AllowableFlairContent`](AllowableFlairContent.md)
+> `optional` **allowableContent?**: [`AllowableFlairContent`](AllowableFlairContent.md)
 
 The flair template's allowable content. Either 'all', 'emoji', or 'text'.
 
@@ -22,7 +22,7 @@ The flair template's allowable content. Either 'all', 'emoji', or 'text'.
 
 ### allowUserEdits?
 
-> `optional` **allowUserEdits**: `boolean`
+> `optional` **allowUserEdits?**: `boolean`
 
 Whether or not users are allowed to edit this flair template before using it.
 
@@ -32,7 +32,7 @@ Whether or not users are allowed to edit this flair template before using it.
 
 ### backgroundColor?
 
-> `optional` **backgroundColor**: `string`
+> `optional` **backgroundColor?**: `string`
 
 The background color of the flair. Either 'transparent' or a hex color code. e.g. #FFC0CB
 
@@ -42,7 +42,7 @@ The background color of the flair. Either 'transparent' or a hex color code. e.g
 
 ### maxEmojis?
 
-> `optional` **maxEmojis**: `number`
+> `optional` **maxEmojis?**: `number`
 
 ***
 
@@ -50,7 +50,7 @@ The background color of the flair. Either 'transparent' or a hex color code. e.g
 
 ### modOnly?
 
-> `optional` **modOnly**: `boolean`
+> `optional` **modOnly?**: `boolean`
 
 Whether or not this flair template is only available to moderators.
 
@@ -80,6 +80,6 @@ The text to display in the flair.
 
 ### textColor?
 
-> `optional` **textColor**: [`FlairTextColor`](FlairTextColor.md)
+> `optional` **textColor?**: [`FlairTextColor`](FlairTextColor.md)
 
 Either 'dark' or 'light'.

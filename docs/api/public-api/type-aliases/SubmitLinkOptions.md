@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **SubmitLinkOptions** = [`CommonSubmitPostOptions`](CommonSubmitPostOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### ~~resubmit?~~
 
-> `optional` **resubmit**: `boolean`
+> `optional` **resubmit?**: `boolean`
 
 #### Deprecated
 

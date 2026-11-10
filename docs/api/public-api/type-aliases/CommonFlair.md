@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ This type is used for both the link and author flairs on Post and Comment object
 
 ### backgroundColor?
 
-> `optional` **backgroundColor**: `string`
+> `optional` **backgroundColor?**: `string`
 
 Flair background color as a hex color string (# prefixed)
 
@@ -30,7 +30,7 @@ Flair background color as a hex color string (# prefixed)
 
 ### cssClass?
 
-> `optional` **cssClass**: `string`
+> `optional` **cssClass?**: `string`
 
 Custom CSS classes from the subreddit's stylesheet to apply to the flair if rendered as HTML
 
@@ -46,25 +46,25 @@ RichText object representation of the flair
 
 #### elementType?
 
-> `optional` **elementType**: `string`
+> `optional` **elementType?**: `string`
 
 Enum of element types.  e.g. emoji or text
 
 #### emojiRef?
 
-> `optional` **emojiRef**: `string`
+> `optional` **emojiRef?**: `string`
 
 Emoji references, e.g. ":rainbow:"
 
 #### text?
 
-> `optional` **text**: `string`
+> `optional` **text?**: `string`
 
 Text to show up in the flair, e.g. "Need Advice"
 
 #### url?
 
-> `optional` **url**: `string`
+> `optional` **url?**: `string`
 
 url string, e.g. "https://reddit.com/"
 
@@ -74,7 +74,7 @@ url string, e.g. "https://reddit.com/"
 
 ### templateId?
 
-> `optional` **templateId**: `string`
+> `optional` **templateId?**: `string`
 
 Flair template ID to use when rendering this flair
 
@@ -84,7 +84,7 @@ Flair template ID to use when rendering this flair
 
 ### text?
 
-> `optional` **text**: `string`
+> `optional` **text?**: `string`
 
 Plain text representation of the flair
 
@@ -94,7 +94,7 @@ Plain text representation of the flair
 
 ### textColor?
 
-> `optional` **textColor**: `string`
+> `optional` **textColor?**: `string`
 
 One of: "light", "dark"
 
@@ -104,6 +104,6 @@ One of: "light", "dark"
 
 ### type?
 
-> `optional` **type**: `string`
+> `optional` **type?**: `string`
 
 One of: "text", "richtext"

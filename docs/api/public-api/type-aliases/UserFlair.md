@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### flairCssClass?
 
-> `optional` **flairCssClass**: `string`
+> `optional` **flairCssClass?**: `string`
 
 The CSS class applied to this flair in the UI.
 
@@ -22,7 +22,7 @@ The CSS class applied to this flair in the UI.
 
 ### flairText?
 
-> `optional` **flairText**: `string`
+> `optional` **flairText?**: `string`
 
 The text displayed in the UI for this flair.
 
@@ -32,6 +32,6 @@ The text displayed in the UI for this flair.
 
 ### user?
 
-> `optional` **user**: `string`
+> `optional` **user?**: `string`
 
 The username of the user to which this flair is assigned.

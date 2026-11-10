@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### limit?
 
-> `optional` **limit**: `object`
+> `optional` **limit?**: `object`
 
 #### count
 
@@ -28,4 +28,4 @@
 
 ### withScores?
 
-> `optional` **withScores**: `boolean`
+> `optional` **withScores?**: `boolean`

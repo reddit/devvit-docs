@@ -2,6 +2,8 @@
 
 This guide will migrate your legacy webview implementation (using useWebView inside of Blocks) to the official Devvit Web setup.
 
+In Devvit 0.15, `blocks` and `@devvit/public-api` remain supported but deprecated. Keep legacy handlers in `blocks.entry` and Web code in separate server and client files. The **Before** examples show the code you're migrating from.
+
 :::note
 Apps can be partially migrated, you don't need to re-write everything!
 :::
@@ -25,7 +27,7 @@ The first thing you need to do is setup `devvit.json`.
 
 Schema here: https://developers.reddit.com/schema/config-file.v1.json
 
-`devvit.json` supports all capabilities previously available in the `Devvit` singleton, e.g. `Devvit.addCustomPostType()`. For the purposes of this guide, only the post rendering logic will be migrated.
+Configure Web post entry points in `devvit.json`. The example below moves post rendering to Devvit Web and keeps existing menu actions and triggers in `blocks.entry`.
 
 ### Understanding entrypoints
 

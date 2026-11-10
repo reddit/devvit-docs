@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### blob?
 
-> `optional` **blob**: [`PluginSettings`](PluginSettings.md) \| `boolean`
+> `optional` **blob?**: [`PluginSettings`](PluginSettings.md) \| `boolean`
 
 Allows your app to use the Blob Plugin
 
@@ -22,7 +22,7 @@ Allows your app to use the Blob Plugin
 
 ### http?
 
-> `optional` **http**: [`PluginSettings`](PluginSettings.md) \| `boolean` \| \{ `domains`: `string`[]; \}
+> `optional` **http?**: [`PluginSettings`](PluginSettings.md) \| `boolean` \| \{ `domains`: `string`[]; \}
 
 Allows your app to use the HTTP/Fetch API
 
@@ -32,7 +32,7 @@ Allows your app to use the HTTP/Fetch API
 
 ### media?
 
-> `optional` **media**: [`PluginSettings`](PluginSettings.md) \| `boolean`
+> `optional` **media?**: [`PluginSettings`](PluginSettings.md) \| `boolean`
 
 Allows media uploads from apps
 
@@ -42,7 +42,7 @@ Allows media uploads from apps
 
 ### redditAPI?
 
-> `optional` **redditAPI**: [`PluginSettings`](PluginSettings.md) \| `boolean`
+> `optional` **redditAPI?**: [`PluginSettings`](PluginSettings.md) \| `boolean`
 
 Allows your app to use the reddit API
 
@@ -52,7 +52,7 @@ Allows your app to use the reddit API
 
 ### redis?
 
-> `optional` **redis**: [`PluginSettings`](PluginSettings.md) \| `boolean`
+> `optional` **redis?**: [`PluginSettings`](PluginSettings.md) \| `boolean`
 
 Allows your app to use the Redis Plugin
 
@@ -62,24 +62,28 @@ Allows your app to use the Redis Plugin
 
 ### userActions?
 
-> `optional` **userActions**: `boolean` \| \{ `enabled`: `boolean`; \} \| \{ `scopes`: `Scope`[]; \}
+> `optional` **userActions?**: `boolean` \| \{ `enabled`: `boolean`; \} \| \{ `scopes`: `Scope`[]; \}
 
 Allows your app to call Reddit APIs on behalf of the User. Passing a boolean allows you to submit post/comments on behalf of the user.
 
-#### Type declaration
+#### Union Members
 
 `boolean`
 
+***
+
+##### Type Literal
+
 \{ `enabled`: `boolean`; \}
 
-#### enabled
+##### enabled
 
 > **enabled**: `boolean`
 
 Defaults to SUBMIT_POST and SUBMIT_COMMENT.
 
+***
+
+##### Type Literal
+
 \{ `scopes`: `Scope`[]; \}
-
-#### scopes
-
-> **scopes**: `Scope`[]

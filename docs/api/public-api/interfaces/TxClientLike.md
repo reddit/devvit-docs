@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -324,11 +324,11 @@ async function getRangeExample(context: Devvit.Context) {
 
 #### Deprecated
 
-Use [TxClientLike.hDel](#hdel-2) instead.
+Use [TxClientLike.hDel](#hdel-1) instead.
 
 ***
 
-<a id="hdel-2"></a>
+<a id="hdel-1"></a>
 
 ### hDel()
 
@@ -396,11 +396,11 @@ fields
 
 #### Deprecated
 
-Use [TxClientLike.hGet](#hget-2) instead.
+Use [TxClientLike.hGet](#hget-1) instead.
 
 ***
 
-<a id="hget-2"></a>
+<a id="hget-1"></a>
 
 ### hGet()
 
@@ -467,11 +467,11 @@ async function hGetExample(context: Devvit.Context) {
 
 #### Deprecated
 
-Use [TxClientLike.hGetAll](#hgetall-2) instead.
+Use [TxClientLike.hGetAll](#hgetall-1) instead.
 
 ***
 
-<a id="hgetall-2"></a>
+<a id="hgetall-1"></a>
 
 ### hGetAll()
 
@@ -546,11 +546,11 @@ async function hGetAllExample(context: Devvit.Context) {
 
 #### Deprecated
 
-Use [TxClientLike.hIncrBy](#hincrby-2) instead.
+Use [TxClientLike.hIncrBy](#hincrby-1) instead.
 
 ***
 
-<a id="hincrby-2"></a>
+<a id="hincrby-1"></a>
 
 ### hIncrBy()
 
@@ -624,11 +624,11 @@ async function hIncrByExample(context: Devvit.Context) {
 
 #### Deprecated
 
-Use [TxClientLike.hKeys](#hkeys-2) instead.
+Use [TxClientLike.hKeys](#hkeys-1) instead.
 
 ***
 
-<a id="hkeys-2"></a>
+<a id="hkeys-1"></a>
 
 ### hKeys()
 
@@ -688,11 +688,11 @@ async function hKeysExample(context: Devvit.Context) {
 
 #### Deprecated
 
-Use [TxClientLike.hLen](#hlen-2) instead.
+Use [TxClientLike.hLen](#hlen-1) instead.
 
 ***
 
-<a id="hlen-2"></a>
+<a id="hlen-1"></a>
 
 ### hLen()
 
@@ -790,7 +790,7 @@ async function hMGetExample(context: Devvit.Context) {
 
 ### ~~hscan()~~
 
-> **hscan**(`key`, `cursor`, `pattern`?, `count`?): `Promise`\<`TxClientLike`\>
+> **hscan**(`key`, `cursor`, `pattern?`, `count?`): `Promise`\<`TxClientLike`\>
 
 #### Parameters
 
@@ -816,15 +816,15 @@ async function hMGetExample(context: Devvit.Context) {
 
 #### Deprecated
 
-Use [TxClientLike.hScan](#hscan-2) instead.
+Use [TxClientLike.hScan](#hscan-1) instead.
 
 ***
 
-<a id="hscan-2"></a>
+<a id="hscan-1"></a>
 
 ### hScan()
 
-> **hScan**(`key`, `cursor`, `pattern`?, `count`?): `Promise`\<`TxClientLike`\>
+> **hScan**(`key`, `cursor`, `pattern?`, `count?`): `Promise`\<`TxClientLike`\>
 
 Iterates fields of Hash types and their associated values.
 
@@ -904,17 +904,19 @@ async function hScanExample(context: Devvit.Context) {
 
 ##### fieldValues
 
+\{\[`field`: `string`\]: `string`; \}
+
 #### Returns
 
 `Promise`\<`TxClientLike`\>
 
 #### Deprecated
 
-Use [TxClientLike.hSet](#hset-2) instead.
+Use [TxClientLike.hSet](#hset-1) instead.
 
 ***
 
-<a id="hset-2"></a>
+<a id="hset-1"></a>
 
 ### hSet()
 
@@ -930,6 +932,8 @@ https://redis.io/commands/hset
 `string`
 
 ##### fieldValues
+
+\{\[`field`: `string`\]: `string`; \}
 
 #### Returns
 
@@ -1055,11 +1059,11 @@ async function incrByExample(context: Devvit.Context) {
 
 #### Deprecated
 
-Use [TxClientLike.mGet](#mget-2) instead.
+Use [TxClientLike.mGet](#mget-1) instead.
 
 ***
 
-<a id="mget-2"></a>
+<a id="mget-1"></a>
 
 ### mGet()
 
@@ -1112,17 +1116,19 @@ async function mGetExample(context: Devvit.Context) {
 
 ##### keyValues
 
+\{\[`key`: `string`\]: `string`; \}
+
 #### Returns
 
 `Promise`\<`TxClientLike`\>
 
 #### Deprecated
 
-Use [TxClientLike.mSet](#mset-2) instead.
+Use [TxClientLike.mSet](#mset-1) instead.
 
 ***
 
-<a id="mset-2"></a>
+<a id="mset-1"></a>
 
 ### mSet()
 
@@ -1134,6 +1140,8 @@ https://redis.io/commands/mset/
 #### Parameters
 
 ##### keyValues
+
+\{\[`key`: `string`\]: `string`; \}
 
 #### Returns
 
@@ -1198,7 +1206,7 @@ async function multiExample(context: Devvit.Context) {
 
 ### set()
 
-> **set**(`key`, `value`, `options`?): `Promise`\<`TxClientLike`\>
+> **set**(`key`, `value`, `options?`): `Promise`\<`TxClientLike`\>
 
 Set key to hold the string value. If key already holds a value, it is overwritten
 https://redis.io/commands/set/
@@ -1322,11 +1330,11 @@ async function setRangeExample(context: Devvit.Context) {
 
 #### Deprecated
 
-Use [TxClientLike.strLen](#strlen-2) instead.
+Use [TxClientLike.strLen](#strlen-1) instead.
 
 ***
 
-<a id="strlen-2"></a>
+<a id="strlen-1"></a>
 
 ### strLen()
 
@@ -1659,7 +1667,7 @@ async function zIncrByExample(context: Devvit.Context) {
 
 ### zRange()
 
-> **zRange**(`key`, `start`, `stop`, `options`?): `Promise`\<`TxClientLike`\>
+> **zRange**(`key`, `start`, `stop`, `options?`): `Promise`\<`TxClientLike`\>
 
 Returns the specified range of elements in the sorted set stored at key.
 https://redis.io/commands/zrange/
@@ -1674,11 +1682,11 @@ When using `by: 'lex'`, the start and stop inputs will be prepended with `[` by 
 
 ##### start
 
-`string` | `number`
+`string` \| `number`
 
 ##### stop
 
-`string` | `number`
+`string` \| `number`
 
 ##### options?
 
@@ -2041,7 +2049,7 @@ async function zRemRangeByScoreExample(context: Devvit.Context) {
 
 ### zScan()
 
-> **zScan**(`key`, `cursor`, `pattern`?, `count`?): `Promise`\<`TxClientLike`\>
+> **zScan**(`key`, `cursor`, `pattern?`, `count?`): `Promise`\<`TxClientLike`\>
 
 Iterates elements of Sorted Set types and their associated scores.
 

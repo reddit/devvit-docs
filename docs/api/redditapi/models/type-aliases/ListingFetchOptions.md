@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### after?
 
-> `optional` **after**: `string`
+> `optional` **after?**: `string`
 
 The ID of the object to start at.
 
@@ -22,7 +22,7 @@ The ID of the object to start at.
 
 ### before?
 
-> `optional` **before**: `string`
+> `optional` **before?**: `string`
 
 The ID of the object to end at.
 
@@ -32,7 +32,7 @@ The ID of the object to end at.
 
 ### limit?
 
-> `optional` **limit**: `number`
+> `optional` **limit?**: `number`
 
 The maximum number of objects to get.
 
@@ -42,7 +42,7 @@ The maximum number of objects to get.
 
 ### more?
 
-> `optional` **more**: [`MoreObject`](MoreObject.md)
+> `optional` **more?**: [`MoreObject`](MoreObject.md)
 
 ***
 
@@ -50,6 +50,6 @@ The maximum number of objects to get.
 
 ### pageSize?
 
-> `optional` **pageSize**: `number`
+> `optional` **pageSize?**: `number`
 
 The number of objects to get per request.

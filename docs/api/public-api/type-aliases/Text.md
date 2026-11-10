@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### f?
 
-> `optional` **f**: [`FormatRange`](FormatRange.md)[]
+> `optional` **f?**: [`FormatRange`](FormatRange.md)[]
 
 ***
 

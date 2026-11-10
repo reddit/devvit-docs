@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### after?
 
-> `optional` **after**: `string`
+> `optional` **after?**: `string`
 
 A user id optionally provided which will result in a slice of user flairs, starting after this user, to be returned.
 
@@ -22,7 +22,7 @@ A user id optionally provided which will result in a slice of user flairs, start
 
 ### before?
 
-> `optional` **before**: `string`
+> `optional` **before?**: `string`
 
 A user id optionally provided which will result in a slice of user flairs, starting before this user, to be returned.
 
@@ -32,6 +32,6 @@ A user id optionally provided which will result in a slice of user flairs, start
 
 ### limit?
 
-> `optional` **limit**: `number`
+> `optional` **limit?**: `number`
 
 A limit to the number of flairs that will be returned. Default: 25, Max: 1000

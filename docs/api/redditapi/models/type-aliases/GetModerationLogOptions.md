@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **GetModerationLogOptions** = [`ListingFetchOptions`](ListingFetchOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### moderatorUsernames?
 
-> `optional` **moderatorUsernames**: `string`[]
+> `optional` **moderatorUsernames?**: `string`[]
 
 (optional) A moderator filter. Accepts an array of usernames
 
@@ -22,6 +22,6 @@ Subreddit name
 
 ### type?
 
-> `optional` **type**: [`ModActionType`](ModActionType.md)
+> `optional` **type?**: [`ModActionType`](ModActionType.md)
 
 Type of the Moderator action

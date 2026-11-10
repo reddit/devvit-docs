@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,19 +8,25 @@
 
 Options for replacing a post body.
 
-## Type declaration
+## Union Members
+
+### Type Literal
 
 \{ `text`: `string`; \}
 
-### text
+#### text
 
 > **text**: `string`
 
 The post body in Markdown.
 
+***
+
+### Type Literal
+
 \{ `richtext`: `object` \| [`RichTextBuilder`](../classes/RichTextBuilder.md); \}
 
-### richtext
+#### richtext
 
 > **richtext**: `object` \| [`RichTextBuilder`](../classes/RichTextBuilder.md)
 
