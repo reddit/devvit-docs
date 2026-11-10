@@ -1,0 +1,11 @@
+# Enforce code-owner review in the default branch ruleset for these requests
+# to become a merge requirement. Restrict broad ruleset bypasses separately.
+/.github/ @reddit/devplatform
+/.nvmrc @reddit/devplatform
+/.yarn/ @reddit/devplatform
+/.yarnrc.yml @reddit/devplatform
+/package.json @reddit/devplatform
+/yarn.lock @reddit/devplatform
+/docusaurus.config.ts @reddit/devplatform
+/plugins/ @reddit/devplatform
+/scripts/ @reddit/devplatform
