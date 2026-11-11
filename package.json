@@ -36,7 +36,7 @@
     "redocusaurus": "2.5.0"
   },
   "resolutions": {
-    "baseline-browser-mapping": "2.11.0",
+    "baseline-browser-mapping": "2.11.35",
     "tinypool@npm:^1.0.2": "npm:2.1.2",
     "serialize-javascript@npm:^6.0.0": "npm:7.1.4",
     "serialize-javascript@npm:^6.0.1": "npm:7.1.4",
@@ -48,7 +48,7 @@
     "@docusaurus/theme-common": "^3.9.2",
     "@docusaurus/utils": "^3.9.2",
     "@types/react": "^19.0.0",
-    "baseline-browser-mapping": "2.11.0",
+    "baseline-browser-mapping": "2.11.35",
     "core-js": "^3.39.0",
     "mobx": "^6.13.5",
     "prettier": "3.3.3",
