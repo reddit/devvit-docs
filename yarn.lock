@@ -2796,9 +2796,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@easyops-cn/docusaurus-search-local@npm:0.52.1":
-  version: 0.52.1
-  resolution: "@easyops-cn/docusaurus-search-local@npm:0.52.1"
+"@easyops-cn/docusaurus-search-local@npm:0.55.3":
+  version: 0.55.3
+  resolution: "@easyops-cn/docusaurus-search-local@npm:0.55.3"
   dependencies:
     "@docusaurus/plugin-content-docs": "npm:^2 || ^3"
     "@docusaurus/theme-translations": "npm:^2 || ^3"
@@ -2819,9 +2819,13 @@ __metadata:
     tslib: "npm:^2.4.0"
   peerDependencies:
     "@docusaurus/theme-common": ^2 || ^3
+    open-ask-ai: ^0.7.3
     react: ^16.14.0 || ^17 || ^18 || ^19
     react-dom: ^16.14.0 || 17 || ^18 || ^19
-  checksum: 10c0/dd028d0ac432ad3c7cae4c923e733bfe1fc9da03707369d79e0ba50c7acea45899be77e302699e47da76bef90290fa917f3f683223805b66b336f694d0e379ad
+  peerDependenciesMeta:
+    open-ask-ai:
+      optional: true
+  checksum: 10c0/1b12d64ad6b83dec0810518ef20d643af524bd17a23e83c55c33ae9837f4f30f474c49398b93522d063bd2039762ea76475aec81e81ab0a8254ae3fe65f16313
   languageName: node
   linkType: hard
 
@@ -6802,7 +6806,7 @@ __metadata:
     "@docusaurus/tsconfig": "npm:^3.9.2"
     "@docusaurus/types": "npm:^3.9.2"
     "@docusaurus/utils": "npm:^3.9.2"
-    "@easyops-cn/docusaurus-search-local": "npm:0.52.1"
+    "@easyops-cn/docusaurus-search-local": "npm:0.55.3"
     "@mdx-js/react": "npm:^3.0.0"
     "@types/react": "npm:^19.0.0"
     baseline-browser-mapping: "npm:2.11.0"
