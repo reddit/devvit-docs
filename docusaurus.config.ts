@@ -183,8 +183,8 @@ const config: Config = {
       id: "games-hackathon-2026",
       content:
         `<div class="hackathon-announcement"><img class="hackathon-announcement-image" src="${baseUrl}img/games-hackathon-2026.png" alt="" width="1200" height="160"><div class="hackathon-announcement-copy"><strong>Join Reddit’s Games Hackathon!</strong> Create your own daily for a chance at over $30k in prizes. <a href="https://redditgameofday2026.devpost.com/">Learn more</a></div></div>`,
-      backgroundColor: "#0f1a1c",
-      textColor: "#ffffff",
+      backgroundColor: "#00E3B6",
+      textColor: "#0f1a1c",
       isCloseable: true,
     },
     docs: {

@@ -55,6 +55,7 @@
 
 .theme-announcement-bar .close {
   color: inherit;
+  opacity: 0.8;
 }
 
 .hackathon-announcement-image {
