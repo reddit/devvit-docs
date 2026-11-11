@@ -6,7 +6,6 @@ Approved in-app catalog assets are used for Reddit discovery and promotional pla
 
 ![snake pit example](../../assets/assets-in-app-snake-pit.png)
 
-:::info The in-app catalog editor is available for eligible apps when this feature is enabled. If you do not see the section in Developer Settings, your app may not have access yet. :::
 
 ## Best practices
 
