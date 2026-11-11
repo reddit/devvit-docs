@@ -43,7 +43,7 @@
     "minimatch@npm:^9.0.5": "npm:^11.0.1"
   },
   "devDependencies": {
-    "@algolia/client-search": "^5.17.0",
+    "@algolia/client-search": "^5.61.0",
     "@docusaurus/module-type-aliases": "^3.9.2",
     "@docusaurus/theme-common": "^3.9.2",
     "@docusaurus/utils": "^3.9.2",
