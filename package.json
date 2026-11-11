@@ -36,8 +36,7 @@
     "redocusaurus": "2.5.0"
   },
   "resolutions": {
-    "baseline-browser-mapping": "2.11.0",
-    "js-yaml@npm:4.3.1": "npm:4.3.2"
+    "baseline-browser-mapping": "2.11.0"
   },
   "devDependencies": {
     "@algolia/client-search": "^5.17.0",
