@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,13 +6,15 @@
 
 > **RedisClient** = `Omit`\<`RedisClientBase`, `"global"` \| `"watch"`\> & `object`
 
-## Type declaration
+## Type Declaration
 
 ### global
 
 > **global**: `Omit`\<`RedisClient`, `"global"`\>
 
 ### ~~hdel()~~
+
+> **hdel**(`key`, `fields`): `Promise`\<`number`\>
 
 #### Parameters
 
@@ -34,6 +36,8 @@ Use RedisClient.hDel instead.
 
 ### ~~hget()~~
 
+> **hget**(`key`, `field`): `Promise`\<`string` \| `undefined`\>
+
 #### Parameters
 
 ##### key
@@ -46,13 +50,15 @@ Use RedisClient.hDel instead.
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
 
 #### Deprecated
 
 Use RedisClient.hGet instead.
 
 ### ~~hgetall()~~
+
+> **hgetall**(`key`): `Promise`\<`Record`\<`string`, `string`\>\>
 
 #### Parameters
 
@@ -69,6 +75,8 @@ Use RedisClient.hGet instead.
 Use RedisClient.hGetAll instead.
 
 ### ~~hincrby()~~
+
+> **hincrby**(`key`, `field`, `value`): `Promise`\<`number`\>
 
 #### Parameters
 
@@ -94,6 +102,8 @@ Use RedisClient.hIncrBy instead.
 
 ### ~~hkeys()~~
 
+> **hkeys**(`key`): `Promise`\<`string`[]\>
+
 #### Parameters
 
 ##### key
@@ -110,6 +120,8 @@ Use RedisClient.hKeys instead.
 
 ### ~~hlen()~~
 
+> **hlen**(`key`): `Promise`\<`number`\>
+
 #### Parameters
 
 ##### key
@@ -125,6 +137,8 @@ Use RedisClient.hKeys instead.
 Use RedisClient.hLen instead.
 
 ### ~~hscan()~~
+
+> **hscan**(`key`, `cursor`, `pattern?`, `count?`): `Promise`\<`HScanResponse`\>
 
 #### Parameters
 
@@ -154,6 +168,8 @@ Use RedisClient.hScan instead.
 
 ### ~~hset()~~
 
+> **hset**(`key`, `fieldValues`): `Promise`\<`number`\>
+
 #### Parameters
 
 ##### key
@@ -161,6 +177,8 @@ Use RedisClient.hScan instead.
 `string`
 
 ##### fieldValues
+
+\{\[`field`: `string`\]: `string`; \}
 
 #### Returns
 
@@ -172,6 +190,8 @@ Use RedisClient.hSet instead.
 
 ### ~~mget()~~
 
+> **mget**(`keys`): `Promise`\<(`string` \| `null`)[]\>
+
 #### Parameters
 
 ##### keys
@@ -180,7 +200,7 @@ Use RedisClient.hSet instead.
 
 #### Returns
 
-`Promise`\<(`null` \| `string`)[]\>
+`Promise`\<(`string` \| `null`)[]\>
 
 #### Deprecated
 
@@ -188,9 +208,13 @@ Use RedisClient.mGet instead.
 
 ### ~~mset()~~
 
+> **mset**(`keyValues`): `Promise`\<`void`\>
+
 #### Parameters
 
 ##### keyValues
+
+\{\[`key`: `string`\]: `string`; \}
 
 #### Returns
 
@@ -201,6 +225,8 @@ Use RedisClient.mGet instead.
 Use RedisClient.mSet instead.
 
 ### ~~strlen()~~
+
+> **strlen**(`key`): `Promise`\<`number`\>
 
 #### Parameters
 
@@ -217,6 +243,8 @@ Use RedisClient.mSet instead.
 Use RedisClient.strLen instead.
 
 ### watch()
+
+> **watch**(...`keys`): `Promise`\<[`TxClientLike`](../interfaces/TxClientLike.md)\>
 
 #### Parameters
 

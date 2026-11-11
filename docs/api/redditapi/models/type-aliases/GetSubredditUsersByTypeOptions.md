@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **GetSubredditUsersByTypeOptions** = [`ListingFetchOptions`](ListingFetchOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### subredditName
 
@@ -18,4 +18,4 @@
 
 ### username?
 
-> `optional` **username**: `string`
+> `optional` **username?**: `string`

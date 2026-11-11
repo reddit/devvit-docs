@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -26,7 +26,7 @@
 
 ### modAction?
 
-> `optional` **modAction**: [`ModAction`](../interfaces/ModAction.md)
+> `optional` **modAction?**: [`ModAction`](../interfaces/ModAction.md)
 
 ***
 
@@ -38,11 +38,11 @@
 
 #### id?
 
-> `optional` **id**: `` `t2_${string}` ``
+> `optional` **id?**: `` `t2_${string}` ``
 
 #### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 ***
 
@@ -54,11 +54,11 @@
 
 #### id?
 
-> `optional` **id**: `` `t5_${string}` ``
+> `optional` **id?**: `` `t5_${string}` ``
 
 #### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 ***
 
@@ -78,11 +78,11 @@
 
 #### id?
 
-> `optional` **id**: `` `t2_${string}` ``
+> `optional` **id?**: `` `t2_${string}` ``
 
 #### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 ***
 
@@ -90,4 +90,4 @@
 
 ### userNote?
 
-> `optional` **userNote**: [`UserNote`](../type-aliases/UserNote.md)
+> `optional` **userNote?**: [`UserNote`](../type-aliases/UserNote.md)

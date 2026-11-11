@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 <a id="constructor"></a>
 
-### new Rule()
+### Constructor
 
 > **new Rule**(`ruleData`, `subredditName`): `Rule`
 
@@ -53,6 +53,7 @@ The Unix timestamp of when the rule was created.
 > **get** **description**(): `string`
 
 The full description of the rule. This appears on your subreddit's sidebar.
+Defaults to an empty string when no description is provided.
 
 ##### Returns
 
@@ -66,11 +67,13 @@ The full description of the rule. This appears on your subreddit's sidebar.
 
 #### Get Signature
 
-> **get** **descriptionHtml**(): `undefined` \| `string`
+> **get** **descriptionHtml**(): `string`
+
+The HTML description of the rule, or an empty string when none is provided.
 
 ##### Returns
 
-`undefined` \| `string`
+`string`
 
 ***
 
@@ -80,13 +83,13 @@ The full description of the rule. This appears on your subreddit's sidebar.
 
 #### Get Signature
 
-> **get** **kind**(): `"comment"` \| `"all"` \| `"link"`
+> **get** **kind**(): `"comment"` \| `"link"` \| `"all"`
 
 Which Reddit objects this rule applies to. One of "all", "link" (AKA posts), "comment".
 
 ##### Returns
 
-`"comment"` \| `"all"` \| `"link"`
+`"comment"` \| `"link"` \| `"all"`
 
 ***
 
@@ -170,11 +173,11 @@ Text to show users when reporting content due to this rule. Defaults to the shor
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Rule`, `"subredditName"` \| `"description"` \| `"kind"` \| `"violationReason"` \| `"shortName"` \| `"priority"` \| `"createdUtc"`\> & `object`
+> **toJSON**(): `Pick`\<`Rule`, `"subredditName"` \| `"description"` \| `"kind"` \| `"shortName"` \| `"violationReason"` \| `"priority"` \| `"createdUtc"`\> & `object`
 
 #### Returns
 
-`Pick`\<`Rule`, `"subredditName"` \| `"description"` \| `"kind"` \| `"violationReason"` \| `"shortName"` \| `"priority"` \| `"createdUtc"`\> & `object`
+`Pick`\<`Rule`, `"subredditName"` \| `"description"` \| `"kind"` \| `"shortName"` \| `"violationReason"` \| `"priority"` \| `"createdUtc"`\> & `object`
 
 ***
 
@@ -222,7 +225,7 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 ***
 
-<a id="delete-2"></a>
+<a id="delete-1"></a>
 
 ### delete()
 

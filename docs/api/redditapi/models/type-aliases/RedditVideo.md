@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ Contains the data for a video hosted on Reddit that is in a post
 
 ### bitrateKbps?
 
-> `optional` **bitrateKbps**: `number`
+> `optional` **bitrateKbps?**: `number`
 
 The bitrate of the video in kilobits per second. E.g. 450
 
@@ -24,7 +24,7 @@ The bitrate of the video in kilobits per second. E.g. 450
 
 ### dashUrl?
 
-> `optional` **dashUrl**: `string`
+> `optional` **dashUrl?**: `string`
 
 The URL to the DASH playlist file.
 
@@ -40,7 +40,7 @@ The URL to the DASH playlist file.
 
 ### duration?
 
-> `optional` **duration**: `number`
+> `optional` **duration?**: `number`
 
 The duration of the video in seconds. E.g. 30
 
@@ -50,7 +50,7 @@ The duration of the video in seconds. E.g. 30
 
 ### fallbackUrl?
 
-> `optional` **fallbackUrl**: `string`
+> `optional` **fallbackUrl?**: `string`
 
 The direct URL to the video.
 
@@ -66,7 +66,7 @@ The direct URL to the video.
 
 ### height?
 
-> `optional` **height**: `number`
+> `optional` **height?**: `number`
 
 The height of the video in pixels. E.g. 1080
 
@@ -76,7 +76,7 @@ The height of the video in pixels. E.g. 1080
 
 ### hlsUrl?
 
-> `optional` **hlsUrl**: `string`
+> `optional` **hlsUrl?**: `string`
 
 The URL to the HLS playlist file.
 
@@ -92,7 +92,7 @@ The URL to the HLS playlist file.
 
 ### isGif?
 
-> `optional` **isGif**: `boolean`
+> `optional` **isGif?**: `boolean`
 
 If `true`, the video is a GIF
 
@@ -102,7 +102,7 @@ If `true`, the video is a GIF
 
 ### scrubberMediaUrl?
 
-> `optional` **scrubberMediaUrl**: `string`
+> `optional` **scrubberMediaUrl?**: `string`
 
 The URL to the scrubber media file.
 
@@ -118,7 +118,7 @@ The URL to the scrubber media file.
 
 ### transcodingStatus?
 
-> `optional` **transcodingStatus**: `string`
+> `optional` **transcodingStatus?**: `string`
 
 The status of the transcoding process. E.g. "completed"
 
@@ -128,6 +128,6 @@ The status of the transcoding process. E.g. "completed"
 
 ### width?
 
-> `optional` **width**: `number`
+> `optional` **width?**: `number`
 
 The width of the video in pixels. E.g. 1920

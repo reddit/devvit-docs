@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../../../../README.md)
+[**@devvit/public-api v0.15.4-dev**](../../../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### comment?
 
-> `optional` **comment**: `CommentV2`
+> `optional` **comment?**: `CommentV2`
 
 ***
 
@@ -18,7 +18,7 @@
 
 ### post?
 
-> `optional` **post**: `PostV2`
+> `optional` **post?**: `PostV2`
 
 ***
 
@@ -34,7 +34,7 @@
 
 ### subreddit?
 
-> `optional` **subreddit**: `SubredditV2`
+> `optional` **subreddit?**: `SubredditV2`
 
 ***
 
@@ -42,7 +42,7 @@
 
 ### updatedAt?
 
-> `optional` **updatedAt**: `Date`
+> `optional` **updatedAt?**: `Date`
 
 ***
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **UserLinkOptions** = [`PrefixedRedditLinkOptions`](PrefixedRedditLinkOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### username
 

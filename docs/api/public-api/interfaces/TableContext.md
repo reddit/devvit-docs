@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -42,7 +42,7 @@ scoped callback to add child elements to this Table Header Cell
 
 #### Inherited from
 
-[`TableContentContainer`](../type-aliases/TableContentContainer.md).[`headerCell`](../type-aliases/TableContentContainer.md#headercell)
+`TableContentContainer.headerCell`
 
 ***
 
@@ -68,4 +68,4 @@ scoped callback to add child elements to this Table Row
 
 #### Inherited from
 
-[`TableContentContainer`](../type-aliases/TableContentContainer.md).[`row`](../type-aliases/TableContentContainer.md#row)
+`TableContentContainer.row`

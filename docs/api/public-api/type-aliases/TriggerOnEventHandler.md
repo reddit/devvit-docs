@@ -1,12 +1,14 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
-# Type Alias: TriggerOnEventHandler()\<RequestType\>
+# Type Alias: TriggerOnEventHandler\<RequestType\>
 
 > **TriggerOnEventHandler**\<`RequestType`\> = (`event`, `context`) => `TriggerResult`
 
 ## Type Parameters
+
+<a id="requesttype"></a>
 
 ### RequestType
 

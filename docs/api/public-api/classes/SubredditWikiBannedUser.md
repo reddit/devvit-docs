@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -15,7 +15,7 @@ Use `getBannedWikiContributors()` or `subreddit.getBannedWikiContributors()` to 
 
 <a id="constructor"></a>
 
-### new SubredditWikiBannedUser()
+### Constructor
 
 > **new SubredditWikiBannedUser**(): `SubredditWikiBannedUser`
 
@@ -43,7 +43,7 @@ When the wiki ban was created (UTC).
 
 ### daysLeft?
 
-> `readonly` `optional` **daysLeft**: `number`
+> `readonly` `optional` **daysLeft?**: `number`
 
 Days remaining on a temporary ban (undefined if permanent).
 
@@ -53,7 +53,7 @@ Days remaining on a temporary ban (undefined if permanent).
 
 ### note?
 
-> `readonly` `optional` **note**: `string`
+> `readonly` `optional` **note?**: `string`
 
 Moderator note.
 
@@ -479,11 +479,11 @@ A Listing of Post objects.
 
 ### getSnoovatarUrl()
 
-> **getSnoovatarUrl**(): `Promise`\<`undefined` \| `string`\>
+> **getSnoovatarUrl**(): `Promise`\<`string` \| `undefined`\>
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
 
 #### Inherited from
 
@@ -541,7 +541,7 @@ A Promise that resolves to an array of Trophy objects.
 
 ### getUserFlairBySubreddit()
 
-> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<[`UserFlair`](../type-aliases/UserFlair.md) \| `undefined`\>
 
 Retrieve the user's flair for the subreddit.
 
@@ -555,7 +555,7 @@ The name of the subreddit associated with the user's flair.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+`Promise`\<[`UserFlair`](../type-aliases/UserFlair.md) \| `undefined`\>
 
 #### Example
 

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### permissions?
 
-> `optional` **permissions**: [`ModeratorPermission`](../../models/type-aliases/ModeratorPermission.md)[]
+> `optional` **permissions?**: [`ModeratorPermission`](../../models/type-aliases/ModeratorPermission.md)[]
 
 The permissions to grant the user
 

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../../../../README.md)
+[**@devvit/public-api v0.15.4-dev**](../../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **AccountDelete**: `object`
 
-## Type declaration
+## Type Declaration
 
 <a id="type"></a>
 
@@ -18,6 +18,8 @@
 
 ### create()
 
+> **create**(`base?`): [`AccountDelete`](../interfaces/AccountDelete.md)
+
 #### Parameters
 
 ##### base?
@@ -28,7 +30,7 @@
 
 ###### user?
 
-\{ `accountType`: `AccountTypeV2`; `banned`: `boolean`; `description`: `string`; `flair`: \{ `backgroundColor`: `string`; `cssClass`: `string`; `enabled`: `boolean`; `subredditId`: `string`; `templateId`: `string`; `text`: `string`; `textColor`: `string`; `userId`: `string`; \}; `iconImage`: `string`; `id`: `string`; `isGold`: `boolean`; `karma`: `number`; `name`: `string`; `snoovatarImage`: `string`; `spam`: `boolean`; `suspended`: `boolean`; `url`: `string`; \}
+\{ `accountType?`: `AccountTypeV2`; `banned?`: `boolean`; `description?`: `string`; `flair?`: \{ `backgroundColor?`: `string`; `cssClass?`: `string`; `enabled?`: `boolean`; `subredditId?`: `string`; `templateId?`: `string`; `text?`: `string`; `textColor?`: `string`; `userId?`: `string`; \}; `iconImage?`: `string`; `id?`: `string`; `isGold?`: `boolean`; `karma?`: `number`; `name?`: `string`; `snoovatarImage?`: `string`; `spam?`: `boolean`; `suspended?`: `boolean`; `url?`: `string`; \}
 
 ###### user.accountType?
 
@@ -44,7 +46,7 @@
 
 ###### user.flair?
 
-\{ `backgroundColor`: `string`; `cssClass`: `string`; `enabled`: `boolean`; `subredditId`: `string`; `templateId`: `string`; `text`: `string`; `textColor`: `string`; `userId`: `string`; \}
+\{ `backgroundColor?`: `string`; `cssClass?`: `string`; `enabled?`: `boolean`; `subredditId?`: `string`; `templateId?`: `string`; `text?`: `string`; `textColor?`: `string`; `userId?`: `string`; \}
 
 ###### user.flair.backgroundColor?
 
@@ -126,11 +128,13 @@
 
 ### decode()
 
+> **decode**(`input`, `length?`): [`AccountDelete`](../interfaces/AccountDelete.md)
+
 #### Parameters
 
 ##### input
 
-`Reader` | `Uint8Array`\<`ArrayBufferLike`\>
+`Reader` \| `Uint8Array`\<`ArrayBufferLike`\>
 
 ##### length?
 
@@ -143,6 +147,8 @@
 <a id="encode"></a>
 
 ### encode()
+
+> **encode**(`message`, `writer?`): `Writer`
 
 #### Parameters
 
@@ -162,6 +168,8 @@
 
 ### fromJSON()
 
+> **fromJSON**(`object`): [`AccountDelete`](../interfaces/AccountDelete.md)
+
 #### Parameters
 
 ##### object
@@ -176,6 +184,8 @@
 
 ### fromPartial()
 
+> **fromPartial**(`object`): [`AccountDelete`](../interfaces/AccountDelete.md)
+
 #### Parameters
 
 ##### object
@@ -186,7 +196,7 @@
 
 ###### user?
 
-\{ `accountType`: `AccountTypeV2`; `banned`: `boolean`; `description`: `string`; `flair`: \{ `backgroundColor`: `string`; `cssClass`: `string`; `enabled`: `boolean`; `subredditId`: `string`; `templateId`: `string`; `text`: `string`; `textColor`: `string`; `userId`: `string`; \}; `iconImage`: `string`; `id`: `string`; `isGold`: `boolean`; `karma`: `number`; `name`: `string`; `snoovatarImage`: `string`; `spam`: `boolean`; `suspended`: `boolean`; `url`: `string`; \}
+\{ `accountType?`: `AccountTypeV2`; `banned?`: `boolean`; `description?`: `string`; `flair?`: \{ `backgroundColor?`: `string`; `cssClass?`: `string`; `enabled?`: `boolean`; `subredditId?`: `string`; `templateId?`: `string`; `text?`: `string`; `textColor?`: `string`; `userId?`: `string`; \}; `iconImage?`: `string`; `id?`: `string`; `isGold?`: `boolean`; `karma?`: `number`; `name?`: `string`; `snoovatarImage?`: `string`; `spam?`: `boolean`; `suspended?`: `boolean`; `url?`: `string`; \}
 
 ###### user.accountType?
 
@@ -202,7 +212,7 @@
 
 ###### user.flair?
 
-\{ `backgroundColor`: `string`; `cssClass`: `string`; `enabled`: `boolean`; `subredditId`: `string`; `templateId`: `string`; `text`: `string`; `textColor`: `string`; `userId`: `string`; \}
+\{ `backgroundColor?`: `string`; `cssClass?`: `string`; `enabled?`: `boolean`; `subredditId?`: `string`; `templateId?`: `string`; `text?`: `string`; `textColor?`: `string`; `userId?`: `string`; \}
 
 ###### user.flair.backgroundColor?
 
@@ -283,6 +293,8 @@
 <a id="tojson"></a>
 
 ### toJSON()
+
+> **toJSON**(`message`): `unknown`
 
 #### Parameters
 

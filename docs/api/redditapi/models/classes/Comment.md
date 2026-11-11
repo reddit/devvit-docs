@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -47,13 +47,13 @@ nonzero value to a `Date` with `new Date(comment.approvedAtUtc * 1000)`.
 
 #### Get Signature
 
-> **get** **authorFlair**(): `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+> **get** **authorFlair**(): [`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
 The author's subreddit flair, or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+[`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
 ***
 
@@ -63,13 +63,13 @@ The author's subreddit flair, or `undefined` when unavailable.
 
 #### Get Signature
 
-> **get** **authorId**(): `undefined` \| `` `t2_${string}` ``
+> **get** **authorId**(): `` `t2_${string}` `` \| `undefined`
 
 The creator's account identifier or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| `` `t2_${string}` ``
+`` `t2_${string}` `` \| `undefined`
 
 ***
 
@@ -169,7 +169,7 @@ The date when the comment was created.
 
 #### Get Signature
 
-> **get** **distinguishedBy**(): `undefined` \| `string`
+> **get** **distinguishedBy**(): `string` \| `undefined`
 
 The comment's distinction category.
 
@@ -179,7 +179,7 @@ available.
 
 ##### Returns
 
-`undefined` \| `string`
+`string` \| `undefined`
 
 ***
 
@@ -563,13 +563,13 @@ The `runAs` option is ignored when editing a comment.
 
 ### distinguish()
 
-> **distinguish**(`makeSticky`): `Promise`\<`void`\>
+> **distinguish**(`makeSticky?`): `Promise`\<`void`\>
 
 Distinguishes the comment as a moderator and updates this instance.
 
 #### Parameters
 
-##### makeSticky
+##### makeSticky?
 
 `boolean` = `false`
 
@@ -585,13 +585,13 @@ Whether to pin the comment to the top of its thread.
 
 ### distinguishAsAdmin()
 
-> **distinguishAsAdmin**(`makeSticky`): `Promise`\<`void`\>
+> **distinguishAsAdmin**(`makeSticky?`): `Promise`\<`void`\>
 
 Distinguishes the comment as an employee and updates this instance.
 
 #### Parameters
 
-##### makeSticky
+##### makeSticky?
 
 `boolean` = `false`
 
@@ -630,12 +630,14 @@ The `runAs` option is ignored when editing a comment.
 
 ### filter()
 
-> **filter**(`options`?): `Promise`\<`void`\>
+> **filter**(`options?`): `Promise`\<`void`\>
 
 **`Experimental`**
 
-Filters the comment. When a comment is filtered, it is added to the ModQueue for review, and in addition:
-- if
+Filters the comment. When a comment is filtered, it is added to the ModQueue for review. By
+default, filtered comments are hidden while in the queue. Set `keep` to `true` to keep the
+comment visible. Set `reason` to show moderators a reason; when `keep` is `true`, the reason
+is also shown on the comment.
 
 #### Parameters
 
@@ -653,13 +655,13 @@ Filters the comment. When a comment is filtered, it is added to the ModQueue for
 
 ### getAuthor()
 
-> **getAuthor**(): `Promise`\<`undefined` \| [`User`](User.md)\>
+> **getAuthor**(): `Promise`\<[`User`](User.md) \| `undefined`\>
 
 Fetches the author's account, or `undefined` if it is unavailable.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](User.md)\>
+`Promise`\<[`User`](User.md) \| `undefined`\>
 
 ***
 
@@ -807,13 +809,13 @@ Disables new replies and updates this instance's locked state.
 
 ### remove()
 
-> **remove**(`isSpam`): `Promise`\<`void`\>
+> **remove**(`isSpam?`): `Promise`\<`void`\>
 
 Removes the comment and updates this instance's moderation state.
 
 #### Parameters
 
-##### isSpam
+##### isSpam?
 
 `boolean` = `false`
 
@@ -887,13 +889,13 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Comment`, `"id"` \| `"subredditName"` \| `"postId"` \| `"body"` \| `"permalink"` \| `"createdAt"` \| `"url"` \| `"authorName"` \| `"subredditId"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+> **toJSON**(): `Pick`\<`Comment`, `"id"` \| `"authorName"` \| `"subredditId"` \| `"subredditName"` \| `"body"` \| `"createdAt"` \| `"parentId"` \| `"postId"` \| `"replies"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"`\>
 
 Returns the public fields included when the comment is serialized.
 
 #### Returns
 
-`Pick`\<`Comment`, `"id"` \| `"subredditName"` \| `"postId"` \| `"body"` \| `"permalink"` \| `"createdAt"` \| `"url"` \| `"authorName"` \| `"subredditId"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+`Pick`\<`Comment`, `"id"` \| `"authorName"` \| `"subredditId"` \| `"subredditName"` \| `"body"` \| `"createdAt"` \| `"parentId"` \| `"postId"` \| `"replies"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"`\>
 
 ***
 

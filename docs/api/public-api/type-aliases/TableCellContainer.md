@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -13,6 +13,8 @@
 - [`TableRowContext`](../interfaces/TableRowContext.md)
 
 ## Type Parameters
+
+<a id="context"></a>
 
 ### Context
 

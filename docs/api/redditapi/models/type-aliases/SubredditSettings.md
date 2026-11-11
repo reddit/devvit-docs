@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -162,7 +162,7 @@ Whether videos are allowed on the subreddit.
 
 ### bannerBackgroundColor?
 
-> `optional` **bannerBackgroundColor**: `string`
+> `optional` **bannerBackgroundColor?**: `string`
 
 a 6-digit rgb hex color of the banner e.g. `#AABBCC`,
 
@@ -172,7 +172,7 @@ a 6-digit rgb hex color of the banner e.g. `#AABBCC`,
 
 ### bannerBackgroundImage?
 
-> `optional` **bannerBackgroundImage**: `string`
+> `optional` **bannerBackgroundImage?**: `string`
 
 The background image of the banner.
 
@@ -182,7 +182,7 @@ The background image of the banner.
 
 ### bannerImage?
 
-> `optional` **bannerImage**: `string`
+> `optional` **bannerImage?**: `string`
 
 The URL of the banner image.
 
@@ -212,7 +212,7 @@ Whether collections are enabled on the subreddit.
 
 ### communityIcon?
 
-> `optional` **communityIcon**: `string`
+> `optional` **communityIcon?**: `string`
 
 The URL of the community icon.
 
@@ -252,7 +252,7 @@ Whether event posts are enabled on the subreddit.
 
 ### headerTitle?
 
-> `optional` **headerTitle**: `string`
+> `optional` **headerTitle?**: `string`
 
 The header title.
 
@@ -262,7 +262,7 @@ The header title.
 
 ### keyColor?
 
-> `optional` **keyColor**: `string`
+> `optional` **keyColor?**: `string`
 
 The 6-digit rgb hex color of the subreddit's key color, e.g. `#AABBCC`,
 
@@ -282,7 +282,7 @@ Whether link flairs are enabled on the subreddit.
 
 ### mobileBannerImage?
 
-> `optional` **mobileBannerImage**: `string`
+> `optional` **mobileBannerImage?**: `string`
 
 Banner image used on mobile apps.
 
@@ -312,7 +312,7 @@ The post flair settings for the subreddit.
 
 ### primaryColor?
 
-> `optional` **primaryColor**: `string`
+> `optional` **primaryColor?**: `string`
 
 The 6-digit rgb hex color of the subreddit's primary color, e.g. `#AABBCC`,
 

@@ -1,10 +1,12 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
 # Class: Listing\<T\>
 
 ## Type Parameters
+
+<a id="t"></a>
 
 ### T
 
@@ -106,7 +108,7 @@
 
 ##### more
 
-`undefined` | [`MoreObject`](../type-aliases/MoreObject.md)
+[`MoreObject`](../type-aliases/MoreObject.md) \| `undefined`
 
 #### Returns
 

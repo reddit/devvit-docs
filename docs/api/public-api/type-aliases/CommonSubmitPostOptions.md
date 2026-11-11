@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### flairId?
 
-> `optional` **flairId**: `string`
+> `optional` **flairId?**: `string`
 
 The flair template to apply to the new post.
 
@@ -22,7 +22,7 @@ The flair template to apply to the new post.
 
 ### flairText?
 
-> `optional` **flairText**: `string`
+> `optional` **flairText?**: `string`
 
 The flair text to apply to the new post.
 
@@ -32,7 +32,7 @@ The flair text to apply to the new post.
 
 ### nsfw?
 
-> `optional` **nsfw**: `boolean`
+> `optional` **nsfw?**: `boolean`
 
 Whether to mark the new post as NSFW.
 
@@ -42,7 +42,7 @@ Whether to mark the new post as NSFW.
 
 ### runAs?
 
-> `optional` **runAs**: `"USER"` \| `"APP"`
+> `optional` **runAs?**: `"USER"` \| `"APP"`
 
 The account that creates the post. Defaults to the app account.
 
@@ -52,7 +52,7 @@ The account that creates the post. Defaults to the app account.
 
 ### sendreplies?
 
-> `optional` **sendreplies**: `boolean`
+> `optional` **sendreplies?**: `boolean`
 
 Whether the author receives notifications for new comments.
 
@@ -62,7 +62,7 @@ Whether the author receives notifications for new comments.
 
 ### spoiler?
 
-> `optional` **spoiler**: `boolean`
+> `optional` **spoiler?**: `boolean`
 
 Whether to mark the new post as a spoiler.
 

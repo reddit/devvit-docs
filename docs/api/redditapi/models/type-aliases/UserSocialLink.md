@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -32,7 +32,7 @@ title: Title or name of social media link.
 
 ### handle?
 
-> `optional` **handle**: `string`
+> `optional` **handle?**: `string`
 
 ***
 

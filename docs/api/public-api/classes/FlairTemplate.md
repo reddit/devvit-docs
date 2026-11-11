@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 <a id="constructor"></a>
 
-### new FlairTemplate()
+### Constructor
 
 > **new FlairTemplate**(): `FlairTemplate`
 
@@ -172,7 +172,7 @@ Edit this flair template
 
 ##### options
 
-`Partial`\<`Omit`\<[`EditFlairTemplateOptions`](../type-aliases/EditFlairTemplateOptions.md), `"subredditName"` \| `"id"`\>\>
+`Partial`\<`Omit`\<[`EditFlairTemplateOptions`](../type-aliases/EditFlairTemplateOptions.md), `"id"` \| `"subredditName"`\>\>
 
 #### Returns
 

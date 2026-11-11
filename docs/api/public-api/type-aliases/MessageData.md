@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### author?
 
-> `optional` **author**: [`Participant`](Participant.md)
+> `optional` **author?**: [`Participant`](Participant.md)
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### body?
 
-> `optional` **body**: `string`
+> `optional` **body?**: `string`
 
 Message body
 
@@ -30,7 +30,7 @@ Message body
 
 ### bodyMarkdown?
 
-> `optional` **bodyMarkdown**: `string`
+> `optional` **bodyMarkdown?**: `string`
 
 ***
 
@@ -38,7 +38,7 @@ Message body
 
 ### date?
 
-> `optional` **date**: `string`
+> `optional` **date?**: `string`
 
 When was created
 
@@ -48,7 +48,7 @@ When was created
 
 ### id?
 
-> `optional` **id**: `string`
+> `optional` **id?**: `string`
 
 Message ID
 
@@ -58,7 +58,7 @@ Message ID
 
 ### isInternal?
 
-> `optional` **isInternal**: `boolean`
+> `optional` **isInternal?**: `boolean`
 
 ***
 
@@ -66,4 +66,4 @@ Message ID
 
 ### participatingAs?
 
-> `optional` **participatingAs**: `string`
+> `optional` **participatingAs?**: `string`

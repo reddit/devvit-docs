@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,9 +8,9 @@
 
 <a id="constructor"></a>
 
-### new WikiPageSettings()
+### Constructor
 
-> **new WikiPageSettings**(`data`, `wikiVersion`?): `WikiPageSettings`
+> **new WikiPageSettings**(`data`, `wikiVersion?`): `WikiPageSettings`
 
 #### Parameters
 

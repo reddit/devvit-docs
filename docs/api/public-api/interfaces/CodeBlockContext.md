@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -34,4 +34,4 @@ Append unstyled text
 
 #### Inherited from
 
-[`RawTextContainer`](../type-aliases/RawTextContainer.md).[`rawText`](../type-aliases/RawTextContainer.md#rawtext)
+`RawTextContainer.rawText`

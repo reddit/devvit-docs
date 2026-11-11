@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,11 +12,11 @@
 
 ### approveStatus?
 
-> `optional` **approveStatus**: `object`
+> `optional` **approveStatus?**: `object`
 
 #### isApproved?
 
-> `optional` **isApproved**: `boolean`
+> `optional` **isApproved?**: `boolean`
 
 ***
 
@@ -24,23 +24,23 @@
 
 ### banStatus?
 
-> `optional` **banStatus**: `object`
+> `optional` **banStatus?**: `object`
 
 #### endDate?
 
-> `optional` **endDate**: `string`
+> `optional` **endDate?**: `string`
 
 #### isBanned?
 
-> `optional` **isBanned**: `boolean`
+> `optional` **isBanned?**: `boolean`
 
 #### isPermanent?
 
-> `optional` **isPermanent**: `boolean`
+> `optional` **isPermanent?**: `boolean`
 
 #### reason?
 
-> `optional` **reason**: `string`
+> `optional` **reason?**: `string`
 
 ***
 
@@ -48,7 +48,7 @@
 
 ### created?
 
-> `optional` **created**: `string`
+> `optional` **created?**: `string`
 
 When was created
 
@@ -58,7 +58,7 @@ When was created
 
 ### id?
 
-> `optional` **id**: `T2`
+> `optional` **id?**: `T2`
 
 User ID
 
@@ -68,7 +68,7 @@ User ID
 
 ### isShadowBanned?
 
-> `optional` **isShadowBanned**: `boolean`
+> `optional` **isShadowBanned?**: `boolean`
 
 ***
 
@@ -76,7 +76,7 @@ User ID
 
 ### isSuspended?
 
-> `optional` **isSuspended**: `boolean`
+> `optional` **isSuspended?**: `boolean`
 
 ***
 
@@ -84,23 +84,23 @@ User ID
 
 ### muteStatus?
 
-> `optional` **muteStatus**: `object`
+> `optional` **muteStatus?**: `object`
 
 #### endDate?
 
-> `optional` **endDate**: `string`
+> `optional` **endDate?**: `string`
 
 #### isMuted?
 
-> `optional` **isMuted**: `boolean`
+> `optional` **isMuted?**: `boolean`
 
 #### muteCount?
 
-> `optional` **muteCount**: `number`
+> `optional` **muteCount?**: `number`
 
 #### reason?
 
-> `optional` **reason**: `string`
+> `optional` **reason?**: `string`
 
 ***
 
@@ -108,7 +108,7 @@ User ID
 
 ### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 Username
 

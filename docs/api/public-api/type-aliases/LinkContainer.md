@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,9 +6,19 @@
 
 > **LinkContainer**\<`Context`\> = [`RedditLinkContainer`](RedditLinkContainer.md)\<`Context`\> & `object`
 
-## Type declaration
+## Type Parameters
+
+<a id="context"></a>
+
+### Context
+
+`Context`
+
+## Type Declaration
 
 ### link()
+
+> **link**(`opts`): `Context`
 
 Append a Link
 
@@ -21,12 +31,6 @@ Append a Link
 [LinkOptions](LinkOptions.md)
 
 #### Returns
-
-`Context`
-
-## Type Parameters
-
-### Context
 
 `Context`
 

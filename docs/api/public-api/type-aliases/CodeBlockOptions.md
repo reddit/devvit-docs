@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### language?
 
-> `optional` **language**: `string`
+> `optional` **language?**: `string`
 
 Language of the content in this Code Block
 

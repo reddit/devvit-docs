@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### backgroundColor?
 
-> `optional` **backgroundColor**: `string`
+> `optional` **backgroundColor?**: `string`
 
 The flair background color. Either 'transparent' or a hex color code. e.g. #FFC0CB
 
@@ -22,7 +22,7 @@ The flair background color. Either 'transparent' or a hex color code. e.g. #FFC0
 
 ### cssClass?
 
-> `optional` **cssClass**: `string`
+> `optional` **cssClass?**: `string`
 
 The flair CSS class
 
@@ -32,7 +32,7 @@ The flair CSS class
 
 ### flairTemplateId?
 
-> `optional` **flairTemplateId**: `string`
+> `optional` **flairTemplateId?**: `string`
 
 The flair template's ID
 
@@ -52,7 +52,7 @@ The name of the subreddit of the item to set the flair on
 
 ### text?
 
-> `optional` **text**: `string`
+> `optional` **text?**: `string`
 
 The flair text
 
@@ -62,6 +62,6 @@ The flair text
 
 ### textColor?
 
-> `optional` **textColor**: [`FlairTextColor`](FlairTextColor.md)
+> `optional` **textColor?**: [`FlairTextColor`](FlairTextColor.md)
 
 The flair text color. Either 'dark' or 'light'.

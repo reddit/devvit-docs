@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -19,7 +19,7 @@
 
 <a id="constructor"></a>
 
-### new Widget()
+### Constructor
 
 > **new Widget**(`widgetData`, `subredditName`): `Widget`
 
@@ -97,8 +97,8 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Widget`, `"subredditName"` \| `"id"` \| `"name"`\>
+> **toJSON**(): `Pick`\<`Widget`, `"id"` \| `"name"` \| `"subredditName"`\>
 
 #### Returns
 
-`Pick`\<`Widget`, `"subredditName"` \| `"id"` \| `"name"`\>
+`Pick`\<`Widget`, `"id"` \| `"name"` \| `"subredditName"`\>

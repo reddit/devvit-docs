@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,9 +8,9 @@
 
 <a id="constructor"></a>
 
-### new WikiPageRevision()
+### Constructor
 
-> **new WikiPageRevision**(`data`, `wikiVersion`?): `WikiPageRevision`
+> **new WikiPageRevision**(`data`, `wikiVersion?`): `WikiPageRevision`
 
 #### Parameters
 
@@ -54,13 +54,13 @@ Use authorId instead.
 
 #### Get Signature
 
-> **get** **authorId**(): `undefined` \| `` `t2_${string}` ``
+> **get** **authorId**(): `` `t2_${string}` `` \| `undefined`
 
 The ID of the author of this revision.
 
 ##### Returns
 
-`undefined` \| `` `t2_${string}` ``
+`` `t2_${string}` `` \| `undefined`
 
 ***
 

@@ -80,6 +80,70 @@ app.post<string, never, TaskResponse, TaskRequest>(
 
 ---
 
+## Managing recurring jobs across deployments
+
+Starting with Devvit 0.14.6, recurring jobs created in app code are preserved across deployments. Jobs configured with `cron` in `devvit.json` are rescheduled on installation and upgrade.
+
+| How the job is created                   | What happens on deployment                                                          |
+| ---------------------------------------- | ----------------------------------------------------------------------------------- |
+| A task with `cron` in `devvit.json`      | Devvit replaces configuration-managed recurring jobs with the configured schedules. |
+| `scheduler.runJob({ name, cron, data })` | The job keeps its stored schedule and data until your app cancels it.               |
+
+### Create a recurring job at runtime
+
+Register the task in `devvit.json` without a `cron` value, and add its server handler as shown in [Scheduling recurring jobs](#scheduling-recurring-jobs):
+
+```json title="devvit.json"
+{
+  "scheduler": {
+    "tasks": {
+      "refresh-summary": {
+        "endpoint": "/internal/scheduler/refresh-summary"
+      }
+    }
+  }
+}
+```
+
+Use `scheduler.runJob()` to choose the schedule in your app code. Check for an existing job before creating another:
+
+```ts title="server/index.ts"
+import { scheduler, ScheduledActionManager } from "@devvit/web/server";
+
+export async function ensureSummaryJob() {
+  const jobs = await scheduler.listJobs([ScheduledActionManager.USER]);
+  const existing = jobs.find(
+    (job) => job.name === "refresh-summary" && "cron" in job,
+  );
+
+  if (existing) {
+    return existing.id;
+  }
+
+  return scheduler.runJob({
+    name: "refresh-summary",
+    cron: "0 2 * * *",
+    data: { version: 1 },
+  });
+}
+```
+
+`ScheduledActionManager.USER` selects jobs managed by your app code. It does not select a Reddit user or change the identity that runs the task. Calling `listJobs()` without a filter returns jobs from all managers.
+
+Call setup from a controlled application action. The check above prevents duplicate jobs on sequential calls; coordinate concurrent setup calls in your app to avoid creating duplicates.
+
+### Update or remove a runtime schedule
+
+Changing the code that originally created a job does not change its stored schedule or data. Cancel the job with `scheduler.cancelJob(jobId)` and create a replacement with `runJob()`. There is no update-in-place method. See [Cancel a scheduled job](#cancel-a-scheduled-job) for a complete example.
+
+Keep task registrations and handlers available for jobs that survive upgrades. Avoid recreating the same runtime jobs on every installation or upgrade without first checking for existing jobs.
+
+:::note
+In Devvit 0.14.8, removing the final `cron` task from `devvit.json` does not automatically cancel the previously configured jobs. Explicitly cancel obsolete jobs when making that change.
+:::
+
+---
+
 ## Scheduling one-off jobs at runtime
 
 One-off tasks must also be declared in `devvit.json`.

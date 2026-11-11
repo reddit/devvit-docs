@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../../../../README.md)
+[**@devvit/public-api v0.15.4-dev**](../../../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### installer?
 
-> `optional` **installer**: `UserV2`
+> `optional` **installer?**: `UserV2`
 
 ***
 
@@ -18,4 +18,4 @@
 
 ### subreddit?
 
-> `optional` **subreddit**: `SubredditV2`
+> `optional` **subreddit?**: `SubredditV2`

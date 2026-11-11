@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -60,7 +60,7 @@ The name of the page.
 
 #### Get Signature
 
-> **get** **revisionAuthor**(): `undefined` \| [`User`](User.md)
+> **get** **revisionAuthor**(): [`User`](User.md) \| `undefined`
 
 The author of this revision.
 
@@ -70,7 +70,7 @@ Use revisionAuthorId instead.
 
 ##### Returns
 
-`undefined` \| [`User`](User.md)
+[`User`](User.md) \| `undefined`
 
 ***
 
@@ -80,13 +80,13 @@ Use revisionAuthorId instead.
 
 #### Get Signature
 
-> **get** **revisionAuthorId**(): `undefined` \| `` `t2_${string}` ``
+> **get** **revisionAuthorId**(): `` `t2_${string}` `` \| `undefined`
 
 The ID of the author of this revision.
 
 ##### Returns
 
-`undefined` \| `` `t2_${string}` ``
+`` `t2_${string}` `` \| `undefined`
 
 ***
 
@@ -202,7 +202,7 @@ Get the revisions for this page.
 
 ##### options
 
-`Omit`\<[`GetPageRevisionsOptions`](../type-aliases/GetPageRevisionsOptions.md), `"subredditName"` \| `"wikiVersion"` \| `"page"`\>
+`Omit`\<[`GetPageRevisionsOptions`](../type-aliases/GetPageRevisionsOptions.md), `"subredditName"` \| `"page"` \| `"wikiVersion"`\>
 
 #### Returns
 
@@ -268,11 +268,11 @@ Revert this page to a previous revision.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`WikiPage`, `"name"` \| `"subredditName"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
+> **toJSON**(): `Pick`\<`WikiPage`, `"name"` \| `"revisionId"` \| `"content"` \| `"subredditName"` \| `"contentHtml"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
 
 #### Returns
 
-`Pick`\<`WikiPage`, `"name"` \| `"subredditName"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
+`Pick`\<`WikiPage`, `"name"` \| `"revisionId"` \| `"content"` \| `"subredditName"` \| `"contentHtml"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
 
 ***
 
@@ -280,7 +280,7 @@ Revert this page to a previous revision.
 
 ### update()
 
-> **update**(`content`, `reason`?): `Promise`\<`WikiPage`\>
+> **update**(`content`, `reason?`): `Promise`\<`WikiPage`\>
 
 Update this page.
 
@@ -312,7 +312,7 @@ Update the settings for this page.
 
 ##### options
 
-`Omit`\<[`UpdatePageSettingsOptions`](../type-aliases/UpdatePageSettingsOptions.md), `"subredditName"` \| `"wikiVersion"` \| `"page"`\>
+`Omit`\<[`UpdatePageSettingsOptions`](../type-aliases/UpdatePageSettingsOptions.md), `"subredditName"` \| `"page"` \| `"wikiVersion"`\>
 
 #### Returns
 

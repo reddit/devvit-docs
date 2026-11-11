@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### after?
 
-> `optional` **after**: `string`
+> `optional` **after?**: `string`
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### before?
 
-> `optional` **before**: `string`
+> `optional` **before?**: `string`
 
 ***
 
@@ -28,7 +28,7 @@
 
 ### limit?
 
-> `optional` **limit**: `number`
+> `optional` **limit?**: `number`
 
 ***
 
@@ -36,7 +36,7 @@
 
 ### pageSize?
 
-> `optional` **pageSize**: `number`
+> `optional` **pageSize?**: `number`
 
 ***
 
@@ -44,7 +44,7 @@
 
 ### sort?
 
-> `optional` **sort**: `"hot"` \| `"new"` \| `"top"` \| `"controversial"`
+> `optional` **sort?**: `"hot"` \| `"new"` \| `"top"` \| `"controversial"`
 
 ***
 
@@ -52,7 +52,7 @@
 
 ### timeframe?
 
-> `optional` **timeframe**: `"hour"` \| `"day"` \| `"week"` \| `"month"` \| `"year"` \| `"all"`
+> `optional` **timeframe?**: `"hour"` \| `"day"` \| `"week"` \| `"month"` \| `"year"` \| `"all"`
 
 ***
 

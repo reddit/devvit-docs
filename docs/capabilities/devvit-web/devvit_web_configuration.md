@@ -24,6 +24,9 @@ Additionally, you must include at least one of:
 
 - **`post`**: For web view apps
 - **`server`**: For Node.js server apps
+- **`blocks`**: For legacy `@devvit/public-api` handlers
+
+In Devvit 0.15, `blocks` and `@devvit/public-api` remain supported but deprecated. We recommend migrating to `@devvit/web` where possible. If your app uses `devvit.yaml`, [migrate to `devvit.json`](../../guides/migrate/devvit-singleton.md) before upgrading to 0.15.0.
 
 ## Configuration sections
 
@@ -36,10 +39,11 @@ Additionally, you must include at least one of:
 
 ### App components
 
-| Property | Type   | Description                        | Required           |
-| -------- | ------ | ---------------------------------- | ------------------ |
-| `post`   | object | Custom post/web view configuration | One of post/server |
-| `server` | object | Node.js server configuration       | One of post/server |
+| Property | Type   | Description                                  | Required                      |
+| -------- | ------ | -------------------------------------------- | ----------------------------- |
+| `post`   | object | Custom post/web view configuration           | One of post/server/blocks     |
+| `server` | object | Node.js server configuration                 | One of post/server/blocks     |
+| `blocks` | object | Legacy public-api entry (deprecated in 0.15) | One of post/server/blocks     |
 
 ### Permissions & capabilities
 
@@ -66,11 +70,12 @@ Additionally, you must include at least one of:
 
 ### Development
 
-| Property        | Type   | Description                                             | Required |
-| --------------- | ------ | ------------------------------------------------------- | -------- |
-| `dev`           | object | Development configuration                               | No       |
-| `scripts`       | object | Build commands run by the Devvit CLI                     | No       |
-| `sourceIgnores` | array  | Source files excluded from packages submitted for review | No       |
+| Property                | Type   | Description                                               | Required |
+| ----------------------- | ------ | --------------------------------------------------------- | -------- |
+| `dev`                   | object | Development configuration                                 | No       |
+| `scripts`               | object | Build commands run by the Devvit CLI                      | No       |
+| `sourceIgnores`         | array  | Source files excluded from packages submitted for review  | No       |
+| `additionalSourceRoots` | array  | Additional source directories included in review packages | No       |
 
 ## Detailed configuration
 
@@ -377,7 +382,47 @@ Use `sourceIgnores` to exclude files from the source archive submitted during `d
 }
 ```
 
-Patterns are relative to the project root. Some paths, including `node_modules/`, `.env`, and `.git/`, are always excluded.
+Patterns are relative to each selected source root: the project root and any directories in `additionalSourceRoots`. Packaging reads the `.gitignore` at each source root, then applies `sourceIgnores`. Nested `.gitignore` files are not loaded. The same `sourceIgnores` patterns apply to every selected root. Some paths, including `node_modules/`, `.env`, and `.git/`, are always excluded.
+
+### Additional source roots
+
+Use `additionalSourceRoots` when your app builds from source outside the directory containing `devvit.json`. These directories are included in the source archive submitted for app review.
+
+For example, an app can share source with another directory in a workspace:
+
+```text
+workspace/
+  app/
+    devvit.json
+    src/
+  shared/
+    src/
+    .gitignore
+```
+
+Add the shared directory to `app/devvit.json`:
+
+```json title="devvit.json"
+{
+  "additionalSourceRoots": ["../shared"],
+  "sourceIgnores": ["coverage/", "*.log"]
+}
+```
+
+**Properties:**
+
+- `additionalSourceRoots` (string[], optional): Directory paths relative to the Devvit project root. Paths are resolved from the project root even when you run the CLI from another directory. Use directory paths rather than glob patterns.
+
+When this field is omitted or empty, only the project root is selected. Additional roots preserve their relative directory layout in the archive. Unrelated sibling directories are not included.
+
+Each selected directory uses the [source packaging exclusions](#source-packaging-exclusions) above. In this example, `shared/.gitignore` applies to the shared directory, and `sourceIgnores` applies to both `app/` and `shared/`.
+
+**Limitations:**
+
+- Paths must resolve to existing, readable directories. Absolute paths and paths that resolve to a filesystem root are rejected.
+- Root paths are resolved through symlinks before validation. Symlink entries inside a selected directory are not included in the archive.
+
+This setting includes source for review. Configure your build tool and TypeScript separately to import and compile the additional source.
 
 ### Development configuration
 

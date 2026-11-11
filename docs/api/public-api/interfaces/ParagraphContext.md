@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -22,7 +22,10 @@ LineBreakContainer
 
 ## Extends
 
-- [`TextContainer`](../type-aliases/TextContainer.md)\<`ParagraphContext`\>.[`ImageContainer`](../type-aliases/ImageContainer.md)\<`ParagraphContext`\>.[`LinkContainer`](../type-aliases/LinkContainer.md)\<`ParagraphContext`\>.[`LineBreakContainer`](../type-aliases/LineBreakContainer.md)\<`ParagraphContext`\>
+- [`TextContainer`](../type-aliases/TextContainer.md)\<`ParagraphContext`\>
+- [`ImageContainer`](../type-aliases/ImageContainer.md)\<`ParagraphContext`\>
+- [`LinkContainer`](../type-aliases/LinkContainer.md)\<`ParagraphContext`\>
+- [`LineBreakContainer`](../type-aliases/LineBreakContainer.md)\<`ParagraphContext`\>
 
 ## Methods
 
@@ -48,7 +51,7 @@ Append an Animated Image
 
 #### Inherited from
 
-[`ImageContainer`](../type-aliases/ImageContainer.md).[`animatedImage`](../type-aliases/ImageContainer.md#animatedimage)
+`ImageContainer.animatedImage`
 
 ***
 
@@ -100,7 +103,7 @@ Append an Image
 
 #### Inherited from
 
-[`ImageContainer`](../type-aliases/ImageContainer.md).[`image`](../type-aliases/ImageContainer.md#image)
+`ImageContainer.image`
 
 ***
 
@@ -118,7 +121,7 @@ Append a Line Break
 
 #### Inherited from
 
-[`LineBreakContainer`](../type-aliases/LineBreakContainer.md).[`linebreak`](../type-aliases/LineBreakContainer.md#linebreak)
+`LineBreakContainer.linebreak`
 
 ***
 
@@ -222,7 +225,7 @@ Append Text with optional formatting
 
 #### Inherited from
 
-[`TextContainer`](../type-aliases/TextContainer.md).[`text`](../type-aliases/TextContainer.md#text)
+`TextContainer.text`
 
 ***
 

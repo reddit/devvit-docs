@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ A class representing the styles of a Subreddit.
 
 ### backgroundColor?
 
-> `optional` **backgroundColor**: `string`
+> `optional` **backgroundColor?**: `string`
 
 ***
 
@@ -22,7 +22,7 @@ A class representing the styles of a Subreddit.
 
 ### backgroundImage?
 
-> `optional` **backgroundImage**: `string`
+> `optional` **backgroundImage?**: `string`
 
 ***
 
@@ -30,7 +30,7 @@ A class representing the styles of a Subreddit.
 
 ### backgroundImagePosition?
 
-> `optional` **backgroundImagePosition**: [`BackgroundImagePosition`](BackgroundImagePosition.md)
+> `optional` **backgroundImagePosition?**: [`BackgroundImagePosition`](BackgroundImagePosition.md)
 
 ***
 
@@ -38,7 +38,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerBackgroundColor?
 
-> `optional` **bannerBackgroundColor**: `string`
+> `optional` **bannerBackgroundColor?**: `string`
 
 ***
 
@@ -46,7 +46,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerBackgroundImage?
 
-> `optional` **bannerBackgroundImage**: `string`
+> `optional` **bannerBackgroundImage?**: `string`
 
 ***
 
@@ -54,7 +54,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerBackgroundImagePosition?
 
-> `optional` **bannerBackgroundImagePosition**: [`ImagePosition`](ImagePosition.md)
+> `optional` **bannerBackgroundImagePosition?**: [`ImagePosition`](ImagePosition.md)
 
 ***
 
@@ -62,7 +62,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerCommunityName?
 
-> `optional` **bannerCommunityName**: `string`
+> `optional` **bannerCommunityName?**: `string`
 
 ***
 
@@ -70,7 +70,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerCommunityNameFormat?
 
-> `optional` **bannerCommunityNameFormat**: [`CommunityNameFormat`](CommunityNameFormat.md)
+> `optional` **bannerCommunityNameFormat?**: [`CommunityNameFormat`](CommunityNameFormat.md)
 
 ***
 
@@ -78,7 +78,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerHeight?
 
-> `optional` **bannerHeight**: [`BannerHeight`](BannerHeight.md)
+> `optional` **bannerHeight?**: [`BannerHeight`](BannerHeight.md)
 
 ***
 
@@ -86,7 +86,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerOverlayColor?
 
-> `optional` **bannerOverlayColor**: `string`
+> `optional` **bannerOverlayColor?**: `string`
 
 ***
 
@@ -94,7 +94,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerPositionedImage?
 
-> `optional` **bannerPositionedImage**: `string`
+> `optional` **bannerPositionedImage?**: `string`
 
 ***
 
@@ -102,7 +102,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerPositionedImagePosition?
 
-> `optional` **bannerPositionedImagePosition**: [`PositionedImagePosition`](PositionedImagePosition.md)
+> `optional` **bannerPositionedImagePosition?**: [`PositionedImagePosition`](PositionedImagePosition.md)
 
 ***
 
@@ -110,7 +110,7 @@ A class representing the styles of a Subreddit.
 
 ### bannerShowCommunityIcon?
 
-> `optional` **bannerShowCommunityIcon**: [`Visibility`](Visibility.md)
+> `optional` **bannerShowCommunityIcon?**: [`Visibility`](Visibility.md)
 
 ***
 
@@ -118,7 +118,7 @@ A class representing the styles of a Subreddit.
 
 ### highlightColor?
 
-> `optional` **highlightColor**: `string`
+> `optional` **highlightColor?**: `string`
 
 ***
 
@@ -126,7 +126,7 @@ A class representing the styles of a Subreddit.
 
 ### icon?
 
-> `optional` **icon**: `string`
+> `optional` **icon?**: `string`
 
 ***
 
@@ -134,7 +134,7 @@ A class representing the styles of a Subreddit.
 
 ### legacyBannerBackgroundImage?
 
-> `optional` **legacyBannerBackgroundImage**: `string`
+> `optional` **legacyBannerBackgroundImage?**: `string`
 
 ***
 
@@ -142,7 +142,7 @@ A class representing the styles of a Subreddit.
 
 ### legacyPrimaryColor?
 
-> `optional` **legacyPrimaryColor**: `string`
+> `optional` **legacyPrimaryColor?**: `string`
 
 ***
 
@@ -150,7 +150,7 @@ A class representing the styles of a Subreddit.
 
 ### menuBackgroundBlur?
 
-> `optional` **menuBackgroundBlur**: `number`
+> `optional` **menuBackgroundBlur?**: `number`
 
 ***
 
@@ -158,7 +158,7 @@ A class representing the styles of a Subreddit.
 
 ### menuBackgroundColor?
 
-> `optional` **menuBackgroundColor**: `string`
+> `optional` **menuBackgroundColor?**: `string`
 
 ***
 
@@ -166,7 +166,7 @@ A class representing the styles of a Subreddit.
 
 ### menuBackgroundImage?
 
-> `optional` **menuBackgroundImage**: `string`
+> `optional` **menuBackgroundImage?**: `string`
 
 ***
 
@@ -174,7 +174,7 @@ A class representing the styles of a Subreddit.
 
 ### menuBackgroundOpacity?
 
-> `optional` **menuBackgroundOpacity**: `number`
+> `optional` **menuBackgroundOpacity?**: `number`
 
 ***
 
@@ -182,7 +182,7 @@ A class representing the styles of a Subreddit.
 
 ### menuLinkColorActive?
 
-> `optional` **menuLinkColorActive**: `string`
+> `optional` **menuLinkColorActive?**: `string`
 
 ***
 
@@ -190,7 +190,7 @@ A class representing the styles of a Subreddit.
 
 ### menuLinkColorHover?
 
-> `optional` **menuLinkColorHover**: `string`
+> `optional` **menuLinkColorHover?**: `string`
 
 ***
 
@@ -198,7 +198,7 @@ A class representing the styles of a Subreddit.
 
 ### menuLinkColorInactive?
 
-> `optional` **menuLinkColorInactive**: `string`
+> `optional` **menuLinkColorInactive?**: `string`
 
 ***
 
@@ -206,7 +206,7 @@ A class representing the styles of a Subreddit.
 
 ### menuPosition?
 
-> `optional` **menuPosition**: [`MenuPosition`](MenuPosition.md)
+> `optional` **menuPosition?**: [`MenuPosition`](MenuPosition.md)
 
 ***
 
@@ -214,7 +214,7 @@ A class representing the styles of a Subreddit.
 
 ### mobileBannerImage?
 
-> `optional` **mobileBannerImage**: `string`
+> `optional` **mobileBannerImage?**: `string`
 
 ***
 
@@ -222,7 +222,7 @@ A class representing the styles of a Subreddit.
 
 ### mobileKeyColor?
 
-> `optional` **mobileKeyColor**: `string`
+> `optional` **mobileKeyColor?**: `string`
 
 ***
 
@@ -230,7 +230,7 @@ A class representing the styles of a Subreddit.
 
 ### postBackgroundColor?
 
-> `optional` **postBackgroundColor**: `string`
+> `optional` **postBackgroundColor?**: `string`
 
 ***
 
@@ -238,7 +238,7 @@ A class representing the styles of a Subreddit.
 
 ### postBackgroundImage?
 
-> `optional` **postBackgroundImage**: `string`
+> `optional` **postBackgroundImage?**: `string`
 
 ***
 
@@ -246,7 +246,7 @@ A class representing the styles of a Subreddit.
 
 ### postBackgroundImagePosition?
 
-> `optional` **postBackgroundImagePosition**: [`ImagePosition`](ImagePosition.md)
+> `optional` **postBackgroundImagePosition?**: [`ImagePosition`](ImagePosition.md)
 
 ***
 
@@ -254,7 +254,7 @@ A class representing the styles of a Subreddit.
 
 ### postDownvoteCountColor?
 
-> `optional` **postDownvoteCountColor**: `string`
+> `optional` **postDownvoteCountColor?**: `string`
 
 ***
 
@@ -262,7 +262,7 @@ A class representing the styles of a Subreddit.
 
 ### postDownvoteIconActive?
 
-> `optional` **postDownvoteIconActive**: `string`
+> `optional` **postDownvoteIconActive?**: `string`
 
 ***
 
@@ -270,7 +270,7 @@ A class representing the styles of a Subreddit.
 
 ### postDownvoteIconInactive?
 
-> `optional` **postDownvoteIconInactive**: `string`
+> `optional` **postDownvoteIconInactive?**: `string`
 
 ***
 
@@ -278,7 +278,7 @@ A class representing the styles of a Subreddit.
 
 ### postPlaceholderImage?
 
-> `optional` **postPlaceholderImage**: `string`
+> `optional` **postPlaceholderImage?**: `string`
 
 ***
 
@@ -286,7 +286,7 @@ A class representing the styles of a Subreddit.
 
 ### postPlaceholderImagePosition?
 
-> `optional` **postPlaceholderImagePosition**: [`ImagePosition`](ImagePosition.md)
+> `optional` **postPlaceholderImagePosition?**: [`ImagePosition`](ImagePosition.md)
 
 ***
 
@@ -294,7 +294,7 @@ A class representing the styles of a Subreddit.
 
 ### postTitleColor?
 
-> `optional` **postTitleColor**: `string`
+> `optional` **postTitleColor?**: `string`
 
 ***
 
@@ -302,7 +302,7 @@ A class representing the styles of a Subreddit.
 
 ### postUpvoteCountColor?
 
-> `optional` **postUpvoteCountColor**: `string`
+> `optional` **postUpvoteCountColor?**: `string`
 
 ***
 
@@ -310,7 +310,7 @@ A class representing the styles of a Subreddit.
 
 ### postUpvoteIconActive?
 
-> `optional` **postUpvoteIconActive**: `string`
+> `optional` **postUpvoteIconActive?**: `string`
 
 ***
 
@@ -318,7 +318,7 @@ A class representing the styles of a Subreddit.
 
 ### postUpvoteIconInactive?
 
-> `optional` **postUpvoteIconInactive**: `string`
+> `optional` **postUpvoteIconInactive?**: `string`
 
 ***
 
@@ -326,7 +326,7 @@ A class representing the styles of a Subreddit.
 
 ### postVoteIcons?
 
-> `optional` **postVoteIcons**: [`CustomizationFlag`](CustomizationFlag.md)
+> `optional` **postVoteIcons?**: [`CustomizationFlag`](CustomizationFlag.md)
 
 ***
 
@@ -334,7 +334,7 @@ A class representing the styles of a Subreddit.
 
 ### primaryColor?
 
-> `optional` **primaryColor**: `string`
+> `optional` **primaryColor?**: `string`
 
 ***
 
@@ -342,7 +342,7 @@ A class representing the styles of a Subreddit.
 
 ### secondaryBannerPositionedImage?
 
-> `optional` **secondaryBannerPositionedImage**: `string`
+> `optional` **secondaryBannerPositionedImage?**: `string`
 
 ***
 
@@ -350,7 +350,7 @@ A class representing the styles of a Subreddit.
 
 ### sidebarWidgetBackgroundColor?
 
-> `optional` **sidebarWidgetBackgroundColor**: `string`
+> `optional` **sidebarWidgetBackgroundColor?**: `string`
 
 ***
 
@@ -358,7 +358,7 @@ A class representing the styles of a Subreddit.
 
 ### sidebarWidgetHeaderColor?
 
-> `optional` **sidebarWidgetHeaderColor**: `string`
+> `optional` **sidebarWidgetHeaderColor?**: `string`
 
 ***
 
@@ -366,7 +366,7 @@ A class representing the styles of a Subreddit.
 
 ### submenuBackgroundColor?
 
-> `optional` **submenuBackgroundColor**: `string`
+> `optional` **submenuBackgroundColor?**: `string`
 
 ***
 
@@ -374,4 +374,4 @@ A class representing the styles of a Subreddit.
 
 ### submenuBackgroundStyle?
 
-> `optional` **submenuBackgroundStyle**: [`CustomizationFlag`](CustomizationFlag.md)
+> `optional` **submenuBackgroundStyle?**: [`CustomizationFlag`](CustomizationFlag.md)

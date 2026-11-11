@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.0-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,6 +12,6 @@
 
 ### wikiVersion?
 
-> `optional` **wikiVersion**: [`WikiVersion`](WikiVersion.md)
+> `optional` **wikiVersion?**: [`WikiVersion`](WikiVersion.md)
 
 Which wiki version to target. Defaults to `'v1'`.

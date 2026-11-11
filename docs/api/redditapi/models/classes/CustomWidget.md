@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.0-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 <a id="constructor"></a>
 
-### new CustomWidget()
+### Constructor
 
 > **new CustomWidget**(`widgetData`, `subredditName`): `CustomWidget`
 
@@ -180,11 +180,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"images"` \| `"stylesheetUrl"` \| `"css"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"css"` \| `"images"` \| `"stylesheetUrl"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"images"` \| `"stylesheetUrl"` \| `"css"`\>
+`Pick`\<[`Widget`](Widget.md), `"name"` \| `"id"` \| `"subredditName"`\> & `Pick`\<`CustomWidget`, `"text"` \| `"height"` \| `"css"` \| `"images"` \| `"stylesheetUrl"`\>
 
 #### Overrides
 
