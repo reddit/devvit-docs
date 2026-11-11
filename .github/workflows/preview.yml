@@ -22,7 +22,7 @@ jobs:
     permissions:
       contents: read
       issues: write
-      pull-requests: read
+      pull-requests: write
     outputs:
       head_repo: ${{ steps.request.outputs.head_repo }}
       head_sha: ${{ steps.request.outputs.head_sha }}
