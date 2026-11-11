@@ -6810,7 +6810,7 @@ __metadata:
     core-js: "npm:^3.39.0"
     glob: "npm:14.0.2"
     js-yaml: "npm:4.3.2"
-    mobx: "npm:^6.13.5"
+    mobx: "npm:^7.1.5"
     prettier: "npm:3.3.3"
     prism-react-renderer: "npm:^2.3.0"
     process: "npm:0.11.10"
@@ -10370,10 +10370,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:^6.12.4, mobx@npm:^6.13.5":
+"mobx@npm:^6.12.4":
   version: 6.16.1
   resolution: "mobx@npm:6.16.1"
   checksum: 10c0/8450dab51fa133c9dde9f6c9b42cdc9f16c70cf2b989acc25b2cf2c66948def053ad3f1fdfc3bc256ece394e607e9c15dbfe88792ffa81a041e2ec92ae268cdb
+  languageName: node
+  linkType: hard
+
+"mobx@npm:^7.1.5":
+  version: 7.1.5
+  resolution: "mobx@npm:7.1.5"
+  checksum: 10c0/802105afe7655883881803e4b66f13351e1f33a5c433686a6b728833ee7dcbe5b5227066a848c07dc1afbd27757a01cebe9ef6e42bf673bce4531b1f1d5d37fd
   languageName: node
   linkType: hard
 
