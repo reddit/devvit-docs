@@ -5494,12 +5494,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"baseline-browser-mapping@npm:2.9.19":
-  version: 2.9.19
-  resolution: "baseline-browser-mapping@npm:2.9.19"
+"baseline-browser-mapping@npm:2.11.0":
+  version: 2.11.0
+  resolution: "baseline-browser-mapping@npm:2.11.0"
   bin:
-    baseline-browser-mapping: dist/cli.js
-  checksum: 10c0/569928db78bcd081953d7db79e4243a59a579a34b4ae1806b9b42d3b7f84e5bc40e6e82ae4fa06e7bef8291bf747b33b3f9ef5d3c6e1e420cb129d9295536129
+    baseline-browser-mapping: dist/cli.cjs
+  checksum: 10c0/03176d4d1c85a156971ae328241e9216288d59f46a5195acc95c41f1477b2e791185d0f68128788c311fd0fb0b93b321170d65c1ef7d9bcab096677c844365de
   languageName: node
   linkType: hard
 
@@ -6134,17 +6134,18 @@ __metadata:
   linkType: hard
 
 "compression@npm:^1.8.1":
-  version: 1.8.1
-  resolution: "compression@npm:1.8.1"
+  version: 1.8.2
+  resolution: "compression@npm:1.8.2"
   dependencies:
     bytes: "npm:3.1.2"
     compressible: "npm:~2.0.18"
     debug: "npm:2.6.9"
+    destroy: "npm:1.2.0"
     negotiator: "npm:~0.6.4"
     on-headers: "npm:~1.1.0"
     safe-buffer: "npm:5.2.1"
     vary: "npm:~1.1.2"
-  checksum: 10c0/85114b0b91c16594dc8c671cd9b05ef5e465066a60e5a4ed8b4551661303559a896ed17bb72c4234c04064e078f6ca86a34b8690349499a43f6fc4b844475da4
+  checksum: 10c0/f95be7122323fdffcaadc807f42da38b5227eeac7d9997c1c4314abd7ca4a4de2daa3d5bd4e142706bef4d34fa0f64cd265c6f074b221143e18da1215c0a07ab
   languageName: node
   linkType: hard
 
@@ -6802,11 +6803,11 @@ __metadata:
     "@easyops-cn/docusaurus-search-local": "npm:0.52.1"
     "@mdx-js/react": "npm:^3.0.0"
     "@types/react": "npm:^19.0.0"
-    baseline-browser-mapping: "npm:2.9.19"
+    baseline-browser-mapping: "npm:2.11.0"
     clsx: "npm:^2.0.0"
     core-js: "npm:^3.39.0"
     glob: "npm:10.5.0"
-    js-yaml: "npm:4.2.0"
+    js-yaml: "npm:4.3.2"
     mobx: "npm:^6.13.5"
     prettier: "npm:3.3.3"
     prism-react-renderer: "npm:^2.3.0"
@@ -8395,11 +8396,11 @@ __metadata:
   linkType: hard
 
 "image-size@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "image-size@npm:2.0.2"
+  version: 2.0.4
+  resolution: "image-size@npm:2.0.4"
   bin:
     image-size: bin/image-size.js
-  checksum: 10c0/f09dd0f7cf8511cd20e4f756bdb5a7cb6d2240de3323f41bde266bed8373392a293892bf12e907e2995f52833fd88dd27cf6b1a52ab93968afc716cb78cd7b79
+  checksum: 10c0/af01b8c2b7c536df1b866fc6daaa7e58ee909cde42fcae27562612ea77181f473445bc8acf0dfb5b9e8590e966a7a1f3f0fbf4c87ec6d1d4d60d68d87d529d76
   languageName: node
   linkType: hard
 
@@ -8874,17 +8875,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:4.2.0":
-  version: 4.2.0
-  resolution: "js-yaml@npm:4.2.0"
-  dependencies:
-    argparse: "npm:^2.0.1"
-  bin:
-    js-yaml: bin/js-yaml.js
-  checksum: 10c0/1916456c118746603b067d74bbcbb0445d9a1d5e474ad4ae775e7b20525bed902e01d9d97dd0c81fcd8d4f596162309d0eb057f4aa38f3e9647f14075e9dea45
-  languageName: node
-  linkType: hard
-
 "js-yaml@npm:4.3.1":
   version: 4.3.1
   resolution: "js-yaml@npm:4.3.1"
@@ -8896,7 +8886,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-yaml@npm:^4.1.0":
+"js-yaml@npm:4.3.2, js-yaml@npm:^4.1.0":
   version: 4.3.2
   resolution: "js-yaml@npm:4.3.2"
   dependencies:
@@ -9017,12 +9007,12 @@ __metadata:
   linkType: hard
 
 "launch-editor@npm:^2.14.1":
-  version: 2.14.1
-  resolution: "launch-editor@npm:2.14.1"
+  version: 2.14.2
+  resolution: "launch-editor@npm:2.14.2"
   dependencies:
     picocolors: "npm:^1.1.1"
-    shell-quote: "npm:^1.8.4"
-  checksum: 10c0/bb0ab182086afaf1c391abd38d6fc9d5391cb43d0c2da1d96176f79e9995635cdf34dcfd8df3f756bb82d7bbbb7d37014d5eb312f337350889c0cff92db53dab
+    shell-quote: "npm:^1.10.0"
+  checksum: 10c0/cf66c75534170142269bfc1749df8a4b5178ad644d358aa08d4feda9ecb1ba7a26191a76ea2cecea95c59235c142486b928b58eaf0cd77377d21e42ed5c3e100
   languageName: node
   linkType: hard
 
@@ -9310,8 +9300,8 @@ __metadata:
   linkType: hard
 
 "markdown-it@npm:^14.1.0":
-  version: 14.3.1
-  resolution: "markdown-it@npm:14.3.1"
+  version: 14.3.3
+  resolution: "markdown-it@npm:14.3.3"
   dependencies:
     argparse: "npm:^2.0.1"
     entities: "npm:^4.5.0"
@@ -9321,7 +9311,7 @@ __metadata:
     uc.micro: "npm:^2.1.0"
   bin:
     markdown-it: bin/markdown-it.mjs
-  checksum: 10c0/806f0f5f29f1ddd9fd465f905c1f2c54d64af9023095792dd5364e5807f77454f427ee75d66083b432d0900e21836f0fff940f94f5fc93c41b2f78970469874e
+  checksum: 10c0/d6075ad320731d7fb9f127e496677f4e36cbdba839d7387dabf1f0d07b5c02bdffb46fb3969033817c04e60017e05d4269e4aa74bee58cc0a562a17cc0b6b8ff
   languageName: node
   linkType: hard
 
@@ -13081,7 +13071,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"shell-quote@npm:^1.8.4":
+"shell-quote@npm:^1.10.0":
   version: 1.12.0
   resolution: "shell-quote@npm:1.12.0"
   checksum: 10c0/1605a4ed6a758bf13de7cb8197a4184d8015f7a4dbdcd6cd4a717d5b30b3ae7666300cc4ae7f3155cf80ace9739e9e82061ee5aa1a648f53f5fab31a220816d0
@@ -13297,9 +13287,9 @@ __metadata:
   linkType: hard
 
 "source-map-js@npm:^1.0.1, source-map-js@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "source-map-js@npm:1.2.1"
-  checksum: 10c0/7bda1fc4c197e3c6ff17de1b8b2c20e60af81b63a52cb32ec5a5d67a20a7d42651e2cb34ebe93833c5a2a084377e17455854fee3e21e7925c64a51b6a52b0faf
+  version: 1.2.2
+  resolution: "source-map-js@npm:1.2.2"
+  checksum: 10c0/d5d6dec62266834f83dd4f8a2606a196fb1a006ca5d53b0ef80ee513b7eba2f4e2ae241f4bc129ae7e9b80dea24f6e3d92b446b7e6e96be7653cab8888168a94
   languageName: node
   linkType: hard
 
