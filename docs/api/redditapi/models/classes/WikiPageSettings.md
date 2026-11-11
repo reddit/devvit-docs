@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -8,9 +8,9 @@
 
 <a id="constructor"></a>
 
-### new WikiPageSettings()
+### Constructor
 
-> **new WikiPageSettings**(`data`, `wikiVersion`): `WikiPageSettings`
+> **new WikiPageSettings**(`data`, `wikiVersion?`): `WikiPageSettings`
 
 #### Parameters
 
@@ -18,7 +18,7 @@
 
 `WikiPageSettings_Data`
 
-##### wikiVersion
+##### wikiVersion?
 
 [`WikiVersion`](../type-aliases/WikiVersion.md) = `'v1'`
 

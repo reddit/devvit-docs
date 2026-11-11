@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,10 +6,10 @@
 
 > **GetWikiPageOptions** = [`WikiVersionOptions`](WikiVersionOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### revisionId?
 
-> `optional` **revisionId**: [`WikiPageRevisionId`](WikiPageRevisionId.md)
+> `optional` **revisionId?**: [`WikiPageRevisionId`](WikiPageRevisionId.md)
 
 The revision ID of the wiki page version to retrieve.

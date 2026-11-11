@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -18,7 +18,9 @@ LineBreakContainer
 
 ## Extends
 
-- [`TextContainer`](../type-aliases/TextContainer.md)\<`SpoilerContext`\>.[`LinkContainer`](../type-aliases/LinkContainer.md)\<`SpoilerContext`\>.[`LineBreakContainer`](../type-aliases/LineBreakContainer.md)\<`SpoilerContext`\>
+- [`TextContainer`](../type-aliases/TextContainer.md)\<`SpoilerContext`\>
+- [`LinkContainer`](../type-aliases/LinkContainer.md)\<`SpoilerContext`\>
+- [`LineBreakContainer`](../type-aliases/LineBreakContainer.md)\<`SpoilerContext`\>
 
 ## Methods
 
@@ -62,7 +64,7 @@ Append a Line Break
 
 #### Inherited from
 
-[`LineBreakContainer`](../type-aliases/LineBreakContainer.md).[`linebreak`](../type-aliases/LineBreakContainer.md#linebreak)
+`LineBreakContainer.linebreak`
 
 ***
 
@@ -166,7 +168,7 @@ Append Text with optional formatting
 
 #### Inherited from
 
-[`TextContainer`](../type-aliases/TextContainer.md).[`text`](../type-aliases/TextContainer.md#text)
+`TextContainer.text`
 
 ***
 

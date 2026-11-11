@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### author?
 
-> `optional` **author**: `string`
+> `optional` **author?**: `string`
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### body?
 
-> `optional` **body**: `string`
+> `optional` **body?**: `string`
 
 ***
 
@@ -36,7 +36,7 @@
 
 ### permalink?
 
-> `optional` **permalink**: `string`
+> `optional` **permalink?**: `string`
 
 ***
 
@@ -44,4 +44,4 @@
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`

@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -22,7 +22,7 @@ The cron string of when this job should run
 
 ### data?
 
-> `optional` **data**: [`JSONObject`](JSONObject.md)
+> `optional` **data?**: [`JSONObject`](JSONObject.md)
 
 Additional data passed in by the scheduler client
 
