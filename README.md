@@ -56,3 +56,5 @@ https://developers.reddit.com/docs/?ask=1&question=How%20do%20I%20get%20started%
 ```
 
 The question is prefilled for the visitor to review and submit. The `ask=1` parameter also works on individual documentation pages, allowing a shared link to keep that page as context. Kapa's knowledge sources are configured separately in the Kapa platform.
+
+<!-- temporary M05 preview test; do not merge -->
