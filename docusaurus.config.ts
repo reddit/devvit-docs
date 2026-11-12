@@ -182,7 +182,7 @@ const config: Config = {
     announcementBar: {
       id: "games-hackathon-2026",
       content:
-        `<div class="hackathon-announcement"><img class="hackathon-announcement-image" src="${baseUrl}img/games-hackathon-2026.png" alt="" width="1200" height="160"><div class="hackathon-announcement-copy"><strong>Join Reddit’s Games Hackathon!</strong> Create your own daily for a chance at over $30k in prizes. <a href="https://redditgameofday2026.devpost.com/">Learn more</a></div></div>`,
+        `<div class="hackathon-announcement"><img class="hackathon-announcement-image" src="${baseUrl}img/games-hackathon-2026.png" alt="" width="1200" height="160"><div class="hackathon-announcement-copy"><strong>Join Reddit’s Last Hackathon of 2026!</strong> Build a daily game for a chance at over $30k in prizes. <a href="https://redditgameofday2026.devpost.com/">Learn more</a></div></div>`,
       backgroundColor: "#00E3B6",
       textColor: "#0f1a1c",
       isCloseable: true,
