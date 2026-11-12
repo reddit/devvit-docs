@@ -48,6 +48,29 @@
   background-color: var(--ifm-color-secondary);
 }
 
+/* Let the hackathon artwork and copy wrap above the docs navigation. */
+.theme-announcement-bar {
+  height: auto;
+}
+
+.theme-announcement-bar .close {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.hackathon-announcement-image {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  height: clamp(80px, 13.333vw, 160px);
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.hackathon-announcement-copy {
+  padding: 0.5rem 1rem;
+}
+
 .button.button--secondary {
   background-color: var(--ifm-color-primary);
   color: white;
