@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../../../../README.md)
+[**@devvit/public-api v0.15.4-dev**](../../../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **AutomoderatorFilterComment**: `object`
 
-## Type declaration
+## Type Declaration
 
 <a id="type"></a>
 
@@ -18,6 +18,8 @@
 
 ### create()
 
+> **create**(`base?`): [`AutomoderatorFilterComment`](../interfaces/AutomoderatorFilterComment.md)
+
 #### Parameters
 
 ##### base?
@@ -28,7 +30,7 @@
 
 ###### comment?
 
-\{ `author`: `string`; `body`: `string`; `collapsedBecauseCrowdControl`: `boolean`; `createdAt`: `number`; `deleted`: `boolean`; `downvotes`: `number`; `elementTypes`: `string`[]; `gilded`: `boolean`; `hasMedia`: `boolean`; `id`: `string`; `languageCode`: `string`; `lastModifiedAt`: `number`; `mediaUrls`: `string`[]; `numReports`: `number`; `parentId`: `string`; `permalink`: `string`; `postId`: `string`; `score`: `number`; `spam`: `boolean`; `subredditId`: `string`; `upvotes`: `number`; \}
+\{ `author?`: `string`; `body?`: `string`; `collapsedBecauseCrowdControl?`: `boolean`; `createdAt?`: `number`; `deleted?`: `boolean`; `downvotes?`: `number`; `elementTypes?`: `string`[]; `gilded?`: `boolean`; `hasMedia?`: `boolean`; `id?`: `string`; `languageCode?`: `string`; `lastModifiedAt?`: `number`; `mediaUrls?`: `string`[]; `numReports?`: `number`; `parentId?`: `string`; `permalink?`: `string`; `postId?`: `string`; `score?`: `number`; `spam?`: `boolean`; `subredditId?`: `string`; `upvotes?`: `number`; \}
 
 ###### comment.author?
 
@@ -124,7 +126,7 @@
 
 ###### subreddit?
 
-\{ `description`: `string`; `id`: `string`; `name`: `string`; `nsfw`: `boolean`; `permalink`: `string`; `quarantined`: `boolean`; `rating`: `SubredditRating`; `spam`: `boolean`; `subscribersCount`: `number`; `title`: `string`; `topics`: `string`[]; `type`: `SubredditType`; \}
+\{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `nsfw?`: `boolean`; `permalink?`: `string`; `quarantined?`: `boolean`; `rating?`: `SubredditRating`; `spam?`: `boolean`; `subscribersCount?`: `number`; `title?`: `string`; `topics?`: `string`[]; `type?`: `SubredditType`; \}
 
 ###### subreddit.description?
 
@@ -182,11 +184,13 @@
 
 ### decode()
 
+> **decode**(`input`, `length?`): [`AutomoderatorFilterComment`](../interfaces/AutomoderatorFilterComment.md)
+
 #### Parameters
 
 ##### input
 
-`Reader` | `Uint8Array`\<`ArrayBufferLike`\>
+`Reader` \| `Uint8Array`\<`ArrayBufferLike`\>
 
 ##### length?
 
@@ -199,6 +203,8 @@
 <a id="encode"></a>
 
 ### encode()
+
+> **encode**(`message`, `writer?`): `Writer`
 
 #### Parameters
 
@@ -218,6 +224,8 @@
 
 ### fromJSON()
 
+> **fromJSON**(`object`): [`AutomoderatorFilterComment`](../interfaces/AutomoderatorFilterComment.md)
+
 #### Parameters
 
 ##### object
@@ -232,6 +240,8 @@
 
 ### fromPartial()
 
+> **fromPartial**(`object`): [`AutomoderatorFilterComment`](../interfaces/AutomoderatorFilterComment.md)
+
 #### Parameters
 
 ##### object
@@ -242,7 +252,7 @@
 
 ###### comment?
 
-\{ `author`: `string`; `body`: `string`; `collapsedBecauseCrowdControl`: `boolean`; `createdAt`: `number`; `deleted`: `boolean`; `downvotes`: `number`; `elementTypes`: `string`[]; `gilded`: `boolean`; `hasMedia`: `boolean`; `id`: `string`; `languageCode`: `string`; `lastModifiedAt`: `number`; `mediaUrls`: `string`[]; `numReports`: `number`; `parentId`: `string`; `permalink`: `string`; `postId`: `string`; `score`: `number`; `spam`: `boolean`; `subredditId`: `string`; `upvotes`: `number`; \}
+\{ `author?`: `string`; `body?`: `string`; `collapsedBecauseCrowdControl?`: `boolean`; `createdAt?`: `number`; `deleted?`: `boolean`; `downvotes?`: `number`; `elementTypes?`: `string`[]; `gilded?`: `boolean`; `hasMedia?`: `boolean`; `id?`: `string`; `languageCode?`: `string`; `lastModifiedAt?`: `number`; `mediaUrls?`: `string`[]; `numReports?`: `number`; `parentId?`: `string`; `permalink?`: `string`; `postId?`: `string`; `score?`: `number`; `spam?`: `boolean`; `subredditId?`: `string`; `upvotes?`: `number`; \}
 
 ###### comment.author?
 
@@ -338,7 +348,7 @@
 
 ###### subreddit?
 
-\{ `description`: `string`; `id`: `string`; `name`: `string`; `nsfw`: `boolean`; `permalink`: `string`; `quarantined`: `boolean`; `rating`: `SubredditRating`; `spam`: `boolean`; `subscribersCount`: `number`; `title`: `string`; `topics`: `string`[]; `type`: `SubredditType`; \}
+\{ `description?`: `string`; `id?`: `string`; `name?`: `string`; `nsfw?`: `boolean`; `permalink?`: `string`; `quarantined?`: `boolean`; `rating?`: `SubredditRating`; `spam?`: `boolean`; `subscribersCount?`: `number`; `title?`: `string`; `topics?`: `string`[]; `type?`: `SubredditType`; \}
 
 ###### subreddit.description?
 
@@ -395,6 +405,8 @@
 <a id="tojson"></a>
 
 ### toJSON()
+
+> **toJSON**(`message`): `unknown`
 
 #### Parameters
 

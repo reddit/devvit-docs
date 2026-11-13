@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### duration?
 
-> `optional` **duration**: `number`
+> `optional` **duration?**: `number`
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### note?
 
-> `optional` **note**: `string`
+> `optional` **note?**: `string`
 
 ***
 
@@ -28,7 +28,7 @@
 
 ### reason?
 
-> `optional` **reason**: `string`
+> `optional` **reason?**: `string`
 
 ***
 

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -34,13 +34,13 @@ Nested to avoid shadowing [User.modPermissions](User.md#modpermissions), which s
 
 #### authorFlairCssClass?
 
-> `optional` **authorFlairCssClass**: `string`
+> `optional` **authorFlairCssClass?**: `string`
 
 User flair CSS class in the subreddit.
 
 #### authorFlairText?
 
-> `optional` **authorFlairText**: `string`
+> `optional` **authorFlairText?**: `string`
 
 User flair text in the subreddit.
 
@@ -472,11 +472,19 @@ A Listing of Post objects.
 
 ### getSnoovatarUrl()
 
-> **getSnoovatarUrl**(): `Promise`\<`undefined` \| `string`\>
+> **getSnoovatarUrl**(): `Promise`\<`string` \| `undefined`\>
+
+Gets this user's public Snoovatar image URL.
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
+
+The image URL, or `undefined` if this user has no Snoovatar image.
+
+#### Throws
+
+If the account is unavailable or the lookup fails.
 
 #### Inherited from
 
@@ -534,7 +542,7 @@ A Promise that resolves to an array of Trophy objects.
 
 ### getUserFlairBySubreddit()
 
-> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+> **getUserFlairBySubreddit**(`subreddit`): `Promise`\<[`UserFlair`](../type-aliases/UserFlair.md) \| `undefined`\>
 
 Retrieve the user's flair for the subreddit.
 
@@ -548,7 +556,7 @@ The name of the subreddit associated with the user's flair.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`UserFlair`](../type-aliases/UserFlair.md)\>
+`Promise`\<[`UserFlair`](../type-aliases/UserFlair.md) \| `undefined`\>
 
 #### Example
 
@@ -591,11 +599,11 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for comments a
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object` & `Pick`\<`SubredditModeratorUser`, `"date"` \| `"moderatorInfo"`\>
+> **toJSON**(): `Pick`\<[`User`](User.md), `"id"` \| `"nsfw"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditModeratorUser`, `"date"` \| `"moderatorInfo"`\>
 
 #### Returns
 
-`Pick`\<[`User`](User.md), `"id"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"` \| `"nsfw"`\> & `object` & `Pick`\<`SubredditModeratorUser`, `"date"` \| `"moderatorInfo"`\>
+`Pick`\<[`User`](User.md), `"id"` \| `"nsfw"` \| `"username"` \| `"createdAt"` \| `"linkKarma"` \| `"commentKarma"`\> & `object` & `Pick`\<`SubredditModeratorUser`, `"date"` \| `"moderatorInfo"`\>
 
 #### Overrides
 

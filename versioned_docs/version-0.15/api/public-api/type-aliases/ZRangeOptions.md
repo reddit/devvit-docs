@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### limit?
 
-> `optional` **limit**: `object`
+> `optional` **limit?**: `object`
 
 #### count
 
@@ -36,7 +36,7 @@
 
 ### reverse?
 
-> `optional` **reverse**: `boolean`
+> `optional` **reverse?**: `boolean`
 
 Reverses the sorted set, with index 0 as the element with the highest
 score.

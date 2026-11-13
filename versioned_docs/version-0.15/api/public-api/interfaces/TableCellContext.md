@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -18,7 +18,9 @@ ImageContainer
 
 ## Extends
 
-- [`TextContainer`](../type-aliases/TextContainer.md)\<`TableCellContext`\>.[`LinkContainer`](../type-aliases/LinkContainer.md)\<`TableCellContext`\>.[`ImageContainer`](../type-aliases/ImageContainer.md)\<`TableCellContext`\>
+- [`TextContainer`](../type-aliases/TextContainer.md)\<`TableCellContext`\>
+- [`LinkContainer`](../type-aliases/LinkContainer.md)\<`TableCellContext`\>
+- [`ImageContainer`](../type-aliases/ImageContainer.md)\<`TableCellContext`\>
 
 ## Methods
 
@@ -44,7 +46,7 @@ Append an Animated Image
 
 #### Inherited from
 
-[`ImageContainer`](../type-aliases/ImageContainer.md).[`animatedImage`](../type-aliases/ImageContainer.md#animatedimage)
+`ImageContainer.animatedImage`
 
 ***
 
@@ -96,7 +98,7 @@ Append an Image
 
 #### Inherited from
 
-[`ImageContainer`](../type-aliases/ImageContainer.md).[`image`](../type-aliases/ImageContainer.md#image)
+`ImageContainer.image`
 
 ***
 
@@ -200,7 +202,7 @@ Append Text with optional formatting
 
 #### Inherited from
 
-[`TextContainer`](../type-aliases/TextContainer.md).[`text`](../type-aliases/TextContainer.md#text)
+`TextContainer.text`
 
 ***
 
