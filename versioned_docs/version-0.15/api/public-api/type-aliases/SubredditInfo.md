@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ A class representing information about a Subreddit.
 
 ### activeCount?
 
-> `optional` **activeCount**: `number`
+> `optional` **activeCount?**: `number`
 
 ***
 
@@ -22,7 +22,7 @@ A class representing information about a Subreddit.
 
 ### allAllowedPostTypes?
 
-> `optional` **allAllowedPostTypes**: [`PostType`](PostType.md)[]
+> `optional` **allAllowedPostTypes?**: [`PostType`](PostType.md)[]
 
 ***
 
@@ -30,7 +30,7 @@ A class representing information about a Subreddit.
 
 ### allowedMediaInComments?
 
-> `optional` **allowedMediaInComments**: [`CommentMediaTypes`](CommentMediaTypes.md)[]
+> `optional` **allowedMediaInComments?**: [`CommentMediaTypes`](CommentMediaTypes.md)[]
 
 ***
 
@@ -38,7 +38,7 @@ A class representing information about a Subreddit.
 
 ### allowedPostCapabilities?
 
-> `optional` **allowedPostCapabilities**: [`PostCapabilities`](PostCapabilities.md)[]
+> `optional` **allowedPostCapabilities?**: [`PostCapabilities`](PostCapabilities.md)[]
 
 ***
 
@@ -46,7 +46,7 @@ A class representing information about a Subreddit.
 
 ### authorFlairSettings?
 
-> `optional` **authorFlairSettings**: [`AuthorFlairSettings`](../classes/AuthorFlairSettings.md)
+> `optional` **authorFlairSettings?**: [`AuthorFlairSettings`](../classes/AuthorFlairSettings.md)
 
 ***
 
@@ -54,7 +54,7 @@ A class representing information about a Subreddit.
 
 ### createdAt?
 
-> `optional` **createdAt**: `Date`
+> `optional` **createdAt?**: `Date`
 
 ***
 
@@ -62,7 +62,7 @@ A class representing information about a Subreddit.
 
 ### description?
 
-> `optional` **description**: [`SubredditDescription`](../classes/SubredditDescription.md)
+> `optional` **description?**: [`SubredditDescription`](../classes/SubredditDescription.md)
 
 ***
 
@@ -70,7 +70,7 @@ A class representing information about a Subreddit.
 
 ### detectedLanguage?
 
-> `optional` **detectedLanguage**: `string`
+> `optional` **detectedLanguage?**: `string`
 
 ***
 
@@ -78,7 +78,7 @@ A class representing information about a Subreddit.
 
 ### id?
 
-> `optional` **id**: `T5`
+> `optional` **id?**: `T5`
 
 ***
 
@@ -86,7 +86,7 @@ A class representing information about a Subreddit.
 
 ### isArchivePostsEnabled?
 
-> `optional` **isArchivePostsEnabled**: `boolean`
+> `optional` **isArchivePostsEnabled?**: `boolean`
 
 ***
 
@@ -94,7 +94,7 @@ A class representing information about a Subreddit.
 
 ### isChatPostCreationAllowed?
 
-> `optional` **isChatPostCreationAllowed**: `boolean`
+> `optional` **isChatPostCreationAllowed?**: `boolean`
 
 ***
 
@@ -102,7 +102,7 @@ A class representing information about a Subreddit.
 
 ### isChatPostFeatureEnabled?
 
-> `optional` **isChatPostFeatureEnabled**: `boolean`
+> `optional` **isChatPostFeatureEnabled?**: `boolean`
 
 ***
 
@@ -110,7 +110,7 @@ A class representing information about a Subreddit.
 
 ### isCommentingRestricted?
 
-> `optional` **isCommentingRestricted**: `boolean`
+> `optional` **isCommentingRestricted?**: `boolean`
 
 ***
 
@@ -118,7 +118,7 @@ A class representing information about a Subreddit.
 
 ### isCrosspostingAllowed?
 
-> `optional` **isCrosspostingAllowed**: `boolean`
+> `optional` **isCrosspostingAllowed?**: `boolean`
 
 ***
 
@@ -126,7 +126,7 @@ A class representing information about a Subreddit.
 
 ### isDiscoveryAllowed?
 
-> `optional` **isDiscoveryAllowed**: `boolean`
+> `optional` **isDiscoveryAllowed?**: `boolean`
 
 ***
 
@@ -134,7 +134,7 @@ A class representing information about a Subreddit.
 
 ### isEmojisEnabled?
 
-> `optional` **isEmojisEnabled**: `boolean`
+> `optional` **isEmojisEnabled?**: `boolean`
 
 ***
 
@@ -142,7 +142,7 @@ A class representing information about a Subreddit.
 
 ### isNsfw?
 
-> `optional` **isNsfw**: `boolean`
+> `optional` **isNsfw?**: `boolean`
 
 ***
 
@@ -150,7 +150,7 @@ A class representing information about a Subreddit.
 
 ### isPostingRestricted?
 
-> `optional` **isPostingRestricted**: `boolean`
+> `optional` **isPostingRestricted?**: `boolean`
 
 ***
 
@@ -158,7 +158,7 @@ A class representing information about a Subreddit.
 
 ### isPredictionAllowed?
 
-> `optional` **isPredictionAllowed**: `boolean`
+> `optional` **isPredictionAllowed?**: `boolean`
 
 ***
 
@@ -166,7 +166,7 @@ A class representing information about a Subreddit.
 
 ### isPredictionContributorsAllowed?
 
-> `optional` **isPredictionContributorsAllowed**: `boolean`
+> `optional` **isPredictionContributorsAllowed?**: `boolean`
 
 ***
 
@@ -174,7 +174,7 @@ A class representing information about a Subreddit.
 
 ### isPredictionsTournamentAllowed?
 
-> `optional` **isPredictionsTournamentAllowed**: `boolean`
+> `optional` **isPredictionsTournamentAllowed?**: `boolean`
 
 ***
 
@@ -182,7 +182,7 @@ A class representing information about a Subreddit.
 
 ### isQuarantined?
 
-> `optional` **isQuarantined**: `boolean`
+> `optional` **isQuarantined?**: `boolean`
 
 ***
 
@@ -190,7 +190,7 @@ A class representing information about a Subreddit.
 
 ### isSpoilerAvailable?
 
-> `optional` **isSpoilerAvailable**: `boolean`
+> `optional` **isSpoilerAvailable?**: `boolean`
 
 ***
 
@@ -198,7 +198,7 @@ A class representing information about a Subreddit.
 
 ### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 ***
 
@@ -206,7 +206,7 @@ A class representing information about a Subreddit.
 
 ### postFlairSettings?
 
-> `optional` **postFlairSettings**: [`PostFlairSettings`](../classes/PostFlairSettings.md)
+> `optional` **postFlairSettings?**: [`PostFlairSettings`](../classes/PostFlairSettings.md)
 
 ***
 
@@ -214,7 +214,7 @@ A class representing information about a Subreddit.
 
 ### subscribersCount?
 
-> `optional` **subscribersCount**: `number`
+> `optional` **subscribersCount?**: `number`
 
 ***
 
@@ -222,7 +222,7 @@ A class representing information about a Subreddit.
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
 ***
 
@@ -230,7 +230,7 @@ A class representing information about a Subreddit.
 
 ### type?
 
-> `optional` **type**: [`SubredditType`](SubredditType.md)
+> `optional` **type?**: [`SubredditType`](SubredditType.md)
 
 ***
 
@@ -238,4 +238,4 @@ A class representing information about a Subreddit.
 
 ### wikiSettings?
 
-> `optional` **wikiSettings**: [`SubredditWikiSettings`](../classes/SubredditWikiSettings.md)
+> `optional` **wikiSettings?**: [`SubredditWikiSettings`](../classes/SubredditWikiSettings.md)

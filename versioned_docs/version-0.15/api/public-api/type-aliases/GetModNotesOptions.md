@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ Options for retrieving a user's moderation notes from a subreddit.
 
 ### before?
 
-> `optional` **before**: `string`
+> `optional` **before?**: `string`
 
 The pagination cursor before which results should be returned.
 
@@ -24,7 +24,7 @@ The pagination cursor before which results should be returned.
 
 ### filter?
 
-> `optional` **filter**: [`ModNoteType`](ModNoteType.md)
+> `optional` **filter?**: [`ModNoteType`](ModNoteType.md)
 
 The type of moderation notes to return. Defaults to all types.
 
@@ -34,7 +34,7 @@ The type of moderation notes to return. Defaults to all types.
 
 ### limit?
 
-> `optional` **limit**: `number`
+> `optional` **limit?**: `number`
 
 The maximum total number of moderation notes to return.
 

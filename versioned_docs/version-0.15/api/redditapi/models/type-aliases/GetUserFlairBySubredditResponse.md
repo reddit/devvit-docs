@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### next?
 
-> `optional` **next**: `string`
+> `optional` **next?**: `string`
 
 The user id of the last user flair in this slice. Its presence indicates
 that there are more items that can be fetched. Pass this into the "after" parameter
@@ -24,7 +24,7 @@ in the next call to get the next slice of data
 
 ### prev?
 
-> `optional` **prev**: `string`
+> `optional` **prev?**: `string`
 
 The user id of the first user flair in this slice. Its presence indicates
 that there are items before this item that can be fetched. Pass this into the "before" parameter

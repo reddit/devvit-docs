@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -22,35 +22,35 @@ Type of the action
 
 ### author?
 
-> `optional` **author**: `object`
+> `optional` **author?**: `object`
 
 Action author
 
 #### id?
 
-> `optional` **id**: `number`
+> `optional` **id?**: `number`
 
 User id
 
 #### isAdmin?
 
-> `optional` **isAdmin**: `boolean`
+> `optional` **isAdmin?**: `boolean`
 
 #### isDeleted?
 
-> `optional` **isDeleted**: `boolean`
+> `optional` **isDeleted?**: `boolean`
 
 #### isHidden?
 
-> `optional` **isHidden**: `boolean`
+> `optional` **isHidden?**: `boolean`
 
 #### isMod?
 
-> `optional` **isMod**: `boolean`
+> `optional` **isMod?**: `boolean`
 
 #### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 User name
 
@@ -60,7 +60,7 @@ User name
 
 ### date?
 
-> `optional` **date**: `string`
+> `optional` **date?**: `string`
 
 When the action happened
 
@@ -70,6 +70,6 @@ When the action happened
 
 ### id?
 
-> `optional` **id**: `string`
+> `optional` **id?**: `string`
 
 Action id

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ Conversation participant
 
 ### id?
 
-> `optional` **id**: `T2`
+> `optional` **id?**: `T2`
 
 ***
 
@@ -22,7 +22,7 @@ Conversation participant
 
 ### isAdmin?
 
-> `optional` **isAdmin**: `boolean`
+> `optional` **isAdmin?**: `boolean`
 
 ***
 
@@ -30,7 +30,7 @@ Conversation participant
 
 ### isApproved?
 
-> `optional` **isApproved**: `boolean`
+> `optional` **isApproved?**: `boolean`
 
 ***
 
@@ -38,7 +38,7 @@ Conversation participant
 
 ### isDeleted?
 
-> `optional` **isDeleted**: `boolean`
+> `optional` **isDeleted?**: `boolean`
 
 ***
 
@@ -46,7 +46,7 @@ Conversation participant
 
 ### isHidden?
 
-> `optional` **isHidden**: `boolean`
+> `optional` **isHidden?**: `boolean`
 
 ***
 
@@ -54,7 +54,7 @@ Conversation participant
 
 ### isMod?
 
-> `optional` **isMod**: `boolean`
+> `optional` **isMod?**: `boolean`
 
 ***
 
@@ -62,7 +62,7 @@ Conversation participant
 
 ### isOp?
 
-> `optional` **isOp**: `boolean`
+> `optional` **isOp?**: `boolean`
 
 ***
 
@@ -70,7 +70,7 @@ Conversation participant
 
 ### isParticipant?
 
-> `optional` **isParticipant**: `boolean`
+> `optional` **isParticipant?**: `boolean`
 
 ***
 
@@ -78,4 +78,4 @@ Conversation participant
 
 ### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`

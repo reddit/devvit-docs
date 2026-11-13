@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### keep?
 
-> `optional` **keep**: `boolean`
+> `optional` **keep?**: `boolean`
 
 Whether the post or comment remains visible while it is in the moderation
 queue. Defaults to `false`.
@@ -23,7 +23,7 @@ queue. Defaults to `false`.
 
 ### reason?
 
-> `optional` **reason**: `string`
+> `optional` **reason?**: `string`
 
 The reason shown to moderators in the moderation queue. If [keep](#keep) is
 `true`, the reason is also shown on the post or comment.

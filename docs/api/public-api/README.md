@@ -1,8 +1,8 @@
-**@devvit/public-api v0.15.4-dev**
+**@devvit/public-api v0.15.5-dev**
 
 ***
 
-# @devvit/public-api v0.15.4-dev
+# @devvit/public-api v0.15.5-dev
 
 ## Namespaces
 

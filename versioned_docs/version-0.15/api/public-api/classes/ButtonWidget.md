@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 <a id="constructor"></a>
 
-### new ButtonWidget()
+### Constructor
 
 > **new ButtonWidget**(`widgetData`, `subredditName`): `ButtonWidget`
 
@@ -152,11 +152,11 @@
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`ButtonWidget`, `"description"` \| `"styles"` \| `"buttons"`\>
+> **toJSON**(): `Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`ButtonWidget`, `"description"` \| `"buttons"` \| `"styles"`\>
 
 #### Returns
 
-`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`ButtonWidget`, `"description"` \| `"styles"` \| `"buttons"`\>
+`Pick`\<[`Widget`](Widget.md), `"subredditName"` \| `"id"` \| `"name"`\> & `Pick`\<`ButtonWidget`, `"description"` \| `"buttons"` \| `"styles"`\>
 
 #### Overrides
 

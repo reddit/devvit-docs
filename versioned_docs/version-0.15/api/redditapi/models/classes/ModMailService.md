@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -152,7 +152,7 @@ subreddit name
 
 ###### to?
 
-`null` \| `string`
+`string` \| `null`
 
 a user (e.g. u/username), a subreddit (e.g. r/subreddit) or null
 
@@ -433,13 +433,13 @@ const arrayOfConversations = Object.values(conversations);
 
 ### getSubreddits()
 
-> **getSubreddits**(): `Promise`\<\{\}\>
+> **getSubreddits**(): `Promise`\<\{\[`key`: `string`\]: [`SubredditData`](../type-aliases/SubredditData.md); \}\>
 
 Returns a list of Subreddits that the user moderates with mail permission
 
 #### Returns
 
-`Promise`\<\{\}\>
+`Promise`\<\{\[`key`: `string`\]: [`SubredditData`](../type-aliases/SubredditData.md); \}\>
 
 #### Example
 
@@ -483,7 +483,9 @@ console.log(response.new);
 
 > **getUserConversations**(`conversationId`): `Promise`\<[`ConversationUserData`](../type-aliases/ConversationUserData.md)\>
 
-Returns recent posts, comments and modmail conversations for a given user.
+Returns account and moderation information for the user participant of a modmail
+conversation, including their recent posts, comments, and modmail conversations
+in the same subreddit.
 
 #### Parameters
 
@@ -491,11 +493,15 @@ Returns recent posts, comments and modmail conversations for a given user.
 
 `string`
 
-Id of a modmail conversation
+ID of a modmail conversation with a user participant.
 
 #### Returns
 
 `Promise`\<[`ConversationUserData`](../type-aliases/ConversationUserData.md)\>
+
+#### Throws
+
+If the conversation does not have a user participant.
 
 #### Example
 

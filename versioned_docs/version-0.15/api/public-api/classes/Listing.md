@@ -1,10 +1,12 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
 # Class: Listing\<T\>
 
 ## Type Parameters
+
+<a id="t"></a>
 
 ### T
 
@@ -14,7 +16,7 @@
 
 <a id="constructor"></a>
 
-### new Listing()
+### Constructor
 
 > **new Listing**\<`T`\>(): `Listing`\<`T`\>
 
@@ -126,7 +128,7 @@
 
 ##### more
 
-`undefined` | [`MoreObject`](../type-aliases/MoreObject.md)
+[`MoreObject`](../type-aliases/MoreObject.md) \| `undefined`
 
 #### Returns
 

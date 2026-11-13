@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.4-dev**](../README.md)
+[**@devvit/public-api v0.15.5-dev**](../README.md)
 
 ***
 
@@ -490,9 +490,17 @@ A Listing of Post objects.
 
 > **getSnoovatarUrl**(): `Promise`\<`string` \| `undefined`\>
 
+Gets this user's public Snoovatar image URL.
+
 #### Returns
 
 `Promise`\<`string` \| `undefined`\>
+
+The image URL, or `undefined` if this user has no Snoovatar image.
+
+#### Throws
+
+If the account is unavailable or the lookup fails.
 
 #### Inherited from
 

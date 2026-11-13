@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../../../../README.md)
+[**@devvit/public-api v0.15.4-dev**](../../../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### author?
 
-> `optional` **author**: `UserV2`
+> `optional` **author?**: `UserV2`
 
 ***
 
@@ -26,7 +26,7 @@
 
 ### createdAt?
 
-> `optional` **createdAt**: `Date`
+> `optional` **createdAt?**: `Date`
 
 ***
 
@@ -34,7 +34,7 @@
 
 ### deletedAt?
 
-> `optional` **deletedAt**: `Date`
+> `optional` **deletedAt?**: `Date`
 
 ***
 
@@ -74,4 +74,4 @@
 
 ### subreddit?
 
-> `optional` **subreddit**: `SubredditV2`
+> `optional` **subreddit?**: `SubredditV2`
