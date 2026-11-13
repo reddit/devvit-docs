@@ -1738,7 +1738,11 @@ The username of the snoovatar to retrieve
 
 `Promise`\<`string` \| `undefined`\>
 
-A Promise that resolves to a URL of the snoovatar image if it exists.
+The image URL, or `undefined` if the user has no Snoovatar image.
+
+#### Throws
+
+If the account is unavailable or the lookup fails.
 
 ***
 
