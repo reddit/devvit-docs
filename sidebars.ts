@@ -220,6 +220,7 @@ const sidebars: SidebarsConfig = {
             "capabilities/server/launch_screen_and_entry_points/launch_overview",
             "capabilities/server/launch_screen_and_entry_points/view_modes_entry_points",
             "capabilities/server/launch_screen_and_entry_points/launch_screen_customization",
+            "capabilities/server/launch_screen_and_entry_points/direct-launch-games",
           ],
         },
       ],
