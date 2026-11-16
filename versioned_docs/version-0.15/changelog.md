@@ -14,6 +14,7 @@ To use the latest version of Devvit:
 **Release Date: November 16, 2026**   
 
 **Direct Launch is here!**  
+
 Make it easier for players to jump straight into your game with Direct Launch(LINK). Games can now open directly in expanded mode when launched from supported discovery surfaces, including Daily Games, Featured, Play Again, and Category placements. This is currently supported for iOS and Android, with web support coming soon!  
 
 Direct Launch requires Devvit CLI 0.14.6 or later, with 0.15.3 or later recommended.  You’ll need to make sure your game supports expanded mode before enabling it.  
