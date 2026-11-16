@@ -9,7 +9,31 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
-## Release 0.15.3: TypeScript Compatibility & API Fixes
+## Release 0.15.04: Direct Launch & Deeper Insights 
+
+**Release Date: November 16, 2026**   
+
+**Direct Launch is here!**  
+Make it easier for players to jump straight into your game with Direct Launch(LINK). Games can now open directly in expanded mode when launched from supported discovery surfaces, including Daily Games, Featured, Play Again, and Category placements. This is currently supported for iOS and Android, with web support coming soon!  
+
+Direct Launch requires Devvit CLI 0.14.6 or later, with 0.15.3 or later recommended.  You’ll need to make sure your game supports expanded mode before enabling it.  
+
+**Devvit Journeys Progress Funnel**
+
+Get a clearer picture of how players move through your app with the new Progress Funnel in Devvit Journeys analytics.  The funnel shows you how many Journeys reach each progress milestone and where users drop off, helping you identify friction points and opportunities to improve engagement with your app.
+
+**Mod Fix Permissions**  
+
+Added a new Fix mod permissions button in the Developer Portal's App Permissions section. You can now restore an app account's moderator permissions directly from the Portal if they become misconfigured.
+
+**CLI Requirement Update**. 
+
+New app versions must now be uploaded using Devvit CLI 0.13.9 or later. Upgrade your CLI before publishing a new version of your app.
+
+
+## Release 0.15.3: TypeScript Compatibility & API Fixes 
+
+**Release Date: November 9, 2026** 
 
 This release includes several API fixes, a performance improvement, and expanded TypeScript compatibility.
 
