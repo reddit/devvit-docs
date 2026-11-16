@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### appeals?
 
-> `optional` **appeals**: `number`
+> `optional` **appeals?**: `number`
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### archived?
 
-> `optional` **archived**: `number`
+> `optional` **archived?**: `number`
 
 ***
 
@@ -28,7 +28,7 @@
 
 ### filtered?
 
-> `optional` **filtered**: `number`
+> `optional` **filtered?**: `number`
 
 ***
 
@@ -36,7 +36,7 @@
 
 ### highlighted?
 
-> `optional` **highlighted**: `number`
+> `optional` **highlighted?**: `number`
 
 ***
 
@@ -44,7 +44,7 @@
 
 ### inprogress?
 
-> `optional` **inprogress**: `number`
+> `optional` **inprogress?**: `number`
 
 ***
 
@@ -52,7 +52,7 @@
 
 ### joinRequests?
 
-> `optional` **joinRequests**: `number`
+> `optional` **joinRequests?**: `number`
 
 ***
 
@@ -60,7 +60,7 @@
 
 ### mod?
 
-> `optional` **mod**: `number`
+> `optional` **mod?**: `number`
 
 ***
 
@@ -68,7 +68,7 @@
 
 ### new?
 
-> `optional` **new**: `number`
+> `optional` **new?**: `number`
 
 ***
 
@@ -76,4 +76,4 @@
 
 ### notifications?
 
-> `optional` **notifications**: `number`
+> `optional` **notifications?**: `number`

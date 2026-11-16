@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -34,7 +34,13 @@ TableContainer
 
 ## Extends
 
-- [`BlockQuoteContainer`](../type-aliases/BlockQuoteContainer.md)\<`ListItemContext`\>.[`CodeBlockContainer`](../type-aliases/CodeBlockContainer.md)\<`ListItemContext`\>.[`HeadingContainer`](../type-aliases/HeadingContainer.md)\<`ListItemContext`\>.[`HorizontalRuleContainer`](../type-aliases/HorizontalRuleContainer.md)\<`ListItemContext`\>.[`ListContainer`](../type-aliases/ListContainer.md)\<`ListItemContext`\>.[`ParagraphContainer`](../type-aliases/ParagraphContainer.md)\<`ListItemContext`\>.[`TableContainer`](../type-aliases/TableContainer.md)\<`ListItemContext`\>
+- [`BlockQuoteContainer`](../type-aliases/BlockQuoteContainer.md)\<`ListItemContext`\>
+- [`CodeBlockContainer`](../type-aliases/CodeBlockContainer.md)\<`ListItemContext`\>
+- [`HeadingContainer`](../type-aliases/HeadingContainer.md)\<`ListItemContext`\>
+- [`HorizontalRuleContainer`](../type-aliases/HorizontalRuleContainer.md)\<`ListItemContext`\>
+- [`ListContainer`](../type-aliases/ListContainer.md)\<`ListItemContext`\>
+- [`ParagraphContainer`](../type-aliases/ParagraphContainer.md)\<`ListItemContext`\>
+- [`TableContainer`](../type-aliases/TableContainer.md)\<`ListItemContext`\>
 
 ## Methods
 
@@ -64,7 +70,7 @@ scoped callback to add child elements to this Block Quote
 
 #### Inherited from
 
-[`BlockQuoteContainer`](../type-aliases/BlockQuoteContainer.md).[`blockQuote`](../type-aliases/BlockQuoteContainer.md#blockquote)
+`BlockQuoteContainer.blockQuote`
 
 ***
 
@@ -96,7 +102,7 @@ scoped callback to add child elements to this Code Block
 
 #### Inherited from
 
-[`CodeBlockContainer`](../type-aliases/CodeBlockContainer.md).[`codeBlock`](../type-aliases/CodeBlockContainer.md#codeblock)
+`CodeBlockContainer.codeBlock`
 
 ***
 
@@ -128,7 +134,7 @@ scoped callback to add child elements to this Heading
 
 #### Inherited from
 
-[`HeadingContainer`](../type-aliases/HeadingContainer.md).[`heading`](../type-aliases/HeadingContainer.md#heading)
+`HeadingContainer.heading`
 
 ***
 
@@ -146,7 +152,7 @@ Append a Horizontal Rule
 
 #### Inherited from
 
-[`HorizontalRuleContainer`](../type-aliases/HorizontalRuleContainer.md).[`horizontalRule`](../type-aliases/HorizontalRuleContainer.md#horizontalrule)
+`HorizontalRuleContainer.horizontalRule`
 
 ***
 
@@ -178,7 +184,7 @@ scoped callback to add child elements to this List
 
 #### Inherited from
 
-[`ListContainer`](../type-aliases/ListContainer.md).[`list`](../type-aliases/ListContainer.md#list)
+`ListContainer.list`
 
 ***
 
@@ -204,7 +210,7 @@ scoped callback to add child elements to this Paragraph
 
 #### Inherited from
 
-[`ParagraphContainer`](../type-aliases/ParagraphContainer.md).[`paragraph`](../type-aliases/ParagraphContainer.md#paragraph)
+`ParagraphContainer.paragraph`
 
 ***
 
@@ -230,4 +236,4 @@ scoped callback to add child elements to this Table
 
 #### Inherited from
 
-[`TableContainer`](../type-aliases/TableContainer.md).[`table`](../type-aliases/TableContainer.md#table)
+`TableContainer.table`

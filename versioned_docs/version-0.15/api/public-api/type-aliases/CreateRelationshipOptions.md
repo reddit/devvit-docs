@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### banContext?
 
-> `optional` **banContext**: `string`
+> `optional` **banContext?**: `string`
 
 The ID of the post or comment that caused the ban.
 
@@ -22,7 +22,7 @@ The ID of the post or comment that caused the ban.
 
 ### banMessage?
 
-> `optional` **banMessage**: `string`
+> `optional` **banMessage?**: `string`
 
 ***
 
@@ -30,7 +30,7 @@ The ID of the post or comment that caused the ban.
 
 ### banReason?
 
-> `optional` **banReason**: `string`
+> `optional` **banReason?**: `string`
 
 ***
 
@@ -38,7 +38,7 @@ The ID of the post or comment that caused the ban.
 
 ### duration?
 
-> `optional` **duration**: `number`
+> `optional` **duration?**: `number`
 
 ***
 
@@ -46,7 +46,7 @@ The ID of the post or comment that caused the ban.
 
 ### note?
 
-> `optional` **note**: `string`
+> `optional` **note?**: `string`
 
 ***
 
@@ -54,7 +54,7 @@ The ID of the post or comment that caused the ban.
 
 ### permissions?
 
-> `optional` **permissions**: [`ModeratorPermission`](ModeratorPermission.md)[]
+> `optional` **permissions?**: [`ModeratorPermission`](ModeratorPermission.md)[]
 
 ***
 

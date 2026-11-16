@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,10 +6,10 @@
 
 > **SetCustomPostTextFallbackOptions** = [`CustomPostTextFallbackOptions`](CustomPostTextFallbackOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### runAs?
 
-> `optional` **runAs**: `"USER"` \| `"APP"`
+> `optional` **runAs?**: `"USER"` \| `"APP"`
 
 The identity used to update the custom Post.

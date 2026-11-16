@@ -1,8 +1,8 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
-# Type Alias: FormFunction()\<T\>
+# Type Alias: FormFunction\<T\>
 
 > **FormFunction**\<`T`\> = (`data`) => [`Form`](Form.md)
 
@@ -10,9 +10,11 @@ A function that returns a form. You can use this to dynamically generate a form.
 
 ## Type Parameters
 
+<a id="t"></a>
+
 ### T
 
-`T` *extends* `object` = \{\}
+`T` *extends* `object` = \{\[`key`: `string`\]: `any`; \}
 
 ## Parameters
 

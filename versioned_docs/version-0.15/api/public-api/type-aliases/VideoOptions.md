@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,17 +6,17 @@
 
 > **VideoOptions** = [`MediaOptions`](MediaOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### convertToGif?
 
-> `optional` **convertToGif**: `boolean`
+> `optional` **convertToGif?**: `boolean`
 
 Whether the video should be converted to a looping GIF
 
 ### thumbnail?
 
-> `optional` **thumbnail**: [`Image`](Image.md)
+> `optional` **thumbnail?**: [`Image`](Image.md)
 
 An [Image](Image.md) element to use as the thumbnail before the video has loaded
 

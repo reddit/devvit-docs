@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### a?
 
-> `optional` **a**: [`ColumnAlignment`](ColumnAlignment.md)
+> `optional` **a?**: [`ColumnAlignment`](ColumnAlignment.md)
 
 ***
 
@@ -20,4 +20,4 @@
 
 ### c?
 
-> `optional` **c**: [`TableCellText`](TableCellText.md)[]
+> `optional` **c?**: [`TableCellText`](TableCellText.md)[]

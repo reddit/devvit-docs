@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### note?
 
-> `optional` **note**: `string`
+> `optional` **note?**: `string`
 
 A mod note on why the user was muted. (optional)
 

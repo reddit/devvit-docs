@@ -1,8 +1,8 @@
-[**@devvit/public-api v0.15.3-dev**](../../../../README.md)
+[**@devvit/public-api v0.15.4-dev**](../../../../README.md)
 
 ***
 
-# Type Alias: ~~Context~~
+# ~~Type Alias: Context~~
 
 > **Context** = [`ContextAPIClients`](../../../../type-aliases/ContextAPIClients.md) & [`BaseContext`](../../../../type-aliases/BaseContext.md)
 

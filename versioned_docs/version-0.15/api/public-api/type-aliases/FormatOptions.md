@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### bold?
 
-> `optional` **bold**: `boolean`
+> `optional` **bold?**: `boolean`
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### italic?
 
-> `optional` **italic**: `boolean`
+> `optional` **italic?**: `boolean`
 
 ***
 
@@ -38,7 +38,7 @@ Number of characters from the startIndex to receive this formatting
 
 ### monospace?
 
-> `optional` **monospace**: `boolean`
+> `optional` **monospace?**: `boolean`
 
 ***
 
@@ -56,7 +56,7 @@ Starting index to receive this formatting
 
 ### strikethrough?
 
-> `optional` **strikethrough**: `boolean`
+> `optional` **strikethrough?**: `boolean`
 
 ***
 
@@ -64,7 +64,7 @@ Starting index to receive this formatting
 
 ### subscript?
 
-> `optional` **subscript**: `boolean`
+> `optional` **subscript?**: `boolean`
 
 ***
 
@@ -72,7 +72,7 @@ Starting index to receive this formatting
 
 ### superscript?
 
-> `optional` **superscript**: `boolean`
+> `optional` **superscript?**: `boolean`
 
 ***
 
@@ -80,4 +80,4 @@ Starting index to receive this formatting
 
 ### underline?
 
-> `optional` **underline**: `boolean`
+> `optional` **underline?**: `boolean`

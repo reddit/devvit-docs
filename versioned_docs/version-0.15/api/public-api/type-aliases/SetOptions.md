@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### expiration?
 
-> `optional` **expiration**: `Date`
+> `optional` **expiration?**: `Date`
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### nx?
 
-> `optional` **nx**: `boolean`
+> `optional` **nx?**: `boolean`
 
 Only set the key if it does not already exist.
 
@@ -30,6 +30,6 @@ Only set the key if it does not already exist.
 
 ### xx?
 
-> `optional` **xx**: `boolean`
+> `optional` **xx?**: `boolean`
 
 Only set the key if it already exists.

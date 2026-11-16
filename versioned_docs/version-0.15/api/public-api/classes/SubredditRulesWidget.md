@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 <a id="constructor"></a>
 
-### new SubredditRulesWidget()
+### Constructor
 
 > **new SubredditRulesWidget**(`subredditAboutRulesRsp`, `widgetData`, `subredditName`): `SubredditRulesWidget`
 

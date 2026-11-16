@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### commentId?
 
-> `optional` **commentId**: `T1`
+> `optional` **commentId?**: `T1`
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### depth?
 
-> `optional` **depth**: `number`
+> `optional` **depth?**: `number`
 
 ***
 
@@ -28,7 +28,7 @@
 
 ### limit?
 
-> `optional` **limit**: `number`
+> `optional` **limit?**: `number`
 
 ***
 
@@ -36,7 +36,7 @@
 
 ### pageSize?
 
-> `optional` **pageSize**: `number`
+> `optional` **pageSize?**: `number`
 
 ***
 
@@ -52,4 +52,4 @@
 
 ### sort?
 
-> `optional` **sort**: [`CommentSort`](CommentSort.md)
+> `optional` **sort?**: [`CommentSort`](CommentSort.md)

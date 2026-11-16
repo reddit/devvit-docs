@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -20,7 +20,7 @@ When the action took place.
 
 ### description?
 
-> `optional` **description**: `string`
+> `optional` **description?**: `string`
 
 The string "Page modmail-stats edited: Daily update of the
 modmail-stats (Wed Jul 02 2025 08:05:47 UTC+0200 (Europe/Amsterdam))" is
@@ -33,7 +33,7 @@ the "description".
 
 ### details?
 
-> `optional` **details**: `string`
+> `optional` **details?**: `string`
 
 The string "Page modmail-stats edited: Daily update of the
 modmail-stats (Wed Jul 02 2025 08:05:47 UTC+0200 (Europe/Amsterdam))" is
@@ -96,7 +96,7 @@ The name of the subreddit the action took place.
 
 ### target?
 
-> `optional` **target**: [`ModActionTarget`](../type-aliases/ModActionTarget.md)
+> `optional` **target?**: [`ModActionTarget`](../type-aliases/ModActionTarget.md)
 
 Some context of the affected item of the modaction.
 

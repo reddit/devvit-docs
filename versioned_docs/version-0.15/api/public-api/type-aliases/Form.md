@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### acceptLabel?
 
-> `optional` **acceptLabel**: `string`
+> `optional` **acceptLabel?**: `string`
 
 An optional label for the submit button
 
@@ -22,7 +22,7 @@ An optional label for the submit button
 
 ### cancelLabel?
 
-> `optional` **cancelLabel**: `string`
+> `optional` **cancelLabel?**: `string`
 
 An optional label for the cancel button
 
@@ -32,7 +32,7 @@ An optional label for the cancel button
 
 ### description?
 
-> `optional` **description**: `string`
+> `optional` **description?**: `string`
 
 An optional description for the form
 
@@ -52,6 +52,6 @@ The fields that will be displayed in the form
 
 ### title?
 
-> `optional` **title**: `string`
+> `optional` **title?**: `string`
 
 An optional title for the form

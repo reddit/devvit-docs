@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### after?
 
-> `optional` **after**: `string`
+> `optional` **after?**: `string`
 
 modmail conversation id
 
@@ -22,7 +22,7 @@ modmail conversation id
 
 ### limit?
 
-> `optional` **limit**: `number`
+> `optional` **limit?**: `number`
 
 an integer between 1 and 100 (default: 25)
 
@@ -32,7 +32,7 @@ an integer between 1 and 100 (default: 25)
 
 ### sort?
 
-> `optional` **sort**: `"recent"` \| `"mod"` \| `"user"` \| `"unread"`
+> `optional` **sort?**: `"recent"` \| `"mod"` \| `"user"` \| `"unread"`
 
 Sort by:
 - `recent` - Order by whenever anyone last updated the conversation, mod or participant
@@ -46,7 +46,7 @@ Sort by:
 
 ### state?
 
-> `optional` **state**: [`ConversationStateFilter`](ConversationStateFilter.md)
+> `optional` **state?**: [`ConversationStateFilter`](ConversationStateFilter.md)
 
 Filter by conversation state
 
@@ -59,6 +59,6 @@ For example, a conversation may be both 'highlighted' and 'inprogress'.
 
 ### subreddits?
 
-> `optional` **subreddits**: `string`[]
+> `optional` **subreddits?**: `string`[]
 
 array of subreddit names

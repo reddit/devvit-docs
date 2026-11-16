@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### label?
 
-> `optional` **label**: [`UserNoteLabel`](UserNoteLabel.md)
+> `optional` **label?**: [`UserNoteLabel`](UserNoteLabel.md)
 
 ***
 
@@ -20,7 +20,7 @@
 
 ### note?
 
-> `optional` **note**: `string`
+> `optional` **note?**: `string`
 
 ***
 
@@ -28,4 +28,4 @@
 
 ### redditId?
 
-> `optional` **redditId**: `T1` \| `T3` \| `T5`
+> `optional` **redditId?**: `T1` \| `T3` \| `T5`

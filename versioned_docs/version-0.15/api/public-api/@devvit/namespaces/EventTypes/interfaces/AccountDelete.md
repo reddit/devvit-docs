@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../../../../README.md)
+[**@devvit/public-api v0.15.4-dev**](../../../../README.md)
 
 ***
 
@@ -10,7 +10,7 @@
 
 ### deletedAt?
 
-> `optional` **deletedAt**: `Date`
+> `optional` **deletedAt?**: `Date`
 
 ***
 
@@ -18,7 +18,7 @@
 
 ### user?
 
-> `optional` **user**: `UserV2`
+> `optional` **user?**: `UserV2`
 
 ***
 

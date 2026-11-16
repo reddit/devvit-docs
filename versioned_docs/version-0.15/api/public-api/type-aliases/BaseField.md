@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 > **BaseField**\<`ValueType`\> = `object`
 
 ## Type Parameters
+
+<a id="valuetype"></a>
 
 ### ValueType
 
@@ -18,7 +20,7 @@
 
 ### defaultValue?
 
-> `optional` **defaultValue**: `ValueType`
+> `optional` **defaultValue?**: `ValueType`
 
 The default value of the field
 
@@ -28,7 +30,7 @@ The default value of the field
 
 ### disabled?
 
-> `optional` **disabled**: `boolean`
+> `optional` **disabled?**: `boolean`
 
 If true the field will be disabled
 
@@ -38,7 +40,7 @@ If true the field will be disabled
 
 ### helpText?
 
-> `optional` **helpText**: `string`
+> `optional` **helpText?**: `string`
 
 An optional help text that will be displayed below the field
 
@@ -69,7 +71,7 @@ when the form is submitted.
 
 ### required?
 
-> `optional` **required**: `boolean`
+> `optional` **required?**: `boolean`
 
 If true the field will be required and the user will not be able to submit
 the form without filling it in.
@@ -80,7 +82,7 @@ the form without filling it in.
 
 ### scope?
 
-> `optional` **scope**: [`SettingScopeType`](SettingScopeType.md)
+> `optional` **scope?**: [`SettingScopeType`](SettingScopeType.md)
 
 This indicates whether the field (setting) is an app level or install level
 setting. App setting values can be used by any installation.

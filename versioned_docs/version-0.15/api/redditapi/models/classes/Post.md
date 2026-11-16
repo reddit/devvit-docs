@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -63,13 +63,13 @@ Whether the post is archived.
 
 #### Get Signature
 
-> **get** **authorFlair**(): `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+> **get** **authorFlair**(): [`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
 The author's subreddit flair, or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+[`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
 ***
 
@@ -79,13 +79,13 @@ The author's subreddit flair, or `undefined` when unavailable.
 
 #### Get Signature
 
-> **get** **authorId**(): `undefined` \| `` `t2_${string}` ``
+> **get** **authorId**(): `` `t2_${string}` `` \| `undefined`
 
 The creator's account identifier, or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| `` `t2_${string}` ``
+`` `t2_${string}` `` \| `undefined`
 
 ***
 
@@ -130,13 +130,13 @@ Convert a nonzero value to a `Date` with
 
 #### Get Signature
 
-> **get** **body**(): `undefined` \| `string`
+> **get** **body**(): `string` \| `undefined`
 
 The post body in Markdown. `undefined` if absent.
 
 ##### Returns
 
-`undefined` \| `string`
+`string` \| `undefined`
 
 ***
 
@@ -146,13 +146,13 @@ The post body in Markdown. `undefined` if absent.
 
 #### Get Signature
 
-> **get** **bodyHtml**(): `undefined` \| `string`
+> **get** **bodyHtml**(): `string` \| `undefined`
 
 The post body rendered as HTML, or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| `string`
+`string` \| `undefined`
 
 ***
 
@@ -201,14 +201,14 @@ The date when the post was created.
 
 #### Get Signature
 
-> **get** **crosspostParentId**(): `undefined` \| `` `t3_${string}` ``
+> **get** **crosspostParentId**(): `` `t3_${string}` `` \| `undefined`
 
 The original post's identifier when this post is a crosspost. `undefined`
 if not a crosspost or parent is unavailable.
 
 ##### Returns
 
-`undefined` \| `` `t3_${string}` ``
+`` `t3_${string}` `` \| `undefined`
 
 ***
 
@@ -218,7 +218,7 @@ if not a crosspost or parent is unavailable.
 
 #### Get Signature
 
-> **get** **distinguishedBy**(): `undefined` \| `string`
+> **get** **distinguishedBy**(): `string` \| `undefined`
 
 The post's distinction category.
 
@@ -227,7 +227,7 @@ For example, a post distinguished by a moderator or employee returns
 
 ##### Returns
 
-`undefined` \| `string`
+`string` \| `undefined`
 
 ***
 
@@ -253,13 +253,13 @@ Whether the post body has been edited since it was created.
 
 #### Get Signature
 
-> **get** **flair**(): `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+> **get** **flair**(): [`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
 The post flair, or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+[`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
 ***
 
@@ -455,14 +455,14 @@ The post's path relative to `https://www.reddit.com`.
 
 #### Get Signature
 
-> **get** **pollData**(): `undefined` \| [`PollData`](../type-aliases/PollData.md)
+> **get** **pollData**(): [`PollData`](../type-aliases/PollData.md) \| `undefined`
 
 The post's poll options, vote totals, and voting end time. `undefined` if
 the post is not a poll.
 
 ##### Returns
 
-`undefined` \| [`PollData`](../type-aliases/PollData.md)
+[`PollData`](../type-aliases/PollData.md) \| `undefined`
 
 ***
 
@@ -504,14 +504,14 @@ Whether the post has been removed by a moderator.
 
 #### Get Signature
 
-> **get** **removedBy**(): `undefined` \| `string`
+> **get** **removedBy**(): `string` \| `undefined`
 
 The username of the account that removed the post, without the leading
 `u/`, or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| `string`
+`string` \| `undefined`
 
 ***
 
@@ -521,7 +521,7 @@ The username of the account that removed the post, without the leading
 
 #### Get Signature
 
-> **get** **removedByCategory**(): `undefined` \| `string`
+> **get** **removedByCategory**(): `string` \| `undefined`
 
 Identifies who or what removed the post:
 
@@ -538,7 +538,7 @@ Identifies who or what removed the post:
 
 ##### Returns
 
-`undefined` \| `string`
+`string` \| `undefined`
 
 ***
 
@@ -564,7 +564,7 @@ The post's upvotes minus downvotes, or `0` when unavailable.
 
 #### Get Signature
 
-> **get** **secureMedia**(): `undefined` \| [`SecureMedia`](../type-aliases/SecureMedia.md)
+> **get** **secureMedia**(): [`SecureMedia`](../type-aliases/SecureMedia.md) \| `undefined`
 
 Metadata for embedded or Reddit-hosted media, including oEmbed or Reddit
 video data.
@@ -573,7 +573,7 @@ Returns `undefined` when the post has no secure media metadata.
 
 ##### Returns
 
-`undefined` \| [`SecureMedia`](../type-aliases/SecureMedia.md)
+[`SecureMedia`](../type-aliases/SecureMedia.md) \| `undefined`
 
 ***
 
@@ -663,7 +663,7 @@ The owning subreddit's name without the leading `r/`.
 
 #### Get Signature
 
-> **get** **thumbnail**(): `undefined` \| \{ `height`: `number`; `url`: `string`; `width`: `number`; \}
+> **get** **thumbnail**(): \{ `height`: `number`; `url`: `string`; `width`: `number`; \} \| `undefined`
 
 The post's preview thumbnail URL and dimensions in pixels.
 
@@ -672,7 +672,7 @@ placeholder such as `"self"` or `"nsfw"`.
 
 ##### Returns
 
-`undefined` \| \{ `height`: `number`; `url`: `string`; `width`: `number`; \}
+\{ `height`: `number`; `url`: `string`; `width`: `number`; \} \| `undefined`
 
 ***
 
@@ -874,7 +874,7 @@ edited state from the response.
 
 ### filter()
 
-> **filter**(`options`?): `Promise`\<`void`\>
+> **filter**(`options?`): `Promise`\<`void`\>
 
 **`Experimental`**
 
@@ -899,13 +899,13 @@ a reason; when `keep` is `true`, the reason is also shown on the post.
 
 ### getAuthor()
 
-> **getAuthor**(): `Promise`\<`undefined` \| [`User`](User.md)\>
+> **getAuthor**(): `Promise`\<[`User`](User.md) \| `undefined`\>
 
 Fetches the creator's account, or `undefined` if it is unavailable.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](User.md)\>
+`Promise`\<[`User`](User.md) \| `undefined`\>
 
 ***
 
@@ -913,7 +913,7 @@ Fetches the creator's account, or `undefined` if it is unavailable.
 
 ### getCurrentUserPollOption()
 
-> **getCurrentUserPollOption**(): `Promise`\<`undefined` \| [`PollOption`](../type-aliases/PollOption.md)\>
+> **getCurrentUserPollOption**(): `Promise`\<[`PollOption`](../type-aliases/PollOption.md) \| `undefined`\>
 
 Get the poll option the authenticated user selected for this post.
 Returns undefined if the post is not a poll or the user has not voted.
@@ -923,7 +923,7 @@ To get the poll option for a user, please contact Reddit.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`PollOption`](../type-aliases/PollOption.md)\>
+`Promise`\<[`PollOption`](../type-aliases/PollOption.md) \| `undefined`\>
 
 ***
 
@@ -947,13 +947,13 @@ Get the custom styles for a custom post.
 
 ### getDuplicates()
 
-> **getDuplicates**(`opts`): [`Listing`](Listing.md)\<`Post`\>
+> **getDuplicates**(`opts?`): [`Listing`](Listing.md)\<`Post`\>
 
 A listing of other posts that reference the same URL.
 
 #### Parameters
 
-##### opts
+##### opts?
 
 `Omit`\<[`GetDuplicatesOptions`](../type-aliases/GetDuplicatesOptions.md), `"postId"`\> = `{}`
 
@@ -973,7 +973,7 @@ const duplicates = await post.getDuplicates().get(25);
 
 ### getEnrichedThumbnail()
 
-> **getEnrichedThumbnail**(): `Promise`\<`undefined` \| [`EnrichedThumbnail`](../type-aliases/EnrichedThumbnail.md)\>
+> **getEnrichedThumbnail**(): `Promise`\<[`EnrichedThumbnail`](../type-aliases/EnrichedThumbnail.md) \| `undefined`\>
 
 Get a thumbnail that contains a preview image and also contains a blurred preview for
 NSFW images. The thumbnail returned has higher resolution than Post.thumbnail.
@@ -981,7 +981,7 @@ Returns undefined if the post doesn't have a thumbnail
 
 #### Returns
 
-`Promise`\<`undefined` \| [`EnrichedThumbnail`](../type-aliases/EnrichedThumbnail.md)\>
+`Promise`\<[`EnrichedThumbnail`](../type-aliases/EnrichedThumbnail.md) \| `undefined`\>
 
 #### Throws
 
@@ -1001,13 +1001,13 @@ const enrichedThumbnail = await post.getEnrichedThumbnail();
 
 ### getPostData()
 
-> **getPostData**(): `Promise`\<`undefined` \| `JsonObject`\>
+> **getPostData**(): `Promise`\<`JsonObject` \| `undefined`\>
 
 Get the post data for the custom post.
 
 #### Returns
 
-`Promise`\<`undefined` \| `JsonObject`\>
+`Promise`\<`JsonObject` \| `undefined`\>
 
 #### Example
 
@@ -1036,7 +1036,7 @@ Hides the post from the app account and updates this instance.
 
 ### highlight()
 
-> **highlight**(`options`?): `Promise`\<`void`\>
+> **highlight**(`options?`): `Promise`\<`void`\>
 
 Adds this post to its subreddit's community highlights, or updates its
 highlight settings if it is already highlighted.
@@ -1113,13 +1113,13 @@ The post's archived state.
 
 ### isDistinguishedBy()
 
-> **isDistinguishedBy**(): `undefined` \| `string`
+> **isDistinguishedBy**(): `string` \| `undefined`
 
 The post's distinction category.
 
 #### Returns
 
-`undefined` \| `string`
+`string` \| `undefined`
 
 ***
 
@@ -1369,13 +1369,13 @@ await post.mergePostData({ settings: { fontSize: 14 } });
 
 ### remove()
 
-> **remove**(`isSpam`): `Promise`\<`void`\>
+> **remove**(`isSpam?`): `Promise`\<`void`\>
 
 Removes the post and updates this instance's moderation state.
 
 #### Parameters
 
-##### isSpam
+##### isSpam?
 
 `boolean` = `false`
 
@@ -1404,7 +1404,7 @@ removes all custom styles.
 
 ##### styles
 
-`undefined` | `CustomPostStylesInput`
+`CustomPostStylesInput` \| `undefined`
 
 #### Returns
 
@@ -1546,7 +1546,7 @@ The report reason to snooze.
 
 ### sticky()
 
-> **sticky**(`position`?): `Promise`\<`void`\>
+> **sticky**(`position?`): `Promise`\<`void`\>
 
 Pins the post in a sticky slot.
 
@@ -1554,11 +1554,11 @@ Pins the post in a sticky slot.
 
 ##### position?
 
+`1` \| `2` \| `3` \| `4`
+
 The sticky slot. If omitted, the bottom-most available
 slot is used. Use 1 or 2 for subreddit posts. 3 and 4 are reserved for
 profile pins.
-
-`1` | `2` | `3` | `4`
 
 #### Returns
 
@@ -1570,13 +1570,13 @@ profile pins.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Post`, `"flair"` \| `"spoiler"` \| `"id"` \| `"subredditName"` \| `"body"` \| `"permalink"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"url"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
+> **toJSON**(): `Pick`\<`Post`, `"id"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"subredditName"` \| `"permalink"` \| `"title"` \| `"body"` \| `"bodyHtml"` \| `"url"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"createdAt"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"nsfw"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"flair"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
 JSON representation of public fields.
 
 #### Returns
 
-`Pick`\<`Post`, `"flair"` \| `"spoiler"` \| `"id"` \| `"subredditName"` \| `"body"` \| `"permalink"` \| `"title"` \| `"createdAt"` \| `"nsfw"` \| `"url"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"bodyHtml"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"quarantined"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
+`Pick`\<`Post`, `"id"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"subredditName"` \| `"permalink"` \| `"title"` \| `"body"` \| `"bodyHtml"` \| `"url"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"createdAt"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"nsfw"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"flair"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
 ***
 

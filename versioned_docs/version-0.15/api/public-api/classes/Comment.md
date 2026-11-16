@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 <a id="constructor"></a>
 
-### new Comment()
+### Constructor
 
 > **new Comment**(): `Comment`
 
@@ -59,13 +59,13 @@ nonzero value to a `Date` with `new Date(comment.approvedAtUtc * 1000)`.
 
 #### Get Signature
 
-> **get** **authorFlair**(): `undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+> **get** **authorFlair**(): [`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
 The author's subreddit flair, or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| [`CommonFlair`](../type-aliases/CommonFlair.md)
+[`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
 ***
 
@@ -75,13 +75,13 @@ The author's subreddit flair, or `undefined` when unavailable.
 
 #### Get Signature
 
-> **get** **authorId**(): `undefined` \| `` `t2_${string}` ``
+> **get** **authorId**(): `` `t2_${string}` `` \| `undefined`
 
 The creator's account identifier or `undefined` when unavailable.
 
 ##### Returns
 
-`undefined` \| `` `t2_${string}` ``
+`` `t2_${string}` `` \| `undefined`
 
 ***
 
@@ -181,7 +181,7 @@ The date when the comment was created.
 
 #### Get Signature
 
-> **get** **distinguishedBy**(): `undefined` \| `string`
+> **get** **distinguishedBy**(): `string` \| `undefined`
 
 The comment's distinction category.
 
@@ -191,7 +191,7 @@ available.
 
 ##### Returns
 
-`undefined` \| `string`
+`string` \| `undefined`
 
 ***
 
@@ -575,7 +575,7 @@ The `runAs` option is ignored when editing a comment.
 
 ### distinguish()
 
-> **distinguish**(`makeSticky`?): `Promise`\<`void`\>
+> **distinguish**(`makeSticky?`): `Promise`\<`void`\>
 
 Distinguishes the comment as a moderator and updates this instance.
 
@@ -597,7 +597,7 @@ Whether to pin the comment to the top of its thread.
 
 ### distinguishAsAdmin()
 
-> **distinguishAsAdmin**(`makeSticky`?): `Promise`\<`void`\>
+> **distinguishAsAdmin**(`makeSticky?`): `Promise`\<`void`\>
 
 Distinguishes the comment as an employee and updates this instance.
 
@@ -642,7 +642,7 @@ The `runAs` option is ignored when editing a comment.
 
 ### filter()
 
-> **filter**(`options`?): `Promise`\<`void`\>
+> **filter**(`options?`): `Promise`\<`void`\>
 
 **`Experimental`**
 
@@ -667,13 +667,13 @@ is also shown on the comment.
 
 ### getAuthor()
 
-> **getAuthor**(): `Promise`\<`undefined` \| [`User`](User.md)\>
+> **getAuthor**(): `Promise`\<[`User`](User.md) \| `undefined`\>
 
 Fetches the author's account, or `undefined` if it is unavailable.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](User.md)\>
+`Promise`\<[`User`](User.md) \| `undefined`\>
 
 ***
 
@@ -821,7 +821,7 @@ Disables new replies and updates this instance's locked state.
 
 ### remove()
 
-> **remove**(`isSpam`?): `Promise`\<`void`\>
+> **remove**(`isSpam?`): `Promise`\<`void`\>
 
 Removes the comment and updates this instance's moderation state.
 
@@ -901,13 +901,13 @@ The report reason to snooze.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`Comment`, `"postId"` \| `"subredditName"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+> **toJSON**(): `Pick`\<`Comment`, `"id"` \| `"authorName"` \| `"subredditId"` \| `"subredditName"` \| `"body"` \| `"createdAt"` \| `"parentId"` \| `"postId"` \| `"replies"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"`\>
 
 Returns the public fields included when the comment is serialized.
 
 #### Returns
 
-`Pick`\<`Comment`, `"postId"` \| `"subredditName"` \| `"id"` \| `"subredditId"` \| `"permalink"` \| `"url"` \| `"createdAt"` \| `"authorName"` \| `"body"` \| `"score"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"edited"` \| `"locked"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"authorFlair"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"parentId"` \| `"replies"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"`\>
+`Pick`\<`Comment`, `"id"` \| `"authorName"` \| `"subredditId"` \| `"subredditName"` \| `"body"` \| `"createdAt"` \| `"parentId"` \| `"postId"` \| `"replies"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"`\>
 
 ***
 

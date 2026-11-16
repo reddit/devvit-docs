@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -24,7 +24,7 @@ The fields that will be displayed in the group
 
 ### helpText?
 
-> `optional` **helpText**: `string`
+> `optional` **helpText?**: `string`
 
 An optional help text that will be displayed below the group
 
@@ -44,7 +44,7 @@ The label of the group that will be displayed to the user
 
 ### required?
 
-> `optional` **required**: `never`
+> `optional` **required?**: `never`
 
 ***
 

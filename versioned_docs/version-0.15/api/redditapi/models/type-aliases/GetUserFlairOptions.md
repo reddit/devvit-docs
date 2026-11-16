@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **GetUserFlairOptions** = [`UserFlairPageOptions`](UserFlairPageOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### usernames?
 
-> `optional` **usernames**: `string`[]
+> `optional` **usernames?**: `string`[]
 
 If provide the method will return the flairs for the provided users, if not provided
 it will return a list of all users assigned flairs in the subreddit

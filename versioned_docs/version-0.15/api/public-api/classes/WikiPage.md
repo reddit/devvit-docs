@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 <a id="constructor"></a>
 
-### new WikiPage()
+### Constructor
 
 > **new WikiPage**(): `WikiPage`
 
@@ -72,7 +72,7 @@ The name of the page.
 
 #### Get Signature
 
-> **get** **revisionAuthor**(): `undefined` \| [`User`](User.md)
+> **get** **revisionAuthor**(): [`User`](User.md) \| `undefined`
 
 The author of this revision.
 
@@ -82,7 +82,7 @@ Use revisionAuthorId instead.
 
 ##### Returns
 
-`undefined` \| [`User`](User.md)
+[`User`](User.md) \| `undefined`
 
 ***
 
@@ -92,13 +92,13 @@ Use revisionAuthorId instead.
 
 #### Get Signature
 
-> **get** **revisionAuthorId**(): `undefined` \| `` `t2_${string}` ``
+> **get** **revisionAuthorId**(): `` `t2_${string}` `` \| `undefined`
 
 The ID of the author of this revision.
 
 ##### Returns
 
-`undefined` \| `` `t2_${string}` ``
+`` `t2_${string}` `` \| `undefined`
 
 ***
 
@@ -280,11 +280,11 @@ Revert this page to a previous revision.
 
 ### toJSON()
 
-> **toJSON**(): `Pick`\<`WikiPage`, `"subredditName"` \| `"name"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
+> **toJSON**(): `Pick`\<`WikiPage`, `"subredditName"` \| `"name"` \| `"revisionId"` \| `"content"` \| `"contentHtml"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
 
 #### Returns
 
-`Pick`\<`WikiPage`, `"subredditName"` \| `"name"` \| `"content"` \| `"contentHtml"` \| `"revisionId"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
+`Pick`\<`WikiPage`, `"subredditName"` \| `"name"` \| `"revisionId"` \| `"content"` \| `"contentHtml"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
 
 ***
 
@@ -292,7 +292,7 @@ Revert this page to a previous revision.
 
 ### update()
 
-> **update**(`content`, `reason`?): `Promise`\<`WikiPage`\>
+> **update**(`content`, `reason?`): `Promise`\<`WikiPage`\>
 
 Update this page.
 

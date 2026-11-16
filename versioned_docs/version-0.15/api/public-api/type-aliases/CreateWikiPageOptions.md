@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **CreateWikiPageOptions** = [`WikiVersionOptions`](WikiVersionOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### content
 
@@ -22,7 +22,7 @@ The name of the page to create.
 
 ### reason?
 
-> `optional` **reason**: `string`
+> `optional` **reason?**: `string`
 
 The reason for creating the page.
 

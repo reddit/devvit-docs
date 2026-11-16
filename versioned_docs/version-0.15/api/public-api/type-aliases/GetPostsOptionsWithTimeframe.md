@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,8 +6,8 @@
 
 > **GetPostsOptionsWithTimeframe** = [`GetPostsOptions`](GetPostsOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### timeframe?
 
-> `optional` **timeframe**: `"hour"` \| `"day"` \| `"week"` \| `"month"` \| `"year"` \| `"all"`
+> `optional` **timeframe?**: `"hour"` \| `"day"` \| `"week"` \| `"month"` \| `"year"` \| `"all"`

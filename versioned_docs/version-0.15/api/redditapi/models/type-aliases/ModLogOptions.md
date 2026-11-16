@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -7,6 +7,8 @@
 > **ModLogOptions**\<`T`\> = `Omit`\<`AboutSubredditHelperOptions`\<`T`\>, `"location"`\>
 
 ## Type Parameters
+
+<a id="t"></a>
 
 ### T
 

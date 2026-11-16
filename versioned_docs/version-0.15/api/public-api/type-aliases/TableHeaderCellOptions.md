@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,6 +12,6 @@
 
 ### columnAlignment?
 
-> `optional` **columnAlignment**: `"left"` \| `"right"` \| `"center"`
+> `optional` **columnAlignment?**: `"left"` \| `"right"` \| `"center"`
 
 Text alignment for the entire column

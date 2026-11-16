@@ -6,7 +6,6 @@ Approved in-app catalog assets are used for Reddit discovery and promotional pla
 
 ![snake pit example](../../assets/assets-in-app-snake-pit.png)
 
-
 ## Best practices
 
 You’ll want to use assets that provide an accurate and engaging sense of what users can expect from your app.

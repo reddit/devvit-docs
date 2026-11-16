@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -14,7 +14,7 @@ Options for highlighting a post.
 
 ### highlightLabelType?
 
-> `optional` **highlightLabelType**: [`HighlightLabelType`](HighlightLabelType.md)
+> `optional` **highlightLabelType?**: [`HighlightLabelType`](HighlightLabelType.md)
 
 Label displayed alongside the highlighted post.
 
@@ -24,6 +24,6 @@ Label displayed alongside the highlighted post.
 
 ### highlightUntil?
 
-> `optional` **highlightUntil**: `Date`
+> `optional` **highlightUntil?**: `Date`
 
 When the highlight expires. If omitted, it remains until explicitly removed.

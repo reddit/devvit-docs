@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 > **UpdateWikiPageOptions** = [`WikiVersionOptions`](WikiVersionOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### content
 
@@ -22,7 +22,7 @@ The name of the page to update.
 
 ### reason?
 
-> `optional` **reason**: `string`
+> `optional` **reason?**: `string`
 
 The reason for updating the page.
 

@@ -1,8 +1,8 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
-# Class: RedditAPIClient
+# Interface: RedditAPIClient
 
 The Reddit API Client
 
@@ -31,23 +31,7 @@ async (event, context) => {
 
 ## Extends
 
-- [`RedditClient`](RedditClient.md)
-
-## Constructors
-
-<a id="constructor"></a>
-
-### new RedditAPIClient()
-
-> **new RedditAPIClient**(): `RedditAPIClient`
-
-#### Returns
-
-`RedditAPIClient`
-
-#### Inherited from
-
-[`RedditClient`](RedditClient.md).[`constructor`](RedditClient.md#constructor)
+- [`RedditClient`](../classes/RedditClient.md)
 
 ## Accessors
 
@@ -57,7 +41,7 @@ async (event, context) => {
 
 #### Get Signature
 
-> **get** **modMail**(): [`ModMailService`](ModMailService.md)
+> **get** **modMail**(): [`ModMailService`](../classes/ModMailService.md)
 
 Get ModMail API object
 
@@ -72,11 +56,11 @@ await reddit.modMail.reply({
 
 ##### Returns
 
-[`ModMailService`](ModMailService.md)
+[`ModMailService`](../classes/ModMailService.md)
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`modMail`](RedditClient.md#modmail)
+[`RedditClient`](../classes/RedditClient.md).[`modMail`](../classes/RedditClient.md#modmail)
 
 ## Methods
 
@@ -84,7 +68,7 @@ await reddit.modMail.reply({
 
 ### addEditorToWikiPage()
 
-> **addEditorToWikiPage**(`subredditName`, `page`, `username`, `options`?): `Promise`\<`void`\>
+> **addEditorToWikiPage**(`subredditName`, `page`, `username`, `options?`): `Promise`\<`void`\>
 
 Add an editor to a wiki page.
 
@@ -120,7 +104,7 @@ Options for the request.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`addEditorToWikiPage`](RedditClient.md#addeditortowikipage)
+[`RedditClient`](../classes/RedditClient.md).[`addEditorToWikiPage`](../classes/RedditClient.md#addeditortowikipage)
 
 ***
 
@@ -128,7 +112,7 @@ Options for the request.
 
 ### addModNote()
 
-> **addModNote**(`options`): `Promise`\<[`ModNote`](ModNote.md)\>
+> **addModNote**(`options`): `Promise`\<[`ModNote`](../classes/ModNote.md)\>
 
 Adds a moderation note to a user and returns the created note.
 
@@ -140,7 +124,7 @@ Adds a moderation note to a user and returns the created note.
 
 #### Returns
 
-`Promise`\<[`ModNote`](ModNote.md)\>
+`Promise`\<[`ModNote`](../classes/ModNote.md)\>
 
 #### Example
 
@@ -155,7 +139,7 @@ const modNote = await reddit.addModNote({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`addModNote`](RedditClient.md#addmodnote)
+[`RedditClient`](../classes/RedditClient.md).[`addModNote`](../classes/RedditClient.md#addmodnote)
 
 ***
 
@@ -189,7 +173,7 @@ await reddit.addRemovalNote({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`addRemovalNote`](RedditClient.md#addremovalnote)
+[`RedditClient`](../classes/RedditClient.md).[`addRemovalNote`](../classes/RedditClient.md#addremovalnote)
 
 ***
 
@@ -246,7 +230,7 @@ console.log(newReason.id)
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`addSubredditRemovalReason`](RedditClient.md#addsubredditremovalreason)
+[`RedditClient`](../classes/RedditClient.md).[`addSubredditRemovalReason`](../classes/RedditClient.md#addsubredditremovalreason)
 
 ***
 
@@ -254,7 +238,7 @@ console.log(newReason.id)
 
 ### addWidget()
 
-> **addWidget**(`widgetData`): `Promise`\<[`Widget`](Widget.md)\>
+> **addWidget**(`widgetData`): `Promise`\<[`Widget`](../classes/Widget.md)\>
 
 Add a widget to a subreddit.
 
@@ -268,13 +252,13 @@ The data for the widget to add.
 
 #### Returns
 
-`Promise`\<[`Widget`](Widget.md)\>
+`Promise`\<[`Widget`](../classes/Widget.md)\>
 
 - The added Widget object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`addWidget`](RedditClient.md#addwidget)
+[`RedditClient`](../classes/RedditClient.md).[`addWidget`](../classes/RedditClient.md#addwidget)
 
 ***
 
@@ -306,7 +290,7 @@ The name of the subreddit to add the user as a wiki contributor. e.g. 'memes'
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`addWikiContributor`](RedditClient.md#addwikicontributor)
+[`RedditClient`](../classes/RedditClient.md).[`addWikiContributor`](../classes/RedditClient.md#addwikicontributor)
 
 ***
 
@@ -339,7 +323,7 @@ await reddit.approve('t1_123456');
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`approve`](RedditClient.md#approve)
+[`RedditClient`](../classes/RedditClient.md).[`approve`](../classes/RedditClient.md#approve)
 
 ***
 
@@ -371,7 +355,7 @@ The name of the subreddit to approve the user in. e.g. 'memes'
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`approveUser`](RedditClient.md#approveuser)
+[`RedditClient`](../classes/RedditClient.md).[`approveUser`](../classes/RedditClient.md#approveuser)
 
 ***
 
@@ -397,7 +381,7 @@ Options for the request
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`banUser`](RedditClient.md#banuser)
+[`RedditClient`](../classes/RedditClient.md).[`banUser`](../classes/RedditClient.md#banuser)
 
 ***
 
@@ -423,7 +407,7 @@ Options for the request
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`banWikiContributor`](RedditClient.md#banwikicontributor)
+[`RedditClient`](../classes/RedditClient.md).[`banWikiContributor`](../classes/RedditClient.md#banwikicontributor)
 
 ***
 
@@ -431,7 +415,7 @@ Options for the request
 
 ### createPostFlairTemplate()
 
-> **createPostFlairTemplate**(`options`): `Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
+> **createPostFlairTemplate**(`options`): `Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)\>
 
 Create a post flair template for a subreddit.
 
@@ -445,13 +429,13 @@ Options for the request
 
 #### Returns
 
-`Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
+`Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)\>
 
 The created FlairTemplate object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`createPostFlairTemplate`](RedditClient.md#createpostflairtemplate)
+[`RedditClient`](../classes/RedditClient.md).[`createPostFlairTemplate`](../classes/RedditClient.md#createpostflairtemplate)
 
 ***
 
@@ -481,7 +465,7 @@ The name of the subreddit to add the rule to.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`createRule`](RedditClient.md#createrule)
+[`RedditClient`](../classes/RedditClient.md).[`createRule`](../classes/RedditClient.md#createrule)
 
 ***
 
@@ -521,7 +505,7 @@ If the input URL is invalid, contains unsupported query parameters, or the share
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`createShareUrl`](RedditClient.md#createshareurl)
+[`RedditClient`](../classes/RedditClient.md).[`createShareUrl`](../classes/RedditClient.md#createshareurl)
 
 ***
 
@@ -529,7 +513,7 @@ If the input URL is invalid, contains unsupported query parameters, or the share
 
 ### createUserFlairTemplate()
 
-> **createUserFlairTemplate**(`options`): `Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
+> **createUserFlairTemplate**(`options`): `Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)\>
 
 Create a user flair template for a subreddit.
 
@@ -543,13 +527,13 @@ Options for the request
 
 #### Returns
 
-`Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
+`Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)\>
 
 The created FlairTemplate object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`createUserFlairTemplate`](RedditClient.md#createuserflairtemplate)
+[`RedditClient`](../classes/RedditClient.md).[`createUserFlairTemplate`](../classes/RedditClient.md#createuserflairtemplate)
 
 ***
 
@@ -557,7 +541,7 @@ The created FlairTemplate object.
 
 ### createWikiPage()
 
-> **createWikiPage**(`options`): `Promise`\<[`WikiPage`](WikiPage.md)\>
+> **createWikiPage**(`options`): `Promise`\<[`WikiPage`](../classes/WikiPage.md)\>
 
 Create a new wiki page for a subreddit.
 
@@ -571,13 +555,13 @@ Options for the request
 
 #### Returns
 
-`Promise`\<[`WikiPage`](WikiPage.md)\>
+`Promise`\<[`WikiPage`](../classes/WikiPage.md)\>
 
 - The created WikiPage object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`createWikiPage`](RedditClient.md#createwikipage)
+[`RedditClient`](../classes/RedditClient.md).[`createWikiPage`](../classes/RedditClient.md#createwikipage)
 
 ***
 
@@ -585,7 +569,7 @@ Options for the request
 
 ### crosspost()
 
-> **crosspost**(`options`): `Promise`\<[`Post`](Post.md)\>
+> **crosspost**(`options`): `Promise`\<[`Post`](../classes/Post.md)\>
 
 Crossposts a post to a subreddit.
 
@@ -597,18 +581,18 @@ Crossposts a post to a subreddit.
 
 #### Returns
 
-`Promise`\<[`Post`](Post.md)\>
+`Promise`\<[`Post`](../classes/Post.md)\>
 
 - A Promise that resolves to a Post object.
 
 #### See
 
- - [()\|submitPost()](RedditClient.md#submitpost)
- - [()\|submitCustomPost()](RedditClient.md#submitcustompost)
+ - [()\|submitPost()](../classes/RedditClient.md#submitpost)
+ - [()\|submitCustomPost()](../classes/RedditClient.md#submitcustompost)
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`crosspost`](RedditClient.md#crosspost)
+[`RedditClient`](../classes/RedditClient.md).[`crosspost`](../classes/RedditClient.md#crosspost)
 
 ***
 
@@ -640,7 +624,7 @@ The ID of the flair template to delete.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`deleteFlairTemplate`](RedditClient.md#deleteflairtemplate)
+[`RedditClient`](../classes/RedditClient.md).[`deleteFlairTemplate`](../classes/RedditClient.md#deleteflairtemplate)
 
 ***
 
@@ -664,7 +648,7 @@ Deletes a moderation note. Returns true if successful.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`deleteModNote`](RedditClient.md#deletemodnote)
+[`RedditClient`](../classes/RedditClient.md).[`deleteModNote`](../classes/RedditClient.md#deletemodnote)
 
 ***
 
@@ -702,7 +686,7 @@ await reddit.deleteSubredditRemovalReason('askReddit', 'uuid-abc');
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`deleteSubredditRemovalReason`](RedditClient.md#deletesubredditremovalreason)
+[`RedditClient`](../classes/RedditClient.md).[`deleteSubredditRemovalReason`](../classes/RedditClient.md#deletesubredditremovalreason)
 
 ***
 
@@ -734,7 +718,7 @@ The ID of the widget to delete.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`deleteWidget`](RedditClient.md#deletewidget)
+[`RedditClient`](../classes/RedditClient.md).[`deleteWidget`](../classes/RedditClient.md#deletewidget)
 
 ***
 
@@ -742,7 +726,7 @@ The ID of the widget to delete.
 
 ### editFlairTemplate()
 
-> **editFlairTemplate**(`options`): `Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
+> **editFlairTemplate**(`options`): `Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)\>
 
 Edit a flair template for a subreddit. This can be either a post or user flair template.
 Note: If you leave any of the options fields as undefined, they will reset to their default values.
@@ -757,13 +741,13 @@ Options for the request
 
 #### Returns
 
-`Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
+`Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)\>
 
 The edited FlairTemplate object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`editFlairTemplate`](RedditClient.md#editflairtemplate)
+[`RedditClient`](../classes/RedditClient.md).[`editFlairTemplate`](../classes/RedditClient.md#editflairtemplate)
 
 ***
 
@@ -771,7 +755,7 @@ The edited FlairTemplate object.
 
 ### filter()
 
-> **filter**(`id`, `options`?): `Promise`\<`void`\>
+> **filter**(`id`, `options?`): `Promise`\<`void`\>
 
 **`Experimental`**
 
@@ -784,9 +768,9 @@ reason is also shown on the content.
 
 ##### id
 
-The id of the post (t3_) or comment (t1_) to filter.
+`` `t3_${string}` `` \| `` `t1_${string}` ``
 
-`` `t3_${string}` `` | `` `t1_${string}` ``
+The id of the post (t3_) or comment (t1_) to filter.
 
 ##### options?
 
@@ -802,7 +786,7 @@ A Promise that resolves if the post or comment was filtered successfully.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`filter`](RedditClient.md#filter)
+[`RedditClient`](../classes/RedditClient.md).[`filter`](../classes/RedditClient.md#filter)
 
 ***
 
@@ -810,7 +794,7 @@ A Promise that resolves if the post or comment was filtered successfully.
 
 ### getApprovedUsers()
 
-> **getApprovedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditContributorUser`](SubredditContributorUser.md)\>
+> **getApprovedUsers**(`options`): [`Listing`](../classes/Listing.md)\<[`SubredditContributorUser`](../classes/SubredditContributorUser.md)\>
 
 Get a list of users who have been approved to post in a subreddit.
 
@@ -824,13 +808,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`SubredditContributorUser`](SubredditContributorUser.md)\>
+[`Listing`](../classes/Listing.md)\<[`SubredditContributorUser`](../classes/SubredditContributorUser.md)\>
 
 A Listing of SubredditContributorUser objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getApprovedUsers`](RedditClient.md#getapprovedusers)
+[`RedditClient`](../classes/RedditClient.md).[`getApprovedUsers`](../classes/RedditClient.md#getapprovedusers)
 
 ***
 
@@ -838,13 +822,13 @@ A Listing of SubredditContributorUser objects.
 
 ### getAppUser()
 
-> **getAppUser**(): `Promise`\<[`User`](User.md)\>
+> **getAppUser**(): `Promise`\<[`User`](../classes/User.md)\>
 
 Get the user that the app runs as on the provided metadata.
 
 #### Returns
 
-`Promise`\<[`User`](User.md)\>
+`Promise`\<[`User`](../classes/User.md)\>
 
 A Promise that resolves to a User object.
 
@@ -856,7 +840,7 @@ const user = await reddit.getAppUser(metadata);
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getAppUser`](RedditClient.md#getappuser)
+[`RedditClient`](../classes/RedditClient.md).[`getAppUser`](../classes/RedditClient.md#getappuser)
 
 ***
 
@@ -864,7 +848,7 @@ const user = await reddit.getAppUser(metadata);
 
 ### getBannedUsers()
 
-> **getBannedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditBannedUser`](SubredditBannedUser.md)\>
+> **getBannedUsers**(`options`): [`Listing`](../classes/Listing.md)\<[`SubredditBannedUser`](../classes/SubredditBannedUser.md)\>
 
 Get a list of users who are banned from a subreddit.
 
@@ -878,13 +862,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`SubredditBannedUser`](SubredditBannedUser.md)\>
+[`Listing`](../classes/Listing.md)\<[`SubredditBannedUser`](../classes/SubredditBannedUser.md)\>
 
 A Listing of SubredditBannedUser objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getBannedUsers`](RedditClient.md#getbannedusers)
+[`RedditClient`](../classes/RedditClient.md).[`getBannedUsers`](../classes/RedditClient.md#getbannedusers)
 
 ***
 
@@ -892,7 +876,7 @@ A Listing of SubredditBannedUser objects.
 
 ### getBannedWikiContributors()
 
-> **getBannedWikiContributors**(`options`): [`Listing`](Listing.md)\<[`SubredditWikiBannedUser`](SubredditWikiBannedUser.md)\>
+> **getBannedWikiContributors**(`options`): [`Listing`](../classes/Listing.md)\<[`SubredditWikiBannedUser`](../classes/SubredditWikiBannedUser.md)\>
 
 Get a list of users who are banned from contributing to the wiki on a subreddit.
 
@@ -906,13 +890,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`SubredditWikiBannedUser`](SubredditWikiBannedUser.md)\>
+[`Listing`](../classes/Listing.md)\<[`SubredditWikiBannedUser`](../classes/SubredditWikiBannedUser.md)\>
 
 A Listing of SubredditWikiBannedUser objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getBannedWikiContributors`](RedditClient.md#getbannedwikicontributors)
+[`RedditClient`](../classes/RedditClient.md).[`getBannedWikiContributors`](../classes/RedditClient.md#getbannedwikicontributors)
 
 ***
 
@@ -920,7 +904,7 @@ A Listing of SubredditWikiBannedUser objects.
 
 ### getBestPosts()
 
-> **getBestPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getBestPosts**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Get a list of best posts from the front page.
 This method will get the front page for the app account by default.
@@ -936,7 +920,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
@@ -951,7 +935,7 @@ const posts = await reddit.getBestPosts({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getBestPosts`](RedditClient.md#getbestposts)
+[`RedditClient`](../classes/RedditClient.md).[`getBestPosts`](../classes/RedditClient.md#getbestposts)
 
 ***
 
@@ -959,9 +943,9 @@ const posts = await reddit.getBestPosts({
 
 ### getCommentById()
 
-> **getCommentById**(`id`): `Promise`\<[`Comment`](Comment.md)\>
+> **getCommentById**(`id`): `Promise`\<[`Comment`](../classes/Comment.md)\>
 
-Get a [Comment](Comment.md) object by ID
+Get a [Comment](../classes/Comment.md) object by ID
 
 #### Parameters
 
@@ -973,7 +957,7 @@ The ID (starting with t1_) of the comment to retrieve. e.g. t1_1qjpg
 
 #### Returns
 
-`Promise`\<[`Comment`](Comment.md)\>
+`Promise`\<[`Comment`](../classes/Comment.md)\>
 
 A Promise that resolves to a Comment object.
 
@@ -985,7 +969,7 @@ const comment = await reddit.getCommentById('t1_1qjpg');
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getCommentById`](RedditClient.md#getcommentbyid)
+[`RedditClient`](../classes/RedditClient.md).[`getCommentById`](../classes/RedditClient.md#getcommentbyid)
 
 ***
 
@@ -993,7 +977,7 @@ const comment = await reddit.getCommentById('t1_1qjpg');
 
 ### getComments()
 
-> **getComments**(`options`): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+> **getComments**(`options`): [`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 Get a list of comments from a specific post or comment.
 
@@ -1007,7 +991,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 A Listing of Comment objects.
 
@@ -1023,7 +1007,7 @@ const comments = await reddit.getComments({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getComments`](RedditClient.md#getcomments)
+[`RedditClient`](../classes/RedditClient.md).[`getComments`](../classes/RedditClient.md#getcomments)
 
 ***
 
@@ -1031,7 +1015,7 @@ const comments = await reddit.getComments({
 
 ### getCommentsAndPostsByUser()
 
-> **getCommentsAndPostsByUser**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getCommentsAndPostsByUser**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 Get a list of posts and comments from a specific user.
 
@@ -1045,13 +1029,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 A Listing of `Post` and `Comment` objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getCommentsAndPostsByUser`](RedditClient.md#getcommentsandpostsbyuser)
+[`RedditClient`](../classes/RedditClient.md).[`getCommentsAndPostsByUser`](../classes/RedditClient.md#getcommentsandpostsbyuser)
 
 ***
 
@@ -1059,7 +1043,7 @@ A Listing of `Post` and `Comment` objects.
 
 ### getCommentsByUser()
 
-> **getCommentsByUser**(`options`): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+> **getCommentsByUser**(`options`): [`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 Get a list of comments by a specific user.
 
@@ -1073,13 +1057,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 A Listing of Comment objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getCommentsByUser`](RedditClient.md#getcommentsbyuser)
+[`RedditClient`](../classes/RedditClient.md).[`getCommentsByUser`](../classes/RedditClient.md#getcommentsbyuser)
 
 ***
 
@@ -1087,7 +1071,7 @@ A Listing of Comment objects.
 
 ### getControversialPosts()
 
-> **getControversialPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getControversialPosts**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Get a list of controversial posts from a specific subreddit.
 
@@ -1101,7 +1085,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
@@ -1118,7 +1102,7 @@ const posts = await reddit.getControversialPosts({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getControversialPosts`](RedditClient.md#getcontroversialposts)
+[`RedditClient`](../classes/RedditClient.md).[`getControversialPosts`](../classes/RedditClient.md#getcontroversialposts)
 
 ***
 
@@ -1126,13 +1110,13 @@ const posts = await reddit.getControversialPosts({
 
 ### getCurrentSubreddit()
 
-> **getCurrentSubreddit**(): `Promise`\<[`Subreddit`](Subreddit.md)\>
+> **getCurrentSubreddit**(): `Promise`\<[`Subreddit`](../classes/Subreddit.md)\>
 
 Retrieves the current subreddit.
 
 #### Returns
 
-`Promise`\<[`Subreddit`](Subreddit.md)\>
+`Promise`\<[`Subreddit`](../classes/Subreddit.md)\>
 
 A Promise that resolves a Subreddit object.
 
@@ -1144,7 +1128,7 @@ const currentSubreddit = await reddit.getCurrentSubreddit();
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getCurrentSubreddit`](RedditClient.md#getcurrentsubreddit)
+[`RedditClient`](../classes/RedditClient.md).[`getCurrentSubreddit`](../classes/RedditClient.md#getcurrentsubreddit)
 
 ***
 
@@ -1174,14 +1158,14 @@ const currentSubredditName = await reddit.getCurrentSubredditName();
 
 ### getCurrentUser()
 
-> **getCurrentUser**(): `Promise`\<`undefined` \| [`User`](User.md)\>
+> **getCurrentUser**(): `Promise`\<[`User`](../classes/User.md) \| `undefined`\>
 
 Get the current calling user.
 Resolves to undefined for logged-out custom post renders.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](User.md)\>
+`Promise`\<[`User`](../classes/User.md) \| `undefined`\>
 
 A Promise that resolves to a User object or undefined
 
@@ -1193,7 +1177,7 @@ const user = await reddit.getCurrentUser();
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getCurrentUser`](RedditClient.md#getcurrentuser)
+[`RedditClient`](../classes/RedditClient.md).[`getCurrentUser`](../classes/RedditClient.md#getcurrentuser)
 
 ***
 
@@ -1201,14 +1185,14 @@ const user = await reddit.getCurrentUser();
 
 ### getCurrentUsername()
 
-> **getCurrentUsername**(): `Promise`\<`undefined` \| `string`\>
+> **getCurrentUsername**(): `Promise`\<`string` \| `undefined`\>
 
 Get the current calling user's username.
 Resolves to undefined for logged-out custom post renders.
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
 
 A Promise that resolves to a string representing the username or undefined
 
@@ -1220,7 +1204,7 @@ const username = await reddit.getCurrentUsername();
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getCurrentUsername`](RedditClient.md#getcurrentusername)
+[`RedditClient`](../classes/RedditClient.md).[`getCurrentUsername`](../classes/RedditClient.md#getcurrentusername)
 
 ***
 
@@ -1228,7 +1212,7 @@ const username = await reddit.getCurrentUsername();
 
 ### getDuplicatesForPost()
 
-> **getDuplicatesForPost**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getDuplicatesForPost**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Get posts that shared the same link as the given post.
 
@@ -1242,7 +1226,7 @@ Options for the request. Post ID is required, eveything else is optional.
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
@@ -1258,7 +1242,7 @@ const duplicates = await reddit.getDuplicatesForPost({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getDuplicatesForPost`](RedditClient.md#getduplicatesforpost)
+[`RedditClient`](../classes/RedditClient.md).[`getDuplicatesForPost`](../classes/RedditClient.md#getduplicatesforpost)
 
 ***
 
@@ -1268,7 +1252,7 @@ const duplicates = await reddit.getDuplicatesForPost({
 
 #### Call Signature
 
-> **getEdited**(`options`): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+> **getEdited**(`options`): [`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 Return a listing of things that have been edited recently.
 
@@ -1280,7 +1264,7 @@ Return a listing of things that have been edited recently.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -1294,11 +1278,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getEdited`](RedditClient.md#getedited)
+[`RedditClient`](../classes/RedditClient.md).[`getEdited`](../classes/RedditClient.md#getedited)
 
 #### Call Signature
 
-> **getEdited**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getEdited**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Return a listing of things that have been edited recently.
 
@@ -1310,7 +1294,7 @@ Return a listing of things that have been edited recently.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 ##### Example
 
@@ -1324,11 +1308,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getEdited`](RedditClient.md#getedited)
+[`RedditClient`](../classes/RedditClient.md).[`getEdited`](../classes/RedditClient.md#getedited)
 
 #### Call Signature
 
-> **getEdited**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getEdited**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 Return a listing of things that have been edited recently.
 
@@ -1340,7 +1324,7 @@ Return a listing of things that have been edited recently.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -1354,7 +1338,7 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getEdited`](RedditClient.md#getedited)
+[`RedditClient`](../classes/RedditClient.md).[`getEdited`](../classes/RedditClient.md#getedited)
 
 ***
 
@@ -1362,7 +1346,7 @@ console.log("Posts: ", await listing.all())
 
 ### getHotPosts()
 
-> **getHotPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getHotPosts**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Get a list of hot posts from a specific subreddit.
 
@@ -1376,7 +1360,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
@@ -1393,7 +1377,7 @@ const posts = await reddit.getHotPosts({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getHotPosts`](RedditClient.md#gethotposts)
+[`RedditClient`](../classes/RedditClient.md).[`getHotPosts`](../classes/RedditClient.md#gethotposts)
 
 ***
 
@@ -1401,7 +1385,7 @@ const posts = await reddit.getHotPosts({
 
 ### getMessages()
 
-> **getMessages**(`options`): `Promise`\<[`Listing`](Listing.md)\<[`PrivateMessage`](PrivateMessage.md)\>\>
+> **getMessages**(`options`): `Promise`\<[`Listing`](../classes/Listing.md)\<[`PrivateMessage`](../classes/PrivateMessage.md)\>\>
 
 Get private messages sent to the currently authenticated user.
 
@@ -1409,17 +1393,17 @@ Get private messages sent to the currently authenticated user.
 
 ##### options
 
-`Prettify`
+[`GetPrivateMessagesOptions`](../type-aliases/GetPrivateMessagesOptions.md)
 
 Options for the request
 
 #### Returns
 
-`Promise`\<[`Listing`](Listing.md)\<[`PrivateMessage`](PrivateMessage.md)\>\>
+`Promise`\<[`Listing`](../classes/Listing.md)\<[`PrivateMessage`](../classes/PrivateMessage.md)\>\>
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getMessages`](RedditClient.md#getmessages)
+[`RedditClient`](../classes/RedditClient.md).[`getMessages`](../classes/RedditClient.md#getmessages)
 
 ***
 
@@ -1427,7 +1411,7 @@ Options for the request
 
 ### getModerationLog()
 
-> **getModerationLog**(`options`): [`Listing`](Listing.md)\<[`ModAction`](../interfaces/ModAction.md)\>
+> **getModerationLog**(`options`): [`Listing`](../classes/Listing.md)\<[`ModAction`](ModAction.md)\>
 
 Get the moderation log for a subreddit.
 
@@ -1441,7 +1425,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`ModAction`](../interfaces/ModAction.md)\>
+[`Listing`](../classes/Listing.md)\<[`ModAction`](ModAction.md)\>
 
 A Listing of ModAction objects.
 
@@ -1459,7 +1443,7 @@ const modActions = await reddit.getModerationLog({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getModerationLog`](RedditClient.md#getmoderationlog)
+[`RedditClient`](../classes/RedditClient.md).[`getModerationLog`](../classes/RedditClient.md#getmoderationlog)
 
 ***
 
@@ -1467,7 +1451,7 @@ const modActions = await reddit.getModerationLog({
 
 ### getModerators()
 
-> **getModerators**(`options`): [`Listing`](Listing.md)\<[`SubredditModeratorUser`](SubredditModeratorUser.md)\>
+> **getModerators**(`options`): [`Listing`](../classes/Listing.md)\<[`SubredditModeratorUser`](../classes/SubredditModeratorUser.md)\>
 
 Get a list of users who are moderators for a subreddit.
 
@@ -1481,13 +1465,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`SubredditModeratorUser`](SubredditModeratorUser.md)\>
+[`Listing`](../classes/Listing.md)\<[`SubredditModeratorUser`](../classes/SubredditModeratorUser.md)\>
 
 A Listing of SubredditModeratorUser objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getModerators`](RedditClient.md#getmoderators)
+[`RedditClient`](../classes/RedditClient.md).[`getModerators`](../classes/RedditClient.md#getmoderators)
 
 ***
 
@@ -1495,7 +1479,7 @@ A Listing of SubredditModeratorUser objects.
 
 ### getModNotes()
 
-> **getModNotes**(`options`): [`Listing`](Listing.md)\<[`ModNote`](ModNote.md)\>
+> **getModNotes**(`options`): [`Listing`](../classes/Listing.md)\<[`ModNote`](../classes/ModNote.md)\>
 
 Get a user's moderation notes within a subreddit.
 
@@ -1507,7 +1491,7 @@ Get a user's moderation notes within a subreddit.
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`ModNote`](ModNote.md)\>
+[`Listing`](../classes/Listing.md)\<[`ModNote`](../classes/ModNote.md)\>
 
 #### Example
 
@@ -1523,7 +1507,7 @@ const notes = await reddit
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getModNotes`](RedditClient.md#getmodnotes)
+[`RedditClient`](../classes/RedditClient.md).[`getModNotes`](../classes/RedditClient.md#getmodnotes)
 
 ***
 
@@ -1533,7 +1517,7 @@ const notes = await reddit
 
 #### Call Signature
 
-> **getModQueue**(`options`): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+> **getModQueue**(`options`): [`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 Return a listing of things requiring moderator review, such as reported things and items.
 
@@ -1545,7 +1529,7 @@ Return a listing of things requiring moderator review, such as reported things a
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -1559,11 +1543,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getModQueue`](RedditClient.md#getmodqueue)
+[`RedditClient`](../classes/RedditClient.md).[`getModQueue`](../classes/RedditClient.md#getmodqueue)
 
 #### Call Signature
 
-> **getModQueue**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getModQueue**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Return a listing of things requiring moderator review, such as reported things and items.
 
@@ -1575,7 +1559,7 @@ Return a listing of things requiring moderator review, such as reported things a
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 ##### Example
 
@@ -1589,11 +1573,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getModQueue`](RedditClient.md#getmodqueue)
+[`RedditClient`](../classes/RedditClient.md).[`getModQueue`](../classes/RedditClient.md#getmodqueue)
 
 #### Call Signature
 
-> **getModQueue**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getModQueue**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 Return a listing of things requiring moderator review, such as reported things and items.
 
@@ -1605,7 +1589,7 @@ Return a listing of things requiring moderator review, such as reported things a
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -1619,7 +1603,7 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getModQueue`](RedditClient.md#getmodqueue)
+[`RedditClient`](../classes/RedditClient.md).[`getModQueue`](../classes/RedditClient.md#getmodqueue)
 
 ***
 
@@ -1627,7 +1611,7 @@ console.log("Posts: ", await listing.all())
 
 ### getMutedUsers()
 
-> **getMutedUsers**(`options`): [`Listing`](Listing.md)\<[`SubredditMutedUser`](SubredditMutedUser.md)\>
+> **getMutedUsers**(`options`): [`Listing`](../classes/Listing.md)\<[`SubredditMutedUser`](../classes/SubredditMutedUser.md)\>
 
 Get a list of users who are muted in a subreddit.
 
@@ -1641,13 +1625,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`SubredditMutedUser`](SubredditMutedUser.md)\>
+[`Listing`](../classes/Listing.md)\<[`SubredditMutedUser`](../classes/SubredditMutedUser.md)\>
 
 A listing of SubredditMutedUser objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getMutedUsers`](RedditClient.md#getmutedusers)
+[`RedditClient`](../classes/RedditClient.md).[`getMutedUsers`](../classes/RedditClient.md#getmutedusers)
 
 ***
 
@@ -1655,7 +1639,7 @@ A listing of SubredditMutedUser objects.
 
 ### getNewPosts()
 
-> **getNewPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getNewPosts**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Get a list of new posts from a specific subreddit.
 
@@ -1669,7 +1653,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
@@ -1685,7 +1669,7 @@ const posts = await reddit.getNewPosts({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getNewPosts`](RedditClient.md#getnewposts)
+[`RedditClient`](../classes/RedditClient.md).[`getNewPosts`](../classes/RedditClient.md#getnewposts)
 
 ***
 
@@ -1693,9 +1677,9 @@ const posts = await reddit.getNewPosts({
 
 ### getPostById()
 
-> **getPostById**(`id`): `Promise`\<[`Post`](Post.md)\>
+> **getPostById**(`id`): `Promise`\<[`Post`](../classes/Post.md)\>
 
-Gets a [Post](Post.md) object by ID
+Gets a [Post](../classes/Post.md) object by ID
 
 #### Parameters
 
@@ -1705,13 +1689,13 @@ Gets a [Post](Post.md) object by ID
 
 #### Returns
 
-`Promise`\<[`Post`](Post.md)\>
+`Promise`\<[`Post`](../classes/Post.md)\>
 
 A Promise that resolves to a Post object.
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getPostById`](RedditClient.md#getpostbyid)
+[`RedditClient`](../classes/RedditClient.md).[`getPostById`](../classes/RedditClient.md#getpostbyid)
 
 ***
 
@@ -1719,7 +1703,7 @@ A Promise that resolves to a Post object.
 
 ### getPostData()
 
-> **getPostData**(`id`): `Promise`\<`undefined` \| [`JSONObject`](../type-aliases/JSONObject.md)\>
+> **getPostData**(`id`): `Promise`\<[`JSONObject`](../type-aliases/JSONObject.md) \| `undefined`\>
 
 Returns PostData, if any, for the post specified by ID.
 
@@ -1731,11 +1715,11 @@ Returns PostData, if any, for the post specified by ID.
 
 #### Returns
 
-`Promise`\<`undefined` \| [`JSONObject`](../type-aliases/JSONObject.md)\>
+`Promise`\<[`JSONObject`](../type-aliases/JSONObject.md) \| `undefined`\>
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getPostData`](RedditClient.md#getpostdata)
+[`RedditClient`](../classes/RedditClient.md).[`getPostData`](../classes/RedditClient.md#getpostdata)
 
 ***
 
@@ -1743,7 +1727,7 @@ Returns PostData, if any, for the post specified by ID.
 
 ### getPostFlairTemplates()
 
-> **getPostFlairTemplates**(`subredditName`): `Promise`\<[`FlairTemplate`](FlairTemplate.md)[]\>
+> **getPostFlairTemplates**(`subredditName`): `Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)[]\>
 
 Get the list of post flair templates for a subreddit.
 
@@ -1757,13 +1741,13 @@ The name of the subreddit to get the post flair templates for.
 
 #### Returns
 
-`Promise`\<[`FlairTemplate`](FlairTemplate.md)[]\>
+`Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)[]\>
 
 A Promise that resolves with an array of FlairTemplate objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getPostFlairTemplates`](RedditClient.md#getpostflairtemplates)
+[`RedditClient`](../classes/RedditClient.md).[`getPostFlairTemplates`](../classes/RedditClient.md#getpostflairtemplates)
 
 ***
 
@@ -1771,7 +1755,7 @@ A Promise that resolves with an array of FlairTemplate objects.
 
 ### getPostsByUser()
 
-> **getPostsByUser**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getPostsByUser**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Get a list of posts from a specific user.
 
@@ -1785,13 +1769,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getPostsByUser`](RedditClient.md#getpostsbyuser)
+[`RedditClient`](../classes/RedditClient.md).[`getPostsByUser`](../classes/RedditClient.md#getpostsbyuser)
 
 ***
 
@@ -1819,7 +1803,7 @@ The ID of the post to get styles for.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getPostStyles`](RedditClient.md#getpoststyles)
+[`RedditClient`](../classes/RedditClient.md).[`getPostStyles`](../classes/RedditClient.md#getpoststyles)
 
 ***
 
@@ -1829,7 +1813,7 @@ The ID of the post to get styles for.
 
 #### Call Signature
 
-> **getReports**(`options`): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+> **getReports**(`options`): [`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 Return a listing of things that have been reported.
 
@@ -1841,7 +1825,7 @@ Return a listing of things that have been reported.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -1855,11 +1839,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getReports`](RedditClient.md#getreports)
+[`RedditClient`](../classes/RedditClient.md).[`getReports`](../classes/RedditClient.md#getreports)
 
 #### Call Signature
 
-> **getReports**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getReports**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Return a listing of things that have been reported.
 
@@ -1871,7 +1855,7 @@ Return a listing of things that have been reported.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 ##### Example
 
@@ -1885,11 +1869,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getReports`](RedditClient.md#getreports)
+[`RedditClient`](../classes/RedditClient.md).[`getReports`](../classes/RedditClient.md#getreports)
 
 #### Call Signature
 
-> **getReports**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getReports**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 Return a listing of things that have been reported.
 
@@ -1901,7 +1885,7 @@ Return a listing of things that have been reported.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -1915,7 +1899,7 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getReports`](RedditClient.md#getreports)
+[`RedditClient`](../classes/RedditClient.md).[`getReports`](../classes/RedditClient.md#getreports)
 
 ***
 
@@ -1923,7 +1907,7 @@ console.log("Posts: ", await listing.all())
 
 ### getRisingPosts()
 
-> **getRisingPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getRisingPosts**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Get a list of hot posts from a specific subreddit.
 
@@ -1937,7 +1921,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
@@ -1954,7 +1938,7 @@ const posts = await reddit.getRisingPosts({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getRisingPosts`](RedditClient.md#getrisingposts)
+[`RedditClient`](../classes/RedditClient.md).[`getRisingPosts`](../classes/RedditClient.md#getrisingposts)
 
 ***
 
@@ -1962,7 +1946,7 @@ const posts = await reddit.getRisingPosts({
 
 ### getRules()
 
-> **getRules**(`subredditName`): `Promise`\<[`Rule`](Rule.md)[]\>
+> **getRules**(`subredditName`): `Promise`\<[`Rule`](../classes/Rule.md)[]\>
 
 Get the rules for a subreddit.
 
@@ -1976,13 +1960,13 @@ The name of the subreddit to get the rules for.
 
 #### Returns
 
-`Promise`\<[`Rule`](Rule.md)[]\>
+`Promise`\<[`Rule`](../classes/Rule.md)[]\>
 
 An array of Rule objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getRules`](RedditClient.md#getrules)
+[`RedditClient`](../classes/RedditClient.md).[`getRules`](../classes/RedditClient.md#getrules)
 
 ***
 
@@ -1990,7 +1974,7 @@ An array of Rule objects.
 
 ### getSnoovatarUrl()
 
-> **getSnoovatarUrl**(`username`): `Promise`\<`undefined` \| `string`\>
+> **getSnoovatarUrl**(`username`): `Promise`\<`string` \| `undefined`\>
 
 Get the snoovatar URL for a given username.
 
@@ -2004,13 +1988,17 @@ The username of the snoovatar to retrieve
 
 #### Returns
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`\<`string` \| `undefined`\>
 
-A Promise that resolves to a URL of the snoovatar image if it exists.
+The image URL, or `undefined` if the user has no Snoovatar image.
+
+#### Throws
+
+If the account is unavailable or the lookup fails.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getSnoovatarUrl`](RedditClient.md#getsnoovatarurl)
+[`RedditClient`](../classes/RedditClient.md).[`getSnoovatarUrl`](../classes/RedditClient.md#getsnoovatarurl)
 
 ***
 
@@ -2020,7 +2008,7 @@ A Promise that resolves to a URL of the snoovatar image if it exists.
 
 #### Call Signature
 
-> **getSpam**(`options`): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+> **getSpam**(`options`): [`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 Return a listing of things that have been marked as spam or otherwise removed.
 
@@ -2032,7 +2020,7 @@ Return a listing of things that have been marked as spam or otherwise removed.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -2046,11 +2034,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getSpam`](RedditClient.md#getspam)
+[`RedditClient`](../classes/RedditClient.md).[`getSpam`](../classes/RedditClient.md#getspam)
 
 #### Call Signature
 
-> **getSpam**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getSpam**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Return a listing of things that have been marked as spam or otherwise removed.
 
@@ -2062,7 +2050,7 @@ Return a listing of things that have been marked as spam or otherwise removed.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 ##### Example
 
@@ -2076,11 +2064,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getSpam`](RedditClient.md#getspam)
+[`RedditClient`](../classes/RedditClient.md).[`getSpam`](../classes/RedditClient.md#getspam)
 
 #### Call Signature
 
-> **getSpam**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getSpam**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 Return a listing of things that have been marked as spam or otherwise removed.
 
@@ -2092,7 +2080,7 @@ Return a listing of things that have been marked as spam or otherwise removed.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -2106,7 +2094,7 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getSpam`](RedditClient.md#getspam)
+[`RedditClient`](../classes/RedditClient.md).[`getSpam`](../classes/RedditClient.md#getspam)
 
 ***
 
@@ -2114,9 +2102,9 @@ console.log("Posts: ", await listing.all())
 
 ### ~~getSubredditById()~~
 
-> **getSubredditById**(`id`): `Promise`\<`undefined` \| [`Subreddit`](Subreddit.md)\>
+> **getSubredditById**(`id`): `Promise`\<[`Subreddit`](../classes/Subreddit.md) \| `undefined`\>
 
-Gets a [Subreddit](Subreddit.md) object by ID
+Gets a [Subreddit](../classes/Subreddit.md) object by ID
 
 #### Parameters
 
@@ -2128,13 +2116,13 @@ The ID (starting with t5_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 #### Returns
 
-`Promise`\<`undefined` \| [`Subreddit`](Subreddit.md)\>
+`Promise`\<[`Subreddit`](../classes/Subreddit.md) \| `undefined`\>
 
 A Promise that resolves a Subreddit object.
 
 #### Deprecated
 
-Use [getSubredditInfoById](RedditClient.md#getsubredditinfobyid) instead.
+Use [getSubredditInfoById](../classes/RedditClient.md#getsubredditinfobyid) instead.
 
 #### Example
 
@@ -2144,7 +2132,7 @@ const memes = await reddit.getSubredditById('t5_2qjpg');
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getSubredditById`](RedditClient.md#getsubredditbyid)
+[`RedditClient`](../classes/RedditClient.md).[`getSubredditById`](../classes/RedditClient.md#getsubredditbyid)
 
 ***
 
@@ -2152,9 +2140,9 @@ const memes = await reddit.getSubredditById('t5_2qjpg');
 
 ### ~~getSubredditByName()~~
 
-> **getSubredditByName**(`name`): `Promise`\<[`Subreddit`](Subreddit.md)\>
+> **getSubredditByName**(`name`): `Promise`\<[`Subreddit`](../classes/Subreddit.md)\>
 
-Gets a [Subreddit](Subreddit.md) object by name
+Gets a [Subreddit](../classes/Subreddit.md) object by name
 
 #### Parameters
 
@@ -2166,13 +2154,13 @@ The name of a subreddit omitting the r/. This is case insensitive.
 
 #### Returns
 
-`Promise`\<[`Subreddit`](Subreddit.md)\>
+`Promise`\<[`Subreddit`](../classes/Subreddit.md)\>
 
 A Promise that resolves a Subreddit object.
 
 #### Deprecated
 
-Use [getSubredditInfoByName](RedditClient.md#getsubredditinfobyname) instead.
+Use [getSubredditInfoByName](../classes/RedditClient.md#getsubredditinfobyname) instead.
 
 #### Example
 
@@ -2182,7 +2170,7 @@ const askReddit = await reddit.getSubredditByName('askReddit');
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getSubredditByName`](RedditClient.md#getsubredditbyname)
+[`RedditClient`](../classes/RedditClient.md).[`getSubredditByName`](../classes/RedditClient.md#getsubredditbyname)
 
 ***
 
@@ -2216,7 +2204,7 @@ const memes = await reddit.getSubredditInfoById('t5_2qjpg');
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getSubredditInfoById`](RedditClient.md#getsubredditinfobyid)
+[`RedditClient`](../classes/RedditClient.md).[`getSubredditInfoById`](../classes/RedditClient.md#getsubredditinfobyid)
 
 ***
 
@@ -2250,7 +2238,7 @@ const askReddit = await reddit.getSubredditInfoByName('askReddit');
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getSubredditInfoByName`](RedditClient.md#getsubredditinfobyname)
+[`RedditClient`](../classes/RedditClient.md).[`getSubredditInfoByName`](../classes/RedditClient.md#getsubredditinfobyname)
 
 ***
 
@@ -2278,7 +2266,7 @@ Leaderboard for the given subreddit.
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getSubredditLeaderboard`](RedditClient.md#getsubredditleaderboard)
+[`RedditClient`](../classes/RedditClient.md).[`getSubredditLeaderboard`](../classes/RedditClient.md#getsubredditleaderboard)
 
 ***
 
@@ -2316,7 +2304,7 @@ for (let reason of reasons) {
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getSubredditRemovalReasons`](RedditClient.md#getsubredditremovalreasons)
+[`RedditClient`](../classes/RedditClient.md).[`getSubredditRemovalReasons`](../classes/RedditClient.md#getsubredditremovalreasons)
 
 ***
 
@@ -2344,7 +2332,7 @@ Styles for the given subreddit.
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getSubredditStyles`](RedditClient.md#getsubredditstyles)
+[`RedditClient`](../classes/RedditClient.md).[`getSubredditStyles`](../classes/RedditClient.md#getsubredditstyles)
 
 ***
 
@@ -2352,7 +2340,7 @@ Styles for the given subreddit.
 
 ### getSubscribedSubredditsForCurrentUser()
 
-> **getSubscribedSubredditsForCurrentUser**(`options`): [`Listing`](Listing.md)\<[`Subreddit`](Subreddit.md)\>
+> **getSubscribedSubredditsForCurrentUser**(`options`): [`Listing`](../classes/Listing.md)\<[`Subreddit`](../classes/Subreddit.md)\>
 
 Returns a listing of subreddits that the current user is subscribed to.
 This method will execute as the app account by default.
@@ -2366,11 +2354,11 @@ To execute this on behalf of a user, please contact Reddit.
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Subreddit`](Subreddit.md)\>
+[`Listing`](../classes/Listing.md)\<[`Subreddit`](../classes/Subreddit.md)\>
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getSubscribedSubredditsForCurrentUser`](RedditClient.md#getsubscribedsubredditsforcurrentuser)
+[`RedditClient`](../classes/RedditClient.md).[`getSubscribedSubredditsForCurrentUser`](../classes/RedditClient.md#getsubscribedsubredditsforcurrentuser)
 
 ***
 
@@ -2378,7 +2366,7 @@ To execute this on behalf of a user, please contact Reddit.
 
 ### getTopPosts()
 
-> **getTopPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getTopPosts**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Get a list of controversial posts from a specific subreddit.
 
@@ -2392,7 +2380,7 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
@@ -2409,7 +2397,7 @@ const posts = await reddit.getControversialPosts({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getTopPosts`](RedditClient.md#gettopposts)
+[`RedditClient`](../classes/RedditClient.md).[`getTopPosts`](../classes/RedditClient.md#gettopposts)
 
 ***
 
@@ -2419,7 +2407,7 @@ const posts = await reddit.getControversialPosts({
 
 #### Call Signature
 
-> **getUnmoderated**(`options`): [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+> **getUnmoderated**(`options`): [`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 Return a listing of things that have yet to be approved/removed by a mod.
 
@@ -2431,7 +2419,7 @@ Return a listing of things that have yet to be approved/removed by a mod.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -2445,11 +2433,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getUnmoderated`](RedditClient.md#getunmoderated)
+[`RedditClient`](../classes/RedditClient.md).[`getUnmoderated`](../classes/RedditClient.md#getunmoderated)
 
 #### Call Signature
 
-> **getUnmoderated**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **getUnmoderated**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Return a listing of things that have yet to be approved/removed by a mod.
 
@@ -2461,7 +2449,7 @@ Return a listing of things that have yet to be approved/removed by a mod.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 ##### Example
 
@@ -2475,11 +2463,11 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getUnmoderated`](RedditClient.md#getunmoderated)
+[`RedditClient`](../classes/RedditClient.md).[`getUnmoderated`](../classes/RedditClient.md#getunmoderated)
 
 #### Call Signature
 
-> **getUnmoderated**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+> **getUnmoderated**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 Return a listing of things that have yet to be approved/removed by a mod.
 
@@ -2491,7 +2479,7 @@ Return a listing of things that have yet to be approved/removed by a mod.
 
 ##### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md) \| [`Comment`](Comment.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)\>
 
 ##### Example
 
@@ -2505,7 +2493,7 @@ console.log("Posts: ", await listing.all())
 
 ##### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getUnmoderated`](RedditClient.md#getunmoderated)
+[`RedditClient`](../classes/RedditClient.md).[`getUnmoderated`](../classes/RedditClient.md#getunmoderated)
 
 ***
 
@@ -2513,9 +2501,9 @@ console.log("Posts: ", await listing.all())
 
 ### getUserById()
 
-> **getUserById**(`id`): `Promise`\<`undefined` \| [`User`](User.md)\>
+> **getUserById**(`id`): `Promise`\<[`User`](../classes/User.md) \| `undefined`\>
 
-Gets a [User](User.md) object by ID
+Gets a [User](../classes/User.md) object by ID
 
 #### Parameters
 
@@ -2527,7 +2515,7 @@ The ID (starting with t2_) of the user to retrieve. e.g. t2_1qjpg
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](User.md)\>
+`Promise`\<[`User`](../classes/User.md) \| `undefined`\>
 
 A Promise that resolves to a User object.
 
@@ -2539,7 +2527,7 @@ const user = await reddit.getUserById('t2_1qjpg');
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getUserById`](RedditClient.md#getuserbyid)
+[`RedditClient`](../classes/RedditClient.md).[`getUserById`](../classes/RedditClient.md#getuserbyid)
 
 ***
 
@@ -2547,9 +2535,9 @@ const user = await reddit.getUserById('t2_1qjpg');
 
 ### getUserByUsername()
 
-> **getUserByUsername**(`username`): `Promise`\<`undefined` \| [`User`](User.md)\>
+> **getUserByUsername**(`username`): `Promise`\<[`User`](../classes/User.md) \| `undefined`\>
 
-Gets a [User](User.md) object by username
+Gets a [User](../classes/User.md) object by username
 
 #### Parameters
 
@@ -2561,7 +2549,7 @@ The username of the user omitting the u/. e.g. 'devvit'
 
 #### Returns
 
-`Promise`\<`undefined` \| [`User`](User.md)\>
+`Promise`\<[`User`](../classes/User.md) \| `undefined`\>
 
 A Promise that resolves to a User object or undefined if user is
          not found (user doesn't exist, account suspended, etc).
@@ -2577,7 +2565,7 @@ if (user) {
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getUserByUsername`](RedditClient.md#getuserbyusername)
+[`RedditClient`](../classes/RedditClient.md).[`getUserByUsername`](../classes/RedditClient.md#getuserbyusername)
 
 ***
 
@@ -2585,7 +2573,7 @@ if (user) {
 
 ### getUserFlairTemplates()
 
-> **getUserFlairTemplates**(`subredditName`): `Promise`\<[`FlairTemplate`](FlairTemplate.md)[]\>
+> **getUserFlairTemplates**(`subredditName`): `Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)[]\>
 
 Get the list of user flair templates for a subreddit.
 
@@ -2599,13 +2587,13 @@ The name of the subreddit to get the user flair templates for.
 
 #### Returns
 
-`Promise`\<[`FlairTemplate`](FlairTemplate.md)[]\>
+`Promise`\<[`FlairTemplate`](../classes/FlairTemplate.md)[]\>
 
 A Promise that resolves with an array of FlairTemplate objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getUserFlairTemplates`](RedditClient.md#getuserflairtemplates)
+[`RedditClient`](../classes/RedditClient.md).[`getUserFlairTemplates`](../classes/RedditClient.md#getuserflairtemplates)
 
 ***
 
@@ -2635,7 +2623,7 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for posts and 
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getUserKarmaFromCurrentSubreddit`](RedditClient.md#getuserkarmafromcurrentsubreddit)
+[`RedditClient`](../classes/RedditClient.md).[`getUserKarmaFromCurrentSubreddit`](../classes/RedditClient.md#getuserkarmafromcurrentsubreddit)
 
 ***
 
@@ -2667,7 +2655,7 @@ const vault = await reddit.getVaultByAddress('0x205ee28744456bDBf180A0Fa7De51e0F
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getVaultByAddress`](RedditClient.md#getvaultbyaddress)
+[`RedditClient`](../classes/RedditClient.md).[`getVaultByAddress`](../classes/RedditClient.md#getvaultbyaddress)
 
 ***
 
@@ -2699,7 +2687,7 @@ const vault = await reddit.getVaultByUserId('t2_1w72');
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`getVaultByUserId`](RedditClient.md#getvaultbyuserid)
+[`RedditClient`](../classes/RedditClient.md).[`getVaultByUserId`](../classes/RedditClient.md#getvaultbyuserid)
 
 ***
 
@@ -2707,7 +2695,7 @@ const vault = await reddit.getVaultByUserId('t2_1w72');
 
 ### getWidgets()
 
-> **getWidgets**(`subredditName`): `Promise`\<[`Widget`](Widget.md)[]\>
+> **getWidgets**(`subredditName`): `Promise`\<[`Widget`](../classes/Widget.md)[]\>
 
 Get the widgets for a subreddit.
 
@@ -2721,13 +2709,13 @@ The name of the subreddit to get the widgets for.
 
 #### Returns
 
-`Promise`\<[`Widget`](Widget.md)[]\>
+`Promise`\<[`Widget`](../classes/Widget.md)[]\>
 
 - An array of Widget objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getWidgets`](RedditClient.md#getwidgets)
+[`RedditClient`](../classes/RedditClient.md).[`getWidgets`](../classes/RedditClient.md#getwidgets)
 
 ***
 
@@ -2735,7 +2723,7 @@ The name of the subreddit to get the widgets for.
 
 ### getWikiContributors()
 
-> **getWikiContributors**(`options`): [`Listing`](Listing.md)\<[`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)\>
+> **getWikiContributors**(`options`): [`Listing`](../classes/Listing.md)\<[`SubredditWikiContributorUser`](../classes/SubredditWikiContributorUser.md)\>
 
 Get a list of users who are wiki contributors of a subreddit.
 
@@ -2749,13 +2737,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)\>
+[`Listing`](../classes/Listing.md)\<[`SubredditWikiContributorUser`](../classes/SubredditWikiContributorUser.md)\>
 
 A Listing of SubredditWikiContributorUser objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getWikiContributors`](RedditClient.md#getwikicontributors)
+[`RedditClient`](../classes/RedditClient.md).[`getWikiContributors`](../classes/RedditClient.md#getwikicontributors)
 
 ***
 
@@ -2763,7 +2751,7 @@ A Listing of SubredditWikiContributorUser objects.
 
 ### getWikiPage()
 
-> **getWikiPage**(`subredditName`, `page`, `options`?): `Promise`\<[`WikiPage`](WikiPage.md)\>
+> **getWikiPage**(`subredditName`, `page`, `options?`): `Promise`\<[`WikiPage`](../classes/WikiPage.md)\>
 
 Get a wiki page from a subreddit.
 
@@ -2789,13 +2777,13 @@ Options for the request.
 
 #### Returns
 
-`Promise`\<[`WikiPage`](WikiPage.md)\>
+`Promise`\<[`WikiPage`](../classes/WikiPage.md)\>
 
 The requested WikiPage object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getWikiPage`](RedditClient.md#getwikipage)
+[`RedditClient`](../classes/RedditClient.md).[`getWikiPage`](../classes/RedditClient.md#getwikipage)
 
 ***
 
@@ -2803,7 +2791,7 @@ The requested WikiPage object.
 
 ### getWikiPageRevisions()
 
-> **getWikiPageRevisions**(`options`): [`Listing`](Listing.md)\<[`WikiPageRevision`](WikiPageRevision.md)\>
+> **getWikiPageRevisions**(`options`): [`Listing`](../classes/Listing.md)\<[`WikiPageRevision`](../classes/WikiPageRevision.md)\>
 
 Get the revisions for a wiki page.
 
@@ -2817,13 +2805,13 @@ Options for the request
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`WikiPageRevision`](WikiPageRevision.md)\>
+[`Listing`](../classes/Listing.md)\<[`WikiPageRevision`](../classes/WikiPageRevision.md)\>
 
 A Listing of WikiPageRevision objects.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getWikiPageRevisions`](RedditClient.md#getwikipagerevisions)
+[`RedditClient`](../classes/RedditClient.md).[`getWikiPageRevisions`](../classes/RedditClient.md#getwikipagerevisions)
 
 ***
 
@@ -2831,7 +2819,7 @@ A Listing of WikiPageRevision objects.
 
 ### getWikiPages()
 
-> **getWikiPages**(`subredditName`, `options`?): `Promise`\<`string`[]\>
+> **getWikiPages**(`subredditName`, `options?`): `Promise`\<`string`[]\>
 
 Get the wiki pages for a subreddit.
 
@@ -2857,7 +2845,7 @@ A list of the wiki page names for the subreddit.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getWikiPages`](RedditClient.md#getwikipages)
+[`RedditClient`](../classes/RedditClient.md).[`getWikiPages`](../classes/RedditClient.md#getwikipages)
 
 ***
 
@@ -2865,7 +2853,7 @@ A list of the wiki page names for the subreddit.
 
 ### getWikiPageSettings()
 
-> **getWikiPageSettings**(`subredditName`, `page`, `options`?): `Promise`\<[`WikiPageSettings`](WikiPageSettings.md)\>
+> **getWikiPageSettings**(`subredditName`, `page`, `options?`): `Promise`\<[`WikiPageSettings`](../classes/WikiPageSettings.md)\>
 
 Get the settings for a wiki page.
 
@@ -2891,13 +2879,13 @@ Options for the request.
 
 #### Returns
 
-`Promise`\<[`WikiPageSettings`](WikiPageSettings.md)\>
+`Promise`\<[`WikiPageSettings`](../classes/WikiPageSettings.md)\>
 
 A WikiPageSettings object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`getWikiPageSettings`](RedditClient.md#getwikipagesettings)
+[`RedditClient`](../classes/RedditClient.md).[`getWikiPageSettings`](../classes/RedditClient.md#getwikipagesettings)
 
 ***
 
@@ -2923,7 +2911,7 @@ Options for the request
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`inviteModerator`](RedditClient.md#invitemoderator)
+[`RedditClient`](../classes/RedditClient.md).[`inviteModerator`](../classes/RedditClient.md#invitemoderator)
 
 ***
 
@@ -2951,7 +2939,7 @@ Whether Wiki V2 is enabled for the subreddit.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`isWikiV2Enabled`](RedditClient.md#iswikiv2enabled)
+[`RedditClient`](../classes/RedditClient.md).[`isWikiV2Enabled`](../classes/RedditClient.md#iswikiv2enabled)
 
 ***
 
@@ -2969,7 +2957,7 @@ Mark all private messages as read.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`markAllMessagesAsRead`](RedditClient.md#markallmessagesasread)
+[`RedditClient`](../classes/RedditClient.md).[`markAllMessagesAsRead`](../classes/RedditClient.md#markallmessagesasread)
 
 ***
 
@@ -3014,7 +3002,7 @@ await post.mergePostData({ settings: { fontSize: 14 } });
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`mergePostData`](RedditClient.md#mergepostdata)
+[`RedditClient`](../classes/RedditClient.md).[`mergePostData`](../classes/RedditClient.md#mergepostdata)
 
 ***
 
@@ -3040,7 +3028,7 @@ Options for the request
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`muteUser`](RedditClient.md#muteuser)
+[`RedditClient`](../classes/RedditClient.md).[`muteUser`](../classes/RedditClient.md#muteuser)
 
 ***
 
@@ -3079,7 +3067,7 @@ await reddit.remove('t1_123456', true);
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`remove`](RedditClient.md#remove)
+[`RedditClient`](../classes/RedditClient.md).[`remove`](../classes/RedditClient.md#remove)
 
 ***
 
@@ -3087,7 +3075,7 @@ await reddit.remove('t1_123456', true);
 
 ### removeEditorFromWikiPage()
 
-> **removeEditorFromWikiPage**(`subredditName`, `page`, `username`, `options`?): `Promise`\<`void`\>
+> **removeEditorFromWikiPage**(`subredditName`, `page`, `username`, `options?`): `Promise`\<`void`\>
 
 Remove an editor from a wiki page.
 
@@ -3123,7 +3111,7 @@ Options for the request.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`removeEditorFromWikiPage`](RedditClient.md#removeeditorfromwikipage)
+[`RedditClient`](../classes/RedditClient.md).[`removeEditorFromWikiPage`](../classes/RedditClient.md#removeeditorfromwikipage)
 
 ***
 
@@ -3155,7 +3143,7 @@ The name of the subreddit to remove the user as a moderator from. e.g. 'memes'
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`removeModerator`](RedditClient.md#removemoderator)
+[`RedditClient`](../classes/RedditClient.md).[`removeModerator`](../classes/RedditClient.md#removemoderator)
 
 ***
 
@@ -3187,7 +3175,7 @@ The ID of the post to remove the flair from.
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`removePostFlair`](RedditClient.md#removepostflair)
+[`RedditClient`](../classes/RedditClient.md).[`removePostFlair`](../classes/RedditClient.md#removepostflair)
 
 ***
 
@@ -3219,7 +3207,7 @@ The name of the subreddit to remove the user's approval from. e.g. 'memes'
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`removeUser`](RedditClient.md#removeuser)
+[`RedditClient`](../classes/RedditClient.md).[`removeUser`](../classes/RedditClient.md#removeuser)
 
 ***
 
@@ -3251,7 +3239,7 @@ The username of the user to remove the flair from.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`removeUserFlair`](RedditClient.md#removeuserflair)
+[`RedditClient`](../classes/RedditClient.md).[`removeUserFlair`](../classes/RedditClient.md#removeuserflair)
 
 ***
 
@@ -3283,7 +3271,7 @@ The name of the subreddit to remove the user's wiki contributor status from. e.g
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`removeWikiContributor`](RedditClient.md#removewikicontributor)
+[`RedditClient`](../classes/RedditClient.md).[`removeWikiContributor`](../classes/RedditClient.md#removewikicontributor)
 
 ***
 
@@ -3305,7 +3293,7 @@ The name of the subreddit to reorder the rules for.
 
 ##### rules
 
-[`Rule`](Rule.md)[]
+[`Rule`](../classes/Rule.md)[]
 
 Array of Rule objects in the desired order (order is determined by array position).
 
@@ -3315,7 +3303,7 @@ Array of Rule objects in the desired order (order is determined by array positio
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`reorderRules`](RedditClient.md#reorderrules)
+[`RedditClient`](../classes/RedditClient.md).[`reorderRules`](../classes/RedditClient.md#reorderrules)
 
 ***
 
@@ -3347,7 +3335,7 @@ An array of widget IDs in the order that they should be displayed.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`reorderWidgets`](RedditClient.md#reorderwidgets)
+[`RedditClient`](../classes/RedditClient.md).[`reorderWidgets`](../classes/RedditClient.md#reorderwidgets)
 
 ***
 
@@ -3365,9 +3353,9 @@ The report is sent to the moderators of the subreddit for review.
 
 ##### thing
 
-Post or Comment
+[`Post`](../classes/Post.md) \| [`Comment`](../classes/Comment.md)
 
-[`Post`](Post.md) | [`Comment`](Comment.md)
+Post or Comment
 
 ##### options
 
@@ -3393,7 +3381,7 @@ await reddit.report(post, {
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`report`](RedditClient.md#report)
+[`RedditClient`](../classes/RedditClient.md).[`report`](../classes/RedditClient.md#report)
 
 ***
 
@@ -3401,7 +3389,7 @@ await reddit.report(post, {
 
 ### revertWikiPage()
 
-> **revertWikiPage**(`subredditName`, `page`, `revisionId`, `options`?): `Promise`\<`void`\>
+> **revertWikiPage**(`subredditName`, `page`, `revisionId`, `options?`): `Promise`\<`void`\>
 
 Revert a wiki page to a previous revision.
 
@@ -3437,7 +3425,7 @@ Options for the request.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`revertWikiPage`](RedditClient.md#revertwikipage)
+[`RedditClient`](../classes/RedditClient.md).[`revertWikiPage`](../classes/RedditClient.md#revertwikipage)
 
 ***
 
@@ -3469,7 +3457,7 @@ The name of the subreddit to revoke the invite for. e.g. 'memes'
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`revokeModeratorInvite`](RedditClient.md#revokemoderatorinvite)
+[`RedditClient`](../classes/RedditClient.md).[`revokeModeratorInvite`](../classes/RedditClient.md#revokemoderatorinvite)
 
 ***
 
@@ -3477,7 +3465,7 @@ The name of the subreddit to revoke the invite for. e.g. 'memes'
 
 ### searchPosts()
 
-> **searchPosts**(`options`): [`Listing`](Listing.md)\<[`Post`](Post.md)\>
+> **searchPosts**(`options`): [`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 Search for posts in a subreddit.
 
@@ -3491,7 +3479,7 @@ Options for the search
 
 #### Returns
 
-[`Listing`](Listing.md)\<[`Post`](Post.md)\>
+[`Listing`](../classes/Listing.md)\<[`Post`](../classes/Post.md)\>
 
 A Listing of Post objects.
 
@@ -3509,7 +3497,7 @@ const posts = await reddit.searchPosts({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`searchPosts`](RedditClient.md#searchposts)
+[`RedditClient`](../classes/RedditClient.md).[`searchPosts`](../classes/RedditClient.md#searchposts)
 
 ***
 
@@ -3537,7 +3525,7 @@ A Promise that resolves if the private message was successfully sent.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`sendPrivateMessage`](RedditClient.md#sendprivatemessage)
+[`RedditClient`](../classes/RedditClient.md).[`sendPrivateMessage`](../classes/RedditClient.md#sendprivatemessage)
 
 ***
 
@@ -3569,7 +3557,7 @@ No longer working as expected. Use modMail.createConversation with `isAuthorHidd
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`sendPrivateMessageAsSubreddit`](RedditClient.md#sendprivatemessageassubreddit)
+[`RedditClient`](../classes/RedditClient.md).[`sendPrivateMessageAsSubreddit`](../classes/RedditClient.md#sendprivatemessageassubreddit)
 
 ***
 
@@ -3607,7 +3595,7 @@ The permissions to give the user. e.g ['posts', 'wiki']
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`setModeratorPermissions`](RedditClient.md#setmoderatorpermissions)
+[`RedditClient`](../classes/RedditClient.md).[`setModeratorPermissions`](../classes/RedditClient.md#setmoderatorpermissions)
 
 ***
 
@@ -3657,7 +3645,7 @@ await post.setPostData({
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`setPostData`](RedditClient.md#setpostdata)
+[`RedditClient`](../classes/RedditClient.md).[`setPostData`](../classes/RedditClient.md#setpostdata)
 
 ***
 
@@ -3683,7 +3671,7 @@ Options for the request
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`setPostFlair`](RedditClient.md#setpostflair)
+[`RedditClient`](../classes/RedditClient.md).[`setPostFlair`](../classes/RedditClient.md#setpostflair)
 
 ***
 
@@ -3707,10 +3695,10 @@ The ID of the post to set styles for.
 
 ##### styles
 
+`CustomPostStylesInput` \| `undefined`
+
 The styles to set for the post. If a value isn't specified, its previous value
   will be preserved. If `undefined` is passed, all styles will be removed and reset to defaults.
-
-`undefined` | `CustomPostStylesInput`
 
 #### Returns
 
@@ -3718,7 +3706,7 @@ The styles to set for the post. If a value isn't specified, its previous value
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`setPostStyles`](RedditClient.md#setpoststyles)
+[`RedditClient`](../classes/RedditClient.md).[`setPostStyles`](../classes/RedditClient.md#setpoststyles)
 
 ***
 
@@ -3744,7 +3732,7 @@ Options for the request
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`setUserFlair`](RedditClient.md#setuserflair)
+[`RedditClient`](../classes/RedditClient.md).[`setUserFlair`](../classes/RedditClient.md#setuserflair)
 
 ***
 
@@ -3779,7 +3767,7 @@ Array of user flair configuration objects. If both text and cssClass are empty f
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`setUserFlairBatch`](RedditClient.md#setuserflairbatch)
+[`RedditClient`](../classes/RedditClient.md).[`setUserFlairBatch`](../classes/RedditClient.md#setuserflairbatch)
 
 ***
 
@@ -3787,7 +3775,7 @@ Array of user flair configuration objects. If both text and cssClass are empty f
 
 ### submitComment()
 
-> **submitComment**(`options`): `Promise`\<[`Comment`](Comment.md)\>
+> **submitComment**(`options`): `Promise`\<[`Comment`](../classes/Comment.md)\>
 
 Submit a new comment to a post or comment.
 
@@ -3801,7 +3789,7 @@ You must provide either `options.text` or `options.richtext` but not both.
 
 #### Returns
 
-`Promise`\<[`Comment`](Comment.md)\>
+`Promise`\<[`Comment`](../classes/Comment.md)\>
 
 A Promise that resolves to a Comment object.
 
@@ -3817,7 +3805,7 @@ const comment = await reddit.submitComment({
 
 #### Overrides
 
-[`RedditClient`](RedditClient.md).[`submitComment`](RedditClient.md#submitcomment)
+[`RedditClient`](../classes/RedditClient.md).[`submitComment`](../classes/RedditClient.md#submitcomment)
 
 ***
 
@@ -3825,7 +3813,7 @@ const comment = await reddit.submitComment({
 
 ### submitCustomPost()
 
-> **submitCustomPost**(`opts`): `Promise`\<[`Post`](Post.md)\>
+> **submitCustomPost**(`opts`): `Promise`\<[`Post`](../classes/Post.md)\>
 
 Submits a new custom post to a subreddit.
 
@@ -3833,11 +3821,11 @@ Submits a new custom post to a subreddit.
 
 ##### opts
 
-`Readonly`\<[`SubredditOptions`](../type-aliases/SubredditOptions.md) & [`CommonSubmitPostOptions`](../type-aliases/CommonSubmitPostOptions.md) & `object`\>
+`Readonly`\<[`SubredditOptions`](../type-aliases/SubredditOptions.md) & [`SubmitCustomPostOptions`](../type-aliases/SubmitCustomPostOptions.md)\>
 
 #### Returns
 
-`Promise`\<[`Post`](Post.md)\>
+`Promise`\<[`Post`](../classes/Post.md)\>
 
 #### Examples
 
@@ -3868,12 +3856,12 @@ const post = await reddit.submitCustomPost({
 
 #### See
 
- - [()\|submitPost()](RedditClient.md#submitpost)
- - [()\|crosspost()](RedditClient.md#crosspost)
+ - [()\|submitPost()](../classes/RedditClient.md#submitpost)
+ - [()\|crosspost()](../classes/RedditClient.md#crosspost)
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`submitCustomPost`](RedditClient.md#submitcustompost)
+[`RedditClient`](../classes/RedditClient.md).[`submitCustomPost`](../classes/RedditClient.md#submitcustompost)
 
 ***
 
@@ -3881,7 +3869,7 @@ const post = await reddit.submitCustomPost({
 
 ### submitPost()
 
-> **submitPost**(`opts`): `Promise`\<[`Post`](Post.md)\>
+> **submitPost**(`opts`): `Promise`\<[`Post`](../classes/Post.md)\>
 
 Submits a new post to a subreddit.
 
@@ -3893,7 +3881,7 @@ Submits a new post to a subreddit.
 
 #### Returns
 
-`Promise`\<[`Post`](Post.md)\>
+`Promise`\<[`Post`](../classes/Post.md)\>
 
 #### Example
 
@@ -3912,12 +3900,12 @@ const post = await reddit.submitPost({
 
 #### See
 
- - [()\|submitCustomPost()](RedditClient.md#submitcustompost)
- - [()\|crosspost()](RedditClient.md#crosspost)
+ - [()\|submitCustomPost()](../classes/RedditClient.md#submitcustompost)
+ - [()\|crosspost()](../classes/RedditClient.md#crosspost)
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`submitPost`](RedditClient.md#submitpost)
+[`RedditClient`](../classes/RedditClient.md).[`submitPost`](../classes/RedditClient.md#submitpost)
 
 ***
 
@@ -3937,7 +3925,7 @@ in `permissions.reddit.asUser` in your devvit.json file.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`subscribeToCurrentSubreddit`](RedditClient.md#subscribetocurrentsubreddit)
+[`RedditClient`](../classes/RedditClient.md).[`subscribeToCurrentSubreddit`](../classes/RedditClient.md#subscribetocurrentsubreddit)
 
 ***
 
@@ -3969,7 +3957,7 @@ The name of the subreddit to unban the user from. e.g. 'memes'
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`unbanUser`](RedditClient.md#unbanuser)
+[`RedditClient`](../classes/RedditClient.md).[`unbanUser`](../classes/RedditClient.md#unbanuser)
 
 ***
 
@@ -3999,7 +3987,7 @@ The name of the subreddit to unban the user from contributing to the wiki on. e.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`unbanWikiContributor`](RedditClient.md#unbanwikicontributor)
+[`RedditClient`](../classes/RedditClient.md).[`unbanWikiContributor`](../classes/RedditClient.md#unbanwikicontributor)
 
 ***
 
@@ -4031,7 +4019,7 @@ The name of the subreddit to unmute the user in. e.g. 'memes'
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`unmuteUser`](RedditClient.md#unmuteuser)
+[`RedditClient`](../classes/RedditClient.md).[`unmuteUser`](../classes/RedditClient.md#unmuteuser)
 
 ***
 
@@ -4051,7 +4039,7 @@ To unsubscribe on behalf of a user, please contact Reddit.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`unsubscribeFromCurrentSubreddit`](RedditClient.md#unsubscribefromcurrentsubreddit)
+[`RedditClient`](../classes/RedditClient.md).[`unsubscribeFromCurrentSubreddit`](../classes/RedditClient.md#unsubscribefromcurrentsubreddit)
 
 ***
 
@@ -4108,7 +4096,7 @@ await reddit.updateSubredditRemovalReason('askReddit', 'uuid-abc', {
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`updateSubredditRemovalReason`](RedditClient.md#updatesubredditremovalreason)
+[`RedditClient`](../classes/RedditClient.md).[`updateSubredditRemovalReason`](../classes/RedditClient.md#updatesubredditremovalreason)
 
 ***
 
@@ -4116,7 +4104,7 @@ await reddit.updateSubredditRemovalReason('askReddit', 'uuid-abc', {
 
 ### updateWidget()
 
-> **updateWidget**(`widgetData`): `Promise`\<[`Widget`](Widget.md)\>
+> **updateWidget**(`widgetData`): `Promise`\<[`Widget`](../classes/Widget.md)\>
 
 Update a widget for a subreddit.
 
@@ -4130,13 +4118,13 @@ The data for the widget to update.
 
 #### Returns
 
-`Promise`\<[`Widget`](Widget.md)\>
+`Promise`\<[`Widget`](../classes/Widget.md)\>
 
 - The updated Widget object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`updateWidget`](RedditClient.md#updatewidget)
+[`RedditClient`](../classes/RedditClient.md).[`updateWidget`](../classes/RedditClient.md#updatewidget)
 
 ***
 
@@ -4144,7 +4132,7 @@ The data for the widget to update.
 
 ### updateWikiPage()
 
-> **updateWikiPage**(`options`): `Promise`\<[`WikiPage`](WikiPage.md)\>
+> **updateWikiPage**(`options`): `Promise`\<[`WikiPage`](../classes/WikiPage.md)\>
 
 Update a wiki page.
 
@@ -4158,13 +4146,13 @@ Options for the request
 
 #### Returns
 
-`Promise`\<[`WikiPage`](WikiPage.md)\>
+`Promise`\<[`WikiPage`](../classes/WikiPage.md)\>
 
 The updated WikiPage object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`updateWikiPage`](RedditClient.md#updatewikipage)
+[`RedditClient`](../classes/RedditClient.md).[`updateWikiPage`](../classes/RedditClient.md#updatewikipage)
 
 ***
 
@@ -4172,7 +4160,7 @@ The updated WikiPage object.
 
 ### updateWikiPageSettings()
 
-> **updateWikiPageSettings**(`options`): `Promise`\<[`WikiPageSettings`](WikiPageSettings.md)\>
+> **updateWikiPageSettings**(`options`): `Promise`\<[`WikiPageSettings`](../classes/WikiPageSettings.md)\>
 
 Update the settings for a wiki page.
 
@@ -4186,10 +4174,10 @@ Options for the request
 
 #### Returns
 
-`Promise`\<[`WikiPageSettings`](WikiPageSettings.md)\>
+`Promise`\<[`WikiPageSettings`](../classes/WikiPageSettings.md)\>
 
 A WikiPageSettings object.
 
 #### Inherited from
 
-[`RedditClient`](RedditClient.md).[`updateWikiPageSettings`](RedditClient.md#updatewikipagesettings)
+[`RedditClient`](../classes/RedditClient.md).[`updateWikiPageSettings`](../classes/RedditClient.md#updatewikipagesettings)

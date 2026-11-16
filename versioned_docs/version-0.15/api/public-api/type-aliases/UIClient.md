@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -97,7 +97,7 @@ Navigate to a URL
 
 ###### urlOrThing
 
-`string` | \{ `permalink`: `string`; `url`: `string`; \}
+`string` \| \{ `permalink?`: `string`; `url`: `string`; \}
 
 ##### Returns
 
@@ -109,7 +109,7 @@ Navigate to a URL
 
 ### showForm()
 
-> **showForm**(`formKey`, `data`?): `void`
+> **showForm**(`formKey`, `data?`): `void`
 
 Open a form in a modal
 
@@ -133,7 +133,7 @@ Open a form in a modal
 
 ### showFormInternal()
 
-> **showFormInternal**(`formKey`, `data`?, `formDataOverride`?): `void`
+> **showFormInternal**(`formKey`, `data?`, `formDataOverride?`): `void`
 
 Internal use only.
 
@@ -199,7 +199,7 @@ Show a message in a toast.
 
 ###### textOrToast
 
-`string` | [`Toast`](Toast.md)
+`string` \| [`Toast`](Toast.md)
 
 ##### Returns
 

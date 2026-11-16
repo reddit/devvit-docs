@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **GetDuplicatesOptions** = [`ListingFetchOptions`](ListingFetchOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### crosspostsOnly?
 
-> `optional` **crosspostsOnly**: `boolean`
+> `optional` **crosspostsOnly?**: `boolean`
 
 Only return duplicates that are crossposting this post.
 
@@ -22,18 +22,18 @@ The post identifier.
 
 ### show?
 
-> `optional` **show**: `string`
+> `optional` **show?**: `string`
 
 Use `"all"` to include results hidden by the account's preferences.
 
 ### sort?
 
-> `optional` **sort**: `"num_comments"` \| `"new"`
+> `optional` **sort?**: `"num_comments"` \| `"new"`
 
 One of: "num_comments", "new"
 
 ### subredditName?
 
-> `optional` **subredditName**: `string`
+> `optional` **subredditName?**: `string`
 
 Limit search to the given subreddit name. The r/ prefix is optional.

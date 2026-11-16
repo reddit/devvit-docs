@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -64,9 +64,11 @@ Add a scheduled job type for your app. This will allow you to schedule jobs usin
 
 #### Type Parameters
 
+<a id="t"></a>
+
 ##### T
 
-`T` *extends* `undefined` \| [`JSONObject`](../type-aliases/JSONObject.md)
+`T` *extends* [`JSONObject`](../type-aliases/JSONObject.md) \| `undefined`
 
 #### Parameters
 
@@ -140,15 +142,17 @@ Note: setting names must be unique across all settings.
 
 ##### fields
 
-Fields for the app and installation settings.
+[`SettingsFormField`](../type-aliases/SettingsFormField.md) \| [`SettingsFormField`](../type-aliases/SettingsFormField.md)[]
 
-[`SettingsFormField`](../type-aliases/SettingsFormField.md) | [`SettingsFormField`](../type-aliases/SettingsFormField.md)[]
+Fields for the app and installation settings.
 
 #### Returns
 
 `void`
 
 #### Examples
+
+**Add multiple fields**
 
 ```ts
 Devvit.addSettings([
@@ -184,6 +188,8 @@ Devvit.addSettings([
 ]);
 ```
 
+**Add a single field**
+
 ```ts
 Devvit.addSettings({
   type: 'string',
@@ -208,6 +214,8 @@ Add a trigger handler that will be invoked when the given event
 occurs in a subreddit where the app is installed.
 
 ##### Type Parameters
+
+<a id="t-1"></a>
 
 ###### T
 
@@ -265,6 +273,8 @@ Add a trigger handler that will be invoked when the given event
 occurs in a subreddit where the app is installed.
 
 ##### Type Parameters
+
+<a id="event"></a>
 
 ###### Event
 
@@ -346,6 +356,8 @@ Devvit.configure({
 Create a form that can be opened from menu items.
 
 #### Type Parameters
+
+<a id="t-2"></a>
 
 ##### T
 

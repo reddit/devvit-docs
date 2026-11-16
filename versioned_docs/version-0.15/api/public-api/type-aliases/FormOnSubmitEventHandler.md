@@ -1,12 +1,14 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
-# Type Alias: FormOnSubmitEventHandler()\<Data\>
+# Type Alias: FormOnSubmitEventHandler\<Data\>
 
 > **FormOnSubmitEventHandler**\<`Data`\> = (`event`, `context`) => `void` \| `Promise`\<`void`\>
 
 ## Type Parameters
+
+<a id="data"></a>
 
 ### Data
 

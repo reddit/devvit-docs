@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -17,7 +17,7 @@ may cause type errors but not runtime errors.
 
 ### emitSnapshots?
 
-> `optional` **emitSnapshots**: `boolean`
+> `optional` **emitSnapshots?**: `boolean`
 
 Should debug block rendering in console.log according to the reified JSX/XML output. Example:
 
@@ -29,6 +29,6 @@ Should debug block rendering in console.log according to the reified JSX/XML out
 
 ### emitState?
 
-> `optional` **emitState**: `boolean`
+> `optional` **emitState?**: `boolean`
 
 Should console.log the state of the app after every event.

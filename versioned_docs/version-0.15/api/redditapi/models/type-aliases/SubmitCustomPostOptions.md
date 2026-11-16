@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **SubmitCustomPostOptions** = [`CommonSubmitPostOptions`](CommonSubmitPostOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### entry?
 
-> `optional` **entry**: `string`
+> `optional` **entry?**: `string`
 
 The entrypoint name. Must correspond to a `post.entrypoints` key in the
 app's `devvit.json`.
@@ -20,6 +20,8 @@ app's `devvit.json`.
 The default `devvit.json` entrypoint (`'default'`).
 
 #### Example
+
+**Only \`'default'\` and \`'game'\` are valid entries given the**
 
 following `devvit.json` configuration:
 ```json
@@ -37,7 +39,7 @@ following `devvit.json` configuration:
 
 ### postData?
 
-> `optional` **postData**: `PostData`
+> `optional` **postData?**: `PostData`
 
 Arbitrary data to associate to the post. Limited to two kilobytes.
 
@@ -47,16 +49,16 @@ PostData.
 
 ### styles?
 
-> `optional` **styles**: `CustomPostStylesInput`
+> `optional` **styles?**: `CustomPostStylesInput`
 
 Styles associated with the custom post, such as height or background color.
 
 ### textFallback?
 
-> `optional` **textFallback**: [`CustomPostTextFallbackOptions`](CustomPostTextFallbackOptions.md)
+> `optional` **textFallback?**: [`CustomPostTextFallbackOptions`](CustomPostTextFallbackOptions.md)
 
 Content to show when rendered on `https://old.reddit.com`.
 
 ### userGeneratedContent?
 
-> `optional` **userGeneratedContent**: `UserGeneratedContent`
+> `optional` **userGeneratedContent?**: `UserGeneratedContent`

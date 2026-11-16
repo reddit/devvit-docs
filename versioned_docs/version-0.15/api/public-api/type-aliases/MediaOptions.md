@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,7 +12,7 @@
 
 ### blur?
 
-> `optional` **blur**: [`ObfuscationReason`](ObfuscationReason.md)
+> `optional` **blur?**: [`ObfuscationReason`](ObfuscationReason.md)
 
 If provided, the content should be blurred by default for the provided reason
 
@@ -26,7 +26,7 @@ If provided, the content should be blurred by default for the provided reason
 
 ### caption?
 
-> `optional` **caption**: `string`
+> `optional` **caption?**: `string`
 
 Media description
 

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -24,7 +24,7 @@ The IDs of the removed posts or comments.
 
 ### modNote?
 
-> `optional` **modNote**: `string`
+> `optional` **modNote?**: `string`
 
 The note explaining the removal. The maximum length is 100 characters.
 

@@ -1,4 +1,4 @@
-[**@devvit/reddit v0.15.3-dev**](../../README.md)
+[**@devvit/reddit v0.15.4-dev**](../../README.md)
 
 ***
 
@@ -6,11 +6,11 @@
 
 > **GetUserFlairBySubredditOptions** = [`UserFlairPageOptions`](UserFlairPageOptions.md) & `object`
 
-## Type declaration
+## Type Declaration
 
 ### name?
 
-> `optional` **name**: `string`
+> `optional` **name?**: `string`
 
 The username associated with the flair being retrieved.
 

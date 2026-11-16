@@ -1,4 +1,4 @@
-[**@devvit/public-api v0.15.3-dev**](../README.md)
+[**@devvit/public-api v0.15.4-dev**](../README.md)
 
 ***
 
@@ -12,6 +12,6 @@
 
 ### subredditName?
 
-> `optional` **subredditName**: `string`
+> `optional` **subredditName?**: `string`
 
 Defaults to the current subreddit name.
