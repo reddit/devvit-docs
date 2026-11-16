@@ -9,7 +9,7 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
-## Release 0.15.04: Direct Launch & Deeper Insights. 
+## Release 0.15.04: Direct Launch & Deeper Insights 
 
 **Release Date: November 16, 2026**   
 
@@ -31,7 +31,7 @@ Added a new Fix mod permissions button in the Developer Portal's App Permissions
 New app versions must now be uploaded using Devvit CLI 0.13.9 or later. Upgrade your CLI before publishing a new version of your app.
 
 
-## Release 0.15.3: TypeScript Compatibility & API Fixes. 
+## Release 0.15.3: TypeScript Compatibility & API Fixes 
 
 **Release Date: November 9, 2026** 
 
