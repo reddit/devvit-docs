@@ -9,7 +9,7 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
-## Release 0.15.04: Direct Launch & Deeper Insights 
+## Release 0.15.4: Direct Launch & Deeper Insights 
 
 **Release Date: November 16, 2026**   
 
