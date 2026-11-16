@@ -15,13 +15,13 @@ To use the latest version of Devvit:
 
 **Direct Launch is here!**
 
-Make it easier for players to jump straight into your game with Direct Launch(LINK). Games can now open directly in expanded mode when launched from supported discovery surfaces, including Daily Games, Featured, Play Again, and Category placements. This is currently supported for iOS and Android, with web support coming soon!  
+Make it easier for players to jump straight into your game with [Direct Launch](https://developers.reddit.com/docs/capabilities/server/launch_screen_and_entry_points/direct-launch-games). Games can now open directly in expanded mode when launched from supported discovery surfaces, including Daily Games, Featured, Play Again, and Category placements. This is currently supported for iOS and Android, with web support coming soon!  
 
 Direct Launch requires Devvit CLI 0.14.6 or later, with 0.15.3 or later recommended.  You’ll need to make sure your game supports expanded mode before enabling it.  
 
 **Devvit Journeys Progress Funnel**
 
-Get a clearer picture of how players move through your app with the new Progress Funnel in Devvit Journeys analytics.  The funnel shows you how many Journeys reach each progress milestone and where users drop off, helping you identify friction points and opportunities to improve engagement with your app.
+Get a clearer picture of how players move through your app with the new [Progress Funnel](https://developers.reddit.com/docs/capabilities/analytics/journeys-dashboard#progress-funnel) in Devvit Journeys analytics.  The funnel shows you how many Journeys reach each progress milestone and where users drop off, helping you identify friction points and opportunities to improve engagement with your app.
 
 **Mod Fix Permissions**  
 
