@@ -6811,7 +6811,7 @@ __metadata:
     glob: "npm:14.0.2"
     js-yaml: "npm:4.3.2"
     mobx: "npm:^6.13.5"
-    prettier: "npm:3.3.3"
+    prettier: "npm:3.9.10"
     prism-react-renderer: "npm:^2.3.0"
     process: "npm:0.11.10"
     react: "npm:^19.0.0"
@@ -11915,12 +11915,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.3.3":
-  version: 3.3.3
-  resolution: "prettier@npm:3.3.3"
+"prettier@npm:3.9.10":
+  version: 3.9.10
+  resolution: "prettier@npm:3.9.10"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/b85828b08e7505716324e4245549b9205c0cacb25342a030ba8885aba2039a115dbcf75a0b7ca3b37bc9d101ee61fab8113fc69ca3359f2a226f1ecc07ad2e26
+  checksum: 10c0/0b3531593aa6fb36ac6baf629cb058bda472c59a6938774f931fe55283a07c62e6f56e621b043a82d8a3e21fc284c08c34f9e539fc70072635f79b7bae1a1067
   languageName: node
   linkType: hard
 
