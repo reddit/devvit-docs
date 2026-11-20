@@ -13,7 +13,7 @@ To use the latest version of Devvit:
 
 **Release Date: November 16, 2026**   
 
-**Direct Launch is here!**  
+**Direct Launch is here!**
 
 Make it easier for players to jump straight into your game with [Direct Launch](https://developers.reddit.com/docs/capabilities/server/launch_screen_and_entry_points/direct-launch-games). Games can now open directly in expanded mode when launched from supported discovery surfaces, including Daily Games, Featured, Play Again, and Category placements. This is currently supported for iOS and Android, with web support coming soon!  
 
@@ -27,7 +27,7 @@ Get a clearer picture of how players move through your app with the new [Progres
 
 Added a new Fix mod permissions button in the Developer Portal's App Permissions section. You can now restore an app account's moderator permissions directly from the Portal if they become misconfigured.
 
-**CLI Requirement Update**. 
+**CLI Requirement Update**
 
 New app versions must now be uploaded using Devvit CLI 0.13.9 or later. Upgrade your CLI before publishing a new version of your app.
 
