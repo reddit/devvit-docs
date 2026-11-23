@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Function: getSubredditInfoById()
 
@@ -14,7 +14,7 @@ Gets a [SubredditInfo](../type-aliases/SubredditInfo.md) object by ID
 
 `` `t5_${string}` ``
 
-The ID (starting with t5_) of the subreddit to retrieve. e.g. t5_2qjpg
+The ID (starting with t5\_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 ## Returns
 

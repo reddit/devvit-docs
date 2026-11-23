@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: GetModNotesOptions
 
@@ -18,7 +18,7 @@ Options for retrieving a user's moderation notes from a subreddit.
 
 The pagination cursor before which results should be returned.
 
-***
+---
 
 <a id="filter"></a>
 
@@ -28,7 +28,7 @@ The pagination cursor before which results should be returned.
 
 The type of moderation notes to return. Defaults to all types.
 
-***
+---
 
 <a id="limit"></a>
 
@@ -41,7 +41,7 @@ The maximum total number of moderation notes to return.
 Accepts at most 100 notes per request. Omit this option to allow the
 listing to paginate beyond the first 100 notes.
 
-***
+---
 
 <a id="subreddit"></a>
 
@@ -51,7 +51,7 @@ listing to paginate beyond the first 100 notes.
 
 The subreddit name without the leading `r/`.
 
-***
+---
 
 <a id="user"></a>
 

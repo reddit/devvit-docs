@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: SecureMedia
 
@@ -14,7 +14,7 @@
 
 > `optional` **oembed?**: [`Oembed`](Oembed.md)
 
-***
+---
 
 <a id="redditvideo"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **redditVideo?**: [`RedditVideo`](RedditVideo.md)
 
-***
+---
 
 <a id="type"></a>
 

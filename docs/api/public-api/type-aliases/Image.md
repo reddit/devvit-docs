@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: Image
 
@@ -14,15 +14,15 @@
 
 > `optional` **c?**: `string`
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`IMAGE_ELEMENT`](../variables/IMAGE_ELEMENT.md)
+> **e**: _typeof_ [`IMAGE_ELEMENT`](../variables/IMAGE_ELEMENT.md)
 
-***
+---
 
 <a id="id"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **id?**: [`MediaAssetId`](MediaAssetId.md)
 
-***
+---
 
 <a id="mediaurl"></a>
 
@@ -40,7 +40,7 @@
 
 URL of the media when building; backend may replace with id in processed JSON
 
-***
+---
 
 <a id="o"></a>
 

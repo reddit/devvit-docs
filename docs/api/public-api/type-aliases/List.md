@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: List
 
@@ -12,6 +12,7 @@ a list of two, top-level, paragraphs.
 
 e.g.
 The CommonMark list of:
+
 ```
  * foo
  * bar
@@ -19,22 +20,22 @@ The CommonMark list of:
 
 could either be represented as
 (List
-   (ListChild
-      (Paragraph 'foo')
-      (Paragraph 'bar' )))
+(ListChild
+(Paragraph 'foo')
+(Paragraph 'bar' )))
 
 OR
 
 (List
-   (ListChild
-       (Paragraph 'foo' ))
-   (ListChild
-       (Paragraph 'bar)))
+(ListChild
+(Paragraph 'foo' ))
+(ListChild
+(Paragraph 'bar)))
 
 The spec is designed to be interoperable with our CommonMark parser, and as so,
 the preferred encoding is the latter.
 
-If you would like to demo  CommonMark Markdown -> AST conversions,
+If you would like to demo CommonMark Markdown -> AST conversions,
 you can try out http://spec.commonmark.org/dingus/
 
 ## Properties
@@ -45,15 +46,15 @@ you can try out http://spec.commonmark.org/dingus/
 
 > **c**: [`ListItem`](ListItem.md)[]
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`LIST_ELEMENT`](../variables/LIST_ELEMENT.md)
+> **e**: _typeof_ [`LIST_ELEMENT`](../variables/LIST_ELEMENT.md)
 
-***
+---
 
 <a id="o"></a>
 

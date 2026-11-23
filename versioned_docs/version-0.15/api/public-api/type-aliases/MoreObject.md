@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
 # Type Alias: MoreObject
 
@@ -14,7 +14,7 @@
 
 > **children**: `T1`[]
 
-***
+---
 
 <a id="depth"></a>
 
@@ -22,7 +22,7 @@
 
 > **depth**: `number`
 
-***
+---
 
 <a id="parentid"></a>
 

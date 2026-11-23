@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: ListItem
 
@@ -14,10 +14,10 @@
 
 > `optional` **c?**: [`ListChild`](ListChild.md)[]
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`LIST_ITEM_ELEMENT`](../variables/LIST_ITEM_ELEMENT.md)
+> **e**: _typeof_ [`LIST_ITEM_ELEMENT`](../variables/LIST_ITEM_ELEMENT.md)

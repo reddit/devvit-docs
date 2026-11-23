@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: IMAGE\_ELEMENT
+# Variable: IMAGE_ELEMENT
 
-> `const` **IMAGE\_ELEMENT**: `"img"` = `"img"`
+> `const` **IMAGE_ELEMENT**: `"img"` = `"img"`

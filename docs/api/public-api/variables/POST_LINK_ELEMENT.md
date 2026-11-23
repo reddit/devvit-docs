@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
-# Variable: POST\_LINK\_ELEMENT
+# Variable: POST_LINK_ELEMENT
 
-> `const` **POST\_LINK\_ELEMENT**: `"p/"` = `"p/"`
+> `const` **POST_LINK_ELEMENT**: `"p/"` = `"p/"`

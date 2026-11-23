@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: COLUMN\_ALIGN\_CENTER
+# Variable: COLUMN_ALIGN_CENTER
 
-> `const` **COLUMN\_ALIGN\_CENTER**: `"C"` = `"C"`
+> `const` **COLUMN_ALIGN_CENTER**: `"C"` = `"C"`

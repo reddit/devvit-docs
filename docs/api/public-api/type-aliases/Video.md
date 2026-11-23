@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: Video
 
@@ -14,15 +14,15 @@
 
 > `optional` **c?**: `string`
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`VIDEO_ELEMENT`](../variables/VIDEO_ELEMENT.md)
+> **e**: _typeof_ [`VIDEO_ELEMENT`](../variables/VIDEO_ELEMENT.md)
 
-***
+---
 
 <a id="gifify"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **gifify?**: `boolean`
 
-***
+---
 
 <a id="id"></a>
 
@@ -38,7 +38,7 @@
 
 > `optional` **id?**: [`MediaAssetId`](MediaAssetId.md)
 
-***
+---
 
 <a id="mediaurl"></a>
 
@@ -48,7 +48,7 @@
 
 URL of the media when building; backend may replace with id in processed JSON
 
-***
+---
 
 <a id="o"></a>
 
@@ -56,7 +56,7 @@ URL of the media when building; backend may replace with id in processed JSON
 
 > `optional` **o?**: [`ObfuscationReason`](ObfuscationReason.md)
 
-***
+---
 
 <a id="p"></a>
 

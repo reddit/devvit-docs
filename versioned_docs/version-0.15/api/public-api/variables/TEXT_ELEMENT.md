@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: TEXT\_ELEMENT
+# Variable: TEXT_ELEMENT
 
-> `const` **TEXT\_ELEMENT**: `"text"` = `"text"`
+> `const` **TEXT_ELEMENT**: `"text"` = `"text"`

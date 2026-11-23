@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: COMMENT\_LINK\_ELEMENT
+# Variable: COMMENT_LINK_ELEMENT
 
-> `const` **COMMENT\_LINK\_ELEMENT**: `"c/"` = `"c/"`
+> `const` **COMMENT_LINK_ELEMENT**: `"c/"` = `"c/"`

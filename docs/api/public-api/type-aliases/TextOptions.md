@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: TextOptions
 
@@ -17,8 +17,8 @@ arbitrary substring within the text
 
 #### See
 
- - [FormatRange](FormatRange.md)
- - makeFormatting
+- [FormatRange](FormatRange.md)
+- makeFormatting
 
 #### Example
 

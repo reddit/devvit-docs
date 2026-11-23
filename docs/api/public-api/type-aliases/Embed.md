@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: Embed
 
@@ -14,15 +14,15 @@
 
 > **c**: [`UrlString`](UrlString.md)
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`EMBED_ELEMENT`](../variables/EMBED_ELEMENT.md)
+> **e**: _typeof_ [`EMBED_ELEMENT`](../variables/EMBED_ELEMENT.md)
 
-***
+---
 
 <a id="u"></a>
 
@@ -30,7 +30,7 @@
 
 > **u**: [`UrlString`](UrlString.md)
 
-***
+---
 
 <a id="x"></a>
 
@@ -38,7 +38,7 @@
 
 > **x**: `number`
 
-***
+---
 
 <a id="y"></a>
 

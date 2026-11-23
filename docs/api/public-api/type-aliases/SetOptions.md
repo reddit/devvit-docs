@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: SetOptions
 
@@ -14,7 +14,7 @@
 
 > `optional` **expiration?**: `Date`
 
-***
+---
 
 <a id="nx"></a>
 
@@ -24,7 +24,7 @@
 
 Only set the key if it does not already exist.
 
-***
+---
 
 <a id="xx"></a>
 

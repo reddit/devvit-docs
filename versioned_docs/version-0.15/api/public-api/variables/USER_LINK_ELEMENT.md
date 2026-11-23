@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: USER\_LINK\_ELEMENT
+# Variable: USER_LINK_ELEMENT
 
-> `const` **USER\_LINK\_ELEMENT**: `"u/"` = `"u/"`
+> `const` **USER_LINK_ELEMENT**: `"u/"` = `"u/"`

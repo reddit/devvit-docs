@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: EmbedOptions
 
@@ -16,7 +16,7 @@
 
 URL to load in the embedded iframe
 
-***
+---
 
 <a id="height"></a>
 
@@ -24,7 +24,7 @@ URL to load in the embedded iframe
 
 > **height**: `number`
 
-***
+---
 
 <a id="sourceurl"></a>
 
@@ -34,7 +34,7 @@ URL to load in the embedded iframe
 
 Destination URL when the embed is clicked
 
-***
+---
 
 <a id="width"></a>
 

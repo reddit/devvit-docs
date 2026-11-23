@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: PARAGRAPH\_ELEMENT
+# Variable: PARAGRAPH_ELEMENT
 
-> `const` **PARAGRAPH\_ELEMENT**: `"par"` = `"par"`
+> `const` **PARAGRAPH_ELEMENT**: `"par"` = `"par"`

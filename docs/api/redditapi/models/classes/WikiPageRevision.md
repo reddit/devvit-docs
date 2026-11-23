@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Class: WikiPageRevision
 
@@ -46,7 +46,7 @@ Use authorId instead.
 
 [`User`](User.md)
 
-***
+---
 
 <a id="authorid"></a>
 
@@ -62,7 +62,7 @@ The ID of the author of this revision.
 
 `` `t2_${string}` `` \| `undefined`
 
-***
+---
 
 <a id="date"></a>
 
@@ -76,7 +76,7 @@ The ID of the author of this revision.
 
 `Date`
 
-***
+---
 
 <a id="hidden"></a>
 
@@ -90,7 +90,7 @@ The ID of the author of this revision.
 
 `boolean`
 
-***
+---
 
 <a id="id"></a>
 
@@ -104,7 +104,7 @@ The ID of the author of this revision.
 
 `string`
 
-***
+---
 
 <a id="page"></a>
 
@@ -118,7 +118,7 @@ The ID of the author of this revision.
 
 `string`
 
-***
+---
 
 <a id="reason"></a>
 

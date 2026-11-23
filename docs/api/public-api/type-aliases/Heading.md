@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: Heading
 
@@ -14,15 +14,15 @@
 
 > `optional` **c?**: [`HeadingText`](HeadingText.md)[]
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`HEADING_ELEMENT`](../variables/HEADING_ELEMENT.md)
+> **e**: _typeof_ [`HEADING_ELEMENT`](../variables/HEADING_ELEMENT.md)
 
-***
+---
 
 <a id="l"></a>
 

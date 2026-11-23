@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: HighlightPostOptions
 
@@ -18,7 +18,7 @@ Options for highlighting a post.
 
 Label displayed alongside the highlighted post.
 
-***
+---
 
 <a id="highlightuntil"></a>
 

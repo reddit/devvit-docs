@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
-# Variable: TABLE\_ELEMENT
+# Variable: TABLE_ELEMENT
 
-> `const` **TABLE\_ELEMENT**: `"table"` = `"table"`
+> `const` **TABLE_ELEMENT**: `"table"` = `"table"`

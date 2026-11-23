@@ -1,7 +1,7 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: GalleryMediaStatus
 
-> **GalleryMediaStatus** = *typeof* `GalleryMediaStatusProto`\[keyof *typeof* `GalleryMediaStatusProto`\]
+> **GalleryMediaStatus** = _typeof_ `GalleryMediaStatusProto`\[keyof _typeof_ `GalleryMediaStatusProto`\]

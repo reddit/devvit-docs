@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: CustomPostTextFallbackOptions
 
@@ -19,7 +19,7 @@
 The fallback content as plaintext or Markdown. See
 https://www.reddit.com/r/reddit.com/wiki/markdown/.
 
-***
+---
 
 ### Type Literal
 

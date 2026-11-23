@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Class: TextAreaWidget
 
@@ -52,7 +52,7 @@
 
 [`Widget`](Widget.md).[`id`](Widget.md#id)
 
-***
+---
 
 <a id="name"></a>
 
@@ -70,7 +70,7 @@
 
 [`Widget`](Widget.md).[`name`](Widget.md#name)
 
-***
+---
 
 <a id="styles"></a>
 
@@ -84,7 +84,7 @@
 
 `WidgetStyles`
 
-***
+---
 
 <a id="subredditname"></a>
 
@@ -102,7 +102,7 @@
 
 [`Widget`](Widget.md).[`subredditName`](Widget.md#subredditname)
 
-***
+---
 
 <a id="text"></a>
 
@@ -132,7 +132,7 @@
 
 [`Widget`](Widget.md).[`delete`](Widget.md#delete)
 
-***
+---
 
 <a id="tojson"></a>
 

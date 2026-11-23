@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: LineBreak
 
@@ -12,4 +12,4 @@
 
 ### e
 
-> **e**: *typeof* [`LINEBREAK_ELEMENT`](../variables/LINEBREAK_ELEMENT.md)
+> **e**: _typeof_ [`LINEBREAK_ELEMENT`](../variables/LINEBREAK_ELEMENT.md)

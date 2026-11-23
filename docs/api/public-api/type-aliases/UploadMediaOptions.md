@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: UploadMediaOptions
 
@@ -16,7 +16,7 @@
 
 The type of media being uploaded. (Note that GIFs are their own type.)
 
-***
+---
 
 <a id="url"></a>
 

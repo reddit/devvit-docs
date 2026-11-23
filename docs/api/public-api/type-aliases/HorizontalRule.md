@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: HorizontalRule
 
@@ -12,4 +12,4 @@
 
 ### e
 
-> **e**: *typeof* [`HORIZONTAL_RULE_ELEMENT`](../variables/HORIZONTAL_RULE_ELEMENT.md)
+> **e**: _typeof_ [`HORIZONTAL_RULE_ELEMENT`](../variables/HORIZONTAL_RULE_ELEMENT.md)

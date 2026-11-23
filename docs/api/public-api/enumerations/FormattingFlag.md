@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Enumeration: FormattingFlag
 
@@ -12,7 +12,7 @@
 
 > **bold**: `1`
 
-***
+---
 
 <a id="italic"></a>
 
@@ -20,7 +20,7 @@
 
 > **italic**: `2`
 
-***
+---
 
 <a id="monospace"></a>
 
@@ -28,7 +28,7 @@
 
 > **monospace**: `64`
 
-***
+---
 
 <a id="strikethrough"></a>
 
@@ -36,7 +36,7 @@
 
 > **strikethrough**: `8`
 
-***
+---
 
 <a id="subscript"></a>
 
@@ -44,7 +44,7 @@
 
 > **subscript**: `16`
 
-***
+---
 
 <a id="superscript"></a>
 
@@ -52,7 +52,7 @@
 
 > **superscript**: `32`
 
-***
+---
 
 <a id="underline"></a>
 

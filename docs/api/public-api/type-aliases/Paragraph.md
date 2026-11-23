@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: Paragraph
 
@@ -14,10 +14,10 @@
 
 > **c**: [`ParagraphContentNode`](ParagraphContentNode.md)[]
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`PARAGRAPH_ELEMENT`](../variables/PARAGRAPH_ELEMENT.md)
+> **e**: _typeof_ [`PARAGRAPH_ELEMENT`](../variables/PARAGRAPH_ELEMENT.md)

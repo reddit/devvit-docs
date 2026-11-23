@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: SubredditData
 
@@ -14,7 +14,7 @@
 
 > `optional` **communityIcon?**: `string`
 
-***
+---
 
 <a id="displayname"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **displayName?**: `string`
 
-***
+---
 
 <a id="icon"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **icon?**: `string`
 
-***
+---
 
 <a id="id"></a>
 
@@ -38,7 +38,7 @@
 
 > `optional` **id?**: `T5`
 
-***
+---
 
 <a id="keycolor"></a>
 
@@ -46,7 +46,7 @@
 
 > `optional` **keyColor?**: `string`
 
-***
+---
 
 <a id="lastupdated"></a>
 
@@ -54,7 +54,7 @@
 
 > `optional` **lastUpdated?**: `string`
 
-***
+---
 
 <a id="name"></a>
 
@@ -62,7 +62,7 @@
 
 > `optional` **name?**: `string`
 
-***
+---
 
 <a id="primarycolor"></a>
 
@@ -70,7 +70,7 @@
 
 > `optional` **primaryColor?**: `string`
 
-***
+---
 
 <a id="subscribers"></a>
 

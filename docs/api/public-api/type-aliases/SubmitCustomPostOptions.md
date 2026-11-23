@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: SubmitCustomPostOptions
 
@@ -24,14 +24,15 @@ The default `devvit.json` entrypoint (`'default'`).
 **Only \`'default'\` and \`'game'\` are valid entries given the**
 
 following `devvit.json` configuration:
+
 ```json
 {
   "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
   "name": "example",
   "post": {
     "entrypoints": {
-      "default": {"entry": "splash.html"},
-      "game": {"entry": "game.html"}
+      "default": { "entry": "splash.html" },
+      "game": { "entry": "game.html" }
     }
   }
 }

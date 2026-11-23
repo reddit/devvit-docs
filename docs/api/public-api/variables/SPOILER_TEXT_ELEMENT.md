@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
-# Variable: SPOILER\_TEXT\_ELEMENT
+# Variable: SPOILER_TEXT_ELEMENT
 
-> `const` **SPOILER\_TEXT\_ELEMENT**: `"spoilertext"` = `"spoilertext"`
+> `const` **SPOILER_TEXT_ELEMENT**: `"spoilertext"` = `"spoilertext"`

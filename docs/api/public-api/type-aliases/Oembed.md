@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: Oembed
 
@@ -21,7 +21,7 @@ See: https://oembed.com/
 
 The name of the author/owner of the resource. E.g. "Reddit"
 
-***
+---
 
 <a id="authorurl"></a>
 
@@ -34,10 +34,10 @@ A URL for the resource's author or owner.
 #### Example
 
 ```ts
-"https://www.youtube.com/@Reddit"
+"https://www.youtube.com/@Reddit";
 ```
 
-***
+---
 
 <a id="height"></a>
 
@@ -47,7 +47,7 @@ A URL for the resource's author or owner.
 
 The height in pixels required to display the HTML.
 
-***
+---
 
 <a id="html"></a>
 
@@ -59,7 +59,7 @@ The HTML required to embed a video player. It should have no padding or
 margins. Consider loading it in a separate-origin iframe to avoid XSS
 vulnerabilities.
 
-***
+---
 
 <a id="providername"></a>
 
@@ -69,7 +69,7 @@ vulnerabilities.
 
 A URL for the author/owner of the resource. E.g. "YouTube"
 
-***
+---
 
 <a id="providerurl"></a>
 
@@ -79,7 +79,7 @@ A URL for the author/owner of the resource. E.g. "YouTube"
 
 The name of the resource provider. E.g "https://www.youtube.com/"
 
-***
+---
 
 <a id="thumbnailheight"></a>
 
@@ -89,7 +89,7 @@ The name of the resource provider. E.g "https://www.youtube.com/"
 
 The height of the optional thumbnail in pixels
 
-***
+---
 
 <a id="thumbnailurl"></a>
 
@@ -99,7 +99,7 @@ The height of the optional thumbnail in pixels
 
 A URL to a thumbnail image representing the resource.
 
-***
+---
 
 <a id="thumbnailwidth"></a>
 
@@ -109,7 +109,7 @@ A URL to a thumbnail image representing the resource.
 
 The width of the optional thumbnail in pixels
 
-***
+---
 
 <a id="title"></a>
 
@@ -119,7 +119,7 @@ The width of the optional thumbnail in pixels
 
 A text title, describing the resource.
 
-***
+---
 
 <a id="type"></a>
 
@@ -129,7 +129,7 @@ A text title, describing the resource.
 
 The resource type and its type-specific parameters, such as `"video"`.
 
-***
+---
 
 <a id="version"></a>
 
@@ -139,7 +139,7 @@ The resource type and its type-specific parameters, such as `"video"`.
 
 The oEmbed version number. This must be 1.0.
 
-***
+---
 
 <a id="width"></a>
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: VideoOptions
 
@@ -22,8 +22,8 @@ An [Image](Image.md) element to use as the thumbnail before the video has loaded
 
 #### See
 
- - [Image](Image.md)
- - 
+- [Image](Image.md)
+-
 
 ## Borrows
 

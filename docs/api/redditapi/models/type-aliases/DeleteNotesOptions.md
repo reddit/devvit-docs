@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: DeleteNotesOptions
 
@@ -18,7 +18,7 @@ Options for deleting a moderation note.
 
 The unique moderation note identifier, including its `ModNote_` prefix.
 
-***
+---
 
 <a id="subreddit"></a>
 
@@ -28,7 +28,7 @@ The unique moderation note identifier, including its `ModNote_` prefix.
 
 The subreddit name without the leading `r/`.
 
-***
+---
 
 <a id="user"></a>
 

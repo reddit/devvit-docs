@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: Trophy
 
@@ -19,7 +19,7 @@ All fields are optional; the API may return null or omit any of them.
 
 Award ID.
 
-***
+---
 
 <a id="description"></a>
 
@@ -29,7 +29,7 @@ Award ID.
 
 Description.
 
-***
+---
 
 <a id="grantedat"></a>
 
@@ -39,7 +39,7 @@ Description.
 
 When the trophy was granted (Unix timestamp).
 
-***
+---
 
 <a id="iconsmallurl"></a>
 
@@ -49,7 +49,7 @@ When the trophy was granted (Unix timestamp).
 
 URL of the small icon. Currently 40x40.
 
-***
+---
 
 <a id="iconurl"></a>
 
@@ -59,7 +59,7 @@ URL of the small icon. Currently 40x40.
 
 URL of the trophy icon. Currently 70x70.
 
-***
+---
 
 <a id="id"></a>
 
@@ -69,7 +69,7 @@ URL of the trophy icon. Currently 70x70.
 
 Trophy ID.
 
-***
+---
 
 <a id="name"></a>
 
@@ -79,7 +79,7 @@ Trophy ID.
 
 Display name of the trophy.
 
-***
+---
 
 <a id="url"></a>
 

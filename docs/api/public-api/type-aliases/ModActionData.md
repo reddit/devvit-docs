@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: ModActionData
 
@@ -16,7 +16,7 @@
 
 Type of the action
 
-***
+---
 
 <a id="author"></a>
 
@@ -54,7 +54,7 @@ User id
 
 User name
 
-***
+---
 
 <a id="date"></a>
 
@@ -64,7 +64,7 @@ User name
 
 When the action happened
 
-***
+---
 
 <a id="id"></a>
 

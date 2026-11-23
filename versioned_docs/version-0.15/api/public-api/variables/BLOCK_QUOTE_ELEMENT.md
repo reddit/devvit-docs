@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: BLOCK\_QUOTE\_ELEMENT
+# Variable: BLOCK_QUOTE_ELEMENT
 
-> `const` **BLOCK\_QUOTE\_ELEMENT**: `"blockquote"` = `"blockquote"`
+> `const` **BLOCK_QUOTE_ELEMENT**: `"blockquote"` = `"blockquote"`

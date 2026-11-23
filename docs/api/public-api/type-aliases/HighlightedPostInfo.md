@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: HighlightedPostInfo
 
@@ -18,7 +18,7 @@ Information about a post in a subreddit's community highlights.
 
 When the highlight expires. Undefined means it does not expire automatically.
 
-***
+---
 
 <a id="highlightlabel"></a>
 
@@ -28,7 +28,7 @@ When the highlight expires. Undefined means it does not expire automatically.
 
 Label displayed alongside the highlighted post.
 
-***
+---
 
 <a id="postid"></a>
 

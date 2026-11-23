@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: SpoilerText
 
@@ -14,10 +14,10 @@
 
 > **c**: [`PlainText`](PlainText.md)[]
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`SPOILER_TEXT_ELEMENT`](../variables/SPOILER_TEXT_ELEMENT.md)
+> **e**: _typeof_ [`SPOILER_TEXT_ELEMENT`](../variables/SPOILER_TEXT_ELEMENT.md)

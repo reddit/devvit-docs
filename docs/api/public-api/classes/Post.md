@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Class: Post
 
@@ -32,7 +32,7 @@ Whether the post has been approved by a moderator.
 
 `boolean`
 
-***
+---
 
 <a id="approvedatutc"></a>
 
@@ -51,7 +51,7 @@ value to a `Date` with `new Date(post.approvedAtUtc * 1000)`.
 
 `number`
 
-***
+---
 
 <a id="archived"></a>
 
@@ -67,7 +67,7 @@ Whether the post is archived.
 
 `boolean`
 
-***
+---
 
 <a id="authorflair"></a>
 
@@ -83,7 +83,7 @@ The author's subreddit flair, or `undefined` when unavailable.
 
 [`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
-***
+---
 
 <a id="authorid"></a>
 
@@ -99,7 +99,7 @@ The creator's account identifier, or `undefined` when unavailable.
 
 `` `t2_${string}` `` \| `undefined`
 
-***
+---
 
 <a id="authorname"></a>
 
@@ -115,7 +115,7 @@ The creator's username without the leading `u/`.
 
 `string`
 
-***
+---
 
 <a id="bannedatutc"></a>
 
@@ -134,7 +134,7 @@ Convert a nonzero value to a `Date` with
 
 `number`
 
-***
+---
 
 <a id="body"></a>
 
@@ -150,7 +150,7 @@ The post body in Markdown. `undefined` if absent.
 
 `string` \| `undefined`
 
-***
+---
 
 <a id="bodyhtml"></a>
 
@@ -166,7 +166,7 @@ The post body rendered as HTML, or `undefined` when unavailable.
 
 `string` \| `undefined`
 
-***
+---
 
 <a id="comments"></a>
 
@@ -189,7 +189,7 @@ const comments = await post.comments.get(25);
 
 [`Listing`](Listing.md)\<[`Comment`](Comment.md)\>
 
-***
+---
 
 <a id="createdat"></a>
 
@@ -205,7 +205,7 @@ The date when the post was created.
 
 `Date`
 
-***
+---
 
 <a id="crosspostparentid"></a>
 
@@ -222,7 +222,7 @@ if not a crosspost or parent is unavailable.
 
 `` `t3_${string}` `` \| `undefined`
 
-***
+---
 
 <a id="distinguishedby"></a>
 
@@ -241,7 +241,7 @@ For example, a post distinguished by a moderator or employee returns
 
 `string` \| `undefined`
 
-***
+---
 
 <a id="edited"></a>
 
@@ -257,7 +257,7 @@ Whether the post body has been edited since it was created.
 
 `boolean`
 
-***
+---
 
 <a id="flair"></a>
 
@@ -273,7 +273,7 @@ The post flair, or `undefined` when unavailable.
 
 [`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
-***
+---
 
 <a id="gallery"></a>
 
@@ -293,7 +293,7 @@ the first preview image or GIF variant.
 
 [`GalleryMedia`](../type-aliases/GalleryMedia.md)[]
 
-***
+---
 
 <a id="hidden"></a>
 
@@ -309,7 +309,7 @@ Whether the post is hidden from listings.
 
 `boolean`
 
-***
+---
 
 <a id="id"></a>
 
@@ -323,7 +323,7 @@ Whether the post is hidden from listings.
 
 `` `t3_${string}` ``
 
-***
+---
 
 <a id="ignoringreports"></a>
 
@@ -339,7 +339,7 @@ Whether reports on the post are being ignored.
 
 `boolean`
 
-***
+---
 
 <a id="locked"></a>
 
@@ -355,7 +355,7 @@ Whether the post is locked and new comments are disabled.
 
 `boolean`
 
-***
+---
 
 <a id="modreportreasons"></a>
 
@@ -373,7 +373,7 @@ Use [modReports](#modreports) to retain each report's author.
 
 `string`[]
 
-***
+---
 
 <a id="modreports"></a>
 
@@ -389,7 +389,7 @@ Moderator reports and authors, or an empty array when unavailable.
 
 [`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
 
-***
+---
 
 <a id="nsfw"></a>
 
@@ -405,7 +405,7 @@ Whether the post is marked not safe for work (NSFW).
 
 `boolean`
 
-***
+---
 
 <a id="numberofcomments"></a>
 
@@ -421,7 +421,7 @@ The number of comments, or `0` when none are available.
 
 `number`
 
-***
+---
 
 <a id="numberofreports"></a>
 
@@ -437,7 +437,7 @@ The number of reports, or `0` when none are available.
 
 `number`
 
-***
+---
 
 <a id="permalink"></a>
 
@@ -452,14 +452,14 @@ The post's path relative to `https://www.reddit.com`.
 ##### Example
 
 ```ts
-"/r/wallstreetbets/comments/abc123/post/"
+"/r/wallstreetbets/comments/abc123/post/";
 ```
 
 ##### Returns
 
 `string`
 
-***
+---
 
 <a id="polldata"></a>
 
@@ -476,7 +476,7 @@ the post is not a poll.
 
 [`PollData`](../type-aliases/PollData.md) \| `undefined`
 
-***
+---
 
 <a id="quarantined"></a>
 
@@ -492,7 +492,7 @@ Whether the post is quarantined.
 
 `boolean`
 
-***
+---
 
 <a id="removed"></a>
 
@@ -508,7 +508,7 @@ Whether the post has been removed by a moderator.
 
 `boolean`
 
-***
+---
 
 <a id="removedby"></a>
 
@@ -525,7 +525,7 @@ The username of the account that removed the post, without the leading
 
 `string` \| `undefined`
 
-***
+---
 
 <a id="removedbycategory"></a>
 
@@ -552,7 +552,7 @@ Identifies who or what removed the post:
 
 `string` \| `undefined`
 
-***
+---
 
 <a id="score"></a>
 
@@ -568,7 +568,7 @@ The post's upvotes minus downvotes, or `0` when unavailable.
 
 `number`
 
-***
+---
 
 <a id="securemedia"></a>
 
@@ -587,7 +587,7 @@ Returns `undefined` when the post has no secure media metadata.
 
 [`SecureMedia`](../type-aliases/SecureMedia.md) \| `undefined`
 
-***
+---
 
 <a id="spam"></a>
 
@@ -603,7 +603,7 @@ Whether the post has been marked as spam by a moderator.
 
 `boolean`
 
-***
+---
 
 <a id="spoiler"></a>
 
@@ -619,7 +619,7 @@ Whether the post's content is hidden until the user explicitly opens it.
 
 `boolean`
 
-***
+---
 
 <a id="stickied"></a>
 
@@ -635,7 +635,7 @@ Whether the post is presented before other posts in its subreddit.
 
 `boolean`
 
-***
+---
 
 <a id="subredditid"></a>
 
@@ -651,7 +651,7 @@ The subreddit identifier where the post was created.
 
 `` `t5_${string}` ``
 
-***
+---
 
 <a id="subredditname"></a>
 
@@ -667,7 +667,7 @@ The owning subreddit's name without the leading `r/`.
 
 `string`
 
-***
+---
 
 <a id="thumbnail"></a>
 
@@ -686,7 +686,7 @@ placeholder such as `"self"` or `"nsfw"`.
 
 \{ `height`: `number`; `url`: `string`; `width`: `number`; \} \| `undefined`
 
-***
+---
 
 <a id="title"></a>
 
@@ -702,7 +702,7 @@ The title displayed for the post.
 
 `string`
 
-***
+---
 
 <a id="url"></a>
 
@@ -720,14 +720,14 @@ image or video post. Use [permalink](#permalink) for the relative path.
 ##### Example
 
 ```ts
-"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/"
+"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/";
 ```
 
 ##### Returns
 
 `string`
 
-***
+---
 
 <a id="userreportreasons"></a>
 
@@ -763,7 +763,7 @@ Creates a top-level comment on the post.
 
 `Promise`\<[`Comment`](Comment.md)\>
 
-***
+---
 
 <a id="addremovalnote"></a>
 
@@ -783,7 +783,7 @@ Adds a moderator note explaining why the post was removed.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="approve"></a>
 
@@ -797,7 +797,7 @@ Approves the post and updates this instance's moderation state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="crosspost"></a>
 
@@ -817,7 +817,7 @@ Creates a crosspost of this post in another subreddit.
 
 `Promise`\<`Post`\>
 
-***
+---
 
 <a id="delete"></a>
 
@@ -831,7 +831,7 @@ Deletes the post as the app account.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="distinguish"></a>
 
@@ -845,7 +845,7 @@ Distinguishes the post as a moderator and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="distinguishasadmin"></a>
 
@@ -859,7 +859,7 @@ Distinguishes the post as an administrator and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="edit"></a>
 
@@ -880,7 +880,7 @@ edited state from the response.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="filter"></a>
 
@@ -905,7 +905,7 @@ a reason; when `keep` is `true`, the reason is also shown on the post.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="getauthor"></a>
 
@@ -919,7 +919,7 @@ Fetches the creator's account, or `undefined` if it is unavailable.
 
 `Promise`\<[`User`](User.md) \| `undefined`\>
 
-***
+---
 
 <a id="getcurrentuserpolloption"></a>
 
@@ -937,7 +937,7 @@ To get the poll option for a user, please contact Reddit.
 
 `Promise`\<[`PollOption`](../type-aliases/PollOption.md) \| `undefined`\>
 
-***
+---
 
 <a id="getcustompoststyles"></a>
 
@@ -953,7 +953,7 @@ Get the custom styles for a custom post.
 
 `Promise`\<`StrictRequired`\<`CustomPostStylesInput`\>\>
 
-***
+---
 
 <a id="getduplicates"></a>
 
@@ -979,7 +979,7 @@ A listing of other posts that reference the same URL.
 const duplicates = await post.getDuplicates().get(25);
 ```
 
-***
+---
 
 <a id="getenrichedthumbnail"></a>
 
@@ -1007,7 +1007,7 @@ const post = await context.reddit.getPostById(context.postId);
 const enrichedThumbnail = await post.getEnrichedThumbnail();
 ```
 
-***
+---
 
 <a id="getpostdata"></a>
 
@@ -1028,7 +1028,7 @@ const post = await reddit.getPostById(context.postId);
 const postData = await post.getPostData();
 ```
 
-***
+---
 
 <a id="hide"></a>
 
@@ -1042,7 +1042,7 @@ Hides the post from the app account and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="highlight"></a>
 
@@ -1072,12 +1072,12 @@ Optional expiration and label settings.
 
 ```ts
 await post.highlight({
-  highlightUntil: new Date('2030-01-01T00:00:00Z'),
-  highlightLabelType: 'ANNOUNCEMENT',
+  highlightUntil: new Date("2030-01-01T00:00:00Z"),
+  highlightLabelType: "ANNOUNCEMENT",
 });
 ```
 
-***
+---
 
 <a id="ignorereports"></a>
 
@@ -1091,7 +1091,7 @@ Ignores reports and updates this instance's report-ignore state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="isapproved"></a>
 
@@ -1105,7 +1105,7 @@ The post's approval state.
 
 `boolean`
 
-***
+---
 
 <a id="isarchived"></a>
 
@@ -1119,7 +1119,7 @@ The post's archived state.
 
 `boolean`
 
-***
+---
 
 <a id="isdistinguishedby"></a>
 
@@ -1133,7 +1133,7 @@ The post's distinction category.
 
 `string` \| `undefined`
 
-***
+---
 
 <a id="isedited"></a>
 
@@ -1147,7 +1147,7 @@ The post's edited state.
 
 `boolean`
 
-***
+---
 
 <a id="ishidden"></a>
 
@@ -1161,7 +1161,7 @@ The post's hidden state.
 
 `boolean`
 
-***
+---
 
 <a id="ishighlighted"></a>
 
@@ -1178,11 +1178,11 @@ Returns whether this post is in its subreddit's community highlights.
 #### Example
 
 ```ts
-const post = await reddit.getPostById('t3_123');
+const post = await reddit.getPostById("t3_123");
 const isHighlighted = await post.isHighlighted();
 ```
 
-***
+---
 
 <a id="isignoringreports"></a>
 
@@ -1196,7 +1196,7 @@ The post's report-ignore state.
 
 `boolean`
 
-***
+---
 
 <a id="islocked"></a>
 
@@ -1210,7 +1210,7 @@ The post's locked state.
 
 `boolean`
 
-***
+---
 
 <a id="isnsfw"></a>
 
@@ -1224,7 +1224,7 @@ The post's NSFW state.
 
 `boolean`
 
-***
+---
 
 <a id="isquarantined"></a>
 
@@ -1238,7 +1238,7 @@ The post's quarantine state.
 
 `boolean`
 
-***
+---
 
 <a id="isremoved"></a>
 
@@ -1252,7 +1252,7 @@ The post's removal state.
 
 `boolean`
 
-***
+---
 
 <a id="isspam"></a>
 
@@ -1266,7 +1266,7 @@ The post's spam state.
 
 `boolean`
 
-***
+---
 
 <a id="isspoiler"></a>
 
@@ -1280,7 +1280,7 @@ The post's spoiler state.
 
 `boolean`
 
-***
+---
 
 <a id="isstickied"></a>
 
@@ -1294,7 +1294,7 @@ The post's stickied state.
 
 `boolean`
 
-***
+---
 
 <a id="lock"></a>
 
@@ -1308,7 +1308,7 @@ Disables new comments and updates this instance's locked state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="markasnsfw"></a>
 
@@ -1322,7 +1322,7 @@ Marks the post as NSFW and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="markasspoiler"></a>
 
@@ -1336,7 +1336,7 @@ Marks the post as a spoiler and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="mergepostdata"></a>
 
@@ -1375,7 +1375,7 @@ await post.mergePostData({ settings: { fontSize: 14 } });
 // Result: { currentScore: 55, settings: { fontSize: 14 } }
 ```
 
-***
+---
 
 <a id="remove"></a>
 
@@ -1397,7 +1397,7 @@ Whether to classify the removed post as spam.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="setcustompoststyles"></a>
 
@@ -1422,7 +1422,7 @@ removes all custom styles.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="setpostdata"></a>
 
@@ -1457,12 +1457,12 @@ const post = await reddit.getPostById(context.postId);
 
 await post.setPostData({
   currentScore: 55,
-  secretWord: 'barbeque',
+  secretWord: "barbeque",
 });
 // Result: { currentScore: 55, secretWord: 'barbeque' }
 ```
 
-***
+---
 
 <a id="setsuggestedcommentsort"></a>
 
@@ -1490,10 +1490,10 @@ If the suggested sort is rejected.
 
 ```ts
 const post = await reddit.getPostById(context.postId);
-await post.setSuggestedCommentSort('NEW');
+await post.setSuggestedCommentSort("NEW");
 ```
 
-***
+---
 
 <a id="settextfallback"></a>
 
@@ -1524,12 +1524,12 @@ If the fallback could not be updated.
 #### Example
 
 ```ts
-const newTextFallback = { text: 'This is an updated text fallback' };
+const newTextFallback = { text: "This is an updated text fallback" };
 const post = await context.reddit.getPostById(context.postId);
 await post.setTextFallback(newTextFallback);
 ```
 
-***
+---
 
 <a id="snoozereports"></a>
 
@@ -1552,7 +1552,7 @@ The report reason to snooze.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="sticky"></a>
 
@@ -1576,7 +1576,7 @@ profile pins.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="tojson"></a>
 
@@ -1590,7 +1590,7 @@ JSON representation of public fields.
 
 `Pick`\<`Post`, `"id"` \| `"authorId"` \| `"authorName"` \| `"subredditId"` \| `"subredditName"` \| `"permalink"` \| `"title"` \| `"body"` \| `"bodyHtml"` \| `"url"` \| `"thumbnail"` \| `"score"` \| `"numberOfComments"` \| `"numberOfReports"` \| `"createdAt"` \| `"approved"` \| `"spam"` \| `"stickied"` \| `"removed"` \| `"removedBy"` \| `"removedByCategory"` \| `"archived"` \| `"edited"` \| `"locked"` \| `"nsfw"` \| `"quarantined"` \| `"spoiler"` \| `"hidden"` \| `"ignoringReports"` \| `"distinguishedBy"` \| `"flair"` \| `"authorFlair"` \| `"secureMedia"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"crosspostParentId"`\>
 
-***
+---
 
 <a id="undistinguish"></a>
 
@@ -1604,7 +1604,7 @@ Removes the post's distinction and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unhide"></a>
 
@@ -1618,7 +1618,7 @@ Unhides the post for the app account and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unhighlight"></a>
 
@@ -1633,7 +1633,7 @@ not highlighted, this is a no-op.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unignorereports"></a>
 
@@ -1647,7 +1647,7 @@ Stops ignoring reports and updates this instance's cached state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unlock"></a>
 
@@ -1661,7 +1661,7 @@ Enables new comments and updates this instance's locked state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unmarkasnsfw"></a>
 
@@ -1675,7 +1675,7 @@ Removes the NSFW designation and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unmarkasspoiler"></a>
 
@@ -1689,7 +1689,7 @@ Removes the spoiler designation and updates this instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unsnoozereports"></a>
 
@@ -1712,7 +1712,7 @@ The report reason to unsnooze.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unsticky"></a>
 
@@ -1727,7 +1727,7 @@ value.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="updatecrowdcontrollevel"></a>
 

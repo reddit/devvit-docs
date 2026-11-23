@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: MuteUserOptions
 
@@ -16,7 +16,7 @@
 
 A mod note on why the user was muted. (optional)
 
-***
+---
 
 <a id="subredditname"></a>
 
@@ -26,7 +26,7 @@ A mod note on why the user was muted. (optional)
 
 The name of the subreddit to mute the user in
 
-***
+---
 
 <a id="username"></a>
 

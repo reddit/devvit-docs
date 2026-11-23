@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Class: Comment
 
@@ -20,7 +20,7 @@ Whether the comment has been approved by a moderator.
 
 `boolean`
 
-***
+---
 
 <a id="approvedatutc"></a>
 
@@ -39,7 +39,7 @@ nonzero value to a `Date` with `new Date(comment.approvedAtUtc * 1000)`.
 
 `number`
 
-***
+---
 
 <a id="authorflair"></a>
 
@@ -55,7 +55,7 @@ The author's subreddit flair, or `undefined` when unavailable.
 
 [`CommonFlair`](../type-aliases/CommonFlair.md) \| `undefined`
 
-***
+---
 
 <a id="authorid"></a>
 
@@ -71,7 +71,7 @@ The creator's account identifier or `undefined` when unavailable.
 
 `` `t2_${string}` `` \| `undefined`
 
-***
+---
 
 <a id="authorname"></a>
 
@@ -87,14 +87,14 @@ the author is unavailable.
 ##### Example
 
 ```ts
-"Example_User"
+"Example_User";
 ```
 
 ##### Returns
 
 `string`
 
-***
+---
 
 <a id="bannedatutc"></a>
 
@@ -113,7 +113,7 @@ Convert a nonzero value to a `Date` with
 
 `number`
 
-***
+---
 
 <a id="body"></a>
 
@@ -129,7 +129,7 @@ The comment body in Markdown.
 
 `string`
 
-***
+---
 
 <a id="collapsedbecausecrowdcontrol"></a>
 
@@ -145,7 +145,7 @@ Whether Crowd Control caused the comment to be collapsed.
 
 `boolean`
 
-***
+---
 
 <a id="createdat"></a>
 
@@ -161,7 +161,7 @@ The date when the comment was created.
 
 `Date`
 
-***
+---
 
 <a id="distinguishedby"></a>
 
@@ -181,7 +181,7 @@ available.
 
 `string` \| `undefined`
 
-***
+---
 
 <a id="edited"></a>
 
@@ -197,7 +197,7 @@ Whether the comment body has been edited since it was created.
 
 `boolean`
 
-***
+---
 
 <a id="id"></a>
 
@@ -211,7 +211,7 @@ Whether the comment body has been edited since it was created.
 
 `` `t1_${string}` ``
 
-***
+---
 
 <a id="ignoringreports"></a>
 
@@ -227,7 +227,7 @@ Whether reports on the comment are being ignored.
 
 `boolean`
 
-***
+---
 
 <a id="locked"></a>
 
@@ -243,7 +243,7 @@ Whether the comment is locked and new replies are disabled.
 
 `boolean`
 
-***
+---
 
 <a id="modreportreasons"></a>
 
@@ -261,7 +261,7 @@ Use [modReports](#modreports) to retain each report's author.
 
 `string`[]
 
-***
+---
 
 <a id="modreports"></a>
 
@@ -277,7 +277,7 @@ Moderator reports and authors, or an empty array when unavailable.
 
 [`ModeratorReport`](../type-aliases/ModeratorReport.md)[]
 
-***
+---
 
 <a id="numreports"></a>
 
@@ -293,7 +293,7 @@ The number of reports, or `0` when none are available.
 
 `number`
 
-***
+---
 
 <a id="parentid"></a>
 
@@ -312,7 +312,7 @@ parent comment's `T1`.
 
 `` `t1_${string}` `` \| `` `t3_${string}` ``
 
-***
+---
 
 <a id="permalink"></a>
 
@@ -327,14 +327,14 @@ The comment's path relative to `https://www.reddit.com`.
 ##### Example
 
 ```ts
-"/r/wallstreetbets/comments/abc123/example_post/def456/"
+"/r/wallstreetbets/comments/abc123/example_post/def456/";
 ```
 
 ##### Returns
 
 `string`
 
-***
+---
 
 <a id="postid"></a>
 
@@ -350,7 +350,7 @@ The identifier of the post containing the comment.
 
 `` `t3_${string}` ``
 
-***
+---
 
 <a id="removed"></a>
 
@@ -366,7 +366,7 @@ Whether the comment has been removed by a moderator.
 
 `boolean`
 
-***
+---
 
 <a id="replies"></a>
 
@@ -382,7 +382,7 @@ The comment's direct replies.
 
 [`Listing`](Listing.md)\<`Comment`\>
 
-***
+---
 
 <a id="score"></a>
 
@@ -398,7 +398,7 @@ The comment's upvotes minus downvotes, or `0` when unavailable.
 
 `number`
 
-***
+---
 
 <a id="spam"></a>
 
@@ -414,7 +414,7 @@ Whether the comment has been marked as spam by a moderator.
 
 `boolean`
 
-***
+---
 
 <a id="stickied"></a>
 
@@ -430,7 +430,7 @@ Whether the comment is pinned to the top of its comment thread.
 
 `boolean`
 
-***
+---
 
 <a id="subredditid"></a>
 
@@ -446,7 +446,7 @@ The subreddit identifier where the comment was created.
 
 `` `t5_${string}` ``
 
-***
+---
 
 <a id="subredditname"></a>
 
@@ -462,14 +462,14 @@ The name of the subreddit that contains the comment, without the leading
 ##### Example
 
 ```ts
-"AskReddit"
+"AskReddit";
 ```
 
 ##### Returns
 
 `string`
 
-***
+---
 
 <a id="url"></a>
 
@@ -484,14 +484,14 @@ The absolute `https://www.reddit.com` URL for the comment.
 ##### Example
 
 ```ts
-"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/def456/"
+"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/def456/";
 ```
 
 ##### Returns
 
 `string`
 
-***
+---
 
 <a id="userreportreasons"></a>
 
@@ -527,7 +527,7 @@ Adds a moderator note explaining why the comment was removed.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="approve"></a>
 
@@ -541,7 +541,7 @@ Approves the comment and updates this instance's moderation state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="delete"></a>
 
@@ -557,7 +557,7 @@ The `runAs` option is ignored when editing a comment.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="distinguish"></a>
 
@@ -579,7 +579,7 @@ Whether to pin the comment to the top of its thread.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="distinguishasadmin"></a>
 
@@ -601,7 +601,7 @@ Whether to pin the comment to the top of its thread.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="edit"></a>
 
@@ -624,7 +624,7 @@ The `runAs` option is ignored when editing a comment.
 
 `Promise`\<`Comment`\>
 
-***
+---
 
 <a id="filter"></a>
 
@@ -649,7 +649,7 @@ is also shown on the comment.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="getauthor"></a>
 
@@ -663,7 +663,7 @@ Fetches the author's account, or `undefined` if it is unavailable.
 
 `Promise`\<[`User`](User.md) \| `undefined`\>
 
-***
+---
 
 <a id="ignorereports"></a>
 
@@ -677,7 +677,7 @@ Ignores reports and updates this instance's report-ignore state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="isapproved"></a>
 
@@ -691,7 +691,7 @@ The comment's approval state.
 
 `boolean`
 
-***
+---
 
 <a id="isdistinguished"></a>
 
@@ -705,7 +705,7 @@ The comment's distinguished category state.
 
 `boolean`
 
-***
+---
 
 <a id="isedited"></a>
 
@@ -719,7 +719,7 @@ The comment's edited state.
 
 `boolean`
 
-***
+---
 
 <a id="isignoringreports"></a>
 
@@ -733,7 +733,7 @@ The comment's report-ignore state.
 
 `boolean`
 
-***
+---
 
 <a id="islocked"></a>
 
@@ -747,7 +747,7 @@ The comment's locked state.
 
 `boolean`
 
-***
+---
 
 <a id="isremoved"></a>
 
@@ -761,7 +761,7 @@ The comment's removal state.
 
 `boolean`
 
-***
+---
 
 <a id="isspam"></a>
 
@@ -775,7 +775,7 @@ The comment's spam state.
 
 `boolean`
 
-***
+---
 
 <a id="isstickied"></a>
 
@@ -789,7 +789,7 @@ The comment's stickied state.
 
 `boolean`
 
-***
+---
 
 <a id="lock"></a>
 
@@ -803,7 +803,7 @@ Disables new replies and updates this instance's locked state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="remove"></a>
 
@@ -825,7 +825,7 @@ Whether to classify the removed comment as spam.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="reply"></a>
 
@@ -845,7 +845,7 @@ Creates a direct reply to the comment.
 
 `Promise`\<`Comment`\>
 
-***
+---
 
 <a id="showcomment"></a>
 
@@ -860,7 +860,7 @@ collapse it.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="snoozereports"></a>
 
@@ -883,7 +883,7 @@ The report reason to snooze.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="tojson"></a>
 
@@ -897,7 +897,7 @@ Returns the public fields included when the comment is serialized.
 
 `Pick`\<`Comment`, `"id"` \| `"authorName"` \| `"subredditId"` \| `"subredditName"` \| `"body"` \| `"createdAt"` \| `"parentId"` \| `"postId"` \| `"replies"` \| `"approved"` \| `"locked"` \| `"removed"` \| `"stickied"` \| `"spam"` \| `"edited"` \| `"distinguishedBy"` \| `"numReports"` \| `"collapsedBecauseCrowdControl"` \| `"score"` \| `"permalink"` \| `"userReportReasons"` \| `"modReports"` \| `"modReportReasons"` \| `"url"` \| `"ignoringReports"` \| `"authorFlair"`\>
 
-***
+---
 
 <a id="undistinguish"></a>
 
@@ -912,7 +912,7 @@ instance.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unignorereports"></a>
 
@@ -926,7 +926,7 @@ Stops ignoring reports and updates this instance's cached state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unlock"></a>
 
@@ -940,7 +940,7 @@ Enables new replies and updates this instance's locked state.
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="unsnoozereports"></a>
 

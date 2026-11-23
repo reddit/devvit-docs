@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
-# Variable: CODE\_BLOCK\_ELEMENT
+# Variable: CODE_BLOCK_ELEMENT
 
-> `const` **CODE\_BLOCK\_ELEMENT**: `"code"` = `"code"`
+> `const` **CODE_BLOCK_ELEMENT**: `"code"` = `"code"`

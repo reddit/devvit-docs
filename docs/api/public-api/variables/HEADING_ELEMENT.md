@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
-# Variable: HEADING\_ELEMENT
+# Variable: HEADING_ELEMENT
 
-> `const` **HEADING\_ELEMENT**: `"h"` = `"h"`
+> `const` **HEADING_ELEMENT**: `"h"` = `"h"`

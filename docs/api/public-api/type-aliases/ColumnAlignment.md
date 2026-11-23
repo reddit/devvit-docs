@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: ColumnAlignment
 
-> **ColumnAlignment** = *typeof* [`COLUMN_ALIGN_LEFT`](../variables/COLUMN_ALIGN_LEFT.md) \| *typeof* [`COLUMN_ALIGN_RIGHT`](../variables/COLUMN_ALIGN_RIGHT.md) \| *typeof* [`COLUMN_ALIGN_CENTER`](../variables/COLUMN_ALIGN_CENTER.md)
+> **ColumnAlignment** = _typeof_ [`COLUMN_ALIGN_LEFT`](../variables/COLUMN_ALIGN_LEFT.md) \| _typeof_ [`COLUMN_ALIGN_RIGHT`](../variables/COLUMN_ALIGN_RIGHT.md) \| _typeof_ [`COLUMN_ALIGN_CENTER`](../variables/COLUMN_ALIGN_CENTER.md)

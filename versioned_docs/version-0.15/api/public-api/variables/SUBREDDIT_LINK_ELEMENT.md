@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: SUBREDDIT\_LINK\_ELEMENT
+# Variable: SUBREDDIT_LINK_ELEMENT
 
-> `const` **SUBREDDIT\_LINK\_ELEMENT**: `"r/"` = `"r/"`
+> `const` **SUBREDDIT_LINK_ELEMENT**: `"r/"` = `"r/"`

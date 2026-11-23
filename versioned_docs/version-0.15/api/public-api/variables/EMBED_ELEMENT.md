@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: EMBED\_ELEMENT
+# Variable: EMBED_ELEMENT
 
-> `const` **EMBED\_ELEMENT**: `"embed"` = `"embed"`
+> `const` **EMBED_ELEMENT**: `"embed"` = `"embed"`

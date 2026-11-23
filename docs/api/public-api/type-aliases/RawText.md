@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: RawText
 
@@ -12,9 +12,9 @@
 
 ### e
 
-> **e**: *typeof* [`RAW_TEXT_ELEMENT`](../variables/RAW_TEXT_ELEMENT.md)
+> **e**: _typeof_ [`RAW_TEXT_ELEMENT`](../variables/RAW_TEXT_ELEMENT.md)
 
-***
+---
 
 <a id="t"></a>
 

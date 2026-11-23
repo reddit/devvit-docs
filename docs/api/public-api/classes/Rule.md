@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Class: Rule
 
@@ -42,7 +42,7 @@ The Unix timestamp of when the rule was created.
 
 `number`
 
-***
+---
 
 <a id="description"></a>
 
@@ -59,7 +59,7 @@ Defaults to an empty string when no description is provided.
 
 `string`
 
-***
+---
 
 <a id="descriptionhtml"></a>
 
@@ -75,7 +75,7 @@ The HTML description of the rule, or an empty string when none is provided.
 
 `string`
 
-***
+---
 
 <a id="kind"></a>
 
@@ -91,7 +91,7 @@ Which Reddit objects this rule applies to. One of "all", "link" (AKA posts), "co
 
 `"comment"` \| `"link"` \| `"all"`
 
-***
+---
 
 <a id="priority"></a>
 
@@ -107,7 +107,7 @@ The zero-indexed rank of the rule on the subreddit sidebar. Lower numbers appear
 
 `number`
 
-***
+---
 
 <a id="shortname"></a>
 
@@ -123,7 +123,7 @@ The name for the rule.
 
 `string`
 
-***
+---
 
 <a id="subredditname"></a>
 
@@ -139,7 +139,7 @@ The name (without r/ prefix) of the subreddit the rule belongs to.
 
 `string`
 
-***
+---
 
 <a id="violationreason"></a>
 
@@ -167,7 +167,7 @@ Text to show users when reporting content due to this rule. Defaults to the shor
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="tojson"></a>
 
@@ -179,7 +179,7 @@ Text to show users when reporting content due to this rule. Defaults to the shor
 
 `Pick`\<`Rule`, `"subredditName"` \| `"description"` \| `"kind"` \| `"shortName"` \| `"violationReason"` \| `"priority"` \| `"createdUtc"`\> & `object`
 
-***
+---
 
 <a id="update"></a>
 
@@ -201,7 +201,7 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="createrule"></a>
 
@@ -223,7 +223,7 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="delete-1"></a>
 
@@ -245,7 +245,7 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 `Promise`\<`void`\>
 
-***
+---
 
 <a id="getrules"></a>
 
@@ -263,7 +263,7 @@ New values for an existing rule. All fields are optional. If a field is not prov
 
 `Promise`\<`Rule`[]\>
 
-***
+---
 
 <a id="reorderrules"></a>
 

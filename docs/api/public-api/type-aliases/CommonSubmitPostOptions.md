@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: CommonSubmitPostOptions
 
@@ -16,7 +16,7 @@
 
 The flair template to apply to the new post.
 
-***
+---
 
 <a id="flairtext"></a>
 
@@ -26,7 +26,7 @@ The flair template to apply to the new post.
 
 The flair text to apply to the new post.
 
-***
+---
 
 <a id="nsfw"></a>
 
@@ -36,7 +36,7 @@ The flair text to apply to the new post.
 
 Whether to mark the new post as NSFW.
 
-***
+---
 
 <a id="runas"></a>
 
@@ -46,7 +46,7 @@ Whether to mark the new post as NSFW.
 
 The account that creates the post. Defaults to the app account.
 
-***
+---
 
 <a id="sendreplies"></a>
 
@@ -56,7 +56,7 @@ The account that creates the post. Defaults to the app account.
 
 Whether the author receives notifications for new comments.
 
-***
+---
 
 <a id="spoiler"></a>
 
@@ -66,7 +66,7 @@ Whether the author receives notifications for new comments.
 
 Whether to mark the new post as a spoiler.
 
-***
+---
 
 <a id="title"></a>
 

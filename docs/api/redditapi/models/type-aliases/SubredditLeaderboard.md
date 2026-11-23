@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: SubredditLeaderboard
 
@@ -16,7 +16,7 @@ An individual Leaderboard object.
 
 > **id**: `string`
 
-***
+---
 
 <a id="summary"></a>
 

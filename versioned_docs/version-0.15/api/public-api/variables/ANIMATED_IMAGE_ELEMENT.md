@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: ANIMATED\_IMAGE\_ELEMENT
+# Variable: ANIMATED_IMAGE_ELEMENT
 
-> `const` **ANIMATED\_IMAGE\_ELEMENT**: `"gif"` = `"gif"`
+> `const` **ANIMATED_IMAGE_ELEMENT**: `"gif"` = `"gif"`

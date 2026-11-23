@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: RedditVideo
 
@@ -18,7 +18,7 @@ Contains the data for a video hosted on Reddit that is in a post
 
 The bitrate of the video in kilobits per second. E.g. 450
 
-***
+---
 
 <a id="dashurl"></a>
 
@@ -31,10 +31,10 @@ The URL to the DASH playlist file.
 #### Example
 
 ```ts
-"https://v.redd.it/abc123/DASHPlaylist.mpd"
+"https://v.redd.it/abc123/DASHPlaylist.mpd";
 ```
 
-***
+---
 
 <a id="duration"></a>
 
@@ -44,7 +44,7 @@ The URL to the DASH playlist file.
 
 The duration of the video in seconds. E.g. 30
 
-***
+---
 
 <a id="fallbackurl"></a>
 
@@ -57,10 +57,10 @@ The direct URL to the video.
 #### Example
 
 ```ts
-"https://v.redd.it/abc123/DASH_1080.mp4?source=fallback"
+"https://v.redd.it/abc123/DASH_1080.mp4?source=fallback";
 ```
 
-***
+---
 
 <a id="height"></a>
 
@@ -70,7 +70,7 @@ The direct URL to the video.
 
 The height of the video in pixels. E.g. 1080
 
-***
+---
 
 <a id="hlsurl"></a>
 
@@ -83,10 +83,10 @@ The URL to the HLS playlist file.
 #### Example
 
 ```ts
-"https://v.redd.it/abc123/HLSPlaylist.m3u8"
+"https://v.redd.it/abc123/HLSPlaylist.m3u8";
 ```
 
-***
+---
 
 <a id="isgif"></a>
 
@@ -96,7 +96,7 @@ The URL to the HLS playlist file.
 
 If `true`, the video is a GIF
 
-***
+---
 
 <a id="scrubbermediaurl"></a>
 
@@ -109,10 +109,10 @@ The URL to the scrubber media file.
 #### Example
 
 ```ts
-"https://v.redd.it/abc123/DASH_96.mp4"
+"https://v.redd.it/abc123/DASH_96.mp4";
 ```
 
-***
+---
 
 <a id="transcodingstatus"></a>
 
@@ -122,7 +122,7 @@ The URL to the scrubber media file.
 
 The status of the transcoding process. E.g. "completed"
 
-***
+---
 
 <a id="width"></a>
 

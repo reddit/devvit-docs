@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: MenuItemOnPressEvent
 
@@ -16,7 +16,7 @@
 
 The location where the menu item was pressed
 
-***
+---
 
 <a id="targetid"></a>
 
@@ -26,6 +26,7 @@ The location where the menu item was pressed
 
 The ID of subreddit, post, or comment that the menu item was pressed;
 includes Thing ID prefix:
-- t1_ - comment
-- t5_ - subreddit
-- t3_ - post
+
+- t1\_ - comment
+- t5\_ - subreddit
+- t3\_ - post

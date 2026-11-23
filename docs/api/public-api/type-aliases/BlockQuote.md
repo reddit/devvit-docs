@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: BlockQuote
 
@@ -14,7 +14,7 @@
 
 > `optional` **a?**: [`TextNode`](TextNode.md)
 
-***
+---
 
 <a id="c"></a>
 
@@ -22,10 +22,10 @@
 
 > **c**: [`BlockQuoteNode`](BlockQuoteNode.md)[]
 
-***
+---
 
 <a id="e"></a>
 
 ### e
 
-> **e**: *typeof* [`BLOCK_QUOTE_ELEMENT`](../variables/BLOCK_QUOTE_ELEMENT.md)
+> **e**: _typeof_ [`BLOCK_QUOTE_ELEMENT`](../variables/BLOCK_QUOTE_ELEMENT.md)

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
 # Interface: SettingsClient
 
@@ -30,7 +30,7 @@
 
 `Promise`\<`T` \| `undefined`\>
 
-***
+---
 
 <a id="getall"></a>
 
@@ -44,7 +44,7 @@
 
 ##### T
 
-`T` *extends* `object` = [`SettingsValues`](../type-aliases/SettingsValues.md)
+`T` _extends_ `object` = [`SettingsValues`](../type-aliases/SettingsValues.md)
 
 #### Returns
 

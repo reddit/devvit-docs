@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Class: PrivateMessage
 
@@ -30,7 +30,7 @@
 
 `string`
 
-***
+---
 
 <a id="bodyhtml"></a>
 
@@ -44,7 +44,7 @@
 
 `string`
 
-***
+---
 
 <a id="created"></a>
 
@@ -58,7 +58,7 @@
 
 `Date`
 
-***
+---
 
 <a id="from"></a>
 
@@ -72,7 +72,7 @@
 
 `PrivateMessageAuthor`
 
-***
+---
 
 <a id="id"></a>
 

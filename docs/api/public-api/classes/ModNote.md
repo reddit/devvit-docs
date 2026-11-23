@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Class: ModNote
 
@@ -24,7 +24,7 @@
 
 > **createdAt**: `Date`
 
-***
+---
 
 <a id="id"></a>
 
@@ -32,7 +32,7 @@
 
 > **id**: `string`
 
-***
+---
 
 <a id="modaction"></a>
 
@@ -40,7 +40,7 @@
 
 > `optional` **modAction?**: [`ModAction`](../interfaces/ModAction.md)
 
-***
+---
 
 <a id="operator"></a>
 
@@ -56,7 +56,7 @@
 
 > `optional` **name?**: `string`
 
-***
+---
 
 <a id="subreddit"></a>
 
@@ -72,7 +72,7 @@
 
 > `optional` **name?**: `string`
 
-***
+---
 
 <a id="type"></a>
 
@@ -80,7 +80,7 @@
 
 > **type**: [`ModNoteType`](../type-aliases/ModNoteType.md)
 
-***
+---
 
 <a id="user"></a>
 
@@ -96,7 +96,7 @@
 
 > `optional` **name?**: `string`
 
-***
+---
 
 <a id="usernote"></a>
 

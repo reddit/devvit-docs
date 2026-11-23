@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: RAW\_TEXT\_ELEMENT
+# Variable: RAW_TEXT_ELEMENT
 
-> `const` **RAW\_TEXT\_ELEMENT**: `"raw"` = `"raw"`
+> `const` **RAW_TEXT_ELEMENT**: `"raw"` = `"raw"`

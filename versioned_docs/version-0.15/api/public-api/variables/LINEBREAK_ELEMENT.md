@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: LINEBREAK\_ELEMENT
+# Variable: LINEBREAK_ELEMENT
 
-> `const` **LINEBREAK\_ELEMENT**: `"br"` = `"br"`
+> `const` **LINEBREAK_ELEMENT**: `"br"` = `"br"`

@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: COLUMN\_ALIGN\_RIGHT
+# Variable: COLUMN_ALIGN_RIGHT
 
-> `const` **COLUMN\_ALIGN\_RIGHT**: `"R"` = `"R"`
+> `const` **COLUMN_ALIGN_RIGHT**: `"R"` = `"R"`

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: FormDefinition\<T\>
 
@@ -12,7 +12,7 @@
 
 ### T
 
-`T` *extends* [`Form`](Form.md) \| [`FormFunction`](FormFunction.md) = [`Form`](Form.md) \| [`FormFunction`](FormFunction.md)
+`T` _extends_ [`Form`](Form.md) \| [`FormFunction`](FormFunction.md) = [`Form`](Form.md) \| [`FormFunction`](FormFunction.md)
 
 ## Properties
 
@@ -24,7 +24,7 @@
 
 A form or a function that returns a form
 
-***
+---
 
 <a id="onsubmit"></a>
 

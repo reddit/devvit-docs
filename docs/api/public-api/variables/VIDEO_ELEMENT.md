@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
-# Variable: VIDEO\_ELEMENT
+# Variable: VIDEO_ELEMENT
 
-> `const` **VIDEO\_ELEMENT**: `"video"` = `"video"`
+> `const` **VIDEO_ELEMENT**: `"video"` = `"video"`

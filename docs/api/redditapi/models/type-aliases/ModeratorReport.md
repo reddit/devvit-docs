@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: ModeratorReport
 
@@ -18,7 +18,7 @@ A moderator report attached to a post or comment.
 
 Username of the author without the u/ prefix, e.g. 'spez'
 
-***
+---
 
 <a id="reason"></a>
 

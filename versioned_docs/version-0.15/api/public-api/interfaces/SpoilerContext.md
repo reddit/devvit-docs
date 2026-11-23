@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
 # Interface: SpoilerContext
 
@@ -48,7 +48,7 @@ Append a link to a Reddit Comment
 
 `LinkContainer.commentLink`
 
-***
+---
 
 <a id="linebreak"></a>
 
@@ -66,7 +66,7 @@ Append a Line Break
 
 `LineBreakContainer.linebreak`
 
-***
+---
 
 <a id="link"></a>
 
@@ -92,7 +92,7 @@ Append a Link
 
 `LinkContainer.link`
 
-***
+---
 
 <a id="postlink"></a>
 
@@ -118,7 +118,7 @@ Append a link to a Reddit Post
 
 `LinkContainer.postLink`
 
-***
+---
 
 <a id="subredditlink"></a>
 
@@ -144,7 +144,7 @@ Append a link to a Reddit Subreddit
 
 `LinkContainer.subredditLink`
 
-***
+---
 
 <a id="text"></a>
 
@@ -170,7 +170,7 @@ Append Text with optional formatting
 
 `TextContainer.text`
 
-***
+---
 
 <a id="userlink"></a>
 
@@ -196,7 +196,7 @@ Append a link to a Reddit User
 
 `LinkContainer.userLink`
 
-***
+---
 
 <a id="usermention"></a>
 

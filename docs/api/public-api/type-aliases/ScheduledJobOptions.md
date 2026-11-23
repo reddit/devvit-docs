@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: ScheduledJobOptions\<T\>
 
@@ -12,7 +12,7 @@
 
 ### T
 
-`T` *extends* [`JSONObject`](JSONObject.md) \| `undefined` = [`JSONObject`](JSONObject.md) \| `undefined`
+`T` _extends_ [`JSONObject`](JSONObject.md) \| `undefined` = [`JSONObject`](JSONObject.md) \| `undefined`
 
 ## Properties
 
@@ -24,7 +24,7 @@
 
 Additional data passed in by the scheduler client
 
-***
+---
 
 <a id="name"></a>
 
@@ -34,7 +34,7 @@ Additional data passed in by the scheduler client
 
 The name of the scheduled job type
 
-***
+---
 
 <a id="runat"></a>
 

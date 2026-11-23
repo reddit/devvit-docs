@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: HORIZONTAL\_RULE\_ELEMENT
+# Variable: HORIZONTAL_RULE_ELEMENT
 
-> `const` **HORIZONTAL\_RULE\_ELEMENT**: `"hr"` = `"hr"`
+> `const` **HORIZONTAL_RULE_ELEMENT**: `"hr"` = `"hr"`

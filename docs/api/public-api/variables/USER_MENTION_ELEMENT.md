@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
-# Variable: USER\_MENTION\_ELEMENT
+# Variable: USER_MENTION_ELEMENT
 
-> `const` **USER\_MENTION\_ELEMENT**: `"@"` = `"@"`
+> `const` **USER_MENTION_ELEMENT**: `"@"` = `"@"`

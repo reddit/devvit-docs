@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: SendPrivateMessageOptions
 
@@ -16,7 +16,7 @@
 
 The subject of the message.
 
-***
+---
 
 <a id="text"></a>
 
@@ -26,7 +26,7 @@ The subject of the message.
 
 The body of the message in Markdown text format.
 
-***
+---
 
 <a id="to"></a>
 

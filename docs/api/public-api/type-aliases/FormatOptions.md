@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: FormatOptions
 
@@ -14,7 +14,7 @@
 
 > `optional` **bold?**: `boolean`
 
-***
+---
 
 <a id="italic"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **italic?**: `boolean`
 
-***
+---
 
 <a id="length"></a>
 
@@ -32,7 +32,7 @@
 
 Number of characters from the startIndex to receive this formatting
 
-***
+---
 
 <a id="monospace"></a>
 
@@ -40,7 +40,7 @@ Number of characters from the startIndex to receive this formatting
 
 > `optional` **monospace?**: `boolean`
 
-***
+---
 
 <a id="startindex"></a>
 
@@ -50,7 +50,7 @@ Number of characters from the startIndex to receive this formatting
 
 Starting index to receive this formatting
 
-***
+---
 
 <a id="strikethrough"></a>
 
@@ -58,7 +58,7 @@ Starting index to receive this formatting
 
 > `optional` **strikethrough?**: `boolean`
 
-***
+---
 
 <a id="subscript"></a>
 
@@ -66,7 +66,7 @@ Starting index to receive this formatting
 
 > `optional` **subscript?**: `boolean`
 
-***
+---
 
 <a id="superscript"></a>
 
@@ -74,7 +74,7 @@ Starting index to receive this formatting
 
 > `optional` **superscript?**: `boolean`
 
-***
+---
 
 <a id="underline"></a>
 

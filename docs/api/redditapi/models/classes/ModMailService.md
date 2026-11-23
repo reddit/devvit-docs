@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Class: ModMailService
 
@@ -39,10 +39,10 @@ Id of a modmail conversation
 #### Example
 
 ```ts
-await reddit.modMail.approveConversation('abcdef');
+await reddit.modMail.approveConversation("abcdef");
 ```
 
-***
+---
 
 <a id="archiveconversation"></a>
 
@@ -67,10 +67,10 @@ Id of a modmail conversation
 #### Example
 
 ```ts
-await reddit.modMail.archive('abcdef');
+await reddit.modMail.archive("abcdef");
 ```
 
-***
+---
 
 <a id="bulkreadconversations"></a>
 
@@ -104,12 +104,12 @@ conversationIds
 
 ```ts
 const conversationIds = await reddit.modMail.bulkReadConversations(
-  ['askReddit', 'myAwesomeSubreddit'],
-  'filtered'
+  ["askReddit", "myAwesomeSubreddit"],
+  "filtered",
 );
 ```
 
-***
+---
 
 <a id="createconversation"></a>
 
@@ -164,6 +164,7 @@ a user (e.g. u/username), a subreddit (e.g. r/subreddit) or null
 
 Note on {param.to}:
 The to field for this endpoint is somewhat confusing. It can be:
+
 - A User, passed like "username" or "u/username"
 - A Subreddit, passed like "r/subreddit"
 - null, meaning an internal moderator discussion
@@ -177,15 +178,16 @@ Otherwise, messages sent to the app-account or moderator will automatically be r
 #### Example
 
 ```ts
-const { conversation, messages, modActions } = await reddit.modMail.createConversation({
-  subredditName: 'askReddit',
-  subject: 'Test conversation',
-  body: 'Lorem ipsum sit amet',
-  to: null,
-});
+const { conversation, messages, modActions } =
+  await reddit.modMail.createConversation({
+    subredditName: "askReddit",
+    subject: "Test conversation",
+    body: "Lorem ipsum sit amet",
+    to: null,
+  });
 ```
 
-***
+---
 
 <a id="createmoddiscussionconversation"></a>
 
@@ -229,13 +231,13 @@ A Promise that resolves a string representing the conversationId of the message.
 
 ```ts
 const conversationId = await reddit.modMail.createModDiscussionConversation({
-  subject: 'Test conversation',
-  bodyMarkdown: '**Hello there** \n\n _Have a great day!_',
-  subredditId: context.subredditId
+  subject: "Test conversation",
+  bodyMarkdown: "**Hello there** \n\n _Have a great day!_",
+  subredditId: context.subredditId,
 });
 ```
 
-***
+---
 
 <a id="createmodinboxconversation"></a>
 
@@ -277,13 +279,13 @@ A Promise that resolves a string representing the conversationId of the message.
 
 ```ts
 const conversationId = await reddit.modMail.createModInboxConversation({
-  subject: 'Test conversation',
-  bodyMarkdown: '**Hello there** \n\n _Have a great day!_',
-  subredditId: context.subredditId
+  subject: "Test conversation",
+  bodyMarkdown: "**Hello there** \n\n _Have a great day!_",
+  subredditId: context.subredditId,
 });
 ```
 
-***
+---
 
 <a id="createmodnotification"></a>
 
@@ -326,13 +328,13 @@ A Promise that resolves a string representing the conversationId of the message.
 
 ```ts
 const conversationId = await reddit.modMail.createModNotification({
-  subject: 'Test notification',
-  bodyMarkdown: '**Hello there** \n\n _This is a notification!_',
-  subredditId: context.subredditId
+  subject: "Test notification",
+  bodyMarkdown: "**Hello there** \n\n _This is a notification!_",
+  subredditId: context.subredditId,
 });
 ```
 
-***
+---
 
 <a id="disapproveconversation"></a>
 
@@ -357,10 +359,10 @@ Id of a modmail conversation
 #### Example
 
 ```ts
-await reddit.modMail.disapproveConversation('abcdef');
+await reddit.modMail.disapproveConversation("abcdef");
 ```
 
-***
+---
 
 <a id="getconversation"></a>
 
@@ -393,10 +395,14 @@ mark read?
 #### Example
 
 ```ts
-const { conversation, messages, modActions, user } = await reddit.modMail.getConversation({ conversationId: 'abcdef', markRead: true });
+const { conversation, messages, modActions, user } =
+  await reddit.modMail.getConversation({
+    conversationId: "abcdef",
+    markRead: true,
+  });
 ```
 
-***
+---
 
 <a id="getconversations"></a>
 
@@ -419,15 +425,15 @@ Get conversations for a logged in user or subreddits
 #### Example
 
 ```ts
-const {viewerId, conversations} = await reddit.modMail.getConversations({
-  after: 'abcdef',
-  limit: 42
+const { viewerId, conversations } = await reddit.modMail.getConversations({
+  after: "abcdef",
+  limit: 42,
 });
 
 const arrayOfConversations = Object.values(conversations);
 ```
 
-***
+---
 
 <a id="getsubreddits"></a>
 
@@ -452,7 +458,7 @@ for (const subreddit of Object.values(subreddits)) {
 }
 ```
 
-***
+---
 
 <a id="getunreadcount"></a>
 
@@ -475,7 +481,7 @@ console.log(response.highlighted);
 console.log(response.new);
 ```
 
-***
+---
 
 <a id="getuserconversations"></a>
 
@@ -506,13 +512,13 @@ If the conversation does not have a user participant.
 #### Example
 
 ```ts
-const data = await reddit.modMail.getUserConversations('abcdef');
+const data = await reddit.modMail.getUserConversations("abcdef");
 
 console.log(data.recentComments);
 console.log(data.recentPosts);
 ```
 
-***
+---
 
 <a id="highlightconversation"></a>
 
@@ -537,10 +543,10 @@ Id of a modmail conversation
 #### Example
 
 ```ts
-await reddit.modMail.highlightConversation('abcdef');
+await reddit.modMail.highlightConversation("abcdef");
 ```
 
-***
+---
 
 <a id="muteconversation"></a>
 
@@ -573,10 +579,13 @@ For how many hours the conversation needs to be muted. Must be one of 72, 168, o
 #### Example
 
 ```ts
-await reddit.modMail.muteConversation({ conversationId: 'abcdef', numHours: 72 });
+await reddit.modMail.muteConversation({
+  conversationId: "abcdef",
+  numHours: 72,
+});
 ```
 
-***
+---
 
 <a id="readconversations"></a>
 
@@ -601,10 +610,10 @@ An array of ids
 #### Example
 
 ```ts
-await reddit.modMail.readConversations(['abcdef', 'qwerty']);
+await reddit.modMail.readConversations(["abcdef", "qwerty"]);
 ```
 
-***
+---
 
 <a id="reply"></a>
 
@@ -650,12 +659,12 @@ is internal message? (default: false)
 
 ```ts
 await reddit.modMail.reply({
-  body: 'Lorem ipsum sit amet',
-  conversationId: 'abcdef',
+  body: "Lorem ipsum sit amet",
+  conversationId: "abcdef",
 });
 ```
 
-***
+---
 
 <a id="tempbanconversation"></a>
 
@@ -688,10 +697,13 @@ duration in days, max 999
 #### Example
 
 ```ts
-await reddit.modMail.tempBanConversation({ conversationId: 'abcdef', duration: 42 });
+await reddit.modMail.tempBanConversation({
+  conversationId: "abcdef",
+  duration: 42,
+});
 ```
 
-***
+---
 
 <a id="unarchiveconversation"></a>
 
@@ -716,10 +728,10 @@ Id of a modmail conversation
 #### Example
 
 ```ts
-await reddit.modMail.unarchiveConversation('abcdef');
+await reddit.modMail.unarchiveConversation("abcdef");
 ```
 
-***
+---
 
 <a id="unbanconversation"></a>
 
@@ -744,10 +756,10 @@ a modmail conversation id
 #### Example
 
 ```ts
-await reddit.modMail.unbanConversation('abcdef');
+await reddit.modMail.unbanConversation("abcdef");
 ```
 
-***
+---
 
 <a id="unhighlightconversation"></a>
 
@@ -772,10 +784,10 @@ Id of a modmail conversation
 #### Example
 
 ```ts
-await reddit.modMail.unhighlightConversation('abcdef');
+await reddit.modMail.unhighlightConversation("abcdef");
 ```
 
-***
+---
 
 <a id="unmuteconversation"></a>
 
@@ -800,10 +812,10 @@ Id of a modmail conversation
 #### Example
 
 ```ts
-await reddit.modMail.unmuteConversation('abcdef');
+await reddit.modMail.unmuteConversation("abcdef");
 ```
 
-***
+---
 
 <a id="unreadconversations"></a>
 
@@ -828,5 +840,5 @@ An array of ids
 #### Example
 
 ```ts
-await reddit.modMail.unreadConversations(['abcdef', 'qwerty']);
+await reddit.modMail.unreadConversations(["abcdef", "qwerty"]);
 ```

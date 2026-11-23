@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: GetSubscribedSubredditsForCurrentUserOptions
 
@@ -14,7 +14,7 @@
 
 > `optional` **after?**: `string`
 
-***
+---
 
 <a id="before"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **before?**: `string`
 
-***
+---
 
 <a id="limit"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **limit?**: `number`
 
-***
+---
 
 <a id="pagesize"></a>
 

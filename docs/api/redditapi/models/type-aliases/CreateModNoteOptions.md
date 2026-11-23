@@ -1,6 +1,6 @@
-[**@devvit/reddit v0.15.6-dev**](../../README.md)
+[**@devvit/reddit v0.15.7-dev**](../../README.md)
 
-***
+---
 
 # Type Alias: CreateModNoteOptions
 
@@ -18,7 +18,7 @@ Options for adding a moderation note to a user.
 
 A label that categorizes the moderation note.
 
-***
+---
 
 <a id="note"></a>
 
@@ -28,7 +28,7 @@ A label that categorizes the moderation note.
 
 The text of the moderation note. The maximum length is 250 characters.
 
-***
+---
 
 <a id="redditid"></a>
 
@@ -38,7 +38,7 @@ The text of the moderation note. The maximum length is 250 characters.
 
 The comment or post associated with the moderation note.
 
-***
+---
 
 <a id="subreddit"></a>
 
@@ -48,7 +48,7 @@ The comment or post associated with the moderation note.
 
 The subreddit name without the leading `r/`.
 
-***
+---
 
 <a id="user"></a>
 

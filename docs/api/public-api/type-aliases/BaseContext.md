@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Type Alias: BaseContext
 
@@ -20,7 +20,7 @@ The ID of the current app's account
 
 Use [BaseContext.appSlug](#appslug) instead to get the app's username
 
-***
+---
 
 <a id="appname"></a>
 
@@ -34,7 +34,7 @@ The slug of the app that is running
 
 Use [BaseContext.appSlug](#appslug) instead.
 
-***
+---
 
 <a id="appslug"></a>
 
@@ -44,7 +44,7 @@ Use [BaseContext.appSlug](#appslug) instead.
 
 The slug of the app that is running
 
-***
+---
 
 <a id="appversion"></a>
 
@@ -54,7 +54,7 @@ The slug of the app that is running
 
 The version of the app that is running
 
-***
+---
 
 <a id="commentid"></a>
 
@@ -64,7 +64,7 @@ The version of the app that is running
 
 The ID of the current comment
 
-***
+---
 
 <a id="debug"></a>
 
@@ -74,7 +74,7 @@ The ID of the current comment
 
 More useful things, but probably not for the average developer
 
-***
+---
 
 <a id="loid"></a>
 
@@ -87,7 +87,7 @@ More useful things, but probably not for the average developer
 LOID (logged-out ID) is a token assigned on first visit and persists across sessions, account creation, and sign-in.
 Logged-in users retain a LOID for attribution, analytics, and cross-session tracking.
 
-***
+---
 
 <a id="metadata"></a>
 
@@ -97,7 +97,7 @@ Logged-in users retain a LOID for attribution, analytics, and cross-session trac
 
 Request headers.
 
-***
+---
 
 <a id="postdata"></a>
 
@@ -105,7 +105,7 @@ Request headers.
 
 > **postData**: `PostData` \| `undefined`
 
-***
+---
 
 <a id="postid"></a>
 
@@ -115,7 +115,7 @@ Request headers.
 
 The ID of the current post
 
-***
+---
 
 <a id="snoovatar"></a>
 
@@ -127,7 +127,7 @@ The ID of the current post
 
 The current user's snoovtar URL if logged in
 
-***
+---
 
 <a id="subredditid"></a>
 
@@ -137,7 +137,7 @@ The current user's snoovtar URL if logged in
 
 The ID of the current subreddit
 
-***
+---
 
 <a id="subredditname"></a>
 
@@ -147,7 +147,7 @@ The ID of the current subreddit
 
 The name of the current subreddit
 
-***
+---
 
 <a id="userid"></a>
 
@@ -157,7 +157,7 @@ The name of the current subreddit
 
 The current user's ID if this event was triggered by a logged in user
 
-***
+---
 
 <a id="username"></a>
 

@@ -1,6 +1,6 @@
-[**@devvit/public-api v0.15.6-dev**](../README.md)
+[**@devvit/public-api v0.15.7-dev**](../README.md)
 
-***
+---
 
 # Class: SubredditModeratorUser
 
@@ -37,7 +37,7 @@ Use `getModerators()` or `subreddit.getModerators()` to receive a listing of the
 
 When the moderator relationship was created (UTC).
 
-***
+---
 
 <a id="moderatorinfo"></a>
 
@@ -86,7 +86,7 @@ The user's public description about themselves. May be empty.
 
 [`User`](User.md).[`about`](User.md#about)
 
-***
+---
 
 <a id="commentkarma"></a>
 
@@ -106,7 +106,7 @@ The amount of comment karma the user has.
 
 [`User`](User.md).[`commentKarma`](User.md#commentkarma)
 
-***
+---
 
 <a id="createdat"></a>
 
@@ -126,7 +126,7 @@ The date the user was created.
 
 [`User`](User.md).[`createdAt`](User.md#createdat)
 
-***
+---
 
 <a id="displayname"></a>
 
@@ -146,7 +146,7 @@ The display name of the user. May be different from their username.
 
 [`User`](User.md).[`displayName`](User.md#displayname)
 
-***
+---
 
 <a id="hasredditpremium"></a>
 
@@ -166,7 +166,7 @@ Whether the user has Reddit Premium.
 
 [`User`](User.md).[`hasRedditPremium`](User.md#hasredditpremium)
 
-***
+---
 
 <a id="hasverifiedemail"></a>
 
@@ -186,7 +186,7 @@ Indicates whether or not the user has verified their email address.
 
 [`User`](User.md).[`hasVerifiedEmail`](User.md#hasverifiedemail)
 
-***
+---
 
 <a id="id"></a>
 
@@ -196,12 +196,12 @@ Indicates whether or not the user has verified their email address.
 
 > **get** **id**(): `` `t2_${string}` ``
 
-The ID (starting with t2_) of the user to retrieve.
+The ID (starting with t2\_) of the user to retrieve.
 
 ##### Example
 
 ```ts
-'t2_1w72'
+"t2_1w72";
 ```
 
 ##### Returns
@@ -212,7 +212,7 @@ The ID (starting with t2_) of the user to retrieve.
 
 [`User`](User.md).[`id`](User.md#id)
 
-***
+---
 
 <a id="isadmin"></a>
 
@@ -232,7 +232,7 @@ Whether the user is a Reddit employee.
 
 [`User`](User.md).[`isAdmin`](User.md#isadmin)
 
-***
+---
 
 <a id="ismoderator"></a>
 
@@ -252,7 +252,7 @@ Whether the user is a moderator of any subreddit.
 
 [`User`](User.md).[`isModerator`](User.md#ismoderator)
 
-***
+---
 
 <a id="linkkarma"></a>
 
@@ -272,7 +272,7 @@ The amount of link karma the user has.
 
 [`User`](User.md).[`linkKarma`](User.md#linkkarma)
 
-***
+---
 
 <a id="modpermissions"></a>
 
@@ -292,7 +292,7 @@ The permissions the user has on the subreddit.
 
 [`User`](User.md).[`modPermissions`](User.md#modpermissions)
 
-***
+---
 
 <a id="nsfw"></a>
 
@@ -312,7 +312,7 @@ Whether the user's profile is marked as NSFW (Not Safe For Work).
 
 [`User`](User.md).[`nsfw`](User.md#nsfw)
 
-***
+---
 
 <a id="permalink"></a>
 
@@ -332,7 +332,7 @@ Returns a permalink path relative to https://www.reddit.com
 
 [`User`](User.md).[`permalink`](User.md#permalink)
 
-***
+---
 
 <a id="shownsfw"></a>
 
@@ -352,7 +352,7 @@ Whether the user is over 18 and wishes to see NSFW content.
 
 [`User`](User.md).[`showNsfw`](User.md#shownsfw)
 
-***
+---
 
 <a id="url"></a>
 
@@ -372,7 +372,7 @@ Returns the HTTP URL for the user
 
 [`User`](User.md).[`url`](User.md#url)
 
-***
+---
 
 <a id="username"></a>
 
@@ -387,7 +387,7 @@ The username of the user omitting the u/.
 ##### Example
 
 ```ts
-'spez'
+"spez";
 ```
 
 ##### Returns
@@ -426,7 +426,7 @@ A Listing of Comment objects.
 
 [`User`](User.md).[`getComments`](User.md#getcomments)
 
-***
+---
 
 <a id="getmodpermissionsforsubreddit"></a>
 
@@ -454,7 +454,7 @@ the moderator permissions the user has on the subreddit
 
 [`User`](User.md).[`getModPermissionsForSubreddit`](User.md#getmodpermissionsforsubreddit)
 
-***
+---
 
 <a id="getposts"></a>
 
@@ -482,7 +482,7 @@ A Listing of Post objects.
 
 [`User`](User.md).[`getPosts`](User.md#getposts)
 
-***
+---
 
 <a id="getsnoovatarurl"></a>
 
@@ -506,7 +506,7 @@ If the account is unavailable or the lookup fails.
 
 [`User`](User.md).[`getSnoovatarUrl`](User.md#getsnoovatarurl)
 
-***
+---
 
 <a id="getsociallinks"></a>
 
@@ -532,7 +532,7 @@ const socialLinks = await user.getSocialLinks();
 
 [`User`](User.md).[`getSocialLinks`](User.md#getsociallinks)
 
-***
+---
 
 <a id="gettrophies"></a>
 
@@ -552,7 +552,7 @@ A Promise that resolves to an array of Trophy objects.
 
 [`User`](User.md).[`getTrophies`](User.md#gettrophies)
 
-***
+---
 
 <a id="getuserflairbysubreddit"></a>
 
@@ -577,8 +577,8 @@ The name of the subreddit associated with the user's flair.
 #### Example
 
 ```ts
-const username = "badapple"
-const subredditName = "mysubreddit"
+const username = "badapple";
+const subredditName = "mysubreddit";
 const user = await reddit.getUserByUsername(username);
 const userFlair = await user.getUserFlairBySubreddit(subredditName);
 ```
@@ -587,7 +587,7 @@ const userFlair = await user.getUserFlairBySubreddit(subredditName);
 
 [`User`](User.md).[`getUserFlairBySubreddit`](User.md#getuserflairbysubreddit)
 
-***
+---
 
 <a id="getuserkarmafromcurrentsubreddit"></a>
 
@@ -609,7 +609,7 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for comments a
 
 [`User`](User.md).[`getUserKarmaFromCurrentSubreddit`](User.md#getuserkarmafromcurrentsubreddit)
 
-***
+---
 
 <a id="tojson"></a>
 

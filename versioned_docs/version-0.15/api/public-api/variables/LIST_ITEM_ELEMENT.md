@@ -1,7 +1,7 @@
-[**@devvit/public-api v0.15.5-dev**](../README.md)
+[**@devvit/public-api v0.15.6-dev**](../README.md)
 
-***
+---
 
-# Variable: LIST\_ITEM\_ELEMENT
+# Variable: LIST_ITEM_ELEMENT
 
-> `const` **LIST\_ITEM\_ELEMENT**: `"li"` = `"li"`
+> `const` **LIST_ITEM_ELEMENT**: `"li"` = `"li"`
