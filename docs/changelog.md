@@ -9,6 +9,12 @@ To use the latest version of Devvit:
 
 **Please note**: you may see features available across Devvit packages that are not documented or noted in our changelog. These are experimental features that are not stable and are subject to change, or removal, from the platform. Please use caution when testing or implementing experimental features.
 
+## Release 0.15.5: Improved Error Handling for Post Creation
+
+**Release Date: November 23, 2026**
+
+Added more specific error codes for post creation failures in native composers, making it easier to identify and handle issues such as timeouts, network errors, concurrent submissions, and authentication failures. This update also clarifies how hosts should display error messages, handle unknown error codes, and respond when post creation status is uncertain.
+
 ## Release 0.15.4: Direct Launch & Deeper Insights 
 
 **Release Date: November 16, 2026**   
