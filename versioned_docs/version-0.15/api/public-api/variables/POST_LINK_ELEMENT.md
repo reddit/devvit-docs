@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: POST_LINK_ELEMENT
+# Variable: POST\_LINK\_ELEMENT
 
-> `const` **POST_LINK_ELEMENT**: `"p/"` = `"p/"`
+> `const` **POST\_LINK\_ELEMENT**: `"p/"` = `"p/"`

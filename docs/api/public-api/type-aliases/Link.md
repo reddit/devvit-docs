@@ -20,7 +20,7 @@
 
 ### e
 
-> **e**: _typeof_ [`LINK_ELEMENT`](../variables/LINK_ELEMENT.md)
+> **e**: *typeof* [`LINK_ELEMENT`](../variables/LINK_ELEMENT.md)
 
 ***
 

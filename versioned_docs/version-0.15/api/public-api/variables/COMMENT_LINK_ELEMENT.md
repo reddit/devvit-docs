@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: COMMENT_LINK_ELEMENT
+# Variable: COMMENT\_LINK\_ELEMENT
 
-> `const` **COMMENT_LINK_ELEMENT**: `"c/"` = `"c/"`
+> `const` **COMMENT\_LINK\_ELEMENT**: `"c/"` = `"c/"`

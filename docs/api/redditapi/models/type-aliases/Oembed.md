@@ -34,7 +34,7 @@ A URL for the resource's author or owner.
 #### Example
 
 ```ts
-"https://www.youtube.com/@Reddit";
+"https://www.youtube.com/@Reddit"
 ```
 
 ***

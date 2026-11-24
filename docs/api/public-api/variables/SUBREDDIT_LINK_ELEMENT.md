@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: SUBREDDIT_LINK_ELEMENT
+# Variable: SUBREDDIT\_LINK\_ELEMENT
 
-> `const` **SUBREDDIT_LINK_ELEMENT**: `"r/"` = `"r/"`
+> `const` **SUBREDDIT\_LINK\_ELEMENT**: `"r/"` = `"r/"`

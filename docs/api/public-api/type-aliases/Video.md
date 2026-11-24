@@ -20,7 +20,7 @@
 
 ### e
 
-> **e**: _typeof_ [`VIDEO_ELEMENT`](../variables/VIDEO_ELEMENT.md)
+> **e**: *typeof* [`VIDEO_ELEMENT`](../variables/VIDEO_ELEMENT.md)
 
 ***
 

@@ -12,4 +12,4 @@
 
 ### e
 
-> **e**: _typeof_ [`LINEBREAK_ELEMENT`](../variables/LINEBREAK_ELEMENT.md)
+> **e**: *typeof* [`LINEBREAK_ELEMENT`](../variables/LINEBREAK_ELEMENT.md)

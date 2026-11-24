@@ -12,7 +12,7 @@
 
 ### e
 
-> **e**: _typeof_ [`COMMENT_LINK_ELEMENT`](../variables/COMMENT_LINK_ELEMENT.md)
+> **e**: *typeof* [`COMMENT_LINK_ELEMENT`](../variables/COMMENT_LINK_ELEMENT.md)
 
 ***
 

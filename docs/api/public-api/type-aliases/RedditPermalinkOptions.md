@@ -19,7 +19,5 @@ Permalink to a Reddit page
 #### Example
 
 ```ts
-{
-  permalink: "/r/aww/comments/z9m1yj/one_of_them_isnt_a_dog";
-}
+{ permalink: "/r/aww/comments/z9m1yj/one_of_them_isnt_a_dog" }
 ```

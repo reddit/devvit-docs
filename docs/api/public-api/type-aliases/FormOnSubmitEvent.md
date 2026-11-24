@@ -12,7 +12,7 @@
 
 ### T
 
-`T` _extends_ `Partial`\<[`JSONObject`](JSONObject.md)\>
+`T` *extends* `Partial`\<[`JSONObject`](JSONObject.md)\>
 
 ## Properties
 

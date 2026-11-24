@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: CODE_BLOCK_ELEMENT
+# Variable: CODE\_BLOCK\_ELEMENT
 
-> `const` **CODE_BLOCK_ELEMENT**: `"code"` = `"code"`
+> `const` **CODE\_BLOCK\_ELEMENT**: `"code"` = `"code"`

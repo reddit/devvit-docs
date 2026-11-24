@@ -12,4 +12,4 @@
 
 ### e
 
-> **e**: _typeof_ [`HORIZONTAL_RULE_ELEMENT`](../variables/HORIZONTAL_RULE_ELEMENT.md)
+> **e**: *typeof* [`HORIZONTAL_RULE_ELEMENT`](../variables/HORIZONTAL_RULE_ELEMENT.md)

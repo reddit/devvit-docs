@@ -11,6 +11,6 @@ should be collapsed by default.
 
 OFF: Do not collapse or filter comments through Crowd Control.
 LENIENT: Collapse or filter comments from accounts with negative community
-karma.
+         karma.
 MEDIUM: LENIENT but also applies to new accounts.
 STRICT: MEDIUM but applies to accounts that have not joined the community.

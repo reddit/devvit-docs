@@ -4,4 +4,4 @@
 
 # Type Alias: ColumnAlignment
 
-> **ColumnAlignment** = _typeof_ [`COLUMN_ALIGN_LEFT`](../variables/COLUMN_ALIGN_LEFT.md) \| _typeof_ [`COLUMN_ALIGN_RIGHT`](../variables/COLUMN_ALIGN_RIGHT.md) \| _typeof_ [`COLUMN_ALIGN_CENTER`](../variables/COLUMN_ALIGN_CENTER.md)
+> **ColumnAlignment** = *typeof* [`COLUMN_ALIGN_LEFT`](../variables/COLUMN_ALIGN_LEFT.md) \| *typeof* [`COLUMN_ALIGN_RIGHT`](../variables/COLUMN_ALIGN_RIGHT.md) \| *typeof* [`COLUMN_ALIGN_CENTER`](../variables/COLUMN_ALIGN_CENTER.md)

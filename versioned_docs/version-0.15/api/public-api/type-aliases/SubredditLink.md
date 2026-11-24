@@ -12,7 +12,7 @@
 
 ### e
 
-> **e**: _typeof_ [`SUBREDDIT_LINK_ELEMENT`](../variables/SUBREDDIT_LINK_ELEMENT.md)
+> **e**: *typeof* [`SUBREDDIT_LINK_ELEMENT`](../variables/SUBREDDIT_LINK_ELEMENT.md)
 
 ***
 

@@ -440,7 +440,7 @@ The post's path relative to `https://www.reddit.com`.
 ##### Example
 
 ```ts
-"/r/wallstreetbets/comments/abc123/post/";
+"/r/wallstreetbets/comments/abc123/post/"
 ```
 
 ##### Returns
@@ -708,7 +708,7 @@ image or video post. Use [permalink](#permalink) for the relative path.
 ##### Example
 
 ```ts
-"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/";
+"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/"
 ```
 
 ##### Returns
@@ -1060,8 +1060,8 @@ Optional expiration and label settings.
 
 ```ts
 await post.highlight({
-  highlightUntil: new Date("2030-01-01T00:00:00Z"),
-  highlightLabelType: "ANNOUNCEMENT",
+  highlightUntil: new Date('2030-01-01T00:00:00Z'),
+  highlightLabelType: 'ANNOUNCEMENT',
 });
 ```
 
@@ -1166,7 +1166,7 @@ Returns whether this post is in its subreddit's community highlights.
 #### Example
 
 ```ts
-const post = await reddit.getPostById("t3_123");
+const post = await reddit.getPostById('t3_123');
 const isHighlighted = await post.isHighlighted();
 ```
 
@@ -1445,7 +1445,7 @@ const post = await reddit.getPostById(context.postId);
 
 await post.setPostData({
   currentScore: 55,
-  secretWord: "barbeque",
+  secretWord: 'barbeque',
 });
 // Result: { currentScore: 55, secretWord: 'barbeque' }
 ```
@@ -1478,7 +1478,7 @@ If the suggested sort is rejected.
 
 ```ts
 const post = await reddit.getPostById(context.postId);
-await post.setSuggestedCommentSort("NEW");
+await post.setSuggestedCommentSort('NEW');
 ```
 
 ***
@@ -1512,7 +1512,7 @@ If the fallback could not be updated.
 #### Example
 
 ```ts
-const newTextFallback = { text: "This is an updated text fallback" };
+const newTextFallback = { text: 'This is an updated text fallback' };
 const post = await context.reddit.getPostById(context.postId);
 await post.setTextFallback(newTextFallback);
 ```

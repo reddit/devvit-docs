@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: RAW_TEXT_ELEMENT
+# Variable: RAW\_TEXT\_ELEMENT
 
-> `const` **RAW_TEXT_ELEMENT**: `"raw"` = `"raw"`
+> `const` **RAW\_TEXT\_ELEMENT**: `"raw"` = `"raw"`

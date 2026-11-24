@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: IMAGE_ELEMENT
+# Variable: IMAGE\_ELEMENT
 
-> `const` **IMAGE_ELEMENT**: `"img"` = `"img"`
+> `const` **IMAGE\_ELEMENT**: `"img"` = `"img"`

@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: COLUMN_ALIGN_LEFT
+# Variable: COLUMN\_ALIGN\_LEFT
 
-> `const` **COLUMN_ALIGN_LEFT**: `"L"` = `"L"`
+> `const` **COLUMN\_ALIGN\_LEFT**: `"L"` = `"L"`

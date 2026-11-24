@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: USER_LINK_ELEMENT
+# Variable: USER\_LINK\_ELEMENT
 
-> `const` **USER_LINK_ELEMENT**: `"u/"` = `"u/"`
+> `const` **USER\_LINK\_ELEMENT**: `"u/"` = `"u/"`

@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: LIST_ITEM_ELEMENT
+# Variable: LIST\_ITEM\_ELEMENT
 
-> `const` **LIST_ITEM_ELEMENT**: `"li"` = `"li"`
+> `const` **LIST\_ITEM\_ELEMENT**: `"li"` = `"li"`

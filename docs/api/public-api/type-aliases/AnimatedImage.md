@@ -20,7 +20,7 @@
 
 ### e
 
-> **e**: _typeof_ [`ANIMATED_IMAGE_ELEMENT`](../variables/ANIMATED_IMAGE_ELEMENT.md)
+> **e**: *typeof* [`ANIMATED_IMAGE_ELEMENT`](../variables/ANIMATED_IMAGE_ELEMENT.md)
 
 ***
 

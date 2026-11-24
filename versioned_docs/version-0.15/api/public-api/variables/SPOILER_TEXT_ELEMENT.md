@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: SPOILER_TEXT_ELEMENT
+# Variable: SPOILER\_TEXT\_ELEMENT
 
-> `const` **SPOILER_TEXT_ELEMENT**: `"spoilertext"` = `"spoilertext"`
+> `const` **SPOILER\_TEXT\_ELEMENT**: `"spoilertext"` = `"spoilertext"`

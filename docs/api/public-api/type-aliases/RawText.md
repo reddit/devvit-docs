@@ -12,7 +12,7 @@
 
 ### e
 
-> **e**: _typeof_ [`RAW_TEXT_ELEMENT`](../variables/RAW_TEXT_ELEMENT.md)
+> **e**: *typeof* [`RAW_TEXT_ELEMENT`](../variables/RAW_TEXT_ELEMENT.md)
 
 ***
 

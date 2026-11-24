@@ -99,7 +99,7 @@ the author is unavailable.
 ##### Example
 
 ```ts
-"Example_User";
+"Example_User"
 ```
 
 ##### Returns
@@ -339,7 +339,7 @@ The comment's path relative to `https://www.reddit.com`.
 ##### Example
 
 ```ts
-"/r/wallstreetbets/comments/abc123/example_post/def456/";
+"/r/wallstreetbets/comments/abc123/example_post/def456/"
 ```
 
 ##### Returns
@@ -474,7 +474,7 @@ The name of the subreddit that contains the comment, without the leading
 ##### Example
 
 ```ts
-"AskReddit";
+"AskReddit"
 ```
 
 ##### Returns
@@ -496,7 +496,7 @@ The absolute `https://www.reddit.com` URL for the comment.
 ##### Example
 
 ```ts
-"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/def456/";
+"https://www.reddit.com/r/wallstreetbets/comments/abc123/post/def456/"
 ```
 
 ##### Returns

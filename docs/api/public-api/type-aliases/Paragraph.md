@@ -20,4 +20,4 @@
 
 ### e
 
-> **e**: _typeof_ [`PARAGRAPH_ELEMENT`](../variables/PARAGRAPH_ELEMENT.md)
+> **e**: *typeof* [`PARAGRAPH_ELEMENT`](../variables/PARAGRAPH_ELEMENT.md)

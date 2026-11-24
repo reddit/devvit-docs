@@ -20,4 +20,4 @@
 
 ### e
 
-> **e**: _typeof_ [`LIST_ITEM_ELEMENT`](../variables/LIST_ITEM_ELEMENT.md)
+> **e**: *typeof* [`LIST_ITEM_ELEMENT`](../variables/LIST_ITEM_ELEMENT.md)

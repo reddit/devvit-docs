@@ -21,7 +21,7 @@ Flair background color as a hex color string (# prefixed)
 #### Example
 
 ```ts
-"#FF4500";
+"#FF4500"
 ```
 
 ***
@@ -48,7 +48,7 @@ RichText object representation of the flair
 
 > `optional` **elementType?**: `string`
 
-Enum of element types. e.g. emoji or text
+Enum of element types.  e.g. emoji or text
 
 #### emojiRef?
 

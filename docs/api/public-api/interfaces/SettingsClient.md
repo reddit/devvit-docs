@@ -44,7 +44,7 @@
 
 ##### T
 
-`T` _extends_ `object` = [`SettingsValues`](../type-aliases/SettingsValues.md)
+`T` *extends* `object` = [`SettingsValues`](../type-aliases/SettingsValues.md)
 
 #### Returns
 

@@ -15,21 +15,21 @@ To use the latest version of Devvit:
 
 We've made behind-the-scenes improvements to reduce client load times, which helps apps load faster for users. These improvements are automatic, and no upgrade is required.
 
-## Release 0.15.4: Direct Launch & Deeper Insights
+## Release 0.15.4: Direct Launch & Deeper Insights 
 
-**Release Date: November 16, 2026**
+**Release Date: November 16, 2026**   
 
 **Direct Launch is here!**
 
-Make it easier for players to jump straight into your game with [Direct Launch](https://developers.reddit.com/docs/capabilities/server/launch_screen_and_entry_points/direct-launch-games). Games can now open directly in expanded mode when launched from supported discovery surfaces, including Daily Games, Featured, Play Again, and Category placements. This is currently supported for iOS and Android, with web support coming soon!
+Make it easier for players to jump straight into your game with [Direct Launch](https://developers.reddit.com/docs/capabilities/server/launch_screen_and_entry_points/direct-launch-games). Games can now open directly in expanded mode when launched from supported discovery surfaces, including Daily Games, Featured, Play Again, and Category placements. This is currently supported for iOS and Android, with web support coming soon!  
 
-Direct Launch requires Devvit CLI 0.14.6 or later, with 0.15.3 or later recommended. You’ll need to make sure your game supports expanded mode before enabling it.
+Direct Launch requires Devvit CLI 0.14.6 or later, with 0.15.3 or later recommended.  You’ll need to make sure your game supports expanded mode before enabling it.  
 
 **Devvit Journeys Progress Funnel**
 
-Get a clearer picture of how players move through your app with the new [Progress Funnel](https://developers.reddit.com/docs/capabilities/analytics/journeys-dashboard#progress-funnel) in Devvit Journeys analytics. The funnel shows you how many Journeys reach each progress milestone and where users drop off, helping you identify friction points and opportunities to improve engagement with your app.
+Get a clearer picture of how players move through your app with the new [Progress Funnel](https://developers.reddit.com/docs/capabilities/analytics/journeys-dashboard#progress-funnel) in Devvit Journeys analytics.  The funnel shows you how many Journeys reach each progress milestone and where users drop off, helping you identify friction points and opportunities to improve engagement with your app.
 
-**Mod Fix Permissions**
+**Mod Fix Permissions**  
 
 Added a new Fix mod permissions button in the Developer Portal's App Permissions section. You can now restore an app account's moderator permissions directly from the Portal if they become misconfigured.
 
@@ -37,9 +37,10 @@ Added a new Fix mod permissions button in the Developer Portal's App Permissions
 
 New app versions must now be uploaded using Devvit CLI 0.13.9 or later. Upgrade your CLI before publishing a new version of your app.
 
-## Release 0.15.3: TypeScript Compatibility & API Fixes
 
-**Release Date: November 9, 2026**
+## Release 0.15.3: TypeScript Compatibility & API Fixes 
+
+**Release Date: November 9, 2026** 
 
 This release includes several API fixes, a performance improvement, and expanded TypeScript compatibility.
 
@@ -64,13 +65,13 @@ Images uploaded through `media.upload` are now attributed to the uploading user 
 
 ## Devvit 0.15.1: Steady State
 
-**Release Date: October 26, 2026**
+**Release Date: October 26, 2026** 
 
 No user-facing changes this time around. This release focuses on behind-the-scenes maintenance to keep Devvit running smoothly.
 
 ## Release 0.15.0: API Updates & Expanded Mode Improvements
 
-**Release Date: October 19, 2026**
+**Release Date: October 19, 2026** 
 
 ### Breaking Changes in Devvit 0.15.0
 
@@ -79,9 +80,10 @@ This release includes two breaking changes and a reminder about deprecated funct
 **Breaking Changes**
 
 - **`devvit.yaml` support removed:** Devvit no longer supports `devvit.yaml`. [Migrate to `devvit.json`](https://developers.reddit.com/docs/guides/migrate/devvit-singleton) before upgrading to 0.15.0.
+  
 - **`reddit.getWikiPage()` signature updated:** The `reddit.getWikiPage(subredditName, page, revisionId)` signature has been removed. Use `reddit.getWikiPage(subredditName, page, options)` instead.
 
-**Deprecated Functionality**
+**Deprecated Functionality** 
 
 This is your reminder that `blocks` property in `devvit.json` and the `@devvit/public-api` package remain supported but deprecated. We recommend migrating to `@devvit/web` when possible.
 

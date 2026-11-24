@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: BLOCK_QUOTE_ELEMENT
+# Variable: BLOCK\_QUOTE\_ELEMENT
 
-> `const` **BLOCK_QUOTE_ELEMENT**: `"blockquote"` = `"blockquote"`
+> `const` **BLOCK\_QUOTE\_ELEMENT**: `"blockquote"` = `"blockquote"`

@@ -20,7 +20,7 @@
 
 ### e
 
-> **e**: _typeof_ [`HEADING_ELEMENT`](../variables/HEADING_ELEMENT.md)
+> **e**: *typeof* [`HEADING_ELEMENT`](../variables/HEADING_ELEMENT.md)
 
 ***
 

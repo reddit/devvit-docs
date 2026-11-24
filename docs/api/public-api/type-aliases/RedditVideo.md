@@ -31,7 +31,7 @@ The URL to the DASH playlist file.
 #### Example
 
 ```ts
-"https://v.redd.it/abc123/DASHPlaylist.mpd";
+"https://v.redd.it/abc123/DASHPlaylist.mpd"
 ```
 
 ***
@@ -57,7 +57,7 @@ The direct URL to the video.
 #### Example
 
 ```ts
-"https://v.redd.it/abc123/DASH_1080.mp4?source=fallback";
+"https://v.redd.it/abc123/DASH_1080.mp4?source=fallback"
 ```
 
 ***
@@ -83,7 +83,7 @@ The URL to the HLS playlist file.
 #### Example
 
 ```ts
-"https://v.redd.it/abc123/HLSPlaylist.m3u8";
+"https://v.redd.it/abc123/HLSPlaylist.m3u8"
 ```
 
 ***
@@ -109,7 +109,7 @@ The URL to the scrubber media file.
 #### Example
 
 ```ts
-"https://v.redd.it/abc123/DASH_96.mp4";
+"https://v.redd.it/abc123/DASH_96.mp4"
 ```
 
 ***

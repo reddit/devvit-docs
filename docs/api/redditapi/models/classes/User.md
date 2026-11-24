@@ -121,12 +121,12 @@ Indicates whether or not the user has verified their email address.
 
 > **get** **id**(): `` `t2_${string}` ``
 
-The ID (starting with t2\_) of the user to retrieve.
+The ID (starting with t2_) of the user to retrieve.
 
 ##### Example
 
 ```ts
-"t2_1w72";
+'t2_1w72'
 ```
 
 ##### Returns
@@ -276,7 +276,7 @@ The username of the user omitting the u/.
 ##### Example
 
 ```ts
-"spez";
+'spez'
 ```
 
 ##### Returns
@@ -438,8 +438,8 @@ The name of the subreddit associated with the user's flair.
 #### Example
 
 ```ts
-const username = "badapple";
-const subredditName = "mysubreddit";
+const username = "badapple"
+const subredditName = "mysubreddit"
 const user = await reddit.getUserByUsername(username);
 const userFlair = await user.getUserFlairBySubreddit(subredditName);
 ```

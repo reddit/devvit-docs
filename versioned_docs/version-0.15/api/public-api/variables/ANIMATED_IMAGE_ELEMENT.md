@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: ANIMATED_IMAGE_ELEMENT
+# Variable: ANIMATED\_IMAGE\_ELEMENT
 
-> `const` **ANIMATED_IMAGE_ELEMENT**: `"gif"` = `"gif"`
+> `const` **ANIMATED\_IMAGE\_ELEMENT**: `"gif"` = `"gif"`

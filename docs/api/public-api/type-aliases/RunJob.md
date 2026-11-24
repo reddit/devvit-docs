@@ -14,7 +14,7 @@ Schedule a new job to run at a specific time or on a cron schedule
 
 ### Data
 
-`Data` _extends_ [`JSONObject`](JSONObject.md) \| `undefined`
+`Data` *extends* [`JSONObject`](JSONObject.md) \| `undefined`
 
 ## Parameters
 

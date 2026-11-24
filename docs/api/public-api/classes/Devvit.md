@@ -42,13 +42,13 @@ The menu item to add.
 
 ```ts
 Devvit.addMenuItem({
-  label: "My Menu Item",
-  location: "subreddit",
+  label: 'My Menu Item',
+  location: 'subreddit',
   onPress: (event, context) => {
     const location = event.location;
     const targetId = event.targetId;
     context.ui.showToast(`You clicked on ${location} ${targetId}`);
-  },
+  }
 });
 ```
 
@@ -68,7 +68,7 @@ Add a scheduled job type for your app. This will allow you to schedule jobs usin
 
 ##### T
 
-`T` _extends_ [`JSONObject`](../type-aliases/JSONObject.md) \| `undefined`
+`T` *extends* [`JSONObject`](../type-aliases/JSONObject.md) \| `undefined`
 
 #### Parameters
 
@@ -120,7 +120,6 @@ Devvit.addMenuItem({
 Add settings that can be configured to customize the behavior of your app.
 
 There are two levels of settings:
-
 - App settings (scope: 'app')
 - Installation settings (scope: 'installation' or unspecified scope).
 
@@ -158,33 +157,33 @@ Fields for the app and installation settings.
 ```ts
 Devvit.addSettings([
   {
-    type: "string",
-    name: "weather-api-key",
-    label: "My weather.com API key",
+    type: 'string',
+    name: 'weather-api-key',
+    label: 'My weather.com API key',
     scope: SettingScope.App,
-    isSecret: true,
+    isSecret: true
   },
   {
-    type: "string",
-    name: "Default City",
-    label: "Default city to show the weather for by default",
+    type: 'string',
+    name: 'Default City',
+    label: 'Default city to show the weather for by default',
     scope: SettingScope.Installation,
     onValidate: ({ value }) => {
       if (!isValidCity(value)) {
         return 'You must ender a valid city: ${validCities.join(", ")}';
       }
-    },
+    }
   },
   {
-    type: "number",
-    name: "Default Forecast Window (in days)",
-    label: "The number of days to show for forecast for by default",
+    type: 'number',
+    name: 'Default Forecast Window (in days)',
+    label: 'The number of days to show for forecast for by default',
     scope: SettingScope.Installation,
     onValidate: ({ value }) => {
       if (value > 10 || value < 1) {
-        return "Forecast window must be from 1 to 10 days";
+        return 'Forecast window must be from 1 to 10 days';
       }
-    },
+    }
   },
 ]);
 ```
@@ -193,11 +192,11 @@ Devvit.addSettings([
 
 ```ts
 Devvit.addSettings({
-  type: "string",
-  name: "weather-api-key",
-  label: "My weather.com API key",
+  type: 'string',
+  name: 'weather-api-key',
+  label: 'My weather.com API key',
   scope: SettingScope.App,
-  isSecret: true,
+  isSecret: true
 });
 ```
 
@@ -209,7 +208,7 @@ Devvit.addSettings({
 
 #### Call Signature
 
-> `static` **addTrigger**\<`T`\>(`definition`): _typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
+> `static` **addTrigger**\<`T`\>(`definition`): *typeof* [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 
 Add a trigger handler that will be invoked when the given event
 occurs in a subreddit where the app is installed.
@@ -220,7 +219,7 @@ occurs in a subreddit where the app is installed.
 
 ###### T
 
-`T` _extends_ keyof [`TriggerEventType`](../type-aliases/TriggerEventType.md)
+`T` *extends* keyof [`TriggerEventType`](../type-aliases/TriggerEventType.md)
 
 ##### Parameters
 
@@ -242,33 +241,33 @@ The function to call when the event happens.
 
 ##### Returns
 
-_typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
+*typeof* [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 
 ##### Example
 
 ```ts
 Devvit.addTrigger({
-  event: "PostSubmit",
+  event: 'PostSubmit',
   async onEvent(event, context) {
-    console.log("a new post was created!");
-  },
+    console.log("a new post was created!")
+  }
 });
 
 Devvit.addTrigger({
-  events: ["PostSubmit", "PostReport"],
-  async onEvent(event, context) {
-    if (event.type === "PostSubmit") {
-      console.log("a new post was created!");
-    } else if (event.type === "PostReport") {
-      console.log("a post was reported!");
+  events: ['PostSubmit', 'PostReport'],
+  async onEvent(event, context){
+    if (event.type === 'PostSubmit') {
+      console.log("a new post was created!")
+    } else if (event.type === 'PostReport') {
+      console.log("a post was reported!")
     }
-  },
+  }
 });
 ```
 
 #### Call Signature
 
-> `static` **addTrigger**\<`Event`\>(`triggerDefinition`): _typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
+> `static` **addTrigger**\<`Event`\>(`triggerDefinition`): *typeof* [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 
 Add a trigger handler that will be invoked when the given event
 occurs in a subreddit where the app is installed.
@@ -279,7 +278,7 @@ occurs in a subreddit where the app is installed.
 
 ###### Event
 
-`Event` _extends_ [`TriggerEvent`](../type-aliases/TriggerEvent.md)
+`Event` *extends* [`TriggerEvent`](../type-aliases/TriggerEvent.md)
 
 ##### Parameters
 
@@ -289,27 +288,27 @@ occurs in a subreddit where the app is installed.
 
 ##### Returns
 
-_typeof_ [`Devvit`](../@devvit/namespaces/Devvit/README.md)
+*typeof* [`Devvit`](../@devvit/namespaces/Devvit/README.md)
 
 ##### Example
 
 ```ts
 Devvit.addTrigger({
-  event: "PostSubmit",
+  event: 'PostSubmit',
   async onEvent(event, context) {
-    console.log("a new post was created!");
-  },
+    console.log("a new post was created!")
+  }
 });
 
 Devvit.addTrigger({
-  events: ["PostSubmit", "PostReport"],
-  async onEvent(event, context) {
-    if (event.type === "PostSubmit") {
-      console.log("a new post was created!");
-    } else if (event.type === "PostReport") {
-      console.log("a post was reported!");
+  events: ['PostSubmit', 'PostReport'],
+  async onEvent(event, context){
+    if (event.type === 'PostSubmit') {
+      console.log("a new post was created!")
+    } else if (event.type === 'PostReport') {
+      console.log("a post was reported!")
     }
-  },
+  }
 });
 ```
 
@@ -342,7 +341,7 @@ Devvit.configure({
   http: true,
   redditAPI: true,
   redis: true,
-  media: true,
+  media: true
 });
 ```
 
@@ -362,7 +361,7 @@ Create a form that can be opened from menu items.
 
 ##### T
 
-`T` _extends_ [`Form`](../type-aliases/Form.md) \| [`FormFunction`](../type-aliases/FormFunction.md)
+`T` *extends* [`Form`](../type-aliases/Form.md) \| [`FormFunction`](../type-aliases/FormFunction.md)
 
 #### Parameters
 

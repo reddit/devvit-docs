@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: HORIZONTAL_RULE_ELEMENT
+# Variable: HORIZONTAL\_RULE\_ELEMENT
 
-> `const` **HORIZONTAL_RULE_ELEMENT**: `"hr"` = `"hr"`
+> `const` **HORIZONTAL\_RULE\_ELEMENT**: `"hr"` = `"hr"`

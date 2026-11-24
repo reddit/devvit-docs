@@ -20,7 +20,7 @@
 
 ### e
 
-> **e**: _typeof_ [`CODE_BLOCK_ELEMENT`](../variables/CODE_BLOCK_ELEMENT.md)
+> **e**: *typeof* [`CODE_BLOCK_ELEMENT`](../variables/CODE_BLOCK_ELEMENT.md)
 
 ***
 

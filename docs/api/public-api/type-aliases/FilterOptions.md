@@ -31,5 +31,5 @@ The reason shown to moderators in the moderation queue. If [keep](#keep) is
 #### Example
 
 ```ts
-"contains sensitive content";
+"contains sensitive content"
 ```

@@ -10,9 +10,9 @@ The height of the Post entrypoint. This is not expected to change often.
 
 <a id="height_unspecified"></a>
 
-### HEIGHT_UNSPECIFIED
+### HEIGHT\_UNSPECIFIED
 
-> **HEIGHT_UNSPECIFIED**: `0`
+> **HEIGHT\_UNSPECIFIED**: `0`
 
 ***
 

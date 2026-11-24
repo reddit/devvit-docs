@@ -12,7 +12,7 @@
 
 ### e
 
-> **e**: _typeof_ [`USER_MENTION_ELEMENT`](../variables/USER_MENTION_ELEMENT.md)
+> **e**: *typeof* [`USER_MENTION_ELEMENT`](../variables/USER_MENTION_ELEMENT.md)
 
 ***
 

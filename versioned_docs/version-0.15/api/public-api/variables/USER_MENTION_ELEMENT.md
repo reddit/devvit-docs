@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: USER_MENTION_ELEMENT
+# Variable: USER\_MENTION\_ELEMENT
 
-> `const` **USER_MENTION_ELEMENT**: `"@"` = `"@"`
+> `const` **USER\_MENTION\_ELEMENT**: `"@"` = `"@"`

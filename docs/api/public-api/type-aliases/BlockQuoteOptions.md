@@ -23,7 +23,5 @@ Element for author attribution
 #### Example
 
 ```ts
-{
-  author: makeUserLink({ username: "spez", showPrefix: true });
-}
+{ author: makeUserLink({ username: 'spez', showPrefix: true }) }
 ```

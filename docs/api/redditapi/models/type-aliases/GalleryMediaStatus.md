@@ -4,4 +4,4 @@
 
 # Type Alias: GalleryMediaStatus
 
-> **GalleryMediaStatus** = _typeof_ `GalleryMediaStatusProto`\[keyof _typeof_ `GalleryMediaStatusProto`\]
+> **GalleryMediaStatus** = *typeof* `GalleryMediaStatusProto`\[keyof *typeof* `GalleryMediaStatusProto`\]

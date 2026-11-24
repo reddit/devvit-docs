@@ -48,7 +48,7 @@ The description of the subreddit. Appears in the sidebar of the subreddit.
 
 > **get** **id**(): `` `t5_${string}` ``
 
-The ID (starting with t5\_) of the subreddit to retrieve. e.g. t5_2qjpg
+The ID (starting with t5_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 ##### Returns
 
@@ -561,10 +561,10 @@ Array of thing full ids (e.g. t3_abc123)
 #### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("askReddit");
-const listing = subreddit.getCommentsAndPostsByIds(["t3_abc123", "t1_xyz123"]);
+const subreddit = await reddit.getSubredditByName('askReddit');
+const listing = subreddit.getCommentsAndPostsByIds(['t3_abc123', 't1_xyz123']);
 const items = await listing.all();
-console.log(items); // [Post, Comment]
+console.log(items) // [Post, Comment]
 ```
 
 ***
@@ -610,11 +610,11 @@ Return a listing of things that have been edited recently.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getEdited();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getEdited({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getEdited({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -636,11 +636,11 @@ Return a listing of things that have been edited recently.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getEdited();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getEdited({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getEdited({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -662,11 +662,11 @@ Return a listing of things that have been edited recently.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getEdited();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getEdited({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getEdited({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ***
@@ -750,11 +750,11 @@ Return a listing of things requiring moderator review, such as reported things a
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getModQueue();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getModQueue({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ",  await listing.all())
+listing = await subreddit.getModQueue({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -776,11 +776,11 @@ Return a listing of things requiring moderator review, such as reported things a
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getModQueue();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getModQueue({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ",  await listing.all())
+listing = await subreddit.getModQueue({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -802,11 +802,11 @@ Return a listing of things requiring moderator review, such as reported things a
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getModQueue();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getModQueue({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ",  await listing.all())
+listing = await subreddit.getModQueue({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ***
@@ -878,11 +878,11 @@ Return a listing of things that have been reported.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getReports();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getReports({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getReports({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -904,11 +904,11 @@ Return a listing of things that have been reported.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getReports();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getReports({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getReports({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -930,11 +930,11 @@ Return a listing of things that have been reported.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getReports();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getReports({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getReports({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ***
@@ -974,11 +974,11 @@ Return a listing of things that have been marked as spam or otherwise removed.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getSpam();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getSpam({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getSpam({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -1000,11 +1000,11 @@ Return a listing of things that have been marked as spam or otherwise removed.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getSpam();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getSpam({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getSpam({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -1026,11 +1026,11 @@ Return a listing of things that have been marked as spam or otherwise removed.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getSpam();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getSpam({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getSpam({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ***
@@ -1076,11 +1076,11 @@ Return a listing of things that have yet to be approved/removed by a mod.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getUnmoderated();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getUnmoderated({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getUnmoderated({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -1102,11 +1102,11 @@ Return a listing of things that have yet to be approved/removed by a mod.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getUnmoderated();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getUnmoderated({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getUnmoderated({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 #### Call Signature
@@ -1128,11 +1128,11 @@ Return a listing of things that have yet to be approved/removed by a mod.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getUnmoderated();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getUnmoderated({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getUnmoderated({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ***
@@ -1164,22 +1164,20 @@ See interface
 #### Examples
 
 ```ts
-const subredditName = "mysubreddit";
-const subreddit = await reddit.getSubredditByName(subredditName);
+const subredditName = "mysubreddit"
+const subreddit = await reddit.getSubredditByName(subredditName)
 const response = await subreddit.getUserFlair();
-const userFlairList = response.users;
+const userFlairList = response.users
 ```
 
 ```ts
-const response = await subreddit.getUserFlair({ after: "t2_awefae" });
-const userFlairList = response.users;
+const response = await subreddit.getUserFlair({ after: "t2_awefae"});
+const userFlairList = response.users
 ```
 
 ```ts
-const response = await subreddit.getUserFlair({
-  usernames: ["toxictoad", "badapple"],
-});
-const userFlairList = response.users;
+const response = await subreddit.getUserFlair({ usernames: ['toxictoad', 'badapple']});
+const userFlairList = response.users
 ```
 
 ***
@@ -1336,9 +1334,7 @@ Highlighted post IDs in their new display order.
 
 ```ts
 const highlights = await subreddit.getHighlightedPosts();
-await subreddit.reorderHighlightedPosts(
-  highlights.map(({ postId }) => postId).reverse(),
-);
+await subreddit.reorderHighlightedPosts(highlights.map(({ postId }) => postId).reverse());
 ```
 
 ***
@@ -1578,13 +1574,9 @@ Optional settings to apply. Omitted fields are left unchanged.
 #### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName('mysubreddit');
 await subreddit.setSettings({ restrictPosting: true, allowImages: false });
-await subreddit.setSettings({
-  type: "restricted",
-  title: "New Title",
-  description: "Sidebar text",
-});
+await subreddit.setSettings({ type: 'restricted', title: 'New Title', description: 'Sidebar text' });
 ```
 
 ***

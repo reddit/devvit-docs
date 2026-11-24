@@ -22,8 +22,8 @@ An [Image](Image.md) element to use as the thumbnail before the video has loaded
 
 #### See
 
-- [Image](Image.md)
--
+ - [Image](Image.md)
+ - 
 
 ## Borrows
 

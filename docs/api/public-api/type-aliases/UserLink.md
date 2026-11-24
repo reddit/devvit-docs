@@ -12,7 +12,7 @@
 
 ### e
 
-> **e**: _typeof_ [`USER_LINK_ELEMENT`](../variables/USER_LINK_ELEMENT.md)
+> **e**: *typeof* [`USER_LINK_ELEMENT`](../variables/USER_LINK_ELEMENT.md)
 
 ***
 

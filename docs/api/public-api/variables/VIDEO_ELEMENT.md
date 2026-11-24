@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: VIDEO_ELEMENT
+# Variable: VIDEO\_ELEMENT
 
-> `const` **VIDEO_ELEMENT**: `"video"` = `"video"`
+> `const` **VIDEO\_ELEMENT**: `"video"` = `"video"`

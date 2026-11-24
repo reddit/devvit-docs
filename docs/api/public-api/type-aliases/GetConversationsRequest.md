@@ -35,7 +35,6 @@ an integer between 1 and 100 (default: 25)
 > `optional` **sort?**: `"recent"` \| `"mod"` \| `"user"` \| `"unread"`
 
 Sort by:
-
 - `recent` - Order by whenever anyone last updated the conversation, mod or participant
 - `mod` - Order by the last time a mod updated the conversation
 - `user` - Order by the last time a participant user updated the conversation

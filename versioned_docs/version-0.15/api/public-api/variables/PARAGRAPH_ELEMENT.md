@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: PARAGRAPH_ELEMENT
+# Variable: PARAGRAPH\_ELEMENT
 
-> `const` **PARAGRAPH_ELEMENT**: `"par"` = `"par"`
+> `const` **PARAGRAPH\_ELEMENT**: `"par"` = `"par"`

@@ -28,4 +28,4 @@
 
 ### e
 
-> **e**: _typeof_ [`BLOCK_QUOTE_ELEMENT`](../variables/BLOCK_QUOTE_ELEMENT.md)
+> **e**: *typeof* [`BLOCK_QUOTE_ELEMENT`](../variables/BLOCK_QUOTE_ELEMENT.md)

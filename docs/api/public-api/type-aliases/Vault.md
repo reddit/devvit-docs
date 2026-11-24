@@ -21,7 +21,7 @@ The address of the Vault.
 #### Example
 
 ```ts
-"0x205ee28744456bDBf180A0Fa7De51e0F116d54Ed";
+'0x205ee28744456bDBf180A0Fa7De51e0F116d54Ed'
 ```
 
 ***
@@ -57,7 +57,7 @@ The provider of the Vault address.
 #### Example
 
 ```ts
-"ethereum";
+'ethereum'
 ```
 
 ***
@@ -68,10 +68,10 @@ The provider of the Vault address.
 
 > **userId**: `T2`
 
-The ID (starting with t2\_) of the user owning the Vault.
+The ID (starting with t2_) of the user owning the Vault.
 
 #### Example
 
 ```ts
-"t2_1w72";
+'t2_1w72'
 ```

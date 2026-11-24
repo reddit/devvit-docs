@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: HEADING_ELEMENT
+# Variable: HEADING\_ELEMENT
 
-> `const` **HEADING_ELEMENT**: `"h"` = `"h"`
+> `const` **HEADING\_ELEMENT**: `"h"` = `"h"`

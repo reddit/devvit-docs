@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: TABLE_ELEMENT
+# Variable: TABLE\_ELEMENT
 
-> `const` **TABLE_ELEMENT**: `"table"` = `"table"`
+> `const` **TABLE\_ELEMENT**: `"table"` = `"table"`

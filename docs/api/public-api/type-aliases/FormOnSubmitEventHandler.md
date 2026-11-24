@@ -12,7 +12,7 @@
 
 ### Data
 
-`Data` _extends_ `Partial`\<[`JSONObject`](JSONObject.md)\>
+`Data` *extends* `Partial`\<[`JSONObject`](JSONObject.md)\>
 
 ## Parameters
 

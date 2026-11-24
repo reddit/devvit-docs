@@ -12,7 +12,7 @@
 
 ### e
 
-> **e**: _typeof_ [`POST_LINK_ELEMENT`](../variables/POST_LINK_ELEMENT.md)
+> **e**: *typeof* [`POST_LINK_ELEMENT`](../variables/POST_LINK_ELEMENT.md)
 
 ***
 

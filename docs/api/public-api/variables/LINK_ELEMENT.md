@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: LINK_ELEMENT
+# Variable: LINK\_ELEMENT
 
-> `const` **LINK_ELEMENT**: `"link"` = `"link"`
+> `const` **LINK\_ELEMENT**: `"link"` = `"link"`

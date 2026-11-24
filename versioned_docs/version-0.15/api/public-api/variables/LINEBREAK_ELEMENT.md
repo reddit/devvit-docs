@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: LINEBREAK_ELEMENT
+# Variable: LINEBREAK\_ELEMENT
 
-> `const` **LINEBREAK_ELEMENT**: `"br"` = `"br"`
+> `const` **LINEBREAK\_ELEMENT**: `"br"` = `"br"`

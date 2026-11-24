@@ -17,8 +17,8 @@ arbitrary substring within the text
 
 #### See
 
-- [FormatRange](FormatRange.md)
-- makeFormatting
+ - [FormatRange](FormatRange.md)
+ - makeFormatting
 
 #### Example
 

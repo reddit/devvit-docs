@@ -12,7 +12,7 @@
 
 ### Event
 
-`Event` _extends_ [`TriggerEvent`](TriggerEvent.md)
+`Event` *extends* [`TriggerEvent`](TriggerEvent.md)
 
 ## Properties
 

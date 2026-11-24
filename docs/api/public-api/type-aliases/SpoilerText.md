@@ -20,4 +20,4 @@
 
 ### e
 
-> **e**: _typeof_ [`SPOILER_TEXT_ELEMENT`](../variables/SPOILER_TEXT_ELEMENT.md)
+> **e**: *typeof* [`SPOILER_TEXT_ELEMENT`](../variables/SPOILER_TEXT_ELEMENT.md)

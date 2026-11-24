@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: TEXT_ELEMENT
+# Variable: TEXT\_ELEMENT
 
-> `const` **TEXT_ELEMENT**: `"text"` = `"text"`
+> `const` **TEXT\_ELEMENT**: `"text"` = `"text"`

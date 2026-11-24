@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: EMBED_ELEMENT
+# Variable: EMBED\_ELEMENT
 
-> `const` **EMBED_ELEMENT**: `"embed"` = `"embed"`
+> `const` **EMBED\_ELEMENT**: `"embed"` = `"embed"`

@@ -11,21 +11,22 @@ To use the Reddit API Client, add it to the plugin configuration at the top of t
 ## Example
 
 ```ts
+
 Devvit.configure({
-  redditAPI: true,
-  // other plugins
-});
+   redditAPI: true,
+   // other plugins
+})
 
 // use within one of our capability handlers e.g. Menu Actions, Triggers, Scheduled Job Type, etc
 async (event, context) => {
-  const subreddit = await context.reddit.getSubredditById(context.subredditId);
-  context.reddit.submitPost({
-    subredditName: subreddit.name,
-    title: "test post",
-    text: "test body",
-  });
-  // additional code
-};
+    const subreddit = await context.reddit.getSubredditById(context.subredditId);
+    context.reddit.submitPost({
+      subredditName: subreddit.name,
+      title: 'test post',
+      text: 'test body',
+    })
+    // additional code
+}
 ```
 
 ## Extends
@@ -129,10 +130,10 @@ Adds a moderation note to a user and returns the created note.
 
 ```ts
 const modNote = await reddit.addModNote({
-  subreddit: "wallstreetbets",
-  user: "spez",
-  note: "Repeated rule 1 violations",
-  label: "ABUSE_WARNING",
+  subreddit: 'wallstreetbets',
+  user: 'spez',
+  note: 'Repeated rule 1 violations',
+  label: 'ABUSE_WARNING',
 });
 ```
 
@@ -164,9 +165,9 @@ Adds a removal note to each specified post or comment.
 
 ```ts
 await reddit.addRemovalNote({
-  itemIds: ["t1_abc123", "t3_def456"],
-  reasonId: "",
-  modNote: "Removed for breaking rule 1",
+  itemIds: ['t1_abc123', 't3_def456'],
+  reasonId: '',
+  modNote: 'Removed for breaking rule 1',
 });
 ```
 
@@ -217,11 +218,14 @@ Removal Reason ID
 #### Example
 
 ```ts
-const newReason = await reddit.addSubredditRemovalReasons("askReddit", {
-  title: "Spam",
-  message: "This is spam!",
-});
-console.log(newReason.id);
+const newReason = await reddit.addSubredditRemovalReasons(
+  'askReddit',
+  {
+    title: 'Spam',
+    message: 'This is spam!'
+  }
+);
+console.log(newReason.id)
 ```
 
 #### Inherited from
@@ -304,7 +308,7 @@ Approve a post or comment.
 
 `string`
 
-The id of the post (t3*) or comment (t1*) to approve.
+The id of the post (t3_) or comment (t1_) to approve.
 
 #### Returns
 
@@ -313,8 +317,8 @@ The id of the post (t3*) or comment (t1*) to approve.
 #### Example
 
 ```ts
-await reddit.approve("t3_123456");
-await reddit.approve("t1_123456");
+await reddit.approve('t3_123456');
+await reddit.approve('t1_123456');
 ```
 
 #### Overrides
@@ -474,7 +478,6 @@ The name of the subreddit to add the rule to.
 Create a short share URL for a Reddit location.
 
 Valid inputs:
-
 - Absolute Reddit URLs without a query string (e.g., https://reddit.com/r/gamesonreddit)
 - URLs with a query string limited to: utm_source, utm_medium, devvitshare
 
@@ -584,8 +587,8 @@ Crossposts a post to a subreddit.
 
 #### See
 
-- [()\|submitPost()](../classes/RedditClient.md#submitpost)
-- [()\|submitCustomPost()](../classes/RedditClient.md#submitcustompost)
+ - [()\|submitPost()](../classes/RedditClient.md#submitpost)
+ - [()\|submitCustomPost()](../classes/RedditClient.md#submitcustompost)
 
 #### Overrides
 
@@ -678,7 +681,7 @@ ID of the removal reason (from get or add).
 #### Example
 
 ```ts
-await reddit.deleteSubredditRemovalReason("askReddit", "uuid-abc");
+await reddit.deleteSubredditRemovalReason('askReddit', 'uuid-abc');
 ```
 
 #### Inherited from
@@ -767,7 +770,7 @@ reason is also shown on the content.
 
 `` `t3_${string}` `` \| `` `t1_${string}` ``
 
-The id of the post (t3*) or comment (t1*) to filter.
+The id of the post (t3_) or comment (t1_) to filter.
 
 ##### options?
 
@@ -924,12 +927,10 @@ A Listing of Post objects.
 #### Example
 
 ```ts
-const posts = await reddit
-  .getBestPosts({
-    limit: 1000,
-    pageSize: 100,
-  })
-  .all();
+const posts = await reddit.getBestPosts({
+  limit: 1000,
+  pageSize: 100
+}).all();
 ```
 
 #### Inherited from
@@ -952,7 +953,7 @@ Get a [Comment](../classes/Comment.md) object by ID
 
 `string`
 
-The ID (starting with t1\_) of the comment to retrieve. e.g. t1_1qjpg
+The ID (starting with t1_) of the comment to retrieve. e.g. t1_1qjpg
 
 #### Returns
 
@@ -963,7 +964,7 @@ A Promise that resolves to a Comment object.
 #### Example
 
 ```ts
-const comment = await reddit.getCommentById("t1_1qjpg");
+const comment = await reddit.getCommentById('t1_1qjpg');
 ```
 
 #### Overrides
@@ -997,13 +998,11 @@ A Listing of Comment objects.
 #### Example
 
 ```ts
-const comments = await reddit
-  .getComments({
-    postId: "t3_1qjpg",
-    limit: 1000,
-    pageSize: 100,
-  })
-  .all();
+const comments = await reddit.getComments({
+  postId: 't3_1qjpg',
+  limit: 1000,
+  pageSize: 100
+}).all();
 ```
 
 #### Inherited from
@@ -1093,14 +1092,12 @@ A Listing of Post objects.
 #### Example
 
 ```ts
-const posts = await reddit
-  .getControversialPosts({
-    subredditName: "memes",
-    timeframe: "day",
-    limit: 1000,
-    pageSize: 100,
-  })
-  .all();
+const posts = await reddit.getControversialPosts({
+  subredditName: 'memes',
+  timeframe: 'day',
+  limit: 1000,
+  pageSize: 100
+}).all();
 ```
 
 #### Inherited from
@@ -1236,13 +1233,11 @@ A Listing of Post objects.
 #### Example
 
 ```ts
-const duplicates = await reddit
-  .getDuplicatesForPost({
-    postId: "t3_abc123",
-    sort: "num_comments",
-    limit: 100,
-  })
-  .all();
+const duplicates = await reddit.getDuplicatesForPost({
+  postId: 't3_abc123',
+  sort: 'num_comments',
+  limit: 100
+}).all();
 ```
 
 #### Inherited from
@@ -1274,11 +1269,11 @@ Return a listing of things that have been edited recently.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getEdited();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getEdited({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getEdited({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1304,11 +1299,11 @@ Return a listing of things that have been edited recently.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getEdited();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getEdited({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getEdited({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1334,11 +1329,11 @@ Return a listing of things that have been edited recently.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getEdited();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getEdited({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getEdited({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1372,14 +1367,12 @@ A Listing of Post objects.
 #### Example
 
 ```ts
-const posts = await reddit
-  .getHotPosts({
-    subredditName: "memes",
-    timeframe: "day",
-    limit: 1000,
-    pageSize: 100,
-  })
-  .all();
+const posts = await reddit.getHotPosts({
+  subredditName: 'memes',
+  timeframe: 'day',
+  limit: 1000,
+  pageSize: 100
+}).all();
 ```
 
 #### Inherited from
@@ -1439,15 +1432,13 @@ A Listing of ModAction objects.
 #### Example
 
 ```ts
-const modActions = await reddit
-  .getModerationLog({
-    subredditName: "memes",
-    moderatorUsernames: ["spez"],
-    type: "banuser",
-    limit: 1000,
-    pageSize: 100,
-  })
-  .all();
+const modActions = await reddit.getModerationLog({
+  subredditName: 'memes',
+  moderatorUsernames: ['spez'],
+  type: 'banuser',
+  limit: 1000,
+  pageSize: 100
+}).all();
 ```
 
 #### Inherited from
@@ -1507,9 +1498,9 @@ Get a user's moderation notes within a subreddit.
 ```ts
 const notes = await reddit
   .getModNotes({
-    subreddit: "wallstreetbets",
-    user: "spez",
-    filter: "NOTE",
+    subreddit: 'wallstreetbets',
+    user: 'spez',
+    filter: 'NOTE',
   })
   .get(25);
 ```
@@ -1543,11 +1534,11 @@ Return a listing of things requiring moderator review, such as reported things a
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getModQueue();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getModQueue({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ",  await listing.all())
+listing = await subreddit.getModQueue({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1573,11 +1564,11 @@ Return a listing of things requiring moderator review, such as reported things a
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getModQueue();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getModQueue({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ",  await listing.all())
+listing = await subreddit.getModQueue({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1603,11 +1594,11 @@ Return a listing of things requiring moderator review, such as reported things a
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getModQueue();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getModQueue({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ",  await listing.all())
+listing = await subreddit.getModQueue({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1669,13 +1660,11 @@ A Listing of Post objects.
 #### Example
 
 ```ts
-const posts = await reddit
-  .getNewPosts({
-    subredditName: "memes",
-    limit: 1000,
-    pageSize: 100,
-  })
-  .all();
+const posts = await reddit.getNewPosts({
+  subredditName: 'memes',
+  limit: 1000,
+  pageSize: 100
+}).all();
 ```
 
 #### Inherited from
@@ -1841,11 +1830,11 @@ Return a listing of things that have been reported.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getReports();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getReports({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getReports({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1871,11 +1860,11 @@ Return a listing of things that have been reported.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getReports();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getReports({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getReports({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1901,11 +1890,11 @@ Return a listing of things that have been reported.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getReports();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getReports({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getReports({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -1939,14 +1928,12 @@ A Listing of Post objects.
 #### Example
 
 ```ts
-const posts = await reddit
-  .getRisingPosts({
-    subredditName: "memes",
-    timeframe: "day",
-    limit: 1000,
-    pageSize: 100,
-  })
-  .all();
+const posts = await reddit.getRisingPosts({
+  subredditName: 'memes',
+  timeframe: 'day',
+  limit: 1000,
+  pageSize: 100
+}).all();
 ```
 
 #### Inherited from
@@ -2038,11 +2025,11 @@ Return a listing of things that have been marked as spam or otherwise removed.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getSpam();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getSpam({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getSpam({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -2068,11 +2055,11 @@ Return a listing of things that have been marked as spam or otherwise removed.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getSpam();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getSpam({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getSpam({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -2098,11 +2085,11 @@ Return a listing of things that have been marked as spam or otherwise removed.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getSpam();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getSpam({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getSpam({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -2125,7 +2112,7 @@ Gets a [Subreddit](../classes/Subreddit.md) object by ID
 
 `string`
 
-The ID (starting with t5\_) of the subreddit to retrieve. e.g. t5_2qjpg
+The ID (starting with t5_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 #### Returns
 
@@ -2140,7 +2127,7 @@ Use [getSubredditInfoById](../classes/RedditClient.md#getsubredditinfobyid) inst
 #### Example
 
 ```ts
-const memes = await reddit.getSubredditById("t5_2qjpg");
+const memes = await reddit.getSubredditById('t5_2qjpg');
 ```
 
 #### Overrides
@@ -2178,7 +2165,7 @@ Use [getSubredditInfoByName](../classes/RedditClient.md#getsubredditinfobyname) 
 #### Example
 
 ```ts
-const askReddit = await reddit.getSubredditByName("askReddit");
+const askReddit = await reddit.getSubredditByName('askReddit');
 ```
 
 #### Inherited from
@@ -2201,7 +2188,7 @@ Gets a [SubredditInfo](../type-aliases/SubredditInfo.md) object by ID
 
 `string`
 
-The ID (starting with t5\_) of the subreddit to retrieve. e.g. t5_2qjpg
+The ID (starting with t5_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 #### Returns
 
@@ -2212,7 +2199,7 @@ A Promise that resolves a SubredditInfo object.
 #### Example
 
 ```ts
-const memes = await reddit.getSubredditInfoById("t5_2qjpg");
+const memes = await reddit.getSubredditInfoById('t5_2qjpg');
 ```
 
 #### Overrides
@@ -2246,7 +2233,7 @@ A Promise that resolves a SubredditInfo object.
 #### Example
 
 ```ts
-const askReddit = await reddit.getSubredditInfoByName("askReddit");
+const askReddit = await reddit.getSubredditInfoByName('askReddit');
 ```
 
 #### Inherited from
@@ -2308,10 +2295,10 @@ Ordered array of Removal Reasons
 #### Example
 
 ```ts
-const reasons = await reddit.getSubredditRemovalReasons("askReddit");
+const reasons = await reddit.getSubredditRemovalReasons('askReddit');
 
 for (let reason of reasons) {
-  console.log(reason.id, reason.message, reason.title);
+  console.log(reason.id, reason.message, reason.title)
 }
 ```
 
@@ -2400,14 +2387,12 @@ A Listing of Post objects.
 #### Example
 
 ```ts
-const posts = await reddit
-  .getControversialPosts({
-    subredditName: "memes",
-    timeframe: "day",
-    limit: 1000,
-    pageSize: 100,
-  })
-  .all();
+const posts = await reddit.getControversialPosts({
+  subredditName: 'memes',
+  timeframe: 'day',
+  limit: 1000,
+  pageSize: 100
+}).all();
 ```
 
 #### Inherited from
@@ -2439,11 +2424,11 @@ Return a listing of things that have yet to be approved/removed by a mod.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getUnmoderated();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getUnmoderated({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getUnmoderated({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -2469,11 +2454,11 @@ Return a listing of things that have yet to be approved/removed by a mod.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getUnmoderated();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getUnmoderated({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getUnmoderated({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -2499,11 +2484,11 @@ Return a listing of things that have yet to be approved/removed by a mod.
 ##### Example
 
 ```ts
-const subreddit = await reddit.getSubredditByName("mysubreddit");
+const subreddit = await reddit.getSubredditByName("mysubreddit")
 let listing = await subreddit.getUnmoderated();
-console.log("Posts and Comments: ", await listing.all());
-listing = await subreddit.getUnmoderated({ type: "post" });
-console.log("Posts: ", await listing.all());
+console.log("Posts and Comments: ", await listing.all())
+listing = await subreddit.getUnmoderated({ type: "post"});
+console.log("Posts: ", await listing.all())
 ```
 
 ##### Inherited from
@@ -2526,7 +2511,7 @@ Gets a [User](../classes/User.md) object by ID
 
 `string`
 
-The ID (starting with t2\_) of the user to retrieve. e.g. t2_1qjpg
+The ID (starting with t2_) of the user to retrieve. e.g. t2_1qjpg
 
 #### Returns
 
@@ -2537,7 +2522,7 @@ A Promise that resolves to a User object.
 #### Example
 
 ```ts
-const user = await reddit.getUserById("t2_1qjpg");
+const user = await reddit.getUserById('t2_1qjpg');
 ```
 
 #### Overrides
@@ -2567,14 +2552,14 @@ The username of the user omitting the u/. e.g. 'devvit'
 `Promise`\<[`User`](../classes/User.md) \| `undefined`\>
 
 A Promise that resolves to a User object or undefined if user is
-not found (user doesn't exist, account suspended, etc).
+         not found (user doesn't exist, account suspended, etc).
 
 #### Example
 
 ```ts
-const user = await reddit.getUserByUsername("devvit");
+const user = await reddit.getUserByUsername('devvit');
 if (user) {
-  console.log(user);
+  console.log(user)
 }
 ```
 
@@ -2665,9 +2650,7 @@ The address (starting with 0x) of the Vault.
 #### Example
 
 ```ts
-const vault = await reddit.getVaultByAddress(
-  "0x205ee28744456bDBf180A0Fa7De51e0F116d54Ed",
-);
+const vault = await reddit.getVaultByAddress('0x205ee28744456bDBf180A0Fa7De51e0F116d54Ed');
 ```
 
 #### Inherited from
@@ -2690,7 +2673,7 @@ Gets a [Vault](../type-aliases/Vault.md) for the specified user.
 
 `string`
 
-The ID (starting with t2\_) of the Vault owner.
+The ID (starting with t2_) of the Vault owner.
 
 #### Returns
 
@@ -2699,7 +2682,7 @@ The ID (starting with t2\_) of the Vault owner.
 #### Example
 
 ```ts
-const vault = await reddit.getVaultByUserId("t2_1w72");
+const vault = await reddit.getVaultByUserId('t2_1w72');
 ```
 
 #### Overrides
@@ -3063,7 +3046,7 @@ Remove a post or comment.
 
 `string`
 
-The id of the post (t3*) or comment (t1*) to remove.
+The id of the post (t3_) or comment (t1_) to remove.
 
 ##### isSpam
 
@@ -3078,8 +3061,8 @@ Is the post or comment being removed because it's spam?
 #### Example
 
 ```ts
-await reddit.remove("t3_123456", false);
-await reddit.remove("t1_123456", true);
+await reddit.remove('t3_123456', false);
+await reddit.remove('t1_123456', true);
 ```
 
 #### Overrides
@@ -3392,8 +3375,8 @@ Why the thing is reported
 
 ```ts
 await reddit.report(post, {
-  reason: "This is spam!",
-});
+ reason: 'This is spam!',
+})
 ```
 
 #### Inherited from
@@ -3503,15 +3486,13 @@ A Listing of Post objects.
 #### Example
 
 ```ts
-const posts = await reddit
-  .searchPosts({
-    query: "developer platform",
-    subredditName: "devvit",
-    sort: "new",
-    timeframe: "month",
-    limit: 100,
-  })
-  .all();
+const posts = await reddit.searchPosts({
+  query: 'developer platform',
+  subredditName: 'devvit',
+  sort: 'new',
+  timeframe: 'month',
+  limit: 100,
+}).all();
 ```
 
 #### Inherited from
@@ -3657,7 +3638,7 @@ const post = await reddit.getPostById(context.postId);
 
 await post.setPostData({
   currentScore: 55,
-  secretWord: "barbeque",
+  secretWord: 'barbeque',
 });
 // Result: { currentScore: 55, secretWord: 'barbeque' }
 ```
@@ -3717,7 +3698,7 @@ The ID of the post to set styles for.
 `CustomPostStylesInput` \| `undefined`
 
 The styles to set for the post. If a value isn't specified, its previous value
-will be preserved. If `undefined` is passed, all styles will be removed and reset to defaults.
+  will be preserved. If `undefined` is passed, all styles will be removed and reset to defaults.
 
 #### Returns
 
@@ -3816,10 +3797,10 @@ A Promise that resolves to a Comment object.
 
 ```ts
 const comment = await reddit.submitComment({
-  id: "t1_1qgif",
-  text: "Hello world!",
-  runAs: "APP",
-});
+ id: 't1_1qgif',
+ text: 'Hello world!',
+ runAs: 'APP',
+})
 ```
 
 #### Overrides
@@ -3850,8 +3831,8 @@ Submits a new custom post to a subreddit.
 
 ```ts
 const post = await reddit.submitCustomPost({
-  subredditName: "devvit",
-  title: "Hello World",
+  subredditName: 'devvit',
+  title: 'Hello World',
 });
 ```
 
@@ -3860,26 +3841,23 @@ When using `runAs: 'USER'` to create an experience Post, you must specify the `u
 
 ```ts
 const post = await reddit.submitCustomPost({
-  title: "My Devvit Post",
-  runAs: "USER",
-  userGeneratedContent: {
-    text: "hello there",
-    imageUrls: [
-      "https://styles.redditmedia.com/t5_5wa5ww/styles/communityIcon_wyopomb2xb0a1.png",
-      "https://styles.redditmedia.com/t5_49fkib/styles/bannerBackgroundImage_5a4axis7cku61.png",
-    ],
-  },
-  subredditName: context.subredditName,
-  textFallback: {
-    text: "This is a Devvit post!",
-  },
+ title: 'My Devvit Post',
+ runAs: 'USER',
+ userGeneratedContent: {
+   text: "hello there",
+   imageUrls: ["https://styles.redditmedia.com/t5_5wa5ww/styles/communityIcon_wyopomb2xb0a1.png", "https://styles.redditmedia.com/t5_49fkib/styles/bannerBackgroundImage_5a4axis7cku61.png"]
+   },
+ subredditName: context.subredditName,
+ textFallback: {
+   text: 'This is a Devvit post!',
+ },
 });
 ```
 
 #### See
 
-- [()\|submitPost()](../classes/RedditClient.md#submitpost)
-- [()\|crosspost()](../classes/RedditClient.md#crosspost)
+ - [()\|submitPost()](../classes/RedditClient.md#submitpost)
+ - [()\|crosspost()](../classes/RedditClient.md#crosspost)
 
 #### Inherited from
 
@@ -3909,23 +3887,21 @@ Submits a new post to a subreddit.
 
 ```ts
 const post = await reddit.submitPost({
-  subredditName: "devvit",
-  title: "Hello World",
+  subredditName: 'devvit',
+  title: 'Hello World',
   richtext: new RichTextBuilder()
     .heading({ level: 1 }, (h) => {
-      h.rawText("Hello world");
+      h.rawText('Hello world');
     })
-    .codeBlock({}, (cb) =>
-      cb.rawText("This post was created via the Devvit API"),
-    )
-    .build(),
+    .codeBlock({}, (cb) => cb.rawText('This post was created via the Devvit API'))
+    .build()
 });
 ```
 
 #### See
 
-- [()\|submitCustomPost()](../classes/RedditClient.md#submitcustompost)
-- [()\|crosspost()](../classes/RedditClient.md#crosspost)
+ - [()\|submitCustomPost()](../classes/RedditClient.md#submitcustompost)
+ - [()\|crosspost()](../classes/RedditClient.md#crosspost)
 
 #### Inherited from
 
@@ -4112,9 +4088,9 @@ The title of the removal reason.
 #### Example
 
 ```ts
-await reddit.updateSubredditRemovalReason("askReddit", "uuid-abc", {
-  title: "Spam",
-  message: "This post was removed for spam.",
+await reddit.updateSubredditRemovalReason('askReddit', 'uuid-abc', {
+  title: 'Spam',
+  message: 'This post was removed for spam.'
 });
 ```
 

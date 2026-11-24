@@ -20,7 +20,7 @@
 
 ### e
 
-> **e**: _typeof_ [`EMBED_ELEMENT`](../variables/EMBED_ELEMENT.md)
+> **e**: *typeof* [`EMBED_ELEMENT`](../variables/EMBED_ELEMENT.md)
 
 ***
 

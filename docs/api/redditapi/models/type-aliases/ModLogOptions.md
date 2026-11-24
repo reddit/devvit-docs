@@ -12,4 +12,4 @@
 
 ### T
 
-`T` _extends_ [`AboutSubredditTypes`](AboutSubredditTypes.md)
+`T` *extends* [`AboutSubredditTypes`](AboutSubredditTypes.md)

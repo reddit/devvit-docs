@@ -19,7 +19,5 @@ Language of the content in this Code Block
 #### Example
 
 ```ts
-{
-  language: "javascript";
-}
+{ language: 'javascript' }
 ```

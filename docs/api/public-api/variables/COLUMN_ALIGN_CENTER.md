@@ -2,6 +2,6 @@
 
 ***
 
-# Variable: COLUMN_ALIGN_CENTER
+# Variable: COLUMN\_ALIGN\_CENTER
 
-> `const` **COLUMN_ALIGN_CENTER**: `"C"` = `"C"`
+> `const` **COLUMN\_ALIGN\_CENTER**: `"C"` = `"C"`

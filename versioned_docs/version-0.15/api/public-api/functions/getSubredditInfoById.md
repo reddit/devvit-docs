@@ -14,7 +14,7 @@ Gets a [SubredditInfo](../type-aliases/SubredditInfo.md) object by ID
 
 `` `t5_${string}` ``
 
-The ID (starting with t5\_) of the subreddit to retrieve. e.g. t5_2qjpg
+The ID (starting with t5_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 ## Returns
 

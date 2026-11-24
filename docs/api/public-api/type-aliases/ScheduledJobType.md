@@ -12,7 +12,7 @@
 
 ### Data
 
-`Data` _extends_ [`JSONObject`](JSONObject.md) \| `undefined`
+`Data` *extends* [`JSONObject`](JSONObject.md) \| `undefined`
 
 ## Properties
 

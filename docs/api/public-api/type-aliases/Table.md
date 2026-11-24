@@ -20,7 +20,7 @@
 
 ### e
 
-> **e**: _typeof_ [`TABLE_ELEMENT`](../variables/TABLE_ELEMENT.md)
+> **e**: *typeof* [`TABLE_ELEMENT`](../variables/TABLE_ELEMENT.md)
 
 ***
 

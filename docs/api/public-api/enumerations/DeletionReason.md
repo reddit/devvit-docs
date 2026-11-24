@@ -8,9 +8,9 @@
 
 <a id="explicit_content"></a>
 
-### EXPLICIT_CONTENT
+### EXPLICIT\_CONTENT
 
-> **EXPLICIT_CONTENT**: `5`
+> **EXPLICIT\_CONTENT**: `5`
 
 ***
 
@@ -56,6 +56,6 @@
 
 <a id="unspecified_deletion_reason"></a>
 
-### UNSPECIFIED_DELETION_REASON
+### UNSPECIFIED\_DELETION\_REASON
 
-> **UNSPECIFIED_DELETION_REASON**: `0`
+> **UNSPECIFIED\_DELETION\_REASON**: `0`
