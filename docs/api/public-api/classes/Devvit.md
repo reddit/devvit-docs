@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Class: Devvit
 
@@ -52,7 +52,7 @@ Devvit.addMenuItem({
 });
 ```
 
----
+***
 
 <a id="addschedulerjob"></a>
 
@@ -109,7 +109,7 @@ Devvit.addMenuItem({
 });
 ```
 
----
+***
 
 <a id="addsettings"></a>
 
@@ -201,7 +201,7 @@ Devvit.addSettings({
 });
 ```
 
----
+***
 
 <a id="addtrigger"></a>
 
@@ -313,7 +313,7 @@ Devvit.addTrigger({
 });
 ```
 
----
+***
 
 <a id="configure"></a>
 
@@ -346,7 +346,7 @@ Devvit.configure({
 });
 ```
 
----
+***
 
 <a id="createform"></a>
 

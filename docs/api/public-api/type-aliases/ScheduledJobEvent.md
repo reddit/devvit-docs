@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: ScheduledJobEvent\<T\>
 
@@ -24,7 +24,7 @@
 
 Additional data passed in by the scheduler client
 
----
+***
 
 <a id="name"></a>
 

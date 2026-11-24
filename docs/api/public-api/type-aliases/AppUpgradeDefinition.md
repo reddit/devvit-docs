@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: AppUpgradeDefinition
 
@@ -14,7 +14,7 @@
 
 > **event**: [`AppUpgrade`](AppUpgrade.md)
 
----
+***
 
 <a id="onevent"></a>
 

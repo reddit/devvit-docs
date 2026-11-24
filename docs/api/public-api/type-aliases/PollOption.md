@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: PollOption
 
@@ -18,7 +18,7 @@ Poll option on a poll post.
 
 ID of the poll option.
 
----
+***
 
 <a id="text"></a>
 
@@ -28,7 +28,7 @@ ID of the poll option.
 
 The text of the poll option.
 
----
+***
 
 <a id="votecount"></a>
 

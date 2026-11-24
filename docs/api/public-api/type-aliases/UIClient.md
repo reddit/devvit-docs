@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: UIClient
 
@@ -103,7 +103,7 @@ Navigate to a URL
 
 `void`
 
----
+***
 
 <a id="showform"></a>
 
@@ -127,7 +127,7 @@ Open a form in a modal
 
 `void`
 
----
+***
 
 <a id="showforminternal"></a>
 
@@ -155,7 +155,7 @@ Internal use only.
 
 `void`
 
----
+***
 
 <a id="showtoast"></a>
 

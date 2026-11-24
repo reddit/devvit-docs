@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Class: FlairTemplate
 
@@ -32,7 +32,7 @@ The flair template's allowable content. Either 'all', 'emoji', or 'text'.
 
 [`AllowableFlairContent`](../type-aliases/AllowableFlairContent.md)
 
----
+***
 
 <a id="allowuseredits"></a>
 
@@ -48,7 +48,7 @@ Does the flair template allow users to edit their flair?
 
 `boolean`
 
----
+***
 
 <a id="backgroundcolor"></a>
 
@@ -64,7 +64,7 @@ The flair template's background color. Either 'transparent' or a hex color code.
 
 [`FlairBackgroundColor`](../type-aliases/FlairBackgroundColor.md)
 
----
+***
 
 <a id="id"></a>
 
@@ -80,7 +80,7 @@ The flair template's ID
 
 `string`
 
----
+***
 
 <a id="maxemojis"></a>
 
@@ -96,7 +96,7 @@ The flair template's maximum number of emojis.
 
 `number`
 
----
+***
 
 <a id="modonly"></a>
 
@@ -112,7 +112,7 @@ Is the flair template only available to moderators?
 
 `boolean`
 
----
+***
 
 <a id="text"></a>
 
@@ -128,7 +128,7 @@ The flair template's text
 
 `string`
 
----
+***
 
 <a id="textcolor"></a>
 
@@ -158,7 +158,7 @@ Delete this flair template
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="edit"></a>
 

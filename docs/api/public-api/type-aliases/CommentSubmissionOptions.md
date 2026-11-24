@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: CommentSubmissionOptions
 
@@ -27,7 +27,7 @@ This option is ignored by [Comment.edit](../classes/Comment.md#edit).
 
 The comment body in Markdown.
 
----
+***
 
 ### Type Literal
 

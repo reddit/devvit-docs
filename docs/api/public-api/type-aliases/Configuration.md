@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: Configuration
 
@@ -16,7 +16,7 @@
 
 Allows your app to use the Blob Plugin
 
----
+***
 
 <a id="http"></a>
 
@@ -26,7 +26,7 @@ Allows your app to use the Blob Plugin
 
 Allows your app to use the HTTP/Fetch API
 
----
+***
 
 <a id="media"></a>
 
@@ -36,7 +36,7 @@ Allows your app to use the HTTP/Fetch API
 
 Allows media uploads from apps
 
----
+***
 
 <a id="redditapi"></a>
 
@@ -46,7 +46,7 @@ Allows media uploads from apps
 
 Allows your app to use the reddit API
 
----
+***
 
 <a id="redis"></a>
 
@@ -56,7 +56,7 @@ Allows your app to use the reddit API
 
 Allows your app to use the Redis Plugin
 
----
+***
 
 <a id="useractions"></a>
 
@@ -70,7 +70,7 @@ Allows your app to call Reddit APIs on behalf of the User. Passing a boolean all
 
 `boolean`
 
----
+***
 
 ##### Type Literal
 
@@ -82,7 +82,7 @@ Allows your app to call Reddit APIs on behalf of the User. Passing a boolean all
 
 Defaults to SUBMIT_POST and SUBMIT_COMMENT.
 
----
+***
 
 ##### Type Literal
 

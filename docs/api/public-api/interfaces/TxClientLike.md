@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Interface: TxClientLike
 
@@ -46,7 +46,7 @@ async function delExample(context: Devvit.Context) {
 
 `TxClientLikeBase.del`
 
----
+***
 
 <a id="discard"></a>
 
@@ -79,7 +79,7 @@ async function discardExample(context: Devvit.Context) {
 
 `TxClientLikeBase.discard`
 
----
+***
 
 <a id="exec"></a>
 
@@ -114,7 +114,7 @@ async function execExample(context: Devvit.Context) {
 
 `TxClientLikeBase.exec`
 
----
+***
 
 <a id="expire"></a>
 
@@ -160,7 +160,7 @@ async function expireExample(context: Devvit.Context) {
 
 `TxClientLikeBase.expire`
 
----
+***
 
 <a id="expiretime"></a>
 
@@ -201,7 +201,7 @@ async function expireTimeExample(context: Devvit.Context) {
 
 `TxClientLikeBase.expireTime`
 
----
+***
 
 <a id="get"></a>
 
@@ -242,7 +242,7 @@ async function getExample(context: Devvit.Context) {
 
 `TxClientLikeBase.get`
 
----
+***
 
 <a id="getrange"></a>
 
@@ -300,7 +300,7 @@ async function getRangeExample(context: Devvit.Context) {
 
 `TxClientLikeBase.getRange`
 
----
+***
 
 <a id="hdel"></a>
 
@@ -326,7 +326,7 @@ async function getRangeExample(context: Devvit.Context) {
 
 Use [TxClientLike.hDel](#hdel-1) instead.
 
----
+***
 
 <a id="hdel-1"></a>
 
@@ -376,7 +376,7 @@ fields
 
 `TxClientLikeBase.hDel`
 
----
+***
 
 <a id="hget"></a>
 
@@ -402,7 +402,7 @@ fields
 
 Use [TxClientLike.hGet](#hget-1) instead.
 
----
+***
 
 <a id="hget-1"></a>
 
@@ -454,7 +454,7 @@ async function hGetExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hGet`
 
----
+***
 
 <a id="hgetall"></a>
 
@@ -476,7 +476,7 @@ async function hGetExample(context: Devvit.Context) {
 
 Use [TxClientLike.hGetAll](#hgetall-1) instead.
 
----
+***
 
 <a id="hgetall-1"></a>
 
@@ -525,7 +525,7 @@ async function hGetAllExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hGetAll`
 
----
+***
 
 <a id="hincrby"></a>
 
@@ -555,7 +555,7 @@ async function hGetAllExample(context: Devvit.Context) {
 
 Use [TxClientLike.hIncrBy](#hincrby-1) instead.
 
----
+***
 
 <a id="hincrby-1"></a>
 
@@ -611,7 +611,7 @@ async function hIncrByExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hIncrBy`
 
----
+***
 
 <a id="hkeys"></a>
 
@@ -633,7 +633,7 @@ async function hIncrByExample(context: Devvit.Context) {
 
 Use [TxClientLike.hKeys](#hkeys-1) instead.
 
----
+***
 
 <a id="hkeys-1"></a>
 
@@ -675,7 +675,7 @@ async function hKeysExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hKeys`
 
----
+***
 
 <a id="hlen"></a>
 
@@ -697,7 +697,7 @@ async function hKeysExample(context: Devvit.Context) {
 
 Use [TxClientLike.hLen](#hlen-1) instead.
 
----
+***
 
 <a id="hlen-1"></a>
 
@@ -742,7 +742,7 @@ async function hLenExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hLen`
 
----
+***
 
 <a id="hmget"></a>
 
@@ -795,7 +795,7 @@ async function hMGetExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hMGet`
 
----
+***
 
 <a id="hscan"></a>
 
@@ -829,7 +829,7 @@ async function hMGetExample(context: Devvit.Context) {
 
 Use [TxClientLike.hScan](#hscan-1) instead.
 
----
+***
 
 <a id="hscan-1"></a>
 
@@ -899,7 +899,7 @@ async function hScanExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hScan`
 
----
+***
 
 <a id="hset"></a>
 
@@ -925,7 +925,7 @@ async function hScanExample(context: Devvit.Context) {
 
 Use [TxClientLike.hSet](#hset-1) instead.
 
----
+***
 
 <a id="hset-1"></a>
 
@@ -977,7 +977,7 @@ async function hSetExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hSet`
 
----
+***
 
 <a id="hsetnx"></a>
 
@@ -1007,7 +1007,7 @@ async function hSetExample(context: Devvit.Context) {
 
 `TxClientLikeBase.hSetNX`
 
----
+***
 
 <a id="incrby"></a>
 
@@ -1054,7 +1054,7 @@ async function incrByExample(context: Devvit.Context) {
 
 `TxClientLikeBase.incrBy`
 
----
+***
 
 <a id="mget"></a>
 
@@ -1076,7 +1076,7 @@ async function incrByExample(context: Devvit.Context) {
 
 Use [TxClientLike.mGet](#mget-1) instead.
 
----
+***
 
 <a id="mget-1"></a>
 
@@ -1122,7 +1122,7 @@ async function mGetExample(context: Devvit.Context) {
 
 `TxClientLikeBase.mGet`
 
----
+***
 
 <a id="mset"></a>
 
@@ -1144,7 +1144,7 @@ async function mGetExample(context: Devvit.Context) {
 
 Use [TxClientLike.mSet](#mset-1) instead.
 
----
+***
 
 <a id="mset-1"></a>
 
@@ -1188,7 +1188,7 @@ async function mGetExample(context: Devvit.Context) {
 
 `TxClientLikeBase.mSet`
 
----
+***
 
 <a id="multi"></a>
 
@@ -1221,7 +1221,7 @@ async function multiExample(context: Devvit.Context) {
 
 `TxClientLikeBase.multi`
 
----
+***
 
 <a id="set"></a>
 
@@ -1274,7 +1274,7 @@ async function setExample(context: Devvit.Context) {
 
 `TxClientLikeBase.set`
 
----
+***
 
 <a id="setrange"></a>
 
@@ -1331,7 +1331,7 @@ async function setRangeExample(context: Devvit.Context) {
 
 `TxClientLikeBase.setRange`
 
----
+***
 
 <a id="strlen"></a>
 
@@ -1353,7 +1353,7 @@ async function setRangeExample(context: Devvit.Context) {
 
 Use [TxClientLike.strLen](#strlen-1) instead.
 
----
+***
 
 <a id="strlen-1"></a>
 
@@ -1395,7 +1395,7 @@ async function strLenExample(context: Devvit.Context) {
 
 `TxClientLikeBase.strLen`
 
----
+***
 
 <a id="type"></a>
 
@@ -1436,7 +1436,7 @@ async function typeExample(context: Devvit.Context) {
 
 `TxClientLikeBase.type`
 
----
+***
 
 <a id="unwatch"></a>
 
@@ -1478,7 +1478,7 @@ async function unwatchExample(context: Devvit.Context) {
 
 `TxClientLikeBase.unwatch`
 
----
+***
 
 <a id="watch"></a>
 
@@ -1521,7 +1521,7 @@ async function watchExample(context: Devvit.Context) {
 
 `TxClientLikeBase.watch`
 
----
+***
 
 <a id="zadd"></a>
 
@@ -1575,7 +1575,7 @@ async function zAddExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zAdd`
 
----
+***
 
 <a id="zcard"></a>
 
@@ -1622,7 +1622,7 @@ async function zCardExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zCard`
 
----
+***
 
 <a id="zincrby"></a>
 
@@ -1689,7 +1689,7 @@ async function zIncrByExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zIncrBy`
 
----
+***
 
 <a id="zrange"></a>
 
@@ -1768,7 +1768,7 @@ async function zRangeExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zRange`
 
----
+***
 
 <a id="zrank"></a>
 
@@ -1824,7 +1824,7 @@ async function zRankExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zRank`
 
----
+***
 
 <a id="zrem"></a>
 
@@ -1882,7 +1882,7 @@ async function zRemExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zRem`
 
----
+***
 
 <a id="zremrangebylex"></a>
 
@@ -1954,7 +1954,7 @@ async function zRemRangeByLexExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zRemRangeByLex`
 
----
+***
 
 <a id="zremrangebyrank"></a>
 
@@ -2019,7 +2019,7 @@ async function zRemRangeByRankExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zRemRangeByRank`
 
----
+***
 
 <a id="zremrangebyscore"></a>
 
@@ -2088,7 +2088,7 @@ async function zRemRangeByScoreExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zRemRangeByScore`
 
----
+***
 
 <a id="zscan"></a>
 
@@ -2157,7 +2157,7 @@ async function zScanExample(context: Devvit.Context) {
 
 `TxClientLikeBase.zScan`
 
----
+***
 
 <a id="zscore"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Type Alias: Vault
 
@@ -24,7 +24,7 @@ The address of the Vault.
 "0x205ee28744456bDBf180A0Fa7De51e0F116d54Ed";
 ```
 
----
+***
 
 <a id="createdat"></a>
 
@@ -34,7 +34,7 @@ The address of the Vault.
 
 The date the Vault was created.
 
----
+***
 
 <a id="isactive"></a>
 
@@ -44,7 +44,7 @@ The date the Vault was created.
 
 Whether the Vault is active.
 
----
+***
 
 <a id="provider"></a>
 
@@ -60,7 +60,7 @@ The provider of the Vault address.
 "ethereum";
 ```
 
----
+***
 
 <a id="userid"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: MediaOptions
 
@@ -20,7 +20,7 @@ If provided, the content should be blurred by default for the provided reason
 
 [ObfuscationReason](ObfuscationReason.md)
 
----
+***
 
 <a id="caption"></a>
 
@@ -30,7 +30,7 @@ If provided, the content should be blurred by default for the provided reason
 
 Media description
 
----
+***
 
 <a id="mediaurl"></a>
 

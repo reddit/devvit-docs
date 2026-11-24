@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Type Alias: EnrichedThumbnail
 
@@ -18,7 +18,7 @@ Contains a post's thumbnail and, for NSFW content, its blurred version.
 
 Attribution text for the thumbnail
 
----
+***
 
 <a id="image"></a>
 
@@ -40,7 +40,7 @@ The thumbnail image. Its resolution can differ from [Post.thumbnail](../classes/
 
 > **width**: `number`
 
----
+***
 
 <a id="isobfuscateddefault"></a>
 
@@ -50,7 +50,7 @@ The thumbnail image. Its resolution can differ from [Post.thumbnail](../classes/
 
 Whether this thumbnail appears blurred by default
 
----
+***
 
 <a id="obfuscatedimage"></a>
 

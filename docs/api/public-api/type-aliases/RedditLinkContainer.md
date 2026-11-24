@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: RedditLinkContainer\<Context\>
 
@@ -38,7 +38,7 @@ Append a link to a Reddit Comment
 
 `Context`
 
----
+***
 
 <a id="postlink"></a>
 
@@ -60,7 +60,7 @@ Append a link to a Reddit Post
 
 `Context`
 
----
+***
 
 <a id="subredditlink"></a>
 
@@ -82,7 +82,7 @@ Append a link to a Reddit Subreddit
 
 `Context`
 
----
+***
 
 <a id="userlink"></a>
 
@@ -104,7 +104,7 @@ Append a link to a Reddit User
 
 `Context`
 
----
+***
 
 <a id="usermention"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Type Alias: RemovalReason
 
@@ -20,7 +20,7 @@ remove it.
 
 The ID of the removal reason.
 
----
+***
 
 <a id="message"></a>
 
@@ -30,7 +30,7 @@ The ID of the removal reason.
 
 The message associated with the removal reason.
 
----
+***
 
 <a id="title"></a>
 

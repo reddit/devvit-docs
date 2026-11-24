@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Type Alias: UserNote
 
@@ -14,7 +14,7 @@
 
 > `optional` **label?**: [`UserNoteLabel`](UserNoteLabel.md)
 
----
+***
 
 <a id="note"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **note?**: `string`
 
----
+***
 
 <a id="redditid"></a>
 

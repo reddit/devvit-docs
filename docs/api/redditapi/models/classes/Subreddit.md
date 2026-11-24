@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Class: Subreddit
 
@@ -22,7 +22,7 @@ The creation date of the subreddit.
 
 `Date`
 
----
+***
 
 <a id="description"></a>
 
@@ -38,7 +38,7 @@ The description of the subreddit. Appears in the sidebar of the subreddit.
 
 `string` \| `undefined`
 
----
+***
 
 <a id="id"></a>
 
@@ -54,7 +54,7 @@ The ID (starting with t5\_) of the subreddit to retrieve. e.g. t5_2qjpg
 
 `` `t5_${string}` ``
 
----
+***
 
 <a id="language"></a>
 
@@ -70,7 +70,7 @@ The language of the subreddit.
 
 `string`
 
----
+***
 
 <a id="name"></a>
 
@@ -86,7 +86,7 @@ The name of a subreddit omitting the r/.
 
 `string`
 
----
+***
 
 <a id="nsfw"></a>
 
@@ -102,7 +102,7 @@ Whether the subreddit is marked as NSFW (Not Safe For Work).
 
 `boolean`
 
----
+***
 
 <a id="numberofactiveusers"></a>
 
@@ -118,7 +118,7 @@ The number of active users of the subreddit.
 
 `number`
 
----
+***
 
 <a id="numberofsubscribers"></a>
 
@@ -134,7 +134,7 @@ The number of subscribers of the subreddit.
 
 `number`
 
----
+***
 
 <a id="permalink"></a>
 
@@ -151,7 +151,7 @@ Returns a permalink path
 
 `string`
 
----
+***
 
 <a id="postflairsenabled"></a>
 
@@ -167,7 +167,7 @@ Whether the post flairs are enabled for this subreddit.
 
 `boolean`
 
----
+***
 
 <a id="settings"></a>
 
@@ -183,7 +183,7 @@ The settings of the subreddit.
 
 [`SubredditSettings`](../type-aliases/SubredditSettings.md)
 
----
+***
 
 <a id="title"></a>
 
@@ -199,7 +199,7 @@ The title of the subreddit.
 
 `string` \| `undefined`
 
----
+***
 
 <a id="type"></a>
 
@@ -215,7 +215,7 @@ The type of subreddit (public, private, etc.).
 
 [`SubredditType`](../type-aliases/SubredditType.md)
 
----
+***
 
 <a id="url"></a>
 
@@ -232,7 +232,7 @@ Returns the HTTP URL for the subreddit.
 
 `string`
 
----
+***
 
 <a id="userflairsenabled"></a>
 
@@ -248,7 +248,7 @@ Whether the user flairs are enabled for this subreddit.
 
 `boolean`
 
----
+***
 
 <a id="userscanassignpostflairs"></a>
 
@@ -265,7 +265,7 @@ This is only true if the post flairs are enabled.
 
 `boolean`
 
----
+***
 
 <a id="userscanassignuserflairs"></a>
 
@@ -314,7 +314,7 @@ The title of the removal reason.
 
 The new removal reason ID.
 
----
+***
 
 <a id="addwikicontributor"></a>
 
@@ -332,7 +332,7 @@ The new removal reason ID.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="approveuser"></a>
 
@@ -350,7 +350,7 @@ The new removal reason ID.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="banuser"></a>
 
@@ -368,7 +368,7 @@ The new removal reason ID.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="banwikicontributor"></a>
 
@@ -386,7 +386,7 @@ The new removal reason ID.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="createpostflairtemplate"></a>
 
@@ -404,7 +404,7 @@ The new removal reason ID.
 
 `Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
 
----
+***
 
 <a id="createrule"></a>
 
@@ -426,7 +426,7 @@ Options for creating a new subreddit rule.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="createuserflairtemplate"></a>
 
@@ -444,7 +444,7 @@ Options for creating a new subreddit rule.
 
 `Promise`\<[`FlairTemplate`](FlairTemplate.md)\>
 
----
+***
 
 <a id="crosspost"></a>
 
@@ -462,7 +462,7 @@ Options for creating a new subreddit rule.
 
 `Promise`\<[`Post`](Post.md)\>
 
----
+***
 
 <a id="deleteremovalreason"></a>
 
@@ -482,7 +482,7 @@ Delete a removal reason from this subreddit.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="getapprovedusers"></a>
 
@@ -500,7 +500,7 @@ Delete a removal reason from this subreddit.
 
 [`Listing`](Listing.md)\<[`SubredditContributorUser`](SubredditContributorUser.md)\>
 
----
+***
 
 <a id="getbannedusers"></a>
 
@@ -518,7 +518,7 @@ Delete a removal reason from this subreddit.
 
 [`Listing`](Listing.md)\<[`SubredditBannedUser`](SubredditBannedUser.md)\>
 
----
+***
 
 <a id="getbannedwikicontributors"></a>
 
@@ -536,7 +536,7 @@ Delete a removal reason from this subreddit.
 
 [`Listing`](Listing.md)\<[`SubredditWikiBannedUser`](SubredditWikiBannedUser.md)\>
 
----
+***
 
 <a id="getcommentsandpostsbyids"></a>
 
@@ -567,7 +567,7 @@ const items = await listing.all();
 console.log(items); // [Post, Comment]
 ```
 
----
+***
 
 <a id="getcontroversialposts"></a>
 
@@ -585,7 +585,7 @@ console.log(items); // [Post, Comment]
 
 [`Listing`](Listing.md)\<[`Post`](Post.md)\>
 
----
+***
 
 <a id="getedited"></a>
 
@@ -669,7 +669,7 @@ listing = await subreddit.getEdited({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="gethighlightedposts"></a>
 
@@ -689,7 +689,7 @@ Returns this subreddit's community highlights in display order.
 const highlightedPosts = await subreddit.getHighlightedPosts();
 ```
 
----
+***
 
 <a id="getmoderationlog"></a>
 
@@ -707,7 +707,7 @@ const highlightedPosts = await subreddit.getHighlightedPosts();
 
 [`Listing`](Listing.md)\<[`ModAction`](../interfaces/ModAction.md)\>
 
----
+***
 
 <a id="getmoderators"></a>
 
@@ -725,7 +725,7 @@ const highlightedPosts = await subreddit.getHighlightedPosts();
 
 [`Listing`](Listing.md)\<[`SubredditModeratorUser`](SubredditModeratorUser.md)\>
 
----
+***
 
 <a id="getmodqueue"></a>
 
@@ -809,7 +809,7 @@ listing = await subreddit.getModQueue({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="getmutedusers"></a>
 
@@ -827,7 +827,7 @@ console.log("Posts: ", await listing.all());
 
 [`Listing`](Listing.md)\<[`SubredditMutedUser`](SubredditMutedUser.md)\>
 
----
+***
 
 <a id="getpostflairtemplates"></a>
 
@@ -839,7 +839,7 @@ console.log("Posts: ", await listing.all());
 
 `Promise`\<[`FlairTemplate`](FlairTemplate.md)[]\>
 
----
+***
 
 <a id="getremovalreasons"></a>
 
@@ -853,7 +853,7 @@ Get the list of this subreddit's removal reasons (ordered).
 
 `Promise`\<[`RemovalReason`](../type-aliases/RemovalReason.md)[]\>
 
----
+***
 
 <a id="getreports"></a>
 
@@ -937,7 +937,7 @@ listing = await subreddit.getReports({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="getrules"></a>
 
@@ -949,7 +949,7 @@ console.log("Posts: ", await listing.all());
 
 `Promise`\<[`Rule`](Rule.md)[]\>
 
----
+***
 
 <a id="getspam"></a>
 
@@ -1033,7 +1033,7 @@ listing = await subreddit.getSpam({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="gettopposts"></a>
 
@@ -1051,7 +1051,7 @@ console.log("Posts: ", await listing.all());
 
 [`Listing`](Listing.md)\<[`Post`](Post.md)\>
 
----
+***
 
 <a id="getunmoderated"></a>
 
@@ -1135,7 +1135,7 @@ listing = await subreddit.getUnmoderated({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="getuserflair"></a>
 
@@ -1182,7 +1182,7 @@ const response = await subreddit.getUserFlair({
 const userFlairList = response.users;
 ```
 
----
+***
 
 <a id="getuserflairtemplates"></a>
 
@@ -1194,7 +1194,7 @@ const userFlairList = response.users;
 
 `Promise`\<[`FlairTemplate`](FlairTemplate.md)[]\>
 
----
+***
 
 <a id="getwikicontributors"></a>
 
@@ -1212,7 +1212,7 @@ const userFlairList = response.users;
 
 [`Listing`](Listing.md)\<[`SubredditWikiContributorUser`](SubredditWikiContributorUser.md)\>
 
----
+***
 
 <a id="invitemoderator"></a>
 
@@ -1234,7 +1234,7 @@ const userFlairList = response.users;
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="muteuser"></a>
 
@@ -1256,7 +1256,7 @@ const userFlairList = response.users;
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="removemoderator"></a>
 
@@ -1274,7 +1274,7 @@ const userFlairList = response.users;
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="removeuser"></a>
 
@@ -1292,7 +1292,7 @@ const userFlairList = response.users;
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="removewikicontributor"></a>
 
@@ -1310,7 +1310,7 @@ const userFlairList = response.users;
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="reorderhighlightedposts"></a>
 
@@ -1341,7 +1341,7 @@ await subreddit.reorderHighlightedPosts(
 );
 ```
 
----
+***
 
 <a id="reorderrules"></a>
 
@@ -1359,7 +1359,7 @@ await subreddit.reorderHighlightedPosts(
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="revokemoderatorinvite"></a>
 
@@ -1377,7 +1377,7 @@ await subreddit.reorderHighlightedPosts(
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="searchposts"></a>
 
@@ -1397,7 +1397,7 @@ Search for posts in this subreddit.
 
 [`Listing`](Listing.md)\<[`Post`](Post.md)\>
 
----
+***
 
 <a id="setmoderatorpermissions"></a>
 
@@ -1419,7 +1419,7 @@ Search for posts in this subreddit.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="submitcustompost"></a>
 
@@ -1437,7 +1437,7 @@ Search for posts in this subreddit.
 
 `Promise`\<[`Post`](Post.md)\>
 
----
+***
 
 <a id="submitpost"></a>
 
@@ -1455,7 +1455,7 @@ Search for posts in this subreddit.
 
 `Promise`\<[`Post`](Post.md)\>
 
----
+***
 
 <a id="tojson"></a>
 
@@ -1467,7 +1467,7 @@ Search for posts in this subreddit.
 
 `Pick`\<`Subreddit`, `"id"` \| `"name"` \| `"createdAt"` \| `"type"` \| `"title"` \| `"description"` \| `"language"` \| `"nsfw"` \| `"numberOfSubscribers"` \| `"numberOfActiveUsers"` \| `"settings"`\>
 
----
+***
 
 <a id="unbanuser"></a>
 
@@ -1485,7 +1485,7 @@ Search for posts in this subreddit.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unbanwikicontributor"></a>
 
@@ -1503,7 +1503,7 @@ Search for posts in this subreddit.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unmuteuser"></a>
 
@@ -1521,7 +1521,7 @@ Search for posts in this subreddit.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="updateremovalreason"></a>
 
@@ -1551,7 +1551,7 @@ Update a removal reason's title and message in this subreddit.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="updatesettings"></a>
 
@@ -1587,7 +1587,7 @@ await subreddit.setSettings({
 });
 ```
 
----
+***
 
 <a id="getsubscribedsubredditsforcurrentuser"></a>
 

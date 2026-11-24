@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Class: ModMailService
 
@@ -42,7 +42,7 @@ Id of a modmail conversation
 await reddit.modMail.approveConversation("abcdef");
 ```
 
----
+***
 
 <a id="archiveconversation"></a>
 
@@ -70,7 +70,7 @@ Id of a modmail conversation
 await reddit.modMail.archive("abcdef");
 ```
 
----
+***
 
 <a id="bulkreadconversations"></a>
 
@@ -109,7 +109,7 @@ const conversationIds = await reddit.modMail.bulkReadConversations(
 );
 ```
 
----
+***
 
 <a id="createconversation"></a>
 
@@ -187,7 +187,7 @@ const { conversation, messages, modActions } =
   });
 ```
 
----
+***
 
 <a id="createmoddiscussionconversation"></a>
 
@@ -237,7 +237,7 @@ const conversationId = await reddit.modMail.createModDiscussionConversation({
 });
 ```
 
----
+***
 
 <a id="createmodinboxconversation"></a>
 
@@ -285,7 +285,7 @@ const conversationId = await reddit.modMail.createModInboxConversation({
 });
 ```
 
----
+***
 
 <a id="createmodnotification"></a>
 
@@ -334,7 +334,7 @@ const conversationId = await reddit.modMail.createModNotification({
 });
 ```
 
----
+***
 
 <a id="disapproveconversation"></a>
 
@@ -362,7 +362,7 @@ Id of a modmail conversation
 await reddit.modMail.disapproveConversation("abcdef");
 ```
 
----
+***
 
 <a id="getconversation"></a>
 
@@ -402,7 +402,7 @@ const { conversation, messages, modActions, user } =
   });
 ```
 
----
+***
 
 <a id="getconversations"></a>
 
@@ -433,7 +433,7 @@ const { viewerId, conversations } = await reddit.modMail.getConversations({
 const arrayOfConversations = Object.values(conversations);
 ```
 
----
+***
 
 <a id="getsubreddits"></a>
 
@@ -458,7 +458,7 @@ for (const subreddit of Object.values(subreddits)) {
 }
 ```
 
----
+***
 
 <a id="getunreadcount"></a>
 
@@ -481,7 +481,7 @@ console.log(response.highlighted);
 console.log(response.new);
 ```
 
----
+***
 
 <a id="getuserconversations"></a>
 
@@ -518,7 +518,7 @@ console.log(data.recentComments);
 console.log(data.recentPosts);
 ```
 
----
+***
 
 <a id="highlightconversation"></a>
 
@@ -546,7 +546,7 @@ Id of a modmail conversation
 await reddit.modMail.highlightConversation("abcdef");
 ```
 
----
+***
 
 <a id="muteconversation"></a>
 
@@ -585,7 +585,7 @@ await reddit.modMail.muteConversation({
 });
 ```
 
----
+***
 
 <a id="readconversations"></a>
 
@@ -613,7 +613,7 @@ An array of ids
 await reddit.modMail.readConversations(["abcdef", "qwerty"]);
 ```
 
----
+***
 
 <a id="reply"></a>
 
@@ -664,7 +664,7 @@ await reddit.modMail.reply({
 });
 ```
 
----
+***
 
 <a id="tempbanconversation"></a>
 
@@ -703,7 +703,7 @@ await reddit.modMail.tempBanConversation({
 });
 ```
 
----
+***
 
 <a id="unarchiveconversation"></a>
 
@@ -731,7 +731,7 @@ Id of a modmail conversation
 await reddit.modMail.unarchiveConversation("abcdef");
 ```
 
----
+***
 
 <a id="unbanconversation"></a>
 
@@ -759,7 +759,7 @@ a modmail conversation id
 await reddit.modMail.unbanConversation("abcdef");
 ```
 
----
+***
 
 <a id="unhighlightconversation"></a>
 
@@ -787,7 +787,7 @@ Id of a modmail conversation
 await reddit.modMail.unhighlightConversation("abcdef");
 ```
 
----
+***
 
 <a id="unmuteconversation"></a>
 
@@ -815,7 +815,7 @@ Id of a modmail conversation
 await reddit.modMail.unmuteConversation("abcdef");
 ```
 
----
+***
 
 <a id="unreadconversations"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Class: WikiPageSettings
 
@@ -42,7 +42,7 @@ The IDs of users who may edit this page.
 
 `` `t2_${string}` ``[]
 
----
+***
 
 <a id="editors"></a>
 
@@ -60,7 +60,7 @@ Use editorIds instead.
 
 [`User`](User.md)[]
 
----
+***
 
 <a id="listed"></a>
 
@@ -74,7 +74,7 @@ Use editorIds instead.
 
 `boolean`
 
----
+***
 
 <a id="permlevel"></a>
 

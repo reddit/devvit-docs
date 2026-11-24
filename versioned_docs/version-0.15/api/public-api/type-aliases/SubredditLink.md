@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.6-dev**](../README.md)
 
----
+***
 
 # Type Alias: SubredditLink
 
@@ -14,7 +14,7 @@
 
 > **e**: _typeof_ [`SUBREDDIT_LINK_ELEMENT`](../variables/SUBREDDIT_LINK_ELEMENT.md)
 
----
+***
 
 <a id="l"></a>
 
@@ -22,7 +22,7 @@
 
 > **l**: `boolean`
 
----
+***
 
 <a id="t"></a>
 

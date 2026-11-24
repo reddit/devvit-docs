@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Interface: HeadingContext
 
@@ -43,7 +43,7 @@ Append a link to a Reddit Comment
 
 `LinkContainer.commentLink`
 
----
+***
 
 <a id="link"></a>
 
@@ -69,7 +69,7 @@ Append a Link
 
 `LinkContainer.link`
 
----
+***
 
 <a id="postlink"></a>
 
@@ -95,7 +95,7 @@ Append a link to a Reddit Post
 
 `LinkContainer.postLink`
 
----
+***
 
 <a id="rawtext"></a>
 
@@ -119,7 +119,7 @@ Append unstyled text
 
 `RawTextContainer.rawText`
 
----
+***
 
 <a id="subredditlink"></a>
 
@@ -145,7 +145,7 @@ Append a link to a Reddit Subreddit
 
 `LinkContainer.subredditLink`
 
----
+***
 
 <a id="userlink"></a>
 
@@ -171,7 +171,7 @@ Append a link to a Reddit User
 
 `LinkContainer.userLink`
 
----
+***
 
 <a id="usermention"></a>
 

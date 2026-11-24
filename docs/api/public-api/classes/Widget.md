@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Class: Widget
 
@@ -51,7 +51,7 @@
 
 `string`
 
----
+***
 
 <a id="name"></a>
 
@@ -65,7 +65,7 @@
 
 `string`
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -91,7 +91,7 @@
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="tojson"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Class: WikiPage
 
@@ -32,7 +32,7 @@ The Markdown content of the page.
 
 `string`
 
----
+***
 
 <a id="contenthtml"></a>
 
@@ -48,7 +48,7 @@ The HTML content of the page.
 
 `string`
 
----
+***
 
 <a id="name"></a>
 
@@ -64,7 +64,7 @@ The name of the page.
 
 `string`
 
----
+***
 
 <a id="revisionauthor"></a>
 
@@ -84,7 +84,7 @@ Use revisionAuthorId instead.
 
 [`User`](User.md) \| `undefined`
 
----
+***
 
 <a id="revisionauthorid"></a>
 
@@ -100,7 +100,7 @@ The ID of the author of this revision.
 
 `` `t2_${string}` `` \| `undefined`
 
----
+***
 
 <a id="revisiondate"></a>
 
@@ -116,7 +116,7 @@ The date of the revision.
 
 `Date`
 
----
+***
 
 <a id="revisionid"></a>
 
@@ -132,7 +132,7 @@ The ID of the revision.
 
 `` `${string}-${string}-${string}-${string}-${string}` ``
 
----
+***
 
 <a id="revisionreason"></a>
 
@@ -148,7 +148,7 @@ The reason for the revision.
 
 `string`
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -164,7 +164,7 @@ The name of the subreddit the page is in.
 
 `string`
 
----
+***
 
 <a id="wikiversion"></a>
 
@@ -200,7 +200,7 @@ Add an editor to this page.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="getrevisions"></a>
 
@@ -220,7 +220,7 @@ Get the revisions for this page.
 
 `Promise`\<[`Listing`](Listing.md)\<[`WikiPageRevision`](WikiPageRevision.md)\>\>
 
----
+***
 
 <a id="getsettings"></a>
 
@@ -234,7 +234,7 @@ Get the settings for this page.
 
 `Promise`\<[`WikiPageSettings`](WikiPageSettings.md)\>
 
----
+***
 
 <a id="removeeditor"></a>
 
@@ -254,7 +254,7 @@ Remove an editor from this page.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="revertto"></a>
 
@@ -274,7 +274,7 @@ Revert this page to a previous revision.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="tojson"></a>
 
@@ -286,7 +286,7 @@ Revert this page to a previous revision.
 
 `Pick`\<`WikiPage`, `"subredditName"` \| `"name"` \| `"revisionId"` \| `"content"` \| `"contentHtml"` \| `"revisionDate"` \| `"revisionReason"`\> & `object`
 
----
+***
 
 <a id="update"></a>
 
@@ -310,7 +310,7 @@ Update this page.
 
 `Promise`\<`WikiPage`\>
 
----
+***
 
 <a id="updatesettings"></a>
 

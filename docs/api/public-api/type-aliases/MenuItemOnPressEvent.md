@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: MenuItemOnPressEvent
 
@@ -16,7 +16,7 @@
 
 The location where the menu item was pressed
 
----
+***
 
 <a id="targetid"></a>
 

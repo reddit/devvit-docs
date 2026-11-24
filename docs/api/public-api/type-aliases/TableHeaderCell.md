@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: TableHeaderCell
 
@@ -14,7 +14,7 @@
 
 > `optional` **a?**: [`ColumnAlignment`](ColumnAlignment.md)
 
----
+***
 
 <a id="c"></a>
 

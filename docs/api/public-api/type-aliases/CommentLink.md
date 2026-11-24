@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: CommentLink
 
@@ -14,7 +14,7 @@
 
 > **e**: _typeof_ [`COMMENT_LINK_ELEMENT`](../variables/COMMENT_LINK_ELEMENT.md)
 
----
+***
 
 <a id="t"></a>
 

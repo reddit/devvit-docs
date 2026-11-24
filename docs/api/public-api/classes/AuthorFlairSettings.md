@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Class: AuthorFlairSettings
 
@@ -24,7 +24,7 @@
 
 > `optional` **isEnabled?**: `boolean`
 
----
+***
 
 <a id="isselfassignabled"></a>
 

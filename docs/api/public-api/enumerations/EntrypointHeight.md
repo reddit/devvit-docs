@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Enumeration: EntrypointHeight
 
@@ -14,7 +14,7 @@ The height of the Post entrypoint. This is not expected to change often.
 
 > **HEIGHT_UNSPECIFIED**: `0`
 
----
+***
 
 <a id="regular"></a>
 
@@ -22,7 +22,7 @@ The height of the Post entrypoint. This is not expected to change often.
 
 > **REGULAR**: `1`
 
----
+***
 
 <a id="short"></a>
 
@@ -30,7 +30,7 @@ The height of the Post entrypoint. This is not expected to change often.
 
 > **SHORT**: `3`
 
----
+***
 
 <a id="tall"></a>
 
@@ -38,7 +38,7 @@ The height of the Post entrypoint. This is not expected to change often.
 
 > **TALL**: `2`
 
----
+***
 
 <a id="unrecognized"></a>
 

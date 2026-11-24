@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: PostNsfwUpdateDefinition
 
@@ -14,7 +14,7 @@
 
 > **event**: [`PostNsfwUpdate`](PostNsfwUpdate.md)
 
----
+***
 
 <a id="onevent"></a>
 

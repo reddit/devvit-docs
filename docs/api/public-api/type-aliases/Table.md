@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: Table
 
@@ -14,7 +14,7 @@
 
 > **c**: [`TableRow`](TableRow.md)[]
 
----
+***
 
 <a id="e"></a>
 
@@ -22,7 +22,7 @@
 
 > **e**: _typeof_ [`TABLE_ELEMENT`](../variables/TABLE_ELEMENT.md)
 
----
+***
 
 <a id="h"></a>
 

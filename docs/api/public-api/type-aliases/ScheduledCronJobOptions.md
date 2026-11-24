@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: ScheduledCronJobOptions\<T\>
 
@@ -24,7 +24,7 @@
 
 The cron string of when this job should run
 
----
+***
 
 <a id="data"></a>
 
@@ -34,7 +34,7 @@ The cron string of when this job should run
 
 Additional data passed in by the scheduler client
 
----
+***
 
 <a id="name"></a>
 

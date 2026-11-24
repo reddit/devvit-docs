@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: ZMember
 
@@ -14,7 +14,7 @@
 
 > **member**: `string`
 
----
+***
 
 <a id="score"></a>
 

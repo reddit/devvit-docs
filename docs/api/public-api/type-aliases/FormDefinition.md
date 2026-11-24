@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: FormDefinition\<T\>
 
@@ -24,7 +24,7 @@
 
 A form or a function that returns a form
 
----
+***
 
 <a id="onsubmit"></a>
 

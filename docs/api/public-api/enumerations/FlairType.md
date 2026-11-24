@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Enumeration: FlairType
 
@@ -12,7 +12,7 @@
 
 > **Post**: `"LINK_FLAIR"`
 
----
+***
 
 <a id="user"></a>
 

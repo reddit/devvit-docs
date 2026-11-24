@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../../../../README.md)
 
----
+***
 
 # Enumeration: DeletionReason
 
@@ -12,7 +12,7 @@
 
 > **EXPLICIT_CONTENT**: `5`
 
----
+***
 
 <a id="legal"></a>
 
@@ -20,7 +20,7 @@
 
 > **LEGAL**: `2`
 
----
+***
 
 <a id="other"></a>
 
@@ -28,7 +28,7 @@
 
 > **OTHER**: `3`
 
----
+***
 
 <a id="spam"></a>
 
@@ -36,7 +36,7 @@
 
 > **SPAM**: `1`
 
----
+***
 
 <a id="unknown"></a>
 
@@ -44,7 +44,7 @@
 
 > **UNKNOWN**: `4`
 
----
+***
 
 <a id="unrecognized"></a>
 
@@ -52,7 +52,7 @@
 
 > **UNRECOGNIZED**: `-1`
 
----
+***
 
 <a id="unspecified_deletion_reason"></a>
 

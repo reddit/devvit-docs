@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Class: PostFlairWidget
 
@@ -48,7 +48,7 @@
 
 `"list"` \| `"cloud"`
 
----
+***
 
 <a id="id"></a>
 
@@ -66,7 +66,7 @@
 
 [`Widget`](Widget.md).[`id`](Widget.md#id)
 
----
+***
 
 <a id="name"></a>
 
@@ -84,7 +84,7 @@
 
 [`Widget`](Widget.md).[`name`](Widget.md#name)
 
----
+***
 
 <a id="styles"></a>
 
@@ -98,7 +98,7 @@
 
 `WidgetStyles`
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -116,7 +116,7 @@
 
 [`Widget`](Widget.md).[`subredditName`](Widget.md#subredditname)
 
----
+***
 
 <a id="templates"></a>
 
@@ -146,7 +146,7 @@
 
 [`Widget`](Widget.md).[`delete`](Widget.md#delete)
 
----
+***
 
 <a id="tojson"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Enumeration: EventSource
 
@@ -12,7 +12,7 @@
 
 > **ADMIN**: `2`
 
----
+***
 
 <a id="moderator"></a>
 
@@ -20,7 +20,7 @@
 
 > **MODERATOR**: `3`
 
----
+***
 
 <a id="unknown_event_source"></a>
 
@@ -28,7 +28,7 @@
 
 > **UNKNOWN_EVENT_SOURCE**: `0`
 
----
+***
 
 <a id="unrecognized"></a>
 
@@ -36,7 +36,7 @@
 
 > **UNRECOGNIZED**: `-1`
 
----
+***
 
 <a id="user"></a>
 

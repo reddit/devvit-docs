@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Type Alias: PollData
 
@@ -18,7 +18,7 @@ Aggregated poll data for a poll post.
 
 Options in the poll.
 
----
+***
 
 <a id="totalvotecount"></a>
 
@@ -28,7 +28,7 @@ Options in the poll.
 
 Total votes cast across all of the poll's options.
 
----
+***
 
 <a id="votingendtimestamp"></a>
 

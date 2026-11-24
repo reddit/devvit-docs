@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Type Alias: AddRemovalNoteOptions
 
@@ -18,7 +18,7 @@ Options for adding a note that explains why posts or comments were removed.
 
 The IDs of the removed posts or comments.
 
----
+***
 
 <a id="modnote"></a>
 
@@ -30,7 +30,7 @@ The note explaining the removal. The maximum length is 100 characters.
 
 The plugin omits this field when it is `undefined` or an empty string.
 
----
+***
 
 <a id="reasonid"></a>
 

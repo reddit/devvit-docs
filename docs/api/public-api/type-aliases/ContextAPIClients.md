@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: ContextAPIClients
 
@@ -16,7 +16,7 @@
 
 A client for resolving static assets to public URLs
 
----
+***
 
 <a id="cache"></a>
 
@@ -52,7 +52,7 @@ let component = (context) => {
 }
 ```
 
----
+***
 
 <a id="media"></a>
 
@@ -62,7 +62,7 @@ let component = (context) => {
 
 A client for media API
 
----
+***
 
 <a id="reddit"></a>
 
@@ -72,7 +72,7 @@ A client for media API
 
 A client for the Reddit API
 
----
+***
 
 <a id="redis"></a>
 
@@ -82,7 +82,7 @@ A client for the Reddit API
 
 A client for the Redis API
 
----
+***
 
 <a id="scheduler"></a>
 
@@ -92,7 +92,7 @@ A client for the Redis API
 
 A client for the Scheduler API
 
----
+***
 
 <a id="settings"></a>
 
@@ -102,7 +102,7 @@ A client for the Scheduler API
 
 A client for the Settings API
 
----
+***
 
 <a id="ui"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: ScheduledJobType\<Data\>
 
@@ -24,7 +24,7 @@
 
 The name of the scheduled job type
 
----
+***
 
 <a id="onrun"></a>
 

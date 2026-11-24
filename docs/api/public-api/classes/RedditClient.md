@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Class: RedditClient
 
@@ -109,7 +109,7 @@ Options for the request.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="addmodnote"></a>
 
@@ -140,7 +140,7 @@ const modNote = await reddit.addModNote({
 });
 ```
 
----
+***
 
 <a id="addremovalnote"></a>
 
@@ -170,7 +170,7 @@ await reddit.addRemovalNote({
 });
 ```
 
----
+***
 
 <a id="addsubredditremovalreason"></a>
 
@@ -220,7 +220,7 @@ const newReason = await reddit.addSubredditRemovalReasons("askReddit", {
 console.log(newReason.id);
 ```
 
----
+***
 
 <a id="addwidget"></a>
 
@@ -244,7 +244,7 @@ The data for the widget to add.
 
 - The added Widget object.
 
----
+***
 
 <a id="addwikicontributor"></a>
 
@@ -272,7 +272,7 @@ The name of the subreddit to add the user as a wiki contributor. e.g. 'memes'
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="approve"></a>
 
@@ -301,7 +301,7 @@ await reddit.approve("t3_123456");
 await reddit.approve("t1_123456");
 ```
 
----
+***
 
 <a id="approveuser"></a>
 
@@ -329,7 +329,7 @@ The name of the subreddit to approve the user in. e.g. 'memes'
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="banuser"></a>
 
@@ -351,7 +351,7 @@ Options for the request
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="banwikicontributor"></a>
 
@@ -373,7 +373,7 @@ Options for the request
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="createpostflairtemplate"></a>
 
@@ -397,7 +397,7 @@ Options for the request
 
 The created FlairTemplate object.
 
----
+***
 
 <a id="createrule"></a>
 
@@ -423,7 +423,7 @@ The name of the subreddit to add the rule to.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="createshareurl"></a>
 
@@ -460,7 +460,7 @@ old.reddit.com URLs can be shortened but they will redirect to reddit.com.
 
 If the input URL is invalid, contains unsupported query parameters, or the share URL cannot be created.
 
----
+***
 
 <a id="createuserflairtemplate"></a>
 
@@ -484,7 +484,7 @@ Options for the request
 
 The created FlairTemplate object.
 
----
+***
 
 <a id="createwikipage"></a>
 
@@ -508,7 +508,7 @@ Options for the request
 
 - The created WikiPage object.
 
----
+***
 
 <a id="crosspost"></a>
 
@@ -537,7 +537,7 @@ Options for crossposting a post
 - [()\|submitPost()](#submitpost)
 - [()\|submitCustomPost()](#submitcustompost)
 
----
+***
 
 <a id="deleteflairtemplate"></a>
 
@@ -565,7 +565,7 @@ The ID of the flair template to delete.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="deletemodnote"></a>
 
@@ -585,7 +585,7 @@ Deletes a moderation note. Returns true if successful.
 
 `Promise`\<`boolean`\>
 
----
+***
 
 <a id="deletesubredditremovalreason"></a>
 
@@ -619,7 +619,7 @@ ID of the removal reason (from get or add).
 await reddit.deleteSubredditRemovalReason("askReddit", "uuid-abc");
 ```
 
----
+***
 
 <a id="deletewidget"></a>
 
@@ -647,7 +647,7 @@ The ID of the widget to delete.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="editflairtemplate"></a>
 
@@ -672,7 +672,7 @@ Options for the request
 
 The edited FlairTemplate object.
 
----
+***
 
 <a id="filter"></a>
 
@@ -707,7 +707,7 @@ The options for this filter action.
 
 A Promise that resolves if the post or comment was filtered successfully.
 
----
+***
 
 <a id="getapprovedusers"></a>
 
@@ -731,7 +731,7 @@ Options for the request
 
 A Listing of SubredditContributorUser objects.
 
----
+***
 
 <a id="getappuser"></a>
 
@@ -753,7 +753,7 @@ A Promise that resolves to a User object.
 const user = await reddit.getAppUser(metadata);
 ```
 
----
+***
 
 <a id="getbannedusers"></a>
 
@@ -777,7 +777,7 @@ Options for the request
 
 A Listing of SubredditBannedUser objects.
 
----
+***
 
 <a id="getbannedwikicontributors"></a>
 
@@ -801,7 +801,7 @@ Options for the request
 
 A Listing of SubredditWikiBannedUser objects.
 
----
+***
 
 <a id="getbestposts"></a>
 
@@ -838,7 +838,7 @@ const posts = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getcommentbyid"></a>
 
@@ -868,7 +868,7 @@ A Promise that resolves to a Comment object.
 const comment = await reddit.getCommentById("t1_1qjpg");
 ```
 
----
+***
 
 <a id="getcomments"></a>
 
@@ -904,7 +904,7 @@ const comments = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getcommentsandpostsbyuser"></a>
 
@@ -928,7 +928,7 @@ Options for the request
 
 A Listing of `Post` and `Comment` objects.
 
----
+***
 
 <a id="getcommentsbyuser"></a>
 
@@ -952,7 +952,7 @@ Options for the request
 
 A Listing of Comment objects.
 
----
+***
 
 <a id="getcontroversialposts"></a>
 
@@ -989,7 +989,7 @@ const posts = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getcurrentsubreddit"></a>
 
@@ -1011,7 +1011,7 @@ A Promise that resolves a Subreddit object.
 const currentSubreddit = await reddit.getCurrentSubreddit();
 ```
 
----
+***
 
 <a id="getcurrentuser"></a>
 
@@ -1034,7 +1034,7 @@ A Promise that resolves to a User object or undefined
 const user = await reddit.getCurrentUser();
 ```
 
----
+***
 
 <a id="getcurrentusername"></a>
 
@@ -1057,7 +1057,7 @@ A Promise that resolves to a string representing the username or undefined
 const username = await reddit.getCurrentUsername();
 ```
 
----
+***
 
 <a id="getduplicatesforpost"></a>
 
@@ -1093,7 +1093,7 @@ const duplicates = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getedited"></a>
 
@@ -1177,7 +1177,7 @@ listing = await subreddit.getEdited({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="gethotposts"></a>
 
@@ -1214,7 +1214,7 @@ const posts = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getmessages"></a>
 
@@ -1236,7 +1236,7 @@ Options for the request
 
 `Promise`\<[`Listing`](Listing.md)\<[`PrivateMessage`](PrivateMessage.md)\>\>
 
----
+***
 
 <a id="getmoderationlog"></a>
 
@@ -1274,7 +1274,7 @@ const modActions = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getmoderators"></a>
 
@@ -1298,7 +1298,7 @@ Options for the request
 
 A Listing of SubredditModeratorUser objects.
 
----
+***
 
 <a id="getmodnotes"></a>
 
@@ -1330,7 +1330,7 @@ const notes = await reddit
   .get(25);
 ```
 
----
+***
 
 <a id="getmodqueue"></a>
 
@@ -1414,7 +1414,7 @@ listing = await subreddit.getModQueue({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="getmutedusers"></a>
 
@@ -1438,7 +1438,7 @@ Options for the request
 
 A listing of SubredditMutedUser objects.
 
----
+***
 
 <a id="getnewposts"></a>
 
@@ -1474,7 +1474,7 @@ const posts = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getpostbyid"></a>
 
@@ -1496,7 +1496,7 @@ Gets a [Post](Post.md) object by ID
 
 A Promise that resolves to a Post object.
 
----
+***
 
 <a id="getpostdata"></a>
 
@@ -1516,7 +1516,7 @@ Returns PostData, if any, for the post specified by ID.
 
 `Promise`\<[`JSONObject`](../type-aliases/JSONObject.md) \| `undefined`\>
 
----
+***
 
 <a id="getpostflairtemplates"></a>
 
@@ -1540,7 +1540,7 @@ The name of the subreddit to get the post flair templates for.
 
 A Promise that resolves with an array of FlairTemplate objects.
 
----
+***
 
 <a id="getpostsbyuser"></a>
 
@@ -1564,7 +1564,7 @@ Options for the request
 
 A Listing of Post objects.
 
----
+***
 
 <a id="getpoststyles"></a>
 
@@ -1588,7 +1588,7 @@ The ID of the post to get styles for.
 
 `Promise`\<`StrictRequired`\<`CustomPostStylesInput`\>\>
 
----
+***
 
 <a id="getreports"></a>
 
@@ -1672,7 +1672,7 @@ listing = await subreddit.getReports({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="getrisingposts"></a>
 
@@ -1709,7 +1709,7 @@ const posts = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getrules"></a>
 
@@ -1733,7 +1733,7 @@ The name of the subreddit to get the rules for.
 
 An array of Rule objects.
 
----
+***
 
 <a id="getsnoovatarurl"></a>
 
@@ -1761,7 +1761,7 @@ The image URL, or `undefined` if the user has no Snoovatar image.
 
 If the account is unavailable or the lookup fails.
 
----
+***
 
 <a id="getspam"></a>
 
@@ -1845,7 +1845,7 @@ listing = await subreddit.getSpam({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="getsubredditbyid"></a>
 
@@ -1879,7 +1879,7 @@ Use [getSubredditInfoById](#getsubredditinfobyid) instead.
 const memes = await reddit.getSubredditById("t5_2qjpg");
 ```
 
----
+***
 
 <a id="getsubredditbyname"></a>
 
@@ -1913,7 +1913,7 @@ Use [getSubredditInfoByName](#getsubredditinfobyname) instead.
 const askReddit = await reddit.getSubredditByName("askReddit");
 ```
 
----
+***
 
 <a id="getsubredditinfobyid"></a>
 
@@ -1943,7 +1943,7 @@ A Promise that resolves a SubredditInfo object.
 const memes = await reddit.getSubredditInfoById("t5_2qjpg");
 ```
 
----
+***
 
 <a id="getsubredditinfobyname"></a>
 
@@ -1973,7 +1973,7 @@ A Promise that resolves a SubredditInfo object.
 const askReddit = await reddit.getSubredditInfoByName("askReddit");
 ```
 
----
+***
 
 <a id="getsubredditleaderboard"></a>
 
@@ -1997,7 +1997,7 @@ ID of the subreddit for which the leaderboard is being queried.
 
 Leaderboard for the given subreddit.
 
----
+***
 
 <a id="getsubredditremovalreasons"></a>
 
@@ -2031,7 +2031,7 @@ for (let reason of reasons) {
 }
 ```
 
----
+***
 
 <a id="getsubredditstyles"></a>
 
@@ -2055,7 +2055,7 @@ ID of the subreddit from which to retrieve the styles.
 
 Styles for the given subreddit.
 
----
+***
 
 <a id="getsubscribedsubredditsforcurrentuser"></a>
 
@@ -2077,7 +2077,7 @@ To execute this on behalf of a user, please contact Reddit.
 
 [`Listing`](Listing.md)\<[`Subreddit`](Subreddit.md)\>
 
----
+***
 
 <a id="gettopposts"></a>
 
@@ -2114,7 +2114,7 @@ const posts = await reddit
   .all();
 ```
 
----
+***
 
 <a id="getunmoderated"></a>
 
@@ -2198,7 +2198,7 @@ listing = await subreddit.getUnmoderated({ type: "post" });
 console.log("Posts: ", await listing.all());
 ```
 
----
+***
 
 <a id="getuserbyid"></a>
 
@@ -2228,7 +2228,7 @@ A Promise that resolves to a User object.
 const user = await reddit.getUserById("t2_1qjpg");
 ```
 
----
+***
 
 <a id="getuserbyusername"></a>
 
@@ -2262,7 +2262,7 @@ if (user) {
 }
 ```
 
----
+***
 
 <a id="getuserflairtemplates"></a>
 
@@ -2286,7 +2286,7 @@ The name of the subreddit to get the user flair templates for.
 
 A Promise that resolves with an array of FlairTemplate objects.
 
----
+***
 
 <a id="getuserkarmafromcurrentsubreddit"></a>
 
@@ -2312,7 +2312,7 @@ The username of the user to get the karma for. e.g. 'spez'
 
 The GetUserKarmaForSubredditResponse, containing the user's karma for posts and comments in the subreddit.
 
----
+***
 
 <a id="getvaultbyaddress"></a>
 
@@ -2342,7 +2342,7 @@ const vault = await reddit.getVaultByAddress(
 );
 ```
 
----
+***
 
 <a id="getvaultbyuserid"></a>
 
@@ -2370,7 +2370,7 @@ The ID (starting with t2\_) of the Vault owner.
 const vault = await reddit.getVaultByUserId("t2_1w72");
 ```
 
----
+***
 
 <a id="getwidgets"></a>
 
@@ -2394,7 +2394,7 @@ The name of the subreddit to get the widgets for.
 
 - An array of Widget objects.
 
----
+***
 
 <a id="getwikicontributors"></a>
 
@@ -2418,7 +2418,7 @@ Options for the request
 
 A Listing of SubredditWikiContributorUser objects.
 
----
+***
 
 <a id="getwikipage"></a>
 
@@ -2454,7 +2454,7 @@ Options for the request.
 
 The requested WikiPage object.
 
----
+***
 
 <a id="getwikipagerevisions"></a>
 
@@ -2478,7 +2478,7 @@ Options for the request
 
 A Listing of WikiPageRevision objects.
 
----
+***
 
 <a id="getwikipages"></a>
 
@@ -2508,7 +2508,7 @@ Options for the request.
 
 A list of the wiki page names for the subreddit.
 
----
+***
 
 <a id="getwikipagesettings"></a>
 
@@ -2544,7 +2544,7 @@ Options for the request.
 
 A WikiPageSettings object.
 
----
+***
 
 <a id="invitemoderator"></a>
 
@@ -2566,7 +2566,7 @@ Options for the request
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="iswikiv2enabled"></a>
 
@@ -2590,7 +2590,7 @@ The name of the subreddit to check.
 
 Whether Wiki V2 is enabled for the subreddit.
 
----
+***
 
 <a id="markallmessagesasread"></a>
 
@@ -2604,7 +2604,7 @@ Mark all private messages as read.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="mergepostdata"></a>
 
@@ -2645,7 +2645,7 @@ await post.mergePostData({ settings: { fontSize: 14 } });
 // Result: { currentScore: 55, settings: { fontSize: 14 } }
 ```
 
----
+***
 
 <a id="muteuser"></a>
 
@@ -2667,7 +2667,7 @@ Options for the request
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="remove"></a>
 
@@ -2702,7 +2702,7 @@ await reddit.remove("t3_123456", false);
 await reddit.remove("t1_123456", true);
 ```
 
----
+***
 
 <a id="removeeditorfromwikipage"></a>
 
@@ -2742,7 +2742,7 @@ Options for the request.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="removemoderator"></a>
 
@@ -2770,7 +2770,7 @@ The name of the subreddit to remove the user as a moderator from. e.g. 'memes'
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="removepostflair"></a>
 
@@ -2798,7 +2798,7 @@ The ID of the post to remove the flair from.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="removeuser"></a>
 
@@ -2826,7 +2826,7 @@ The name of the subreddit to remove the user's approval from. e.g. 'memes'
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="removeuserflair"></a>
 
@@ -2854,7 +2854,7 @@ The username of the user to remove the flair from.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="removewikicontributor"></a>
 
@@ -2882,7 +2882,7 @@ The name of the subreddit to remove the user's wiki contributor status from. e.g
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="reorderrules"></a>
 
@@ -2910,7 +2910,7 @@ Array of Rule objects in the desired order (order is determined by array positio
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="reorderwidgets"></a>
 
@@ -2938,7 +2938,7 @@ An array of widget IDs in the order that they should be displayed.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="report"></a>
 
@@ -2980,7 +2980,7 @@ await reddit.report(post, {
 });
 ```
 
----
+***
 
 <a id="revertwikipage"></a>
 
@@ -3020,7 +3020,7 @@ Options for the request.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="revokemoderatorinvite"></a>
 
@@ -3048,7 +3048,7 @@ The name of the subreddit to revoke the invite for. e.g. 'memes'
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="searchposts"></a>
 
@@ -3086,7 +3086,7 @@ const posts = await reddit
   .all();
 ```
 
----
+***
 
 <a id="sendprivatemessage"></a>
 
@@ -3110,7 +3110,7 @@ The options for sending the message.
 
 A Promise that resolves if the private message was successfully sent.
 
----
+***
 
 <a id="sendprivatemessageassubreddit"></a>
 
@@ -3138,7 +3138,7 @@ A Promise that resolves if the private message was successfully sent.
 
 No longer working as expected. Use modMail.createConversation with `isAuthorHidden: true` instead
 
----
+***
 
 <a id="setmoderatorpermissions"></a>
 
@@ -3172,7 +3172,7 @@ The permissions to give the user. e.g ['posts', 'wiki']
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="setpostdata"></a>
 
@@ -3218,7 +3218,7 @@ await post.setPostData({
 // Result: { currentScore: 55, secretWord: 'barbeque' }
 ```
 
----
+***
 
 <a id="setpostflair"></a>
 
@@ -3240,7 +3240,7 @@ Options for the request
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="setpoststyles"></a>
 
@@ -3271,7 +3271,7 @@ will be preserved. If `undefined` is passed, all styles will be removed and rese
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="setuserflair"></a>
 
@@ -3293,7 +3293,7 @@ Options for the request
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="setuserflairbatch"></a>
 
@@ -3324,7 +3324,7 @@ Array of user flair configuration objects. If both text and cssClass are empty f
 
 - Array of statuses for each entry provided.
 
----
+***
 
 <a id="submitcomment"></a>
 
@@ -3358,7 +3358,7 @@ const comment = await reddit.submitComment({
 });
 ```
 
----
+***
 
 <a id="submitcustompost"></a>
 
@@ -3413,7 +3413,7 @@ const post = await reddit.submitCustomPost({
 - [()\|submitPost()](#submitpost)
 - [()\|crosspost()](#crosspost)
 
----
+***
 
 <a id="submitpost"></a>
 
@@ -3455,7 +3455,7 @@ const post = await reddit.submitPost({
 - [()\|submitCustomPost()](#submitcustompost)
 - [()\|crosspost()](#crosspost)
 
----
+***
 
 <a id="subscribetocurrentsubreddit"></a>
 
@@ -3471,7 +3471,7 @@ in `permissions.reddit.asUser` in your devvit.json file.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unbanuser"></a>
 
@@ -3499,7 +3499,7 @@ The name of the subreddit to unban the user from. e.g. 'memes'
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unbanwikicontributor"></a>
 
@@ -3525,7 +3525,7 @@ The name of the subreddit to unban the user from contributing to the wiki on. e.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unmuteuser"></a>
 
@@ -3553,7 +3553,7 @@ The name of the subreddit to unmute the user in. e.g. 'memes'
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="unsubscribefromcurrentsubreddit"></a>
 
@@ -3569,7 +3569,7 @@ To unsubscribe on behalf of a user, please contact Reddit.
 
 `Promise`\<`void`\>
 
----
+***
 
 <a id="updatesubredditremovalreason"></a>
 
@@ -3622,7 +3622,7 @@ await reddit.updateSubredditRemovalReason("askReddit", "uuid-abc", {
 });
 ```
 
----
+***
 
 <a id="updatewidget"></a>
 
@@ -3646,7 +3646,7 @@ The data for the widget to update.
 
 - The updated Widget object.
 
----
+***
 
 <a id="updatewikipage"></a>
 
@@ -3670,7 +3670,7 @@ Options for the request
 
 The updated WikiPage object.
 
----
+***
 
 <a id="updatewikipagesettings"></a>
 

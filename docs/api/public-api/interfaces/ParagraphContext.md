@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Interface: ParagraphContext
 
@@ -53,7 +53,7 @@ Append an Animated Image
 
 `ImageContainer.animatedImage`
 
----
+***
 
 <a id="commentlink"></a>
 
@@ -79,7 +79,7 @@ Append a link to a Reddit Comment
 
 `LinkContainer.commentLink`
 
----
+***
 
 <a id="image"></a>
 
@@ -105,7 +105,7 @@ Append an Image
 
 `ImageContainer.image`
 
----
+***
 
 <a id="linebreak"></a>
 
@@ -123,7 +123,7 @@ Append a Line Break
 
 `LineBreakContainer.linebreak`
 
----
+***
 
 <a id="link"></a>
 
@@ -149,7 +149,7 @@ Append a Link
 
 `LinkContainer.link`
 
----
+***
 
 <a id="postlink"></a>
 
@@ -175,7 +175,7 @@ Append a link to a Reddit Post
 
 `LinkContainer.postLink`
 
----
+***
 
 <a id="subredditlink"></a>
 
@@ -201,7 +201,7 @@ Append a link to a Reddit Subreddit
 
 `LinkContainer.subredditLink`
 
----
+***
 
 <a id="text"></a>
 
@@ -227,7 +227,7 @@ Append Text with optional formatting
 
 `TextContainer.text`
 
----
+***
 
 <a id="userlink"></a>
 
@@ -253,7 +253,7 @@ Append a link to a Reddit User
 
 `LinkContainer.userLink`
 
----
+***
 
 <a id="usermention"></a>
 

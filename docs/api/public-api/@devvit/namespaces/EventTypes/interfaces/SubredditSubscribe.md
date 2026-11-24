@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../../../../README.md)
 
----
+***
 
 # Interface: SubredditSubscribe
 
@@ -12,7 +12,7 @@
 
 > `optional` **subreddit?**: `SubredditV2`
 
----
+***
 
 <a id="subscriber"></a>
 

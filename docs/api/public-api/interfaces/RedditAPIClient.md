@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Interface: RedditAPIClient
 
@@ -105,7 +105,7 @@ Options for the request.
 
 [`RedditClient`](../classes/RedditClient.md).[`addEditorToWikiPage`](../classes/RedditClient.md#addeditortowikipage)
 
----
+***
 
 <a id="addmodnote"></a>
 
@@ -140,7 +140,7 @@ const modNote = await reddit.addModNote({
 
 [`RedditClient`](../classes/RedditClient.md).[`addModNote`](../classes/RedditClient.md#addmodnote)
 
----
+***
 
 <a id="addremovalnote"></a>
 
@@ -174,7 +174,7 @@ await reddit.addRemovalNote({
 
 [`RedditClient`](../classes/RedditClient.md).[`addRemovalNote`](../classes/RedditClient.md#addremovalnote)
 
----
+***
 
 <a id="addsubredditremovalreason"></a>
 
@@ -228,7 +228,7 @@ console.log(newReason.id);
 
 [`RedditClient`](../classes/RedditClient.md).[`addSubredditRemovalReason`](../classes/RedditClient.md#addsubredditremovalreason)
 
----
+***
 
 <a id="addwidget"></a>
 
@@ -256,7 +256,7 @@ The data for the widget to add.
 
 [`RedditClient`](../classes/RedditClient.md).[`addWidget`](../classes/RedditClient.md#addwidget)
 
----
+***
 
 <a id="addwikicontributor"></a>
 
@@ -288,7 +288,7 @@ The name of the subreddit to add the user as a wiki contributor. e.g. 'memes'
 
 [`RedditClient`](../classes/RedditClient.md).[`addWikiContributor`](../classes/RedditClient.md#addwikicontributor)
 
----
+***
 
 <a id="approve"></a>
 
@@ -321,7 +321,7 @@ await reddit.approve("t1_123456");
 
 [`RedditClient`](../classes/RedditClient.md).[`approve`](../classes/RedditClient.md#approve)
 
----
+***
 
 <a id="approveuser"></a>
 
@@ -353,7 +353,7 @@ The name of the subreddit to approve the user in. e.g. 'memes'
 
 [`RedditClient`](../classes/RedditClient.md).[`approveUser`](../classes/RedditClient.md#approveuser)
 
----
+***
 
 <a id="banuser"></a>
 
@@ -379,7 +379,7 @@ Options for the request
 
 [`RedditClient`](../classes/RedditClient.md).[`banUser`](../classes/RedditClient.md#banuser)
 
----
+***
 
 <a id="banwikicontributor"></a>
 
@@ -405,7 +405,7 @@ Options for the request
 
 [`RedditClient`](../classes/RedditClient.md).[`banWikiContributor`](../classes/RedditClient.md#banwikicontributor)
 
----
+***
 
 <a id="createpostflairtemplate"></a>
 
@@ -433,7 +433,7 @@ The created FlairTemplate object.
 
 [`RedditClient`](../classes/RedditClient.md).[`createPostFlairTemplate`](../classes/RedditClient.md#createpostflairtemplate)
 
----
+***
 
 <a id="createrule"></a>
 
@@ -463,7 +463,7 @@ The name of the subreddit to add the rule to.
 
 [`RedditClient`](../classes/RedditClient.md).[`createRule`](../classes/RedditClient.md#createrule)
 
----
+***
 
 <a id="createshareurl"></a>
 
@@ -504,7 +504,7 @@ If the input URL is invalid, contains unsupported query parameters, or the share
 
 [`RedditClient`](../classes/RedditClient.md).[`createShareUrl`](../classes/RedditClient.md#createshareurl)
 
----
+***
 
 <a id="createuserflairtemplate"></a>
 
@@ -532,7 +532,7 @@ The created FlairTemplate object.
 
 [`RedditClient`](../classes/RedditClient.md).[`createUserFlairTemplate`](../classes/RedditClient.md#createuserflairtemplate)
 
----
+***
 
 <a id="createwikipage"></a>
 
@@ -560,7 +560,7 @@ Options for the request
 
 [`RedditClient`](../classes/RedditClient.md).[`createWikiPage`](../classes/RedditClient.md#createwikipage)
 
----
+***
 
 <a id="crosspost"></a>
 
@@ -591,7 +591,7 @@ Crossposts a post to a subreddit.
 
 [`RedditClient`](../classes/RedditClient.md).[`crosspost`](../classes/RedditClient.md#crosspost)
 
----
+***
 
 <a id="deleteflairtemplate"></a>
 
@@ -623,7 +623,7 @@ The ID of the flair template to delete.
 
 [`RedditClient`](../classes/RedditClient.md).[`deleteFlairTemplate`](../classes/RedditClient.md#deleteflairtemplate)
 
----
+***
 
 <a id="deletemodnote"></a>
 
@@ -647,7 +647,7 @@ Deletes a moderation note. Returns true if successful.
 
 [`RedditClient`](../classes/RedditClient.md).[`deleteModNote`](../classes/RedditClient.md#deletemodnote)
 
----
+***
 
 <a id="deletesubredditremovalreason"></a>
 
@@ -685,7 +685,7 @@ await reddit.deleteSubredditRemovalReason("askReddit", "uuid-abc");
 
 [`RedditClient`](../classes/RedditClient.md).[`deleteSubredditRemovalReason`](../classes/RedditClient.md#deletesubredditremovalreason)
 
----
+***
 
 <a id="deletewidget"></a>
 
@@ -717,7 +717,7 @@ The ID of the widget to delete.
 
 [`RedditClient`](../classes/RedditClient.md).[`deleteWidget`](../classes/RedditClient.md#deletewidget)
 
----
+***
 
 <a id="editflairtemplate"></a>
 
@@ -746,7 +746,7 @@ The edited FlairTemplate object.
 
 [`RedditClient`](../classes/RedditClient.md).[`editFlairTemplate`](../classes/RedditClient.md#editflairtemplate)
 
----
+***
 
 <a id="filter"></a>
 
@@ -785,7 +785,7 @@ A Promise that resolves if the post or comment was filtered successfully.
 
 [`RedditClient`](../classes/RedditClient.md).[`filter`](../classes/RedditClient.md#filter)
 
----
+***
 
 <a id="getapprovedusers"></a>
 
@@ -813,7 +813,7 @@ A Listing of SubredditContributorUser objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getApprovedUsers`](../classes/RedditClient.md#getapprovedusers)
 
----
+***
 
 <a id="getappuser"></a>
 
@@ -839,7 +839,7 @@ const user = await reddit.getAppUser(metadata);
 
 [`RedditClient`](../classes/RedditClient.md).[`getAppUser`](../classes/RedditClient.md#getappuser)
 
----
+***
 
 <a id="getbannedusers"></a>
 
@@ -867,7 +867,7 @@ A Listing of SubredditBannedUser objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getBannedUsers`](../classes/RedditClient.md#getbannedusers)
 
----
+***
 
 <a id="getbannedwikicontributors"></a>
 
@@ -895,7 +895,7 @@ A Listing of SubredditWikiBannedUser objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getBannedWikiContributors`](../classes/RedditClient.md#getbannedwikicontributors)
 
----
+***
 
 <a id="getbestposts"></a>
 
@@ -936,7 +936,7 @@ const posts = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getBestPosts`](../classes/RedditClient.md#getbestposts)
 
----
+***
 
 <a id="getcommentbyid"></a>
 
@@ -970,7 +970,7 @@ const comment = await reddit.getCommentById("t1_1qjpg");
 
 [`RedditClient`](../classes/RedditClient.md).[`getCommentById`](../classes/RedditClient.md#getcommentbyid)
 
----
+***
 
 <a id="getcomments"></a>
 
@@ -1010,7 +1010,7 @@ const comments = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getComments`](../classes/RedditClient.md#getcomments)
 
----
+***
 
 <a id="getcommentsandpostsbyuser"></a>
 
@@ -1038,7 +1038,7 @@ A Listing of `Post` and `Comment` objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getCommentsAndPostsByUser`](../classes/RedditClient.md#getcommentsandpostsbyuser)
 
----
+***
 
 <a id="getcommentsbyuser"></a>
 
@@ -1066,7 +1066,7 @@ A Listing of Comment objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getCommentsByUser`](../classes/RedditClient.md#getcommentsbyuser)
 
----
+***
 
 <a id="getcontroversialposts"></a>
 
@@ -1107,7 +1107,7 @@ const posts = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getControversialPosts`](../classes/RedditClient.md#getcontroversialposts)
 
----
+***
 
 <a id="getcurrentsubreddit"></a>
 
@@ -1133,7 +1133,7 @@ const currentSubreddit = await reddit.getCurrentSubreddit();
 
 [`RedditClient`](../classes/RedditClient.md).[`getCurrentSubreddit`](../classes/RedditClient.md#getcurrentsubreddit)
 
----
+***
 
 <a id="getcurrentsubredditname"></a>
 
@@ -1155,7 +1155,7 @@ A Promise that resolves a string representing the current subreddit's name.
 const currentSubredditName = await reddit.getCurrentSubredditName();
 ```
 
----
+***
 
 <a id="getcurrentuser"></a>
 
@@ -1182,7 +1182,7 @@ const user = await reddit.getCurrentUser();
 
 [`RedditClient`](../classes/RedditClient.md).[`getCurrentUser`](../classes/RedditClient.md#getcurrentuser)
 
----
+***
 
 <a id="getcurrentusername"></a>
 
@@ -1209,7 +1209,7 @@ const username = await reddit.getCurrentUsername();
 
 [`RedditClient`](../classes/RedditClient.md).[`getCurrentUsername`](../classes/RedditClient.md#getcurrentusername)
 
----
+***
 
 <a id="getduplicatesforpost"></a>
 
@@ -1249,7 +1249,7 @@ const duplicates = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getDuplicatesForPost`](../classes/RedditClient.md#getduplicatesforpost)
 
----
+***
 
 <a id="getedited"></a>
 
@@ -1345,7 +1345,7 @@ console.log("Posts: ", await listing.all());
 
 [`RedditClient`](../classes/RedditClient.md).[`getEdited`](../classes/RedditClient.md#getedited)
 
----
+***
 
 <a id="gethotposts"></a>
 
@@ -1386,7 +1386,7 @@ const posts = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getHotPosts`](../classes/RedditClient.md#gethotposts)
 
----
+***
 
 <a id="getmessages"></a>
 
@@ -1412,7 +1412,7 @@ Options for the request
 
 [`RedditClient`](../classes/RedditClient.md).[`getMessages`](../classes/RedditClient.md#getmessages)
 
----
+***
 
 <a id="getmoderationlog"></a>
 
@@ -1454,7 +1454,7 @@ const modActions = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getModerationLog`](../classes/RedditClient.md#getmoderationlog)
 
----
+***
 
 <a id="getmoderators"></a>
 
@@ -1482,7 +1482,7 @@ A Listing of SubredditModeratorUser objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getModerators`](../classes/RedditClient.md#getmoderators)
 
----
+***
 
 <a id="getmodnotes"></a>
 
@@ -1518,7 +1518,7 @@ const notes = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getModNotes`](../classes/RedditClient.md#getmodnotes)
 
----
+***
 
 <a id="getmodqueue"></a>
 
@@ -1614,7 +1614,7 @@ console.log("Posts: ", await listing.all());
 
 [`RedditClient`](../classes/RedditClient.md).[`getModQueue`](../classes/RedditClient.md#getmodqueue)
 
----
+***
 
 <a id="getmutedusers"></a>
 
@@ -1642,7 +1642,7 @@ A listing of SubredditMutedUser objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getMutedUsers`](../classes/RedditClient.md#getmutedusers)
 
----
+***
 
 <a id="getnewposts"></a>
 
@@ -1682,7 +1682,7 @@ const posts = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getNewPosts`](../classes/RedditClient.md#getnewposts)
 
----
+***
 
 <a id="getpostbyid"></a>
 
@@ -1708,7 +1708,7 @@ A Promise that resolves to a Post object.
 
 [`RedditClient`](../classes/RedditClient.md).[`getPostById`](../classes/RedditClient.md#getpostbyid)
 
----
+***
 
 <a id="getpostdata"></a>
 
@@ -1732,7 +1732,7 @@ Returns PostData, if any, for the post specified by ID.
 
 [`RedditClient`](../classes/RedditClient.md).[`getPostData`](../classes/RedditClient.md#getpostdata)
 
----
+***
 
 <a id="getpostflairtemplates"></a>
 
@@ -1760,7 +1760,7 @@ A Promise that resolves with an array of FlairTemplate objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getPostFlairTemplates`](../classes/RedditClient.md#getpostflairtemplates)
 
----
+***
 
 <a id="getpostsbyuser"></a>
 
@@ -1788,7 +1788,7 @@ A Listing of Post objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getPostsByUser`](../classes/RedditClient.md#getpostsbyuser)
 
----
+***
 
 <a id="getpoststyles"></a>
 
@@ -1816,7 +1816,7 @@ The ID of the post to get styles for.
 
 [`RedditClient`](../classes/RedditClient.md).[`getPostStyles`](../classes/RedditClient.md#getpoststyles)
 
----
+***
 
 <a id="getreports"></a>
 
@@ -1912,7 +1912,7 @@ console.log("Posts: ", await listing.all());
 
 [`RedditClient`](../classes/RedditClient.md).[`getReports`](../classes/RedditClient.md#getreports)
 
----
+***
 
 <a id="getrisingposts"></a>
 
@@ -1953,7 +1953,7 @@ const posts = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getRisingPosts`](../classes/RedditClient.md#getrisingposts)
 
----
+***
 
 <a id="getrules"></a>
 
@@ -1981,7 +1981,7 @@ An array of Rule objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getRules`](../classes/RedditClient.md#getrules)
 
----
+***
 
 <a id="getsnoovatarurl"></a>
 
@@ -2013,7 +2013,7 @@ If the account is unavailable or the lookup fails.
 
 [`RedditClient`](../classes/RedditClient.md).[`getSnoovatarUrl`](../classes/RedditClient.md#getsnoovatarurl)
 
----
+***
 
 <a id="getspam"></a>
 
@@ -2109,7 +2109,7 @@ console.log("Posts: ", await listing.all());
 
 [`RedditClient`](../classes/RedditClient.md).[`getSpam`](../classes/RedditClient.md#getspam)
 
----
+***
 
 <a id="getsubredditbyid"></a>
 
@@ -2147,7 +2147,7 @@ const memes = await reddit.getSubredditById("t5_2qjpg");
 
 [`RedditClient`](../classes/RedditClient.md).[`getSubredditById`](../classes/RedditClient.md#getsubredditbyid)
 
----
+***
 
 <a id="getsubredditbyname"></a>
 
@@ -2185,7 +2185,7 @@ const askReddit = await reddit.getSubredditByName("askReddit");
 
 [`RedditClient`](../classes/RedditClient.md).[`getSubredditByName`](../classes/RedditClient.md#getsubredditbyname)
 
----
+***
 
 <a id="getsubredditinfobyid"></a>
 
@@ -2219,7 +2219,7 @@ const memes = await reddit.getSubredditInfoById("t5_2qjpg");
 
 [`RedditClient`](../classes/RedditClient.md).[`getSubredditInfoById`](../classes/RedditClient.md#getsubredditinfobyid)
 
----
+***
 
 <a id="getsubredditinfobyname"></a>
 
@@ -2253,7 +2253,7 @@ const askReddit = await reddit.getSubredditInfoByName("askReddit");
 
 [`RedditClient`](../classes/RedditClient.md).[`getSubredditInfoByName`](../classes/RedditClient.md#getsubredditinfobyname)
 
----
+***
 
 <a id="getsubredditleaderboard"></a>
 
@@ -2281,7 +2281,7 @@ Leaderboard for the given subreddit.
 
 [`RedditClient`](../classes/RedditClient.md).[`getSubredditLeaderboard`](../classes/RedditClient.md#getsubredditleaderboard)
 
----
+***
 
 <a id="getsubredditremovalreasons"></a>
 
@@ -2319,7 +2319,7 @@ for (let reason of reasons) {
 
 [`RedditClient`](../classes/RedditClient.md).[`getSubredditRemovalReasons`](../classes/RedditClient.md#getsubredditremovalreasons)
 
----
+***
 
 <a id="getsubredditstyles"></a>
 
@@ -2347,7 +2347,7 @@ Styles for the given subreddit.
 
 [`RedditClient`](../classes/RedditClient.md).[`getSubredditStyles`](../classes/RedditClient.md#getsubredditstyles)
 
----
+***
 
 <a id="getsubscribedsubredditsforcurrentuser"></a>
 
@@ -2373,7 +2373,7 @@ To execute this on behalf of a user, please contact Reddit.
 
 [`RedditClient`](../classes/RedditClient.md).[`getSubscribedSubredditsForCurrentUser`](../classes/RedditClient.md#getsubscribedsubredditsforcurrentuser)
 
----
+***
 
 <a id="gettopposts"></a>
 
@@ -2414,7 +2414,7 @@ const posts = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`getTopPosts`](../classes/RedditClient.md#gettopposts)
 
----
+***
 
 <a id="getunmoderated"></a>
 
@@ -2510,7 +2510,7 @@ console.log("Posts: ", await listing.all());
 
 [`RedditClient`](../classes/RedditClient.md).[`getUnmoderated`](../classes/RedditClient.md#getunmoderated)
 
----
+***
 
 <a id="getuserbyid"></a>
 
@@ -2544,7 +2544,7 @@ const user = await reddit.getUserById("t2_1qjpg");
 
 [`RedditClient`](../classes/RedditClient.md).[`getUserById`](../classes/RedditClient.md#getuserbyid)
 
----
+***
 
 <a id="getuserbyusername"></a>
 
@@ -2582,7 +2582,7 @@ if (user) {
 
 [`RedditClient`](../classes/RedditClient.md).[`getUserByUsername`](../classes/RedditClient.md#getuserbyusername)
 
----
+***
 
 <a id="getuserflairtemplates"></a>
 
@@ -2610,7 +2610,7 @@ A Promise that resolves with an array of FlairTemplate objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getUserFlairTemplates`](../classes/RedditClient.md#getuserflairtemplates)
 
----
+***
 
 <a id="getuserkarmafromcurrentsubreddit"></a>
 
@@ -2640,7 +2640,7 @@ The GetUserKarmaForSubredditResponse, containing the user's karma for posts and 
 
 [`RedditClient`](../classes/RedditClient.md).[`getUserKarmaFromCurrentSubreddit`](../classes/RedditClient.md#getuserkarmafromcurrentsubreddit)
 
----
+***
 
 <a id="getvaultbyaddress"></a>
 
@@ -2674,7 +2674,7 @@ const vault = await reddit.getVaultByAddress(
 
 [`RedditClient`](../classes/RedditClient.md).[`getVaultByAddress`](../classes/RedditClient.md#getvaultbyaddress)
 
----
+***
 
 <a id="getvaultbyuserid"></a>
 
@@ -2706,7 +2706,7 @@ const vault = await reddit.getVaultByUserId("t2_1w72");
 
 [`RedditClient`](../classes/RedditClient.md).[`getVaultByUserId`](../classes/RedditClient.md#getvaultbyuserid)
 
----
+***
 
 <a id="getwidgets"></a>
 
@@ -2734,7 +2734,7 @@ The name of the subreddit to get the widgets for.
 
 [`RedditClient`](../classes/RedditClient.md).[`getWidgets`](../classes/RedditClient.md#getwidgets)
 
----
+***
 
 <a id="getwikicontributors"></a>
 
@@ -2762,7 +2762,7 @@ A Listing of SubredditWikiContributorUser objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getWikiContributors`](../classes/RedditClient.md#getwikicontributors)
 
----
+***
 
 <a id="getwikipage"></a>
 
@@ -2802,7 +2802,7 @@ The requested WikiPage object.
 
 [`RedditClient`](../classes/RedditClient.md).[`getWikiPage`](../classes/RedditClient.md#getwikipage)
 
----
+***
 
 <a id="getwikipagerevisions"></a>
 
@@ -2830,7 +2830,7 @@ A Listing of WikiPageRevision objects.
 
 [`RedditClient`](../classes/RedditClient.md).[`getWikiPageRevisions`](../classes/RedditClient.md#getwikipagerevisions)
 
----
+***
 
 <a id="getwikipages"></a>
 
@@ -2864,7 +2864,7 @@ A list of the wiki page names for the subreddit.
 
 [`RedditClient`](../classes/RedditClient.md).[`getWikiPages`](../classes/RedditClient.md#getwikipages)
 
----
+***
 
 <a id="getwikipagesettings"></a>
 
@@ -2904,7 +2904,7 @@ A WikiPageSettings object.
 
 [`RedditClient`](../classes/RedditClient.md).[`getWikiPageSettings`](../classes/RedditClient.md#getwikipagesettings)
 
----
+***
 
 <a id="invitemoderator"></a>
 
@@ -2930,7 +2930,7 @@ Options for the request
 
 [`RedditClient`](../classes/RedditClient.md).[`inviteModerator`](../classes/RedditClient.md#invitemoderator)
 
----
+***
 
 <a id="iswikiv2enabled"></a>
 
@@ -2958,7 +2958,7 @@ Whether Wiki V2 is enabled for the subreddit.
 
 [`RedditClient`](../classes/RedditClient.md).[`isWikiV2Enabled`](../classes/RedditClient.md#iswikiv2enabled)
 
----
+***
 
 <a id="markallmessagesasread"></a>
 
@@ -2976,7 +2976,7 @@ Mark all private messages as read.
 
 [`RedditClient`](../classes/RedditClient.md).[`markAllMessagesAsRead`](../classes/RedditClient.md#markallmessagesasread)
 
----
+***
 
 <a id="mergepostdata"></a>
 
@@ -3021,7 +3021,7 @@ await post.mergePostData({ settings: { fontSize: 14 } });
 
 [`RedditClient`](../classes/RedditClient.md).[`mergePostData`](../classes/RedditClient.md#mergepostdata)
 
----
+***
 
 <a id="muteuser"></a>
 
@@ -3047,7 +3047,7 @@ Options for the request
 
 [`RedditClient`](../classes/RedditClient.md).[`muteUser`](../classes/RedditClient.md#muteuser)
 
----
+***
 
 <a id="remove"></a>
 
@@ -3086,7 +3086,7 @@ await reddit.remove("t1_123456", true);
 
 [`RedditClient`](../classes/RedditClient.md).[`remove`](../classes/RedditClient.md#remove)
 
----
+***
 
 <a id="removeeditorfromwikipage"></a>
 
@@ -3130,7 +3130,7 @@ Options for the request.
 
 [`RedditClient`](../classes/RedditClient.md).[`removeEditorFromWikiPage`](../classes/RedditClient.md#removeeditorfromwikipage)
 
----
+***
 
 <a id="removemoderator"></a>
 
@@ -3162,7 +3162,7 @@ The name of the subreddit to remove the user as a moderator from. e.g. 'memes'
 
 [`RedditClient`](../classes/RedditClient.md).[`removeModerator`](../classes/RedditClient.md#removemoderator)
 
----
+***
 
 <a id="removepostflair"></a>
 
@@ -3194,7 +3194,7 @@ The ID of the post to remove the flair from.
 
 [`RedditClient`](../classes/RedditClient.md).[`removePostFlair`](../classes/RedditClient.md#removepostflair)
 
----
+***
 
 <a id="removeuser"></a>
 
@@ -3226,7 +3226,7 @@ The name of the subreddit to remove the user's approval from. e.g. 'memes'
 
 [`RedditClient`](../classes/RedditClient.md).[`removeUser`](../classes/RedditClient.md#removeuser)
 
----
+***
 
 <a id="removeuserflair"></a>
 
@@ -3258,7 +3258,7 @@ The username of the user to remove the flair from.
 
 [`RedditClient`](../classes/RedditClient.md).[`removeUserFlair`](../classes/RedditClient.md#removeuserflair)
 
----
+***
 
 <a id="removewikicontributor"></a>
 
@@ -3290,7 +3290,7 @@ The name of the subreddit to remove the user's wiki contributor status from. e.g
 
 [`RedditClient`](../classes/RedditClient.md).[`removeWikiContributor`](../classes/RedditClient.md#removewikicontributor)
 
----
+***
 
 <a id="reorderrules"></a>
 
@@ -3322,7 +3322,7 @@ Array of Rule objects in the desired order (order is determined by array positio
 
 [`RedditClient`](../classes/RedditClient.md).[`reorderRules`](../classes/RedditClient.md#reorderrules)
 
----
+***
 
 <a id="reorderwidgets"></a>
 
@@ -3354,7 +3354,7 @@ An array of widget IDs in the order that they should be displayed.
 
 [`RedditClient`](../classes/RedditClient.md).[`reorderWidgets`](../classes/RedditClient.md#reorderwidgets)
 
----
+***
 
 <a id="report"></a>
 
@@ -3400,7 +3400,7 @@ await reddit.report(post, {
 
 [`RedditClient`](../classes/RedditClient.md).[`report`](../classes/RedditClient.md#report)
 
----
+***
 
 <a id="revertwikipage"></a>
 
@@ -3444,7 +3444,7 @@ Options for the request.
 
 [`RedditClient`](../classes/RedditClient.md).[`revertWikiPage`](../classes/RedditClient.md#revertwikipage)
 
----
+***
 
 <a id="revokemoderatorinvite"></a>
 
@@ -3476,7 +3476,7 @@ The name of the subreddit to revoke the invite for. e.g. 'memes'
 
 [`RedditClient`](../classes/RedditClient.md).[`revokeModeratorInvite`](../classes/RedditClient.md#revokemoderatorinvite)
 
----
+***
 
 <a id="searchposts"></a>
 
@@ -3518,7 +3518,7 @@ const posts = await reddit
 
 [`RedditClient`](../classes/RedditClient.md).[`searchPosts`](../classes/RedditClient.md#searchposts)
 
----
+***
 
 <a id="sendprivatemessage"></a>
 
@@ -3546,7 +3546,7 @@ A Promise that resolves if the private message was successfully sent.
 
 [`RedditClient`](../classes/RedditClient.md).[`sendPrivateMessage`](../classes/RedditClient.md#sendprivatemessage)
 
----
+***
 
 <a id="sendprivatemessageassubreddit"></a>
 
@@ -3578,7 +3578,7 @@ No longer working as expected. Use modMail.createConversation with `isAuthorHidd
 
 [`RedditClient`](../classes/RedditClient.md).[`sendPrivateMessageAsSubreddit`](../classes/RedditClient.md#sendprivatemessageassubreddit)
 
----
+***
 
 <a id="setmoderatorpermissions"></a>
 
@@ -3616,7 +3616,7 @@ The permissions to give the user. e.g ['posts', 'wiki']
 
 [`RedditClient`](../classes/RedditClient.md).[`setModeratorPermissions`](../classes/RedditClient.md#setmoderatorpermissions)
 
----
+***
 
 <a id="setpostdata"></a>
 
@@ -3666,7 +3666,7 @@ await post.setPostData({
 
 [`RedditClient`](../classes/RedditClient.md).[`setPostData`](../classes/RedditClient.md#setpostdata)
 
----
+***
 
 <a id="setpostflair"></a>
 
@@ -3692,7 +3692,7 @@ Options for the request
 
 [`RedditClient`](../classes/RedditClient.md).[`setPostFlair`](../classes/RedditClient.md#setpostflair)
 
----
+***
 
 <a id="setpoststyles"></a>
 
@@ -3727,7 +3727,7 @@ will be preserved. If `undefined` is passed, all styles will be removed and rese
 
 [`RedditClient`](../classes/RedditClient.md).[`setPostStyles`](../classes/RedditClient.md#setpoststyles)
 
----
+***
 
 <a id="setuserflair"></a>
 
@@ -3753,7 +3753,7 @@ Options for the request
 
 [`RedditClient`](../classes/RedditClient.md).[`setUserFlair`](../classes/RedditClient.md#setuserflair)
 
----
+***
 
 <a id="setuserflairbatch"></a>
 
@@ -3788,7 +3788,7 @@ Array of user flair configuration objects. If both text and cssClass are empty f
 
 [`RedditClient`](../classes/RedditClient.md).[`setUserFlairBatch`](../classes/RedditClient.md#setuserflairbatch)
 
----
+***
 
 <a id="submitcomment"></a>
 
@@ -3826,7 +3826,7 @@ const comment = await reddit.submitComment({
 
 [`RedditClient`](../classes/RedditClient.md).[`submitComment`](../classes/RedditClient.md#submitcomment)
 
----
+***
 
 <a id="submitcustompost"></a>
 
@@ -3885,7 +3885,7 @@ const post = await reddit.submitCustomPost({
 
 [`RedditClient`](../classes/RedditClient.md).[`submitCustomPost`](../classes/RedditClient.md#submitcustompost)
 
----
+***
 
 <a id="submitpost"></a>
 
@@ -3931,7 +3931,7 @@ const post = await reddit.submitPost({
 
 [`RedditClient`](../classes/RedditClient.md).[`submitPost`](../classes/RedditClient.md#submitpost)
 
----
+***
 
 <a id="subscribetocurrentsubreddit"></a>
 
@@ -3951,7 +3951,7 @@ in `permissions.reddit.asUser` in your devvit.json file.
 
 [`RedditClient`](../classes/RedditClient.md).[`subscribeToCurrentSubreddit`](../classes/RedditClient.md#subscribetocurrentsubreddit)
 
----
+***
 
 <a id="unbanuser"></a>
 
@@ -3983,7 +3983,7 @@ The name of the subreddit to unban the user from. e.g. 'memes'
 
 [`RedditClient`](../classes/RedditClient.md).[`unbanUser`](../classes/RedditClient.md#unbanuser)
 
----
+***
 
 <a id="unbanwikicontributor"></a>
 
@@ -4013,7 +4013,7 @@ The name of the subreddit to unban the user from contributing to the wiki on. e.
 
 [`RedditClient`](../classes/RedditClient.md).[`unbanWikiContributor`](../classes/RedditClient.md#unbanwikicontributor)
 
----
+***
 
 <a id="unmuteuser"></a>
 
@@ -4045,7 +4045,7 @@ The name of the subreddit to unmute the user in. e.g. 'memes'
 
 [`RedditClient`](../classes/RedditClient.md).[`unmuteUser`](../classes/RedditClient.md#unmuteuser)
 
----
+***
 
 <a id="unsubscribefromcurrentsubreddit"></a>
 
@@ -4065,7 +4065,7 @@ To unsubscribe on behalf of a user, please contact Reddit.
 
 [`RedditClient`](../classes/RedditClient.md).[`unsubscribeFromCurrentSubreddit`](../classes/RedditClient.md#unsubscribefromcurrentsubreddit)
 
----
+***
 
 <a id="updatesubredditremovalreason"></a>
 
@@ -4122,7 +4122,7 @@ await reddit.updateSubredditRemovalReason("askReddit", "uuid-abc", {
 
 [`RedditClient`](../classes/RedditClient.md).[`updateSubredditRemovalReason`](../classes/RedditClient.md#updatesubredditremovalreason)
 
----
+***
 
 <a id="updatewidget"></a>
 
@@ -4150,7 +4150,7 @@ The data for the widget to update.
 
 [`RedditClient`](../classes/RedditClient.md).[`updateWidget`](../classes/RedditClient.md#updatewidget)
 
----
+***
 
 <a id="updatewikipage"></a>
 
@@ -4178,7 +4178,7 @@ The updated WikiPage object.
 
 [`RedditClient`](../classes/RedditClient.md).[`updateWikiPage`](../classes/RedditClient.md#updatewikipage)
 
----
+***
 
 <a id="updatewikipagesettings"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: UserMention
 
@@ -14,7 +14,7 @@
 
 > **e**: _typeof_ [`USER_MENTION_ELEMENT`](../variables/USER_MENTION_ELEMENT.md)
 
----
+***
 
 <a id="l"></a>
 
@@ -22,7 +22,7 @@
 
 > **l**: `boolean`
 
----
+***
 
 <a id="t"></a>
 

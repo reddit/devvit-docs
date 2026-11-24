@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: Link
 
@@ -14,7 +14,7 @@
 
 > `optional` **a?**: `string`
 
----
+***
 
 <a id="e"></a>
 
@@ -22,7 +22,7 @@
 
 > **e**: _typeof_ [`LINK_ELEMENT`](../variables/LINK_ELEMENT.md)
 
----
+***
 
 <a id="f"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **f?**: [`FormatRange`](FormatRange.md)[]
 
----
+***
 
 <a id="t"></a>
 
@@ -38,7 +38,7 @@
 
 > **t**: `string`
 
----
+***
 
 <a id="u"></a>
 

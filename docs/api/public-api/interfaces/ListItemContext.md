@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Interface: ListItemContext
 
@@ -72,7 +72,7 @@ scoped callback to add child elements to this Block Quote
 
 `BlockQuoteContainer.blockQuote`
 
----
+***
 
 <a id="codeblock"></a>
 
@@ -104,7 +104,7 @@ scoped callback to add child elements to this Code Block
 
 `CodeBlockContainer.codeBlock`
 
----
+***
 
 <a id="heading"></a>
 
@@ -136,7 +136,7 @@ scoped callback to add child elements to this Heading
 
 `HeadingContainer.heading`
 
----
+***
 
 <a id="horizontalrule"></a>
 
@@ -154,7 +154,7 @@ Append a Horizontal Rule
 
 `HorizontalRuleContainer.horizontalRule`
 
----
+***
 
 <a id="list"></a>
 
@@ -186,7 +186,7 @@ scoped callback to add child elements to this List
 
 `ListContainer.list`
 
----
+***
 
 <a id="paragraph"></a>
 
@@ -212,7 +212,7 @@ scoped callback to add child elements to this Paragraph
 
 `ParagraphContainer.paragraph`
 
----
+***
 
 <a id="table"></a>
 

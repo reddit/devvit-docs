@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Enumeration: WikiPagePermissionLevel
 
@@ -14,7 +14,7 @@
 
 Only approved wiki contributors for this page may edit
 
----
+***
 
 <a id="mods_only"></a>
 
@@ -24,7 +24,7 @@ Only approved wiki contributors for this page may edit
 
 Only mods may edit and view
 
----
+***
 
 <a id="subreddit_permissions"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Type Alias: BanUserOptions
 
@@ -14,7 +14,7 @@
 
 > `optional` **context?**: `string`
 
----
+***
 
 <a id="duration"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **duration?**: `number`
 
----
+***
 
 <a id="message"></a>
 
@@ -30,7 +30,7 @@
 
 > `optional` **message?**: `string`
 
----
+***
 
 <a id="note"></a>
 
@@ -38,7 +38,7 @@
 
 > `optional` **note?**: `string`
 
----
+***
 
 <a id="reason"></a>
 
@@ -46,7 +46,7 @@
 
 > `optional` **reason?**: `string`
 
----
+***
 
 <a id="subredditname"></a>
 
@@ -54,7 +54,7 @@
 
 > **subredditName**: `string`
 
----
+***
 
 <a id="username"></a>
 

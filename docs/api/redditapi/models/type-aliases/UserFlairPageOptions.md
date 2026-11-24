@@ -1,6 +1,6 @@
 [**@devvit/reddit v0.15.7-dev**](../../README.md)
 
----
+***
 
 # Type Alias: UserFlairPageOptions
 
@@ -16,7 +16,7 @@
 
 A user id optionally provided which will result in a slice of user flairs, starting after this user, to be returned.
 
----
+***
 
 <a id="before"></a>
 
@@ -26,7 +26,7 @@ A user id optionally provided which will result in a slice of user flairs, start
 
 A user id optionally provided which will result in a slice of user flairs, starting before this user, to be returned.
 
----
+***
 
 <a id="limit"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: List
 
@@ -46,7 +46,7 @@ you can try out http://spec.commonmark.org/dingus/
 
 > **c**: [`ListItem`](ListItem.md)[]
 
----
+***
 
 <a id="e"></a>
 
@@ -54,7 +54,7 @@ you can try out http://spec.commonmark.org/dingus/
 
 > **e**: _typeof_ [`LIST_ELEMENT`](../variables/LIST_ELEMENT.md)
 
----
+***
 
 <a id="o"></a>
 

@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: ListItem
 
@@ -14,7 +14,7 @@
 
 > `optional` **c?**: [`ListChild`](ListChild.md)[]
 
----
+***
 
 <a id="e"></a>
 

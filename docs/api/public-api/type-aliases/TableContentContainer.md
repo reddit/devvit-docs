@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: TableContentContainer\<Context\>
 
@@ -48,7 +48,7 @@ scoped callback to add child elements to this Table Header Cell
 
 `Context`
 
----
+***
 
 <a id="row"></a>
 

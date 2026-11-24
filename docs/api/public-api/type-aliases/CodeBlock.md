@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: CodeBlock
 
@@ -14,7 +14,7 @@
 
 > **c**: [`RawText`](RawText.md)[]
 
----
+***
 
 <a id="e"></a>
 
@@ -22,7 +22,7 @@
 
 > **e**: _typeof_ [`CODE_BLOCK_ELEMENT`](../variables/CODE_BLOCK_ELEMENT.md)
 
----
+***
 
 <a id="l"></a>
 

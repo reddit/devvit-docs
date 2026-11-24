@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.6-dev**](../README.md)
 
----
+***
 
 # Interface: SettingsClient
 
@@ -30,7 +30,7 @@
 
 `Promise`\<`T` \| `undefined`\>
 
----
+***
 
 <a id="getall"></a>
 

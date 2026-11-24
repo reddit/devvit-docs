@@ -1,6 +1,6 @@
 [**@devvit/public-api v0.15.7-dev**](../README.md)
 
----
+***
 
 # Type Alias: Text
 
@@ -14,7 +14,7 @@
 
 > **e**: _typeof_ [`TEXT_ELEMENT`](../variables/TEXT_ELEMENT.md)
 
----
+***
 
 <a id="f"></a>
 
@@ -22,7 +22,7 @@
 
 > `optional` **f?**: [`FormatRange`](FormatRange.md)[]
 
----
+***
 
 <a id="t"></a>
 
