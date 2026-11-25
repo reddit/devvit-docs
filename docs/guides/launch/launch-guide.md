@@ -65,6 +65,12 @@ Apps are submitted for review through the CLI. To launch your app:
 
 Once submitted, your app enters Reddit’s review queue. Our team evaluates your code, example posts, and app documentation.
 
+## Track review status
+
+After submitting your app, use the Review Status tab in the Developer Portal to follow its progress. A four-step pipeline makes the current review result easy to scan, with reviewer feedback and version history available on the same page.
+
+![Developer Portal Review Status tab showing the app publishing pipeline, review feedback, and app history](../../assets/app-review-status.png)
+
 You will receive email confirmation when your app is approved. If we need more information, a team member may contact you via Modmail or Reddit chat.
 
 Because you must run `npx devvit publish` for **every version** you want to launch, we recommend batching updates into weekly (or less frequent) releases.
